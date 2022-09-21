@@ -37,13 +37,14 @@ export default class View extends HTMLElement {
 
 		await Application.assets.load( this.getPackIDs( path ) );
 
-		// 'project|virtual-miniature'
 		Application.store.set( 'path', path );
 		Application.store.set( 'route', route.path );
 
 		Application.events.dispatch( 'onViewChange', this );
 		Application.store.set( 'loading', false );
 		Application.store.set( 'view-exit', false );
+
+		document.body.scrollTop = 0;
 
 		await Application.time.wait( 500 );
 

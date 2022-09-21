@@ -44,7 +44,6 @@ export default class Miniature extends Object3D {
 			const pointID = object.name.split( '_' ).pop();
 			const index = parseInt( pointID );
 			const point = new Point( object, index );
-
 			this.points.add( point );
 
 		} );

@@ -9,17 +9,19 @@ export default class S5 extends HTMLElement {
 
 		const { currentTarget } = event;
 		const { asides, buttons } = this.elements;
-		let index = -1;
-
 		const { points } = Application.scene.miniature;
+
+		let index = -1;
 
 		if ( currentTarget === this && points ) {
 
-			index = points.children.findIndex( point => point.isHovered );
+			const point = points.children.find( point => point.isHovered );
+			if ( point ) index = point.index;
 
 		} else index = buttons.indexOf( currentTarget );
 
 		if ( index === -1 ) return;
+
 		asides.forEach( aside => aside[ aside.index === index ? 'enter' : 'exit' ]() );
 
 	}
