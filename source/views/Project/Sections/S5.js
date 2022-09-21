@@ -33,7 +33,7 @@ export default class S5 extends HTMLElement {
 		section-type-5 {
 			display: flex;
 			width: 100vw;
-			height: 100vh;
+			height: 100%;
 			position: absolute;
 			top: 0;
 

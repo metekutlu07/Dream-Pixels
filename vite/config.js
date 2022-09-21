@@ -3,7 +3,6 @@ import { readFile, writeFile, rm, mkdir } from 'fs/promises';
 import { createServer } from 'vite';
 import { buildSync } from 'esbuild';
 
-import { getFormattedString } from './html.js';
 import { getShaderChunk } from './glsl.js';
 
 import {
@@ -129,8 +128,7 @@ export default async ( { command, mode } ) => {
 
 		if ( /\.svg$/.test( sourceID ) ) {
 
-			const string = getFormattedString( source, mode === 'production' );
-			return `export default \`${ string }\``;
+			return `export default \`${ source }\``;
 
 		}
 

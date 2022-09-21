@@ -9,13 +9,11 @@ export default class Video extends HTMLElement {
 
 		if ( video.hasAttribute( 'controls' ) ) return;
 
-		const { width, height } = Application.viewport;
+		const { height } = Application.viewport;
 		const scrollTop = document.body.scrollTop;
 		const scrollRatio = scrollTop / height;
 		const offsetBottom = ( section.offsetTop + this.clientHeight ) / height;
 		const offsetTop = section.offsetTop / height;
-
-		if ( width < 768 ) return;
 
 		const isOutsideViewport = offsetBottom - scrollRatio < .1 || offsetTop - scrollRatio > .9;
 		if ( video.paused && ! isOutsideViewport ) video.play();

@@ -33,7 +33,7 @@ export default class Preloader extends HTMLElement {
 			justify-content: center;
 			flex-direction: column;
 			width: 100vw;
-			height: 100vh;
+			height: 100%;
 			pointer-events: none;
 
 			&::before {

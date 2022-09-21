@@ -17,7 +17,7 @@ export default class S6 extends HTMLElement {
 		section-type-6 {
 			display: flex;
 			width: 100vw;
-			height: 100vh;
+			height: 100%;
 			position: absolute;
 			top: 0;
 

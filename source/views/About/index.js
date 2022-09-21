@@ -11,7 +11,7 @@ export default class About extends View {
 
 		about-view {
 			min-width: 100vw;
-			min-height: 100vh;
+			min-height: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;

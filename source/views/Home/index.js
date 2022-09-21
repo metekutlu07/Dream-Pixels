@@ -13,7 +13,7 @@ export default class Home extends View {
 
 		home-view {
 			width: 100vw;
-			min-height: 100vh;
+			min-height: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -65,7 +65,7 @@ export default class Home extends View {
 			.map( keyword => html`<span>${ keyword }</span>` )
 			.join( ' - ' );
 
-		const source = 'public/Common/Background.mp4';
+		const source = 'public/common/background.mp4';
 
 		return html`
 

@@ -10,7 +10,7 @@ export default class S1 {
 		section-type-1 {
 			display: flex;
 			width: 100vw;
-			height: 100vh;
+			height: 100%;
 			user-select: none;
 
 			@media ( max-width: 768px ) {
