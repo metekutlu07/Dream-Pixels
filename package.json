@@ -1,0 +1,28 @@
+{
+  "name": "dream-pixels",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite serve --config=vite/config.js",
+    "build": "vite build --config=vite/config.js",
+    "preview": "vite preview --config=vite/config.js",
+    "deploy": "firebase deploy --project web-application-preview"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-plugin-lit": "^1.6.1",
+    "firebase-tools": "^11.8.0",
+    "vite": "^3.0.9"
+  },
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "three": "^0.144.0"
+  },
+  "eslintConfig": {
+    "extends": "./.vscode/eslint.json"
+  },
+  "stylelint": {
+    "extends": "./.vscode/stylelint.json"
+  }
+}

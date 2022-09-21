@@ -1,0 +1,127 @@
+import Item from './Item';
+
+export default class Grid extends HTMLElement {
+
+	onConnected() {
+
+		this.onResize();
+
+	}
+
+	onPreFrame() {
+
+		const { width } = Application.viewport;
+
+		const element = document.body;
+		const scrollTop = width < 450 ? 0 : element.scrollTop;
+
+		const heights = this.columns.map( column => column.clientHeight );
+		const highest = Array.from( heights ).sort()[ heights.length - 1 ];
+
+		this.columns.forEach( ( column, index ) => {
+
+			const height = heights[ index ];
+			const offset = ( highest / height - 1 );
+			column.style.transform = `translateY( ${ offset * scrollTop }px )`;
+
+		} );
+
+	}
+
+	async onResize() {
+
+		const { width } = Application.viewport;
+		const length = width < 450 ? 1 :
+			width < 768 ? 2 :
+				width < 1280 ? 3 : 4;
+
+		if ( length === this.length ) return;
+		this.length = length;
+
+		const { items, grid } = this.elements;
+		this.columns = Array.from( { length }, () => document.createElement( 'grid-column' ) );
+
+		items.forEach( ( item, index ) => {
+
+			const column = index % length;
+			this.columns[ column ].appendChild( item );
+
+		} );
+
+		const count = Math.round( items.length / this.length );
+
+		this.columns.forEach( ( column, index ) => {
+
+			const { children } = column;
+			const { length } = children;
+			const random = Array.from( { length }, () => Math.randFloat( .75, 1.25 ) );
+			const sum = random.reduce( ( a, b ) => a + b, 0 );
+
+			const scale = count / length - index % 2 * .15;
+			const ratios = random.map( value => value / sum * length / scale );
+
+			for ( let i = 0; i < ratios.length; i++ )
+				children[ i ].style.setProperty( '--aspect-ratio', ratios[ i ] );
+
+		} );
+
+		while ( grid.firstChild ) grid.removeChild( grid.lastChild );
+		this.columns.forEach( column => grid.appendChild( column ) );
+		this.hasHeight = false;
+
+	}
+
+	static render() {
+
+		css`
+
+		projects-grid {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			width: 100vw;
+			padding: var( --margin-m );
+			pointer-events: none;
+			align-items: flex-start;
+
+			@media ( max-width: 1280px ) {
+				padding: var( --margin-s );
+			}
+
+			[ list="grid" ] & {
+				pointer-events: all;
+			}
+		}
+
+		grid-column {
+			width: 100%;
+
+			&:not( :last-child ) {
+				margin-right: var( --margin-m );
+			}
+
+			@media ( max-width: 1280px ) {
+				&:not( :last-child ) {
+					margin-right: var( --margin-s );
+				}
+			}
+		}
+
+		`;
+
+		const { projects } = Application.content;
+		const items = projects.map( project => Item.render( project ) );
+
+		return html`
+
+		<projects-grid #grid>
+			${ items }
+		</projects-grid>
+
+		`;
+
+	}
+
+}
+
+customElements.define( 'projects-grid', Grid );

@@ -1,0 +1,92 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:lit/recommended"
+	],
+	"plugins": [
+		"lit"
+	],
+	"env": {
+		"browser": true,
+		"es2022": true,
+		"node": true
+	},
+	"ecmaFeatures": {
+		"jsx": true,
+		"modules": true,
+		"arrowFunctions": true,
+		"classes": true,
+		"spread": true
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 13,
+		"ecmaFeatures": { "modules": true }
+	},
+	"rules": {
+
+		"indent": [ "error", "tab" ],
+		"quotes": [ "error", "single" ],
+		"semi": [ "error", "always", { "omitLastInOneLineBlock": true } ],
+
+		"comma-style": [ 2, "last" ],
+		"brace-style": [ "error", "1tbs", { "allowSingleLine": true } ],
+		"prefer-const": [ "error", { "destructuring": "any", "ignoreReadBeforeAssign": false } ],
+
+		"func-call-spacing": [ "error", "never" ],
+		"key-spacing": [ "error", { "beforeColon": false } ],
+		"object-curly-spacing": [ "error", "always" ],
+		"array-bracket-spacing": [ "error", "always" ],
+		"template-curly-spacing": [ "error", "always" ],
+		"block-spacing": [ "error", "always" ],
+		"semi-spacing": [ "error", { "before": false, "after": true } ],
+		"keyword-spacing": [ "error", { "before": true, "after": true } ],
+		"comma-spacing": [ "error", { "before": false, "after": true } ],
+		"arrow-spacing": [ "error", { "before": true, "after": true } ],
+
+		"space-before-blocks": [ "error", {
+			"functions": "always",
+			"keywords": "always",
+			"classes": "always"
+		} ],
+		"space-before-function-paren": [ "error", {
+			"anonymous": "always",
+			"named": "never",
+			"asyncArrow": "ignore"
+		} ],
+		"space-in-parens": [ "error", "always" ],
+		"space-infix-ops": [ "error" ],
+		"space-unary-ops": [ "error", {
+			"words": true,
+			"nonwords": true,
+			"overrides": {
+				"++": false,
+				"--": false,
+				"-": false
+			}
+		} ],
+
+		"computed-property-spacing": [ "error", "always" ],
+		"eol-last": [ "error", "always" ],
+		"new-parens": [ "error" ],
+		"padded-blocks": [ "error", {
+			"blocks": "always",
+			"switches": "always",
+			"classes": "always"
+		}, { "allowSingleLineBlocks": true } ],
+
+		"no-trailing-spaces": [ "error", { "skipBlankLines": false } ],
+		"no-whitespace-before-property": [ "error" ],
+		"no-multi-spaces": 2,
+		"no-undef": 0,
+		"no-unused-vars": 1,
+		"no-var": 1,
+		"no-extra-semi": 1,
+		"no-console": 0,
+		"no-case-declarations": 0,
+		"no-debugger": 0,
+		"no-cond-assign": 0,
+		"no-global-assign": 0
+
+	}
+}

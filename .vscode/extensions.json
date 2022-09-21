@@ -1,0 +1,22 @@
+{
+	"recommendations": [
+
+		"ms-vscode.atom-keybindings",
+		"ms-dotnettools.csharp",
+		"naumovs.color-highlight",
+		"equinusocio.vsc-community-material-theme",
+		"mrmlnc.vscode-duplicate",
+		"editorconfig.editorconfig",
+		"dbaeumer.vscode-eslint",
+		"codezombiech.gitignore",
+		"wix.vscode-import-cost",
+		"runem.lit-plugin",
+		"tyriar.lorem-ipsum",
+		"pkief.material-icon-theme",
+		"ms-python.vscode-pylance",
+		"ms-python.python",
+		"slevesque.shader",
+		"stylelint.vscode-stylelint"
+
+	]
+}

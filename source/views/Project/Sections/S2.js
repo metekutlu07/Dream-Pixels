@@ -1,0 +1,70 @@
+export default class S2 {
+
+	static render( content ) {
+
+		css`
+
+		section-type-2 {
+			display: flex;
+			justify-content: center;
+			padding: calc( var( --margin-m ) * 2 );
+
+			@media ( max-width: 1024px ) {
+				flex-direction: column;
+				padding: calc( var( --margin-m ) ) calc( var( --margin-s ) );
+			}
+
+			& > *:not( :last-child ) {
+				margin-right: var( --margin-m );
+			}
+
+			& h3 {
+				font-size: var( --font-size-xxl );
+				text-align: right;
+
+				@media ( max-width: 1280px ) {
+					font-size: var( --font-size-xl );
+				}
+
+				@media ( max-width: 1024px ) {
+					text-align: left;
+					margin-bottom: var( --margin-s );
+					margin-right: 0 !important;
+
+					& br {
+						display: none;
+					}
+				}
+			}
+
+			& p {
+				font-size: var( --font-size-m );
+				font-family: var( --font-family-c );
+				line-height: var( --line-height );
+				max-width: min( 600px, 65% );
+
+				@media ( max-width: 1024px ) {
+					max-width: initial;
+				}
+			}
+
+		}
+
+		`;
+
+		const { title, paragraphs } = content;
+
+		return html`
+
+		<section-type-2 section>
+
+			${ title ? html`<h3 font-style-title>${ title }</h3>` : '' }
+			${ paragraphs ? html` <p>${ paragraphs }</p>` : '' }
+
+		</section-type-2>
+
+		`;
+
+	}
+
+}

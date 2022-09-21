@@ -1,0 +1,13 @@
+{
+	"name": "",
+	"short_name": "",
+	"description": "",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff",
+	"display": "fullscreen",
+	"scope": "/",
+	"start_url": "/?source=pwa",
+	"icons": [],
+	"shortcuts": [],
+	"screenshots": []
+}
