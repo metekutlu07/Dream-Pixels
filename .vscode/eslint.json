@@ -86,7 +86,9 @@
 		"no-case-declarations": 0,
 		"no-debugger": 0,
 		"no-cond-assign": 0,
-		"no-global-assign": 0
+		"no-global-assign": 0,
+
+		"lit/no-invalid-html": 0
 
 	}
 }

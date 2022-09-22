@@ -16,7 +16,6 @@ export default class Home extends View {
 			min-height: 100%;
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
 			align-items: center;
 
 			@media ( max-width: 768px ) {
