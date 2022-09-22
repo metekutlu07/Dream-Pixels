@@ -2,7 +2,6 @@ import {
 
 	Mesh,
 	SphereGeometry,
-	MeshBasicMaterial,
 	BackSide,
 	Raycaster,
 	Vector3,
@@ -10,16 +9,19 @@ import {
 
 } from 'three';
 
+import PanoramaBasicMaterial from '../materials/PanoramaBasicMaterial';
+
 export default class Panorama extends Mesh {
 
 	constructor() {
 
 		const geometry = new SphereGeometry( 15 );
-		const material = new MeshBasicMaterial( { side: BackSide } );
+		const material = new PanoramaBasicMaterial( { side: BackSide } );
 
 		super( geometry, material );
 
 		this.raycaster = new Raycaster();
+		this.rotation.y = Math.PI;
 
 		Application.events.add( this );
 
@@ -30,11 +32,19 @@ export default class Panorama extends Mesh {
 		this.textureID = textureID;
 
 		const { textures } = Application.assets.get( 'miniature-street-view' );
-		const map = textures[ `${ textureID }.jpg` ];
-		map.repeat.set( -1, 1 );
-
-		Object.assign( map, { wrapS: RepeatWrapping } );
+		const map = textures[ `${ textureID }---Left.jpg` ];
 		Object.assign( this.material, { map, needsUpdate: true } );
+
+		const mapLeft = textures[ `${ textureID }---Left.jpg` ];
+		const mapRight = textures[ `${ textureID }---Right.jpg` ];
+		mapLeft.repeat.set( -2, 1 );
+		mapRight.repeat.set( -2, 1 );
+
+		Object.assign( mapLeft, { wrapS: RepeatWrapping } );
+		Object.assign( mapRight, { wrapS: RepeatWrapping } );
+
+		this.material.uniforms[ 'mapLeft' ].value = mapLeft;
+		this.material.uniforms[ 'mapRight' ].value = mapRight;
 
 	}
 

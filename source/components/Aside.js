@@ -157,7 +157,7 @@ export default class Aside extends HTMLElement {
 
 		return html`
 
-		<aside-block ${ attributes.join( ' ' ) }>
+		<aside-block ${ attributes.join( ' ' ) } blurred-background>
 
 			<scrolling-block>
 				${ innerHTML }

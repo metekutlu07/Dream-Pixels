@@ -21,7 +21,9 @@ export default class Viewport {
 	setSize( width, height ) {
 
 		const { devicePixelRatio } = window;
-		const dispatchEvent = this.width !== width || this.height !== height;
+		const hasChanged = this.width !== width || this.height !== height;
+
+		if ( ! hasChanged ) return;
 
 		this.width = width;
 		this.height = height;
@@ -31,7 +33,8 @@ export default class Viewport {
 		this.devicePixelRatio = devicePixelRatio || 1;
 		this.orientation = this.aspect > 1 ? 'landscape' : 'portrait';
 
-		if ( dispatchEvent ) Application.events.dispatch( 'onResize', this.size );
+		Application.store.set( '--viewport-height', `${ height }px` );
+		Application.events.dispatch( 'onResize', this.size );
 
 	}
 

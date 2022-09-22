@@ -251,7 +251,7 @@ export default class Button extends HTMLElement {
 
 		return html`
 
-		<default-button ${ attributes.join( ' ' ) } @click @mouse-enter>
+		<default-button ${ attributes.join( ' ' ) } @click @mouse-enter blurred-background>
 
 			${ link ? `<a ${ link.attributes.join( ' ' ) }>` : '' }
 

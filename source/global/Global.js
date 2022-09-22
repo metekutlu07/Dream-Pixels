@@ -26,11 +26,10 @@ export default class Global {
 			--font-size-s: 1.4rem;
 			--font-size-xs: 1.2rem;
 
-			--blur: blur( 0 );
 			--line-height: 1.8;
 			--border-size: 1px;
 			--border-color: transparent;
-			--background-color: rgba( 0, 0, 0, .75 );
+			--background-color: rgba( 0, 0, 0, .65 );
 			--border-color: rgba( 255, 255, 255, 1 );
 
 			--margin-m: 40px;
@@ -94,6 +93,12 @@ export default class Global {
 			&:first-line {
 				font-family: var( --font-family-b );
 			}
+		}
+
+		[ blurred-background ] {
+			--blur: blur( 10px );
+			backdrop-filter: var( --blur );
+			-webkit-backdrop-filter: var( --blur );
 		}
 
 		[ view ] {

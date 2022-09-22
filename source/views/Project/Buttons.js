@@ -28,6 +28,7 @@ export default class Buttons extends HTMLElement {
 			if ( ! position ) return;
 
 			const { camera, viewport } = Application;
+			const { width, height } = Application.viewport;
 
 			coordinates
 				.copy( position )
@@ -38,7 +39,7 @@ export default class Buttons extends HTMLElement {
 			const { x, y } = coordinates;
 
 			button.style.transform =
-				`translate( ${ x }px, ${ -y }px )` +
+				`translate( ${ width * .5 + x }px, ${ height * .5 + -y }px )` +
 				'translate( -50%, -50% )';
 
 		} );
@@ -52,17 +53,16 @@ export default class Buttons extends HTMLElement {
 		css`
 
 		panorama-buttons {
-
 			pointer-events: none;
-			position: absolute;
+			position: fixed
 			height: 100%;
 			width: 100%;
 
 			& default-button {
+				top: 0;
+				left: 0;
 				pointer-events: all;
-				position: absolute;
-				top: 50%;
-				left: 50%;
+				position: fixed;
 				transition: opacity 1s var( --timing-function ) !important;
 				display: none;
 			}

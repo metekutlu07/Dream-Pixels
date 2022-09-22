@@ -43,16 +43,21 @@ export default class Parameter {
 	onStart() {
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'grid' );
+		this.set( 'list', 'sphere' );
 
 	}
 
 	set( name, value ) {
 
 		const html = document.documentElement;
-		if ( value === true ) html.toggleAttribute( name, value );
-		else if ( typeof value === 'string' ) html.setAttribute( name, value );
-		else html.removeAttribute( name );
+
+		if ( ! name.startsWith( '--' ) ) {
+
+			if ( value === true ) html.toggleAttribute( name, value );
+			else if ( typeof value === 'string' ) html.setAttribute( name, value );
+			else html.removeAttribute( name );
+
+		} else html.style.setProperty( name, value );
 
 		this[ name ] = value;
 

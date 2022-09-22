@@ -42,7 +42,7 @@ export default class Helpers extends Object3D {
 		this.add( this.gridHelper );
 
 		this.camera = new PerspectiveCamera( 45, 1, 1, 1e4 );
-		this.camera.position.set( 100, 100, 100 );
+		this.camera.position.set( 0, 0, -100 );
 		this.camera.updateProjectionMatrix();
 
 		const { domElement } = Application.renderer;

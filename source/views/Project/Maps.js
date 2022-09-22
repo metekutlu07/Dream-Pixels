@@ -135,6 +135,13 @@ export default class Maps extends HTMLElement {
 				border: 1px solid white;
 				font-family: var( --font-family-a );
 				background-color: var( --background-color );
+				font-size: var( --font-size-s );
+
+				@media ( max-width: 1024px ) {
+					height: 20px;
+					width: 20px;
+					font-size: var( --font-size-xs );
+				}
 			}
 		}
 
@@ -152,6 +159,11 @@ export default class Maps extends HTMLElement {
 			& default-button {
 				margin-top: var( --margin-s );
 			}
+
+			@media ( max-width: 1024px ) {
+				top: var( --margin-s );
+				right: var( --margin-s );
+			}
 		}
 
 		panorama-map {
@@ -168,6 +180,9 @@ export default class Maps extends HTMLElement {
 
 			& img {
 				max-height: 500px;
+				@media ( max-width: 1024px ) {
+					max-height: 35vh;
+				}
 			}
 		}
 

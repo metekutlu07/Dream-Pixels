@@ -203,7 +203,7 @@ export default class Header extends HTMLElement {
 
 		return html`
 
-		<header-block #header>
+		<header-block #header blurred-background>
 
 			<header-controls>
 				${ Button.render( { icons: [ Menu, Close ], attributes: [ 'display-menu', '@click|header-block' ] } ) }

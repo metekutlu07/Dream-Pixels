@@ -56,7 +56,7 @@ export default class Sphere extends HTMLElement {
 
 		projects-sphere {
 			position: absolute;
-			height: 100%;
+			height: var( --viewport-height );
 			width: 100%;
 			display: flex;
 			justify-content: center;
