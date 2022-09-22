@@ -16,7 +16,6 @@ export default class S1 {
 			@media ( max-width: 768px ) {
 				flex-direction: column;
 				height: initial;
-				pointer-events: none;
 			}
 		}
 

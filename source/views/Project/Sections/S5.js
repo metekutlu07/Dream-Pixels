@@ -13,12 +13,13 @@ export default class S5 extends HTMLElement {
 
 		let index = -1;
 
-		if ( currentTarget === this && points ) {
+		if ( buttons ) buttons.indexOf( currentTarget );
+		else if ( index === -1 && points ) {
 
 			const point = points.children.find( point => point.isHovered );
 			if ( point ) index = point.index;
 
-		} else index = buttons.indexOf( currentTarget );
+		}
 
 		if ( index === -1 ) return;
 

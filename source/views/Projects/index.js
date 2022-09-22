@@ -14,6 +14,7 @@ export default class Projects extends View {
 
 		projects-view {
 			overflow: hidden;
+			pointer-events: none;
 		}
 
 		`;

@@ -74,7 +74,7 @@ export default class Pointer {
 		this.isPressed = true;
 		this.onFirstInput();
 
-		Application.events.dispatch( 'onInputStart' );
+		Application.events.dispatch( 'onInputStart', event );
 
 	}
 
@@ -83,7 +83,7 @@ export default class Pointer {
 		const { clientX, clientY } = event;
 		this.mouse.set( clientX, clientY );
 
-		Application.events.dispatch( 'onInputMove' );
+		Application.events.dispatch( 'onInputMove', event );
 
 	}
 
@@ -91,7 +91,7 @@ export default class Pointer {
 
 		this.isPressed = false;
 
-		Application.events.dispatch( 'onInputUp' );
+		Application.events.dispatch( 'onInputUp', event );
 
 	}
 
@@ -108,7 +108,7 @@ export default class Pointer {
 
 		this.isPressed = true;
 
-		Application.events.dispatch( 'onInputStart' );
+		Application.events.dispatch( 'onInputStart', event );
 
 	}
 
@@ -122,7 +122,7 @@ export default class Pointer {
 
 		} );
 
-		Application.events.dispatch( 'onInputMove' );
+		Application.events.dispatch( 'onInputMove', event );
 
 	}
 
@@ -138,7 +138,7 @@ export default class Pointer {
 		this.isPressed = !! Object.keys( this.touches ).length;
 		this.onFirstInput();
 
-		Application.events.dispatch( 'onInputEnd' );
+		Application.events.dispatch( 'onInputEnd', event );
 
 	}
 
@@ -162,9 +162,7 @@ export default class Pointer {
 		const { deltaX, deltaY } = event;
 		this.wheel.set( deltaX, deltaY );
 
-		const elements = event.composedPath();
-		const parameters = { wheel: this.wheel, elements };
-		Application.events.dispatch( 'onWheel', parameters );
+		Application.events.dispatch( 'onWheel', event );
 
 	}
 

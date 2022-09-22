@@ -51,29 +51,6 @@ export default class Artwork extends Object3D {
 
 	}
 
-	getMesh( geometry, map ) {
-
-		return new Mesh( geometry, new MeshBasicMaterial( { map } ) );
-
-	}
-
-	getPoints( geometry, map ) {
-
-		const { textures } = Application.assets[ 'photogrammetry' ];
-		const alphaMap = textures[ 'Circle.png' ];
-		const material = new ArtworkPointsMaterial( {
-
-			size: .1,
-			transparent: true,
-			alphaMap,
-			map
-
-		} );
-
-		return new Points( geometry, material );
-
-	}
-
 	async setArtwork() {
 
 		const { lerpState, currentState } = Application.scene.orbitControls;
@@ -132,6 +109,29 @@ export default class Artwork extends Object3D {
 		Application.store.set( 'loading', false );
 
 		this.setArtwork( this.artworkID );
+
+	}
+
+	getMesh( geometry, map ) {
+
+		return new Mesh( geometry, new MeshBasicMaterial( { map } ) );
+
+	}
+
+	getPoints( geometry, map ) {
+
+		const { textures } = Application.assets[ 'photogrammetry' ];
+		const alphaMap = textures[ 'Circle.png' ];
+		const material = new ArtworkPointsMaterial( {
+
+			size: .1,
+			transparent: true,
+			alphaMap,
+			map
+
+		} );
+
+		return new Points( geometry, material );
 
 	}
 

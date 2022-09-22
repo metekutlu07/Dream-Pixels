@@ -20,7 +20,6 @@ export default class Property extends HTMLElement {
 
 			&[ disabled ] {
 				opacity: .5;
-				pointer-events: none;
 			}
 
 			& output {

@@ -43,8 +43,8 @@ export default class Church extends Object3D {
 
 			const { attributes } = mesh.geometry;
 			const aoMap = textures[ `${ colorID }.png` ] || null;
-			// const envMap = Application.assets[ 'EnvMap' ];
-			// aoMap.flipY = false;
+			const envMap = Application.assets[ 'EnvMap' ];
+			aoMap.flipY = false;
 
 			if ( aoMap ) attributes.uv2 = attributes.uv;
 
@@ -53,8 +53,8 @@ export default class Church extends Object3D {
 
 			mesh.material = new MeshStandardMaterial( {
 
-				// aoMap,
-				// envMap,
+				aoMap,
+				envMap,
 				color: colors[ colorID ],
 				aoMapIntensity: 1,
 				metalness: 0,

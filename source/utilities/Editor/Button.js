@@ -33,7 +33,6 @@ export default class Button extends HTMLElement {
 				text-align: center;
 				text-decoration: none;
 				text-transform: capitalize;
-				pointer-events: all;
 				appearance: none;
 
 				& svg {

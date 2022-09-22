@@ -42,7 +42,6 @@ export default class Aside extends HTMLElement {
 		aside-block {
 			z-index: 4;
 			position: absolute;
-			pointer-events: all;
 			background-color: var( --background-color );
 			bottom: var( --margin-m );
 			left: var( --margin-m );
@@ -130,7 +129,7 @@ export default class Aside extends HTMLElement {
 
 			& default-button {
 				display: none;
-				position: fixed;
+				position: absolute
 			}
 
 			& h3,

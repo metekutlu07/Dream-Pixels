@@ -21,6 +21,23 @@ export default class Project extends View {
 		project-view {
 			width: 100vw;
 			display: block;
+
+			[ path="/when-gaspard-paints-a-gospel" ] &,
+			[ path="/miniature-street-view" ] &,
+			[ path="/virtual-miniature" ] &,
+			[ path="/photogrammetry" ] &,
+			[ path="/augustus-ar" ] & {
+				pointer-events: none;
+
+				& > *:first-child > *:not( video-block ):not( panorama-buttons ) {
+					pointer-events: all;
+				}
+
+				& > *:not( :first-child ) {
+					pointer-events: all;
+				}
+			}
+
 		}
 
 		[ section ] {

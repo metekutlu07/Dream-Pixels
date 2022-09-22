@@ -243,8 +243,9 @@ export default class OrbitControls extends Object3D {
 
 	}
 
-	onInputStart() {
+	onInputStart( event ) {
 
+		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 		if ( ! this.parameters.enableRotate ) return;
 
 		this.initialState.copy( this.currentState );
@@ -258,7 +259,9 @@ export default class OrbitControls extends Object3D {
 
 	}
 
-	onInputMove() {
+	onInputMove( event ) {
+
+		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 
 		const { isPressed } = Application.pointer;
 
@@ -286,7 +289,9 @@ export default class OrbitControls extends Object3D {
 
 	}
 
-	onWheel() {
+	onWheel( event ) {
+
+		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 
 		if ( ! this.parameters.enableZoom ) return;
 

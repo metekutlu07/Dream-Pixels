@@ -54,7 +54,7 @@ export default class Buttons extends HTMLElement {
 
 		panorama-buttons {
 			pointer-events: none;
-			position: fixed
+			position: fixed;
 			height: 100%;
 			width: 100%;
 

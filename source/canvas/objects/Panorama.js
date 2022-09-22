@@ -22,8 +22,22 @@ export default class Panorama extends Mesh {
 
 		this.raycaster = new Raycaster();
 		this.rotation.y = Math.PI;
+		this.artworkID = 'miniature-street-view-1';
 
 		Application.events.add( this );
+
+	}
+
+	async load( textureID ) {
+
+		if ( this.textureID === textureID ) return;
+		this.textureID = textureID;
+
+		Application.store.set( 'loading', true );
+		await Application.assets.load( `miniature-street-view-${ textureID }` );
+		Application.store.set( 'loading', false );
+
+		this.setTexture( this.textureID );
 
 	}
 
@@ -31,12 +45,12 @@ export default class Panorama extends Mesh {
 
 		this.textureID = textureID;
 
-		const { textures } = Application.assets.get( 'miniature-street-view' );
-		const map = textures[ `${ textureID }---Left.jpg` ];
+		const { textures } = Application.assets.get( `miniature-street-view-${ textureID }` );
+		const map = textures[ 'Left.jpg' ];
 		Object.assign( this.material, { map, needsUpdate: true } );
 
-		const mapLeft = textures[ `${ textureID }---Left.jpg` ];
-		const mapRight = textures[ `${ textureID }---Right.jpg` ];
+		const mapLeft = textures[ 'Left.jpg' ];
+		const mapRight = textures[ 'Right.jpg' ];
 		mapLeft.repeat.set( -2, 1 );
 		mapRight.repeat.set( -2, 1 );
 

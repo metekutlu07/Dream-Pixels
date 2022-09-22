@@ -68,7 +68,6 @@ export default class Sphere extends HTMLElement {
 			pointer-events: none;
 
 			[ list="sphere" ] & {
-				pointer-events: all;
 				opacity: 1;
 			}
 		}
@@ -100,8 +99,8 @@ export default class Sphere extends HTMLElement {
 			justify-content: space-between;
 			align-items: center;
 
-			@media (hover: hover) {
-				projects-sphere:hover &[ visible ] {
+			@media ( hover: hover ) {
+				&[ visible ] {
 					display: flex;
 				}
 			}

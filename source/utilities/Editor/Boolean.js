@@ -42,7 +42,6 @@ export default class Boolean extends HTMLElement {
 				border-radius: 50%;
 				box-shadow: var( --box-shadow );
 				cursor: pointer;
-				pointer-events: none;
 			}
 
 			& output {

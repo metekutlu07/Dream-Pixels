@@ -15,7 +15,7 @@ export default class Maps extends HTMLElement {
 		if ( pointID ) {
 
 			const index = pointID.match( /\d+/g )[ 0 ];
-			Application.scene.panorama.setTexture( index );
+			Application.scene.panorama.load( index );
 
 		} else block.toggleAttribute( 'miniature' );
 
@@ -101,7 +101,10 @@ export default class Maps extends HTMLElement {
 			cursor: pointer;
 
 			&[ active ] {
-				& span { border: 2px solid white; }
+				& span {
+					border: 2px solid white;
+					background: black;
+				}
 				& svg { visibility: visible; }
 			}
 
@@ -153,7 +156,6 @@ export default class Maps extends HTMLElement {
 			flex-direction: column;
 			align-items: flex-end;
 			background-size: cover;
-			pointer-events: all;
 			cursor: default;
 
 			& default-button {

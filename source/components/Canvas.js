@@ -8,6 +8,16 @@ export default class Canvas extends HTMLElement {
 
 	}
 
+	onClick( event ) {
+
+		const section = document.querySelector( 'section-type-5' );
+		if ( ! section ) return;
+
+		// section.onClick = section.onClick.bind( section );
+		section.onClick( event );
+
+	}
+
 	onTouchMove( event ) {
 
 		event.preventDefault();
@@ -20,7 +30,6 @@ export default class Canvas extends HTMLElement {
 
 		canvas-block {
 			position: fixed;
-			z-index: -1;
 			margin: auto;
 			top: 0;
 			left: 0;
@@ -30,7 +39,7 @@ export default class Canvas extends HTMLElement {
 
 		return html`
 
-		<canvas-block @touch-move>
+		<canvas-block @touch-move @click>
 			<canvas>
 		</canvas-block>
 

@@ -65,6 +65,9 @@ export default class View extends HTMLElement {
 		if ( packID === 'photogrammetry' )
 			packIDs.push( 'france-01-annunciation' );
 
+		if ( packID === 'miniature-street-view' )
+			packIDs.push( 'miniature-street-view-1' );
+
 		return packIDs;
 
 	}

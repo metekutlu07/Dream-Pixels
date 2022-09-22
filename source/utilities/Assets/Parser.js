@@ -85,7 +85,7 @@ export default class Parser {
 
 		const image = new Image();
 		image.src = await this.getURI( buffer );
-		await image.decode();
+		await image.decode().catch( error => console.log( error ) );
 
 		return image;
 
