@@ -65,7 +65,7 @@ export default class Home extends View {
 			.map( keyword => html`<span>${ keyword }</span>` )
 			.join( ' - ' );
 
-		const source = 'public/common/background.mp4';
+		const source = 'public/common/Background.mp4';
 
 		return html`
 

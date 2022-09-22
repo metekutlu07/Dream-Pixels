@@ -32,17 +32,16 @@ export default class Effects extends HTMLElement {
 			top: 0;
 			left: 0;
 			pointer-events: none;
-			display: none;
 
 			& grid-effect,
 			& noise-effect,
 			& vignette-effect,
 			& lines-effect {
 				position: absolute;
-				height: 100%;
 				width: 100%;
-				left: 0;
+				height: 100%;
 				top: 0;
+				left: 0;
 			}
 
 			& grid-effect {
@@ -64,11 +63,12 @@ export default class Effects extends HTMLElement {
 				background-size: 1px;
 				background-position: center center;
 				opacity: var( --lines-strength );
-				display: none;
+				opacity: 1;
+				/* display: none;
 
 				&[ enabled ] {
 					display: block;
-				}
+				} */
 			}
 
 			& noise-effect {

@@ -48,6 +48,8 @@ export default class Sphere extends HTMLElement {
 		subtitle.textContent = project.subtitle;
 		index.textContent = project.index + 1;
 
+		Application.audio.play( '007.mp3', { volume: .1 } );
+
 	}
 
 	static render() {

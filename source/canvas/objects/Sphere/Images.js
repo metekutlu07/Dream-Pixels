@@ -158,7 +158,10 @@ export default class Images extends Object3D {
 		Vector3.release( position );
 
 		const intersect = this.raycaster.intersectObjects( this.children )[ 0 ];
-		this.object = intersect && ! pointer.isPressed ? intersect.object : null;
+		const object = intersect && ! pointer.isPressed ? intersect.object : null;
+
+		if ( object && object !== this.object ) Application.audio.play( '007.mp3', { volume: .1 } );
+		this.object = object;
 
 	}
 

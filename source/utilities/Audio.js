@@ -36,7 +36,7 @@ export default class AudioInterface {
 		} ) );
 
 		this.isLoaded = true;
-		this.isMuted = true;
+		this.isMuted = false;
 
 		this.loop = this.play( '/public/audio.m4a' );
 		this.loop.play();

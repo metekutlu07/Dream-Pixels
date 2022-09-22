@@ -32,7 +32,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			title: 'Realm of Imagination',
+			title: 'Realm of<br>Imagination',
 			paragraphs: 'Reflecting the spatial dynamics of miniatures, the architectural figures emerge as quasi-forms with blurred limites. They depict the colors existing in Suhrawerdi\'s intermediary Realm of Images, connecting terrestrial and heavenly worlds. They represent the Manichaean ideal: the liberation of particles of light from the world of matter.',
 		},
 		{
@@ -49,7 +49,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			title: 'Alchemical of Transmutation',
+			title: 'Alchemical of<br>Transmutation',
 			paragraphs: 'The Constantinopolitan Eye designed an alchemical transmutation through supernatural colors for the continuous reinvention of the talismanic urban space at the Earth\'s navel, the cosmic capital, the divine city of Constantine.',
 		},
 		{

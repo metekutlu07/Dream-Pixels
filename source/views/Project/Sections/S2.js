@@ -6,7 +6,9 @@ export default class S2 {
 
 		section-type-2 {
 			display: flex;
+			flex-direction: row;
 			justify-content: center;
+			align-items: flex-start;
 			padding: calc( var( --margin-m ) * 2 );
 
 			@media ( max-width: 1024px ) {

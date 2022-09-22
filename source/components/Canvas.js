@@ -11,10 +11,10 @@ export default class Canvas extends HTMLElement {
 	onClick( event ) {
 
 		const section = document.querySelector( 'section-type-5' );
-		if ( ! section ) return;
+		if ( section ) section.onClick( event );
 
-		// section.onClick = section.onClick.bind( section );
-		section.onClick( event );
+		const sphere = document.querySelector( 'projects-sphere' );
+		if ( sphere ) sphere.onClick( event );
 
 	}
 
