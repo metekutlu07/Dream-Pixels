@@ -116,8 +116,9 @@ export function getStringFromObject( object, indent = 0 ) {
 	const closingTabs = hasChildren ? openingTabs : '';
 
 	const isSelfClosing = isSelfClosingTag( object.tagName );
+	const isDoctype = object.tagName.match( 'DOCTYPE' );
 	const attributes = ( `${ object.tagName } ${ object.attributes.join( ' ' ) }` ).trim();
-	const openingTag = `<${ attributes }${ isSelfClosing ? '/' : '' }>`;
+	const openingTag = `<${ attributes }${ isSelfClosing && ! isDoctype ? '/' : '' }>`;
 	const closingTag = isSelfClosing ? '' : `</${ object.tagName }>`;
 
 	const children = object.children
