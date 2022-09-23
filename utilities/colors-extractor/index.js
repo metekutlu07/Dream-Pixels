@@ -10,43 +10,7 @@ const images = [];
 
 function getSortedColors( colors ) {
 
-	const sorted = colors.sort( ( colorA, colorB ) => {
-
-		const hslA = colorA.getHSL( {} );
-		const hslB = colorB.getHSL( {} );
-
-		return hslA.h - hslB.h;
-
-	} );
-
-	// const sorted = [ colors.shift() ];
-
-	// while ( colors.length ) {
-
-	// 	const colorA = colors.shift();
-	// 	const colorC = { distance: Infinity };
-
-	// 	for ( const [ index, colorB ] of Object.entries( sorted ) ) {
-
-	// 		const average = Math.floor( (
-
-	// 			Math.abs( colorA.r - colorB.r ) +
-	// 			Math.abs( colorA.g - colorB.g ) +
-	// 			Math.abs( colorA.b - colorB.b )
-
-	// 		) * 255 / 3 );
-
-	// 		if ( average > colorC.distance ) continue;
-
-	// 		Object.assign( colorC, { distance: average, index } );
-
-	// 	}
-
-	// 	sorted.splice( colorC.index, 0, colorA );
-
-	// }
-
-	return sorted.reverse().map( color => `#${ color.getHexString() }|${ color.imageID }` );
+	return colors.map( color => `#${ color.getHexString() }|${ color.imageID }` );
 
 }
 
@@ -63,8 +27,6 @@ async function getSampledColors( directory, colors = [] ) {
 		const isDirectory = stats.isDirectory();
 
 		if ( ! isDirectory ) {
-
-			// if ( ! path.match( 'matter' ) ) continue;
 
 			const { data } = await getPixels( path );
 

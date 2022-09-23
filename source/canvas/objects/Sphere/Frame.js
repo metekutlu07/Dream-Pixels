@@ -34,6 +34,7 @@ export default class Frame extends Mesh {
 			position,
 			quaternion,
 			renderOrder,
+			scaleFactor,
 			aspect
 
 		} = Application.store.object;
@@ -42,7 +43,9 @@ export default class Frame extends Mesh {
 		this.position.copy( position );
 		this.quaternion.copy( quaternion );
 		this.renderOrder = renderOrder - 1;
-		this.scale.set( aspect + thickness, 1 + thickness );
+		this.scale
+			.set( aspect + thickness, 1 + thickness, 1 )
+			.multiplyScalar( scaleFactor );
 
 	}
 

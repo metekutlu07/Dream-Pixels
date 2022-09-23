@@ -2,6 +2,7 @@ import View from '~/components/View';
 
 import Grid from './Grid';
 import Sphere from './Sphere';
+import Particles from './Particles';
 
 export default class Projects extends View {
 
@@ -24,6 +25,7 @@ export default class Projects extends View {
 		<projects-view view>
 			${ Grid }
 			${ Sphere }
+			${ Particles }
 		</projects-view>
 
 		`;

@@ -25,9 +25,9 @@ export default class Particles extends InstancedMesh {
 		const height = 512;
 		const count = width * height;
 
-		const size = .025;
+		const size = .015;
 		const geometry = new SphereGeometry( size, 3, 2 );
-		const material = new ParticlesBasicMaterial();
+		const material = new ParticlesBasicMaterial( { transparent: true } );
 
 		super( geometry, material, count );
 
@@ -93,10 +93,34 @@ export default class Particles extends InstancedMesh {
 
 	}
 
+	async onPreUpdate() {
+
+		const { path, list } = Application.store;
+		const isVisible = path === '/projects' && list === 'particles';
+
+		if ( this.isVisible === isVisible ) return;
+		this.isVisible = isVisible;
+
+		if ( this.animation ) this.animation.remove( this.material );
+
+		const targets = this.material;
+		const easing = 'easeOutQuint';
+		const duration = this.isVisible ? 1000 : 500;
+		const opacity = this.isVisible ? 1 : 0;
+		const delay = this.isVisible ? 250 : 0;
+
+		this.animation = anime( { targets, easing, duration, opacity, delay } );
+		this.simulation.reset();
+
+		this.needsUpdate = true;
+		await this.animation.finished;
+		this.needsUpdate = false;
+
+	}
+
 	onUpdate() {
 
 		if ( ! this.needsUpdate ) return;
-		this.needsUpdate = false;
 
 		const { texture } = this.simulation.render();
 		this.material.uniforms[ 'simulation' ].value = texture;
@@ -133,7 +157,7 @@ export default class Particles extends InstancedMesh {
 
 	getClosestIndex() {
 
-		if ( ! this.simulation.points ) return;
+		if ( ! this.simulation.points || ! this.isVisible ) return;
 
 		const { camera, pointer } = Application;
 		const position = pointer.getCoordinates( Vector3.get(), true );

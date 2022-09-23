@@ -76,8 +76,8 @@ export default class Scene extends Object3D {
 
 		if ( Application.store.path === '/projects' ) {
 
-			this.parameters.near = 25;
-			this.parameters.far = 50;
+			this.parameters.near = 50;
+			this.parameters.far = 200;
 
 		}
 

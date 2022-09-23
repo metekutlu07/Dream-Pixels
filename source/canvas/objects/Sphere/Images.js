@@ -43,6 +43,7 @@ export default class Images extends Object3D {
 			const projectID = name.split( '/' ).shift();
 			mesh.project = Application.content.get( projectID );
 			mesh.aspect = aspect;
+			mesh.scaleFactor = 20;
 
 			return mesh;
 
@@ -60,17 +61,17 @@ export default class Images extends Object3D {
 
 			const { x, y, z } = point;
 			const { phi, theta } = spherical.setFromCartesianCoords( x, y, z );
-			const { aspect, project } = source;
+			const { aspect, project, scaleFactor } = source;
 			const offset = 1;
 
-			Object.assign( clone, { phi, theta, aspect, project, offset } );
+			Object.assign( clone, { phi, theta, aspect, project, offset, scaleFactor } );
 
 			clone.initialState = { phi, theta };
-			clone.radius = Math.randFloat( 2.5, 5 );
+			clone.radius = Math.randFloat( 50, 100 );
 			clone.velocity = new Vector2()
 				.setX( Math.randFloat( -1, 1 ) )
 				.setY( Math.randFloat( -1, 1 ) )
-				.setLength( 1e-4 * 2 );
+				.setLength( 1e-4 );
 
 			this.add( clone );
 
@@ -97,8 +98,8 @@ export default class Images extends Object3D {
 				Math.floor( index / 10 ) :
 				Math.floor( ( this.children.length - index ) / 10 );
 
+			const easing = 'easeOutQuint';
 			const offset = this.isVisible ? 0 : 1;
-			const easing = this.isVisible ? 'easeOutQuint' : 'easeOutQuint';
 			const duration = this.isVisible ? 1000 : 500;
 			const delay = this.isVisible ? 250 + factor * 50 : factor * 10;
 
@@ -126,9 +127,20 @@ export default class Images extends Object3D {
 
 		this.children.forEach( child => {
 
-			const { position, phi, theta, radius, offset, velocity } = child;
+			const {
+
+				position,
+				phi,
+				theta,
+				radius,
+				offset,
+				scaleFactor,
+				velocity
+
+			} = child;
 
 			child.visible = offset < .95;
+			child.scale.setScalar( scaleFactor );
 			child.material.opacity = 1 - offset;
 
 			if ( ! this.isVisible ) return;

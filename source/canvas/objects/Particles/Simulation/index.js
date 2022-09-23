@@ -93,14 +93,7 @@ export default class Simulation {
 
 		const { arraybuffers } = files[ 'projects' ];
 		this.data = new Float32Array( arraybuffers[ 'Positions-Default.buffer' ] );
-
-		const dataTexture = this.getDataTexture( this.width, this.height );
-		this.uniforms[ 'simulation' ].value = dataTexture;
-		this.uniforms[ 'initial' ].value = dataTexture;
-
-		this.renderTargets.forEach( this.render );
-
-		this.setPoints();
+		this.reset();
 
 	}
 
@@ -182,6 +175,29 @@ export default class Simulation {
 
 		this.uniforms[ 'simulation' ].value = this.renderTargets[ 0 ].texture;
 		this.uniforms[ 'time' ].value += deltaTime * 1e-3;
+
+	}
+
+	async reset() {
+
+		const dataTexture = this.getDataTexture( this.width, this.height );
+		this.uniforms[ 'simulation' ].value = dataTexture;
+		this.uniforms[ 'initial' ].value = dataTexture;
+
+		this.renderTargets.forEach( this.render );
+		this.speed = .25;
+
+		const targets = this;
+		const easing = 'easeOutQuint';
+		const duration = 1500;
+		const delay = 500;
+		const speed = 0;
+
+		if ( this.animation ) this.animation.remove( this );
+
+		this.animation = anime( { targets, easing, duration, speed, delay } );
+		await this.animation.finished;
+		this.setPoints();
 
 	}
 

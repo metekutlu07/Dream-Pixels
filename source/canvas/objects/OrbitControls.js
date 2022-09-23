@@ -13,6 +13,7 @@ export default class OrbitControls extends Object3D {
 			dampingFactor: { value: .05, max: .2 },
 
 			autoRotate: false,
+			autoRotateSpeed: { value: 1, max: 5 },
 			autoRotateDelay: { value: 6, min: 1, max: 10 },
 
 			enableZoom: true,
@@ -53,6 +54,7 @@ export default class OrbitControls extends Object3D {
 			enableRotate,
 			dampingFactor,
 			autoRotate,
+			autoRotateSpeed,
 			autoRotateDelay
 
 		} = this.parameters;
@@ -63,7 +65,7 @@ export default class OrbitControls extends Object3D {
 			this.autoRotate = this.autoRotateDelay > autoRotateDelay * 1e3 ?
 				Math.lerp( this.autoRotate, -1e-3, .01 ) : 0;
 
-			this.currentState.theta += this.autoRotate;
+			this.currentState.theta += this.autoRotate * autoRotateSpeed;
 
 		}
 
@@ -104,6 +106,7 @@ export default class OrbitControls extends Object3D {
 			enableRotate: false,
 			autoRotate: false,
 			enableZoom: false,
+			autoRotateSpeed: 1,
 
 			minAngle: -1.25,
 			maxAngle: 1.25
@@ -175,7 +178,7 @@ export default class OrbitControls extends Object3D {
 				autoRotate: true,
 				enableZoom: true,
 
-				minDistance: 50,
+				minDistance: 25,
 				maxDistance: 100
 
 			} );
@@ -184,16 +187,15 @@ export default class OrbitControls extends Object3D {
 
 		case '/projects':
 
-			this.lerpState.set( 35, 0, 0 );
-			// this.lerpState.set( 1, 0, 0 );
+			this.lerpState.set( 25, 0, 0 );
 
 			Object.assign( this.parameters, {
 
 				enableRotate: true,
-				// autoRotate: true,
+				autoRotate: true,
 				enableZoom: true,
 
-				// rotateSpeed: -2,
+				autoRotateSpeed: .25,
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 
@@ -202,7 +204,7 @@ export default class OrbitControls extends Object3D {
 				maxAngle: 1,
 
 				minDistance: 15,
-				maxDistance: 75
+				maxDistance: 30
 
 			} );
 
