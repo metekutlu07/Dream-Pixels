@@ -4,6 +4,8 @@ import {
 	Matrix4,
 	SphereGeometry,
 	RGBADepthPacking,
+	Quaternion,
+	Vector3,
 	Color
 
 } from 'three';
@@ -32,12 +34,18 @@ export default class Particles extends InstancedMesh {
 
 		const matrix = new Matrix4().makeScale( 1, 1, 1 );
 		const color = Color.get();
+		const axis = Vector3.get();
+		const quaternion = Quaternion.get();
 
 		for ( let i = 0; i < count; i++ ) {
 
 			const x = Math.floor( i % width ) / width;
 			const y = Math.floor( i / width ) / height;
-			matrix.setPosition( x, y, 0 );
+
+			const angle = Math.randFloat( -Math.PI, Math.PI );
+			quaternion.setFromAxisAngle( axis.random(), angle );
+			matrix.makeRotationFromQuaternion( quaternion );
+			matrix.makeTranslation( x, y, 0 );
 
 			this.setMatrixAt( i, matrix );
 			this.setColorAt( i, color );
@@ -46,14 +54,14 @@ export default class Particles extends InstancedMesh {
 
 		this.size = size;
 		this.needsUpdate = true;
-		this.castShadow = true;
-		this.receiveShadow = true;
 
 		this.customDepthMaterial = new ParticlesDepthMaterial();
 		this.customDepthMaterial.depthPacking = RGBADepthPacking;
 		this.simulation = new Simulation( width, height );
 
 		Color.release( color );
+		Vector3.release( axis );
+		Quaternion.release( quaternion );
 
 	}
 
@@ -68,13 +76,12 @@ export default class Particles extends InstancedMesh {
 		this.geometry = geometries[ 'Particle' ];
 		this.geometry.scale( this.size, this.size, this.size );
 
-		const array = jsons[ 'Colors.json' ];
+		const { colors } = jsons[ 'Colors.json' ];
 		const color = Color.get();
 
-		console.log( this.count, array.length );
 		for ( let i = 0; i < this.count; i++ ) {
 
-			const { hex } = array[ i % array.length ];
+			const [ hex ] = colors[ i % colors.length ].split( '|' );
 			this.setColorAt( i, color.setStyle( hex ) );
 
 		}
@@ -85,8 +92,8 @@ export default class Particles extends InstancedMesh {
 
 	onUpdate() {
 
-		// if ( ! this.needsUpdate ) return;
-		// this.needsUpdate = false;
+		if ( ! this.needsUpdate ) return;
+		this.needsUpdate = false;
 
 		const { texture } = this.simulation.render();
 		this.material.uniforms[ 'simulation' ].value = texture;

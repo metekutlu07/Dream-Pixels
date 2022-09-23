@@ -3,7 +3,7 @@ import { MeshBasicMaterial, UniformsUtils, ShaderLib } from 'three';
 import vertexShader from './vertexShader';
 import fragmentShader from './fragmentShader';
 
-export default class BasicMaterial extends MeshBasicMaterial {
+export default class ParticlesBasicMaterial extends MeshBasicMaterial {
 
 	constructor( parameters = {} ) {
 

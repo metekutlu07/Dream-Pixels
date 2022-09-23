@@ -1,64 +1,56 @@
 const { join } = require( 'path' );
 const { readdir, stat, writeFile } = require( 'fs/promises' );
+const { Color } = require( 'three' );
 
-const pixels = require( 'image-pixels' );
-// const { extractColors } = require( 'extract-colors' );
-// const getColors = require( 'get-image-colors' );
+const getPixels = require( 'image-pixels' );
 
 const source = `${ __dirname }/source`;
 const output = '../../source/assets/packs/projects/Colors.json';
-const results = {};
+const images = [];
 
-function sort( colors ) {
+function getSortedColors( colors ) {
 
-	const sorted = [ colors.shift() ];
+	const sorted = colors.sort( ( colorA, colorB ) => {
 
-	while ( colors.length ) {
+		const hslA = colorA.getHSL( {} );
+		const hslB = colorB.getHSL( {} );
 
-		const colorA = colors.shift();
-		const colorC = { distance: Infinity };
+		return hslA.h - hslB.h;
 
-		for ( const [ index, colorB ] of Object.entries( sorted ) ) {
+	} );
 
-			const average = Math.floor( (
+	// const sorted = [ colors.shift() ];
 
-				Math.abs( colorA.red - colorB.red ) +
-				Math.abs( colorA.green - colorB.green ) +
-				Math.abs( colorA.blue - colorB.blue )
+	// while ( colors.length ) {
 
-			) / 3 );
+	// 	const colorA = colors.shift();
+	// 	const colorC = { distance: Infinity };
 
-			if ( average > colorC.distance ) continue;
+	// 	for ( const [ index, colorB ] of Object.entries( sorted ) ) {
 
-			Object.assign( colorC, { distance: average, index } );
+	// 		const average = Math.floor( (
 
-		}
+	// 			Math.abs( colorA.r - colorB.r ) +
+	// 			Math.abs( colorA.g - colorB.g ) +
+	// 			Math.abs( colorA.b - colorB.b )
 
-		sorted.splice( colorC.index, 0, colorA );
+	// 		) * 255 / 3 );
 
-	}
+	// 		if ( average > colorC.distance ) continue;
 
-	return sorted.reverse();
+	// 		Object.assign( colorC, { distance: average, index } );
 
-}
+	// 	}
 
-function componentToHex( value ) {
+	// 	sorted.splice( colorC.index, 0, colorA );
 
-	const hex = value.toString( 16 );
-	return hex.length == 1 ? '0' + hex : hex;
+	// }
 
-}
-
-function getHexFromRGB( red, green, blue ) {
-
-	return '#' +
-		componentToHex( red ) +
-		componentToHex( green ) +
-		componentToHex( blue );
+	return sorted.reverse().map( color => `#${ color.getHexString() }|${ color.imageID }` );
 
 }
 
-async function traverse( directory ) {
+async function getSampledColors( directory, colors = [] ) {
 
 	const children = await readdir( directory );
 
@@ -72,61 +64,53 @@ async function traverse( directory ) {
 
 		if ( ! isDirectory ) {
 
-			const { data } = await pixels( path );
+			// if ( ! path.match( 'matter' ) ) continue;
 
-			// colors = colors.map( color => {
+			const { data } = await getPixels( path );
 
-			// 	console.log( color );
-			// 	const red = color[ 0 ];
-			// 	const green = color[ 1 ];
-			// 	const blue = color[ 2 ];
-			// 	const hex = getHexFromRGB( red, green, blue );
-
-			// 	return { hex, red, green, blue };
-
-			// } );
-
-			// const colors = await extractColors( path, {
-
-			// 	pixels: 1e12,
-			// 	distance: 1e-20,
-			// 	saturationImportance: 0,
-			// 	splitPower: 16
-
-			// } );
-
-			const colors = [];
 			const count = data.length / 4;
-			const sample = Math.round( count / 1e4 );
+			const sample = Math.round( count / ( 1e3 * 3 ) );
+			const imageID = images.length;
 
 			for ( let i = 0; i < data.length / 4; i++ ) {
 
 				if ( i % sample ) continue;
 
-				const red = data[ i * 4 + 0 ];
-				const green = data[ i * 4 + 1 ];
-				const blue = data[ i * 4 + 2 ];
-				const hex = getHexFromRGB( red, green, blue );
+				const color = new Color();
+				color.imageID = imageID;
 
-				colors.push( { hex, red, green, blue } );
+				const r = data[ i * 4 + 0 ] / 255;
+				const g = data[ i * 4 + 1 ] / 255;
+				const b = data[ i * 4 + 2 ] / 255;
+				color.setRGB( r, g, b );
+
+				const { s, l } = color.getHSL( {} );
+				if ( s < .15 || l < .15 ) continue;
+
+				colors.push( color );
 
 			}
 
-			const array = sort( colors ).map( color => color.hex );
+			const image = path.replace( source, '' );
+			images.push( image );
 
-			console.log( array.length );
-			results[ path.replace( source, '' ) ] = array;
+			console.log( image );
 
-		} else await traverse( path );
+		} else await getSampledColors( path, colors );
 
 	}
+
+	return colors;
 
 }
 
 async function initialize() {
 
-	await traverse( source );
-	await writeFile( output, JSON.stringify( results ) );
+	const samples = await getSampledColors( source );
+	const colors = await getSortedColors( samples );
+	const data = { images, colors };
+
+	await writeFile( output, JSON.stringify( data ) );
 
 }
 

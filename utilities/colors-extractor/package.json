@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "canvas": "^2.10.1",
-    "extract-colors": "^1.1.22",
-    "get-image-colors": "^4.0.1",
-    "image-pixels": "^2.2.2"
+    "image-pixels": "^2.2.2",
+    "three": "^0.144.0"
   }
 }

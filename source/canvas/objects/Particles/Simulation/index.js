@@ -81,8 +81,8 @@ export default class Simulation {
 		this.timeScale = .2;
 		this.speed = .1;
 		this.dieSpeed = .001;
-		this.curlSize = 10;
-		this.attraction = .1;
+		this.curlSize = .1;
+		this.attraction = .5;
 
 	}
 
@@ -90,8 +90,8 @@ export default class Simulation {
 
 		if ( ! files[ 'projects' ] ) return;
 
-		// const { arraybuffers } = files[ 'projects' ];
-		// this.data = new Float32Array( arraybuffers[ 'Particles.buffer' ] );
+		const { arraybuffers } = files[ 'projects' ];
+		this.data = new Float32Array( arraybuffers[ 'Positions-Default.buffer' ] );
 
 		const dataTexture = this.getDataTexture( this.width, this.height );
 		this.uniforms[ 'simulation' ].value = dataTexture;

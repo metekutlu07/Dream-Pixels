@@ -11,26 +11,38 @@ uniform float attraction;
 
 varying vec2 vUv;
 
+vec4 getCurrentData( vec4 data ) {
+
+	vec3 position = data.xyz;
+	float life = data.a;
+
+	life -= dieSpeed;
+
+	// if ( life < .0 ) {
+
+		// data = texture2D( initial, vUv );
+		// position = data.xyz * ( 1. + sin( 15. ) * .2 );
+		// life = .5 + fract( data.w * 21.4131 + time );
+
+	// } else {
+
+		// vec3 delta = vec3( 0. ) - position;
+		// float strength = 1. - smoothstep( 1., 50., length( delta ) );
+		// position += delta * ( .005 + life * .01 ) * attraction * strength * speed;
+		// position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
+
+	// }
+
+	position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
+	// position += getCurlNoise( vec3( life ) * curlSize * 100., .002, .001 ) * speed;
+
+	return vec4( position, life );
+
+}
+
 void main() {
 
 	vec4 data = texture2D( simulation, vUv );
-	vec3 position = data.xyz;
-	float life = data.a - dieSpeed;
-
-	if ( life < .0 ) {
-
-		data = texture2D( initial, vUv );
-		// position = data.xyz * ( 1. + sin( 15. ) * .2 );
-		life = 1.;
-
-	} else {
-
-		vec3 delta = vec3( 0. ) - position;
-		position += delta * ( .005 + life * .01 ) * attraction * ( 1. - smoothstep( 10., 350., length( delta ) ) ) * speed;
-		position += getCurlNoise( vec3( life ) * curlSize, .0, .2 ) * speed * 5.;
-
-	}
-
-	gl_FragColor = vec4( position, life );
+	gl_FragColor = getCurrentData( data );
 
 }
