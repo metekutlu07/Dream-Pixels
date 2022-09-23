@@ -1,10 +1,11 @@
 import {
 
+	Raycaster,
 	InstancedMesh,
-	Matrix4,
 	SphereGeometry,
 	RGBADepthPacking,
 	Quaternion,
+	Matrix4,
 	Vector3,
 	Color
 
@@ -54,6 +55,7 @@ export default class Particles extends InstancedMesh {
 
 		this.size = size;
 		this.needsUpdate = true;
+		this.raycaster = new Raycaster();
 
 		this.customDepthMaterial = new ParticlesDepthMaterial();
 		this.customDepthMaterial.depthPacking = RGBADepthPacking;
@@ -72,7 +74,6 @@ export default class Particles extends InstancedMesh {
 		const { models, jsons } = files[ 'projects' ];
 		const { geometries } = models[ 'Particle.glb' ];
 
-		this.instanceColor.needsUpdate = true;
 		this.geometry = geometries[ 'Particle' ];
 		this.geometry.scale( this.size, this.size, this.size );
 
@@ -86,6 +87,8 @@ export default class Particles extends InstancedMesh {
 
 		}
 
+		this.instanceColor.needsUpdate = true;
+
 		Color.release( color );
 
 	}
@@ -98,6 +101,12 @@ export default class Particles extends InstancedMesh {
 		const { texture } = this.simulation.render();
 		this.material.uniforms[ 'simulation' ].value = texture;
 		this.customDepthMaterial.uniforms[ 'simulation' ].value = texture;
+
+	}
+
+	onPostUpdate() {
+
+		this.setRaycaster();
 
 	}
 
@@ -118,6 +127,45 @@ export default class Particles extends InstancedMesh {
 		const { code } = parameters;
 		if ( code === 'Space' ) this.needsUpdate = ! this.needsUpdate;
 		else if ( code === 'KeyS' ) this.export();
+
+	}
+
+	setRaycaster() {
+
+		if ( ! this.simulation.points ) return;
+
+		const { camera, pointer } = Application;
+		const position = pointer.getCoordinates( Vector3.get(), true );
+		this.raycaster.setFromCamera( position, camera );
+		Vector3.release( position );
+
+		const { ray, near, far } = this.raycaster;
+		const { points } = this.simulation;
+		const closestPoint = Vector3.get();
+
+		let minDistance;
+		let index;
+
+		for ( let i = 0; i < points.length; i += 4 ) {
+
+			const point = points[ i ];
+
+			if ( ray.distanceSqToPoint( point ) > 1e-2 ) continue;
+
+			ray.closestPointToPoint( point, closestPoint );
+			// closestPoint.applyMatrix4( this.matrixWorld );
+
+			const distance = ray.origin.distanceTo( closestPoint );
+			if ( distance < near || distance > far ) continue;
+			if ( distance > minDistance ) continue;
+
+			minDistance = distance;
+			index = i;
+
+		}
+
+		Vector3.release( closestPoint );
+		Application.store.set( 'pointer', index !== undefined );
 
 	}
 

@@ -91,7 +91,7 @@ export default class Pointer {
 
 		this.isPressed = false;
 
-		Application.events.dispatch( 'onInputUp', event );
+		Application.events.dispatch( 'onInputEnd', event );
 
 	}
 

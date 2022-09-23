@@ -10,6 +10,7 @@ import {
 	Mesh,
 	PlaneGeometry,
 	WebGLRenderTarget,
+	Vector3,
 	NoBlending
 
 } from 'three';
@@ -98,6 +99,32 @@ export default class Simulation {
 		this.uniforms[ 'initial' ].value = dataTexture;
 
 		this.renderTargets.forEach( this.render );
+
+		this.setPoints();
+
+	}
+
+	setPoints() {
+
+		this.points = [];
+
+		const { renderer } = Application;
+		const { width, height } = this;
+
+		const renderTarget = this.renderTargets[ 0 ];
+		const data = new Float32Array( width * height * 4 );
+		renderer.readRenderTargetPixels( renderTarget, 0, 0, width, height, data );
+
+		for ( let i = 0; i < data.length / 4; i++ ) {
+
+			const point = new Vector3()
+				.setX( data[ i * 4 + 0 ] )
+				.setY( data[ i * 4 + 1 ] )
+				.setZ( data[ i * 4 + 2 ] );
+
+			this.points.push( point );
+
+		}
 
 	}
 
