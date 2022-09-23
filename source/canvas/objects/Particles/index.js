@@ -3,7 +3,8 @@ import {
 	InstancedMesh,
 	Matrix4,
 	SphereGeometry,
-	RGBADepthPacking
+	RGBADepthPacking,
+	Color
 
 } from 'three';
 
@@ -30,6 +31,7 @@ export default class Particles extends InstancedMesh {
 		Application.events.add( this );
 
 		const matrix = new Matrix4().makeScale( 1, 1, 1 );
+		const color = Color.get();
 
 		for ( let i = 0; i < count; i++ ) {
 
@@ -38,28 +40,46 @@ export default class Particles extends InstancedMesh {
 			matrix.setPosition( x, y, 0 );
 
 			this.setMatrixAt( i, matrix );
+			this.setColorAt( i, color );
 
 		}
 
 		this.size = size;
+		this.needsUpdate = true;
 		this.castShadow = true;
 		this.receiveShadow = true;
-		this.needsUpdate = true;
 
 		this.customDepthMaterial = new ParticlesDepthMaterial();
 		this.customDepthMaterial.depthPacking = RGBADepthPacking;
 		this.simulation = new Simulation( width, height );
 
+		Color.release( color );
+
 	}
 
-	onLoad( files ) {
+	async onLoad( files ) {
 
-		if ( ! files[ 'common' ] ) return;
+		if ( ! files[ 'projects' ] ) return;
 
-		const { models } = files[ 'common' ];
+		const { models, jsons } = files[ 'projects' ];
 		const { geometries } = models[ 'Particle.glb' ];
+
+		this.instanceColor.needsUpdate = true;
 		this.geometry = geometries[ 'Particle' ];
 		this.geometry.scale( this.size, this.size, this.size );
+
+		const array = jsons[ 'Colors.json' ];
+		const color = Color.get();
+
+		console.log( this.count, array.length );
+		for ( let i = 0; i < this.count; i++ ) {
+
+			const { hex } = array[ i % array.length ];
+			this.setColorAt( i, color.setStyle( hex ) );
+
+		}
+
+		Color.release( color );
 
 	}
 
@@ -76,11 +96,13 @@ export default class Particles extends InstancedMesh {
 
 	onAfterRender() {
 
-		// if (this.renderTargetViewer) this.renderTargetViewer = new RenderTargetViewer();
+		// if ( this.renderTargetViewer ) {
 
-		// const { directionalLight } = Application.scene.lighting;
-		// this.renderTargetViewer.render( directionalLight.shadow.map );
-		// this.renderTargetViewer.render( this.simulation.renderTargets[ 0 ] );
+		// 	const { directionalLight } = Application.scene.lighting;
+		// 	this.renderTargetViewer.render( directionalLight.shadow.map );
+		// 	this.renderTargetViewer.render( this.simulation.renderTargets[ 0 ] );
+
+		// } else this.renderTargetViewer = new RenderTargetViewer();
 
 	}
 

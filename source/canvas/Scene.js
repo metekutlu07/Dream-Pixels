@@ -11,7 +11,7 @@ import Sphere from './objects/Sphere';
 import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
 import OrbitControls from './objects/OrbitControls';
-// import Particles from './objects/Particles';
+import Particles from './objects/Particles';
 
 export default class Scene extends Object3D {
 
@@ -52,8 +52,8 @@ export default class Scene extends Object3D {
 		this.sphere = new Sphere();
 		this.add( this.sphere );
 
-		// this.particles = new Particles();
-		// this.add( this.particles );
+		this.particles = new Particles();
+		this.add( this.particles );
 
 		this.pattern = new Pattern();
 		this.add( this.pattern );
@@ -76,8 +76,8 @@ export default class Scene extends Object3D {
 
 		if ( Application.store.path === '/projects' ) {
 
-			this.parameters.near = 25;
-			this.parameters.far = 50;
+			this.parameters.near = 1e4;
+			this.parameters.far = 1e4;
 
 		}
 

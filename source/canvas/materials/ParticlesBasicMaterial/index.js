@@ -1,24 +1,25 @@
-import { ShaderMaterial, UniformsUtils, ShaderLib } from 'three';
+import { MeshBasicMaterial, UniformsUtils, ShaderLib } from 'three';
 
 import vertexShader from './vertexShader';
 import fragmentShader from './fragmentShader';
 
-export default class ParticlesBasicMaterial extends ShaderMaterial {
+export default class BasicMaterial extends MeshBasicMaterial {
 
-	constructor() {
+	constructor( parameters = {} ) {
 
-		const uniforms = UniformsUtils.clone( ShaderLib.shadow.uniforms );
+		super( parameters );
 
-		super( {
+		this.type = 'BasicMaterial';
+		this.uniforms = { simulation: { value: null } };
 
-			vertexShader,
-			fragmentShader,
-			uniforms: Object.assign( { simulation: { value: null } }, uniforms )
+		const uniforms = UniformsUtils.clone( ShaderLib.basic.uniforms );
+		Object.assign( this.uniforms, uniforms );
 
-		} );
+	}
 
-		this.lights = true;
-		this.fog = true;
+	onBeforeCompile( shaders ) {
+
+		Object.assign( shaders, { vertexShader, fragmentShader } );
 
 	}
 

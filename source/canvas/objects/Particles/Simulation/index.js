@@ -81,19 +81,19 @@ export default class Simulation {
 		this.timeScale = .2;
 		this.speed = .1;
 		this.dieSpeed = .001;
-		this.curlSize = 0.1;
+		this.curlSize = 10;
 		this.attraction = .1;
 
 	}
 
 	onLoad( files ) {
 
-		if ( ! files[ 'common' ] ) return;
+		if ( ! files[ 'projects' ] ) return;
 
-		const { arraybuffers } = files[ 'common' ];
-		this.data = new Float32Array( arraybuffers[ 'Particles.buffer' ] );
+		// const { arraybuffers } = files[ 'projects' ];
+		// this.data = new Float32Array( arraybuffers[ 'Particles.buffer' ] );
 
-		const dataTexture = this.createDataTexture( this.width, this.height );
+		const dataTexture = this.getDataTexture( this.width, this.height );
 		this.uniforms[ 'simulation' ].value = dataTexture;
 		this.uniforms[ 'initial' ].value = dataTexture;
 
@@ -101,7 +101,7 @@ export default class Simulation {
 
 	}
 
-	getPositionData() {
+	getPositionArray() {
 
 		const count = this.width * this.height;
 		const data = new Float32Array( count * 4 );
@@ -115,7 +115,7 @@ export default class Simulation {
 			data[ i * 4 + 0 ] = radius * Math.cos( theta ) * Math.cos( phi );
 			data[ i * 4 + 1 ] = radius * Math.sin( phi );
 			data[ i * 4 + 2 ] = radius * Math.sin( theta ) * Math.cos( phi );
-			data[ i * 4 + 3 ] = Math.random();
+			data[ i * 4 + 3 ] = i / count;
 
 		}
 
@@ -123,9 +123,9 @@ export default class Simulation {
 
 	}
 
-	createDataTexture( width, height ) {
+	getDataTexture( width, height ) {
 
-		const data = this.data || this.getPositionData();
+		const data = this.data || this.getPositionArray();
 		const texture = new DataTexture( data, width, height, RGBAFormat, FloatType );
 
 		Object.assign( texture, {

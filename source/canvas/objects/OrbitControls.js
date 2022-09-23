@@ -185,24 +185,24 @@ export default class OrbitControls extends Object3D {
 		case '/projects':
 
 			this.lerpState.set( 35, 0, 0 );
-			this.lerpState.set( 1, 0, 0 );
+			// this.lerpState.set( 1, 0, 0 );
 
 			Object.assign( this.parameters, {
 
 				enableRotate: true,
 				// autoRotate: true,
-				// enableZoom: true,
+				enableZoom: true,
 
-				rotateSpeed: -2,
-				// rotateSpeed: 5,
+				// rotateSpeed: -2,
+				rotateSpeed: 5,
 				zoomSpeed: 5,
 
 				autoRotateDelay: 2,
 				minAngle: -1,
 				maxAngle: 1,
 
-				// minDistance: 25,
-				// maxDistance: 75
+				minDistance: 15,
+				maxDistance: 75
 
 			} );
 

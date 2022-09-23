@@ -20,14 +20,14 @@ void main() {
 	if ( life < .0 ) {
 
 		data = texture2D( initial, vUv );
-		position = data.xyz * ( 1. + sin( 15. ) * .2 );
-		life = .5 + fract( data.w * 21.4131 + time );
+		// position = data.xyz * ( 1. + sin( 15. ) * .2 );
+		life = 1.;
 
 	} else {
 
 		vec3 delta = vec3( 0. ) - position;
 		position += delta * ( .005 + life * .01 ) * attraction * ( 1. - smoothstep( 10., 350., length( delta ) ) ) * speed;
-		position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
+		position += getCurlNoise( vec3( life ) * curlSize, .0, .2 ) * speed * 5.;
 
 	}
 
