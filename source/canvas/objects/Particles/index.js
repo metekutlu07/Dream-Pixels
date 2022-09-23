@@ -106,7 +106,8 @@ export default class Particles extends InstancedMesh {
 
 	onPostUpdate() {
 
-		this.setRaycaster();
+		const index = this.getClosestIndex();
+		Application.store.set( 'pointer', !! index );
 
 	}
 
@@ -130,7 +131,7 @@ export default class Particles extends InstancedMesh {
 
 	}
 
-	setRaycaster() {
+	getClosestIndex() {
 
 		if ( ! this.simulation.points ) return;
 
@@ -138,6 +139,8 @@ export default class Particles extends InstancedMesh {
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
+
+		if ( pointer.isPressed ) return null;
 
 		const { ray, near, far } = this.raycaster;
 		const { points } = this.simulation;
@@ -165,7 +168,8 @@ export default class Particles extends InstancedMesh {
 		}
 
 		Vector3.release( closestPoint );
-		Application.store.set( 'pointer', index !== undefined );
+
+		return index;
 
 	}
 
