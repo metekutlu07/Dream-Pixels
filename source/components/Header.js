@@ -20,6 +20,8 @@ import Muted from '~/assets/icons/Muted';
 import PointCloud from '~/assets/icons/PointCloud';
 import Textured from '~/assets/icons/Textured';
 import AugmentedReality from '~/assets/icons/AugmentedReality';
+import Wireframe from '~/assets/icons/Wireframe';
+import Normal from '~/assets/icons/Normal';
 
 export default class Header extends HTMLElement {
 
@@ -46,12 +48,12 @@ export default class Header extends HTMLElement {
 		else if ( currentTarget.hasAttribute( 'display-points' ) ) scene.artwork.toggle();
 		else if ( currentTarget.hasAttribute( 'audio' ) ) audio.toggle();
 		else if ( currentTarget.hasAttribute( 'display-aside' ) ) Application.store.toggle( 'display-aside' );
+		else if ( currentTarget.hasAttribute( 'display-wireframe' ) ) Application.store.toggle( 'display-wireframe' );
 		else if ( currentTarget.hasAttribute( 'grid' ) ) Application.store.set( 'list', 'grid' );
 		else if ( currentTarget.hasAttribute( 'sphere' ) ) Application.store.set( 'list', 'sphere' );
 		else if ( currentTarget.hasAttribute( 'particles' ) ) Application.store.set( 'list', 'particles' );
 
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
-		else Application.store.set( 'display-menu', false );
 
 	}
 
@@ -181,18 +183,9 @@ export default class Header extends HTMLElement {
 		];
 
 		const controls = [
-			{
-				attributes: [ 'augmented-reality', '@click|header-block' ],
-				icons: [ AugmentedReality ],
-				link: {
-					image: '/public/augmented-reality.png',
-					attributes: [
-						'download="digital-talismanic-cities.usdz"',
-						'rel="ar"', 'href=""'
-					]
-				}
-			},
-			{ attributes: [ 'display-points', '@click|header-block' ], icons: [ Textured, PointCloud ] },
+			{ attributes: [ 'augmented-reality', '@click|header-block' ], icons: [ AugmentedReality ] },
+			{ attributes: [ 'display-wireframe', '@click|header-block' ], icons: [ Wireframe, Normal ] },
+			{ attributes: [ 'display-points', '@click|header-block' ], icons: [ PointCloud, Textured ] },
 			{ attributes: [ 'camera-mode', '@click|header-block' ], icons: [ Camera ] },
 			{ attributes: [ 'fullscreen', '@click|header-block' ], icons: [ Maximize, Minimize ] },
 			{ attributes: [ 'audio', '@click|header-block' ], icons: [ Speaker, Muted ] }

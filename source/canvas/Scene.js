@@ -13,6 +13,8 @@ import Artwork from './objects/Artwork';
 import OrbitControls from './objects/OrbitControls';
 import Particles from './objects/Particles';
 
+import { USDZExporter } from '~/vendors/three/USDZExporter';
+
 export default class Scene extends Object3D {
 
 	constructor() {
@@ -94,6 +96,17 @@ export default class Scene extends Object3D {
 
 	}
 
+	onUpdate() {
+
+		this.traverse( child => {
+
+			if ( ! child.hasWireframe ) return;
+			child.material.wireframe = Application.store[ 'display-wireframe' ];
+
+		} );
+
+	}
+
 	onLoad( files ) {
 
 		if ( ! files[ 'common' ] ) return;
@@ -110,17 +123,58 @@ export default class Scene extends Object3D {
 
 	async export() {
 
-		const object = Application.scene.city;
-		const scene = new Scene();
-		scene.add( object.getSimplifiedVersion() );
+		let object;
+
+		switch ( Application.store.path ) {
+
+		case '/virtual-miniature':
+			object = this.miniature.city.clone();
+			break;
+
+		case '/when-gaspard-paints-a-gospel':
+			object = this.church.clone();
+			break;
+
+		case '/photogrammetry':
+			object = this.artwork.clone();
+			break;
+
+		default:
+			break;
+
+		}
+
+		object.traverseVisible( child => {
+
+			if ( ! child.geometry ) return;
+
+			const scale = .05;
+			child.geometry.scale( scale, scale, scale );
+
+		} );
+
+		this.add( object );
 
 		const exporter = new USDZExporter();
-		const arraybuffer = await exporter.parse( scene );
+		const arraybuffer = await exporter.parse( object );
 		const parameters = { type: 'application/octet-stream' };
 		const blob = new Blob( [ arraybuffer ], parameters );
 
-		const link = element.querySelector( 'a' );
-		link.href = URL.createObjectURL( blob );
+		const path = Application.store.path.replace( '/', '' );
+		const link = document.createElement( 'a' );
+
+		Object.assign( link, {
+
+			rel: 'ar',
+			href: URL.createObjectURL( blob ),
+			download: `${ path }.usdz`,
+
+		} );
+
+		const image = document.createElement( 'img' );
+		image.src = '/public/share.png';
+		link.appendChild( image );
+
 		link.addEventListener( 'click', event => event.stopPropagation() );
 		link.click();
 

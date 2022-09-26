@@ -30,7 +30,7 @@ export default class Button extends HTMLElement {
 		const selectedIDs = [];
 		const activatedIDs = [];
 
-		const { path, list, route, ar } = Application.store;
+		const { path, list, route } = Application.store;
 		switch ( path ) {
 
 		case '/':
@@ -45,11 +45,13 @@ export default class Button extends HTMLElement {
 
 		case '/when-gaspard-paints-a-gospel':
 		case '/virtual-miniature':
+			visibleIDs.push( 'augmented-reality' );
 			visibleIDs.push( 'camera-mode' );
 			break;
 
 		case '/photogrammetry':
-			visibleIDs.push( 'display-points', 'display-aside' );
+			visibleIDs.push( 'augmented-reality' );
+			visibleIDs.push( 'display-points', 'display-aside', 'display-wireframe' );
 			break;
 
 		}
@@ -62,7 +64,6 @@ export default class Button extends HTMLElement {
 
 		}
 
-		if ( ar ) visibleIDs.push( 'augmented-reality' );
 		if ( route === '/:project' ) visibleIDs.push( 'projects' );
 
 		const { fullscreen, camera, audio } = Application;
@@ -75,6 +76,7 @@ export default class Button extends HTMLElement {
 		const { renderAsPoints } = Application.scene.artwork;
 		if ( renderAsPoints ) activatedIDs.push( 'display-points' );
 
+		if ( Application.store[ 'display-wireframe' ] ) activatedIDs.push( 'display-wireframe' );
 		if ( Application.store[ 'display-aside' ] ) activatedIDs.push( 'display-aside' );
 		if ( Application.store[ 'display-menu' ] ) activatedIDs.push( 'display-menu' );
 

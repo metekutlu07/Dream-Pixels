@@ -19,7 +19,7 @@ export default class PostProcessing {
 
 		this.parameters = Application.store.add( 'PostProcessing', {
 
-			enabled: true,
+			enabled: false,
 
 			vignettePass: {
 				enabled: false,

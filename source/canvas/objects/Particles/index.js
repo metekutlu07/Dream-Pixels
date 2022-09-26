@@ -102,6 +102,7 @@ export default class Particles extends InstancedMesh {
 		this.isVisible = isVisible;
 
 		if ( this.animation ) this.animation.remove( this.material );
+		if ( this.isVisible ) this.visible = true;
 
 		const targets = this.material;
 		const easing = 'easeOutQuint';
@@ -115,6 +116,8 @@ export default class Particles extends InstancedMesh {
 		this.needsUpdate = true;
 		await this.animation.finished;
 		this.needsUpdate = false;
+
+		if ( ! this.isVisible ) this.visible = false;
 
 	}
 

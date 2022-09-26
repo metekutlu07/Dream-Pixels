@@ -152,7 +152,7 @@ export default class Aside extends HTMLElement {
 
 		`;
 
-		const button = { attributes: [ 'close', '@click|aside-block', 'label-hidden' ], icons: [ Close ] };
+		const button = { attributes: [ 'close', '@click|aside-block', 'label-hidden', 'reversed' ], icons: [ Close ] };
 
 		return html`
 

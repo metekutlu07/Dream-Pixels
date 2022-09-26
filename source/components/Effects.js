@@ -32,6 +32,7 @@ export default class Effects extends HTMLElement {
 			top: 0;
 			left: 0;
 			pointer-events: none;
+			display: none;
 
 			& grid-effect,
 			& noise-effect,
@@ -60,10 +61,10 @@ export default class Effects extends HTMLElement {
 
 			& lines-effect {
 				background-image: url( "/public/common/line.svg" );
-				background-size: 1px;
+				background-size: 2px;
 				background-position: center center;
 				opacity: var( --lines-strength );
-				opacity: 1;
+				opacity: .25;
 				/* display: none;
 
 				&[ enabled ] {

@@ -65,6 +65,7 @@ export default {
 		'fullscreen': [ 'Fullscreen', 'Minimize' ],
 		'audio': [ 'Muted', 'Unmuted' ],
 		'display-points': [ 'Points', 'Solid' ],
+		'display-wireframe': [ 'Wireframe', 'Normal' ],
 		'display-aside': [ 'Show list', 'Hide list' ],
 		'augmented-reality': [ 'Augmented Reality' ],
 		'home': [ 'Home' ],

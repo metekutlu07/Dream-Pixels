@@ -29,6 +29,12 @@ export default class City extends Object3D {
 
 	}
 
+	clone( recursive ) {
+
+		return new Object3D().copy( this, recursive );
+
+	}
+
 	onLoad( files ) {
 
 		if ( ! files[ 'virtual-miniature' ] ) return;

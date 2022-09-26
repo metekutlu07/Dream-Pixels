@@ -30,6 +30,13 @@ export default class Buttons extends HTMLElement {
 			const { camera, viewport } = Application;
 			const { width, height } = Application.viewport;
 
+			if ( ! camera.frustum.containsPoint( position ) ) {
+
+				button.toggleAttribute( 'visible', false );
+				return;
+
+			}
+
 			coordinates
 				.copy( position )
 				.project( camera )

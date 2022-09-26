@@ -4,7 +4,7 @@ import {
 	Object3D,
 	Box3,
 	LinearEncoding,
-	MeshBasicMaterial,
+	MeshStandardMaterial,
 	Mesh,
 	Points
 
@@ -22,6 +22,12 @@ export default class Artwork extends Object3D {
 
 		this.artworkID = 'france-01-annunciation';
 		this.renderAsPoints = false;
+
+	}
+
+	clone( recursive ) {
+
+		return new Object3D().copy( this, recursive );
 
 	}
 
@@ -78,6 +84,8 @@ export default class Artwork extends Object3D {
 			const mesh = this.getMesh( geometry, map );
 			const points = this.getPoints( geometry, map );
 
+			mesh.hasWireframe = true;
+
 			this.add( mesh, points );
 
 		} );
@@ -114,7 +122,16 @@ export default class Artwork extends Object3D {
 
 	getMesh( geometry, map ) {
 
-		return new Mesh( geometry, new MeshBasicMaterial( { map } ) );
+		const envMap = Application.assets[ 'EnvMap' ];
+
+		return new Mesh( geometry, new MeshStandardMaterial( {
+
+			map,
+			envMap,
+			metalness: 0,
+			roughness: 1
+
+		} ) );
 
 	}
 
