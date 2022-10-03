@@ -55,6 +55,7 @@ export default {
 		home: { path: '/', title: 'Home' },
 		projects: { path: '/projects', title: 'Projects' },
 		about: { path: '/about', title: 'About' },
+		contact: { path: '/contact', title: 'Contact' },
 		update: { path: '/update', title: 'Update' }
 
 	},
@@ -87,5 +88,45 @@ export default {
 
 	// Add the imported project in the list below
 	projects: [ P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15 ],
+	grid: [
+
+		P1,
+		{ objectID: 'Object_001' },
+		P2,
+		P3,
+		{
+			quote: 'Be the change that you wish to see in the world.',
+			author: 'Mahatma Gandhi'
+		},
+		P4,
+		P5,
+		{ objectID: 'Object_005' },
+		P6,
+		P7,
+		{
+			quote: 'If you tell the truth, you don\'t have to remember anything.',
+			author: 'Mark Twain'
+		},
+		P8,
+		P9,
+		{ objectID: 'Object_002' },
+		P10,
+		P11,
+		{
+			quote: 'Always forgive your enemies; nothing annoys them so much.',
+			author: 'Oscar Wilde'
+		},
+		P12,
+		{ objectID: 'Object_003' },
+		P13,
+		{ objectID: 'Object_004' },
+		P14,
+		P15,
+		{
+			quote: 'It is better to be hated for what you are than to be loved for what you are not.',
+			author: 'Andre Gide'
+		}
+
+	],
 
 };

@@ -90,7 +90,7 @@ export default class Images extends Object3D {
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;
 
-		this.children.map( ( child, index ) => {
+		this.children.forEach( ( child, index ) => {
 
 			if ( child.animation ) child.animation.remove( child );
 
@@ -169,7 +169,8 @@ export default class Images extends Object3D {
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
 
-		const intersect = this.raycaster.intersectObjects( this.children )[ 0 ];
+		const objects = this.children.filter( child => child.offset < .025 );
+		const intersect = this.raycaster.intersectObjects( objects )[ 0 ];
 		const object = intersect && ! pointer.isPressed ? intersect.object : null;
 
 		if ( object && object !== this.object ) Application.audio.play( '007.mp3', { volume: .1 } );

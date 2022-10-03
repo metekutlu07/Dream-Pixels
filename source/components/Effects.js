@@ -47,24 +47,24 @@ export default class Effects extends HTMLElement {
 
 			& grid-effect {
 				background-image: url( "/public/Common/Grid.svg" );
-				background-size: 5vw;
+				background-size: 1vw;
 				background-position: center center;
 				transition: transform .5s var( --timing-function ), opacity .5s var( --timing-function );
 				transform: scale( 1 );
 				opacity: 0;
 
 				[ loading ] & {
-					opacity: .1;
+					opacity: .25;
 					transform: scale( 1.2 );
 				}
 			}
 
 			& lines-effect {
 				background-image: url( "/public/common/line.svg" );
-				background-size: 2px;
+				background-size: 1px;
 				background-position: center center;
 				opacity: var( --lines-strength );
-				opacity: .25;
+				opacity: .1;
 				/* display: none;
 
 				&[ enabled ] {

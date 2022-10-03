@@ -18,7 +18,7 @@ export default class Content {
 
 			return this.projects
 				.map( project => `/${ project.path }` )
-				.concat( [ '/', '/projects', '/about', '/update' ] );
+				.concat( [ '/', '/projects', '/about', '/contact', '/update' ] );
 
 		} else {
 

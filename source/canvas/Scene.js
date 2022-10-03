@@ -12,6 +12,7 @@ import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
 import OrbitControls from './objects/OrbitControls';
 import Particles from './objects/Particles';
+import Objects from './objects/Objects';
 
 import { USDZExporter } from '~/vendors/three/USDZExporter';
 
@@ -62,6 +63,9 @@ export default class Scene extends Object3D {
 
 		this.miniature = new Miniature();
 		this.add( this.miniature );
+
+		this.objects = new Objects();
+		this.add( this.objects );
 
 		this.artwork = new Artwork();
 		this.add( this.artwork );

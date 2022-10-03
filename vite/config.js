@@ -208,7 +208,6 @@ export default async ( { command, mode } ) => {
 			const template = Application.render( path );
 
 			const directory = `${ build }${ path }`;
-			// const href = `href="${ originalUrl === '/' ? '' : originalUrl }/index.css"`;
 			const href = 'href="/index.css"';
 			const stylesheet = `<link rel="stylesheet" ${ href }></link>`;
 
@@ -219,7 +218,6 @@ export default async ( { command, mode } ) => {
 
 				await mkdir( directory, { recursive: true } );
 				await writeFile( `${ directory }/index.html`, html );
-				// await writeFile( `${ directory }/index.css`, css );
 
 			}
 

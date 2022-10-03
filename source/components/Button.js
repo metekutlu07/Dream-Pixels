@@ -26,7 +26,7 @@ export default class Button extends HTMLElement {
 
 	onPreFrame() {
 
-		const visibleIDs = [ 'audio', 'display-menu' ];
+		const visibleIDs = [ 'audio', 'display-menu', 'home', 'projects', 'about', 'contact' ];
 		const selectedIDs = [];
 		const activatedIDs = [];
 
@@ -34,14 +34,21 @@ export default class Button extends HTMLElement {
 		switch ( path ) {
 
 		case '/':
-			visibleIDs.push( 'projects', 'about', 'contact' );
+			selectedIDs.push( 'home' );
 			break;
 
 		case '/projects':
-			visibleIDs.push( 'home', 'grid', 'sphere', 'particles' );
+			selectedIDs.push( 'projects' );
+			visibleIDs.push( 'grid', 'sphere', 'particles' );
 			break;
 
-		case '/about': visibleIDs.push( 'home' ); break;
+		case '/about':
+			selectedIDs.push( 'about' );
+			break;
+
+		case '/contact':
+			selectedIDs.push( 'contact' );
+			break;
 
 		case '/when-gaspard-paints-a-gospel':
 		case '/virtual-miniature':
@@ -124,7 +131,7 @@ export default class Button extends HTMLElement {
 			&:nth-child( 3n+2 ) { --animation: blink-3 }
 
 			&:not( :last-child ) {
-				margin-bottom: 5px;
+				margin-right: 5px;
 			}
 
 			@media ( hover: hover ) {
@@ -143,7 +150,7 @@ export default class Button extends HTMLElement {
 
 			&[ visible ] { display: flex }
 			&[ disabled ] { color: var( --color-grey ) }
-			&[ selected ] { --border-color: var( --color-pink ) }
+			&[ selected ] { --border-color: var( --color-yellow ) }
 
 			[ miniature ] &,
 			&[ activated ] {
@@ -211,15 +218,8 @@ export default class Button extends HTMLElement {
 			--border: var( --border-size ) solid var( --border-color );
 			align-items: center;
 			justify-content: center;
-			padding: 0 var( --margin-s );
+			padding: var( --margin-xs ) var( --margin-xs );
 			display: flex;
-			border-left: var( --border );
-
-			[ reversed ] & {
-				border-right: var( --border );
-				border-left: none;
-			}
-
 		}
 
 		a {
@@ -228,7 +228,7 @@ export default class Button extends HTMLElement {
 
 		`;
 
-		const { buttons, views, mail } = Application.content;
+		const { buttons, views } = Application.content;
 		const { attributes, icons, link } = parameters;
 
 		const buttonID = attributes[ 0 ];
@@ -241,10 +241,6 @@ export default class Button extends HTMLElement {
 
 				const path = views[ buttonID ].path;
 				link.attributes = [ `href="${ path }"`, 'internal' ];
-
-			} else if ( buttonID === 'contact' ) {
-
-				link.attributes = [ `href="mailto:${ mail }"` ];
 
 			}
 

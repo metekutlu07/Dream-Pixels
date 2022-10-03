@@ -81,7 +81,7 @@ export default class Sphere extends HTMLElement {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			border: var( --border-size ) solid var( --border-color );
+			border: var( --border-size ) solid rgba( 255, 255, 255, .25);
 
 			@media ( max-width: 768px ) {
 				width: calc( 100% - var( --margin-s ) * 2 );
@@ -122,7 +122,7 @@ export default class Sphere extends HTMLElement {
 
 		<projects-sphere @click>
 			<projects-rectangle></projects--rectangle>
-			<projects-cursor #cursor>
+			<projects-cursor #cursor blurred-background>
 				<h3 font-style-title>
 					<span #title></span><br/>
 					<span #subtitle></span>

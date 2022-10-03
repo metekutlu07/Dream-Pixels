@@ -19,12 +19,12 @@ export default class PostProcessing {
 
 		this.parameters = Application.store.add( 'PostProcessing', {
 
-			enabled: false,
+			enabled: true,
 
 			vignettePass: {
-				enabled: false,
+				enabled: true,
 				color: '#000000',
-				strength: { value: .25, max: 2 },
+				strength: { value: .1, max: 2 },
 			},
 
 			chromaticAberrationPass: {

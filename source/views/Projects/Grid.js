@@ -22,6 +22,7 @@ export default class Grid extends HTMLElement {
 
 			const height = heights[ index ];
 			const offset = ( highest / height - 1 );
+			column.translateY = -( scrollTop - offset * scrollTop );
 			column.style.transform = `translateY( ${ offset * scrollTop }px )`;
 
 		} );
@@ -83,6 +84,7 @@ export default class Grid extends HTMLElement {
 			padding: var( --margin-m );
 			pointer-events: none;
 			align-items: flex-start;
+			margin-bottom: 200px;
 
 			@media ( max-width: 1280px ) {
 				padding: var( --margin-s );
@@ -109,13 +111,12 @@ export default class Grid extends HTMLElement {
 
 		`;
 
-		const { projects } = Application.content;
-		const items = projects.map( project => Item.render( project ) );
+		const cells = Application.content.grid.map( Item.render );
 
 		return html`
 
 		<projects-grid #grid>
-			${ items }
+			${ cells }
 		</projects-grid>
 
 		`;

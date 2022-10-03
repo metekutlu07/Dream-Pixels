@@ -43,7 +43,7 @@ export default class Parameter {
 	onStart() {
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'sphere' );
+		this.set( 'list', 'grid' );
 
 	}
 

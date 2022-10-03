@@ -29,7 +29,7 @@ export default class Global {
 			--line-height: 1.8;
 			--border-size: 1px;
 			--border-color: transparent;
-			--background-color: rgba( 0, 0, 0, .65 );
+			--background-color: rgba( 0, 0, 0, .25 );
 			--border-color: rgba( 255, 255, 255, 1 );
 
 			--margin-m: 40px;
