@@ -5,15 +5,26 @@ export default {
 	subtitle: 'Talking Miniatures ',
 	location: 'Paris, France',
 	date: '2020',
+	team: 'Mete Kutlu & Theuns Botha',
+	period: 'June 2021 - October 2022',
+	partners: 'Comet Lab & Ausser',
+	clients: 'Foundation Philippe Auguste',
 	description: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 	sections: [
 		{
 			type: 'S1',
-			media: [ { source: 'public/time-travelling-colours/intropage.mp4', caption: 'Video Introduction' } ]
+			media: {
+				source: 'public/time-travelling-colours/intropage.mp4',
+				caption: 'Video Introduction'
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/time-travelling-colours/intro.mp4', caption: 'New img' } ]
+			media: {
+				source: 'public/time-travelling-colours/intro.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'New img'
+			}
 		},
 		{
 			type: 'S2',
@@ -22,7 +33,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/time-travelling-colours/chapter1.mp4', caption: 'New img' } ]
+			media: {
+				source: 'public/time-travelling-colours/chapter1.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'New img'
+			}
 		},
 		{
 			type: 'S2',
@@ -31,7 +46,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/time-travelling-colours/chapter2.mp4', caption: 'New img' } ]
+			media: {
+				source: 'public/time-travelling-colours/chapter2.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'New img'
+			}
 		},
 		{
 			type: 'S2',
@@ -40,7 +59,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/time-travelling-colours/chapter3.mp4', caption: 'New img' } ]
+			media: {
+				source: 'public/time-travelling-colours/chapter3.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'New img'
+			}
 		},
 		{
 			type: 'S2',
@@ -49,7 +72,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/time-travelling-colours/chapter4.mp4', caption: 'New img' } ]
+			media: {
+				source: 'public/time-travelling-colours/chapter4.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'New img'
+			}
 		},
 		{
 			type: 'S2',
@@ -58,7 +85,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/time-travelling-colours/chapter5.mp4', caption: 'New img' } ]
+			media: {
+				source: 'public/time-travelling-colours/chapter5.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'New img'
+			}
 		},
 		{
 			type: 'S2',

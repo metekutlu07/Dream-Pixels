@@ -80,7 +80,7 @@ export default class S4 {
 		`;
 
 		const { details, paragraphs, anchor } = content;
-		const { source, caption } = content.media[ 0 ];
+		const { source, caption } = content.media;
 
 		const list = ! details ? '' : Object.entries( details )
 			.map( ( [ name, value ] ) => html`

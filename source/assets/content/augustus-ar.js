@@ -9,7 +9,10 @@ export default {
 	sections: [
 		{
 			type: 'S1',
-			media: [ { source: 'public/augustus-ar/000.mp4', caption: '' } ]
+			media: {
+				source: 'public/augustus-ar/000.mp4',
+				caption: 'Application Walkthrough'
+			}
 		}
 	]
 

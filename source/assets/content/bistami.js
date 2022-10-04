@@ -3,24 +3,31 @@ export default {
 	path: 'bistami',
 	title: 'Bistami',
 	subtitle: 'Geometrisation of Eschatological Chromatics',
-	location: 'French Palace, Istanbul, Turkey',
-	date: '2019',
+	location: 'Paris, France',
+	date: '2020',
+	team: 'Mete Kutlu & Theuns Botha',
+	period: 'June 2021 - October 2022',
+	partners: 'Comet Lab & Ausser',
+	clients: 'Foundation Philippe Auguste',
 	description: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 	sections: [
 		{
 			type: 'S1',
-			media: [ { source: 'public/bistami/000.mp4', caption: 'Video Introduction' } ]
+			media: {
+				source: 'public/bistami/000.mp4',
+				caption: 'Video Introduction'
+			}
 		},
 		{
 			type: 'S4',
-			media: [ {
+			media: {
 				source: 'public/Common/Artwork.jpg',
 				caption: `
 					Constantinople <br>
 					The Keys To Esoteric Knowledge <br>
 					Constantinople, c.1605
 				`
-			} ],
+			},
 			details: {
 				'Title': 'Messianic Conquest of Constantinople',
 				'Miniaturist': 'Anonymous',
@@ -39,22 +46,26 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ {
+			media: {
 				source: 'public/bistami/002.mp4',
 				caption: 'Video Presentation',
 				controls: false
-			} ]
+			}
 		},
 		{
 			type: 'S2',
 			anchor: 'Istanbul University Library',
 			title: '3D Modelling<br>of Miniatures',
-			paragraphs: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.'
+			paragraphs: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 		},
 		{
 			type: 'S3',
 			anchor: '3D Modelling of Miniatures',
-			media: [ { source: 'public/bistami/003.jpg', caption: 'Comparaison: Side by Side View' } ]
+			media: {
+				source: 'public/bistami/003.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Comparaison: Side by Side View'
+			}
 		},
 		{
 			type: 'S2',
@@ -63,11 +74,19 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/bistami/004.jpg', caption: 'Projection Graphic' } ]
+			media: {
+				source: 'public/bistami/004.jpg',
+				tags: [ 'Timurid Architecture' ],
+				caption: 'Graphic Projection 1'
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/bistami/005.jpg', caption: 'Historical Map of Constantinople' } ]
+			media: {
+				source: 'public/bistami/005.jpg',
+				tags: [ 'Dragons', 'Projection Mapping' ],
+				caption: 'Graphic Projection 2'
+			}
 		},
 		{
 			type: 'S2',
@@ -76,27 +95,38 @@ export default {
 		},
 		{
 			type: 'S3',
-			anchor: 'Abdurrahman Bistami',
-			media: [ { source: 'public/bistami/006.jpg', caption: 'Model Orthogaphic Top View' } ]
+			anchor: 'Anchor 8',
+			media: {
+				source: 'public/bistami/006.jpg',
+				tags: [ 'Ottoman Miniature', 'Timurid Architecture' ],
+				caption: 'Graphic Projection'
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/bistami/007.jpg', caption: 'Model Orthogaphic Front View' } ]
-		},
-		{
-			type: 'S2',
-			title: 'Talismanic<br>Plan',
-			paragraphs: 'The map of Byzantine Constantinople is compared with the plan of the 3D miniature. Different parts of the miniature are named after major monuments of the city based on geographical and symbolic relationships. The Names of the towers refer to nearby gates, quarters and monuments. The structures in the original miniature does not strictly correspond to these identifications as the miniatureist sought formal differenciation and symbolic expression. The city is expressed in the miniature as a juxtaposition of metaphysical meanings and a sedimentation of diverse universal symbols.'
-		},
-		{
-			type: 'S3',
-			anchor: 'Talismanic Plan',
-			media: [ { source: 'public/bistami/008.jpg', caption: 'View over the Seraglio Point' } ]
+			media: {
+				source: 'public/bistami/007.jpg',
+				tags: [ 'Particle Simulation', 'Timurid Architecture' ],
+				caption: 'Graphic Projection'
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/bistami/009.jpg', caption: 'Blacharnae Quarter' } ]
+			anchor: 'Anchor 10',
+			media: {
+				source: 'public/bistami/008.jpg',
+				tags: [ 'Photogrammetry' ],
+				caption: 'Graphic Projectin',
+			}
 		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/bistami/009.jpg',
+				tags: [ 'Ottoman Miniature', 'Timurid Architecture' ],
+				caption: 'Graphic Projection'
+			}
+		}
 	]
 
 };

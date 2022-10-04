@@ -21,7 +21,7 @@ import P15 from './photogrammetry';
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Founded by Mete Kutlu',
+	subtitle: 'Cutting-edge digital scenogaphy atelier',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
@@ -87,15 +87,15 @@ export default {
 	robots: '',
 
 	// Add the imported project in the list below
-	tabs: [
-		{ title: 'Cup of Jamshid',
-			content: [
-				'Eiusmod do est labore id exercitation elit anim minim qui fugiat veniam. Culpa sunt fugiat excepteur officia cillum. Enim ex excepteur eu labore qui excepteur reprehenderit velit laboris amet id commodo amet. Proident elit nulla velit voluptate id excepteur adipisicing pariatur proident anim nostrud velit.',
-				'Irure consectetur sunt proident elit dolor eiusmod. Fugiat quis consequat ex commodo quis ea minim fugiat. Et minim qui minim in tempor laborum velit esse aliqua velit Lorem incididunt enim. Anim pariatur excepteur culpa incididunt aute eu deserunt voluptate.',
-				'Excepteur in dolore ad laboris nulla sint cupidatat sint quis ullamco eu enim cillum esse. Dolor et cillum qui eu proident. Pariatur occaecat in eiusmod duis amet. Aliquip excepteur est quis quis sit id deserunt anim enim non in in. Ullamco incididunt fugiat veniam sit aliqua ad officia exercitation in. Consectetur mollit qui anim labore elit.'
-			]
-		}, { title: 'Filters', content: [] }
-	],
+	filters: { title: 'Filters' },
+	exploration: {
+		title: 'Cup of Jamshid',
+		description: [
+			'Eiusmod do est labore id exercitation elit anim minim qui fugiat veniam. Culpa sunt fugiat excepteur officia cillum. Enim ex excepteur eu labore qui excepteur reprehenderit velit laboris amet id commodo amet. Proident elit nulla velit voluptate id excepteur adipisicing pariatur proident anim nostrud velit.',
+			'Irure consectetur sunt proident elit dolor eiusmod. Fugiat quis consequat ex commodo quis ea minim fugiat. Et minim qui minim in tempor laborum velit esse aliqua velit Lorem incididunt enim. Anim pariatur excepteur culpa incididunt aute eu deserunt voluptate.',
+			'Excepteur in dolore ad laboris nulla sint cupidatat sint quis ullamco eu enim cillum esse. Dolor et cillum qui eu proident. Pariatur occaecat in eiusmod duis amet. Aliquip excepteur est quis quis sit id deserunt anim enim non in in. Ullamco incididunt fugiat veniam sit aliqua ad officia exercitation in. Consectetur mollit qui anim labore elit.'
+		]
+	},
 
 	grid: [
 

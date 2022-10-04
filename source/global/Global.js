@@ -29,7 +29,7 @@ export default class Global {
 			--line-height: 1.8;
 			--border-size: 1px;
 			--border-color: transparent;
-			--background-color: rgba( 0, 0, 0, 0 );
+			--background-color: rgba( 0, 0, 0, .25 );
 			--border-color: rgba( 255, 255, 255, 1 );
 
 			--margin-m: 40px;
@@ -97,7 +97,7 @@ export default class Global {
 		}
 
 		[ blurred-background ] {
-			--blur: blur( 5px );
+			--blur: blur( 10px );
 			backdrop-filter: var( --blur );
 			-webkit-backdrop-filter: var( --blur );
 		}
@@ -144,25 +144,6 @@ export default class Global {
 			font-style: normal;
 			font-weight: normal;
 			font-display: swap;
-		}
-
-		@media ( hover: hover ) {
-
-			[ grab ] {
-				cursor: grab;
-			}
-
-			[ grabbing ] {
-				cursor: grabbing;
-			}
-
-			[ pointer ] {
-				cursor: pointer;
-			}
-
-			[ crosshair ] {
-				cursor: crosshair;
-			}
 		}
 
 		`;

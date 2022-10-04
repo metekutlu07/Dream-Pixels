@@ -4,6 +4,7 @@ import { createServer } from 'vite';
 import { buildSync } from 'esbuild';
 
 import { getShaderChunk } from './glsl.js';
+import { getColorList } from './colors.js';
 
 import {
 
@@ -25,15 +26,6 @@ export default async ( { command, mode } ) => {
 	const alias = { 'vite': vite, '~': root };
 	const host = '0.0.0.0';
 	const port = 3000;
-
-	if ( ! isPreview ) {
-
-		await rm( build, { recursive: true, force: true } );
-		await mkdir( build, { recursive: true } );
-
-	}
-
-	await parseDirectory();
 
 	const configuration = {
 
@@ -96,6 +88,19 @@ export default async ( { command, mode } ) => {
 
 	} );
 
+	const module = await server.ssrLoadModule( '~/Application' );
+	const Application = module.default;
+	const tags = await getColorList( Application.content );
+
+	if ( ! isPreview ) {
+
+		await rm( build, { recursive: true, force: true } );
+		await mkdir( build, { recursive: true } );
+
+	}
+
+	await parseDirectory();
+
 	async function configureServer( { watcher, ws } ) {
 
 		setServer( ws );
@@ -126,11 +131,7 @@ export default async ( { command, mode } ) => {
 
 	async function transform( source, sourceID ) {
 
-		if ( /\.svg$/.test( sourceID ) ) {
-
-			return `export default \`${ source }\``;
-
-		}
+		if ( /\.svg$/.test( sourceID ) ) return `export default \`${ source }\``;
 
 		if ( /\.js$/.test( sourceID ) ) {
 
@@ -138,13 +139,6 @@ export default async ( { command, mode } ) => {
 
 				const isExcluded = exclude.find( pattern => sourceID.match( pattern ) );
 				if ( ! isExcluded ) source = `${ string }\n${ source }`;
-
-			}
-
-			if ( mode !== 'production' ) {
-
-				const define = /\/\/ #ifdef PRODUCTION[\s\S]*?\/\/ #endif/g;
-				source = source.replace( define, '' );
 
 			}
 
@@ -202,6 +196,7 @@ export default async ( { command, mode } ) => {
 
 		const { path } = Application.router.parseURL( url || '/' );
 		const routes = Application.content.get( 'routes' );
+		Application.content.filters.tags = tags;
 
 		const views = await Promise.all( routes.map( async path => {
 

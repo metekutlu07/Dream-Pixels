@@ -30,11 +30,11 @@ export default class Cursor extends HTMLElement {
 		const opacity = Math.clamp( 1 - distance / 200, 0, 1 );
 
 		cursor.style.transform = `translate( ${ x + 10 }px, ${ y + 10 }px )`;
-		cursor.style.opacity = opacity;
+		// cursor.style.opacity = opacity;
 
-		const { project } = Application.store;
-		cursor.toggleAttribute( 'visible', project );
-		if ( project ) this.setContent( project );
+		// const { project } = Application.store;
+		// cursor.toggleAttribute( 'visible', project );
+		// if ( project ) this.setContent( project );
 
 	}
 
@@ -57,16 +57,41 @@ export default class Cursor extends HTMLElement {
 		css`
 
 		projects-cursor {
-			font-size: var( --font-size-l );
-			position: absolute;
+			/* font-size: var( --font-size-l ); */
+			position: fixed;
 			top: 0;
 			left: 0;
 			padding: var( --margin-s );
 			background-color: var( --background-color );
 			border: var( --border-size ) solid var( --border-color );
-			display: none;
+			/* display: none; */
 			justify-content: space-between;
 			align-items: center;
+
+			& h3 {
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-l );
+				width: initial;
+				margin-bottom: 2px;
+
+				& span {
+					font-family: var( --font-family-b );
+					font-size: .9em;
+					opacity: .25;
+				}
+			}
+
+			& h4 {
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-s );
+				margin-bottom: 4px;
+			}
+
+			& h5 {
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-xs );
+				opacity: .5;
+			}
 
 			@media ( hover: hover ) {
 				&[ visible ] {
@@ -85,14 +110,30 @@ export default class Cursor extends HTMLElement {
 
 		`;
 
+		const {
+
+			title,
+			subtitle,
+			path,
+			location,
+			date
+
+		} = Application.content.projects[ 0 ];
+
+		const { projects } = Application.content;
+		const index = projects.findIndex( project => project.path === path );
+		const number = ( '00' + ( index + 1 ) ).substr( -2 );
+
 		return html`
 
 		<projects-cursor @click #cursor blurred-background>
-			<h3 font-style-title>
-				<span #title></span><br/>
-				<span #subtitle></span>
-			</h3>
-			<cursor-number #index></cursor-number>
+			<item-footer>
+				<item-description>
+					<h3>${ title }<span>| ${ number }</span></h3>
+					<h4>${ subtitle }</h4>
+					<h5> ${ location }, ${ date }</h5>
+				</item-description>
+			</item-footer>
 		</projects-cursor>
 
 		`;

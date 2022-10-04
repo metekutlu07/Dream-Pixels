@@ -89,7 +89,8 @@ import {
 	Matrix4,
 	Euler,
 	Object3D,
-	Color
+	Color,
+	Spherical
 
 } from 'three';
 
@@ -109,3 +110,4 @@ Pool.create( Box3, box => box.makeEmpty() );
 Pool.create( Euler );
 Pool.create( Object3D );
 Pool.create( Color );
+Pool.create( Spherical );

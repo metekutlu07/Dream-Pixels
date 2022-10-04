@@ -2,7 +2,10 @@ import View from '~/components/View';
 
 import Grid from './Grid';
 import Cursor from './Cursor';
-import Tabs from './Tabs';
+import Exploration from './Exploration';
+import Filters from './Filters';
+import ColorRange from './ColorRange';
+import Timeline from './Timeline';
 
 export default class Projects extends View {
 
@@ -15,7 +18,6 @@ export default class Projects extends View {
 
 		projects-view {
 			overflow: hidden;
-			pointer-events: none;
 		}
 
 		`;
@@ -23,9 +25,12 @@ export default class Projects extends View {
 		return html`
 
 		<projects-view view>
-			${ Grid }
 			${ Cursor }
-			${ Tabs }
+			${ Grid }
+			${ Exploration }
+			${ Filters }
+			${ ColorRange }
+			${ Timeline }
 		</projects-view>
 
 		`;

@@ -25,7 +25,7 @@ export default class S3 {
 		`;
 
 		const { anchor } = content;
-		const { source, caption, controls, } = content.media[ 0 ];
+		const { source, caption, controls, } = content.media;
 		const isVideo = source.match( /mp4/g );
 
 		return html`

@@ -54,13 +54,11 @@ export default class S1 {
 
 		} = content;
 
-		const { source } = content.media[ 0 ];
-
 		return html`
 
 		<section-type-1 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
-			${ Video.render( source, { fullscreen: true } ) }
+			${ content.media ? Video.render( content.media.source, { fullscreen: true } ) : '' }
 			${ description ? Aside.render( html`
 
 				<h3>${ title }</h3>

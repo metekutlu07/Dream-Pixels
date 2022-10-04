@@ -259,6 +259,7 @@ export default class Item extends HTMLElement {
 			aspect-ratio: var( --aspect-ratio );
 			border: 1px solid transparent;
 			background: #222;
+			margin-bottom: var( --margin-xs );
 
 			[ view-enter ][ list="grid" ] & {
 				animation: 1.5s linear var( --transition-delay ) var( --animation );
@@ -267,7 +268,6 @@ export default class Item extends HTMLElement {
 		}
 
 		item-footer {
-			margin-top: var( --margin-xs );
 			display: flex;
 			justify-content: flex-start;
 			align-items: flex-start;
@@ -284,12 +284,13 @@ export default class Item extends HTMLElement {
 			title,
 			subtitle,
 			path,
-			index,
 			location,
 			date
 
 		} = content;
 
+		const { projects } = Application.content;
+		const index = projects.findIndex( project => project.path === path );
 		const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
 		return html`

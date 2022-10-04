@@ -1,15 +1,13 @@
 import {
 
 	Object3D,
-	PlaneGeometry,
-	MeshBasicMaterial,
-	Mesh,
-	Vector2,
 	Vector3,
 	Raycaster,
 	Spherical
 
 } from 'three';
+
+import Image from './Image';
 
 export default class Images extends Object3D {
 
@@ -29,56 +27,28 @@ export default class Images extends Object3D {
 
 		const { textures } = files[ 'projects' ];
 
-		const children = Object.entries( textures ).map( entry => {
+		const images = Object.values( textures );
 
-			const [ name, map ] = entry;
-			const { naturalWidth, naturalHeight } = map.image;
-			const aspect = naturalWidth / naturalHeight;
+		images
+			.map( ( map, index ) => new Image( map, index ) )
+			.forEach( image => this.add( image ) );
 
-			const parameters = { map, depthTest: false, fog: true, transparent: true };
-			const material = new MeshBasicMaterial( parameters );
-			const geometry = new PlaneGeometry( aspect, 1 );
-			const mesh = new Mesh( geometry, material );
+		const points = this.getFibonacciSpherePoints( images.length );
+		const spherical = Spherical.get();
 
-			const projectID = name.split( '/' ).shift();
-			mesh.project = Application.content.get( projectID );
-			mesh.aspect = aspect;
-			mesh.scaleFactor = 20;
+		this.children.forEach( ( child, index ) => {
 
-			return mesh;
-
-		} ).filter( Boolean );
-
-		const count = children.length * 4;
-		const points = this.getFibonacciSpherePoints( count );
-		const spherical = new Spherical();
-
-		points.forEach( ( point, index ) => {
-
-			const source = children[ index % children.length ];
-			const clone = source.clone();
-			clone.material = source.material.clone();
-
-			const { x, y, z } = point;
+			const { x, y, z } = points[ index ];
 			const { phi, theta } = spherical.setFromCartesianCoords( x, y, z );
-			const { aspect, project, scaleFactor } = source;
-			const offset = 1;
-
-			Object.assign( clone, { phi, theta, aspect, project, offset, scaleFactor } );
-
-			clone.initialState = { phi, theta };
-			clone.radius = Math.randFloat( 50, 100 );
-			clone.velocity = new Vector2()
-				.setX( Math.randFloat( -1, 1 ) )
-				.setY( Math.randFloat( -1, 1 ) )
-				.setLength( 1e-4 );
-
-			this.add( clone );
+			child.phi = phi;
+			child.theta = theta;
 
 		} );
 
 		this.children.sort( ( a, b ) => a.radius - b.radius );
 		this.children.forEach( ( child, index ) => child.renderOrder = this.children.length - index );
+
+		Spherical.release( spherical );
 
 	}
 
@@ -90,29 +60,12 @@ export default class Images extends Object3D {
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;
 
-		this.children.forEach( ( child, index ) => {
+		this.children.forEach( child => child.toggle( this.isVisible ) );
 
-			if ( child.animation ) child.animation.remove( child );
-
-			const factor = this.isVisible ?
-				Math.floor( index / 10 ) :
-				Math.floor( ( this.children.length - index ) / 10 );
-
-			const easing = 'easeOutQuint';
-			const offset = this.isVisible ? 0 : 1;
-			const duration = this.isVisible ? 1000 : 500;
-			const delay = this.isVisible ? 250 + factor * 50 : factor * 10;
-
-			child.animation = anime( { targets: child, easing, duration, delay, offset } );
-
-		} );
-
-		this.children.forEach( child => {
-
-			child.theta = child.initialState.theta;
-			child.phi = child.initialState.phi;
-
-		} );
+		// const position = this.isVisible ? index / 10 )
+		// child.toggle(this.isVisible, this.position)
+		// 	Math.floor(  :
+		// 	Math.floor( ( this.children.length - index ) / 10 );
 
 		this.object = null;
 
@@ -120,43 +73,10 @@ export default class Images extends Object3D {
 
 	onUpdate() {
 
-		const project = this.object ? this.object.project : null;
-		Application.store.set( 'crosshair', this.isVisible );
-		Application.store.set( 'object', this.object );
-		Application.store.set( 'project', project );
-
-		this.children.forEach( child => {
-
-			const {
-
-				position,
-				phi,
-				theta,
-				radius,
-				offset,
-				scaleFactor,
-				velocity
-
-			} = child;
-
-			child.visible = offset < .95;
-			child.scale.setScalar( scaleFactor );
-			child.material.opacity = 1 - offset;
-
-			if ( ! this.isVisible ) return;
-
-			child.phi += velocity.x;
-			child.theta += velocity.y;
-
-			const length = ( radius + offset * 5 );
-
-			position.x = length * Math.sin( phi ) * Math.sin( theta );
-			position.y = length * Math.cos( phi );
-			position.z = length * Math.sin( phi ) * Math.cos( theta );
-
-			child.lookAt( Application.scene.position );
-
-		} );
+		// const project = this.object ? this.object.project : null;
+		// Application.store.set( 'crosshair', this.isVisible );
+		// Application.store.set( 'object', this.object );
+		// Application.store.set( 'project', project );
 
 	}
 

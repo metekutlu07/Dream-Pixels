@@ -33,6 +33,14 @@ export default class Canvas extends HTMLElement {
 			margin: auto;
 			top: 0;
 			left: 0;
+
+			@media ( hover: hover ) {
+				&[ grab ] { cursor: grab; }
+				&[ grabbing ] { cursor: grabbing; }
+				&[ pointer ] { cursor: pointer; }
+				&[ crosshair ] { cursor: crosshair; }
+			}
+
 		}
 
 		`;

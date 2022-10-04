@@ -7,12 +7,15 @@
     "dev": "vite serve --config=vite/config.js",
     "build": "vite build --config=vite/config.js",
     "preview": "vite preview --config=vite/config.js",
-    "deploy": "firebase deploy --project web-application-preview"
+    "deploy": "firebase deploy --project web-application-preview",
+    "parse": "node ./utilities/colors-extractor"
   },
   "devDependencies": {
     "eslint": "^8.23.0",
     "eslint-plugin-lit": "^1.6.1",
     "firebase-tools": "^11.8.0",
+    "image-pixels": "^2.2.2",
+    "sharp": "^0.31.1",
     "vite": "^3.0.9"
   },
   "dependencies": {

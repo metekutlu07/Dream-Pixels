@@ -5,28 +5,38 @@ export default {
 	subtitle: 'Geometric Study',
 	location: 'Paris, France',
 	date: '2020',
+	team: 'Mete Kutlu & Theuns Botha',
+	period: 'June 2021 - October 2022',
+	partners: 'Comet Lab & Ausser',
+	clients: 'Foundation Philippe Auguste',
 	description: 'Eiusmod exercitation labore nostrud consectetur eu veniam quis Lorem excepteur culpa. Aute laborum Lorem est aute minim in mollit cupidatat. Dolor labore nostrud elit elit eiusmod anim pariatur cupidatat. Amet officia et commodo elit anim veniam aliquip velit excepteur. Id fugiat amet eiusmod nisi aliqua exercitation in ex.',
 	sections: [
 		{
 			type: 'S1',
 			paragraphs: '',
-			media: [ { source: 'public/theodora/000.mp4', caption: 'Video Introduction' } ]
+			media: {
+				source: 'public/theodora/000.mp4',
+				caption: 'Video Introduction'
+			}
 		},
 		{
 			type: 'S4',
 			paragraphs: 'This experiment brings together Euclidian geometry of the Albertian architect with the mystical symbolism of the miniaturist. A mist of chaotic lines is simulated to visualize the complexity of Nature that is beyond human intelligence in the mystical cosmologies of Pseudo-Dionysius and Ibn Arabi.',
-			media: [ {
+			media: {
 				source: 'public/Common/Artwork.jpg',
 				caption: `
 					Constantinople <br>
 					The Keys To Esoteric Knowledge <br>
 					Constantinople, c.1605
 				`
-			} ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/002.jpg', caption: 'Zoom' } ]
+			media: {
+				source: 'public/theodora/002.jpg',
+				caption: 'Zoom'
+			}
 		},
 		{
 			type: 'S2',
@@ -35,11 +45,19 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/002.mp4', caption: 'Video' } ]
+			media: {
+				source: 'public/theodora/002.mp4',
+				caption: 'Video',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/004.jpg', caption: 'View Top' } ]
+			media: {
+				source: 'public/theodora/004.jpg',
+				caption: 'View Top',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S2',
@@ -48,11 +66,19 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/005.jpg', caption: 'The Talismanic Tower of Constantinople' } ]
+			media: {
+				source: 'public/theodora/005.jpg',
+				caption: 'The Talismanic Tower of Constantinople',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/006.jpg', caption: 'View Buildings 1' } ]
+			media: {
+				source: 'public/theodora/006.jpg',
+				caption: 'View Buildings 1',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S2',
@@ -61,35 +87,67 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/007.jpg', caption: 'Top Tower' } ]
+			media: {
+				source: 'public/theodora/007.jpg',
+				caption: 'Top Tower',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/008.jpg', caption: 'View Side 2' } ]
+			media: {
+				source: 'public/theodora/008.jpg',
+				caption: 'View Side 2',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/009.jpg', caption: 'View Back' } ]
+			media: {
+				source: 'public/theodora/009.jpg',
+				caption: 'View Back',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/010.jpg', caption: 'View Buildings 2' } ]
+			media: {
+				source: 'public/theodora/010.jpg',
+				caption: 'View Buildings 2',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/011.jpg', caption: 'View Buildings 3' } ]
+			media: {
+				source: 'public/theodora/011.jpg',
+				caption: 'View Buildings 3',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/012.jpg', caption: 'View Buildings 4' } ]
+			media: {
+				source: 'public/theodora/012.jpg',
+				caption: 'View Buildings 4',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/013.jpg', caption: 'Cloud' } ]
+			media: {
+				source: 'public/theodora/013.jpg',
+				caption: 'Cloud',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/theodora/014.jpg', caption: 'Ecstasy' } ]
+			media: {
+				source: 'public/theodora/014.jpg',
+				caption: 'Ecstasy',
+				tags: [ 'Tag 5', 'Persian Miniature' ]
+			}
 		},
 
 	]
