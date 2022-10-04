@@ -111,6 +111,7 @@ export default class Objects extends Object3D {
 			child.rotation.x = Math.sin( time + index ) * .25;
 			child.rotation.z = Math.cos( time * 1.333 - index ) * .25;
 			child.material.opacity = opacity;
+			child.visible = opacity > .05;
 
 			Vector3.release( vector );
 

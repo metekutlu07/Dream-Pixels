@@ -1,14 +1,16 @@
 export default {
 
-	path: 'when-light-escapes-matter',
-	title: 'When Light Escapes Matter',
+	path: 'theodora',
+	title: 'Theodora',
 	subtitle: 'Geometric Study',
+	location: 'Paris, France',
+	date: '2020',
 	description: 'Eiusmod exercitation labore nostrud consectetur eu veniam quis Lorem excepteur culpa. Aute laborum Lorem est aute minim in mollit cupidatat. Dolor labore nostrud elit elit eiusmod anim pariatur cupidatat. Amet officia et commodo elit anim veniam aliquip velit excepteur. Id fugiat amet eiusmod nisi aliqua exercitation in ex.',
 	sections: [
 		{
 			type: 'S1',
 			paragraphs: '',
-			media: [ { source: 'public/when-light-escapes-matter/000.mp4', caption: 'Video Introduction' } ]
+			media: [ { source: 'public/theodora/000.mp4', caption: 'Video Introduction' } ]
 		},
 		{
 			type: 'S4',
@@ -24,7 +26,7 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/002.jpg', caption: 'Zoom' } ]
+			media: [ { source: 'public/theodora/002.jpg', caption: 'Zoom' } ]
 		},
 		{
 			type: 'S2',
@@ -33,11 +35,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/002.mp4', caption: 'Video' } ]
+			media: [ { source: 'public/theodora/002.mp4', caption: 'Video' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/004.jpg', caption: 'View Top' } ]
+			media: [ { source: 'public/theodora/004.jpg', caption: 'View Top' } ]
 		},
 		{
 			type: 'S2',
@@ -46,11 +48,11 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/005.jpg', caption: 'The Talismanic Tower of Constantinople' } ]
+			media: [ { source: 'public/theodora/005.jpg', caption: 'The Talismanic Tower of Constantinople' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/006.jpg', caption: 'View Buildings 1' } ]
+			media: [ { source: 'public/theodora/006.jpg', caption: 'View Buildings 1' } ]
 		},
 		{
 			type: 'S2',
@@ -59,35 +61,35 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/007.jpg', caption: 'Top Tower' } ]
+			media: [ { source: 'public/theodora/007.jpg', caption: 'Top Tower' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/008.jpg', caption: 'View Side 2' } ]
+			media: [ { source: 'public/theodora/008.jpg', caption: 'View Side 2' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/009.jpg', caption: 'View Back' } ]
+			media: [ { source: 'public/theodora/009.jpg', caption: 'View Back' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/010.jpg', caption: 'View Buildings 2' } ]
+			media: [ { source: 'public/theodora/010.jpg', caption: 'View Buildings 2' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/011.jpg', caption: 'View Buildings 3' } ]
+			media: [ { source: 'public/theodora/011.jpg', caption: 'View Buildings 3' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/012.jpg', caption: 'View Buildings 4' } ]
+			media: [ { source: 'public/theodora/012.jpg', caption: 'View Buildings 4' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/013.jpg', caption: 'Cloud' } ]
+			media: [ { source: 'public/theodora/013.jpg', caption: 'Cloud' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/when-light-escapes-matter/014.jpg', caption: 'Ecstasy' } ]
+			media: [ { source: 'public/theodora/014.jpg', caption: 'Ecstasy' } ]
 		},
 
 	]

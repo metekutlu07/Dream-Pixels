@@ -185,11 +185,11 @@ export default class Simulation {
 		this.uniforms[ 'initial' ].value = dataTexture;
 
 		this.renderTargets.forEach( this.render );
-		this.speed = .25;
+		this.speed = .1;
 
 		const targets = this;
 		const easing = 'easeOutQuint';
-		const duration = 1500;
+		const duration = 1000;
 		const delay = 500;
 		const speed = 0;
 

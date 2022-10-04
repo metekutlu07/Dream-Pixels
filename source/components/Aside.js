@@ -134,11 +134,15 @@ export default class Aside extends HTMLElement {
 
 			& h3,
 			& h4 {
-				font-size: var( --font-size-xl );
+				/* font-size: var( --font-size-l ); */
 			}
 
 			& h3 {
-				margin-bottom: calc( var( --margin-m ) * .5 );
+				/* margin-bottom: calc( var( --margin-m ) * .5 ); */
+			}
+
+			& h4 {
+				margin-top: 2px;
 			}
 
 			& p {
@@ -146,6 +150,7 @@ export default class Aside extends HTMLElement {
 				font-size: var( --font-size-s );
 				font-family: var( --font-family-c );
 				line-height: var( --line-height );
+				margin-top: var( --margin-s );
 			}
 
 		}

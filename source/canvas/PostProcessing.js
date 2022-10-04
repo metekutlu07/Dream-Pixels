@@ -19,17 +19,17 @@ export default class PostProcessing {
 
 		this.parameters = Application.store.add( 'PostProcessing', {
 
-			enabled: true,
+			enabled: false,
 
 			vignettePass: {
 				enabled: true,
 				color: '#000000',
-				strength: { value: .1, max: 2 },
+				strength: { value: .5, max: 2 },
 			},
 
 			chromaticAberrationPass: {
 				enabled: true,
-				strength: { value: .25, max: 2 },
+				strength: { value: .1, max: 2 },
 			},
 
 			bloomPass: {
@@ -67,7 +67,7 @@ export default class PostProcessing {
 
 			rgbShiftPass: {
 				enabled: true,
-				strength: { value: 1e-4, max: 1e-2 },
+				strength: { value: 1e-3, max: 1e-2 },
 				angle: { value: 0, max: 1 }
 			},
 

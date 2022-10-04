@@ -1,6 +1,6 @@
-import P1 from './when-gaspard-meets-bistami';
-import P2 from './when-light-escapes-matter';
-import P3 from './cosmic-colors';
+import P1 from './bistami';
+import P2 from './theodora';
+import P3 from './latent-voxels';
 import P4 from './miniature-street-view';
 import P5 from './when-ai-dreams-of-miniatures';
 import P6 from './virtual-miniature';
@@ -75,8 +75,8 @@ export default {
 		'project': [ 'See project' ],
 		'about': [ 'About' ],
 		'contact': [ 'Contact' ],
-		'grid': [ 'Grid' ],
-		'sphere': [ 'Pictures' ],
+		'grid': [ 'Projects' ],
+		'sphere': [ 'Images' ],
 		'particles': [ 'Pixels' ],
 		'display-menu': [ 'Menu', 'Close' ]
 	},
@@ -87,7 +87,16 @@ export default {
 	robots: '',
 
 	// Add the imported project in the list below
-	projects: [ P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13, P14, P15 ],
+	tabs: [
+		{ title: 'Cup of Jamshid',
+			content: [
+				'Eiusmod do est labore id exercitation elit anim minim qui fugiat veniam. Culpa sunt fugiat excepteur officia cillum. Enim ex excepteur eu labore qui excepteur reprehenderit velit laboris amet id commodo amet. Proident elit nulla velit voluptate id excepteur adipisicing pariatur proident anim nostrud velit.',
+				'Irure consectetur sunt proident elit dolor eiusmod. Fugiat quis consequat ex commodo quis ea minim fugiat. Et minim qui minim in tempor laborum velit esse aliqua velit Lorem incididunt enim. Anim pariatur excepteur culpa incididunt aute eu deserunt voluptate.',
+				'Excepteur in dolore ad laboris nulla sint cupidatat sint quis ullamco eu enim cillum esse. Dolor et cillum qui eu proident. Pariatur occaecat in eiusmod duis amet. Aliquip excepteur est quis quis sit id deserunt anim enim non in in. Ullamco incididunt fugiat veniam sit aliqua ad officia exercitation in. Consectetur mollit qui anim labore elit.'
+			]
+		}, { title: 'Filters', content: [] }
+	],
+
 	grid: [
 
 		P1,

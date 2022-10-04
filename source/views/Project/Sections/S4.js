@@ -12,10 +12,10 @@ export default class S4 {
 			font-family: var( --font-family-c );
 
 			@media ( max-width: 1280px ) {
-				padding: var( --margin-s );
 			}
 
 			@media ( max-width: 768px ) {
+				padding: var( --margin-s );
 				flex-direction: column;
 			}
 
@@ -79,7 +79,7 @@ export default class S4 {
 
 		`;
 
-		const { details, paragraphs } = content;
+		const { details, paragraphs, anchor } = content;
 		const { source, caption } = content.media[ 0 ];
 
 		const list = ! details ? '' : Object.entries( details )
@@ -92,7 +92,7 @@ export default class S4 {
 
 		return html`
 
-		<section-type-4 section>
+		<section-type-4 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
 			<div>
 				<img src="${ source }" alt="${ caption }"/>

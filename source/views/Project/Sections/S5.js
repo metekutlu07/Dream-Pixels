@@ -57,7 +57,7 @@ export default class S5 extends HTMLElement {
 				title,
 				subtitle,
 				paragraphs,
-				media,
+				media
 
 			} = point;
 

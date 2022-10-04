@@ -6,6 +6,18 @@ export default class Content {
 
 		Object.assign( this, content );
 
+		// Ottoman Miniature
+		// Timurid Architecture
+		// Augmented Reality
+		// Artificial Intelligence
+		// Photogrammetry
+		// Particle Simulation
+		// Persian Miniature
+		// Korean Architecture
+		// Dragons
+		// Projection Mapping
+
+		this.projects = this.grid.filter( cell => cell.path );
 		this.projects.forEach( ( project, index ) => project.index = index );
 
 	}

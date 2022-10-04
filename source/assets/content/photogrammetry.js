@@ -5,6 +5,8 @@ export default {
 	path: 'photogrammetry',
 	title: 'Photogrammetry',
 	subtitle: '3D Web Experience',
+	location: 'Paris, France',
+	date: '2020',
 	description: '',
 
 	// The thumbnail displayed on the projects list, could be an image or a video

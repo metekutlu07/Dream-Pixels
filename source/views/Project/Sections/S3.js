@@ -24,12 +24,13 @@ export default class S3 {
 
 		`;
 
-		const { source, caption, controls } = content.media[ 0 ];
+		const { anchor } = content;
+		const { source, caption, controls, } = content.media[ 0 ];
 		const isVideo = source.match( /mp4/g );
 
 		return html`
 
-		<section-type-3 section>
+		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
 		${ isVideo ?
 

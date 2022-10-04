@@ -14,6 +14,18 @@ export default class Project extends View {
 	static path = '/:project';
 	static silent = false;
 
+	onClick( event ) {
+
+		const { currentTarget } = event;
+
+		const query = `[anchor="${ currentTarget.textContent }"]`;
+		const element = document.querySelector( query );
+		const top = element.offsetTop;
+
+		document.body.scrollTo( { top, behavior: 'smooth' } );
+
+	}
+
 	static render( parameters ) {
 
 		css`
@@ -45,29 +57,58 @@ export default class Project extends View {
 			min-width: 100%;
 		}
 
+		project-navigation {
+			z-index: 2;
+			position: fixed;
+			font-size: var( --font-size-s );
+			font-family: var( --font-family-c );
+			right: var( --margin-m );
+			top: calc( var( --margin-m ) * 4 );
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+
+		project-anchor {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: var( --margin-xs );
+			cursor: pointer;
+
+			&:after {
+				content: '';
+				display: block;
+				height: 10px;
+				width: 10px;
+				border: 1px solid white;
+				border-radius: 50%;
+				margin-left: 10px;
+			}
+		}
+
 		`;
 
-		const {
+		const content = Application.content.get( parameters.project );
+		const { sections } = content;
 
-			title,
-			subtitle,
-			sections,
-			path,
-			description
+		const anchors = sections
+			.filter( section => section.anchor )
+			.map( section => html`<project-anchor @click>${ section.anchor }</project-anchor>` );
 
-		} = Application.content.get( parameters.project );
+		const blocks = sections.map( ( section, index ) => {
 
-		const blocks = sections.map( ( content, index ) => {
-
-			const Section = Types[ content.type ];
-			if ( ! index ) Object.assign( content, { title, subtitle, path, description } );
-			return Section.render( content );
+			const Section = Types[ section.type ];
+			if ( ! index ) Object.assign( section, content );
+			return Section.render( section );
 
 		} );
 
 		return html`
 
 		<project-view view>
+			<project-navigation>${ anchors }</project-navigation>
 			${ blocks }
 		</project-view>
 

@@ -20,8 +20,8 @@ export default class Global {
 			--font-family-c: "SF Mono";
 
 			--font-size-xxl: 6.5rem;
-			--font-size-xl: 4rem;
-			--font-size-l: 2rem;
+			--font-size-xl: 3.5rem;
+			--font-size-l: 2.25rem;
 			--font-size-m: 1.6rem;
 			--font-size-s: 1.4rem;
 			--font-size-xs: 1.2rem;
@@ -29,7 +29,7 @@ export default class Global {
 			--line-height: 1.8;
 			--border-size: 1px;
 			--border-color: transparent;
-			--background-color: rgba( 0, 0, 0, .25 );
+			--background-color: rgba( 0, 0, 0, 0 );
 			--border-color: rgba( 255, 255, 255, 1 );
 
 			--margin-m: 40px;
@@ -88,15 +88,16 @@ export default class Global {
 		}
 
 		[ font-style-title ] {
-			font-family: var( --font-family-a );
+			font-family: var( --font-family-b );
 
 			&:first-line {
-				font-family: var( --font-family-b );
+				font-family: var( --font-family-a );
+				font-size: 1.5em;
 			}
 		}
 
 		[ blurred-background ] {
-			--blur: blur( 10px );
+			--blur: blur( 5px );
 			backdrop-filter: var( --blur );
 			-webkit-backdrop-filter: var( --blur );
 		}

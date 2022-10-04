@@ -218,7 +218,7 @@ export default class Button extends HTMLElement {
 			--border: var( --border-size ) solid var( --border-color );
 			align-items: center;
 			justify-content: center;
-			padding: var( --margin-xs ) var( --margin-xs );
+			padding: var( --margin-xs ) var( --margin-s );
 			display: flex;
 		}
 

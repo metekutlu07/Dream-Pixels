@@ -1,8 +1,8 @@
 import View from '~/components/View';
 
 import Grid from './Grid';
-import Sphere from './Sphere';
-import Particles from './Particles';
+import Cursor from './Cursor';
+import Tabs from './Tabs';
 
 export default class Projects extends View {
 
@@ -24,8 +24,8 @@ export default class Projects extends View {
 
 		<projects-view view>
 			${ Grid }
-			${ Sphere }
-			${ Particles }
+			${ Cursor }
+			${ Tabs }
 		</projects-view>
 
 		`;

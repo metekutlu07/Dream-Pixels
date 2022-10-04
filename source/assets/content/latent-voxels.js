@@ -1,13 +1,19 @@
 export default {
 
-	path: 'cosmic-colors',
-	title: 'Cosmic Colors',
-	subtitle: 'Chromatic Analysis',
+	path: 'latent-voxels',
+	title: 'Latent Voxels',
+	subtitle: 'Computerising Ornemental Urban Talismans',
+	location: 'Paris, France',
+	date: '2020',
+	team: 'Mete Kutlu & Theuns Botha',
+	period: 'June 2021 - October 2022',
+	partners: 'Comet Lab & Ausser',
+	clients: 'Foundation Philippe Auguste',
 	description: 'In the digitized image of the miniature, 2.5 million pixels simulate the colors of the pigments which are used in the miniature. Their colors are analyzed with algorithms to identify the dominant tones. The 12 talismanic towers of Constantinople are represented as clusters of particles. Each second, the mineral pictorial paste pops into millions of particles with constantly changing colors.',
 	sections: [
 		{
 			type: 'S1',
-			media: [ { source: 'public/cosmic-colors/particles_intro.mp4', caption: 'Video Introduction' } ]
+			media: [ { source: 'public/latent-voxels/particles_intro.mp4', caption: 'Video Introduction' } ]
 		},
 		{
 			type: 'S4',
@@ -28,7 +34,7 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/002.mp4', caption: 'When Minerals Become Particles' } ]
+			media: [ { source: 'public/latent-voxels/002.mp4', caption: 'When Minerals Become Particles' } ]
 		},
 		{
 			type: 'S2',
@@ -37,15 +43,15 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/003.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/003.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/004.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/004.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/005.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/005.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S2',
@@ -54,51 +60,51 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/006.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/006.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/007.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/007.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/008.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/008.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/009.jpg', caption: 'Mosaic' } ]
+			media: [ { source: 'public/latent-voxels/009.jpg', caption: 'Mosaic' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/010.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/010.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/011.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/011.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/012.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/012.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/013.jpg', caption: 'Florentine Geometrical Eye' } ]
+			media: [ { source: 'public/latent-voxels/013.jpg', caption: 'Florentine Geometrical Eye' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/014.jpg', caption: 'Amalfitan Tower Top' } ]
+			media: [ { source: 'public/latent-voxels/014.jpg', caption: 'Amalfitan Tower Top' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/015.jpg', caption: 'Bezels of Wisdom' } ]
+			media: [ { source: 'public/latent-voxels/015.jpg', caption: 'Bezels of Wisdom' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/016.jpg', caption: 'Tower of Pharion' } ]
+			media: [ { source: 'public/latent-voxels/016.jpg', caption: 'Tower of Pharion' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/017.jpg', caption: 'Constantinopolitan Eye' } ]
+			media: [ { source: 'public/latent-voxels/017.jpg', caption: 'Constantinopolitan Eye' } ]
 		},
 		{
 			type: 'S2',
@@ -107,19 +113,19 @@ export default {
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/018.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/018.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/019.jpg', caption: 'Tower of Kynegion' } ]
+			media: [ { source: 'public/latent-voxels/019.jpg', caption: 'Tower of Kynegion' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/020.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/020.jpg', caption: 'Color Analysis' } ]
 		},
 		{
 			type: 'S3',
-			media: [ { source: 'public/cosmic-colors/021.jpg', caption: 'Color Analysis' } ]
+			media: [ { source: 'public/latent-voxels/021.jpg', caption: 'Color Analysis' } ]
 		}
 	]
 

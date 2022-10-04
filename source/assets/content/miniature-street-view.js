@@ -3,6 +3,8 @@ export default {
 	path: 'miniature-street-view',
 	title: 'Miniature Street View',
 	subtitle: 'Panoramic Tour',
+	location: 'Paris, France',
+	date: '2020',
 	description: '',
 	sections: [
 		{

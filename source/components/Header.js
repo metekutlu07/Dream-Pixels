@@ -123,7 +123,8 @@ export default class Header extends HTMLElement {
 			position: absolute;
 			top: var( --margin-m );
 			right: var( --margin-m );
-			font-size: var( --font-size-m );
+			font-size: var( --font-size-xs );
+			font-family: var( --font-family-c );
 			transition: opacity 1s var( --timing-function );
 
 			[ path="/projects" ] & {
@@ -185,7 +186,7 @@ export default class Header extends HTMLElement {
 				${ controls.map( Button.render ) }
 			</header-controls>
 
-			<header-credits font-style-title>
+			<header-credits>
 				${ copyright }
 			</header-credits>
 

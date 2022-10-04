@@ -1,6 +1,6 @@
 import { Vector2 } from 'three';
 
-export default class Sphere extends HTMLElement {
+export default class Cursor extends HTMLElement {
 
 	onConnected() {
 
@@ -56,39 +56,6 @@ export default class Sphere extends HTMLElement {
 
 		css`
 
-		projects-sphere {
-			position: absolute;
-			height: var( --viewport-height );
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			top: 0;
-			left: 0;
-			opacity: 0;
-			transition: opacity 1s var( --timing-function );
-			pointer-events: none;
-
-			[ list="sphere" ] & {
-				opacity: 1;
-			}
-		}
-
-		projects-rectangle {
-			position: relative;
-			width: calc( 100% - var( --margin-m ) * 2 );
-			height: calc( 100% - var( --margin-m ) * 2 );
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			border: var( --border-size ) solid rgba( 255, 255, 255, .25);
-
-			@media ( max-width: 768px ) {
-				width: calc( 100% - var( --margin-s ) * 2 );
-				height: calc( 100% - var( --margin-s ) * 2 );
-			}
-		}
-
 		projects-cursor {
 			font-size: var( --font-size-l );
 			position: absolute;
@@ -120,16 +87,13 @@ export default class Sphere extends HTMLElement {
 
 		return html`
 
-		<projects-sphere @click>
-			<projects-rectangle></projects--rectangle>
-			<projects-cursor #cursor blurred-background>
-				<h3 font-style-title>
-					<span #title></span><br/>
-					<span #subtitle></span>
-				</h3>
-				<cursor-number #index></cursor-number>
-			</projects-cursor>
-		</projects-sphere>
+		<projects-cursor @click #cursor blurred-background>
+			<h3 font-style-title>
+				<span #title></span><br/>
+				<span #subtitle></span>
+			</h3>
+			<cursor-number #index></cursor-number>
+		</projects-cursor>
 
 		`;
 
@@ -137,4 +101,4 @@ export default class Sphere extends HTMLElement {
 
 }
 
-customElements.define( 'projects-sphere', Sphere );
+customElements.define( 'projects-cursor', Cursor );

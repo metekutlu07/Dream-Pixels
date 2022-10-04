@@ -54,11 +54,11 @@ export default class S2 {
 
 		`;
 
-		const { title, paragraphs } = content;
+		const { title, paragraphs, anchor } = content;
 
 		return html`
 
-		<section-type-2 section>
+		<section-type-2 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
 			${ title ? html`<h3 font-style-title>${ title }</h3>` : '' }
 			${ paragraphs ? html` <p>${ paragraphs }</p>` : '' }

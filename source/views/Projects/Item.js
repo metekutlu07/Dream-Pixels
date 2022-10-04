@@ -82,8 +82,28 @@ export default class Item extends HTMLElement {
 			}
 
 			& h3 {
+				font-family: var( --font-family-a );
 				font-size: var( --font-size-l );
 				width: initial;
+				margin-bottom: 2px;
+
+				& span {
+					font-family: var( --font-family-b );
+					font-size: .9em;
+					opacity: .25;
+				}
+			}
+
+			& h4 {
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-s );
+				margin-bottom: 4px;
+			}
+
+			& h5 {
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-xs );
+				opacity: .5;
 			}
 
 			& video {
@@ -168,7 +188,6 @@ export default class Item extends HTMLElement {
 
 		item-object {
 			display: block;
-			/* border: 1px solid rgba( 255, 255, 255, .5 ); */
 			aspect-ratio: 1;
 			width: 100%;
 		}
@@ -250,32 +269,11 @@ export default class Item extends HTMLElement {
 		item-footer {
 			margin-top: var( --margin-xs );
 			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			& h3 { flex-grow: 1; }
+			justify-content: flex-start;
+			align-items: flex-start;
 
 			@media ( max-width: 1280px ) {
 				margin-top: var( --margin-xs );
-			}
-		}
-
-		item-number {
-			font-size: 5rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: transparent;
-			line-height: .65;
-			height: 50px;
-			-webkit-text-stroke: 1px var( --color-white );
-
-			@media ( max-width: 1280px ) {
-				font-size: 4rem;
-			}
-
-			@media ( max-width: 450px ) {
-				display: none;
 			}
 		}
 
@@ -286,9 +284,13 @@ export default class Item extends HTMLElement {
 			title,
 			subtitle,
 			path,
-			index
+			index,
+			location,
+			date
 
 		} = content;
+
+		const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
 		return html`
 
@@ -300,8 +302,11 @@ export default class Item extends HTMLElement {
 					</item-overlay>
 				</item-thumbnail>
 				<item-footer>
-					<h3 font-style-title>${ title }<br/>${ subtitle }</h3>
-					<item-number>${ index + 1 }</item-number>
+					<item-description>
+						<h3>${ title }<span>| ${ number }</span></h3>
+						<h4>${ subtitle }</h4>
+						<h5> ${ location }, ${ date }</h5>
+					</item-description>
 				</item-footer>
 			</item-link>
 		</grid-item>

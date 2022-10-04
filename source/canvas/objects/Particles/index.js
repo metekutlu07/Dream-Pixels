@@ -106,7 +106,7 @@ export default class Particles extends InstancedMesh {
 
 		const targets = this.material;
 		const easing = 'easeOutQuint';
-		const duration = this.isVisible ? 1000 : 500;
+		const duration = this.isVisible ? 2000 : 500;
 		const opacity = this.isVisible ? 1 : 0;
 		const delay = this.isVisible ? 250 : 0;
 

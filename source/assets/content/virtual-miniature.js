@@ -3,6 +3,8 @@ export default {
 	path: 'virtual-miniature',
 	title: 'Virtual Miniature',
 	subtitle: '3D Web Experience',
+	location: 'Paris, France',
+	date: '2020',
 	description: '',
 	sections: [ {
 		type: 'S5',

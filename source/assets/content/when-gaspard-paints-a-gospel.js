@@ -3,6 +3,8 @@ export default {
 	path: 'when-gaspard-paints-a-gospel',
 	title: 'When Gaspard Paints A Gospel',
 	subtitle: '3D Byzantine Miniature',
+	location: 'Paris, France',
+	date: '2020',
 	description: 'Eiusmod exercitation labore nostrud consectetur eu veniam quis Lorem excepteur culpa. Aute laborum Lorem est aute minim in mollit cupidatat. Dolor labore nostrud elit elit eiusmod anim pariatur cupidatat. Amet officia et commodo elit anim veniam aliquip velit excepteur. Id fugiat amet eiusmod nisi aliqua exercitation in ex.',
 	sections: [
 		{
