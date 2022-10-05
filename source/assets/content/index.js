@@ -50,6 +50,12 @@ export default {
 	credits: 'Founded by Mete Kutlu',
 	copyright: 'All rights reserved, Paris 2021',
 	mail: 'mete.kutlu@gmail.com',
+	address: `
+		1833, Summit Place Northwest,<br>
+		Lanier Heights, Washington,<br>
+		District of Columbia, 20009,<br>
+		United States
+	`,
 
 	views: {
 

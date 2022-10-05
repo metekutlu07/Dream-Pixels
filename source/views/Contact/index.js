@@ -11,16 +11,20 @@ export default class Contact extends View {
 		css`
 
 		contact-view {
+			position: relative;
 			min-width: 100vw;
 			min-height: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			font-size: 5rem;
+			font-size: var( --font-size-xl );
+			text-align: center;
+			user-select: text;
 
 			& a {
 				color: var( --color-white );
+				margin-top: var( --margin-s );
 				z-index: 0;
 
 				@media (hover: hover) {
@@ -33,12 +37,12 @@ export default class Contact extends View {
 
 		`;
 
-		const { mail } = Application.content;
+		const { mail, address } = Application.content;
 
 		return html`
 
 			<contact-view view>
-				<h3>Contact</h3>
+				<h3>${ address }</h3>
 				<a href="mailto:${ mail }">${ mail }</a>
 			</contact-view>
 

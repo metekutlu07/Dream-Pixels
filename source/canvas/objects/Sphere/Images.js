@@ -55,6 +55,8 @@ export default class Images extends Object3D {
 
 		this.children.forEach( child => child.toggle( this.isVisible ) );
 
+		Application.cursor.reset();
+
 	}
 
 	onPostUpdate() {

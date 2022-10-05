@@ -83,8 +83,8 @@ export default class Global {
 		}
 
 		::selection {
-			color: var( --color-white );
-			background: var( --color-black );
+			color: var( --color-black );
+			background: var( --color-yellow );
 		}
 
 		[ font-style-title ] {
