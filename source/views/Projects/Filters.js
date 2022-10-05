@@ -42,16 +42,12 @@ export default class Filters extends HTMLElement {
 			list-style: none;
 			overflow: scroll;
 			opacity: 0;
-			pointer-events: none;
 			transition: opacity 1s var( --timing-function );
 
-			[ view-exit ][ list="sphere" ] & {
-				opacity: 0;
-			}
-
-			[ view-exit ][ list="sphere" ] & {
+			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;
-				transition-delay: .5s;
+				transition-delay: .75s;
+				pointer-events: all;
 			}
 
 			& li {
@@ -92,12 +88,6 @@ export default class Filters extends HTMLElement {
 						opacity: 1;
 					}
 				}
-			}
-
-			[ view-enter ][ list="sphere" ] & {
-				opacity: 1;
-				transition-delay: .75s;
-				pointer-events: all;
 			}
 		}
 

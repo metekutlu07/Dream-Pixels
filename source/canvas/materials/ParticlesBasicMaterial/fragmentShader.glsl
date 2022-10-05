@@ -24,7 +24,50 @@ uniform float opacity;
 #include <logdepthbuf_pars_fragment>
 #include <clipping_planes_pars_fragment>
 
+uniform vec2 hue;
+
+vec3 getHSL( vec3 rgb ) {
+
+	float r = rgb.r;
+	float g = rgb.g;
+	float b = rgb.b;
+
+	float min = min( min( r, g ), b );
+	float max = max( max( r, g ), b );
+
+	float hue;
+	float saturation;
+	float lightness = ( max + min ) * .5;
+
+	if ( min == max ) {
+
+		hue = 0.;
+		saturation = 0.;
+
+	} else {
+
+		float delta = max - min;
+
+		saturation = lightness <= .5 ?
+			delta / ( max + min ) :
+			delta / ( 2. - max - min );
+
+		if ( max == r ) hue = ( g - b ) / delta + ( g < b ? 6. : 0. );
+		if ( max == g ) hue = ( b - r ) / delta + 2.;
+		if ( max == b ) hue = ( r - g ) / delta + 4.;
+
+		hue /= 6.;
+
+	}
+
+	return vec3( hue, saturation, lightness );
+
+}
+
 void main() {
+
+	vec3 hsl = getHSL( vColor );
+	if ( hsl[ 0 ] < hue[ 0 ] || hsl[ 0 ] > hue[ 1 ] )discard;
 
 	#include <clipping_planes_fragment>
 

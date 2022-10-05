@@ -1,3 +1,5 @@
+import { Vector2 } from 'three';
+
 import Handle from '~/assets/icons/Handle';
 
 export default class ColorRange extends HTMLElement {
@@ -6,20 +8,63 @@ export default class ColorRange extends HTMLElement {
 
 		const { canvas } = this.elements;
 		this.context = canvas.getContext( '2d' );
-		this.range = [ 0, 1 ];
 
 	}
 
-	onClick() {
+	onPointerDown( event ) {
+
+		const { pointer } = Application;
+		const { currentTarget } = event;
+
+		this.handle = currentTarget;
+		this.value = parseFloat( currentTarget.getAttribute( 'value' ) );
+		this.center = pointer.getCoordinates( new Vector2() );
+
+	}
+
+	onInputMove() {
+
+		if ( ! this.handle ) return;
+
+		const { pointer } = Application;
+		const coordinates = pointer.getCoordinates( new Vector2() );
+		const delta = coordinates.sub( this.center );
+
+		const { handles } = this.elements;
+		const index = handles.indexOf( this.handle );
+		const values = handles.map( handle => parseFloat( handle.getAttribute( 'value' ) ) );
+		const min = index ? values[ 0 ] + .075 : 0;
+		const max = index ? 1 : values[ 1 ] - .075;
+
+		let value = this.value + delta.y / this.height;
+		value = Math.clamp( value, parseFloat( min ), parseFloat( max ) );
+
+		this.handle.setAttribute( 'value', value );
+
+	}
+
+	onInputEnd() {
+
+		this.handle = null;
+
 	}
 
 	onPreFrame() {
 
 		if ( ! this.gradient ) this.onResize();
 
-		const { min, max } = this.elements;
-		min.style.transform = `translateY( ${ this.range[ 0 ] * this.height }px )`;
-		max.style.transform = `translateY( ${ this.range[ 1 ] * this.height }px )`;
+		const { handles } = this.elements;
+
+		handles.forEach( ( handle, index ) => {
+
+			const value = parseFloat( handle.getAttribute( 'value' ) );
+			handle.style.transform = `translateY( ${ value * this.height }px )`;
+			handle.children[ 0 ].textContent = Math.round( value * 360 );
+			handle.toggleAttribute( 'grabbed', handle === this.handle );
+
+			Application.store.hue[ index ] = value;
+
+		} );
 
 	}
 
@@ -67,13 +112,10 @@ export default class ColorRange extends HTMLElement {
 			opacity: 0;
 			transition: opacity 1s var( --timing-function );
 
-			[ view-exit ][ list="particles" ] & {
-				opacity: 0;
-			}
-
 			[ view-enter ][ list="particles" ] & {
 				opacity: 1;
-				transition-delay: .5s;
+				transition-delay: .75s;
+				pointer-events: all;
 			}
 
 			& canvas {
@@ -81,21 +123,37 @@ export default class ColorRange extends HTMLElement {
 				height: 100%;
 				width: 100%;
 			}
+		}
 
-			& color-range-handle {
-				--size: 24px;
-				position: absolute;
-				top: calc( var( --size ) * -.5 );
-				right: calc( 100% + var( --margin-xs ) );
-				height: var( --size );
-				width: var( --size );
-				cursor: grab;
+		color-range-handle {
+			--size: 24px;
+			position: absolute;
+			top: calc( var( --size ) * -.5 );
+			right: calc( 100% + var( --margin-xs ) );
+			display: flex;
+			align-items: center;
+			cursor: grab;
 
-				svg {
-					height: 100%;
-					width: 100%;
-					fill: var( --color-white );
+			&[ grabbed ] {
+				cursor: grabbing;
+			}
+
+			& span {
+				padding: 5px 8px;
+				margin-right: 5px;
+				border: var( --border-size ) solid var( --border-color );
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-xs );
+
+				&:after {
+					content: '°';
 				}
+			}
+
+			& svg {
+				height: 25px;
+				width: 25px;
+				fill: var( --color-white );
 			}
 		}
 
@@ -104,9 +162,27 @@ export default class ColorRange extends HTMLElement {
 		return html`
 
 		<projects-color-range>
-			<color-range-handle #min>${ Handle }</color-range-handle>
-			<color-range-handle #max>${ Handle }</color-range-handle>
+
+			<color-range-handle
+				value="0"
+				#handles
+				@pointer-down
+			>
+				<span></span>
+				${ Handle }
+			</color-range-handle>
+
+			<color-range-handle
+				value="1"
+				#handles
+				@pointer-down
+			>
+				<span></span>
+				${ Handle }
+			</color-range-handle>
+
 			<canvas #>
+
 		</projects-color-range>
 
 		`;

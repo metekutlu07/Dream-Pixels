@@ -42,7 +42,12 @@ export default class HTML {
 			if ( isListener ) {
 
 				const substrings = string.split( '-' );
-				const type = substrings.join( '' );
+				let type = substrings.join( '' );
+
+				if ( type === 'pointerdown' ) type = 'mousedown';
+				if ( type === 'pointermove' ) type = 'mousemove';
+				if ( type === 'pointerup' ) type = 'mouseup';
+
 				const listener = 'on' + substrings.map( capitalize ).join( '' );
 				const callback = parent[ listener ].bind( parent );
 				element.addEventListener( type, callback );
@@ -54,6 +59,7 @@ export default class HTML {
 		} );
 
 		if ( ! parent.elements ) parent.elements = {};
+
 		Object.assign( parent.elements, elements );
 
 	}

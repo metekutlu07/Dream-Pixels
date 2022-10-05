@@ -43,7 +43,8 @@ export default class Parameter {
 	onStart() {
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'grid' );
+		this.set( 'list', 'particles' );
+		this.set( 'hue', [ 0, 1 ] );
 
 	}
 

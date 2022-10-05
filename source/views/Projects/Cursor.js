@@ -58,7 +58,7 @@ export default class Cursor extends HTMLElement {
 		this.elements.caption.innerHTML = caption;
 		this.elements.tags.innerHTML = tags.join( ', ' );
 
-		this.setAttribute( 'visible', '' );
+		this.toggleAttribute( 'visible', true );
 
 	}
 

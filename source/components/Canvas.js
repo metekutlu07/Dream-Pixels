@@ -35,13 +35,11 @@ export default class Canvas extends HTMLElement {
 
 			@media ( hover: hover ) {
 
-				&[ grab ] { cursor: grab; }
-				&[ grabbing ] { cursor: grabbing; }
-				&[ pointer ] { cursor: pointer; }
-
-				[ path="/projects" ][ list="sphere" ] & {
+				[ path="/projects" ][ list="sphere" ] &,
+				[ path="/projects" ][ list="particles" ] & {
 					cursor: crosshair;
 				}
+
 			}
 
 		}

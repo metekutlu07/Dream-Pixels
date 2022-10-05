@@ -3,7 +3,6 @@ import {
 	Raycaster,
 	InstancedMesh,
 	SphereGeometry,
-	RGBADepthPacking,
 	Quaternion,
 	Matrix4,
 	Vector3,
@@ -11,7 +10,6 @@ import {
 
 } from 'three';
 
-import ParticlesDepthMaterial from '~/canvas/materials/ParticlesDepthMaterial';
 import ParticlesBasicMaterial from '~/canvas/materials/ParticlesBasicMaterial';
 // import RenderTargetViewer from '~/canvas/utilities/RenderTargetViewer';
 
@@ -57,8 +55,6 @@ export default class Particles extends InstancedMesh {
 		this.needsUpdate = true;
 		this.raycaster = new Raycaster();
 
-		this.customDepthMaterial = new ParticlesDepthMaterial();
-		this.customDepthMaterial.depthPacking = RGBADepthPacking;
 		this.simulation = new Simulation( width, height );
 
 		Color.release( color );
@@ -127,7 +123,6 @@ export default class Particles extends InstancedMesh {
 
 		const { texture } = this.simulation.render();
 		this.material.uniforms[ 'simulation' ].value = texture;
-		this.customDepthMaterial.uniforms[ 'simulation' ].value = texture;
 
 	}
 

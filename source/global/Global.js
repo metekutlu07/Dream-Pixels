@@ -122,6 +122,15 @@ export default class Global {
 
 		}
 
+		@media ( hover: hover ) {
+
+			[ grab ] { cursor: grab }
+			[ grabbing ] { cursor: grabbing }
+			[ pointer ] { cursor: pointer }
+			[ crosshair ] { cursor: crosshair }
+
+		}
+
 		@font-face {
 			font-family: "Nord";
 			src: url( "/fonts/Nord-Regular.otf") format( "opentype" );
