@@ -24,6 +24,7 @@ export default class Exploration extends HTMLElement {
 			font-size: var( --font-size-s );
 			line-height: 1.8;
 			overflow: scroll;
+			pointer-events: none;
 
 			& h3 {
 				line-height: 1;
@@ -31,28 +32,29 @@ export default class Exploration extends HTMLElement {
 				margin-bottom: var( --margin-s );
 			}
 
-			[ view-exit ][ list="sphere" ] &,
-			[ view-exit ][ list="particles" ] & {
-				opacity: 0;
+			& p {
+				margin-bottom: var( --margin-s );
+				opacity: .75;
 			}
 
 			[ view-enter ][ list="sphere" ] &,
 			[ view-enter ][ list="particles" ] & {
 				opacity: 1;
 				transition-delay: .5s;
+				pointer-events: all;
 			}
 		}
 
 		`;
 
-		const { exploration } = Application.content;
+		const { title, description } = Application.content.exploration;
 
 		return html`
 
 		<projects-exploration blurred-background>
 
-			<h3>${ exploration.title }</h3>
-			<p>${ exploration.description }</p>
+			<h3>${ title }</h3>
+			${ description.map( paragraph => html`<p>${ paragraph }</p>` ) }
 
 		</projects-exploration>
 

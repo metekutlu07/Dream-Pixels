@@ -70,7 +70,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/005.jpg',
 				caption: 'Color Analysis',
-				tags: [ 'Tag1', 'Persian Miniature' ]
+				tags: [ 'Korean Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -115,7 +115,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/010.jpg',
 				caption: 'Color Analysis',
-				tags: [ 'Tag2', 'Persian Miniature' ]
+				tags: [ 'Korean Architecture', 'Persian Miniature' ]
 			}
 		},
 		{

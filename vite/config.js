@@ -88,10 +88,6 @@ export default async ( { command, mode } ) => {
 
 	} );
 
-	const module = await server.ssrLoadModule( '~/Application' );
-	const Application = module.default;
-	const tags = await getColorList( Application.content );
-
 	if ( ! isPreview ) {
 
 		await rm( build, { recursive: true, force: true } );
@@ -99,6 +95,9 @@ export default async ( { command, mode } ) => {
 
 	}
 
+	const module = await server.ssrLoadModule( '~/Application' );
+	const Application = module.default;
+	await getColorList( Application.content );
 	await parseDirectory();
 
 	async function configureServer( { watcher, ws } ) {
@@ -196,7 +195,6 @@ export default async ( { command, mode } ) => {
 
 		const { path } = Application.router.parseURL( url || '/' );
 		const routes = Application.content.get( 'routes' );
-		Application.content.filters.tags = tags;
 
 		const views = await Promise.all( routes.map( async path => {
 

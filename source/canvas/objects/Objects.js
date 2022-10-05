@@ -1,4 +1,4 @@
-import { MeshStandardMaterial, Object3D, Vector3 } from 'three';
+import { MeshStandardMaterial, Object3D } from 'three';
 
 export default class Objects extends Object3D {
 
@@ -89,34 +89,33 @@ export default class Objects extends Object3D {
 
 	onUpdate() {
 
+		const { camera } = Application;
+		const far = camera.far;
+		camera.far = camera.position.length();
+		camera.updateProjectionMatrix();
+
 		this.children.forEach( ( child, index ) => {
 
 			const { html, opacity } = child;
-			const { camera } = Application;
-
-			const vector = Vector3.get()
-				.copy( html.offset )
-				.setZ( .5 )
-				.unproject( camera )
-				.sub( camera.position )
-				.normalize();
-
-			const distance = -camera.position.z / vector.z;
 
 			child.position
-				.copy( camera.position )
-				.add( vector.multiplyScalar( distance ) );
+				.copy( html.offset )
+				.setZ( 1 )
+				.unproject( camera );
+
+			child.quaternion.copy( camera.quaternion );
 
 			const time = Application.time.elapsedTime * 1e-3;
 			child.rotation.x = Math.sin( time + index ) * .25;
 			child.rotation.z = Math.cos( time * 1.333 - index ) * .25;
+
 			child.material.opacity = opacity;
 			child.visible = opacity > .05;
 
-			Vector3.release( vector );
-
 		} );
 
+		camera.far = far;
+		camera.updateProjectionMatrix();
 
 	}
 

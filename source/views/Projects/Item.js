@@ -265,16 +265,16 @@ export default class Item extends HTMLElement {
 				animation: 1.5s linear var( --transition-delay ) var( --animation );
 			}
 
+			@media ( max-width: 1280px ) {
+				margin-bottom: var( --margin-xs );
+			}
+
 		}
 
 		item-footer {
 			display: flex;
 			justify-content: flex-start;
 			align-items: flex-start;
-
-			@media ( max-width: 1280px ) {
-				margin-top: var( --margin-xs );
-			}
 		}
 
 		`;

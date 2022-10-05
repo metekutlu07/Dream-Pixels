@@ -1,9 +1,24 @@
 export default class Filters extends HTMLElement {
 
-	onClick() {
+	onConnected() {
+
+		Application.filters = this;
+
+	}
+
+	onDisconnected() {
+
+		Application.filters = null;
+
 	}
 
 	onPreFrame() {
+
+		const { inputs } = this.elements;
+		this.values = inputs
+			.filter( input => input.checked )
+			.map( input => input.value );
+
 	}
 
 	static render() {
@@ -45,22 +60,29 @@ export default class Filters extends HTMLElement {
 				padding-right: 20px;
 			}
 
-			& input {
-				appearance: none;
-				border: var( --border-size ) solid var( --border-color );
-				height: 15px;
-				width: 15px;
+			& label {
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				cursor: pointer;
+			}
+
+			& input {
+				appearance: none;
+				border: var( --border-size ) solid rgba( 255, 255, 255, .25 );
+				height: 15px;
+				width: 15px;
 				margin-right: var( --margin-xs );
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				cursor: pointer;
 
 				&:before {
 					display: block;
 					content: '';
-					height: 5px;
-					width: 5px;
+					height: 8px;
+					width: 8px;
 					background: var( --color-white );
 					opacity: 0;
 				}
@@ -74,7 +96,7 @@ export default class Filters extends HTMLElement {
 
 			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;
-				transition-delay: .5s;
+				transition-delay: .75s;
 				pointer-events: all;
 			}
 		}
@@ -86,8 +108,14 @@ export default class Filters extends HTMLElement {
 		const tags = filters.tags.map( tag => html`
 
 			<li>
-				<input type="checkbox"/>
-				<label>${ tag }</label>
+				<label>
+					<input
+						type="checkbox"
+						value="${ tag }"
+						#inputs
+					/>
+					${ tag }
+				</label>
 			</li>
 
 		` );

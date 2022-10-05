@@ -48,7 +48,7 @@ export default {
 			media: {
 				source: 'public/theodora/002.mp4',
 				caption: 'Video',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -56,7 +56,7 @@ export default {
 			media: {
 				source: 'public/theodora/004.jpg',
 				caption: 'View Top',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -69,7 +69,7 @@ export default {
 			media: {
 				source: 'public/theodora/005.jpg',
 				caption: 'The Talismanic Tower of Constantinople',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -77,7 +77,7 @@ export default {
 			media: {
 				source: 'public/theodora/006.jpg',
 				caption: 'View Buildings 1',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -90,7 +90,7 @@ export default {
 			media: {
 				source: 'public/theodora/007.jpg',
 				caption: 'Top Tower',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -98,7 +98,7 @@ export default {
 			media: {
 				source: 'public/theodora/008.jpg',
 				caption: 'View Side 2',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -106,7 +106,7 @@ export default {
 			media: {
 				source: 'public/theodora/009.jpg',
 				caption: 'View Back',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -114,7 +114,7 @@ export default {
 			media: {
 				source: 'public/theodora/010.jpg',
 				caption: 'View Buildings 2',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -122,7 +122,7 @@ export default {
 			media: {
 				source: 'public/theodora/011.jpg',
 				caption: 'View Buildings 3',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -130,7 +130,7 @@ export default {
 			media: {
 				source: 'public/theodora/012.jpg',
 				caption: 'View Buildings 4',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -138,7 +138,7 @@ export default {
 			media: {
 				source: 'public/theodora/013.jpg',
 				caption: 'Cloud',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 		{
@@ -146,7 +146,7 @@ export default {
 			media: {
 				source: 'public/theodora/014.jpg',
 				caption: 'Ecstasy',
-				tags: [ 'Tag 5', 'Persian Miniature' ]
+				tags: [ 'Timurid Architecture', 'Persian Miniature' ]
 			}
 		},
 

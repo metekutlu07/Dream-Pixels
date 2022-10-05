@@ -6,7 +6,26 @@ export default class Content {
 
 		Object.assign( this, content );
 
-		this.projects = this.grid.filter( item => item.path );
+		const filters = new Set();
+
+		this.projects = this.grid.filter( cell => cell.path );
+		this.projects.forEach( async project => {
+
+			const { sections } = project;
+
+			sections
+				.filter( section => section.media )
+				.filter( section => section.media.tags )
+				.map( async section => {
+
+					const { tags } = section.media;
+					tags.forEach( tag => filters.add( tag ) );
+
+				} );
+
+		} );
+
+		this.filters.tags = Array.from( filters );
 
 	}
 

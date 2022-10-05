@@ -10,7 +10,6 @@ const output = resolve( assets, 'packs/projects' );
 
 const images = [];
 const colors = [];
-const filters = new Set();
 
 export async function getSampledColors( buffer, imageID ) {
 
@@ -32,7 +31,7 @@ export async function getSampledColors( buffer, imageID ) {
 
 	}
 
-	const samples = 2000;
+	const samples = Math.round( 512 * 512 / images.length );
 	const count = results.length;
 	const step = Math.round( count / samples );
 
@@ -63,31 +62,30 @@ export async function getColorList( content ) {
 			.filter( section => section.media.tags )
 			.map( async section => {
 
-				const { source, tags } = section.media;
-				const image = resolve( assets, source );
-
-				if ( image.match( /mp4/ ) ) return;
-
-				const imageID = images.length;
-				const name = resolve( destination, `${ imageID }.png` );
-				const parameters = { width: 512, fit: 'contain' };
-
-				images.push( { path, tags } );
-				tags.forEach( tag => filters.add( tag ) );
-
-				const result = await sharp( image ).resize( parameters );
-				await result.toFile( name );
-
-				const buffer = await result.toBuffer();
-				await getSampledColors( buffer, imageID );
+				const { source, tags, caption } = section.media;
+				if ( source.match( /mp4/ ) ) return;
+				images.push( { path, tags, source, caption } );
 
 			} ) );
 
 	} ) );
 
+	await Promise.all( images.map( async ( image, index ) => {
+
+		const { source } = image;
+		const name = resolve( destination, `${ index }.png` );
+		const parameters = { width: 512, fit: 'contain' };
+
+		const path = resolve( assets, source );
+		const result = await sharp( path ).resize( parameters );
+		await result.toFile( name );
+
+		const buffer = await result.toBuffer();
+		await getSampledColors( buffer, index );
+
+	} ) );
+
 	const data = JSON.stringify( { images, colors } );
 	await writeFile( resolve( output, 'Colors.json' ), data );
-
-	return Array.from( filters );
 
 }

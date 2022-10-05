@@ -6,13 +6,20 @@ export default class Cursor extends HTMLElement {
 
 		this.position = new Vector2();
 
+		Application.cursor = this;
+
+	}
+
+	onDisconnected() {
+
+		Application.cursor = null;
+
 	}
 
 	onClick() {
 
-		const { project } = Application.store;
-		if ( ! project ) return;
-		Application.router.navigate( `/${ project.path }` );
+		if ( ! this.hasAttribute( 'visible' ) ) return;
+		Application.router.navigate( `/${ this.path }` );
 
 	}
 
@@ -26,29 +33,32 @@ export default class Cursor extends HTMLElement {
 		Vector2.release( coordinates );
 
 		const { x, y } = this.position;
-		const distance = this.position.distanceTo( coordinates );
-		const opacity = Math.clamp( 1 - distance / 200, 0, 1 );
-
 		cursor.style.transform = `translate( ${ x + 10 }px, ${ y + 10 }px )`;
-		// cursor.style.opacity = opacity;
-
-		// const { project } = Application.store;
-		// cursor.toggleAttribute( 'visible', project );
-		// if ( project ) this.setContent( project );
 
 	}
 
-	setContent( project ) {
+	reset() {
 
-		const { title, subtitle, index } = this.elements;
+		this.removeAttribute( 'visible' );
 
-		if ( project.title === title.textContent ) return;
+	}
 
-		title.textContent = project.title;
-		subtitle.textContent = project.subtitle;
-		index.textContent = project.index + 1;
+	set( path, caption, tags ) {
 
-		Application.audio.play( '007.mp3', { volume: .1 } );
+		this.path = path;
+
+		const { projects } = Application.content;
+		const project = projects.find( project => project.path === path );
+		const index = projects.indexOf( project );
+
+		const title = project.title;
+		const number = ( '00' + ( index + 1 ) ).substr( -2 );
+
+		this.elements.title.innerHTML = `${ title } <span>| ${ number }</span>`;
+		this.elements.caption.innerHTML = caption;
+		this.elements.tags.innerHTML = tags.join( ', ' );
+
+		this.setAttribute( 'visible', '' );
 
 	}
 
@@ -57,16 +67,21 @@ export default class Cursor extends HTMLElement {
 		css`
 
 		projects-cursor {
-			/* font-size: var( --font-size-l ); */
 			position: fixed;
 			top: 0;
 			left: 0;
 			padding: var( --margin-s );
 			background-color: var( --background-color );
 			border: var( --border-size ) solid var( --border-color );
-			/* display: none; */
 			justify-content: space-between;
 			align-items: center;
+			visibility: hidden;
+
+			@media ( hover: hover ) {
+				canvas-block:hover ~ projects-view &[ visible ] {
+					visibility: visible;
+				}
+			}
 
 			& h3 {
 				font-family: var( --font-family-a );
@@ -92,12 +107,6 @@ export default class Cursor extends HTMLElement {
 				font-size: var( --font-size-xs );
 				opacity: .5;
 			}
-
-			@media ( hover: hover ) {
-				&[ visible ] {
-					display: flex;
-				}
-			}
 		}
 
 		cursor-number {
@@ -110,30 +119,12 @@ export default class Cursor extends HTMLElement {
 
 		`;
 
-		const {
-
-			title,
-			subtitle,
-			path,
-			location,
-			date
-
-		} = Application.content.projects[ 0 ];
-
-		const { projects } = Application.content;
-		const index = projects.findIndex( project => project.path === path );
-		const number = ( '00' + ( index + 1 ) ).substr( -2 );
-
 		return html`
 
 		<projects-cursor @click #cursor blurred-background>
-			<item-footer>
-				<item-description>
-					<h3>${ title }<span>| ${ number }</span></h3>
-					<h4>${ subtitle }</h4>
-					<h5> ${ location }, ${ date }</h5>
-				</item-description>
-			</item-footer>
+			<h3 #title>Bistami <span>| 01</span></h3>
+			<h4 #caption>Comparaison: Side by Side View</h4>
+			<h5 #tags>Artificial Intelligence, Persian Miniature</h5>
 		</projects-cursor>
 
 		`;

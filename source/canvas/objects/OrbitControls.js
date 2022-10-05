@@ -261,13 +261,11 @@ export default class OrbitControls extends Object3D {
 
 	}
 
-	onInputMove( event ) {
-
-		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
+	onInputMove() {
 
 		const { isPressed } = Application.pointer;
 
-		if ( ! this.parameters.enableRotate || ! isPressed ) return;
+		if ( ! this.parameters.enableRotate || ! this.isGrabbed || ! isPressed ) return;
 
 		this.setDelta();
 

@@ -10,11 +10,10 @@ export default class Canvas extends HTMLElement {
 
 	onClick( event ) {
 
-		const section = document.querySelector( 'section-type-5' );
-		if ( section ) section.onClick( event );
-
-		const sphere = document.querySelector( 'projects-sphere' );
-		if ( sphere ) sphere.onClick( event );
+		const query = 'section-type-5, projects-sphere';
+		const element = document.querySelector( query );
+		if ( element ) section.onClick( event );
+		if ( Application.cursor ) Application.cursor.onClick( event );
 
 	}
 
@@ -35,10 +34,14 @@ export default class Canvas extends HTMLElement {
 			left: 0;
 
 			@media ( hover: hover ) {
+
 				&[ grab ] { cursor: grab; }
 				&[ grabbing ] { cursor: grabbing; }
 				&[ pointer ] { cursor: pointer; }
-				&[ crosshair ] { cursor: crosshair; }
+
+				[ path="/projects" ][ list="sphere" ] & {
+					cursor: crosshair;
+				}
 			}
 
 		}

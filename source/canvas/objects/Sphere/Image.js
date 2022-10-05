@@ -3,109 +3,129 @@ import {
 	PlaneGeometry,
 	MeshBasicMaterial,
 	Mesh,
-	Vector2
+	Vector2,
+	Spherical
 
 } from 'three';
 
+import Border from './Border';
+
 export default class Image extends Mesh {
 
-	constructor( map ) {
+	constructor( map, point, index ) {
 
-		// const [ name, map ] = entry;
-		const { naturalWidth, naturalHeight } = map.image;
-		const aspect = naturalWidth / naturalHeight;
+		const parameters = {
 
-		const parameters = { map, depthTest: false, fog: true, transparent: true };
+			map,
+			fog: true,
+			depthTest: false,
+			transparent: true,
+			opacity: 0
+		};
+
 		const material = new MeshBasicMaterial( parameters );
-		const geometry = new PlaneGeometry( aspect, 1 );
-
-		// const projectID = name.split( '/' ).shift();
-		// mesh.project = Application.content.get( projectID );
-
+		const geometry = new PlaneGeometry();
 
 		super( geometry, material );
 
 		Application.events.add( this );
 
-		// const source = children[ index % children.length ];
-		// const clone = source.clone();
-		// clone.material = source.material.clone();
+		this.border = new Border();
+		this.add( this.border );
 
-		// const { aspect, project, scaleFactor } = source;
+		this.map = map;
+		this.point = point;
+		this.index = index;
+
+		const { naturalWidth, naturalHeight } = map.image;
+		this.aspect = naturalWidth / naturalHeight;
+
+		this.spherical = new Spherical();
 		this.radius = Math.randFloat( 50, 100 );
-		this.aspect = aspect;
 		this.offset = 1;
-		this.offset = 0;
+
+		this.scale
+			.set( this.aspect, 1 )
+			.multiplyScalar( 20 );
 
 		this.velocity = new Vector2()
 			.setX( Math.randFloat( -1, 1 ) )
 			.setY( Math.randFloat( -1, 1 ) )
 			.setLength( 1e-4 );
 
-		this.scale.setScalar( 20 );
-		// mesh.scaleFactor = ;
+		const { x, y, z } = this.point;
+		this.spherical.setFromCartesianCoords( x, y, z );
 
-		// Object.assign( clone, { phi, theta, aspect, project, offset, scaleFactor } );
-
-		// clone.initialState = { phi, theta };
-		//
-		// this.add( clone );
+		const { jsons } = Application.assets[ 'projects' ];
+		const { images } = jsons[ 'Colors.json' ];
+		this.data = images[ index ];
 
 	}
 
-	toggle( isVisible ) {
+	async toggle( isVisible ) {
+
+		if ( this.isVisible === isVisible ) return;
+		this.isVisible = isVisible;
 
 		if ( this.animation ) this.animation.remove( this );
 
-		// const factor = isVisible ?
-		// 	Math.floor( index / 10 ) :
-		// 	Math.floor( ( this.children.length - index ) / 10 );
+		if ( isVisible ) {
+
+			const { x, y, z } = this.point;
+			this.spherical.setFromCartesianCoords( x, y, z );
+
+		}
 
 		const targets = this;
 		const easing = 'easeOutQuint';
 		const offset = isVisible ? 0 : 1;
 		const duration = isVisible ? 1000 : 500;
-		// const delay = isVisible ? 250 + factor * 50 : factor * 10;
+		const delay = isVisible ? 500 + this.index * 5 : this.index * 5;
 
-		this.animation = anime( { targets, easing, duration, offset } );
-
-		// child.theta = child.initialState.theta;
-		// child.phi = child.initialState.phi;
+		this.animation = anime( { targets, easing, duration, offset, delay } );
 
 	}
 
 	onUpdate() {
 
-		// const project = this.object ? this.object.project : null;
-		// Application.store.set( 'crosshair', this.isVisible );
-		// Application.store.set( 'object', this.object );
-		// Application.store.set( 'project', project );
-
-		// const {
-
-		// 	position,
-		// 	phi,
-		// 	theta,
-		// 	radius,
-		// 	offset,
-		// 	scaleFactor,
-		// 	velocity
-
-		// } = this;
-
 		this.visible = this.offset < .95;
 		this.material.opacity = 1 - this.offset;
 
-		// this.phi += this.velocity.x;
-		// this.theta += this.velocity.y;
+		this.spherical.phi += this.velocity.x;
+		this.spherical.theta += this.velocity.y;
 
+		const { phi, theta } = this.spherical;
 		const radius = ( this.radius + this.offset * 5 );
 
-		this.position.x = radius * Math.sin( this.phi ) * Math.sin( this.theta );
-		this.position.y = radius * Math.cos( this.phi );
-		this.position.z = radius * Math.sin( this.phi ) * Math.cos( this.theta );
+		this.position.x = radius * Math.sin( phi ) * Math.sin( theta );
+		this.position.y = radius * Math.cos( phi );
+		this.position.z = radius * Math.sin( phi ) * Math.cos( theta );
 
 		this.lookAt( Application.scene.position );
+
+	}
+
+	onPostUpdate() {
+
+		this.border.visible = this.isHovered && this.offset < .05;
+
+		if ( ! this.parent.isVisible ) return;
+
+		const { path, caption, tags } = this.data;
+
+		if ( Application.filters ) {
+
+			const { values } = Application.filters;
+
+			if ( values.length ) {
+
+				this.toggle( values.find( value => tags.includes( value ) ) );
+
+			} else this.toggle( true );
+
+		}
+
+		if ( this.isHovered ) Application.cursor.set( path, caption, tags );
 
 	}
 
