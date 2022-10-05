@@ -1,4 +1,5 @@
 import { rm, mkdir, writeFile } from 'fs/promises';
+import { existsSync } from 'fs';
 import { resolve } from 'path';
 import { Color } from 'three';
 
@@ -63,7 +64,20 @@ export async function getColorList( content ) {
 			.map( async section => {
 
 				const { source, tags, caption } = section.media;
-				if ( source.match( /mp4/ ) ) return;
+
+				if ( source.match( /mp4/ ) ) {
+
+					const path = resolve( assets, source + '.png' );
+
+					if ( ! existsSync( path ) ) {
+
+						console.log( `No image fallback for: ${ source }` );
+						return;
+
+					} else console.log( `Image fallback find for: ${ source }` );
+
+				}
+
 				images.push( { path, tags, source, caption } );
 
 			} ) );
@@ -73,10 +87,12 @@ export async function getColorList( content ) {
 	await Promise.all( images.map( async ( image, index ) => {
 
 		const { source } = image;
+
+		const extension = source.match( /mp4/ ) ? '.png' : '';
 		const name = resolve( destination, `${ index }.png` );
 		const parameters = { width: 512, fit: 'contain' };
 
-		const path = resolve( assets, source );
+		const path = resolve( assets, source + extension );
 		const result = await sharp( path ).resize( parameters );
 		await result.toFile( name );
 

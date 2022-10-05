@@ -49,6 +49,7 @@ export default {
 			media: {
 				source: 'public/bistami/002.mp4',
 				caption: 'Video Presentation',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				controls: false
 			}
 		},

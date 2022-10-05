@@ -6,7 +6,8 @@ export default class Meta {
 
 			title,
 			description,
-			keywords,
+			themes,
+			skills,
 			author,
 			robots,
 			favicon
@@ -16,6 +17,7 @@ export default class Meta {
 		const { path } = Application.store;
 		const content = Application.content.get( path );
 		const image = `${ content.sections ? `/${ content.path }` : '' }/share.png`;
+		const keywords = `${ themes }, ${ skills }`;
 
 		return html`
 

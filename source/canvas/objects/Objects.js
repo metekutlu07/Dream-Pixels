@@ -71,14 +71,14 @@ export default class Objects extends Object3D {
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;
 
-		this.children.forEach( child => {
+		this.children.forEach( ( child, index ) => {
 
 			if ( child.animation ) child.animation.remove( child );
 
 			const targets = child;
 			const opacity = this.isVisible ? 1 : 0;
 			const duration = this.isVisible ? 1500 : 500;
-			const delay = this.isVisible ? 500 : 0;
+			const delay = this.isVisible ? 1000 + index * 100 : 0;
 			const easing = 'easeOutQuint';
 
 			child.animation = anime( { targets, delay, easing, duration, opacity } );

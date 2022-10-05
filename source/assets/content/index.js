@@ -21,14 +21,15 @@ import P15 from './photogrammetry';
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Cutting-edge digital scenogaphy atelier',
+	subtitle: 'Digital scenogaphy studio',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
 	description: 'Dream Pixels is an atelier which explores forgotten architectural and urban dreams in medieval visual cultures. Using AI and digital design tools, it invents novel methods of research and mediation of miniature paintings. It weaves new relationships between architecture and art history in the Age of AI.',
 
 	// Keywords used for SEO and displayed on the scrolling text
-	keywords: 'Medieval Iconography, Premodern Cosmology, Non-Euclidean Geometry, Mediterranean Eschatology, Hermetical Sciences, Digital Humanities, Motion Graphics, 3D Modelling, Animation, Augmented Reality, 3D Printing, App Development, Projection Mapping, Architectural Drawing, Rendering',
+	themes: 'Medieval Iconography, Premodern Cosmology, Non-Euclidean Geometry, Mediterranean Eschatology, Hermetical Sciences, Digital Humanities',
+	skills: 'Motion Graphics, 3D Modelling, Animation, Augmented Reality, 3D Printing, App Development, Projection Mapping, Architectural Drawing, Rendering',
 
 	// Introduction displayed on the home page
 	introduction: [

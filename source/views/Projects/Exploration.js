@@ -34,7 +34,6 @@ export default class Exploration extends HTMLElement {
 
 			& p {
 				margin-bottom: var( --margin-s );
-				opacity: .75;
 			}
 
 			[ view-enter ][ list="sphere" ] &,

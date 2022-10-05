@@ -22,31 +22,41 @@ export default class Home extends View {
 				position: relative !important;
 			}
 
-			& aside-block {
-				padding-bottom: 20px;
+			& h3 {
+				font-size: var( --font-size-xl );
+				font-family: var( --font-family-a );
+			}
+
+			& h4 {
+				font-size: var( --font-size-l );
+				font-family: var( --font-family-b );
+				margin-bottom: var( --margin-xs );
 			}
 
 			& p {
 				max-width: 400px !important;
-
-				&:not( :last-child ) {
-					margin-bottom: calc( var( --margin-m ) * .5 );
-				}
 			}
 		}
 
 		scrolling-text {
 			font-size: 2rem;
-			height: 50px;
 			max-width: 400px;
 			display: flex;
 			justify-content: flex-start;
 			align-items: center;
 			overflow: auto;
 			white-space: nowrap;
+			margin-top: var( --margin-m );
 
-			& div {
-				animation: scrolling 40s linear infinite;
+			&:last-child {
+				margin-top: 5px;
+				& scrolling-animation {
+					animation: scrolling 40s linear infinite;
+				}
+			}
+
+			& scrolling-animation {
+				animation: scrolling 50s linear infinite;
 			}
 
 			& span:nth-child( even ) {
@@ -58,9 +68,11 @@ export default class Home extends View {
 
 		`;
 
-		const { title, introduction, keywords } = Application.content;
+		const { title, introduction, subtitle, themes, skills } = Application.content;
 		const paragraphs = introduction.map( paragraph => html`<p>${ paragraph }</p>` );
-		const words = keywords.split( ',' ).concat( keywords.split( ',' ) )
+
+		const duplicate = string => `${ string }, ${ string },`
+			.split( ',' )
 			.map( keyword => html`<span>${ keyword }</span>` )
 			.join( ' - ' );
 
@@ -74,14 +86,21 @@ export default class Home extends View {
 
 			${ paragraphs ? Aside.render( html`
 
-				<h3 font-style-title>
-					${ title }
-				</h3>
+				<h3>${ title }</h3>
+				<h4>${ subtitle }</h4>
 
 				${ paragraphs }
 
 				<scrolling-text>
-					<div>${ words }</div>
+					<scrolling-animation>
+						${ duplicate( themes ) }
+					</scrolling-animation>
+				</scrolling-text>
+
+				<scrolling-text>
+					<scrolling-animation>
+						${ duplicate( skills ) }
+					</scrolling-animation>
 				</scrolling-text>
 
 			` ) : '' }
