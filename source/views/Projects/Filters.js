@@ -43,6 +43,7 @@ export default class Filters extends HTMLElement {
 			overflow: scroll;
 			opacity: 0;
 			transition: opacity 1s var( --timing-function );
+			margin-top: 50px;
 
 			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;

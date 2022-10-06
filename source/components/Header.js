@@ -171,7 +171,7 @@ export default class Header extends HTMLElement {
 
 		<header-block #header>
 
-			<header-navigation>
+			<header-navigation blurred-background>
 				<header-title>Navigation</header-title>
 				${ navigation.map( Button.render ) }
 			</header-navigation>

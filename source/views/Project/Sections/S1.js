@@ -65,10 +65,10 @@ export default class S1 {
 				<h4>${ subtitle }</h4>
 
 				<ul>
-					<li>Team / ${ team }</p>
-					<li>Period / ${ period }</p>
-					<li>Partners / ${ partners }</p>
-					<li>Clients / ${ clients }</p>
+					${ team ? html`<li>Team / ${ team }</p>` : '' }
+					${ period ? html`<li>Period / ${ period }</p>` : '' }
+					${ partners ? html`<li>Partners / ${ partners }</p>` : '' }
+					${ clients ? html`<li>Clients / ${ clients }</p>` : '' }
 				</ul>
 
 				<p>${ description }</p>

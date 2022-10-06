@@ -131,11 +131,12 @@ export default class Button extends HTMLElement {
 			&:nth-child( 3n+2 ) { --animation: blink-3 }
 
 			&:not( :last-child ) {
-				margin-right: 5px;
+				margin-right: -1px;
 			}
 
 			@media ( hover: hover ) {
 				&:hover {
+					z-index: 2;
 					--border-color: var( --color-yellow );
 
 					& button-label {
@@ -150,7 +151,10 @@ export default class Button extends HTMLElement {
 
 			&[ visible ] { display: flex }
 			&[ disabled ] { color: var( --color-grey ) }
-			&[ selected ] { --border-color: var( --color-yellow ) }
+			&[ selected ] {
+				z-index: 1;
+				--border-color: var( --color-yellow )
+			}
 
 			[ miniature ] &,
 			&[ activated ] {
@@ -248,7 +252,7 @@ export default class Button extends HTMLElement {
 
 		return html`
 
-		<default-button ${ attributes.join( ' ' ) } @click @mouse-enter blurred-background>
+		<default-button ${ attributes.join( ' ' ) } @click @mouse-enter>
 
 			${ link ? `<a ${ link.attributes.join( ' ' ) }>` : '' }
 

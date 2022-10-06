@@ -12,10 +12,9 @@ export default class Exploration extends HTMLElement {
 			background-color: var( --background-color );
 			top: var( --margin-m );
 			left: var( --margin-m );
-			margin-top: 100px;
+			margin-top: 50px;
 			border: var( --border-size ) solid var( --border-color );
 			max-width: 450px;
-			max-height: 600px;
 			opacity: 0;
 			transition: opacity 1s var( --timing-function );
 
@@ -33,7 +32,9 @@ export default class Exploration extends HTMLElement {
 			}
 
 			& p {
-				margin-bottom: var( --margin-s );
+				&:not( :last-child ) {
+					margin-bottom: var( --margin-s );
+				}
 			}
 
 			[ view-enter ][ list="sphere" ] &,

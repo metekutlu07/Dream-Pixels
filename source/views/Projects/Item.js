@@ -149,8 +149,6 @@ export default class Item extends HTMLElement {
 		item-quote {
 			display: flex;
 			flex-direction: column;
-			border: 1px solid rgba( 255, 255, 255, .5 );
-			padding: var( --margin-m );
 		}
 
 		item-text {

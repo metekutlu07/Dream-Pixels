@@ -93,16 +93,17 @@ export default class Cursor extends HTMLElement {
 					font-family: var( --font-family-b );
 					font-size: .9em;
 					opacity: .25;
+					display: none;
 				}
 			}
 
 			& h4 {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-s );
-				margin-bottom: 4px;
 			}
 
 			& h5 {
+				margin-top: var( --margin-xs );
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
 				opacity: .5;
@@ -122,9 +123,9 @@ export default class Cursor extends HTMLElement {
 		return html`
 
 		<projects-cursor @click #cursor blurred-background>
-			<h3 #title>Bistami <span>| 01</span></h3>
-			<h4 #caption>Comparaison: Side by Side View</h4>
-			<h5 #tags>Artificial Intelligence, Persian Miniature</h5>
+			<h3 #caption>Comparaison: Side by Side View</h4>
+			<h4 #tags>Artificial Intelligence, Persian Miniature</h5>
+			<h5 #title>Bistami <span>| 01</span></h3>
 		</projects-cursor>
 
 		`;

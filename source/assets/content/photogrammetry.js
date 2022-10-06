@@ -19,7 +19,7 @@ export default {
 	// - S1 is a fullscreen introduction video with overlayed title
 	// - S2 is a text only section with a title and some paragraphs
 	// - S3 is fullscreen video or image, to add controls to the video,
-	// 	add "controls: true"" in the parameters: media: [ { source: '', caption: '', controls: true } ]
+	// 	add "controls: true"" in the parameters: media: { source: '', caption: '', controls: true }
 	// - S4 is the byzantine miniature picture with some text on the right
 	// - S5 is a 3D WebGL scene with informational panels
 	// - S6 is the photogramety library
