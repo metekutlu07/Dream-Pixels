@@ -90,12 +90,16 @@ export default class S4 {
 				</li>
 			` );
 
+		const alt = caption
+			.replace( /<br>/g, '-' )
+			.replace( /\t/g, '' );
+
 		return html`
 
 		<section-type-4 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
 			<div>
-				<img src="${ source }" alt="${ caption }"/>
+				<img src="${ source }" alt="${ alt }"/>
 				<span>${ caption }</span>
 			</div>
 

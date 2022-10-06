@@ -1,22 +1,16 @@
-// import { Vector2 } from 'three';
+import { Vector2 } from 'three';
 
 export default class Effects extends HTMLElement {
 
 	onUpdate() {
 
-		// const { noisePass, linesPass } = Application.postProcessing.parameters;
-		// const { noise_effect, lines_effect } = this.elements;
+		const { noise_effect } = this.elements;
 
-		// const { x, y } = new Vector2()
-		// 	.random()
-		// 	.multiplyScalar( 100 );
+		const { x, y } = new Vector2()
+			.random()
+			.multiplyScalar( 100 );
 
-		// noise_effect.toggleAttribute( 'enabled', noisePass.enabled );
-		// noise_effect.style.setProperty( '--background-position', `${ x }% ${ y }%` );
-		// noise_effect.style.setProperty( '--noise-strength', noisePass.strength );
-
-		// lines_effect.toggleAttribute( 'enabled', linesPass.enabled );
-		// lines_effect.style.setProperty( '--lines-strength', linesPass.strength );
+		noise_effect.style.setProperty( '--background-position', `${ x }% ${ y }%` );
 
 	}
 
@@ -32,7 +26,6 @@ export default class Effects extends HTMLElement {
 			top: 0;
 			left: 0;
 			pointer-events: none;
-			display: none;
 
 			& grid-effect,
 			& noise-effect,
@@ -64,23 +57,13 @@ export default class Effects extends HTMLElement {
 				background-size: 1px;
 				background-position: center center;
 				opacity: var( --lines-strength );
-				opacity: .1;
-				/* display: none;
-
-				&[ enabled ] {
-					display: block;
-				} */
+				opacity: 1;
 			}
 
 			& noise-effect {
 				background-image: url( "/public/common/noise.png" );
 				background-position: var( --background-position );
-				opacity: var( --noise-strength );
-				display: none;
-
-				&[ enabled ] {
-					display: block;
-				}
+				opacity: .25;
 			}
 
 			& vignette-effect {
@@ -100,8 +83,8 @@ export default class Effects extends HTMLElement {
 		return html`
 			<effects-overlay #>
 				<grid-effect #></grid-effect>
-				<lines-effect #></lines-effect>
 				<noise-effect #></noise-effect>
+				<lines-effect #></lines-effect>
 				<vignette-effect #></vignette-effect>
 			</effects-overlay>
 		`;

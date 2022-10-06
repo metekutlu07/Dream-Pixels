@@ -98,6 +98,8 @@ export default class Objects extends Object3D {
 
 			const { html, opacity } = child;
 
+			if ( ! html ) return;
+
 			child.position
 				.copy( html.offset )
 				.setZ( 1 )

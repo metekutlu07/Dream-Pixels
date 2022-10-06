@@ -157,7 +157,7 @@ export default class Item extends HTMLElement {
 		}
 
 		item-author {
-			font-size: var( --font-size-l );
+			font-size: var( --font-size-m );
 			font-family: var( --font-family-b );
 		}
 

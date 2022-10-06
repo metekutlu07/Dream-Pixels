@@ -128,22 +128,22 @@ export default class Particles extends InstancedMesh {
 
 	onPostUpdate() {
 
-		const index = this.getClosestIndex();
-		Application.store.set( 'pointer', !! index );
+		// const index = this.getClosestIndex();
+		// console.log( index );
 
 	}
 
-	onAfterRender() {
+	// onAfterRender() {
 
-		// if ( this.renderTargetViewer ) {
+	// if ( this.renderTargetViewer ) {
 
-		// 	const { directionalLight } = Application.scene.lighting;
-		// 	this.renderTargetViewer.render( directionalLight.shadow.map );
-		// 	this.renderTargetViewer.render( this.simulation.renderTargets[ 0 ] );
+	// 	const { directionalLight } = Application.scene.lighting;
+	// 	this.renderTargetViewer.render( directionalLight.shadow.map );
+	// 	this.renderTargetViewer.render( this.simulation.renderTargets[ 0 ] );
 
-		// } else this.renderTargetViewer = new RenderTargetViewer();
+	// } else this.renderTargetViewer = new RenderTargetViewer();
 
-	}
+	// }
 
 	onKeyDown( parameters ) {
 
@@ -171,12 +171,11 @@ export default class Particles extends InstancedMesh {
 		let minDistance;
 		let index;
 
-		for ( let i = 0; i < points.length; i += 4 ) {
+		for ( let i = 0; i < points.length; i++ ) {
 
 			const point = points[ i ];
 
 			if ( ray.distanceSqToPoint( point ) > 1e-2 ) continue;
-
 			ray.closestPointToPoint( point, closestPoint );
 			// closestPoint.applyMatrix4( this.matrixWorld );
 
