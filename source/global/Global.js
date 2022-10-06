@@ -19,7 +19,7 @@ export default class Global {
 			--font-family-b: "Sud";
 			--font-family-c: "SF Mono";
 
-			--font-size-xxl: 6.5rem;
+			--font-size-xxl: 4.5rem;
 			--font-size-xl: 3.5rem;
 			--font-size-l: 2.25rem;
 			--font-size-m: 1.6rem;
@@ -92,7 +92,7 @@ export default class Global {
 
 			&:first-line {
 				font-family: var( --font-family-a );
-				font-size: 1.5em;
+				font-size: 1.25em;
 			}
 		}
 

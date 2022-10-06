@@ -49,6 +49,7 @@ export default {
 
 	credits: 'Founded by Mete Kutlu',
 	copyright: 'All rights reserved, Paris 2021',
+	contact: 'Want to collaborate with us<br>or simply have a chat ?',
 	mail: 'mete.kutlu@gmail.com',
 	address: `
 		1833, Summit Place Northwest,<br>

@@ -112,6 +112,11 @@ export default class Header extends HTMLElement {
 			margin: auto;
 			bottom: var( --margin-m );
 			justify-content: center;
+
+			& > div {
+				display: flex;
+				justify-content: center;
+			}
 		}
 
 		header-controls {
@@ -172,17 +177,16 @@ export default class Header extends HTMLElement {
 		<header-block #header>
 
 			<header-navigation blurred-background>
-				<header-title>Navigation</header-title>
 				${ navigation.map( Button.render ) }
 			</header-navigation>
 
 			<header-grid-modes>
-				<header-title>Projects</header-title>
-				${ modes.map( Button.render ) }
+				<div blurred-background>
+					${ modes.map( Button.render ) }
+				</div>
 			</header-grid-modes>
 
-			<header-controls>
-				<header-title>Settings</header-title>
+			<header-controls blurred-background>
 				${ controls.map( Button.render ) }
 			</header-controls>
 
