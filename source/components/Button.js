@@ -30,7 +30,8 @@ export default class Button extends HTMLElement {
 		const selectedIDs = [];
 		const activatedIDs = [];
 
-		const { path, list, route } = Application.store;
+		const { path, route, list, particles } = Application.store;
+
 		switch ( path ) {
 
 		case '/':
@@ -67,7 +68,17 @@ export default class Button extends HTMLElement {
 
 		case 'grid': selectedIDs.push( 'grid' ); break;
 		case 'sphere': selectedIDs.push( 'sphere' ); break;
-		case 'particles': selectedIDs.push( 'particles' ); break;
+		case 'particles':
+			selectedIDs.push( 'particles' );
+			visibleIDs.push( 'color-range', 'timeline' );
+			break;
+
+		}
+
+		switch ( particles ) {
+
+		case 'color-range': selectedIDs.push( 'color-range' ); break;
+		case 'timeline': selectedIDs.push( 'timeline' ); break;
 
 		}
 
@@ -137,6 +148,7 @@ export default class Button extends HTMLElement {
 			@media ( hover: hover ) {
 				&:hover {
 					z-index: 2;
+					color: var( --color-yellow );
 					--border-color: var( --color-yellow );
 
 					& button-label {
@@ -153,7 +165,8 @@ export default class Button extends HTMLElement {
 			&[ disabled ] { color: var( --color-grey ) }
 			&[ selected ] {
 				z-index: 1;
-				--border-color: var( --color-yellow )
+				color: var( --color-yellow );
+				--border-color: var( --color-yellow );
 			}
 
 			[ miniature ] &,

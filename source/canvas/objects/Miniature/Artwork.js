@@ -1,4 +1,4 @@
-import { BufferGeometry, Mesh, PlaneGeometry, Texture } from 'three';
+import { BufferGeometry, Mesh, PlaneGeometry } from 'three';
 
 import ArtworkBasicMaterial from '~/canvas/materials/ArtworkBasicMaterial';
 
@@ -8,7 +8,6 @@ export default class Artwork extends Mesh {
 
 		const material = new ArtworkBasicMaterial( {
 
-			map: new Texture(),
 			fog: false,
 			transparent: true,
 

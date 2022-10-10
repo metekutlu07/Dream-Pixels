@@ -58,7 +58,7 @@ export default class Image extends Mesh {
 
 		const { jsons } = Application.assets[ 'projects' ];
 		const { images } = jsons[ 'Colors.json' ];
-		this.data = images[ index ];
+		this.parameters = images[ index ];
 
 	}
 
@@ -111,11 +111,10 @@ export default class Image extends Mesh {
 
 		if ( ! this.parent.isVisible ) return;
 
-		const { path, caption, tags } = this.data;
-
 		if ( Application.filters ) {
 
 			const { values } = Application.filters;
+			const { tags } = this.parameters;
 
 			if ( values.length ) {
 
@@ -125,7 +124,7 @@ export default class Image extends Mesh {
 
 		}
 
-		if ( this.isHovered ) Application.cursor.set( path, caption, tags );
+		if ( this.isHovered ) Application.cursor.set( this.parameters );
 
 	}
 

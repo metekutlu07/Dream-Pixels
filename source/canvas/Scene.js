@@ -1,4 +1,4 @@
-import { Scene as Object3D, Fog, CubeTexture } from 'three';
+import { Scene as Object3D, FogExp2, CubeTexture } from 'three';
 
 import Helpers from './objects/Helpers';
 import Lighting from './objects/Lighting';
@@ -24,15 +24,14 @@ export default class Scene extends Object3D {
 
 		this.parameters = Application.store.add( 'Scene', {
 
-			near: { value: 5, max: 50 },
-			far: { value: 10, max: 100 },
+			density: { value: 1e-2, max: .1 },
 			color: '#000000'
 
 		} );
 
 		Application.events.add( this );
 
-		this.fog = new Fog();
+		this.fog = new FogExp2();
 
 		this.lighting = new Lighting();
 		this.add( this.lighting );
@@ -77,15 +76,8 @@ export default class Scene extends Object3D {
 
 	onViewChange() {
 
-		this.parameters.near = 1e4;
-		this.parameters.far = 1e4;
-
-		if ( Application.store.path === '/projects' ) {
-
-			this.parameters.near = 50;
-			this.parameters.far = 200;
-
-		}
+		const { path } = Application.store;
+		this.parameters.density = path === '/projects' ? .035 : 0;
 
 		this.add( Application.camera );
 
@@ -93,10 +85,10 @@ export default class Scene extends Object3D {
 
 	onPreFrame() {
 
-		const { near, far, color } = this.parameters;
+		const { color, density } = this.parameters;
 		this.fog.color.set( color );
-		this.fog.near = near;
-		this.fog.far = far;
+		this.fog.density = density;
+		this.fog.density = 0;
 
 	}
 

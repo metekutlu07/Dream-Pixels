@@ -62,7 +62,7 @@ export default class ColorRange extends HTMLElement {
 			handle.children[ 0 ].textContent = Math.round( value * 360 );
 			handle.toggleAttribute( 'grabbed', handle === this.handle );
 
-			Application.store.hue[ index ] = value;
+			Application.store.range[ index ] = value;
 
 		} );
 

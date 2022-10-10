@@ -28,10 +28,10 @@ export default class RenderTargetViewer {
 
 		this.material = new MeshBasicMaterial( { transparent } );
 		this.geometry = new PlaneGeometry( 1, 1 );
-		this.mesh = new Mesh( this.geometry, this.material );
-		this.scene.add( this.mesh );
+		this.quad = new Mesh( this.geometry, this.material );
+		this.scene.add( this.quad );
 
-		this.mesh.position
+		this.quad.position
 			.set( -window.innerWidth, 0, 0 )
 			.add( this.size )
 			.multiplyScalar( .5 )
@@ -39,19 +39,20 @@ export default class RenderTargetViewer {
 
 	}
 
-	render( renderTarget ) {
+	render( texture ) {
 
 		this.setSize();
 
-		this.mesh.material.map = renderTarget.texture;
+		this.quad.material.map = texture;
 
-		const autoClear = Application.renderer.autoClear;
-		Application.renderer.autoClear = false;
+		const { renderer } = Application;
+		// const autoClear = renderer.autoClear;
+		// renderer.autoClear = false;
 
-		Application.renderer.clearDepth();
-		Application.renderer.render( this.scene, this.camera );
+		// renderer.clearDepth();
+		renderer.render( this.scene, this.camera );
 
-		Application.renderer.autoClear = autoClear;
+		// renderer.autoClear = autoClear;
 
 	}
 
@@ -69,8 +70,8 @@ export default class RenderTargetViewer {
 		this.camera.near = .1;
 		this.camera.far = 512;
 
-		this.mesh.scale.set( this.size.x, this.size.y, 1. );
-		this.mesh.position
+		this.quad.scale.set( this.size.x, this.size.y, 1. );
+		this.quad.position
 			.set( -width, -height, 0 )
 			.add( this.size )
 			.multiplyScalar( .5 )

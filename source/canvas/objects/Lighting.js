@@ -142,6 +142,13 @@ export default class Lighting extends Object3D {
 
 			break;
 
+		case '/projects':
+
+			this.parameters.sky.topColor = '#000000';
+			this.parameters.sky.bottomColor = '#111111';
+
+			break;
+
 		case '/virtual-miniature':
 
 			this.parameters.sky.topColor = '#FCD98F';

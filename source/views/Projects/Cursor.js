@@ -18,8 +18,8 @@ export default class Cursor extends HTMLElement {
 
 	onClick() {
 
-		if ( ! this.hasAttribute( 'visible' ) ) return;
-		Application.router.navigate( `/${ this.path }` );
+		// if ( ! this.hasAttribute( 'visible' ) ) return;
+		// Application.router.navigate( `/${ this.path }` );
 
 	}
 
@@ -43,20 +43,23 @@ export default class Cursor extends HTMLElement {
 
 	}
 
-	set( path, caption, tags ) {
+	set( parameters = {} ) {
 
-		this.path = path;
+		this.path = parameters.path;
 
 		const { projects } = Application.content;
-		const project = projects.find( project => project.path === path );
+		const project = projects.find( project => project.path === parameters.path );
 		const index = projects.indexOf( project );
-
-		const title = project.title;
 		const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
-		this.elements.title.innerHTML = `${ title } <span>| ${ number }</span>`;
-		this.elements.caption.innerHTML = caption;
-		this.elements.tags.innerHTML = tags.join( ', ' );
+		const { color, hex, code, title, caption, tags } = this.elements;
+		title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
+		caption.innerHTML = parameters.caption;
+		tags.innerHTML = parameters.tags.join( ', ' );
+
+		color.style.display = parameters.hex ? '' : 'none';
+		hex.style.background = parameters.hex;
+		code.innerHTML = parameters.hex;
 
 		this.toggleAttribute( 'visible', true );
 
@@ -85,7 +88,7 @@ export default class Cursor extends HTMLElement {
 
 			& h3 {
 				font-family: var( --font-family-a );
-				font-size: var( --font-size-l );
+				font-size: var( --font-size-m );
 				width: initial;
 				margin-bottom: 2px;
 
@@ -99,11 +102,11 @@ export default class Cursor extends HTMLElement {
 
 			& h4 {
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-s );
+				font-size: var( --font-size-xs );
 			}
 
 			& h5 {
-				margin-top: var( --margin-xs );
+				margin-top: 5px;
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
 				opacity: .5;
@@ -118,14 +121,36 @@ export default class Cursor extends HTMLElement {
 			-webkit-text-stroke: 1px rgba( 255, 255, 255, .75);
 		}
 
+		cursor-color {
+			display: flex;
+			align-items: center;
+			margin-bottom: 5px;
+
+			& color-hex {
+				width: 15px;
+				height: 15px;
+				margin-right: 5px;
+				border: var( --border-size ) solid var( --border-color );
+			}
+
+			& color-code {
+				font-size: var( --font-size-xs );
+				font-family: var( --font-family-c );
+			}
+		}
+
 		`;
 
 		return html`
 
 		<projects-cursor @click #cursor blurred-background>
-			<h3 #caption>Comparaison: Side by Side View</h4>
-			<h4 #tags>Artificial Intelligence, Persian Miniature</h5>
-			<h5 #title>Bistami <span>| 01</span></h3>
+			<cursor-color #color>
+				<color-hex #hex></color-hex>
+				<color-code #code></color-code>
+			</cursor-color>
+			<h3 #caption>Comparaison: Side by Side View</h3>
+			<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
+			<h5 #title>Bistami <span>| 01</span></h5>
 		</projects-cursor>
 
 		`;

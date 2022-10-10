@@ -1,5 +1,4 @@
-uniform sampler2D simulation;
-uniform sampler2D initial;
+uniform sampler2D current;
 
 uniform float time;
 uniform float speed;
@@ -16,7 +15,7 @@ vec4 getCurrentData( vec4 data ) {
 	vec3 position = data.xyz;
 	float life = data.a;
 
-	life -= dieSpeed;
+	// life -= dieSpeed;
 
 	// if ( life < .0 ) {
 
@@ -33,7 +32,7 @@ vec4 getCurrentData( vec4 data ) {
 
 	// }
 
-	position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
+	// position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
 	// position += getCurlNoise( vec3( life ) * curlSize * 100., .002, .001 ) * speed;
 
 	return vec4( position, life );
@@ -42,7 +41,7 @@ vec4 getCurrentData( vec4 data ) {
 
 void main() {
 
-	vec4 data = texture2D( simulation, vUv );
+	vec4 data = texture2D( current, vUv );
 	gl_FragColor = getCurrentData( data );
 
 }

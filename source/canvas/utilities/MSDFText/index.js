@@ -29,7 +29,7 @@ export default class MSDFText extends InstancedMesh {
 			SDFMap,
 			envMap,
 			roughness: .95,
-			metalness: .15
+			metalness: .1
 
 		} );
 
@@ -55,7 +55,7 @@ export default class MSDFText extends InstancedMesh {
 
 		fontSize = 1,
 		textAlign = 'center',
-		strokeColor = '#ff0000',
+		strokeColor = '#ffffff',
 		strokeWidth = 0,
 		lineHeight = 1,
 		leaveWhiteSpace,

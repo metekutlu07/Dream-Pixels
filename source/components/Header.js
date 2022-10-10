@@ -30,6 +30,9 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'sphere' ) ) Application.store.set( 'list', 'sphere' );
 		if ( currentTarget.hasAttribute( 'particles' ) ) Application.store.set( 'list', 'particles' );
 
+		if ( currentTarget.hasAttribute( 'color-range' ) ) Application.store.set( 'particles', 'color-range' );
+		if ( currentTarget.hasAttribute( 'timeline' ) ) Application.store.set( 'timeline', 'timeline' );
+
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
 
 	}
@@ -112,10 +115,16 @@ export default class Header extends HTMLElement {
 			margin: auto;
 			bottom: var( --margin-m );
 			justify-content: center;
+			flex-direction: column;
+			align-items: center;
 
 			& > div {
 				display: flex;
 				justify-content: center;
+
+				&:not( :last-child ) {
+					margin-bottom: var( --margin-xs );
+				}
 			}
 		}
 
@@ -135,12 +144,6 @@ export default class Header extends HTMLElement {
 			[ path="/projects" ] & {
 				opacity: 0;
 			}
-
-			/* @media ( max-width: 1280px ) {
-				position: relative;
-				top: initial;
-				right: initial;
-			} */
 		}
 
 		`;
@@ -156,6 +159,11 @@ export default class Header extends HTMLElement {
 			{ attributes: [ 'grid', '@click|header-block' ], },
 			{ attributes: [ 'sphere', '@click|header-block' ], },
 			{ attributes: [ 'particles', '@click|header-block' ], }
+		];
+
+		const submodes = [
+			{ attributes: [ 'color-range', '@click|header-block' ], },
+			{ attributes: [ 'timeline', '@click|header-block' ], },
 		];
 
 		const controls = [
@@ -181,6 +189,9 @@ export default class Header extends HTMLElement {
 			</header-navigation>
 
 			<header-grid-modes>
+				<div blurred-background>
+					${ submodes.map( Button.render ) }
+				</div>
 				<div blurred-background>
 					${ modes.map( Button.render ) }
 				</div>

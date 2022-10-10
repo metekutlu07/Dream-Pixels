@@ -8,7 +8,7 @@
     "editor.find.addExtraSpaceOnTop": false,
     "editor.tabSize": 3,
     "editor.fontFamily": "SFMono-Regular, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 13,
+    "editor.fontSize": 12,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.autoClosingQuotes": "always",
     "editor.formatOnPaste": false,

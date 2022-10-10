@@ -3,7 +3,6 @@ import {
 	DataTexture,
 	RGBAFormat,
 	FloatType,
-	NearestFilter,
 	ShaderMaterial,
 	OrthographicCamera,
 	Scene,
@@ -11,6 +10,8 @@ import {
 	PlaneGeometry,
 	WebGLRenderTarget,
 	Vector3,
+	CatmullRomCurve3,
+	NearestFilter,
 	NoBlending
 
 } from 'three';
@@ -26,10 +27,11 @@ export default class Simulation {
 
 		this.width = width;
 		this.height = height;
+		this.count = width * height;
 
 		this.uniforms = {
 
-			simulation: { value: null },
+			current: { value: null },
 			initial: { value: null },
 
 			speed: { value: 1 },
@@ -68,7 +70,7 @@ export default class Simulation {
 			depthBuffer: false,
 			stencilBuffer: false,
 			magFilter: NearestFilter,
-			minFilter: NearestFilter,
+			minFilter: NearestFilter
 
 		};
 
@@ -85,130 +87,101 @@ export default class Simulation {
 		this.curlSize = .1;
 		this.attraction = .5;
 
-	}
-
-	onLoad( files ) {
-
-		if ( ! files[ 'projects' ] ) return;
-
-		const { arraybuffers } = files[ 'projects' ];
-		this.data = new Float32Array( arraybuffers[ 'Positions-Default.buffer' ] );
-		this.reset();
+		this.setCurve();
 
 	}
 
-	setPoints() {
+	setCurve() {
 
-		this.points = [];
+		const center = new Vector3();
+		const vertices = Array.from( { length: 10 }, () => {
 
+			const vertex = new Vector3()
+				.randomDirection()
+				.multiplyScalar( 10 );
+
+			center.add( vertex );
+			return vertex;
+
+		} );
+
+		center.divideScalar( vertices.length );
+		vertices.forEach( vertex => vertex.sub( center ) );
+
+		this.curve = new CatmullRomCurve3( vertices, true, 'catmullrom', 1 );
+
+	}
+
+	onStart() {
+
+		const { width, height, count } = this;
+		const data = new Float32Array( count * 4 );
+		const point = new Vector3();
+
+		for ( let i = 0; i < count; i++ ) {
+
+			const t = i / count;
+			const { x, y, z } = this.curve.getPointAt( t, point );
+
+			data[ i * 4 + 0 ] = x;
+			data[ i * 4 + 1 ] = y;
+			data[ i * 4 + 2 ] = z;
+			data[ i * 4 + 3 ] = 1;
+
+		}
+
+		this.texture = new DataTexture( data, width, height, RGBAFormat, FloatType );
+		this.texture.needsUpdate = true;
+		this.uniforms[ 'current' ].value = this.texture;
+
+		this.renderTargets.forEach( this.render );
+
+	}
+
+	setPoints( points ) {
+
+		const { width, height, count } = this;
 		const { renderer } = Application;
-		const { width, height } = this;
 
 		const renderTarget = this.renderTargets[ 0 ];
-		const data = new Float32Array( width * height * 4 );
+		const data = new Float32Array( count * 4 );
 		renderer.readRenderTargetPixels( renderTarget, 0, 0, width, height, data );
 
 		for ( let i = 0; i < data.length / 4; i++ ) {
 
-			const point = new Vector3()
+			points[ i ]
 				.setX( data[ i * 4 + 0 ] )
 				.setY( data[ i * 4 + 1 ] )
 				.setZ( data[ i * 4 + 2 ] );
 
-			this.points.push( point );
-
 		}
 
 	}
 
-	getPositionArray() {
+	// onPreFrame() {
 
-		const count = this.width * this.height;
-		const data = new Float32Array( count * 4 );
+	// const deltaTime = Application.time.deltaTime * this.timeScale;
+	// const deltaRatio = deltaTime / 16.6667;
 
-		for ( let i = 0; i < count; i++ ) {
+	// this.uniforms[ 'speed' ].value = this.speed * deltaRatio;
+	// this.uniforms[ 'dieSpeed' ].value = this.dieSpeed * deltaRatio;
+	// this.uniforms[ 'radius' ].value = this.radius;
+	// this.uniforms[ 'curlSize' ].value = this.curlSize;
+	// this.uniforms[ 'attraction' ].value = this.attraction;
 
-			const radius = ( .5 + Math.random() * .5 ) * .1;
-			const phi = ( Math.random() - .5 ) * Math.PI;
-			const theta = Math.random() * Math.PI * 2;
+	// this.uniforms[ 'current' ].value = this.renderTargets[ 0 ].texture;
+	// this.uniforms[ 'time' ].value += deltaTime * 1e-3;
 
-			data[ i * 4 + 0 ] = radius * Math.cos( theta ) * Math.cos( phi );
-			data[ i * 4 + 1 ] = radius * Math.sin( phi );
-			data[ i * 4 + 2 ] = radius * Math.sin( theta ) * Math.cos( phi );
-			data[ i * 4 + 3 ] = i / count;
+	// }
 
-		}
-
-		return data;
-
-	}
-
-	getDataTexture( width, height ) {
-
-		const data = this.data || this.getPositionArray();
-		const texture = new DataTexture( data, width, height, RGBAFormat, FloatType );
-
-		Object.assign( texture, {
-
-			minFilter: NearestFilter,
-			magFilter: NearestFilter,
-			generateMipmaps: false,
-			needsUpdate: true,
-			flipY: false
-
-		} );
-
-		return texture;
-
-	}
-
-	onPreFrame() {
-
-		const deltaTime = Application.time.deltaTime * this.timeScale;
-		const deltaRatio = deltaTime / 16.6667;
-
-		this.uniforms[ 'speed' ].value = this.speed * deltaRatio;
-		this.uniforms[ 'dieSpeed' ].value = this.dieSpeed * deltaRatio;
-		this.uniforms[ 'radius' ].value = this.radius;
-		this.uniforms[ 'curlSize' ].value = this.curlSize;
-		this.uniforms[ 'attraction' ].value = this.attraction;
-
-		this.uniforms[ 'simulation' ].value = this.renderTargets[ 0 ].texture;
-		this.uniforms[ 'time' ].value += deltaTime * 1e-3;
-
-	}
-
-	async reset() {
-
-		const dataTexture = this.getDataTexture( this.width, this.height );
-		this.uniforms[ 'simulation' ].value = dataTexture;
-		this.uniforms[ 'initial' ].value = dataTexture;
-
-		this.renderTargets.forEach( this.render );
-		this.speed = .1;
-
-		const targets = this;
-		const easing = 'easeOutQuint';
-		const duration = 1000;
-		const delay = 500;
-		const speed = 0;
-
-		if ( this.animation ) this.animation.remove( this );
-
-		this.animation = anime( { targets, easing, duration, speed, delay } );
-		await this.animation.finished;
-		this.setPoints();
-
-	}
-
-	render( writeBuffer ) {
+	render() {
 
 		this.renderTargets.unshift( this.renderTargets.pop() );
-		this.quad.material = this.material;
 
-		writeBuffer = writeBuffer || this.renderTargets[ 0 ];
+		const writeBuffer = this.renderTargets[ 0 ];
 
 		const { renderer } = Application;
+		// renderer.clear();
 		renderer.setRenderTarget( writeBuffer );
 		renderer.render( this.scene, this.camera );
 		renderer.setRenderTarget( null );

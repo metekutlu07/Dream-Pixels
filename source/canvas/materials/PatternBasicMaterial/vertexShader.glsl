@@ -9,7 +9,11 @@
 #include <logdepthbuf_pars_vertex>
 #include <clipping_planes_pars_vertex>
 
+varying vec2 vUv;
+
 void main() {
+
+	vUv = uv;
 
 	#include <uv_vertex>
 	#include <uv2_vertex>

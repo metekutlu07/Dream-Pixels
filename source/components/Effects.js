@@ -26,6 +26,7 @@ export default class Effects extends HTMLElement {
 			top: 0;
 			left: 0;
 			pointer-events: none;
+			display: none;
 
 			& grid-effect,
 			& noise-effect,

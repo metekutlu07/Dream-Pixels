@@ -32,7 +32,7 @@ export async function getSampledColors( buffer, imageID ) {
 
 	}
 
-	const samples = Math.round( 512 * 512 / images.length );
+	const samples = Math.round( 128 * 128 / images.length );
 	const count = results.length;
 	const step = Math.round( count / samples );
 
@@ -54,14 +54,14 @@ export async function getColorList( content ) {
 	await rm( destination, { recursive: true, force: true } );
 	await mkdir( destination, { recursive: true } );
 
-	await Promise.all( projects.map( async project => {
+	Promise.all( projects.map( project => {
 
 		const { sections, path } = project;
 
-		await Promise.all( sections
+		Promise.all( sections
 			.filter( section => section.media )
 			.filter( section => section.media.tags )
-			.map( async section => {
+			.map( section => {
 
 				const { source, tags, caption } = section.media;
 
@@ -84,12 +84,12 @@ export async function getColorList( content ) {
 
 	} ) );
 
-	await Promise.all( images.map( async ( image, index ) => {
+	for ( let i = 0; i < images.length; i++ ) {
 
-		const { source } = image;
+		const { source } = images[ i ];
 
 		const extension = source.match( /mp4/ ) ? '.png' : '';
-		const name = resolve( destination, `${ index }.png` );
+		const name = resolve( destination, `${ i }.png` );
 		const parameters = { width: 512, fit: 'contain' };
 
 		const path = resolve( assets, source + extension );
@@ -97,9 +97,9 @@ export async function getColorList( content ) {
 		await result.toFile( name );
 
 		const buffer = await result.toBuffer();
-		await getSampledColors( buffer, index );
+		await getSampledColors( buffer, i );
 
-	} ) );
+	}
 
 	const data = JSON.stringify( { images, colors } );
 	await writeFile( resolve( output, 'Colors.json' ), data );

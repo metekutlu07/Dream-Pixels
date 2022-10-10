@@ -86,6 +86,8 @@ export default {
 		'grid': [ 'Projects' ],
 		'sphere': [ 'Images' ],
 		'particles': [ 'Pixels' ],
+		'color-range': [ 'Color Range' ],
+		'timeline': [ 'Timeline' ],
 		'display-menu': [ 'Menu', 'Close' ]
 	},
 

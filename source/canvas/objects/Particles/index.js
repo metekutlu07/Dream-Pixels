@@ -1,65 +1,68 @@
 import {
 
 	Raycaster,
-	InstancedMesh,
-	SphereGeometry,
-	Quaternion,
-	Matrix4,
+	Float32BufferAttribute,
 	Vector3,
-	Color
+	Color,
+	Points,
+	BufferGeometry,
+	LineBasicMaterial,
+	Line
 
 } from 'three';
 
-import ParticlesBasicMaterial from '~/canvas/materials/ParticlesBasicMaterial';
-// import RenderTargetViewer from '~/canvas/utilities/RenderTargetViewer';
+import ParticlesMaterial from '~/canvas/materials/ParticlesMaterial';
 
 import Simulation from './Simulation';
+import Title from './Title';
+import Camera from './Camera';
 
-export default class Particles extends InstancedMesh {
+export default class Particles extends Points {
 
 	constructor() {
 
-		const width = 512;
-		const height = 512;
+		const width = 128;
+		const height = 128;
 		const count = width * height;
 
-		const size = .015;
-		const geometry = new SphereGeometry( size, 3, 2 );
-		const material = new ParticlesBasicMaterial( { transparent: true } );
+		const size = .05;
+		const geometry = new BufferGeometry();
+		const material = new ParticlesMaterial( { size } );
 
-		super( geometry, material, count );
-
-		Application.events.add( this );
-
-		const matrix = new Matrix4().makeScale( 1, 1, 1 );
-		const color = Color.get();
-		const axis = Vector3.get();
-		const quaternion = Quaternion.get();
+		const positions = [];
+		const points = [];
+		const colors = [];
 
 		for ( let i = 0; i < count; i++ ) {
 
 			const x = Math.floor( i % width ) / width;
 			const y = Math.floor( i / width ) / height;
+			const z = 0;
 
-			const angle = Math.randFloat( -Math.PI, Math.PI );
-			quaternion.setFromAxisAngle( axis.random(), angle );
-			matrix.makeRotationFromQuaternion( quaternion );
-			matrix.makeTranslation( x, y, 0 );
-
-			this.setMatrixAt( i, matrix );
-			this.setColorAt( i, color );
+			positions.push( x, y, z );
+			colors.push( 1, 1, 1 );
+			points.push( new Vector3() );
 
 		}
 
+		geometry.setAttribute( 'position', new Float32BufferAttribute( positions, 3 ) );
+		geometry.setAttribute( 'color', new Float32BufferAttribute( colors, 3 ) );
+
+		super( geometry, material );
+
+		Application.events.add( this );
+
+		this.width = width;
+		this.height = height;
+		this.count = width * height;
 		this.size = size;
-		this.needsUpdate = true;
-		this.raycaster = new Raycaster();
+		this.points = points;
 
 		this.simulation = new Simulation( width, height );
+		this.camera = new Camera( this.simulation.curve );
+		this.raycaster = new Raycaster();
 
-		Color.release( color );
-		Vector3.release( axis );
-		Quaternion.release( quaternion );
+		this.add( this.camera );
 
 	}
 
@@ -67,29 +70,54 @@ export default class Particles extends InstancedMesh {
 
 		if ( ! files[ 'projects' ] ) return;
 
-		const { models, jsons } = files[ 'projects' ];
-		const { geometries } = models[ 'Particle.glb' ];
+		const { jsons } = files[ 'projects' ];
+		const { images, colors } = jsons[ 'Colors.json' ];
+		const { array } = this.geometry.attributes.color;
 
-		this.geometry = geometries[ 'Particle' ];
-		this.geometry.scale( this.size, this.size, this.size );
+		this.simulation.setPoints( this.points );
 
-		const { colors } = jsons[ 'Colors.json' ];
-		const color = Color.get();
+		const color = new Color();
+		this.groups = {};
+		this.colors = [];
 
 		for ( let i = 0; i < this.count; i++ ) {
 
-			const [ hex ] = colors[ i % colors.length ].split( '|' );
-			this.setColorAt( i, color.setStyle( hex ) );
+			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
+			const { path, caption, tags } = images[ imageID ];
+
+			this.groups[ path ] = this.groups[ path ] || [];
+			this.groups[ path ].push( this.points[ i ] );
+
+			const { r, g, b } = color.setStyle( hex );
+			array[ i * 3 + 0 ] = r;
+			array[ i * 3 + 1 ] = g;
+			array[ i * 3 + 2 ] = b;
+
+			this.colors[ i ] = { path, caption, tags, hex };
 
 		}
 
-		this.instanceColor.needsUpdate = true;
+		const entries = Object.entries( this.groups );
 
-		Color.release( color );
+		for ( const [ path, indices ] of entries ) {
+
+			const project = Application.content.get( path );
+			const title = new Title( project, indices );
+			this.add( title );
+
+		}
+
+		const points = this.simulation.curve.getPoints( 500 );
+		const geometry = new BufferGeometry().setFromPoints( points );
+		const material = new LineBasicMaterial( { color: 0xff0000 } );
+		const line = new Line( geometry, material );
+		this.add( line );
+
+		this.geometry.attributes.color.needsUpdate = true;
 
 	}
 
-	async onPreUpdate() {
+	onPreUpdate() {
 
 		const { path, list } = Application.store;
 		const isVisible = path === '/projects' && list === 'particles';
@@ -97,65 +125,64 @@ export default class Particles extends InstancedMesh {
 		if ( this.isVisible === isVisible ) return;
 		this.isVisible = isVisible;
 
-		if ( this.animation ) this.animation.remove( this.material );
-		if ( this.isVisible ) this.visible = true;
+		// // if ( this.animation ) this.animation.remove( this.material );
+		// if ( this.isVisible ) this.visible = true;
 
-		const targets = this.material;
-		const easing = 'easeOutQuint';
-		const duration = this.isVisible ? 2000 : 500;
-		const opacity = this.isVisible ? 1 : 0;
-		const delay = this.isVisible ? 250 : 0;
+		// // const targets = this.material;
+		// // const easing = 'easeOutQuint';
+		// // const duration = this.isVisible ? 2000 : 500;
+		// // const opacity = this.isVisible ? 1 : 0;
+		// // const delay = this.isVisible ? 250 : 0;
 
-		this.animation = anime( { targets, easing, duration, opacity, delay } );
-		this.simulation.reset();
+		// // this.animation = anime( { targets, easing, duration, opacity, delay } );
+		// // this.simulation.reset();
 
-		this.needsUpdate = true;
-		await this.animation.finished;
-		this.needsUpdate = false;
+		// // this.needsUpdate = true;
+		// // await this.animation.finished;
+		// // this.needsUpdate = false;
 
-		if ( ! this.isVisible ) this.visible = false;
+		// if ( ! this.isVisible ) this.visible = false;
 
 	}
 
 	onUpdate() {
 
-		if ( ! this.needsUpdate ) return;
+		// if ( this.needsUpdate ) this.simulation.render();
 
-		const { texture } = this.simulation.render();
+		const { texture } = this.simulation.renderTargets[ 0 ];
 		this.material.uniforms[ 'simulation' ].value = texture;
 
 	}
 
 	onPostUpdate() {
 
-		// const index = this.getClosestIndex();
-		// console.log( index );
+		const index = this.getClosestIndex();
+
+		if ( index === this.index ) return;
+		this.index = index;
+
+		const color = this.colors[ this.index ];
+		if ( color ) Application.cursor.set( color );
+		else Application.cursor.reset();
 
 	}
-
-	// onAfterRender() {
-
-	// if ( this.renderTargetViewer ) {
-
-	// 	const { directionalLight } = Application.scene.lighting;
-	// 	this.renderTargetViewer.render( directionalLight.shadow.map );
-	// 	this.renderTargetViewer.render( this.simulation.renderTargets[ 0 ] );
-
-	// } else this.renderTargetViewer = new RenderTargetViewer();
-
-	// }
 
 	onKeyDown( parameters ) {
 
 		const { code } = parameters;
-		if ( code === 'Space' ) this.needsUpdate = ! this.needsUpdate;
-		else if ( code === 'KeyS' ) this.export();
+
+		if ( code === 'Space' ) {
+
+			this.needsUpdate = ! this.needsUpdate;
+			this.simulation.setPoints();
+
+		} else if ( code === 'KeyS' ) this.export();
 
 	}
 
 	getClosestIndex() {
 
-		if ( ! this.simulation.points || ! this.isVisible ) return;
+		if ( ! this.points || ! this.isVisible ) return;
 
 		const { camera, pointer } = Application;
 		const position = pointer.getCoordinates( Vector3.get(), true );
@@ -165,19 +192,17 @@ export default class Particles extends InstancedMesh {
 		if ( pointer.isPressed ) return null;
 
 		const { ray, near, far } = this.raycaster;
-		const { points } = this.simulation;
 		const closestPoint = Vector3.get();
 
 		let minDistance;
 		let index;
 
-		for ( let i = 0; i < points.length; i++ ) {
+		for ( let i = 0; i < this.points.length; i++ ) {
 
-			const point = points[ i ];
+			const point = this.points[ i ];
 
-			if ( ray.distanceSqToPoint( point ) > 1e-2 ) continue;
+			if ( ray.distanceToPoint( point ) > this.size * 2 ) continue;
 			ray.closestPointToPoint( point, closestPoint );
-			// closestPoint.applyMatrix4( this.matrixWorld );
 
 			const distance = ray.origin.distanceTo( closestPoint );
 			if ( distance < near || distance > far ) continue;
@@ -191,27 +216,6 @@ export default class Particles extends InstancedMesh {
 		Vector3.release( closestPoint );
 
 		return index;
-
-	}
-
-	export() {
-
-		const { renderer } = Application;
-		const { width, height } = this.simulation;
-
-		const renderTarget = this.simulation.render();
-		const data = new Float32Array( width * height * 4 );
-		renderer.readRenderTargetPixels( renderTarget, 0, 0, width, height, data );
-
-		const { buffer } = data;
-		const parameters = { type: 'application/octet-stream' };
-		const blob = new Blob( [ buffer ], parameters );
-
-		const link = document.createElement( 'a' );
-		link.href = URL.createObjectURL( blob );
-		link.download = 'Particles.buffer';
-		link.addEventListener( 'click', event => event.stopPropagation() );
-		link.click();
 
 	}
 

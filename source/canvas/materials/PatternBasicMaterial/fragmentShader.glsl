@@ -25,6 +25,8 @@ uniform float opacity;
 #include <logdepthbuf_pars_fragment>
 #include <clipping_planes_pars_fragment>
 
+varying vec2 vUv;
+
 #include "./getIsolines"
 
 void main() {
