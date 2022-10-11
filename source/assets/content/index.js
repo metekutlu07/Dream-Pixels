@@ -110,7 +110,7 @@ export default {
 	grid: [
 
 		P1,
-		{ objectID: 'Object_001' },
+		{ objectID: '001' },
 		P2,
 		P3,
 		{
@@ -119,7 +119,7 @@ export default {
 		},
 		P4,
 		P5,
-		{ objectID: 'Object_005' },
+		{ objectID: '005' },
 		P6,
 		P7,
 		{
@@ -128,7 +128,7 @@ export default {
 		},
 		P8,
 		P9,
-		{ objectID: 'Object_002' },
+		{ objectID: '002' },
 		P10,
 		P11,
 		{
@@ -136,9 +136,9 @@ export default {
 			author: 'Oscar Wilde'
 		},
 		P12,
-		{ objectID: 'Object_003' },
+		{ objectID: '003' },
 		P13,
-		{ objectID: 'Object_004' },
+		{ objectID: '006' },
 		P14,
 		P15,
 		{

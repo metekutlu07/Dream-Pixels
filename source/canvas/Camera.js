@@ -12,7 +12,7 @@ export default class Camera extends PerspectiveCamera {
 
 	constructor() {
 
-		super( 10, 1, 1, 400 );
+		super( 10, 1, 50, 400 );
 
 		Application.events.add( this );
 

@@ -132,6 +132,7 @@ export default class ColorRange extends HTMLElement {
 			display: flex;
 			align-items: center;
 			cursor: grab;
+			border: var( --border-size ) solid var( --border-color );
 
 			&[ grabbed ] {
 				cursor: grabbing;
@@ -139,10 +140,9 @@ export default class ColorRange extends HTMLElement {
 
 			& span {
 				padding: 5px 8px;
-				margin-right: 5px;
-				border: var( --border-size ) solid var( --border-color );
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-s );
+				border-right: var( --border-size ) solid var( --border-color );
 
 				&:after {
 					content: '°';

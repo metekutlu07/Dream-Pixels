@@ -15,7 +15,7 @@ export default class Preloader extends HTMLElement {
 
 	static render() {
 
-		const radius = 35;
+		const radius = 30;
 		const size = radius * 2.5;
 		const center = size * .5;
 		const circumference = 2 * Math.PI * radius;
@@ -56,8 +56,7 @@ export default class Preloader extends HTMLElement {
 				& svg,
 				& text,
 				& preloader-counter,
-				& preloader-square::before,
-				& preloader-square::after {
+				& preloader-square {
 					opacity: 1 !important;
 					transform: scale( 1 ) !important;
 				}
@@ -100,7 +99,9 @@ export default class Preloader extends HTMLElement {
 				justify-content: center;
 				align-items: center;
 				padding: 15px;
-				transition: all 1s var( --timing-function );
+				transition: all .5s var( --timing-function );
+				transform: scale( .8 );
+				opacity: 0;
 			}
 
 			& preloader-text {
@@ -197,8 +198,8 @@ export default class Preloader extends HTMLElement {
 			& preloader-counter {
 				position: absolute;
 				color: var( --color-white );
-				font-family: var( --font-family-a );
-				font-size: var( --font-size-s );
+				font-family: var( --font-family-b );
+				font-size: var( --font-size-xs );
 				transform: scale( .8 );
 				opacity: 0;
 				transition: all 1s var( --timing-function );

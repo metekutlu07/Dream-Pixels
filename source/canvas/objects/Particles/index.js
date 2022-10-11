@@ -121,10 +121,10 @@ export default class Particles extends Points {
 		if ( this.isVisible === isVisible ) return;
 		this.isVisible = isVisible;
 
-		await Application.time.wait( 2000 );
+		// await Application.time.wait( 2000 );
 
-		this.simulation.needsUpdate = ! this.simulation.needsUpdate;
-		this.children.forEach( child => child.enter && child.enter() );
+		// this.simulation.needsUpdate = ! this.simulation.needsUpdate;
+		// this.children.forEach( child => child.enter && child.enter() );
 
 		// await Application.time.wait( 5000 );
 

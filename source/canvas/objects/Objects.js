@@ -14,8 +14,8 @@ export default class Objects extends Object3D {
 
 		if ( ! files[ 'projects' ] ) return;
 
-		const { models } = Application.assets[ 'projects' ];
-		const { objects } = models[ 'Objects.glb' ];
+		const { models, textures } = Application.assets[ 'projects' ];
+		const { objects } = models[ 'Objects/Objects.glb' ];
 		const envMap = Application.assets[ 'EnvMap' ];
 
 		Application.content.grid
@@ -24,10 +24,13 @@ export default class Objects extends Object3D {
 
 				const { objectID } = child;
 
+				const map = textures[ `Objects/${ objectID }.png` ];
+				map.flipY = false;
+
 				const clone = objects[ objectID ].clone();
 				const material = new MeshStandardMaterial( {
 
-					color: '#111111',
+					map,
 					transparent: true,
 					metalness: .1,
 					roughness: .8,
@@ -78,7 +81,7 @@ export default class Objects extends Object3D {
 			const targets = child;
 			const opacity = this.isVisible ? 1 : 0;
 			const duration = this.isVisible ? 1500 : 500;
-			const delay = this.isVisible ? 1000 + index * 100 : 0;
+			const delay = this.isVisible ? 750 + index * 100 : 0;
 			const easing = 'easeOutQuint';
 
 			child.animation = anime( { targets, delay, easing, duration, opacity } );
@@ -108,8 +111,8 @@ export default class Objects extends Object3D {
 			child.quaternion.copy( camera.quaternion );
 
 			const time = Application.time.elapsedTime * 1e-3;
-			child.rotation.x = Math.sin( time + index ) * .25;
-			child.rotation.z = Math.cos( time * 1.333 - index ) * .25;
+			child.rotation.x = Math.sin( time + index ) * .1;
+			child.rotation.z = Math.cos( time * 1.333 - index ) * .1;
 
 			child.material.opacity = opacity;
 			child.visible = opacity > .05;

@@ -26,7 +26,11 @@ export default class Images extends Object3D {
 
 		const { textures } = files[ 'projects' ];
 
-		const maps = Object.values( textures );
+		const maps = Object
+			.entries( textures )
+			.filter( entries => entries[ 0 ].match( 'Images' ) )
+			.map( entries => entries[ 1 ] );
+
 		const points = this
 			.getFibonacciSpherePoints( maps.length )
 			.sort( () => Math.random() - .5 );

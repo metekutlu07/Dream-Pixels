@@ -40,7 +40,7 @@ export default class Effects extends HTMLElement {
 
 			& grid-effect {
 				background-image: url( "/public/Common/Grid.svg" );
-				background-size: 1vw;
+				background-size: 15px;
 				background-position: center center;
 				transition: transform .5s var( --timing-function ), opacity .5s var( --timing-function );
 				transform: scale( 1 );

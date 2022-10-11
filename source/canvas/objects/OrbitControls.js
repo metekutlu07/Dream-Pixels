@@ -192,7 +192,7 @@ export default class OrbitControls extends Object3D {
 			Object.assign( this.parameters, {
 
 				enableRotate: true,
-				// autoRotate: true,
+				autoRotate: true,
 				enableZoom: true,
 
 				autoRotateSpeed: .25,

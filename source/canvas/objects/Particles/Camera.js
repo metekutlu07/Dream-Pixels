@@ -25,6 +25,7 @@ export default class Camera extends PerspectiveCamera {
 		this.aspect = aspect;
 		this.updateProjectionMatrix();
 
+		this.scroll += 1e-5 * 5;
 		this.progress = Math.lerp( this.progress, this.scroll, .01 );
 		const progress = Math.euclideanModulo( this.progress, 1 );
 		const position = curve.getPointAt( progress, Vector3.get() );

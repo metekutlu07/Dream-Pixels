@@ -126,6 +126,7 @@ export default class Button extends HTMLElement {
 				transform .5s var( --timing-function ),
 				opacity .5s var( --timing-function );
 			border: var( --border-size ) solid var( --border-color );
+			opacity: 0;
 
 			[ view ] & {
 				opacity: 0;

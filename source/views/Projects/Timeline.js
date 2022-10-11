@@ -27,7 +27,7 @@ export default class Timeline extends HTMLElement {
 			align-items: flex-end;
 			justify-content: center;
 			font-family: var( --font-family-c );
-			font-size: var( --font-size-xs );
+			font-size: var( --font-size-s );
 
 			& li {
 				text-align: right;

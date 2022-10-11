@@ -219,6 +219,8 @@ export default class Simulation {
 		this.uniforms[ 'initialized' ].value = true;
 		this.needsUpdate = false;
 
+		console.log( 'here' );
+
 	}
 
 	render() {
