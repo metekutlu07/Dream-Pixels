@@ -3,41 +3,49 @@ import {
 
 export default class Camera extends PerspectiveCamera {
 
-	constructor( curve ) {
+	constructor( simulation ) {
 
-		super( 45, 1, 1, 25 );
+		super( 45, 1, .01, 250 );
 
 		Application.events.add( this );
 
-		this.curve = curve;
+		this.target = new Vector3();
+
+		this.simulation = simulation;
+		this.scroll = 0;
+		this.progress = 0;
+		this.friction = .01;
 
 	}
 
 	onUpdate() {
 
 		const { aspect } = Application.viewport;
+		const { curve } = this.simulation;
 		this.aspect = aspect;
+		this.updateProjectionMatrix();
 
-		const { elapsedTime } = Application.time;
-		this.progress = elapsedTime * 1e-5 % 1;
-		this.curve.getPointAt( this.progress, this.position );
+		this.progress = Math.lerp( this.progress, this.scroll, .01 );
+		const progress = Math.euclideanModulo( this.progress, 1 );
+		const position = curve.getPointAt( progress, Vector3.get() );
+		this.position.lerp( position, this.friction );
 
-		const lookAt = Vector3.get();
-		this.curve.getPointAt( this.progress + 1e-3, lookAt );
-		this.lookAt( lookAt );
-		Vector3.release( lookAt );
+		const target = curve.getPointAt( Math.euclideanModulo( progress + 1e-5, 1 ), Vector3.get() );
+		this.target.lerp( target, this.friction );
+		this.lookAt( this.target );
 
-		const tangent = Vector3.get();
-		this.curve.getPointAt( this.progress, tangent );
-		Vector3.release( tangent );
+		Vector3.release( position, target );
 
-		const normal = Vector3.get()
-			.set( 0, 1, 0 )
-			.cross( tangent );
+		const { particles } = Application.store;
+		Application.overrideCamera = particles === 'timeline' ? this : null;
 
-		this.matrix.lookAt( this.position, lookAt, normal );
-		this.quaternion.setFromRotationMatrix( this.matrix );
-		Vector3.release( normal );
+		this.isScrolling = this.position.distanceTo( position ) > .1;
+
+	}
+
+	onWheel( event ) {
+
+		this.scroll += event.deltaY * 1e-5 * 2;
 
 	}
 

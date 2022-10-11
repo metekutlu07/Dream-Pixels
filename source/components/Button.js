@@ -70,7 +70,8 @@ export default class Button extends HTMLElement {
 		case 'sphere': selectedIDs.push( 'sphere' ); break;
 		case 'particles':
 			selectedIDs.push( 'particles' );
-			visibleIDs.push( 'color-range', 'timeline' );
+
+			if ( path === '/projects' )visibleIDs.push( 'color-range', 'timeline' );
 			break;
 
 		}

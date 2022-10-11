@@ -104,7 +104,8 @@ export default class Global {
 
 		[ view ] {
 			opacity: 0;
-			transition: opacity .75s var( --timing-function );
+			transform: scale( .925 );
+			transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function );
 
 			&[ hidden ] {
 				display: none;
@@ -112,12 +113,12 @@ export default class Global {
 
 			[ view-exit ] &:not( projects-views ) {
 				opacity: 0;
-				transition: opacity .75s var( --timing-function );
+				transform: scale( .925 );
 			}
 
 			[ view-enter ] &:not( projects-views ) {
 				opacity: 1;
-				transition: opacity .75s var( --timing-function );
+				transform: scale( 1 );
 			}
 
 		}
@@ -157,7 +158,11 @@ export default class Global {
 
 		`;
 
-		return '<link rel="preload" href="/fonts/SF-Mono-Regular.otf" as="font" type="font/otf" crossorigin>';
+		return `
+			<link rel="preload" href="/fonts/SF-Mono-Regular.otf" as="font" type="font/otf" crossorigin>
+			<link rel="preload" href="/fonts/Sud-Regular.otf" as="font" type="font/otf" crossorigin>
+			<link rel="preload" href="/fonts/Nord-Regular.otf" as="font" type="font/otf" crossorigin>
+		`;
 
 	}
 

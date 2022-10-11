@@ -26,7 +26,6 @@ export default class Effects extends HTMLElement {
 			top: 0;
 			left: 0;
 			pointer-events: none;
-			display: none;
 
 			& grid-effect,
 			& noise-effect,
@@ -48,23 +47,22 @@ export default class Effects extends HTMLElement {
 				opacity: 0;
 
 				[ loading ] & {
-					opacity: .25;
+					opacity: .5;
 					transform: scale( 1.2 );
 				}
 			}
 
 			& lines-effect {
 				background-image: url( "/public/common/line.svg" );
-				background-size: 1px;
+				background-size: 2px;
 				background-position: center center;
-				opacity: var( --lines-strength );
-				opacity: .5;
+				opacity: .05;
 			}
 
 			& noise-effect {
 				background-image: url( "/public/common/noise.png" );
 				background-position: var( --background-position );
-				opacity: .25;
+				opacity: .1;
 			}
 
 			& vignette-effect {

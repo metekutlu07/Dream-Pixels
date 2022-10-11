@@ -19,7 +19,7 @@ export default class PostProcessing {
 
 		this.parameters = Application.store.add( 'PostProcessing', {
 
-			enabled: false,
+			enabled: true,
 
 			vignettePass: {
 				enabled: true,
@@ -46,7 +46,7 @@ export default class PostProcessing {
 
 			afterImagePass: {
 				enabled: false,
-				strength: { value: .95, min: .75, max: 1 }
+				strength: { value: .925, min: .75, max: 1 }
 			},
 
 			glitchPass: {
@@ -67,7 +67,7 @@ export default class PostProcessing {
 
 			rgbShiftPass: {
 				enabled: true,
-				strength: { value: 1e-3, max: 1e-2 },
+				strength: { value: 1e-5, max: 1e-2 },
 				angle: { value: 0, max: 1 }
 			},
 

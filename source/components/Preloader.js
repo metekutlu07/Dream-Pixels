@@ -15,7 +15,7 @@ export default class Preloader extends HTMLElement {
 
 	static render() {
 
-		const radius = 30;
+		const radius = 35;
 		const size = radius * 2.5;
 		const center = size * .5;
 		const circumference = 2 * Math.PI * radius;
@@ -72,25 +72,23 @@ export default class Preloader extends HTMLElement {
 				}
 			}
 
-			& h1,
-			& h2 {
-				display: none;
-			}
-
 			& h1 {
-				font-size: 8rem;
+				font-size: 6rem;
 				color: var( --color-white );
 				font-family: var( --font-family-a );
 				transition: all 1s var( --timing-function );
 				opacity: 0;
+				transform: scale( .9 );
 			}
 
 			& h2 {
-				font-size: 3.5rem;
+				font-size: 2.5rem;
 				color: var( --color-white );
 				font-family: var( --font-family-b );
-				transition: all 1s var( --timing-function );
+				transition: all .75s var( --timing-function );
+				margin-bottom: var( --margin-xs );
 				opacity: 0;
+				transform: scale( .9 );
 			}
 
 			& preloader-square {
@@ -108,8 +106,8 @@ export default class Preloader extends HTMLElement {
 			& preloader-text {
 				position: absolute;
 				top: 100%;
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-s );
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-m );
 				text-transform: uppercase;
 				display: block;
 				padding: 2px 10px;
@@ -199,9 +197,9 @@ export default class Preloader extends HTMLElement {
 			& preloader-counter {
 				position: absolute;
 				color: var( --color-white );
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
-				transform: scale( .9 );
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-s );
+				transform: scale( .8 );
 				opacity: 0;
 				transition: all 1s var( --timing-function );
 
@@ -232,9 +230,14 @@ export default class Preloader extends HTMLElement {
 				#circles
 			>`;
 
+		const { title, subtitle } = Application.content;
+
 		return html`
 
 		<preloader-overlay #>
+
+			<h1>${ title }</h1>
+			<h2>${ subtitle }</h2>
 
 			<preloader-square>
 

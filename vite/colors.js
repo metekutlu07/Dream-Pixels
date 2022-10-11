@@ -32,7 +32,7 @@ export async function getSampledColors( buffer, imageID ) {
 
 	}
 
-	const samples = Math.round( 128 * 128 / images.length );
+	const samples = Math.round( 512 * 512 / images.length );
 	const count = results.length;
 	const step = Math.round( count / samples );
 

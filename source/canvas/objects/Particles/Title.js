@@ -2,7 +2,7 @@ import MSDFText from '~/canvas/utilities/MSDFText';
 
 export default class Title extends MSDFText {
 
-	constructor( project, points ) {
+	constructor( project, points, duration ) {
 
 		const { jsons, textures } = Application.assets[ 'common' ];
 
@@ -17,23 +17,42 @@ export default class Title extends MSDFText {
 		this.setParameters( title, { fontSize: .25 } );
 
 		this.points = points;
-		// this.position.setScalar( 0 );
-		// this.points.forEach( point => this.position.add( point ) );
-		// this.position.divideScalar( this.points.length );
-
-		this.position.copy( points[ 0 ] );
-
+		this.duration = duration;
 		this.renderOrder = 1e5;
 
+		this.material.opacity = 0;
 		this.material.depthTest = false;
+		this.material.transparent = true;
 		this.material.emissive.set( '#666666' );
+
+		this.position.copy( this.points[ 0 ] );
+
+		this.onUpdate();
+
+	}
+
+	enter() {
+
+		anime( {
+
+			targets: this.material,
+			easing: 'easeOutQuart',
+			delay: this.points[ 0 ].progress * 1e3 * this.duration,
+			duration: 1000,
+			opacity: 1
+
+		} ).finished;
 
 	}
 
 	onUpdate() {
 
-		const { quaternion } = Application.camera;
-		this.quaternion.slerp( quaternion, .25 );
+		const { quaternion } = Application.overrideCamera || Application.camera;
+		this.quaternion.slerp( quaternion, 1 );
+
+		const { particles } = Application.store;
+		const scale = particles === 'timeline' ? 1e-1 : 1;
+		this.scale.setScalar( scale );
 
 	}
 

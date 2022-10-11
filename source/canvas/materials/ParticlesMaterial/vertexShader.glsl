@@ -18,13 +18,18 @@ void main() {
 	#include <morphcolor_vertex>
 	#include <begin_vertex>
 
-	transformed = texture2D( simulation, position.xy ).xyz;
+	vec4 data = texture2D( simulation, position.xy );
+	float life = data.w;
+	transformed = data.xyz;
 	vColor = color;
+
+	if ( life <= .0 ) transformed.y += 1e5;
 
 	#include <morphtarget_vertex>
 	#include <project_vertex>
 
-	gl_PointSize = size * 10.;
+	gl_PointSize = size * 10. * position.z;
+	gl_PointSize *= clamp( life, .5, 1. );
 
 	#ifdef USE_SIZEATTENUATION
 

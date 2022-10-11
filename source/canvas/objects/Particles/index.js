@@ -21,27 +21,22 @@ export default class Particles extends Points {
 
 	constructor() {
 
-		const width = 128;
-		const height = 128;
-		const count = width * height;
-
-		const size = .05;
+		const size = .01;
 		const geometry = new BufferGeometry();
 		const material = new ParticlesMaterial( { size } );
+		const simulation = new Simulation();
 
+		const { width, height, count } = simulation;
+		const colors = new Array( count * 3 ).fill( 1 );
 		const positions = [];
-		const points = [];
-		const colors = [];
 
 		for ( let i = 0; i < count; i++ ) {
 
 			const x = Math.floor( i % width ) / width;
 			const y = Math.floor( i / width ) / height;
-			const z = 0;
+			const z = Math.randFloat( .25, 1.25 );
 
 			positions.push( x, y, z );
-			colors.push( 1, 1, 1 );
-			points.push( new Vector3() );
 
 		}
 
@@ -52,15 +47,12 @@ export default class Particles extends Points {
 
 		Application.events.add( this );
 
-		this.width = width;
-		this.height = height;
-		this.count = width * height;
 		this.size = size;
-		this.points = points;
+		this.simulation = simulation;
+		this.frustumCulled = false;
 
-		this.simulation = new Simulation( width, height );
-		this.camera = new Camera( this.simulation.curve );
 		this.raycaster = new Raycaster();
+		this.camera = new Camera( this.simulation );
 
 		this.add( this.camera );
 
@@ -73,20 +65,23 @@ export default class Particles extends Points {
 		const { jsons } = files[ 'projects' ];
 		const { images, colors } = jsons[ 'Colors.json' ];
 		const { array } = this.geometry.attributes.color;
-
-		this.simulation.setPoints( this.points );
+		const { count, points, duration } = this.simulation.setPoints();
 
 		const color = new Color();
-		this.groups = {};
+		const groupA = [];
+		const groupB = {};
 		this.colors = [];
 
-		for ( let i = 0; i < this.count; i++ ) {
+		for ( let i = 0; i < count; i++ ) {
 
 			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
 			const { path, caption, tags } = images[ imageID ];
 
-			this.groups[ path ] = this.groups[ path ] || [];
-			this.groups[ path ].push( this.points[ i ] );
+			groupA[ imageID ] = groupA[ imageID ] || [];
+			groupA[ imageID ].push( points[ i ] );
+
+			groupB[ path ] = groupB[ path ] || [];
+			groupB[ path ].push( points[ i ] );
 
 			const { r, g, b } = color.setStyle( hex );
 			array[ i * 3 + 0 ] = r;
@@ -97,27 +92,28 @@ export default class Particles extends Points {
 
 		}
 
-		const entries = Object.entries( this.groups );
+		Object
+			.entries( groupB )
+			.forEach( project => {
 
-		for ( const [ path, indices ] of entries ) {
+				const [ path, points ] = project;
+				const content = Application.content.get( path );
+				const title = new Title( content, points, duration );
+				this.add( title );
 
-			const project = Application.content.get( path );
-			const title = new Title( project, indices );
-			this.add( title );
+			} );
 
-		}
-
-		const points = this.simulation.curve.getPoints( 500 );
-		const geometry = new BufferGeometry().setFromPoints( points );
-		const material = new LineBasicMaterial( { color: 0xff0000 } );
-		const line = new Line( geometry, material );
-		this.add( line );
+		const vertices = this.simulation.curve.getPoints( 1e4 );
+		const geometry = new BufferGeometry().setFromPoints( vertices );
+		const material = new LineBasicMaterial( { color: '#ff0000' } );
+		this.line = new Line( geometry, material );
+		// this.add( this.line );
 
 		this.geometry.attributes.color.needsUpdate = true;
 
 	}
 
-	onPreUpdate() {
+	async onPreUpdate() {
 
 		const { path, list } = Application.store;
 		const isVisible = path === '/projects' && list === 'particles';
@@ -125,45 +121,41 @@ export default class Particles extends Points {
 		if ( this.isVisible === isVisible ) return;
 		this.isVisible = isVisible;
 
-		// // if ( this.animation ) this.animation.remove( this.material );
-		// if ( this.isVisible ) this.visible = true;
+		await Application.time.wait( 2000 );
 
-		// // const targets = this.material;
-		// // const easing = 'easeOutQuint';
-		// // const duration = this.isVisible ? 2000 : 500;
-		// // const opacity = this.isVisible ? 1 : 0;
-		// // const delay = this.isVisible ? 250 : 0;
+		this.simulation.needsUpdate = ! this.simulation.needsUpdate;
+		this.children.forEach( child => child.enter && child.enter() );
 
-		// // this.animation = anime( { targets, easing, duration, opacity, delay } );
-		// // this.simulation.reset();
+		// await Application.time.wait( 5000 );
 
-		// // this.needsUpdate = true;
-		// // await this.animation.finished;
-		// // this.needsUpdate = false;
-
-		// if ( ! this.isVisible ) this.visible = false;
+		// this.simulation.setPoints();
+		// this.simulation.needsUpdate = false;
 
 	}
 
 	onUpdate() {
 
-		// if ( this.needsUpdate ) this.simulation.render();
+		this.simulation.render();
 
 		const { texture } = this.simulation.renderTargets[ 0 ];
 		this.material.uniforms[ 'simulation' ].value = texture;
+
+		const { particles } = Application.store;
+		const scale = particles === 'timeline' ? .25 : 1;
+		this.material.size = this.size * scale;
 
 	}
 
 	onPostUpdate() {
 
-		const index = this.getClosestIndex();
+		// const index = this.getClosestIndex();
 
-		if ( index === this.index ) return;
-		this.index = index;
+		// if ( index === this.index ) return;
+		// this.index = index;
 
-		const color = this.colors[ this.index ];
-		if ( color ) Application.cursor.set( color );
-		else Application.cursor.reset();
+		// const color = this.colors[ this.index ];
+		// if ( color ) Application.cursor.set( color );
+		// else Application.cursor.reset();
 
 	}
 
@@ -173,8 +165,13 @@ export default class Particles extends Points {
 
 		if ( code === 'Space' ) {
 
-			this.needsUpdate = ! this.needsUpdate;
-			this.simulation.setPoints();
+			// this.enter();
+			// this.simulation.needsUpdate = ! this.simulation.needsUpdate;
+			// this.simulation.setPoints();
+			// this.simulation.setCurve();
+
+			// const points = this.simulation.curve.getPoints( 4000 );
+			// this.line.geometry.setFromPoints( points );
 
 		} else if ( code === 'KeyS' ) this.export();
 
@@ -182,9 +179,10 @@ export default class Particles extends Points {
 
 	getClosestIndex() {
 
-		if ( ! this.points || ! this.isVisible ) return;
+		if ( ! this.isVisible || this.camera.isScrolling ) return;
 
-		const { camera, pointer } = Application;
+		const { pointer } = Application;
+		const camera = Application.overrideCamera || Application.camera;
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
@@ -197,9 +195,9 @@ export default class Particles extends Points {
 		let minDistance;
 		let index;
 
-		for ( let i = 0; i < this.points.length; i++ ) {
+		for ( let i = 0; i < this.simulation.points.length; i++ ) {
 
-			const point = this.points[ i ];
+			const point = this.simulation.points[ i ];
 
 			if ( ray.distanceToPoint( point ) > this.size * 2 ) continue;
 			ray.closestPointToPoint( point, closestPoint );

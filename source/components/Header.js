@@ -29,10 +29,8 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'grid' ) ) Application.store.set( 'list', 'grid' );
 		if ( currentTarget.hasAttribute( 'sphere' ) ) Application.store.set( 'list', 'sphere' );
 		if ( currentTarget.hasAttribute( 'particles' ) ) Application.store.set( 'list', 'particles' );
-
 		if ( currentTarget.hasAttribute( 'color-range' ) ) Application.store.set( 'particles', 'color-range' );
-		if ( currentTarget.hasAttribute( 'timeline' ) ) Application.store.set( 'timeline', 'timeline' );
-
+		if ( currentTarget.hasAttribute( 'timeline' ) ) Application.store.set( 'particles', 'timeline' );
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
 
 	}

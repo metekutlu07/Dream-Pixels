@@ -103,18 +103,17 @@ export default class ColorRange extends HTMLElement {
 
 		projects-color-range {
 			position: fixed;
-			right: calc( var( --margin-m ) * 2 );
+			right: var( --margin-m );
 			top: 0;
 			bottom: 0;
 			margin: auto;
 			width: 5px;
 			height: 500px;
 			opacity: 0;
-			transition: opacity 1s var( --timing-function );
+			transition: opacity .1s var( --timing-function );
 
-			[ view-enter ][ list="particles" ] & {
+			[ view-enter ][ list="particles" ][ particles="color-range" ] & {
 				opacity: 1;
-				transition-delay: .75s;
 				pointer-events: all;
 			}
 

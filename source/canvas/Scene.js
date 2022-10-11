@@ -77,7 +77,7 @@ export default class Scene extends Object3D {
 	onViewChange() {
 
 		const { path } = Application.store;
-		this.parameters.density = path === '/projects' ? .035 : 0;
+		this.parameters.density = path === '/projects' ? .001 : 0;
 
 		this.add( Application.camera );
 
@@ -88,7 +88,6 @@ export default class Scene extends Object3D {
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );
 		this.fog.density = density;
-		this.fog.density = 0;
 
 	}
 

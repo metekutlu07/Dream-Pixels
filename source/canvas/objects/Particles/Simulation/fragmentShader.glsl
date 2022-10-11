@@ -1,12 +1,25 @@
-uniform sampler2D current;
+#include <common>
 
-uniform float time;
+uniform sampler2D current;
+uniform sampler2D initial;
+
+uniform float deltaTime;
 uniform float speed;
-uniform float dieSpeed;
 uniform float curlSize;
 uniform float attraction;
+uniform float reset;
+uniform float initialized;
+uniform float duration;
 
 #include "./getCurlNoise"
+#include "./easings"
+
+float getTriangularWave( float time, float period, float amplitude ) {
+
+	float p = period * .5;
+	return ( amplitude / p ) * ( p - abs( mod( time, ( 2. * p ) ) - p ) );
+
+}
 
 varying vec2 vUv;
 
@@ -15,25 +28,22 @@ vec4 getCurrentData( vec4 data ) {
 	vec3 position = data.xyz;
 	float life = data.a;
 
-	// life -= dieSpeed;
+	vec4 particle = texture2D( initial, vUv );
+	float age = particle.x;
+	float lifespan = particle.y;
 
-	// if ( life < .0 ) {
+	if ( reset > 0. ) life = -age * duration;
+	else if ( initialized == 1. ) life += deltaTime;
 
-		// data = texture2D( initial, vUv );
-		// position = data.xyz * ( 1. + sin( 15. ) * .2 );
-		// life = .5 + fract( data.w * 21.4131 + time );
+	if ( life > 0. && life < lifespan ) {
 
-	// } else {
+		vec3 coordinates = position * curlSize;
+		float persistence = .1 + life * .1;
 
-		// vec3 delta = vec3( 0. ) - position;
-		// float strength = 1. - smoothstep( 1., 50., length( delta ) );
-		// position += delta * ( .005 + life * .01 ) * attraction * strength * speed;
-		// position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
+		float offset = cubicIn( 1. - life / lifespan ) * speed * particle.z;
+		position += getCurlNoise( coordinates, .0, persistence ) * offset;
 
-	// }
-
-	// position += getCurlNoise( position * curlSize, time, .1 + ( 1. - life ) * .1 ) * speed;
-	// position += getCurlNoise( vec3( life ) * curlSize * 100., .002, .001 ) * speed;
+	}
 
 	return vec4( position, life );
 

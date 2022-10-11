@@ -9,7 +9,6 @@ export default class Assets {
 
 		this.parser = new Parser();
 		this.dampingFactor = .05;
-		this.dampingFactor = 1;
 		this.percentLoaded = 0;
 		this.progress = 0;
 

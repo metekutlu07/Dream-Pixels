@@ -1,6 +1,6 @@
 import View from '~/components/View';
-import Video from '~/components/Video';
 import Aside from '~/components/Aside';
+// import Video from '~/components/Video';
 
 export default class Home extends View {
 
@@ -13,7 +13,7 @@ export default class Home extends View {
 
 		home-view {
 			width: 100vw;
-			min-height: 100%;
+			height: 100%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -35,6 +35,13 @@ export default class Home extends View {
 
 			& p {
 				max-width: 400px !important;
+			}
+
+			& img {
+				position: relative;
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
 			}
 		}
 
@@ -76,13 +83,14 @@ export default class Home extends View {
 			.map( keyword => html`<span>${ keyword }</span>` )
 			.join( ' - ' );
 
-		const source = 'public/common/Background.mp4';
+		// const source = 'public/common/Background.mp4';
+		// ${ Video.render( source, { fullscreen: true } ) }
 
 		return html`
 
 		<home-view view>
 
-			${ Video.render( source, { fullscreen: true } ) }
+			<img src="public/common/Background.png" alt="Marbled Paper"/>
 
 			${ paragraphs ? Aside.render( html`
 
