@@ -35,7 +35,7 @@ void main() {
 
 		bool isPerspective = isPerspectiveMatrix( projectionMatrix );
 
-		if ( isPerspective ) gl_PointSize *= clamp( ( scale / - mvPosition.z ), .0, 2000. );
+		if ( isPerspective ) gl_PointSize *= ( scale / - mvPosition.z );
 
 	#endif
 

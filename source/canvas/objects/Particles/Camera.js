@@ -43,7 +43,7 @@ export default class Camera extends PerspectiveCamera {
 		if ( path === '/contact' ) this.scroll += 1e-4;
 		else this.scroll += 1e-5;
 
-		this.isScrolling = this.position.distanceTo( position ) > .1;
+		this.isScrolling = this.position.distanceTo( position ) > .25;
 
 	}
 

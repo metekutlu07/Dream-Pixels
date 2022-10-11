@@ -140,7 +140,7 @@ export default class Particles extends Points {
 		this.material.uniforms[ 'simulation' ].value = texture;
 
 		const { particles } = Application.store;
-		const scale = particles === 'timeline' ? .25 : 1;
+		const scale = particles === 'timeline' ? .5 : 1;
 		this.material.size = this.size * scale;
 
 	}
