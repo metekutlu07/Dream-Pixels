@@ -14,7 +14,7 @@ export default class Camera extends PerspectiveCamera {
 		this.simulation = simulation;
 		this.scroll = 0;
 		this.progress = 0;
-		this.friction = .01;
+		this.friction = .025;
 
 	}
 
@@ -25,7 +25,6 @@ export default class Camera extends PerspectiveCamera {
 		this.aspect = aspect;
 		this.updateProjectionMatrix();
 
-		this.scroll += 1e-5 * 5;
 		this.progress = Math.lerp( this.progress, this.scroll, .01 );
 		const progress = Math.euclideanModulo( this.progress, 1 );
 		const position = curve.getPointAt( progress, Vector3.get() );
@@ -37,8 +36,12 @@ export default class Camera extends PerspectiveCamera {
 
 		Vector3.release( position, target );
 
-		const { particles } = Application.store;
-		Application.overrideCamera = particles === 'timeline' ? this : null;
+		const { particles, path } = Application.store;
+		const active = particles === 'timeline' || path === '/contact';
+		Application.overrideCamera = active ? this : null;
+
+		if ( path === '/contact' ) this.scroll += 1e-4;
+		else this.scroll += 1e-5;
 
 		this.isScrolling = this.position.distanceTo( position ) > .1;
 
@@ -46,7 +49,10 @@ export default class Camera extends PerspectiveCamera {
 
 	onWheel( event ) {
 
-		this.scroll += event.deltaY * 1e-5 * 2;
+		const { particles } = Application.store;
+		if ( particles !== 'timeline' ) return;
+
+		this.scroll += event.deltaY * 1e-5;
 
 	}
 

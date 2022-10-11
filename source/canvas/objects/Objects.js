@@ -81,7 +81,7 @@ export default class Objects extends Object3D {
 			const targets = child;
 			const opacity = this.isVisible ? 1 : 0;
 			const duration = this.isVisible ? 1500 : 500;
-			const delay = this.isVisible ? 750 + index * 100 : 0;
+			const delay = this.isVisible ? 750 + index * 100 : 500;
 			const easing = 'easeOutQuint';
 
 			child.animation = anime( { targets, delay, easing, duration, opacity } );

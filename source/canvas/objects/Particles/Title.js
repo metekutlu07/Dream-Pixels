@@ -2,7 +2,7 @@ import MSDFText from '~/canvas/utilities/MSDFText';
 
 export default class Title extends MSDFText {
 
-	constructor( project, points, duration ) {
+	constructor( simulation, content, points ) {
 
 		const { jsons, textures } = Application.assets[ 'common' ];
 
@@ -13,11 +13,12 @@ export default class Title extends MSDFText {
 
 		Application.events.add( this );
 
-		const { title } = project;
+		const { title } = content;
 		this.setParameters( title, { fontSize: .25 } );
 
+		this.simulation = simulation;
+		this.content = content;
 		this.points = points;
-		this.duration = duration;
 		this.renderOrder = 1e5;
 
 		this.material.opacity = 0;
@@ -25,34 +26,52 @@ export default class Title extends MSDFText {
 		this.material.transparent = true;
 		this.material.emissive.set( '#666666' );
 
-		this.position.copy( this.points[ 0 ] );
-
-		this.onUpdate();
+		const { t } = this.points[ 0 ];
+		this.simulation.curve.getPointAt( t, this.position );
 
 	}
 
-	enter() {
+	async toggle( isVisible ) {
 
-		anime( {
+		const { t } = this.points[ 0 ];
+		const delay = t * 1e3 * this.simulation.duration;
+
+		if ( this.animation ) this.animation.remove( this.material );
+
+		this.animation = anime( {
 
 			targets: this.material,
 			easing: 'easeOutQuart',
-			delay: this.points[ 0 ].progress * 1e3 * this.duration,
-			duration: 1000,
-			opacity: 1
+			delay: isVisible ? 500 + delay : delay * .25,
+			duration: isVisible ? 750 : 250,
+			opacity: isVisible ? 1 : 0
 
-		} ).finished;
+		} );
+
+	}
+
+	onPreUpdate() {
+
+		const { path, list } = Application.store;
+		const isVisible = path === '/projects' && list === 'particles';
+
+		if ( this.isVisible === isVisible ) return;
+		this.isVisible = isVisible;
+
+		this.toggle( this.isVisible );
 
 	}
 
 	onUpdate() {
 
 		const { quaternion } = Application.overrideCamera || Application.camera;
-		this.quaternion.slerp( quaternion, 1 );
+		this.quaternion.copy( quaternion );
 
 		const { particles } = Application.store;
 		const scale = particles === 'timeline' ? 1e-1 : 1;
 		this.scale.setScalar( scale );
+
+		this.visible = this.material.opacity > .01;
 
 	}
 

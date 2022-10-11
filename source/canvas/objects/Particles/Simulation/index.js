@@ -35,16 +35,12 @@ export default class Simulation {
 
 		this.uniforms = {
 
-			current: { value: null },
-			initial: { value: null },
+			parametersA: { value: null },
+			parametersB: { value: null },
 
-			reset: { value: 0 },
 			initialized: { value: 0 },
-			speed: { value: 1 },
 			curlSize: { value: 0 },
-			attraction: { value: 0 },
-			deltaTime: { value: 0 },
-			duration: { value: 0 }
+			deltaTime: { value: 0 }
 
 		};
 
@@ -86,12 +82,8 @@ export default class Simulation {
 
 		];
 
-		this.speed = 1.5;
 		this.curlSize = .2;
-		this.attraction = .5;
 		this.duration = 1.5;
-
-		this.time = 0;
 		this.deltaTime = 0;
 		this.needsUpdate = true;
 
@@ -99,28 +91,25 @@ export default class Simulation {
 
 	}
 
-	setCurve( vertices = [] ) {
+	setCurve() {
 
-		if ( ! vertices.length ) {
+		const vertices = [];
+		const count = 25;
 
-			const count = 25;
+		for ( let i = 0; i < count; i++ ) {
 
-			for ( let i = 0; i < count; i++ ) {
+			const point = new Vector3();
+			const t = i / count * Math.PI * 2;
 
-				const point = new Vector3();
-				const t = i / count * Math.PI * 2;
+			const x = ( 2 + Math.cos( 3 * t ) ) * Math.cos( 2 * t );
+			const y = ( 2 + Math.cos( 3 * t ) ) * Math.sin( 2 * t );
+			const z = Math.sin( 3 * t ) * 2.5;
 
-				const x = ( 2 + Math.cos( 3 * t ) ) * Math.cos( 2 * t );
-				const y = ( 2 + Math.cos( 3 * t ) ) * Math.sin( 2 * t );
-				const z = Math.sin( 3 * t ) * 2.5;
+			point
+				.set( x, y, z )
+				.multiplyScalar( 2.5 );
 
-				point
-					.set( x, y, z )
-					.multiplyScalar( 2.5 );
-
-				vertices.push( point );
-
-			}
+			vertices.push( point );
 
 		}
 
@@ -144,7 +133,7 @@ export default class Simulation {
 				.setY( data[ i * 4 + 1 ] )
 				.setZ( data[ i * 4 + 2 ] );
 
-			this.points[ i ].progress = i / count;
+			this.points[ i ].t = i / count;
 
 		}
 
@@ -152,41 +141,46 @@ export default class Simulation {
 
 	}
 
-	onStart() {
+	async toggle( isVisible ) {
 
-		const { width, height, count } = this;
-		const point = new Vector3();
+		if ( isVisible ) {
 
-		const dataA = new Float32Array( count * 4 );
-		const dataB = new Float32Array( count * 4 );
+			const { width, height, count } = this;
 
-		for ( let i = 0; i < count; i++ ) {
+			const point = new Vector3();
+			const dataA = new Float32Array( count * 4 );
+			const dataB = new Float32Array( count * 4 );
 
-			const t = i / count;
-			const { x, y, z } = this.curve.getPointAt( t, point );
+			for ( let i = 0; i < count; i++ ) {
 
-			dataA[ i * 4 + 0 ] = x;
-			dataA[ i * 4 + 1 ] = y;
-			dataA[ i * 4 + 2 ] = z;
-			dataA[ i * 4 + 3 ] = 0;
+				const t = i / count;
+				const { x, y, z } = this.curve.getPointAt( t, point );
+				const w = Math.randFloat( t, t + .1 ) * -this.duration;
 
-			dataB[ i * 4 + 0 ] = t + Math.random() * .1;
-			dataB[ i * 4 + 1 ] = Math.randFloat( .5, 2.5 );
-			dataB[ i * 4 + 2 ] = Math.randFloat( .5, 1 );
+				dataA[ i * 4 + 0 ] = x;
+				dataA[ i * 4 + 1 ] = y;
+				dataA[ i * 4 + 2 ] = z;
+				dataA[ i * 4 + 3 ] = w - .5;
 
-		}
+				dataB[ i * 4 + 0 ] = Math.randFloat( .25, .75 );
+				dataB[ i * 4 + 1 ] = Math.randFloat( .3, .5 );
 
-		const textureA = new DataTexture( dataA, width, height, RGBAFormat, FloatType );
-		textureA.needsUpdate = true;
+			}
 
-		const textureB = new DataTexture( dataB, width, height, RGBAFormat, FloatType );
-		textureB.needsUpdate = true;
+			const parametersA = new DataTexture( dataA, width, height, RGBAFormat, FloatType );
+			parametersA.needsUpdate = true;
 
-		this.uniforms[ 'current' ].value = textureA;
-		this.uniforms[ 'initial' ].value = textureB;
+			const parametersB = new DataTexture( dataB, width, height, RGBAFormat, FloatType );
+			parametersB.needsUpdate = true;
 
-		this.renderTargets.forEach( this.render );
-		this.prerender();
+			this.timeFactor = 1;
+
+			this.uniforms[ 'deltaTime' ].value = 0;
+			this.uniforms[ 'parametersA' ].value = parametersA;
+			this.uniforms[ 'parametersB' ].value = parametersB;
+			this.renderTargets.forEach( this.render );
+
+		} else this.timeFactor = -1.5;
 
 	}
 
@@ -194,32 +188,10 @@ export default class Simulation {
 
 		if ( ! this.needsUpdate ) return;
 
-		const deltaTime = ( Application.time.deltaTime || 8 ) * 1e-3;
-		const ratio = this.time / 16.6667;
-
-		this.deltaTime = deltaTime;
-		this.time += deltaTime;
-
-		this.uniforms[ 'current' ].value = this.renderTargets[ 0 ].texture;
-		this.uniforms[ 'speed' ].value = this.speed * ratio;
+		const deltaTime = ( Application.time.deltaTime || 8 ) * this.timeFactor;
+		this.uniforms[ 'deltaTime' ].value = deltaTime * 1e-3;
+		this.uniforms[ 'parametersA' ].value = this.renderTargets[ 0 ].texture;
 		this.uniforms[ 'curlSize' ].value = this.curlSize;
-		this.uniforms[ 'attraction' ].value = this.attraction;
-		this.uniforms[ 'deltaTime' ].value = this.deltaTime;
-		this.uniforms[ 'duration' ].value = this.duration;
-
-	}
-
-	prerender() {
-
-		this.uniforms[ 'reset' ].value = true;
-		this.onPreFrame();
-		this.render();
-
-		this.uniforms[ 'reset' ].value = false;
-		this.uniforms[ 'initialized' ].value = true;
-		this.needsUpdate = false;
-
-		console.log( 'here' );
 
 	}
 

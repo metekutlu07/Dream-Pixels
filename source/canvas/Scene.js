@@ -144,11 +144,10 @@ export default class Scene extends Object3D {
 			if ( ! child.geometry ) return;
 
 			const scale = .05;
+			child.geometry = child.geometry.clone();
 			child.geometry.scale( scale, scale, scale );
 
 		} );
-
-		this.add( object );
 
 		const exporter = new USDZExporter();
 		const arraybuffer = await exporter.parse( object );

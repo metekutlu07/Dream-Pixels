@@ -56,13 +56,13 @@ export default class Effects extends HTMLElement {
 				background-image: url( "/public/common/line.svg" );
 				background-size: 2px;
 				background-position: center center;
-				opacity: .05;
+				opacity: .2;
 			}
 
 			& noise-effect {
 				background-image: url( "/public/common/noise.png" );
 				background-position: var( --background-position );
-				opacity: .1;
+				opacity: .5;
 			}
 
 			& vignette-effect {

@@ -46,7 +46,7 @@ export default class View extends HTMLElement {
 
 		document.body.scrollTop = 0;
 
-		await Application.time.wait( 500 );
+		await Application.time.wait( 100 );
 
 		Application.audio.play( '003.m4a' );
 		Application.store.set( 'view-enter', true );

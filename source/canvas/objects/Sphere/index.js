@@ -6,8 +6,8 @@ export default class Sphere extends Mesh {
 
 	constructor() {
 
-		const parameters = { wireframe: true, color: '#666666', fog: false };
-		const geometry = new IcosahedronGeometry( 125, 16 );
+		const parameters = { wireframe: true, color: '#333333', fog: false };
+		const geometry = new IcosahedronGeometry( 125, 32 );
 		const material = new MeshBasicMaterial( parameters );
 
 		super( geometry, material );

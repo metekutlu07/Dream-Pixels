@@ -6,8 +6,8 @@ import {
 	Color,
 	Points,
 	BufferGeometry,
-	LineBasicMaterial,
-	Line
+	// LineBasicMaterial,
+	// Line
 
 } from 'three';
 
@@ -60,17 +60,18 @@ export default class Particles extends Points {
 
 	async onLoad( files ) {
 
-		if ( ! files[ 'projects' ] ) return;
+		if ( ! files[ 'common' ] ) return;
 
-		const { jsons } = files[ 'projects' ];
+		const { jsons } = files[ 'common' ];
 		const { images, colors } = jsons[ 'Colors.json' ];
 		const { array } = this.geometry.attributes.color;
-		const { count, points, duration } = this.simulation.setPoints();
+		const { count, points } = this.simulation.setPoints();
 
 		const color = new Color();
 		const groupA = [];
 		const groupB = {};
 		this.colors = [];
+		this.titles = [];
 
 		for ( let i = 0; i < count; i++ ) {
 
@@ -92,44 +93,42 @@ export default class Particles extends Points {
 
 		}
 
-		Object
+		this.titles = Object
 			.entries( groupB )
-			.forEach( project => {
+			.map( project => {
 
 				const [ path, points ] = project;
 				const content = Application.content.get( path );
-				const title = new Title( content, points, duration );
+				const title = new Title( this.simulation, content, points );
 				this.add( title );
 
-			} );
+				return title;
 
-		const vertices = this.simulation.curve.getPoints( 1e4 );
-		const geometry = new BufferGeometry().setFromPoints( vertices );
-		const material = new LineBasicMaterial( { color: '#ff0000' } );
-		this.line = new Line( geometry, material );
-		// this.add( this.line );
+			} );
 
 		this.geometry.attributes.color.needsUpdate = true;
 
 	}
 
-	async onPreUpdate() {
+	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = path === '/projects' && list === 'particles';
+		const isVisible = ( path === '/projects' && list === 'particles' ) ||
+			path === '/contact';
 
-		if ( this.isVisible === isVisible ) return;
+		if ( this.isVisible === isVisible || ! this.titles ) return;
 		this.isVisible = isVisible;
 
-		// await Application.time.wait( 2000 );
+		this.simulation.toggle( this.isVisible );
 
-		// this.simulation.needsUpdate = ! this.simulation.needsUpdate;
-		// this.children.forEach( child => child.enter && child.enter() );
+		if ( this.isVisible ) this.visible = true;
 
-		// await Application.time.wait( 5000 );
+		setTimeout( () => {
 
-		// this.simulation.setPoints();
-		// this.simulation.needsUpdate = false;
+			if ( this.isVisible ) this.simulation.setPoints();
+			else this.visible = false;
+
+		}, 2500 );
 
 	}
 
@@ -148,32 +147,14 @@ export default class Particles extends Points {
 
 	onPostUpdate() {
 
-		// const index = this.getClosestIndex();
+		const index = this.getClosestIndex();
 
-		// if ( index === this.index ) return;
-		// this.index = index;
+		if ( index === this.index ) return;
+		this.index = index;
 
-		// const color = this.colors[ this.index ];
-		// if ( color ) Application.cursor.set( color );
-		// else Application.cursor.reset();
-
-	}
-
-	onKeyDown( parameters ) {
-
-		const { code } = parameters;
-
-		if ( code === 'Space' ) {
-
-			// this.enter();
-			// this.simulation.needsUpdate = ! this.simulation.needsUpdate;
-			// this.simulation.setPoints();
-			// this.simulation.setCurve();
-
-			// const points = this.simulation.curve.getPoints( 4000 );
-			// this.line.geometry.setFromPoints( points );
-
-		} else if ( code === 'KeyS' ) this.export();
+		const color = this.colors[ this.index ];
+		if ( color ) Application.cursor.set( color );
+		else Application.cursor.reset();
 
 	}
 

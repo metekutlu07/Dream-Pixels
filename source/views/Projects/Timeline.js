@@ -42,9 +42,9 @@ export default class Timeline extends HTMLElement {
 				&:after {
 					content: '';
 					display: block;
-					width: 5px;
-					height: 5px;
-					background: var( --color-white );
+					width: 10px;
+					height: 10px;
+					border: 1px solid var( --color-white );
 					border-radius: 50%;
 					margin-left: var( --margin-xs );
 				}

@@ -18,8 +18,8 @@ export default class Cursor extends HTMLElement {
 
 	onClick() {
 
-		// if ( ! this.hasAttribute( 'visible' ) ) return;
-		// Application.router.navigate( `/${ this.path }` );
+		if ( ! this.hasAttribute( 'visible' ) ) return;
+		Application.router.navigate( `/${ this.path }` );
 
 	}
 

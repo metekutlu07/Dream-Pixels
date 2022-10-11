@@ -54,6 +54,8 @@ export default class Global {
 			background-color: var( --color-black );
 
 			[ path="/virtual-miniature" ] &,
+			[ path="/contact" ] &,
+			[ path="/about" ] &,
 			[ path="/photogrammetry" ] &,
 			[ path="/miniature-street-view" ] &,
 			[ path="/projects" ][ list="sphere" ] &,
@@ -83,8 +85,8 @@ export default class Global {
 		}
 
 		::selection {
-			color: var( --color-black );
-			background: var( --color-yellow );
+			color: var( --color-white );
+			background: var( --color-black );
 		}
 
 		[ font-style-title ] {
@@ -104,7 +106,7 @@ export default class Global {
 
 		[ view ] {
 			opacity: 0;
-			transform: scale( .925 );
+			transform: scale( .975 );
 			transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function );
 
 			&[ hidden ] {
@@ -113,7 +115,7 @@ export default class Global {
 
 			[ view-exit ] &:not( projects-views ) {
 				opacity: 0;
-				transform: scale( .925 );
+				transform: scale( .975 );
 			}
 
 			[ view-enter ] &:not( projects-views ) {

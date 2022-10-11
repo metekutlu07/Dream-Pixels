@@ -1,57 +1,48 @@
 #include <common>
 
-uniform sampler2D current;
-uniform sampler2D initial;
+uniform sampler2D parametersA;
+uniform sampler2D parametersB;
 
-uniform float deltaTime;
-uniform float speed;
-uniform float curlSize;
-uniform float attraction;
-uniform float reset;
 uniform float initialized;
-uniform float duration;
+uniform float curlSize;
+uniform float deltaTime;
+
+varying vec2 vUv;
 
 #include "./getCurlNoise"
 #include "./easings"
 
-float getTriangularWave( float time, float period, float amplitude ) {
+void main() {
 
-	float p = period * .5;
-	return ( amplitude / p ) * ( p - abs( mod( time, ( 2. * p ) ) - p ) );
+	vec4 texelColorA = texture2D( parametersA, vUv );
+	vec4 texelColorB = texture2D( parametersB, vUv );
 
-}
+	vec3 position = texelColorA.xyz;
+	float life = texelColorA.w;
 
-varying vec2 vUv;
+	float lifespan = texelColorB.x;
+	float speed = texelColorB.y;
 
-vec4 getCurrentData( vec4 data ) {
+	if ( life <= lifespan ) {
 
-	vec3 position = data.xyz;
-	float life = data.a;
+		life += deltaTime;
+		if ( life > lifespan ) life = lifespan;
 
-	vec4 particle = texture2D( initial, vUv );
-	float age = particle.x;
-	float lifespan = particle.y;
-
-	if ( reset > 0. ) life = -age * duration;
-	else if ( initialized == 1. ) life += deltaTime;
+	}
 
 	if ( life > 0. && life < lifespan ) {
 
 		vec3 coordinates = position * curlSize;
 		float persistence = .1 + life * .1;
 
-		float offset = cubicIn( 1. - life / lifespan ) * speed * particle.z;
+		float offset = deltaTime > .0 ?
+			cubicIn( 1. - life / lifespan ) * speed :
+			cubicOut( 1. - life / lifespan ) * speed;
+
 		position += getCurlNoise( coordinates, .0, persistence ) * offset;
 
 	}
 
-	return vec4( position, life );
-
-}
-
-void main() {
-
-	vec4 data = texture2D( current, vUv );
-	gl_FragColor = getCurrentData( data );
+	gl_FragColor = vec4( position, life );
 
 }
