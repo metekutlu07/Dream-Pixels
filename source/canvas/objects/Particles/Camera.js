@@ -1,5 +1,4 @@
-import {
-	PerspectiveCamera, Vector3 } from 'three';
+import { PerspectiveCamera, Vector3 } from 'three';
 
 export default class Camera extends PerspectiveCamera {
 
@@ -36,8 +35,8 @@ export default class Camera extends PerspectiveCamera {
 
 		Vector3.release( position, target );
 
-		const { particles, path } = Application.store;
-		const active = particles === 'timeline' || path === '/contact';
+		const { particles, list, path } = Application.store;
+		const active = ( list === 'particles' && particles === 'timeline' ) || path === '/contact';
 		Application.overrideCamera = active ? this : null;
 
 		if ( path === '/contact' ) this.scroll += 1e-4;

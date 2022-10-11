@@ -21,7 +21,7 @@ export default class Particles extends Points {
 
 	constructor() {
 
-		const size = .01;
+		const size = .02;
 		const geometry = new BufferGeometry();
 		const material = new ParticlesMaterial( { size } );
 		const simulation = new Simulation();
@@ -34,7 +34,7 @@ export default class Particles extends Points {
 
 			const x = Math.floor( i % width ) / width;
 			const y = Math.floor( i / width ) / height;
-			const z = Math.randFloat( .25, 1.25 );
+			const z = Math.randFloat( .5, 1 );
 
 			positions.push( x, y, z );
 
