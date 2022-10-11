@@ -5,12 +5,16 @@ import { Color } from 'three';
 
 import getPixels from 'image-pixels';
 import sharp from 'sharp';
+import tinify from 'tinify';
 
 const assets = resolve( process.cwd(), 'source/assets' );
 const output = resolve( assets, 'packs/projects' );
 
+const optimize = true;
 const images = [];
 const colors = [];
+
+tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
 
 export async function getSampledColors( buffer, imageID ) {
 
@@ -50,7 +54,7 @@ export async function getColorList( content ) {
 
 	const { projects } = content;
 
-	const destination = resolve( output, 'images' );
+	const destination = resolve( output, 'Images' );
 	await rm( destination, { recursive: true, force: true } );
 	await mkdir( destination, { recursive: true } );
 
@@ -94,9 +98,21 @@ export async function getColorList( content ) {
 
 		const path = resolve( assets, source + extension );
 		const result = await sharp( path ).resize( parameters );
-		await result.toFile( name );
-
 		const buffer = await result.toBuffer();
+
+		if ( optimize ) {
+
+			await tinify
+				.fromBuffer( buffer )
+				.toFile( name, function ( error ) {
+
+					if ( error instanceof tinify.AccountError )
+						console.log( 'The error message is: ' + error.message );
+
+				} );
+
+		} else await result.toFile( name );
+
 		await getSampledColors( buffer, i );
 
 	}

@@ -108,11 +108,11 @@ export default class Objects extends Object3D {
 				.setZ( 1 )
 				.unproject( camera );
 
-			child.quaternion.copy( camera.quaternion );
+			child.lookAt( camera.position );
 
 			const time = Application.time.elapsedTime * 1e-3;
-			child.rotation.x = Math.sin( time + index ) * .1;
-			child.rotation.z = Math.cos( time * 1.333 - index ) * .1;
+			child.rotation.x += Math.sin( time + index ) * .1;
+			child.rotation.z += Math.cos( time * 1.333 - index ) * .1;
 
 			child.material.opacity = opacity;
 			child.visible = opacity > .05;

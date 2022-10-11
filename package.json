@@ -16,6 +16,7 @@
     "firebase-tools": "^11.8.0",
     "image-pixels": "^2.2.2",
     "sharp": "^0.31.1",
+    "tinify": "^1.7.1",
     "vite": "^3.0.9"
   },
   "dependencies": {
