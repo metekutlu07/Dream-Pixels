@@ -8,7 +8,6 @@ import sharp from 'sharp';
 import tinify from 'tinify';
 
 const assets = resolve( process.cwd(), 'source/assets' );
-const output = resolve( assets, 'packs/projects' );
 
 const optimize = true;
 const images = [];
@@ -54,7 +53,7 @@ export async function getColorList( content ) {
 
 	const { projects } = content;
 
-	const destination = resolve( output, 'Images' );
+	const destination = resolve( assets, 'packs/projects/Images' );
 	await rm( destination, { recursive: true, force: true } );
 	await mkdir( destination, { recursive: true } );
 
@@ -117,7 +116,8 @@ export async function getColorList( content ) {
 
 	}
 
+
 	const data = JSON.stringify( { images, colors } );
-	await writeFile( resolve( output, 'Colors.json' ), data );
+	await writeFile( resolve( assets, 'packs/common/Colors.json' ), data );
 
 }

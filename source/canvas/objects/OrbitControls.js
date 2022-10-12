@@ -195,7 +195,7 @@ export default class OrbitControls extends Object3D {
 				autoRotate: true,
 				enableZoom: true,
 
-				autoRotateSpeed: .25,
+				autoRotateSpeed: .5,
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 

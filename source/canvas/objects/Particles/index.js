@@ -6,6 +6,10 @@ import {
 	Color,
 	Points,
 	BufferGeometry,
+	Sphere,
+	SphereGeometry,
+	MeshBasicMaterial,
+	Mesh
 	// LineBasicMaterial,
 	// Line
 
@@ -68,21 +72,20 @@ export default class Particles extends Points {
 		const { count, points } = this.simulation.setPoints();
 
 		const color = new Color();
-		const groupA = [];
-		const groupB = {};
+		this.groups = {};
 		this.colors = [];
 		this.titles = [];
 
 		for ( let i = 0; i < count; i++ ) {
 
+			const point = points[ i ];
+
 			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
 			const { path, caption, tags } = images[ imageID ];
 
-			groupA[ imageID ] = groupA[ imageID ] || [];
-			groupA[ imageID ].push( points[ i ] );
-
-			groupB[ path ] = groupB[ path ] || [];
-			groupB[ path ].push( points[ i ] );
+			const group = this.groups[ path ] || [];
+			this.groups[ path ] = group;
+			group.push( point );
 
 			const { r, g, b } = color.setStyle( hex );
 			array[ i * 3 + 0 ] = r;
@@ -94,10 +97,10 @@ export default class Particles extends Points {
 		}
 
 		this.titles = Object
-			.entries( groupB )
-			.map( project => {
+			.entries( this.groups )
+			.map( group => {
 
-				const [ path, points ] = project;
+				const [ path, points ] = group;
 				const content = Application.content.get( path );
 				const title = new Title( this.simulation, content, points );
 				this.add( title );
@@ -123,12 +126,14 @@ export default class Particles extends Points {
 
 		if ( this.isVisible ) this.visible = true;
 
-		setTimeout( () => {
+		clearTimeout( this.timeout );
+
+		this.timeout = setTimeout( () => {
 
 			if ( this.isVisible ) this.simulation.setPoints();
 			else this.visible = false;
 
-		}, 2500 );
+		}, 5000 );
 
 	}
 
@@ -139,8 +144,9 @@ export default class Particles extends Points {
 		const { texture } = this.simulation.renderTargets[ 0 ];
 		this.material.uniforms[ 'simulation' ].value = texture;
 
-		const { particles } = Application.store;
-		const scale = particles === 'timeline' ? .25 : 1;
+		const { particles, list, path } = Application.store;
+		const active = ( list === 'particles' && particles === 'timeline' ) || path === '/contact';
+		const scale = active ? .25 : 1;
 		this.material.size = this.size * scale;
 
 	}

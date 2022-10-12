@@ -22,13 +22,15 @@ export default class Sphere extends Mesh {
 	onPreFrame() {
 
 		const { path, list } = Application.store;
-		this.visible = path === '/projects';
+		this.visible = path === '/projects' || path === '/contact';
 
-		if ( ! this.visible ) return;
+		if ( path === '/projects' ) {
 
-		const { parameters } = Application.scene.orbitControls;
-		parameters.enableRotate = list !== 'grid';
-		parameters.rotateSpeed = list === 'particles' ? 5 : -2.5;
+			const { parameters } = Application.scene.orbitControls;
+			parameters.enableRotate = list !== 'grid';
+			parameters.rotateSpeed = list === 'particles' ? 5 : -2.5;
+
+		}
 
 	}
 

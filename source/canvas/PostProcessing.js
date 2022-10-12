@@ -45,8 +45,8 @@ export default class PostProcessing {
 			},
 
 			afterImagePass: {
-				enabled: false,
-				strength: { value: .925, min: .75, max: 1 }
+				enabled: true,
+				strength: { value: .975, min: .75, max: 1 }
 			},
 
 			glitchPass: {
@@ -128,6 +128,9 @@ export default class PostProcessing {
 		this.renderPass.camera = overrideCamera || camera;
 		this.renderPass.scene = scene;
 		this.composer.render();
+
+		const { path } = Application.store;
+		this.parameters.afterImagePass.enabled = path === '/contact';
 
 	}
 

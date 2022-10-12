@@ -150,9 +150,7 @@ export default class Button extends HTMLElement {
 			@media ( hover: hover ) {
 				&:hover {
 					z-index: 2;
-					/* color: var( --color-yellow ); */
-					/* --border-color: var( --color-yellow ); */
-					--background-color: rgba( 255, 255, 255, .1 );
+					--background-color: rgba( 255, 255, 255, .25 );
 
 					& button-label {
 						display: flex;
@@ -161,7 +159,7 @@ export default class Button extends HTMLElement {
 			}
 
 			&:active {
-				--background-color: rgba( 255, 255, 255, .5 );
+				--background-color: rgba( 255, 255, 255, .75 );
 			}
 
 			&[ visible ] { display: flex }
@@ -170,7 +168,6 @@ export default class Button extends HTMLElement {
 				z-index: 1;
 				background: var( --color-white );
 				color: var( --color-black );
-				/* --border-color: var( --color-yellow ); */
 			}
 
 			[ miniature ] &,

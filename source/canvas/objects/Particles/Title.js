@@ -42,7 +42,7 @@ export default class Title extends MSDFText {
 
 			targets: this.material,
 			easing: 'easeOutQuart',
-			delay: isVisible ? 500 + delay : delay * .25,
+			delay: isVisible ? 500 + delay : delay * .1,
 			duration: isVisible ? 750 : 250,
 			opacity: isVisible ? 1 : 0
 

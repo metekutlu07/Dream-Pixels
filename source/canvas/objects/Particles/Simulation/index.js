@@ -30,8 +30,14 @@ export default class Simulation {
 		this.height = 512;
 		this.count = this.width * this.height;
 
-		for ( let i = 0; i < this.count; i++ )
-			this.points.push( new Vector3() );
+		for ( let i = 0; i < this.count; i++ ) {
+
+			const point = new Vector3();
+			point.index = i;
+			point.t = i / this.count;
+			this.points.push( point );
+
+		}
 
 		this.uniforms = {
 
@@ -83,7 +89,7 @@ export default class Simulation {
 		];
 
 		this.curlSize = .2;
-		this.duration = 1.5;
+		this.duration = 3.5;
 		this.deltaTime = 0;
 		this.needsUpdate = true;
 
@@ -133,8 +139,6 @@ export default class Simulation {
 				.setY( data[ i * 4 + 1 ] )
 				.setZ( data[ i * 4 + 2 ] );
 
-			this.points[ i ].t = i / count;
-
 		}
 
 		return this;
@@ -160,7 +164,7 @@ export default class Simulation {
 				dataA[ i * 4 + 0 ] = x;
 				dataA[ i * 4 + 1 ] = y;
 				dataA[ i * 4 + 2 ] = z;
-				dataA[ i * 4 + 3 ] = w - .5;
+				dataA[ i * 4 + 3 ] = w - .25;
 
 				dataB[ i * 4 + 0 ] = Math.randFloat( .25, .75 );
 				dataB[ i * 4 + 1 ] = Math.randFloat( .3, .5 );
