@@ -21,7 +21,7 @@ import P15 from './photogrammetry';
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Digital scenogaphy studio',
+	subtitle: 'Experiments in Digital Scenography',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
@@ -50,13 +50,12 @@ export default {
 	credits: 'Founded by Mete Kutlu',
 	copyright: 'All rights reserved, Paris 2021',
 	contact: 'Want to collaborate with us<br>or simply have a chat ?',
-	mail: 'mete.kutlu@gmail.com',
+	mail: 'metekutlu@gmail.com',
 	address: `
-		1833, Summit Place Northwest,<br>
-		Lanier Heights, Washington,<br>
-		District of Columbia, 20009,<br>
-		United States
-	`,
+		10 rue du Penthièvre<br>
+		75008 Paris<br>
+		FRANCE
+		`,
 
 	views: {
 
@@ -101,9 +100,9 @@ export default {
 	exploration: {
 		title: 'Cup of Jamshid',
 		description: [
-			'Eiusmod do est labore id exercitation elit anim minim qui fugiat veniam. Culpa sunt fugiat excepteur officia cillum. Enim ex excepteur eu labore qui excepteur reprehenderit velit laboris amet id commodo amet. Proident elit nulla velit voluptate id excepteur adipisicing pariatur proident anim nostrud velit.',
-			'Irure consectetur sunt proident elit dolor eiusmod. Fugiat quis consequat ex commodo quis ea minim fugiat. Et minim qui minim in tempor laborum velit esse aliqua velit Lorem incididunt enim. Anim pariatur excepteur culpa incididunt aute eu deserunt voluptate.',
-			'Excepteur in dolore ad laboris nulla sint cupidatat sint quis ullamco eu enim cillum esse. Dolor et cillum qui eu proident. Pariatur occaecat in eiusmod duis amet. Aliquip excepteur est quis quis sit id deserunt anim enim non in in. Ullamco incididunt fugiat veniam sit aliqua ad officia exercitation in. Consectetur mollit qui anim labore elit.'
+			'We invite you to explore the digital archive of our works through this immserive interface that we baptised as The Cup of Jamshid. With its three different navigation modes, you can wander around the archive at the level of projects, images or even pixels. ',
+			'It represents our attempt to investigate the quasi-alchemical transmutation in our visual culture and perception of architectural space. Brought about by the current transition from pigments to pixels, this paradigm change stands upon our colours which no longer have a body, weight, depth and volume. The Cup of Jamshid offers a glimpse into the novel ways with which we can engage with information in the Age of Artificial Intelligence. It is our humble experiment on how luminous colours can reveal patterns and relationships which otherwise would have stayed undiscovered.',
+			'In Persian mythology, the Cup of Jamshid is described as a magical object of divination containing the elixir of immortality, a ruby-colored wine-like drink. On its surface, the elixir would show the whole seven heavens of the universe and the destiny of all the atoms in the cosmos. It was in a way the mystical early imagination of our internet browsers, satellites and radars. It was not associated only with the Persian kings but also with Alexander the Great of the Greeks and Suleyman the Magnificient of the Ottomans.'
 		]
 	},
 
