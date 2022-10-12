@@ -78,7 +78,7 @@ export default {
 		'augmented-reality': [ 'Augmented Reality' ],
 		'home': [ 'Home' ],
 		'close': [ 'Close' ],
-		'projects': [ 'Projects' ],
+		'projects': [ 'Works' ],
 		'project': [ 'See project' ],
 		'about': [ 'About' ],
 		'contact': [ 'Contact' ],
