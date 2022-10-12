@@ -5,7 +5,7 @@ export default {
 	path: 'photogrammetry',
 	title: 'Photogrammetry',
 	subtitle: '3D Web Experience',
-	location: 'Paris, France',
+	location: 'Paris',
 	date: '2020',
 	team: 'Mete Kutlu & Theuns Botha',
 	period: 'June 2021 - October 2022',

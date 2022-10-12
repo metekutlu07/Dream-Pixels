@@ -3,12 +3,11 @@ export default {
 	path: 'virtual-miniature',
 	title: 'Constantine',
 	subtitle: 'Interactive Urban Miniature',
-	location: 'Paris, France',
-	date: '2020',
-	team: 'Mete Kutlu & Theuns Botha',
-	period: 'June 2021 - October 2022',
-	partners: 'Comet Lab & Ausser',
-	clients: 'Foundation Philippe Auguste',
+	location: 'Paris',
+	date: 'June 2021',
+	team: 'Mete Kutlu & Emilien François',
+	period: 'June 2021',
+
 	description: '',
 	sections: [ {
 		type: 'S5',

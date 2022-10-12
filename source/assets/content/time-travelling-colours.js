@@ -3,12 +3,11 @@ export default {
 	path: 'time-travelling-colours',
 	title: 'Time-Travelling Colours',
 	subtitle: 'Talking Miniatures ',
-	location: 'Paris, France',
-	date: '2020',
-	team: 'Mete Kutlu & Theuns Botha',
-	period: 'June 2021 - October 2022',
-	partners: 'Comet Lab & Ausser',
-	clients: 'Foundation Philippe Auguste',
+	location: 'Paris',
+	date: 'February 2021',
+	team: 'Mete Kutlu',
+	period: 'February 2021',
+	partners: 'International Colour Association',
 	description: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 	sections: [
 		{
