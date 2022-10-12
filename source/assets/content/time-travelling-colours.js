@@ -3,7 +3,7 @@ export default {
 	path: 'time-travelling-colours',
 	title: 'Time-Travelling Colours',
 	subtitle: 'Talking Miniatures ',
-	location: 'Paris',
+	location: 'Avignon',
 	date: 'February 2021',
 	team: 'Mete Kutlu',
 	period: 'February 2021',
