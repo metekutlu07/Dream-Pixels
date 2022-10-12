@@ -25,19 +25,9 @@ export default class Simulation {
 
 		Application.events.add( this );
 
-		this.points = [];
 		this.width = 512;
 		this.height = 512;
 		this.count = this.width * this.height;
-
-		for ( let i = 0; i < this.count; i++ ) {
-
-			const point = new Vector3();
-			point.index = i;
-			point.t = i / this.count;
-			this.points.push( point );
-
-		}
 
 		this.uniforms = {
 
@@ -88,8 +78,8 @@ export default class Simulation {
 
 		];
 
-		this.curlSize = .2;
-		this.duration = 3.5;
+		this.curlSize = .1;
+		this.duration = 2;
 		this.deltaTime = 0;
 		this.needsUpdate = true;
 
@@ -97,33 +87,36 @@ export default class Simulation {
 
 	}
 
-	setCurve() {
+	setCurve( vertices = [] ) {
 
-		const vertices = [];
-		const count = 25;
+		if ( vertices.length === 0 ) {
 
-		for ( let i = 0; i < count; i++ ) {
+			const count = 25;
 
-			const point = new Vector3();
-			const t = i / count * Math.PI * 2;
+			for ( let i = 0; i < count; i++ ) {
 
-			const x = ( 2 + Math.cos( 3 * t ) ) * Math.cos( 2 * t );
-			const y = ( 2 + Math.cos( 3 * t ) ) * Math.sin( 2 * t );
-			const z = Math.sin( 3 * t ) * 2.5;
+				const point = new Vector3();
+				const t = i / count * Math.PI * 2;
 
-			point
-				.set( x, y, z )
-				.multiplyScalar( 2.5 );
+				const x = ( 2 + Math.cos( 3 * t ) ) * Math.cos( 2 * t );
+				const y = ( 2 + Math.cos( 3 * t ) ) * Math.sin( 2 * t );
+				const z = Math.sin( 3 * t ) * 2.5;
 
-			vertices.push( point );
+				point
+					.set( x, y, z )
+					.multiplyScalar( 2.5 );
+
+				vertices.push( point );
+
+			}
 
 		}
 
-		this.curve = new CatmullRomCurve3( vertices, true, 'centripetal' );
+		this.curve = new CatmullRomCurve3( vertices, true, 'chordal' );
 
 	}
 
-	setPoints() {
+	setPoints( points ) {
 
 		const { width, height, count } = this;
 		const { renderer } = Application;
@@ -134,7 +127,7 @@ export default class Simulation {
 
 		for ( let i = 0; i < count; i++ ) {
 
-			this.points[ i ]
+			points[ i ]
 				.setX( data[ i * 4 + 0 ] )
 				.setY( data[ i * 4 + 1 ] )
 				.setZ( data[ i * 4 + 2 ] );
@@ -159,15 +152,15 @@ export default class Simulation {
 
 				const t = i / count;
 				const { x, y, z } = this.curve.getPointAt( t, point );
-				const w = Math.randFloat( t, t + .1 ) * -this.duration;
+				const w = Math.randFloat( t, t + .25 ) * -this.duration;
 
 				dataA[ i * 4 + 0 ] = x;
 				dataA[ i * 4 + 1 ] = y;
 				dataA[ i * 4 + 2 ] = z;
 				dataA[ i * 4 + 3 ] = w - .25;
 
-				dataB[ i * 4 + 0 ] = Math.randFloat( .25, .75 );
-				dataB[ i * 4 + 1 ] = Math.randFloat( .3, .5 );
+				dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 3;
+				dataB[ i * 4 + 1 ] = .035;
 
 			}
 
@@ -184,7 +177,7 @@ export default class Simulation {
 			this.uniforms[ 'parametersB' ].value = parametersB;
 			this.renderTargets.forEach( this.render );
 
-		} else this.timeFactor = -2.5;
+		} else this.timeFactor = -10;
 
 	}
 

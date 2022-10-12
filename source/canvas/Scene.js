@@ -72,18 +72,18 @@ export default class Scene extends Object3D {
 		this.helpers = new Helpers();
 		this.add( this.helpers );
 
-	}
-
-	onViewChange() {
-
-		const { path } = Application.store;
-		this.parameters.density = path === '/projects' ? .001 : 0;
-
 		this.add( Application.camera );
 
 	}
 
 	onPreFrame() {
+
+		const { path, list, particles } = Application.store;
+		const target = path === '/projects' && list === 'sphere' ? .005 :
+			path === '/projects' && list === 'particles' ?
+				particles === 'color-range' ? .01 : .05 : 0;
+
+		this.parameters.density = Math.lerp( this.parameters.density, target, .01 );
 
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );

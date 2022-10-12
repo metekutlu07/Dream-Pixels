@@ -29,7 +29,7 @@ export default class PostProcessing {
 
 			chromaticAberrationPass: {
 				enabled: true,
-				strength: { value: .1, max: 2 },
+				strength: { value: .2, max: 2 },
 			},
 
 			bloomPass: {

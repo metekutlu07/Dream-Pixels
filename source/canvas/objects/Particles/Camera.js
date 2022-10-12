@@ -29,7 +29,7 @@ export default class Camera extends PerspectiveCamera {
 		const position = curve.getPointAt( progress, Vector3.get() );
 		this.position.lerp( position, this.friction );
 
-		const target = curve.getPointAt( Math.euclideanModulo( progress + 1e-5, 1 ), Vector3.get() );
+		const target = curve.getPointAt( Math.euclideanModulo( progress + 1e-3, 1 ), Vector3.get() );
 		this.target.lerp( target, this.friction );
 		this.lookAt( this.target );
 

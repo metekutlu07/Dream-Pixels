@@ -2,7 +2,7 @@ import MSDFText from '~/canvas/utilities/MSDFText';
 
 export default class Title extends MSDFText {
 
-	constructor( simulation, content, points ) {
+	constructor( simulation, content, point ) {
 
 		const { jsons, textures } = Application.assets[ 'common' ];
 
@@ -18,7 +18,7 @@ export default class Title extends MSDFText {
 
 		this.simulation = simulation;
 		this.content = content;
-		this.points = points;
+		this.point = point;
 		this.renderOrder = 1e5;
 
 		this.material.opacity = 0;
@@ -26,14 +26,14 @@ export default class Title extends MSDFText {
 		this.material.transparent = true;
 		this.material.emissive.set( '#666666' );
 
-		const { t } = this.points[ 0 ];
+		const { t } = this.point;
 		this.simulation.curve.getPointAt( t, this.position );
 
 	}
 
 	async toggle( isVisible ) {
 
-		const { t } = this.points[ 0 ];
+		const { t } = this.point;
 		const delay = t * 1e3 * this.simulation.duration;
 
 		if ( this.animation ) this.animation.remove( this.material );
@@ -42,7 +42,7 @@ export default class Title extends MSDFText {
 
 			targets: this.material,
 			easing: 'easeOutQuart',
-			delay: isVisible ? 500 + delay : delay * .1,
+			delay: isVisible ? delay : delay * .1,
 			duration: isVisible ? 750 : 250,
 			opacity: isVisible ? 1 : 0
 
@@ -68,7 +68,7 @@ export default class Title extends MSDFText {
 		this.quaternion.copy( quaternion );
 
 		const { particles } = Application.store;
-		const scale = particles === 'timeline' ? 1e-1 : 1;
+		const scale = particles === 'timeline' ? 1 : 1;
 		this.scale.setScalar( scale );
 
 		this.visible = this.material.opacity > .01;
