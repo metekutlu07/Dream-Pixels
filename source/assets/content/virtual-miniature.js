@@ -1,8 +1,8 @@
 export default {
 
 	path: 'virtual-miniature',
-	title: 'Virtual Miniature',
-	subtitle: '3D Web Experience',
+	title: 'Constantine',
+	subtitle: 'Interactive Urban Miniature',
 	location: 'Paris, France',
 	date: '2020',
 	team: 'Mete Kutlu & Theuns Botha',

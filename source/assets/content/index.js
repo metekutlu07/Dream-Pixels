@@ -48,7 +48,7 @@ export default {
 	],
 
 	credits: 'Founded by Mete Kutlu',
-	copyright: 'All rights reserved, Paris 2021',
+	copyright: 'Feel free to use and remix, Paris 2022',
 	contact: 'Want to collaborate with us<br>or simply have a chat ?',
 	mail: 'metekutlu@gmail.com',
 	address: `
@@ -78,7 +78,7 @@ export default {
 		'augmented-reality': [ 'Augmented Reality' ],
 		'home': [ 'Home' ],
 		'close': [ 'Close' ],
-		'projects': [ 'Projects' ],
+		'projects': [ 'Works' ],
 		'project': [ 'See project' ],
 		'about': [ 'About' ],
 		'contact': [ 'Contact' ],
