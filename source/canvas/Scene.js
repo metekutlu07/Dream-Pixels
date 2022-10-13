@@ -83,7 +83,7 @@ export default class Scene extends Object3D {
 			path === '/projects' && list === 'particles' ?
 				particles === 'color-range' ? .01 : .05 : 0;
 
-		this.parameters.density = Math.lerp( this.parameters.density, target, .01 );
+		this.parameters.density = Math.lerp( this.parameters.density, target, .05 );
 
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );

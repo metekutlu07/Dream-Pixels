@@ -69,13 +69,6 @@ export default class Image extends Mesh {
 
 		if ( this.animation ) this.animation.remove( this );
 
-		if ( isVisible ) {
-
-			const { x, y, z } = this.point;
-			this.spherical.setFromCartesianCoords( x, y, z );
-
-		}
-
 		const targets = this;
 		const easing = 'easeOutQuint';
 		const offset = isVisible ? 0 : 1;
@@ -83,6 +76,14 @@ export default class Image extends Mesh {
 		const delay = isVisible ? 500 + this.index * 5 : this.index * 5;
 
 		this.animation = anime( { targets, easing, duration, offset, delay } );
+		await this.animation.finished;
+
+		if ( ! isVisible ) {
+
+			const { x, y, z } = this.point;
+			this.spherical.setFromCartesianCoords( x, y, z );
+
+		}
 
 	}
 
@@ -90,6 +91,8 @@ export default class Image extends Mesh {
 
 		this.visible = this.offset < .95;
 		this.material.opacity = 1 - this.offset;
+
+		if ( ! this.isVisible ) return;
 
 		this.spherical.phi += this.velocity.x;
 		this.spherical.theta += this.velocity.y;

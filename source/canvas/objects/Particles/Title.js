@@ -28,6 +28,7 @@ export default class Title extends MSDFText {
 
 		const { t } = this.point;
 		this.simulation.curve.getPointAt( t, this.position );
+		this.progress = t;
 
 	}
 

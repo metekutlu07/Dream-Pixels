@@ -94,7 +94,7 @@ export default class Objects extends Object3D {
 
 		const { camera } = Application;
 		const far = camera.far;
-		camera.far = camera.position.length();
+		camera.far = 25;
 		camera.updateProjectionMatrix();
 
 		this.children.forEach( ( child, index ) => {
@@ -111,8 +111,12 @@ export default class Objects extends Object3D {
 			child.lookAt( camera.position );
 
 			const time = Application.time.elapsedTime * 1e-3;
+			child.rotation.order = 'YXZ';
 			child.rotation.x += Math.sin( time + index ) * .1;
 			child.rotation.z += Math.cos( time * 1.333 - index ) * .1;
+
+			const rotationY = html.offset.y * -.35;
+			child.rotation.y += rotationY;
 
 			child.material.opacity = opacity;
 			child.visible = opacity > .05;

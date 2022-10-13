@@ -135,6 +135,7 @@ export default class Aside extends HTMLElement {
 			& h3,
 			& h4 {
 				font-size: var( --font-size-xl );
+				max-width: 600px;
 			}
 
 			& h3 {

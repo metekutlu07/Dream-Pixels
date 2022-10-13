@@ -51,6 +51,12 @@ export default class Viewport {
 		const { innerWidth, innerHeight } = window;
 		this.setSize( innerWidth, innerHeight );
 
+		const scrollTop = document.body.scrollTop;
+		const x = innerWidth * .5;
+		const y = innerHeight * .5 + scrollTop;
+		Application.store.set( '--transform-origin', `${ x }px ${ y }px` );
+
+
 	}
 
 }

@@ -15,9 +15,9 @@ export default class Global {
 			--color-pink: #c679a7;
 			--color-yellow: #fac35f;
 
-			--font-family-a: "Nord";
-			--font-family-b: "Sud";
-			--font-family-c: "SF Mono";
+			--font-family-a: "A";
+			--font-family-b: "B";
+			--font-family-c: "C";
 
 			--font-size-xxl: 4.5rem;
 			--font-size-xl: 3.5rem;
@@ -108,6 +108,7 @@ export default class Global {
 			opacity: 0;
 			transform: scale( .975 );
 			transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function );
+			transform-origin: var( --transform-origin );
 
 			&[ hidden ] {
 				display: none;
@@ -135,35 +136,41 @@ export default class Global {
 		}
 
 		@font-face {
-			font-family: "Nord";
-			src: url( "/fonts/Nord-Regular.otf") format( "opentype" );
-			font-style: normal;
+			font-family: 'A';
+			src: url('/fonts/A.woff2') format('woff2'),
+				url('/fonts/A.woff') format('woff');
 			font-weight: normal;
+			font-style: normal;
 			font-display: swap;
 		}
 
 		@font-face {
-			font-family: "Sud";
-			src: url( "/fonts/Sud-Regular.otf") format( "opentype" );
-			font-style: normal;
+			font-family: 'B';
+			src: url('/fonts/B.woff2') format('woff2'),
+				url('/fonts/B.woff') format('woff');
 			font-weight: normal;
+			font-style: normal;
 			font-display: swap;
 		}
 
 		@font-face {
-			font-family: "SF Mono";
-			src: url( "/fonts/SF-Mono-Regular.otf") format( "opentype" );
-			font-style: normal;
+			font-family: 'C';
+			src: url('/fonts/C.woff2') format('woff2'),
+				url('/fonts/C.woff') format('woff');
 			font-weight: normal;
+			font-style: normal;
 			font-display: swap;
 		}
 
 		`;
 
 		return `
-			<link rel="preload" href="/fonts/SF-Mono-Regular.otf" as="font" type="font/otf" crossorigin>
-			<link rel="preload" href="/fonts/Sud-Regular.otf" as="font" type="font/otf" crossorigin>
-			<link rel="preload" href="/fonts/Nord-Regular.otf" as="font" type="font/otf" crossorigin>
+			<link rel="preload" href="/fonts/A.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/B.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/C.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/A.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/B.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/C.woff" as="font" type="font/woff" crossorigin>
 		`;
 
 	}

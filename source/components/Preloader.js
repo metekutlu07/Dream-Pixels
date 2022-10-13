@@ -75,9 +75,9 @@ export default class Preloader extends HTMLElement {
 				font-size: 6rem;
 				color: var( --color-white );
 				font-family: var( --font-family-a );
-				transition: all 1s var( --timing-function );
+				transition: all .9s var( --timing-function );
 				opacity: 0;
-				transform: scale( .9 );
+				transform: scale( .95 );
 			}
 
 			& h2 {
@@ -87,7 +87,7 @@ export default class Preloader extends HTMLElement {
 				transition: all .75s var( --timing-function );
 				margin-bottom: var( --margin-xs );
 				opacity: 0;
-				transform: scale( .9 );
+				transform: scale( .95 );
 			}
 
 			& preloader-square {

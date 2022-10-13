@@ -28,7 +28,7 @@ void main() {
 	#include <morphtarget_vertex>
 	#include <project_vertex>
 
-	gl_PointSize = size * 10. * position.z;
+	gl_PointSize = size;
 	gl_PointSize *= clamp( life, .5, 1. );
 
 	#ifdef USE_SIZEATTENUATION

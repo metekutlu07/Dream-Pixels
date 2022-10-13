@@ -13,7 +13,7 @@ export default class Camera extends PerspectiveCamera {
 		this.simulation = simulation;
 		this.scroll = 0;
 		this.progress = 0;
-		this.friction = .025;
+		this.friction = .01;
 
 	}
 
@@ -48,10 +48,12 @@ export default class Camera extends PerspectiveCamera {
 
 	onWheel( event ) {
 
+		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
+
 		const { particles } = Application.store;
 		if ( particles !== 'timeline' ) return;
 
-		this.scroll += event.deltaY * 1e-5;
+		this.scroll += event.deltaY * 1e-5 * 2.5;
 
 	}
 

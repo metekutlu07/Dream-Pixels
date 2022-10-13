@@ -22,7 +22,7 @@ export default class Particles extends Points {
 
 	constructor() {
 
-		const size = .02;
+		const size = .15;
 		const geometry = new BufferGeometry();
 		const material = new ParticlesMaterial( { size } );
 		const simulation = new Simulation();
@@ -55,12 +55,14 @@ export default class Particles extends Points {
 		this.size = size;
 		this.simulation = simulation;
 		this.points = points;
+
 		this.frustumCulled = false;
+		this.visible = false;
 
 		this.raycaster = new Raycaster();
 		this.camera = new Camera( this.simulation );
 
-		this.add( this.camera );
+		Application.particles = this;
 
 	}
 
@@ -222,26 +224,53 @@ export default class Particles extends Points {
 			.map( point => point.index )
 			.pop();
 
+
 	}
 
 	intersectsPoints( points ) {
 
-		const { ray, near, far } = this.raycaster;
 		const { range } = Application.store;
-		const closestPoint = Vector3.get();
+		const camera = Application.overrideCamera || Application.camera;
 
 		let minDistance;
 		let index;
+
+		const { size } = Application.viewport;
+		const coordinatesA = Vector3.get();
+		const coordinatesB = Vector3.get();
+		const cursor = Vector3.get();
+
+		Application.pointer
+			.getCoordinates( cursor )
+			.setZ( 0 );
 
 		for ( let i = 0; i < points.length; i++ ) {
 
 			const point = points[ i ];
 
-			if ( ray.distanceToPoint( point ) > this.size * 2 ) continue;
-			ray.closestPointToPoint( point, closestPoint );
+			coordinatesA
+				.copy( point )
+				.project( camera );
 
-			const distance = ray.origin.distanceTo( closestPoint );
-			if ( distance < near || distance > far ) continue;
+			coordinatesA.y *= -1;
+
+			coordinatesA
+				.addScalar( 1 )
+				.divideScalar( 2 )
+				.multiply( size )
+				.setZ( 0 );
+
+			coordinatesB
+				.copy( point )
+				.applyMatrix4( camera.matrixWorldInverse );
+
+			const scale = size.y * .5;
+			let pointSize = this.size * .25;
+
+			if ( this.material.sizeAttenuation ) pointSize *= ( scale / -coordinatesB.z );
+			if ( cursor.distanceTo( coordinatesA ) > pointSize ) continue;
+
+			const distance = point.distanceTo( camera.position );
 			if ( distance > minDistance ) continue;
 
 			const { h } = point.hsl;
@@ -252,7 +281,7 @@ export default class Particles extends Points {
 
 		}
 
-		Vector3.release( closestPoint );
+		Vector3.release( coordinatesA, coordinatesB, cursor );
 
 		return { index, minDistance };
 

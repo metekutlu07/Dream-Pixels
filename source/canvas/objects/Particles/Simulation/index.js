@@ -177,7 +177,7 @@ export default class Simulation {
 			this.uniforms[ 'parametersB' ].value = parametersB;
 			this.renderTargets.forEach( this.render );
 
-		} else this.timeFactor = -10;
+		} else this.timeFactor = -5;
 
 	}
 

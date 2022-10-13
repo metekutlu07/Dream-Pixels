@@ -54,7 +54,7 @@ async function writeFiles( files ) {
 
 		const path = file.replace( assets, build );
 
-		if ( /public|ttf|otf/.test( file ) ) {
+		if ( /public|ttf|otf|woff/.test( file ) ) {
 
 			const directory = path.match( /.*(?=\/)/ ).pop();
 			await mkdir( directory, { recursive: true } );
