@@ -5,7 +5,8 @@ export default class Video extends HTMLElement {
 		const { video } = this.elements;
 		this.elements.video.muted = Application.audio.isMuted;
 
-		const section = this.parentNode;
+		let section = this.parentNode;
+		if ( section.matches( 'item-thumbnail' ) ) section = section.parentNode;
 
 		if ( video.hasAttribute( 'controls' ) ) return;
 

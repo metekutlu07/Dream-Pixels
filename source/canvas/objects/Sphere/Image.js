@@ -56,7 +56,7 @@ export default class Image extends Mesh {
 		const { x, y, z } = this.point;
 		this.spherical.setFromCartesianCoords( x, y, z );
 
-		const { jsons } = Application.assets[ 'projects' ];
+		const { jsons } = Application.assets[ 'common' ];
 		const { images } = jsons[ 'Colors.json' ];
 		this.parameters = images[ index ];
 

@@ -24,6 +24,7 @@ export default class Exploration extends HTMLElement {
 			line-height: 1.8;
 			overflow: scroll;
 			pointer-events: none;
+			max-height: calc( 100% - var( --margin-m ) * 2 - 50px );
 
 			& h3 {
 				line-height: 1;

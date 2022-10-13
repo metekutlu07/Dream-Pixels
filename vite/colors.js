@@ -81,6 +81,13 @@ export async function getColorList( content ) {
 
 				}
 
+				if ( ! existsSync( resolve( assets, source ) ) ) {
+
+					console.log( `${ source }` );
+					return;
+
+				}
+
 				images.push( { path, tags, source, caption } );
 
 			} ) );

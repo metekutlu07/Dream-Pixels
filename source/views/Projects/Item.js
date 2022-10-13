@@ -1,7 +1,7 @@
 import { Vector3 } from 'three';
 
 import Button from '~/components/Button';
-// import Video from '~/components/Video';
+import Video from '~/components/Video';
 
 import Next from '~/assets/icons/Next';
 
@@ -108,6 +108,7 @@ export default class Item extends HTMLElement {
 
 			& video {
 				transform: var( --transform );
+				height: 100%;
 			}
 		}
 
@@ -280,8 +281,8 @@ export default class Item extends HTMLElement {
 		const {
 
 			title,
-			subtitle,
 			path,
+			subtitle,
 			location,
 			date
 
@@ -296,6 +297,7 @@ export default class Item extends HTMLElement {
 		<grid-item link @click @mouse-enter #items|projects-grid>
 			<item-link href="/${ path }" internal>
 				<item-thumbnail>
+					${ Video.render( `/public/${ path }/thumbnail.mp4` ) }
 					<item-overlay>
 						${ Button.render( { attributes: [ 'label-visible' ], icons: [ Next ], } ) }
 					</item-overlay>

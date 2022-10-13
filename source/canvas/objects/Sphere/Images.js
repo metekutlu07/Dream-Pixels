@@ -43,7 +43,6 @@ export default class Images extends Object3D {
 
 		} );
 
-
 		this.children.sort( ( a, b ) => a.radius - b.radius );
 		this.children.forEach( ( child, index ) => child.renderOrder = this.children.length - index );
 
