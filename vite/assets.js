@@ -13,7 +13,8 @@ import {
 
 } from 'fs/promises';
 
-// import { parseFontFile } from './fonts.js';
+import tinify from 'tinify';
+tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
 
 const build = resolve( process.cwd(), 'build' );
 const assets = resolve( process.cwd(), 'source/assets' );
@@ -50,51 +51,38 @@ export async function onFileChange( file ) {
 async function writeFiles( files ) {
 
 	const packs = new Set();
-	const copies = files.map( async file => {
+	const copies = files.map( async source => {
 
-		const path = file.replace( assets, build );
+		const output = source.replace( assets, build );
 
-		if ( /public|ttf|otf|woff/.test( file ) ) {
+		if ( /public|ttf|otf|woff/.test( source ) ) {
 
-			const directory = path.match( /.*(?=\/)/ ).pop();
+			const directory = output.match( /.*(?=\/)/ ).pop();
 			await mkdir( directory, { recursive: true } );
 
-			if ( ! existsSync( file ) ) {
+			if ( ! existsSync( source ) ) {
 
-				if ( existsSync( path ) )
-					await unlink( path );
+				if ( existsSync( output ) )
+					await unlink( output );
 
-			} else await copyFile( file, path );
+			} else {
 
-		}
+				if ( output.match( /(png|jpeg|jpg)/g ) ) {
 
-		if ( /ttf|otf/.test( file ) ) {
+					// const source = await tinify.fromFile( source );
+					// await source.toFile( output );
 
-			// const {
+					copyFile( source, output );
 
-			// 	weight,
-			// 	fontFamily,
-			// 	fontSubfamily,
-			// 	preferredFamily,
-			// 	preferredSubfamily
+				} await copyFile( source, output );
 
-			// } = await parseFontFile( file );
-
-			// const family = preferredFamily || fontFamily;
-			// const subFamily = preferredSubfamily || fontSubfamily;
-			// const format = path.match( 'otf' ) ? 'opentype' : 'truetype';
-			// const italic = !! subFamily.match( 'Italic' );
-			// const url = path.match( /fonts.*/g ).pop();
-			// const parameters = { url, weight, format, italic };
-
-			// if ( ! fonts[ family ] ) fonts[ family ] = {};
-			// fonts[ family ][ subFamily ] = parameters;
+			}
 
 		}
 
-		if ( /packs/.test( file ) ) {
+		if ( /packs/.test( source ) ) {
 
-			const directory = file.match( /[\S\s]+packs\/\S[^/]+/ ).pop();
+			const directory = source.match( /[\S\s]+packs\/\S[^/]+/ ).pop();
 			packs.add( directory );
 
 		}

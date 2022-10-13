@@ -7,7 +7,7 @@
     "dev": "vite serve --config=vite/config.js",
     "build": "vite build --config=vite/config.js",
     "preview": "vite preview --config=vite/config.js",
-    "deploy": "firebase deploy --project web-application-preview",
+    "deploy": "firebase deploy --project mete-kutlu---dream-pixels",
     "parse": "node ./utilities/colors-extractor"
   },
   "devDependencies": {

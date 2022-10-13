@@ -22,7 +22,7 @@ export default class Particles extends Points {
 
 	constructor() {
 
-		const size = .15;
+		const size = .1;
 		const geometry = new BufferGeometry();
 		const material = new ParticlesMaterial( { size } );
 		const simulation = new Simulation();
