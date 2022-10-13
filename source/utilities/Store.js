@@ -31,20 +31,18 @@ export default class Parameter {
 		else if ( this.isRange ) this.value = value;
 		else if ( this.isSelect ) this.value = value || options[ 0 ];
 
-		if ( this.isList ) {
+		if ( ! this.isList ) return;
 
-			if ( value === undefined ) this.add( parameters );
-			else this.add( this.getVectorParameters( parameters ) );
-
-		}
+		if ( value === undefined ) this.add( parameters );
+		else this.add( this.getVectorParameters( parameters ) );
 
 	}
 
 	onStart() {
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'sphere' );
-		this.set( 'particles', 'color-range' );
+		this.set( 'list', 'particles' );
+		this.set( 'particles', 'timeline' );
 		this.set( 'range', [ 0, 1 ] );
 
 	}
