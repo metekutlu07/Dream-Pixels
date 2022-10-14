@@ -9,7 +9,7 @@ import tinify from 'tinify';
 
 const assets = resolve( process.cwd(), 'source/assets' );
 
-const optimize = true;
+const optimize = false;
 const images = [];
 const colors = [];
 

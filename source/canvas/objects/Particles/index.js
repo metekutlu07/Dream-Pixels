@@ -260,6 +260,8 @@ export default class Particles extends Points {
 				.multiply( size )
 				.setZ( 0 );
 
+			if ( cursor.distanceTo( coordinatesA ) > 40 ) continue;
+
 			coordinatesB
 				.copy( point )
 				.applyMatrix4( camera.matrixWorldInverse );

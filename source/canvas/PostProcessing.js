@@ -24,7 +24,7 @@ export default class PostProcessing {
 			vignettePass: {
 				enabled: true,
 				color: '#000000',
-				strength: { value: .5, max: 2 },
+				strength: { value: .25, max: 2 },
 			},
 
 			chromaticAberrationPass: {

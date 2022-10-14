@@ -1,7 +1,6 @@
 import { Vector3 } from 'three';
 
 import Button from '~/components/Button';
-import Eye from '~/assets/icons/Eye';
 
 export default class Buttons extends HTMLElement {
 
@@ -81,7 +80,6 @@ export default class Buttons extends HTMLElement {
 
 			return Button.render( {
 
-				icons: [ Eye ],
 				labels: [ point.title ],
 				attributes: [
 					'@click|section-type-5',

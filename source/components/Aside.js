@@ -1,5 +1,4 @@
 import Button from '~/components/Button';
-import Close from '~/assets/icons/Close';
 
 export default class Aside extends HTMLElement {
 
@@ -138,10 +137,6 @@ export default class Aside extends HTMLElement {
 				max-width: 600px;
 			}
 
-			& h3 {
-				/* margin-bottom: calc( var( --margin-m ) * .5 ); */
-			}
-
 			& h4 {
 				margin-top: 2px;
 			}
@@ -158,7 +153,7 @@ export default class Aside extends HTMLElement {
 
 		`;
 
-		const button = { attributes: [ 'close', '@click|aside-block', 'label-hidden', 'reversed' ], icons: [ Close ] };
+		const button = { attributes: [ 'close', '@click|aside-block', 'reversed' ] };
 
 		return html`
 

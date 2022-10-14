@@ -108,7 +108,10 @@ export default class Global {
 			opacity: 0;
 			transform: scale( .975 );
 			transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function );
-			transform-origin: var( --transform-origin );
+
+			&:not( canvas ) {
+				transform-origin: var( --transform-origin );
+			}
 
 			&[ hidden ] {
 				display: none;

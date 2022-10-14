@@ -73,7 +73,7 @@ export default {
 		'fullscreen': [ 'Fullscreen', 'Minimize' ],
 		'audio': [ 'Muted', 'Unmuted' ],
 		'display-points': [ 'Points', 'Solid' ],
-		'display-wireframe': [ 'Wireframe', 'Normal' ],
+		'display-wireframe': [ 'Wireframe', 'Default' ],
 		'display-aside': [ 'Show list', 'Hide list' ],
 		'augmented-reality': [ 'Augmented Reality' ],
 		'home': [ 'Home' ],
@@ -109,7 +109,7 @@ export default {
 	grid: [
 
 		P1,
-		{ objectID: '001' },
+		{ objectID: '009' },
 		P2,
 		P3,
 		{
@@ -118,7 +118,7 @@ export default {
 		},
 		P4,
 		P5,
-		{ objectID: '005' },
+		{ objectID: '002' },
 		P6,
 		P7,
 		{
@@ -127,7 +127,7 @@ export default {
 		},
 		P8,
 		P9,
-		{ objectID: '002' },
+		{ objectID: '010' },
 		P10,
 		P11,
 		{
@@ -135,9 +135,9 @@ export default {
 			author: 'Oscar Wilde'
 		},
 		P12,
-		{ objectID: '003' },
+		{ objectID: '007' },
 		P13,
-		{ objectID: '006' },
+		{ objectID: '011' },
 		P14,
 		P15,
 		{

@@ -12,7 +12,7 @@ export default class Canvas extends HTMLElement {
 
 		const query = 'section-type-5, projects-sphere';
 		const element = document.querySelector( query );
-		if ( element ) section.onClick( event );
+		if ( element ) element.onClick( event );
 		if ( Application.cursor ) Application.cursor.onClick( event );
 
 	}

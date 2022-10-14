@@ -62,7 +62,7 @@ export default class Effects extends HTMLElement {
 			& noise-effect {
 				background-image: url( "/public/common/noise.png" );
 				background-position: var( --background-position );
-				opacity: .5;
+				opacity: .25;
 			}
 
 			& vignette-effect {

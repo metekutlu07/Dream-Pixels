@@ -7,8 +7,19 @@ export default class Timeline extends HTMLElement {
 
 		const { currentTarget } = event;
 		const { camera, titles } = Application.particles;
-		const index = this.items.indexOf( currentTarget );
-		camera.scroll = titles[ index ].progress;
+		const title = titles[ this.items.indexOf( currentTarget ) ];
+
+		camera.scroll = title.progress;
+
+		// const rounded = Math.euclideanModulo( camera.scroll, 1 );
+		// const deltaA = Math.abs( rounded - title.progress );
+		// const deltaB = Math.abs( rounded + 1 - title.progress );
+
+		// console.log( 'deltaA', deltaA );
+		// console.log( 'deltaB', deltaB );
+
+		// if ( deltaA > deltaB ) camera.scroll -= deltaA;
+		// else if ( deltaB > deltaA ) camera.scroll += deltaB;
 
 	}
 

@@ -7,7 +7,7 @@ export default class Pattern extends Mesh {
 	constructor() {
 
 		const geometry = new PlaneGeometry( 20, 20 );
-		const material = new PatternBasicMaterial( { transparent: true } );
+		const material = new PatternBasicMaterial( { color: '#000000', transparent: true } );
 
 		super( geometry, material );
 

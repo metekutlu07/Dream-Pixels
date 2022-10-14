@@ -78,11 +78,11 @@ export default class Cursor extends HTMLElement {
 			border: var( --border-size ) solid var( --border-color );
 			justify-content: space-between;
 			align-items: center;
-			visibility: hidden;
+			opacity: 0;
 
 			@media ( hover: hover ) {
 				canvas-block:hover ~ projects-view &[ visible ] {
-					visibility: visible;
+					opacity: 1;
 				}
 			}
 

@@ -21,6 +21,7 @@ const assets = resolve( process.cwd(), 'source/assets' );
 const fonts = {};
 const packs = {};
 
+const optimize = false;
 let initialized = null;
 let timeout = null;
 let server = null;
@@ -69,10 +70,12 @@ async function writeFiles( files ) {
 
 				if ( output.match( /(png|jpeg|jpg)/g ) ) {
 
-					// const source = await tinify.fromFile( source );
-					// await source.toFile( output );
+					if ( optimize ) {
 
-					copyFile( source, output );
+						const source = await tinify.fromFile( source );
+						await source.toFile( output );
+
+					} else copyFile( source, output );
 
 				} await copyFile( source, output );
 

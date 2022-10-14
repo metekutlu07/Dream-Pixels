@@ -37,6 +37,11 @@ export default class S5 extends HTMLElement {
 			height: 100%;
 			position: absolute;
 			top: 0;
+			pointer-events: none;
+
+			& > * {
+				pointer-events: all;
+			}
 
 			& aside-block {
 				& img {

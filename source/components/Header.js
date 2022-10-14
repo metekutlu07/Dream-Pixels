@@ -138,9 +138,12 @@ export default class Header extends HTMLElement {
 			font-size: var( --font-size-xs );
 			font-family: var( --font-family-c );
 			transition: opacity 1s var( --timing-function );
+			opacity: 0;
 
-			[ path="/projects" ] & {
-				opacity: 0;
+			[ path="/home" ] &,
+			[ path="/about" ] &,
+			[ path="/contact" ] & {
+				opacity: 1;
 			}
 		}
 

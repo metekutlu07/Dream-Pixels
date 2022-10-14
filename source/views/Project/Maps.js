@@ -1,6 +1,5 @@
 import Button from '~/components/Button';
 
-import Map from '~/assets/icons/Map';
 import Arrow from '~/assets/icons/Arrow';
 
 export default class Maps extends HTMLElement {
@@ -76,6 +75,7 @@ export default class Maps extends HTMLElement {
 				pointID="${ circle.getAttribute( 'id' ) }"
 				@click|panorama-maps-block
 				#points|panorama-maps-block
+				blurred-background
 			>
 
 				<span>${ index + 1 }</span>
@@ -101,11 +101,14 @@ export default class Maps extends HTMLElement {
 			cursor: pointer;
 
 			&[ active ] {
+
 				& span {
 					border: 2px solid white;
 					background: black;
 				}
-				& svg { visibility: visible; }
+
+				& svg { visibility: visible }
+
 			}
 
 			&:hover {
@@ -193,7 +196,6 @@ export default class Maps extends HTMLElement {
 
 		const path = '/public/miniature-street-view/';
 		const button = {
-			icons: [ Map, Map ],
 			attributes: [
 				'panorama-map-mode',
 				'label-visible',
@@ -211,7 +213,9 @@ export default class Maps extends HTMLElement {
 				<img src="${ path }/Map_002.jpg" alt="Map - Miniature View"/>
 			</panorama-map>
 
-			${ Button.render( button ) }
+			<div blurred-background>
+				${ Button.render( button ) }
+			</div>
 
 		</panorama-maps-block>`;
 
