@@ -2,7 +2,7 @@ export default {
 
 	path: 'mosaic-go',
 	title: 'Tessera',
-	subtitle: 'Roman Mosaic in AR',
+	subtitle: 'Roman Mosaics in AR',
 	location: 'Carthage',
 	date: 'July 2019',
 	team: 'Mete Kutlu',
