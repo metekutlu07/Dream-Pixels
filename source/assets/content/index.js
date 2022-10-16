@@ -113,8 +113,8 @@ export default {
 		P2,
 		P3,
 		{
-			quote: 'Be the change that you wish to see in the world.',
-			author: 'Mahatma Gandhi'
+			quote: 'Although an architect, clearly he a myriad artists holds in sway. And, of sound jugement, he can tell the secrets of the stars as well. His gaze draws over the sphere a web, like the spider of the astrolabe. Like Apollonius wise, he can devise and loose all talismans. He knows the veiled ones of the sky.',
+			author: 'Nizami Ganjavi, Haft Paykar, 12th century'
 		},
 		P4,
 		P5,
@@ -122,8 +122,8 @@ export default {
 		P6,
 		P7,
 		{
-			quote: 'If you tell the truth, you don\'t have to remember anything.',
-			author: 'Mark Twain'
+			quote: 'The pen is of two kinds; the vegetal one is used in writing, and the second, made of cat hair, is used in painting. The wizards of art, similar in intelligence to Mani, and the Chinese and Frankish magicians, ascended the throne in the land of talent and have mecome masters in the workshop of Destiny.',
+			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		},
 		P8,
 		P9,
@@ -131,8 +131,8 @@ export default {
 		P10,
 		P11,
 		{
-			quote: 'Always forgive your enemies; nothing annoys them so much.',
-			author: 'Oscar Wilde'
+			quote: 'Let it be clear that the wonderful phantasy and strange native force of the artists are known in all lands. The force of imagination owned by these people are not found in any man of art. The image which the painter reveals on the tablets of the mind cannot be reflected in everybodys mirror of beauty. ',
+			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		},
 		P12,
 		{ objectID: '007' },
@@ -141,8 +141,8 @@ export default {
 		P14,
 		P15,
 		{
-			quote: 'It is better to be hated for what you are than to be loved for what you are not.',
-			author: 'Andre Gide'
+			quote: 'Well done, the magic-working masters of the brush whose bewitching tool bestows a new life. They master every creature, and conjure up to life the likeness of everyone, from the encompassing circle of the sky to the surface of the earth. They cast their glances about creation and make copies of every original. Their creative art is a guide to the plan of the universe. I cannot understand with what art they treat images so that they seem to be speaking to men.',
+			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		}
 
 	],
