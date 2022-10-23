@@ -7,10 +7,10 @@ export default class Renderer extends WebGLRenderer {
 		super( {
 
 			canvas: window.canvas,
-			antialias: false,
 			powerPreference: 'high-performance',
 			logarithmicDepthBuffer: false,
-			alpha: false
+			antialias: true,
+			alpha: true
 
 		} );
 

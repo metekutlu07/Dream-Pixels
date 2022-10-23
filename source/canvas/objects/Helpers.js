@@ -23,7 +23,7 @@ export default class Helpers extends Object3D {
 
 		this.parameters = Application.store.add( 'Helpers', {
 
-			visible: false,
+			visible: true,
 			controls: {
 				enabled: false,
 				target: { options: [ 'Scene' ] }

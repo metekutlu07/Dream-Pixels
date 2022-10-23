@@ -19,7 +19,32 @@ const root = resolve( process.cwd(), 'source' );
 const build = resolve( process.cwd(), 'build' );
 const vite = resolve( process.cwd(), 'vite' );
 
+// import source from './source.js';
+
 export default async ( { command, mode } ) => {
+
+	// await Promise.all( Object.entries( source ).map( async entry => {
+
+	// 	const [ key, value ] = entry;
+
+	// 	const destination = key.match( /frag|vert/ ) ?
+	// 		resolve( process.cwd(), `vite/js/shaders/${ key.split( '/' ).pop() }` ) :
+	// 		resolve( process.cwd(), `vite/js/${ key.split( '/' ).pop() }` );
+
+	// 	if ( key.match( /node_modules/ ) ) return;
+
+	// 	const string = value()
+	// 		.toString()
+	// 		.replace( /\\n/g, '\n' )
+	// 		.replace( 'var', 'let' );
+
+	// 	key.match( /frag|vert/ ) ?
+
+	// 	console.log( value().toString() );
+
+	// 	await writeFile( destination, string );
+
+	// } ) );
 
 	const isPreview = command === 'serve' && mode === 'production';
 	const extensions = [ '.glsl', '.js', '.json', '.svg', '.yml' ];
@@ -72,7 +97,7 @@ export default async ( { command, mode } ) => {
 		{
 			exclude: [ /vite/g, /node_modules/g ],
 			string: `
-				import { html } from 'vite/html';
+				import { html, glsl } from 'vite/html';
 				import { css, rules } from 'vite/css';
 			`
 		}

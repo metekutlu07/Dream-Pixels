@@ -1,3 +1,10 @@
+export function glsl( template ) {
+
+	const interpolations = Array.from( arguments ).slice( 1 );
+	return template.reduce( ( a, b, i ) => a + b + ( interpolations[ i ] || '' ), '' ).trim();
+
+}
+
 export function html( template ) {
 
 	const interpolations = Array.from( arguments ).slice( 1 );

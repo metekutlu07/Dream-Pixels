@@ -43,6 +43,10 @@ export default class Home extends View {
 				width: 100%;
 				height: 100%;
 			}
+
+			aside-block {
+				display: none;
+			}
 		}
 
 		scrolling-text {
@@ -85,12 +89,11 @@ export default class Home extends View {
 
 		// const source = 'public/common/Background.mp4';
 		// ${ Video.render( source, { fullscreen: true } ) }
+		// <img src="public/common/Background.png" alt="Marbled Paper"/>
 
 		return html`
 
 		<home-view view>
-
-			<img src="public/common/Background.png" alt="Marbled Paper"/>
 
 			${ paragraphs ? Aside.render( html`
 

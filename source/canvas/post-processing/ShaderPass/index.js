@@ -54,7 +54,7 @@ export default class ShaderPass extends Pass {
 
 	render( renderer, writeBuffer, readBuffer ) {
 
-		if ( this.uniforms[ this.textureID ] )
+		if ( this.uniforms[ this.textureID ] && readBuffer )
 			this.uniforms[ this.textureID ].value = readBuffer.texture;
 
 		this.quad.material = this.material;

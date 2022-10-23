@@ -162,8 +162,10 @@ export default class Item extends HTMLElement {
 		}
 
 		item-text {
-			font-size: var( --font-size-xl );
+			font-size: var( --font-size-m );
 			margin-bottom: var( --margin-s );
+			font-family: var( --font-family-c );
+			line-height: 1.8;
 		}
 
 		item-author {

@@ -7,6 +7,7 @@ import Sky from './objects/Sky';
 import Church from './objects/Church';
 import Panorama from './objects/Panorama';
 import Miniature from './objects/Miniature';
+import Marble from './objects/Marble';
 import Sphere from './objects/Sphere';
 import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
@@ -68,6 +69,9 @@ export default class Scene extends Object3D {
 
 		this.artwork = new Artwork();
 		this.add( this.artwork );
+
+		this.marble = new Marble();
+		// this.add( this.marble );
 
 		this.helpers = new Helpers();
 		this.add( this.helpers );
