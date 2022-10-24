@@ -90,6 +90,10 @@ export default class Filters extends HTMLElement {
 					}
 				}
 			}
+
+			@media ( max-width: 1024px ) {
+				display: none;
+			}
 		}
 
 		`;

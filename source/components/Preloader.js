@@ -78,6 +78,10 @@ export default class Preloader extends HTMLElement {
 				transition: all .9s var( --timing-function );
 				opacity: 0;
 				transform: scale( .95 );
+
+				@media ( max-width: 1024px ) {
+					font-size: 4.5rem;
+				}
 			}
 
 			& h2 {
@@ -88,6 +92,10 @@ export default class Preloader extends HTMLElement {
 				margin-bottom: var( --margin-xs );
 				opacity: 0;
 				transform: scale( .95 );
+
+				@media ( max-width: 1024px ) {
+					font-size: 1.5rem;
+				}
 			}
 
 			& preloader-square {

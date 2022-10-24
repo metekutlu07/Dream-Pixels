@@ -44,6 +44,10 @@ export default class Exploration extends HTMLElement {
 				transition-delay: .5s;
 				pointer-events: all;
 			}
+
+			@media ( max-width: 1024px ) {
+				display: none;
+			}
 		}
 
 		`;

@@ -143,6 +143,11 @@ export default class Button extends HTMLElement {
 
 			&:not( :last-child ) {
 				margin-right: -1px;
+
+				@media ( max-width: 1024px ) {
+					margin-bottom: -1px;
+					margin-right: 0;
+				}
 			}
 
 			@media ( hover: hover ) {

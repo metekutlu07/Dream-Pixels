@@ -67,24 +67,36 @@ export default class Header extends HTMLElement {
 				transform .5s var( --timing-function ),
 				opacity .5s var( --timing-function );
 
-			[ display-menu ] & {
-				transform: translateX( 0 );
-			}
-
-			& [ display-menu ],
-			& [ display-aside ] {
-				transform: translateX( var( --width ) );
-
-				[ display-menu ] & {
-					transform: translateX( 0 );
-				}
-			}
-
 			& default-button:not( [ visible ] ) {
 				&:not( [ display-menu ] ) { display: none }
 			}
+
+			& default-button[ display-menu ] {
+				--blur: blur( 10px );
+				backdrop-filter: var( --blur );
+				-webkit-backdrop-filter: var( --blur );
+			}
+
 			@media ( max-width: 1024px ) {
 				padding: var( --margin-s );
+				justify-content: flex-start;
+
+				&::before {
+					content: '';
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					left: 0;
+					top: 0;
+					opacity: 0;
+					background: var( --color-black );
+					transition: opacity .5s var( --timing-function );
+					z-index: 1;
+
+					[ display-menu ] & {
+						opacity: .9;
+					}
+				}
 			}
 
 		}
@@ -93,6 +105,7 @@ export default class Header extends HTMLElement {
 			display: none;
 		}
 
+		header-small-screen,
 		header-navigation,
 		header-grid-modes,
 		header-controls {
@@ -102,9 +115,46 @@ export default class Header extends HTMLElement {
 			pointer-events: all;
 		}
 
+		header-small-screen,
+		header-navigation,
+		header-controls {
+			@media ( max-width: 1024px ) {
+				position: relative;
+				flex-direction: column;
+				backdrop-filter: none !important;
+				justify-content: flex-start;
+				align-items: flex-start;
+				z-index: 1;
+
+				&:not( :last-child ) {
+					margin-bottom: var( --margin-s );
+				}
+			}
+		}
+
+		header-navigation,
+		header-controls {
+			@media ( max-width: 1024px ) {
+				& default-button {
+					transform: translateX( -200px );
+					transition-delay: calc( var( --index ) * .02s ) !important;
+
+					[ display-menu ] & {
+						transform: translateX( 0 );
+						transition-delay: calc( var( --index ) * .02s ) !important;
+					}
+				}
+			}
+		}
+
 		header-navigation {
 			left: var( --margin-m );
 			top: var( --margin-m );
+
+			@media ( max-width: 1024px ) {
+				left: initial;
+				top: initial;
+			}
 		}
 
 		header-grid-modes {
@@ -124,11 +174,21 @@ export default class Header extends HTMLElement {
 					margin-bottom: var( --margin-xs );
 				}
 			}
+
+			@media ( max-width: 1024px ) {
+				bottom: var( --margin-s );
+			}
+
 		}
 
 		header-controls {
 			right: var( --margin-m );
 			bottom: var( --margin-m );
+
+			@media ( max-width: 1024px ) {
+				right: initial;
+				bottom: initial;
+			}
 		}
 
 		header-credits {
@@ -178,12 +238,14 @@ export default class Header extends HTMLElement {
 
 		const { copyright } = Application.content;
 
-		// ${ Button.render( { icons: [ Menu, Close ], attributes: [ 'display-menu', '@click|header-block' ] } ) }
-		// ${ Button.render( { icons: [ List, List ], attributes: [ 'display-aside', '@click|header-block' ] } ) }
-
 		return html`
 
 		<header-block #header>
+
+			<header-small-screen blurred-background>
+				${ Button.render( { attributes: [ 'display-menu', '@click|header-block' ] } ) }
+				${ Button.render( { attributes: [ 'display-aside', '@click|header-block' ] } ) }
+			</header-small-screen>
 
 			<header-navigation blurred-background>
 				${ navigation.map( Button.render ) }
