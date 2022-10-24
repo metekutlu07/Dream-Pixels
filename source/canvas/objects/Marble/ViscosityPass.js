@@ -82,25 +82,22 @@ export default class ViscosityPass extends ShaderPass {
 
 	}
 
-	onPreRender() {
-
-		const { deltaTime } = Application.time;
-		this.uniforms[ 'deltaTime' ].value = Math.min( deltaTime * 1e-3, .01 );
-
-	}
-
 	render( simulation ) {
 
 		const { renderer } = Application;
-		const { renderTargets, textures, parameters } = simulation;
-		const { viscosity } = parameters;
+		const { renderTargets, textures, deltaTime, parameters } = simulation;
+		const { viscosity, iterations } = parameters;
 
-		// if ( viscosity === 0 ) return;
+		if ( viscosity === 0 ) return;
 
-		for ( let i = 0; i < this.iterations; i++ ) {
+		const length = Math.round( iterations / 2 ) * 2;
 
-			const readBufferID = i % 2 === 0 ? 'ViscosityA' : 'ViscosityB';
-			const writeBufferID = i % 2 === 0 ? 'ViscosityB' : 'ViscosityA';
+		this.uniforms[ 'deltaTime' ].value = deltaTime;
+
+		for ( let i = 0; i < length; i++ ) {
+
+			const readBufferID = i % 2 === 0 ? 'ViscosityB' : 'ViscosityA';
+			const writeBufferID = i % 2 === 0 ? 'ViscosityA' : 'ViscosityB';
 
 			this.uniforms[ 'mViscosity' ].value = textures[ readBufferID ];
 			this.uniforms[ 'mVelocity' ].value = textures[ 'VelocityB' ];

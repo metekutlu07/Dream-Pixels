@@ -82,18 +82,12 @@ export default class PressurePass extends ShaderPass {
 
 	}
 
-	onPreRender() {
-
-		const { deltaTime } = Application.time;
-		this.uniforms[ 'deltaTime' ].value = Math.min( deltaTime * 1e-3, .01 );
-
-	}
-
 	render( simulation ) {
 
 		const { renderer } = Application;
-		const { renderTargets, textures } = simulation;
+		const { renderTargets, textures, deltaTime } = simulation;
 
+		this.uniforms[ 'deltaTime' ].value = deltaTime;
 		this.uniforms[ 'mPressure' ].value = textures[ 'PressureB' ];
 		this.uniforms[ 'mVelocity' ].value = textures[ 'ViscosityB' ];
 

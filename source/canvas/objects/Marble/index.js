@@ -3,8 +3,7 @@ import {
 	WebGLRenderTarget,
 	Vector2,
 	FloatType,
-	RGBAFormat,
-	NearestFilter
+	RGBAFormat
 
 } from 'three';
 
@@ -66,9 +65,10 @@ export default class Marble extends ShaderPass {
 
 		this.parameters = {
 
+			viscosity: 30,
+			BFECC: false,
+			iterations: 25,
 			externalForce: { radius: 50, strength: 20 },
-			viscosity: 0,
-			BFECC: false
 
 		};
 
@@ -103,9 +103,7 @@ export default class Marble extends ShaderPass {
 				format: RGBAFormat,
 				depthWrite: false,
 				depthBuffer: false,
-				stencilBuffer: false,
-				magFilter: NearestFilter,
-				minFilter: NearestFilter
+				stencilBuffer: false
 
 			} );
 
@@ -138,6 +136,11 @@ export default class Marble extends ShaderPass {
 	}
 
 	onRender() {
+
+		if ( Application.router.path !== '/' ) return;
+
+		const { deltaTime } = Application.time;
+		this.deltaTime = Math.min( deltaTime * 1e-3, .01 );
 
 		this.passes.forEach( pass => pass.render( this ) );
 		this.uniforms[ 'mVelocity' ].value = this.textures[ 'VelocityA' ];

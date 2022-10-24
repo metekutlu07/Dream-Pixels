@@ -78,12 +78,15 @@ export default class PoissonPass extends ShaderPass {
 	render( simulation ) {
 
 		const { renderer } = Application;
-		const { renderTargets, textures } = simulation;
+		const { renderTargets, textures, parameters } = simulation;
+		const { iterations } = parameters;
 
-		for ( let i = 0; i < this.iterations; i++ ) {
+		const length = Math.round( iterations / 2 ) * 2;
 
-			const readBufferID = i % 2 === 0 ? 'PressureA' : 'PressureB';
-			const writeBufferID = i % 2 === 0 ? 'PressureB' : 'PressureA';
+		for ( let i = 0; i < length; i++ ) {
+
+			const readBufferID = i % 2 === 0 ? 'PressureB' : 'PressureA';
+			const writeBufferID = i % 2 === 0 ? 'PressureA' : 'PressureB';
 
 			this.uniforms[ 'mPressure' ].value = textures[ readBufferID ];
 			this.uniforms[ 'mDivergence' ].value = textures[ 'Divergence' ];

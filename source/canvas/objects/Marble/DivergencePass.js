@@ -74,21 +74,16 @@ export default class DivergencePass extends ShaderPass {
 
 	}
 
-	onPreRender() {
-
-		const { deltaTime } = Application.time;
-		this.uniforms[ 'deltaTime' ].value = Math.min( deltaTime * 1e-3, .01 );
-
-	}
-
 	render( simulation ) {
 
 		const { renderer } = Application;
-		const { renderTargets, textures, parameters } = simulation;
+		const { renderTargets, textures, deltaTime, parameters } = simulation;
 		const { viscosity } = parameters;
 
+		this.uniforms[ 'deltaTime' ].value = deltaTime;
+
 		const readBufferID = viscosity === 0 ? 'VelocityB' : 'ViscosityB';
-		this.uniforms[ 'mVelocity' ].value = textures[ 'ViscosityB' ];
+		this.uniforms[ 'mVelocity' ].value = textures[ readBufferID ];
 
 		const writeBuffer = renderTargets[ 'Divergence' ];
 		super.render( renderer, writeBuffer );

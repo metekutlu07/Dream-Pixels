@@ -124,9 +124,6 @@ export default class AdvectionPass extends ShaderPass {
 
 	onPreRender() {
 
-		const { deltaTime } = Application.time;
-		this.uniforms[ 'deltaTime' ].value = Math.min( deltaTime * 1e-3, .01 );
-
 		this.force
 			.sub( this.position )
 			.negate()
@@ -142,11 +139,14 @@ export default class AdvectionPass extends ShaderPass {
 	render( simulation ) {
 
 		const { renderer } = Application;
-		const { renderTargets, textures, parameters } = simulation;
-		const { radius, strength } = parameters.externalForce;
+		const { renderTargets, textures, deltaTime, parameters } = simulation;
+		const { BFECC, externalForce } = parameters;
+		const { radius, strength } = externalForce;
 
+		this.defines[ 'BFECC' ] = BFECC;
 		this.uniforms[ 'radius' ].value = radius;
 		this.uniforms[ 'strength' ].value = strength;
+		this.uniforms[ 'deltaTime' ].value = deltaTime;
 		this.uniforms[ 'mVelocity' ].value = textures[ 'VelocityA' ];
 
 		const writeBuffer = renderTargets[ 'VelocityB' ];
