@@ -71,12 +71,6 @@ export default class Header extends HTMLElement {
 				&:not( [ display-menu ] ) { display: none }
 			}
 
-			& default-button[ display-menu ] {
-				--blur: blur( 10px );
-				backdrop-filter: var( --blur );
-				-webkit-backdrop-filter: var( --blur );
-			}
-
 			@media ( max-width: 1024px ) {
 				padding: var( --margin-s );
 				justify-content: flex-start;
@@ -101,10 +95,6 @@ export default class Header extends HTMLElement {
 
 		}
 
-		header-title {
-			display: none;
-		}
-
 		header-small-screen,
 		header-navigation,
 		header-grid-modes,
@@ -113,6 +103,24 @@ export default class Header extends HTMLElement {
 			flex-direction: row;
 			position: absolute;
 			pointer-events: all;
+		}
+
+		header-small-screen {
+			display: none;
+
+			@media ( max-width: 1024px ) {
+				display: flex;
+			}
+
+			& default-button {
+				--blur: blur( 10px );
+				backdrop-filter: var( --blur );
+				-webkit-backdrop-filter: var( --blur );
+
+				&:not( :last-child ) {
+					margin-bottom: var( --margin-xs );
+				}
+			}
 		}
 
 		header-small-screen,
@@ -137,11 +145,11 @@ export default class Header extends HTMLElement {
 			@media ( max-width: 1024px ) {
 				& default-button {
 					transform: translateX( -200px );
-					transition-delay: calc( var( --index ) * .02s ) !important;
+					transition-delay: calc( var( --index ) * .01s ) !important;
 
 					[ display-menu ] & {
 						transform: translateX( 0 );
-						transition-delay: calc( var( --index ) * .02s ) !important;
+						transition-delay: calc( var( --index ) * .01s ) !important;
 					}
 				}
 			}

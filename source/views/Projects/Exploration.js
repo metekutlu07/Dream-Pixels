@@ -1,4 +1,12 @@
+import Chevron from '~/assets/icons/Chevron';
+
 export default class Exploration extends HTMLElement {
+
+	onClick() {
+
+		this.toggleAttribute( 'open' );
+
+	}
 
 	static render() {
 
@@ -17,20 +25,11 @@ export default class Exploration extends HTMLElement {
 			max-width: 450px;
 			opacity: 0;
 			transition: opacity 1s var( --timing-function );
-
-			padding: var( --margin-m );
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );
 			line-height: 1.8;
-			overflow: scroll;
-			pointer-events: none;
+			pointer-events: all;
 			max-height: calc( 100% - var( --margin-m ) * 2 - 50px );
-
-			& h3 {
-				line-height: 1;
-				font-size: var( --font-size-xl );
-				margin-bottom: var( --margin-s );
-			}
 
 			& p {
 				&:not( :last-child ) {
@@ -50,16 +49,77 @@ export default class Exploration extends HTMLElement {
 			}
 		}
 
+		exploration-title {
+			padding: var( --margin-s );
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			[ open ] & {
+				border-bottom: var( --border-size ) solid var( --border-color );
+			}
+
+			& exploration-chevron {
+				cursor: pointer;
+				height: 25px;
+				width: 25px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: var( --border-size ) solid var( --border-color );
+			}
+
+			& svg {
+				height: 10px;
+				width: 10px;
+				fill: var( --color-white );
+				transform: rotate( 90deg );
+
+				[ open ] & {
+					transform: rotate( -90deg );
+				}
+			}
+
+			& h3 {
+				line-height: 1;
+				font-size: var( --font-size-l );
+
+				& + p {
+					margin-top: var( --margin-s );
+				}
+			}
+		}
+
+		exploration-description {
+			max-height: 0;
+			overflow: hidden;
+			padding: 0;
+			overflow: scroll;
+
+			[ open ] & {
+				max-height: initial;
+				padding: var( --margin-s );
+			}
+		}
+
 		`;
 
 		const { title, description } = Application.content.exploration;
 
 		return html`
 
-		<projects-exploration blurred-background>
+		<projects-exploration blurred-background open @click>
 
-			<h3>${ title }</h3>
-			${ description.map( paragraph => html`<p>${ paragraph }</p>` ) }
+			<exploration-title>
+				<h3>${ title }</h3>
+				<exploration-chevron>
+					${ Chevron }
+				</exploration-chevron>
+			</exploration-title>
+
+			<exploration-description>
+				${ description.map( paragraph => html`<p>${ paragraph }</p>` ) }
+			</exploration-description>
 
 		</projects-exploration>
 

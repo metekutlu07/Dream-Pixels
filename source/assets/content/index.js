@@ -137,8 +137,8 @@ export default {
 		P12,
 		{ objectID: '007' },
 		P13,
-		{ objectID: '011' },
 		P14,
+		{ objectID: '011' },
 		P15,
 		{
 			quote: 'Well done, the magic-working masters of the brush whose bewitching tool bestows a new life. They master every creature, and conjure up to life the likeness of everyone, from the encompassing circle of the sky to the surface of the earth. They cast their glances about creation and make copies of every original. Their creative art is a guide to the plan of the universe. I cannot understand with what art they treat images so that they seem to be speaking to men.',

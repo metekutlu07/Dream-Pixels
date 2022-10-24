@@ -92,7 +92,7 @@ export default class Objects extends Object3D {
 
 	onUpdate() {
 
-		const { camera } = Application;
+		const { camera, viewport } = Application;
 		const far = camera.far;
 		camera.far = 25;
 		camera.updateProjectionMatrix();
@@ -120,6 +120,10 @@ export default class Objects extends Object3D {
 
 			child.material.opacity = opacity;
 			child.visible = opacity > .05;
+
+			const { aspect } = viewport;
+			const scale = Math.mapLinear( aspect, .56, 1.7, 1.6, 1. );
+			child.scale.setScalar( scale );
 
 		} );
 

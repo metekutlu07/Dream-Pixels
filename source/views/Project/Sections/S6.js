@@ -21,10 +21,9 @@ export default class S6 extends HTMLElement {
 			position: absolute;
 			top: 0;
 
-			& default-button {
-				display: none !important;
+			& aside-block {
+				pointer-events: all;
 			}
-
 		}
 
 		artwork-list {

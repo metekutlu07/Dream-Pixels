@@ -122,6 +122,11 @@ export default class ColorRange extends HTMLElement {
 				height: 100%;
 				width: 100%;
 			}
+
+			@media ( max-width: 1024px ) {
+				height: 300px;
+			}
+
 		}
 
 		color-range-handle {

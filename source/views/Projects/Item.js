@@ -32,26 +32,17 @@ export default class Item extends HTMLElement {
 
 		if ( ! this.hasAttribute( 'object' ) ) return;
 
-		const { height, width } = this;
+		const { clientHeight, clientWidth } = this;
 		const { offsetLeft, offsetTop, translateY } = this.parentNode;
 
 		this.offset
-			.setX( offsetLeft + width * .5 )
-			.setY( offsetTop + height * .5 + translateY + this.offsetTop );
+			.setX( offsetLeft + clientWidth * .5 )
+			.setY( offsetTop + clientHeight * .5 + translateY + this.offsetTop );
 
 		const { size } = Application.viewport;
 		this.offset.x = Math.mapLinear( this.offset.x, 0, size.x, -1, 1 ),
 		this.offset.y = Math.mapLinear( this.offset.y, 0, size.y, 1, -1 );
 		this.offset.z = .5;
-
-		if ( ! this.height || ! this.width ) this.onResize();
-
-	}
-
-	onResize() {
-
-		this.height = this.clientHeight;
-		this.width = this.clientWidth;
 
 	}
 

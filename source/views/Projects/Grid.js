@@ -10,10 +10,8 @@ export default class Grid extends HTMLElement {
 
 	onPreFrame() {
 
-		const { width } = Application.viewport;
-
 		const element = document.body;
-		const scrollTop = width < 450 ? 0 : element.scrollTop;
+		const scrollTop = element.scrollTop;
 
 		const heights = this.columns.map( column => column.clientHeight );
 		const highest = Array.from( heights ).sort()[ heights.length - 1 ];
@@ -33,7 +31,7 @@ export default class Grid extends HTMLElement {
 
 		const { width } = Application.viewport;
 		const length = width < 450 ? 1 :
-			width < 768 ? 2 :
+			width < 1024 ? 2 :
 				width < 1280 ? 3 : 4;
 
 		if ( length === this.length ) return;
@@ -84,7 +82,7 @@ export default class Grid extends HTMLElement {
 			padding: var( --margin-m );
 			pointer-events: none;
 			align-items: flex-start;
-			margin-bottom: 200px;
+			margin-bottom: 100px;
 
 			@media ( max-width: 1280px ) {
 				padding: var( --margin-s );

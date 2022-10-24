@@ -10,6 +10,7 @@ export default class Aside extends HTMLElement {
 
 	onClick() {
 
+		Application.store.set( 'display-aside', false );
 		this.exit();
 
 	}
@@ -51,13 +52,18 @@ export default class Aside extends HTMLElement {
 				opacity .5s var( --timing-function );
 			border: var( --border-size ) solid var( --border-color );
 
+			@media ( max-width: 1024px ) {
+				bottom: var( --margin-s );
+				left: var( --margin-s );
+			}
+
 			&:not( [ scrollable ] ) {
 
-				@media ( max-width: 768px ) {
+				@media ( max-width: 450px ) {
 					padding: var( --margin-m ) var( --margin-s );
 				}
 
-				@media ( max-width: 768px ) {
+				@media ( max-width: 450px ) {
 					bottom: 0;
 					left: 0;
 					right: 0;

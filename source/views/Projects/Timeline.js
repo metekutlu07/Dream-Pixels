@@ -94,6 +94,10 @@ export default class Timeline extends HTMLElement {
 			font-size: var( --font-size-s );
 			pointer-events: none;
 
+			@media ( max-width: 1024px ) {
+				height: 300px;
+			}
+
 			& ul {
 				display: flex;
 				flex-direction: column;
