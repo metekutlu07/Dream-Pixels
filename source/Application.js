@@ -33,10 +33,9 @@ import Home from '~/views/Home';
 import Projects from '~/views/Projects';
 import About from '~/views/About';
 import Project from '~/views/Project';
-import Update from '~/views/Update';
 import Contact from '~/views/Contact';
 
-const Views = [ Home, Projects, About, Contact, Update, Project ];
+const Views = [ Home, Projects, About, Contact, Project ];
 
 class Application {
 

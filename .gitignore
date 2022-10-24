@@ -3,5 +3,5 @@ node_modules
 .DS_Store
 .firebase
 !.gitkeep
-source/assets/packs/projects/Images
+source/assets/packs/works/Images
 source/assets/packs/common/Colors.json

@@ -26,11 +26,11 @@ export default class Button extends HTMLElement {
 
 	onPreFrame() {
 
-		const visibleIDs = [ 'audio', 'display-menu', 'home', 'projects', 'about', 'contact' ];
+		const visibleIDs = [ 'audio', 'display-menu', 'home', 'works', 'about', 'contact' ];
 		const selectedIDs = [];
 		const activatedIDs = [];
 
-		const { path, route, list, particles } = Application.store;
+		const { path, list, particles } = Application.store;
 
 		switch ( path ) {
 
@@ -38,8 +38,8 @@ export default class Button extends HTMLElement {
 			selectedIDs.push( 'home' );
 			break;
 
-		case '/projects':
-			selectedIDs.push( 'projects' );
+		case '/works':
+			selectedIDs.push( 'works' );
 			visibleIDs.push( 'grid', 'sphere', 'particles' );
 			break;
 
@@ -71,7 +71,7 @@ export default class Button extends HTMLElement {
 		case 'particles':
 			selectedIDs.push( 'particles' );
 
-			if ( path === '/projects' )visibleIDs.push( 'color-range', 'timeline' );
+			if ( path === '/works' )visibleIDs.push( 'color-range', 'timeline' );
 			break;
 
 		}
@@ -82,8 +82,6 @@ export default class Button extends HTMLElement {
 		case 'timeline': selectedIDs.push( 'timeline' ); break;
 
 		}
-
-		if ( route === '/:project' ) visibleIDs.push( 'projects' );
 
 		const { fullscreen, camera, audio } = Application;
 

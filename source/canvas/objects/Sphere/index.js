@@ -22,9 +22,9 @@ export default class Sphere extends Mesh {
 	onPreFrame() {
 
 		const { path, list } = Application.store;
-		this.visible = path === '/projects' || path === '/contact';
+		this.visible = path === '/works' || path === '/contact';
 
-		if ( path === '/projects' ) {
+		if ( path === '/works' ) {
 
 			const { parameters } = Application.scene.orbitControls;
 			parameters.enableRotate = list !== 'grid';

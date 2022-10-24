@@ -60,7 +60,7 @@ export default {
 	views: {
 
 		home: { path: '/', title: 'Home' },
-		projects: { path: '/projects', title: 'Projects' },
+		works: { path: '/works', title: 'Works' },
 		about: { path: '/about', title: 'About' },
 		contact: { path: '/contact', title: 'Contact' },
 		update: { path: '/update', title: 'Update' }
@@ -78,7 +78,7 @@ export default {
 		'augmented-reality': [ 'Augmented Reality' ],
 		'home': [ 'Home' ],
 		'close': [ 'Close' ],
-		'projects': [ 'Works' ],
+		'works': [ 'Works' ],
 		'project': [ 'See project' ],
 		'about': [ 'About' ],
 		'contact': [ 'Contact' ],

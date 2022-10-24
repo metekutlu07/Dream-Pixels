@@ -22,9 +22,9 @@ export default class Images extends Object3D {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'projects' ] ) return;
+		if ( ! files[ 'works' ] ) return;
 
-		const { textures } = files[ 'projects' ];
+		const { textures } = files[ 'works' ];
 
 		const maps = Object
 			.entries( textures )
@@ -51,7 +51,7 @@ export default class Images extends Object3D {
 	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = path === '/projects' && list === 'sphere';
+		const isVisible = path === '/works' && list === 'sphere';
 
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;

@@ -9,7 +9,7 @@ import Timeline from './Timeline';
 
 export default class Projects extends View {
 
-	static path = '/projects';
+	static path = '/works';
 	static silent = false;
 
 	static render() {

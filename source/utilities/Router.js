@@ -25,7 +25,7 @@ export default class Router {
 
 		const { origin, href } = window.location;
 		const path = href.replace( origin, '' );
-		this.navigate( path );
+		this.navigate( path, false );
 
 	}
 
@@ -60,14 +60,15 @@ export default class Router {
 
 	}
 
-	navigate( url ) {
+	navigate( url, setHistory = true ) {
 
 		if ( url === this.url ) return;
 
 		const route = this.parseURL( url );
 		if ( ! route ) return this.navigate( '/' );
+		if ( setHistory ) this.setHistory( url );
 
-		this.setHistory( url );
+		this.url = url;
 
 		Application.events.dispatch( 'onRouting' );
 
@@ -124,8 +125,6 @@ export default class Router {
 
 		const state = { previous: this.url, url };
 		history.pushState( state, '', silent ? null : url );
-
-		this.url = url;
 
 	}
 

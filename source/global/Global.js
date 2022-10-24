@@ -58,8 +58,8 @@ export default class Global {
 			[ path="/about" ] &,
 			[ path="/photogrammetry" ] &,
 			[ path="/miniature-street-view" ] &,
-			[ path="/projects" ][ list="sphere" ] &,
-			[ path="/projects" ][ list="particles" ] & {
+			[ path="/works" ][ list="sphere" ] &,
+			[ path="/works" ][ list="particles" ] & {
 				overflow: hidden;
 			}
 

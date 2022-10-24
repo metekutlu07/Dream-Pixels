@@ -142,7 +142,7 @@ export default class Lighting extends Object3D {
 
 			break;
 
-		case '/projects':
+		case '/works':
 
 			this.parameters.sky.topColor = '#000000';
 			this.parameters.sky.bottomColor = '#111111';

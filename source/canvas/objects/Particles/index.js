@@ -124,7 +124,7 @@ export default class Particles extends Points {
 	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = ( path === '/projects' && list === 'particles' ) ||
+		const isVisible = ( path === '/works' && list === 'particles' ) ||
 			path === '/contact';
 
 		if ( this.isVisible === isVisible || ! this.titles ) return;

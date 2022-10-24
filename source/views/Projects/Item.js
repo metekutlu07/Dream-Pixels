@@ -106,6 +106,7 @@ export default class Item extends HTMLElement {
 			& h4 {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-s );
+				line-height: 1.6;
 				margin-bottom: 4px;
 			}
 

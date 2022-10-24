@@ -83,8 +83,8 @@ export default class Scene extends Object3D {
 	onPreFrame() {
 
 		const { path, list, particles } = Application.store;
-		const target = path === '/projects' && list === 'sphere' ? .005 :
-			path === '/projects' && list === 'particles' ?
+		const target = path === '/works' && list === 'sphere' ? .005 :
+			path === '/works' && list === 'particles' ?
 				particles === 'color-range' ? .01 : .05 : 0;
 
 		this.parameters.density = Math.lerp( this.parameters.density, target, .05 );

@@ -53,7 +53,7 @@ export async function getColorList( content ) {
 
 	const { projects } = content;
 
-	const destination = resolve( assets, 'packs/projects/Images' );
+	const destination = resolve( assets, 'packs/works/Images' );
 	await rm( destination, { recursive: true, force: true } );
 	await mkdir( destination, { recursive: true } );
 

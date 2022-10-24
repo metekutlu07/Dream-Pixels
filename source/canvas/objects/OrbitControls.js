@@ -185,7 +185,7 @@ export default class OrbitControls extends Object3D {
 
 			break;
 
-		case '/projects':
+		case '/works':
 
 			this.lerpState.set( 25, 0, 0 );
 

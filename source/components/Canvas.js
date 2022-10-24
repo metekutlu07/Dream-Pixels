@@ -35,8 +35,8 @@ export default class Canvas extends HTMLElement {
 
 			@media ( hover: hover ) {
 
-				[ path="/projects" ][ list="sphere" ] &,
-				[ path="/projects" ][ list="particles" ] & {
+				[ path="/works" ][ list="sphere" ] &,
+				[ path="/works" ][ list="particles" ] & {
 					cursor: crosshair;
 				}
 

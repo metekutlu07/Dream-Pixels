@@ -54,7 +54,7 @@ export default class Title extends MSDFText {
 	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = path === '/projects' && list === 'particles';
+		const isVisible = path === '/works' && list === 'particles';
 
 		if ( this.isVisible === isVisible ) return;
 		this.isVisible = isVisible;

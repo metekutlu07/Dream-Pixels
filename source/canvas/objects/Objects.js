@@ -12,9 +12,9 @@ export default class Objects extends Object3D {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'projects' ] ) return;
+		if ( ! files[ 'works' ] ) return;
 
-		const { models, textures } = Application.assets[ 'projects' ];
+		const { models, textures } = Application.assets[ 'works' ];
 		const { objects } = models[ 'Objects/Objects.glb' ];
 		const envMap = Application.assets[ 'EnvMap' ];
 
@@ -69,7 +69,7 @@ export default class Objects extends Object3D {
 	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = path === '/projects' && list === 'grid';
+		const isVisible = path === '/works' && list === 'grid';
 
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;

@@ -151,7 +151,7 @@ export default class Header extends HTMLElement {
 
 		const navigation = [
 			{ attributes: [ 'home' ], link: { internal: true } },
-			{ attributes: [ 'projects' ], link: { internal: true } },
+			{ attributes: [ 'works' ], link: { internal: true } },
 			{ attributes: [ 'about' ], link: { internal: true } },
 			{ attributes: [ 'contact' ], link: { internal: true } },
 		];
