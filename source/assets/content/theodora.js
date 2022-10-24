@@ -108,16 +108,11 @@ export default {
 			paragraphs: 'In the ephemeral world of pixels, this weightless and luminous representation translates the painter-prophet Mani\'s ideal: the liberation of sublime parcels of light from the evil world of matter in which they are imprisoned.'
 		},
 
-
 		{
 			type: 'S2',
 			title: 'Ecstatic Images',
 			paragraphs: 'The hypnotic geometrical compositions reflects the Sufi\'s ecstatic state of fana, the death of ego and union with the cosmos. Resembling the magical drawings of the Ottoman alchemists, they reveal the talismanic qualities of the urban space of Constantinople.'
 		},
-
-
-
-
 
 	]
 

@@ -37,6 +37,11 @@ export default class S1 {
 					margin-bottom: 5px;
 				}
 			}
+
+			& img {
+				object-fit: cover;
+				width: 100%;
+			}
 		}
 
 		`;
@@ -54,11 +59,24 @@ export default class S1 {
 
 		} = content;
 
+		let media = '';
+
+		if ( content.media ) {
+
+			const { source, caption, controls, } = content.media;
+			const isVideo = source.match( /mp4/g );
+
+			media = isVideo ?
+				Video.render( source, { controls, fullscreen: true } ) :
+				html`<img src="${ source }" alt="${ caption }"/>`;
+
+		}
+
 		return html`
 
 		<section-type-1 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
-			${ content.media ? Video.render( content.media.source, { fullscreen: true } ) : '' }
+			${ media }
 			${ description ? Aside.render( html`
 
 				<h3>${ title }</h3>

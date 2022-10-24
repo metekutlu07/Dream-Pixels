@@ -11,9 +11,6 @@ export default {
 	description: 'In the digitized image of the miniature, 2.5 million pixels simulate the colors of the pigments which are used in the miniature. Their colors are analyzed with algorithms to identify the dominant tones. The 12 talismanic towers of Constantinople are represented as clusters of particles. Each second, the mineral pictorial paste pops into millions of particles with constantly changing colors.',
 	sections: [
 
-
-
-
 		{
 			type: 'S1',
 			media: {
@@ -31,7 +28,6 @@ export default {
 			}
 		},
 
-
 		{
 			type: 'S3',
 			media: {
@@ -41,7 +37,6 @@ export default {
 			}
 		},
 
-
 		{
 			type: 'S3',
 			media: {
@@ -50,7 +45,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 
 		{
 			type: 'S3',
@@ -97,9 +91,6 @@ export default {
 			}
 		},
 
-
-
 	],
-
 
 };
