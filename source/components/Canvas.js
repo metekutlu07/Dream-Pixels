@@ -1,3 +1,5 @@
+import { Vector2 } from 'three';
+
 export default class Canvas extends HTMLElement {
 
 	constructor() {
@@ -5,15 +7,34 @@ export default class Canvas extends HTMLElement {
 		super();
 
 		window.canvas = this.children[ 0 ];
+		this.coordinates = new Vector2();
 
 	}
 
-	onClick( event ) {
+	onInputStart() {
 
-		const query = 'section-type-5, projects-sphere';
+		this.elapsedTime = Application.time.elapsedTime;
+		Application.pointer.getCoordinates( this.coordinates );
+
+	}
+
+	onInputEnd( event ) {
+
+		const currentTarget = event.composedPath()[ 0 ];
+		if ( ! currentTarget.matches( 'canvas' ) ) return;
+
+		const coordinates = Vector2.get();
+		Application.pointer.getCoordinates( coordinates );
+
+		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
+		const distance = this.coordinates.distanceTo( coordinates );
+
+		if ( deltaTime > 350 || distance > 25 ) return;
+
+		const query = 'section-type-5, projects-image-preview';
 		const element = document.querySelector( query );
-		if ( element ) element.onClick( event );
-		if ( Application.cursor ) Application.cursor.onClick( event );
+
+		if ( element ) element.onClick( { currentTarget } );
 
 	}
 
@@ -48,7 +69,7 @@ export default class Canvas extends HTMLElement {
 
 		return html`
 
-		<canvas-block @touch-move @click>
+		<canvas-block @touch-move>
 			<canvas>
 		</canvas-block>
 

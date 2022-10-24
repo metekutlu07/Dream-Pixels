@@ -111,7 +111,6 @@ export default class Timeline extends HTMLElement {
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;
-				pointer-events: all;
 				cursor: pointer;
 
 				&:hover,

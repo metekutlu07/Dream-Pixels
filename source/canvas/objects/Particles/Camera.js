@@ -40,7 +40,6 @@ export default class Camera extends PerspectiveCamera {
 		Application.overrideCamera = active ? this : null;
 
 		if ( path === '/contact' ) this.scroll += 1e-4;
-		else this.scroll += 1e-5;
 
 		this.isScrolling = this.position.distanceTo( position ) > .25;
 

@@ -9,9 +9,6 @@ export default {
 	period: 'October 2020',
 	description: '',
 	sections: [
-
-
-
 		{
 			type: 'S1',
 			media: {

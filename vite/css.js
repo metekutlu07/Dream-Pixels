@@ -8,7 +8,7 @@ export function css( template ) {
 
 	const interpolations = Array.from( arguments ).slice( 1 );
 	rule = template.reduce( ( a, b, i ) => a + b + ( interpolations[ i ] || '' ), '' ).trim();
-	rule = getFormattedString( rule );
+	rule = rule.length ? getFormattedString( rule ) : '';
 
 	const isDuplicated = rules.indexOf( rule ) > -1;
 	if ( isDuplicated ) return;

@@ -16,13 +16,6 @@ export default class Cursor extends HTMLElement {
 
 	}
 
-	onClick() {
-
-		if ( ! this.hasAttribute( 'visible' ) ) return;
-		Application.router.navigate( `/${ this.path }` );
-
-	}
-
 	onUpdate() {
 
 		const { cursor } = this.elements;
@@ -39,13 +32,14 @@ export default class Cursor extends HTMLElement {
 
 	reset() {
 
+		this.parameters = null;
 		this.removeAttribute( 'visible' );
 
 	}
 
 	set( parameters = {} ) {
 
-		this.path = parameters.path;
+		this.parameters = parameters;
 
 		const { projects } = Application.content;
 		const project = projects.find( project => project.path === parameters.path );
@@ -143,7 +137,8 @@ export default class Cursor extends HTMLElement {
 
 		return html`
 
-		<projects-cursor @click #cursor blurred-background>
+		<projects-cursor #cursor blurred-background>
+
 			<cursor-color #color>
 				<color-hex #hex></color-hex>
 				<color-code #code></color-code>
@@ -151,6 +146,7 @@ export default class Cursor extends HTMLElement {
 			<h3 #caption>Comparaison: Side by Side View</h3>
 			<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
 			<h5 #title>Bistami <span>| 01</span></h5>
+
 		</projects-cursor>
 
 		`;

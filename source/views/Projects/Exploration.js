@@ -54,13 +54,19 @@ export default class Exploration extends HTMLElement {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			cursor: pointer;
+
+			@media ( hover: hover ) {
+				&:hover {
+					background-color: rgba( 255, 255, 255, .25 );
+				}
+			}
 
 			[ open ] & {
 				border-bottom: var( --border-size ) solid var( --border-color );
 			}
 
 			& exploration-chevron {
-				cursor: pointer;
 				height: 25px;
 				width: 25px;
 				display: flex;
@@ -108,7 +114,7 @@ export default class Exploration extends HTMLElement {
 
 		return html`
 
-		<projects-exploration blurred-background open @click>
+		<projects-exploration blurred-background @click>
 
 			<exploration-title>
 				<h3>${ title }</h3>

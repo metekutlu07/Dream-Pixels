@@ -81,6 +81,11 @@ export default class OrbitControls extends Object3D {
 		this.offset.y = radius * Math.cos( Math.PI * .5 - phi );
 		this.offset.z = radius * Math.sin( Math.PI * .5 - phi ) * Math.cos( theta );
 
+		const vectorA = Vector3.get().setFromSpherical( this.currentState );
+		const vectorB = Vector3.get().setFromSpherical( this.lerpState );
+		this.isActive = vectorA.distanceTo( vectorB ) > .01;
+		Vector3.release( vectorA, vectorB );
+
 		Application.store.set( 'grab', enableRotate && ! this.isGrabbed );
 		Application.store.set( 'grabbing', enableRotate && this.isGrabbed );
 
@@ -199,7 +204,7 @@ export default class OrbitControls extends Object3D {
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 
-				autoRotateDelay: 8,
+				autoRotateDelay: 10,
 				minAngle: -1,
 				maxAngle: 1,
 

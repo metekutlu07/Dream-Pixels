@@ -83,7 +83,7 @@ export default class Particles extends Points {
 			const point = this.points[ i ];
 
 			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
-			const { path, caption, tags } = images[ imageID ];
+			const { source, path, caption, tags } = images[ imageID ];
 			const color = new Color();
 
 			const project = { box: new Box3(), points: [] };
@@ -100,7 +100,7 @@ export default class Particles extends Points {
 			array[ i * 3 + 1 ] = g;
 			array[ i * 3 + 2 ] = b;
 
-			Object.assign( point, { path, caption, tags, hex, hsl } );
+			Object.assign( point, { source, path, caption, tags, hex, hsl } );
 
 		}
 
@@ -156,7 +156,7 @@ export default class Particles extends Points {
 
 	onPostUpdate() {
 
-		if ( ! Application.cursor ) return;
+		if ( ! Application.cursor || ! this.isVisible ) return;
 
 		const index = this.getClosestIndex();
 
@@ -184,11 +184,6 @@ export default class Particles extends Points {
 				.values( this.projects )
 				.map( ( { box, points } ) => box.setFromPoints( points ) );
 
-			// const centers = Object
-			// 	.values( this.projects )
-			// 	.map( ( { box } ) => box.getCenter( new Vector3() ) );
-			// this.simulation.setCurve( centers );
-
 		} else this.visible = false;
 
 	}
@@ -207,9 +202,10 @@ export default class Particles extends Points {
 
 		if ( ! this.isHoverable ) return;
 
-		const { pointer } = Application;
+		const { pointer, scene } = Application;
+		const { orbitControls } = scene;
 
-		if ( ! this.isVisible || this.camera.isScrolling || pointer.isPressed ) return;
+		if ( ! this.isVisible || this.camera.isScrolling || orbitControls.isActive ) return;
 
 		const camera = Application.overrideCamera || Application.camera;
 		const position = pointer.getCoordinates( Vector3.get(), true );
@@ -270,7 +266,7 @@ export default class Particles extends Points {
 				.applyMatrix4( camera.matrixWorldInverse );
 
 			const scale = size.y * .5;
-			let pointSize = this.size * .25;
+			let pointSize = this.size * .5;
 
 			if ( this.material.sizeAttenuation ) pointSize *= ( scale / -coordinatesB.z );
 			if ( cursor.distanceTo( coordinatesA ) > pointSize ) continue;

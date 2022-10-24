@@ -6,6 +6,7 @@ import Exploration from './Exploration';
 import Filters from './Filters';
 import ColorRange from './ColorRange';
 import Timeline from './Timeline';
+import ImagePreview from './ImagePreview';
 
 export default class Projects extends View {
 
@@ -26,12 +27,15 @@ export default class Projects extends View {
 		return html`
 
 		<projects-view view>
+
 			${ Cursor }
 			${ Grid }
+			${ ImagePreview }
 			${ Exploration }
 			${ Filters }
 			${ ColorRange }
 			${ Timeline }
+
 		</projects-view>
 
 		`;
