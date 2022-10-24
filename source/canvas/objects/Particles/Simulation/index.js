@@ -160,7 +160,7 @@ export default class Simulation {
 				dataA[ i * 4 + 3 ] = w - .25;
 
 				dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 3;
-				dataB[ i * 4 + 1 ] = .035;
+				dataB[ i * 4 + 1 ] = .035 * 100;
 
 			}
 

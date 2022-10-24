@@ -21,7 +21,7 @@ void main() {
 	float life = texelColorA.w;
 
 	float lifespan = texelColorB.x;
-	float speed = texelColorB.y;
+	float speed = texelColorB.y * deltaTime;
 
 	if ( life <= lifespan ) {
 

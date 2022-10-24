@@ -187,16 +187,19 @@ export default class Particles extends Points {
 			// const centers = Object
 			// 	.values( this.projects )
 			// 	.map( ( { box } ) => box.getCenter( new Vector3() ) );
-
 			// this.simulation.setCurve( centers );
 
 		} else this.visible = false;
 
-		// const vertices = this.simulation.curve.getPoints( 1e4 );
-		// const geometry = new BufferGeometry().setFromPoints( vertices );
-		// const material = new LineBasicMaterial( { color: '#ff0000' } );
-		// this.line = new Line( geometry, material );
-		// this.add( this.line );
+	}
+
+	setHelpers() {
+
+		const vertices = this.simulation.curve.getPoints( 1e4 );
+		const geometry = new BufferGeometry().setFromPoints( vertices );
+		const material = new LineBasicMaterial( { color: '#ff0000' } );
+		this.line = new Line( geometry, material );
+		this.add( this.line );
 
 	}
 
