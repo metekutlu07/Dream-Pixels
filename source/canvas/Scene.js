@@ -7,13 +7,13 @@ import Sky from './objects/Sky';
 import Church from './objects/Church';
 import Panorama from './objects/Panorama';
 import Miniature from './objects/Miniature';
-import Marble from './objects/Marble';
 import Sphere from './objects/Sphere';
 import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
 import OrbitControls from './objects/OrbitControls';
 import Particles from './objects/Particles';
 import Objects from './objects/Objects';
+import Marble from './objects/MarbleA';
 
 import { USDZExporter } from '~/vendors/three/USDZExporter';
 
@@ -71,7 +71,6 @@ export default class Scene extends Object3D {
 		this.add( this.artwork );
 
 		this.marble = new Marble();
-		// this.add( this.marble );
 
 		this.helpers = new Helpers();
 		this.add( this.helpers );

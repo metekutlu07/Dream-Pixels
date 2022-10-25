@@ -137,7 +137,7 @@ export default class Marble extends ShaderPass {
 
 	onRender() {
 
-		if ( Application.router.path !== '/' ) return;
+		if ( Application.store.path !== '/' ) return;
 
 		const { deltaTime } = Application.time;
 		this.deltaTime = Math.min( deltaTime * 1e-3, .01 );
