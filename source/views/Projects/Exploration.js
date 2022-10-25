@@ -72,12 +72,11 @@ export default class Exploration extends HTMLElement {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				border: var( --border-size ) solid var( --border-color );
 			}
 
 			& svg {
-				height: 10px;
-				width: 10px;
+				height: 20px;
+				width: 20px;
 				fill: var( --color-white );
 				transform: rotate( 90deg );
 

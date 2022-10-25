@@ -73,9 +73,8 @@ export default class ImagePreview extends HTMLElement {
 				width: 100%;
 				max-height: 75vh;
 				max-width: 1024px;
-				transform: scale( 1.01 );
+				transform: scale( 1.025 );
 				transition: transform .5s var( --timing-function );
-				border: var( --border-size ) solid var( --border-color );
 			}
 		}
 
