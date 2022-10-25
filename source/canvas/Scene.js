@@ -13,7 +13,7 @@ import Artwork from './objects/Artwork';
 import OrbitControls from './objects/OrbitControls';
 import Particles from './objects/Particles';
 import Objects from './objects/Objects';
-import Marble from './objects/MarbleA';
+import Marble from './objects/Marble';
 
 import { USDZExporter } from '~/vendors/three/USDZExporter';
 
