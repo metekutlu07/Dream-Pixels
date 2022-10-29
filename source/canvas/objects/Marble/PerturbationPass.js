@@ -1,5 +1,3 @@
-import { Vector2 } from 'three';
-
 import ShaderPass from '~/canvas/post-processing/ShaderPass';
 import vertexShader from './vertexShader';
 
@@ -9,9 +7,12 @@ const fragmentShader = glsl`
 	uniform sampler2D uSource;
 
 	uniform vec2 resolution;
-	uniform vec3 perturbation;
 	uniform vec2 coordinates;
+	uniform vec3 color;
+	uniform float strength;
+	uniform float scale;
 	uniform float radius;
+	uniform float isColor;
 
 	void main () {
 
@@ -20,9 +21,20 @@ const fragmentShader = glsl`
 
 		gl_FragColor = texture2D( uSource, vUv );
 
-		float circle = 1. - min( length( delta ), 1. );
-		gl_FragColor.xyz += circle * perturbation;
+		if ( isColor > .0 ) {
 
+			float ratio = 1. - min( length( delta ), 1. );
+			ratio *= 25.;
+			ratio = clamp( ratio, .0, 1. );
+
+			gl_FragColor.xyz = mix( gl_FragColor.xyz, color, ratio );
+
+		} else {
+
+			float ratio = 1. - min( length( delta ), 1. );
+			gl_FragColor.xy -= ratio * delta * strength;
+
+		}
 	}
 
 `;
@@ -34,10 +46,13 @@ export default class PerturbationPass extends ShaderPass {
 		const uniforms = {
 
 			uSource: { value: null },
-			resolution: { value: new Vector2() },
-			perturbation: { value: null },
+			resolution: { value: null },
+			scale: { value: null },
+			color: { value: null },
+			strength: { value: null },
 			coordinates: { value: null },
-			radius: { value: null }
+			radius: { value: null },
+			isColor: { value: null }
 
 		};
 
@@ -55,16 +70,27 @@ export default class PerturbationPass extends ShaderPass {
 
 	render( simulation, parameters ) {
 
-		const { renderer } = Application;
-		const { renderTargets, textures, resolutions } = simulation;
+		const {
 
-		const { coordinates, radius, force, color } = parameters;
+			renderTargets,
+			textures,
+			resolutions,
+			scales
+
+		} = simulation;
+
+		const { coordinates, radius, strength, color } = parameters;
+		const { renderer } = Application;
+
 		this.uniforms[ 'coordinates' ].value = coordinates;
 		this.uniforms[ 'radius' ].value = radius;
+		this.uniforms[ 'strength' ].value = strength;
+		this.uniforms[ 'color' ].value = color;
 
 		this.uniforms[ 'uSource' ].value = textures[ 'VelocityA' ];
 		this.uniforms[ 'resolution' ].value = resolutions[ 'ColorB' ];
-		this.uniforms[ 'perturbation' ].value = force;
+		this.uniforms[ 'scale' ].value = scales[ 'ColorB' ];
+		this.uniforms[ 'isColor' ].value = 0;
 
 		super.render( renderer, renderTargets[ 'VelocityB' ] );
 
@@ -72,7 +98,8 @@ export default class PerturbationPass extends ShaderPass {
 
 		this.uniforms[ 'uSource' ].value = textures[ 'ColorA' ];
 		this.uniforms[ 'resolution' ].value = resolutions[ 'ColorB' ];
-		this.uniforms[ 'perturbation' ].value = color;
+		this.uniforms[ 'scale' ].value = scales[ 'ColorB' ];
+		this.uniforms[ 'isColor' ].value = 1;
 
 		super.render( renderer, renderTargets[ 'ColorB' ] );
 

@@ -10,6 +10,7 @@ import {
 
 } from 'three';
 
+import CirclePacking from '~/canvas/utilities/CirclePacking';
 import ShaderPass from '~/canvas/post-processing/ShaderPass';
 import vertexShader from './vertexShader';
 
@@ -30,8 +31,7 @@ const fragmentShader = glsl`
 	void main () {
 
 		vec3 color = texture2D( uColor, vUv ).rgb;
-		float opacity = max( color.r, max( color.g, color.b ) );
-		gl_FragColor = vec4( color, opacity );
+		gl_FragColor = vec4( color, 1. );
 
 	}
 
@@ -51,15 +51,22 @@ export default class Marble extends ShaderPass {
 
 		Application.events.add( this );
 
+		this.colors = [
+
+			'#F2CF9A', '#FAEE96', '#FFBBC1',
+			'#66FFFF', '#88C998', '#9E7E98'
+
+		].map( hex => new Color( hex ) );
+
 		this.parameters = {
 
 			density: 0,
 			velocity: 0,
 			pressure: 0,
-			iterations: 100,
+			iterations: 50,
 			curl: 0,
 			radius: 50,
-			strength: 1000
+			strength: 100
 
 		};
 
@@ -91,8 +98,11 @@ export default class Marble extends ShaderPass {
 		this.renderToScreen = true;
 		this.perturbation = new PerturbationPass();
 		this.coordinates = new Vector2();
+
+		this.colorID = 0;
 		this.textures = {};
 		this.resolutions = {};
+		this.scales = {};
 
 		Object
 			.keys( this.renderTargets )
@@ -117,25 +127,38 @@ export default class Marble extends ShaderPass {
 
 			} );
 
-		// setInterval( () => {
+		this.circlePacking = new CirclePacking();
 
-		// 	console.log( 'Perturbation' );
 
-		// 	for ( let i = 0; i < 1; i++ ) {
+	}
 
-		// 		const radius = this.parameters.radius;
-		// 		const color = new Color( '#ff0000' );
-		// 		const coordinates = new Vector2().random();
-		// 		const force = new Vector2()
-		// 			.setX( Math.random() )
-		// 			.setY( Math.random() )
-		// 			.multiplyScalar( 100 );
+	onLoad() {
 
-		// 		this.setPerturbation( { color, coordinates, radius, force } );
+		this.circles = new Array( 35 );
 
-		// 	}
+		for ( let i = 0; i < this.circles.length; i++ ) {
 
-		// }, 2 * 1e3 );
+			const radius = Math.randFloat( 50, 100 );
+			this.circles[ i ] = this.circlePacking.add( radius );
+
+		}
+
+		this.circlePacking.solve();
+		this.circlePacking.draw();
+		this.circles.forEach( circle => {
+
+			const { size } = Application.viewport;
+			const { radius, position } = circle;
+			const coordinates = Vector2.get().copy( position );
+			const color = this.colors[ this.colorID ];
+			const strength = 1000;
+
+			coordinates.x = Math.mapLinear( coordinates.x, 0, size.x, -1, 1 ),
+			coordinates.y = Math.mapLinear( coordinates.y, 0, size.y, 1, -1 );
+
+			this.setPerturbation( { color, coordinates, radius, strength } );
+
+		} );
 
 	}
 
@@ -167,6 +190,9 @@ export default class Marble extends ShaderPass {
 		const { getCoordinates } = Application.pointer;
 		getCoordinates( this.coordinates, true );
 
+		this.colorID++;
+		this.colorID %= this.colors.length;
+
 	}
 
 	onInputMove() {
@@ -176,19 +202,18 @@ export default class Marble extends ShaderPass {
 		if ( ! isPressed ) return;
 
 		const { radius, strength } = this.parameters;
-
 		const force = Vector2.get().copy( this.coordinates );
 		getCoordinates( this.coordinates, true );
+
 		const coordinates = Vector2.get().copy( this.coordinates );
+		const color = this.colors[ this.colorID ];
 
 		force
 			.sub( coordinates )
 			.negate()
 			.multiplyScalar( strength );
 
-		const color = new Color( '#ff0000' );
-
-		this.setPerturbation( { color, coordinates, radius, force } );
+		this.setPerturbation( { color, coordinates, radius, strength } );
 
 		Vector2.release( force, coordinates );
 
@@ -209,32 +234,29 @@ export default class Marble extends ShaderPass {
 
 	onResize() {
 
+		const { width, height } = Application.viewport;
+
 		Object
 			.entries( this.renderTargets )
 			.forEach( entry => {
 
-				const { width, height } = Application.viewport;
 				const [ type, renderTarget ] = entry;
 
 				const isColor = type.match( /Color/g );
-				const resolution = isColor ? 1024 : 128;
+				const scale = isColor ? 1 : .5;
+				const resolution = Vector2.get()
+					.setX( width )
+					.setY( height )
+					.multiplyScalar( scale );
 
-				let aspect = width / height;
-				if ( aspect < 1 ) aspect = 1. / aspect;
+				renderTarget.setSize( resolution.x, resolution.y );
 
-				const min = Math.round( resolution );
-				const max = Math.round( resolution * aspect );
-
-				const size = new Vector2()
-					.setX( width > height ? max : min )
-					.setY( width > height ? min : max );
-
-				const { x, y } = size;
-				renderTarget.setSize( x, y );
-
-				this.resolutions[ type ] = size;
+				this.resolutions[ type ] = resolution;
+				this.scales[ type ] = scale;
 
 			} );
+
+		this.circlePacking.setSize( width, height );
 
 	}
 

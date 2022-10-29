@@ -45,7 +45,7 @@ export default class Home extends View {
 			}
 
 			& aside-block {
-				display: none;
+				/* display: none; */
 			}
 		}
 
@@ -61,6 +61,7 @@ export default class Home extends View {
 
 			&:last-child {
 				margin-top: 5px;
+
 				& scrolling-animation {
 					animation: scrolling 40s linear infinite;
 				}
@@ -93,6 +94,8 @@ export default class Home extends View {
 		return html`
 
 		<home-view view>
+
+			<img src="public/common/Background.png" alt="Marbled Paper"/>
 
 			${ paragraphs ? Aside.render( html`
 

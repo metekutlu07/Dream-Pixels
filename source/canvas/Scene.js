@@ -13,7 +13,7 @@ import Artwork from './objects/Artwork';
 import OrbitControls from './objects/OrbitControls';
 import Particles from './objects/Particles';
 import Objects from './objects/Objects';
-import Marble from './objects/Marble';
+// import Marble from './objects/Marble';
 
 import { USDZExporter } from '~/vendors/three/USDZExporter';
 
@@ -33,6 +33,7 @@ export default class Scene extends Object3D {
 		Application.events.add( this );
 
 		this.fog = new FogExp2();
+		// this.marble = new Marble();
 
 		this.lighting = new Lighting();
 		this.add( this.lighting );
@@ -69,8 +70,6 @@ export default class Scene extends Object3D {
 
 		this.artwork = new Artwork();
 		this.add( this.artwork );
-
-		this.marble = new Marble();
 
 		this.helpers = new Helpers();
 		this.add( this.helpers );

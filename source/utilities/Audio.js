@@ -21,6 +21,8 @@ export default class AudioInterface {
 
 	async onUserFirstInput() {
 
+		if ( ! Application.assets ) return;
+
 		const { buffers } = Application.assets[ 'audio' ];
 
 		this.audioListener = new AudioListener();

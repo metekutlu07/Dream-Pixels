@@ -2,9 +2,32 @@ import { Vector2 } from 'three';
 
 export default class CirclePacking {
 
-	constructor( { maxStep = 25 } = {} ) {
+	constructor( maxStep = 50 ) {
 
 		this.maxStep = maxStep;
+
+		this.canvas = document.createElement( 'canvas' );
+		this.context = this.canvas.getContext( '2d' );
+		this.canvas.style.cssText = `
+
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 99999;
+			pointer-events: none;
+
+		`;
+
+		document.body.appendChild( this.canvas );
+
+		this.reset();
+
+	}
+
+	setSize( width, height ) {
+
+		this.width = width;
+		this.height = height;
 
 	}
 
@@ -15,38 +38,25 @@ export default class CirclePacking {
 
 	}
 
-	set( radius ) {
-
-		this.radius = radius;
-		return this;
-
-	}
-
-	populate( count, radius = 50 ) {
-
-		for ( let i = 0, l = count; i < l; i++ ) this.add( radius );
-		return this;
-
-	}
-
 	add( radius, parameters = {} ) {
 
 		const circle = new Circle( radius, parameters );
 		circle.setActive( true );
-
-		const scale = Math.randFloat( 0, this.radius - radius );
-		if ( ! parameters.position ) circle.position.randomize( scale );
-		if ( ! parameters.velocity ) circle.velocity.randomize();
+		circle.position
+			.setX( Math.randFloat( 0, this.width ) )
+			.setY( Math.randFloat( 0, this.height ) );
 
 		this.circles.push( circle );
+
+		return circle;
 
 	}
 
 	solve( maxStep = this.maxStep ) {
 
-		this.stepCount = 0;
+		this.steps = 0;
 
-		while ( this.isSolving() && this.stepCount < maxStep ) this.step();
+		while ( this.isSolving() && this.steps < maxStep ) this.step();
 
 		return this.circles;
 
@@ -54,11 +64,12 @@ export default class CirclePacking {
 
 	step() {
 
-		this.stepCount++;
+		this.steps++;
 
-		const { circles, radius } = this;
+		const { circles, width, height } = this;
+
 		for ( const circle of circles ) circle.setActive( false );
-		for ( const circle of circles ) circle.applyCollisions( circles, radius );
+		for ( const circle of circles ) circle.applyCollisions( circles, width, height );
 		for ( const circle of circles ) circle.update();
 
 	}
@@ -71,13 +82,32 @@ export default class CirclePacking {
 
 	}
 
+	draw() {
+
+		this.canvas.width = this.width;
+		this.canvas.height = this.height;
+		this.context.clearRect( 0, 0, this.width, this.height );
+
+		this.circles.forEach( circle => {
+
+			const { position, radius } = circle;
+
+			this.context.strokeStyle = circle.isActive ? '#ff0000' : '#0000ff';
+			this.context.beginPath();
+			this.context.arc( position.x, position.y, radius, 0, 2 * Math.PI );
+			this.context.stroke();
+
+		} );
+
+	}
+
 }
 
 class Circle {
 
 	constructor( radius = 50, {
 
-		damping = .5,
+		friction = .75,
 		isStatic = false,
 		hasAdaptativeRadius = false,
 
@@ -93,14 +123,13 @@ class Circle {
 		this.acceleration = new Vector2();
 		this.velocity = new Vector2();
 
-		this.damping = damping;
+		this.friction = friction;
 		this.isStatic = isStatic;
 		this.hasAdaptativeRadius = hasAdaptativeRadius;
 
 		if ( position ) this.position.copy( position );
 		if ( acceleration ) this.acceleration.copy( acceleration );
 		if ( velocity ) this.velocity.copy( velocity );
-
 
 	}
 
@@ -110,7 +139,7 @@ class Circle {
 
 	}
 
-	applyCollisions( circles, radius ) {
+	applyCollisions( circles, width, height ) {
 
 		if ( this.isStatic ) return;
 
@@ -141,16 +170,38 @@ class Circle {
 
 		}
 
-		const depth = ( this.position.length() + this.radius ) - radius;
+		const offsetTop = this.position.y - this.radius;
+		const offsetRight = this.position.x + this.radius;
+		const offsetBottom = this.position.y + this.radius;
+		const offsetLeft = this.position.x - this.radius;
 
-		if ( depth > 0 ) {
+		if ( offsetTop < 0 ) {
 
-			localForce
-				.copy( this.position )
-				.negate()
-				.normalize()
-				.multiplyScalar( depth );
+			localForce.set( 0, -offsetTop );
+			totalForce.add( localForce );
+			count++;
 
+		}
+
+		if ( offsetRight > width ) {
+
+			localForce.set( -( offsetRight - width ), 0 );
+			totalForce.add( localForce );
+			count++;
+
+		}
+
+		if ( offsetBottom > height ) {
+
+			localForce.set( 0, -( offsetBottom - height ) );
+			totalForce.add( localForce );
+			count++;
+
+		}
+
+		if ( offsetLeft < 0 ) {
+
+			localForce.set( -offsetLeft, 0 );
 			totalForce.add( localForce );
 			count++;
 
@@ -175,13 +226,10 @@ class Circle {
 
 	update() {
 
-		if ( this.isStatic ) return;
-
 		this.velocity.add( this.acceleration );
 		this.position.add( this.velocity );
-
+		this.velocity.multiplyScalar( this.friction );
 		this.acceleration.multiplyScalar( 0 );
-		this.velocity.multiplyScalar( this.damping );
 
 	}
 
