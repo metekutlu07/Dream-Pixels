@@ -18,6 +18,7 @@ export default {
 		},
 		{
 			type: 'S4',
+			anchor: 'Miniature Details',
 			media: {
 				source: 'public/Common/Artwork.jpg',
 				caption: `
@@ -46,10 +47,11 @@ export default {
 
 		{
 			type: 'S3',
+			anchor: 'Into The Miniature Space',
 			media: {
 				source: 'public/bistami/bistami-part01.mp4',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Video Presentation 01',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
@@ -58,8 +60,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/bistami/bistami-part02.mp4',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Video Presentation 02',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
@@ -68,8 +70,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/bistami/bistami-part03.mp4',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Video Presentation 03',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
@@ -78,48 +80,52 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/bistami/bistami-part04.mp4',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Video Presentatio 04',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
 
 		{
 			type: 'S3',
+			anchor: 'Comparative View',
 			media: {
 				source: 'public/bistami/02-bistami-02.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Comparative View',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
 
 		{
 			type: 'S3',
+			anchor: 'Historical Plan of Constantinople',
 			media: {
 				source: 'public/bistami/02-bistami-03.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Historical Plan of Constantinople',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
 
 		{
 			type: 'S3',
+			anchor: 'Plan of The Miniature',
 			media: {
 				source: 'public/bistami/02-bistami-04.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Plan of The Miniature',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
 
 		{
 			type: 'S3',
+			anchor: 'Miniature Revisited',
 			media: {
 				source: 'public/bistami/02-bistami-05.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Miniature Revisited with Identified Places 01',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
@@ -128,8 +134,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/bistami/02-bistami-06.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Miniature Revisited with Identified Places 02',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
@@ -138,18 +144,19 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/bistami/02-bistami-07.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Miniature Revisited with Identified Places 03',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
 
 		{
 			type: 'S3',
+			anchor: 'Projection Process',
 			media: {
 				source: 'public/bistami/pro.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Projection Projection',
+				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
 				controls: false
 			}
 		},
@@ -158,7 +165,7 @@ export default {
 
 		{
 			type: 'S2',
-			anchor: 'Istanbul University Library',
+			anchor: 'Theoretical Description',
 			title: '3D Modelling<br>of Miniatures',
 			paragraphs: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 		},
