@@ -13,7 +13,7 @@ export default class Camera extends PerspectiveCamera {
 		this.simulation = simulation;
 		this.scroll = 0;
 		this.progress = 0;
-		this.friction = .01;
+		this.friction = .1;
 
 	}
 
@@ -24,12 +24,16 @@ export default class Camera extends PerspectiveCamera {
 		this.aspect = aspect;
 		this.updateProjectionMatrix();
 
+		const offsetY = .1;
+
 		this.progress = Math.lerp( this.progress, this.scroll, .01 );
 		const progress = Math.euclideanModulo( this.progress, 1 );
 		const position = curve.getPointAt( progress, Vector3.get() );
+		position.y += offsetY;
 		this.position.lerp( position, this.friction );
 
 		const target = curve.getPointAt( Math.euclideanModulo( progress + 1e-3, 1 ), Vector3.get() );
+		target.y += offsetY;
 		this.target.lerp( target, this.friction );
 		this.lookAt( this.target );
 
@@ -41,7 +45,7 @@ export default class Camera extends PerspectiveCamera {
 
 		if ( path === '/contact' ) this.scroll += 1e-4;
 
-		this.isScrolling = this.position.distanceTo( position ) > .25;
+		this.isScrolling = this.position.distanceTo( position ) > .1;
 
 	}
 

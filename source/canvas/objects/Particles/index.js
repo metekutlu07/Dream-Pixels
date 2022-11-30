@@ -7,8 +7,11 @@ import {
 	Points,
 	Box3,
 	BufferGeometry,
-	// LineBasicMaterial,
-	// Line
+	TubeGeometry,
+	MeshBasicMaterial,
+	Mesh,
+	LineBasicMaterial,
+	Line
 
 } from 'three';
 
@@ -61,6 +64,8 @@ export default class Particles extends Points {
 
 		this.raycaster = new Raycaster();
 		this.camera = new Camera( this.simulation );
+
+		this.setHelpers();
 
 		Application.particles = this;
 
@@ -152,6 +157,8 @@ export default class Particles extends Points {
 		const scale = active ? .5 : 1;
 		this.material.size = this.size * scale;
 
+		if ( this.tube ) this.tube.visible = list === 'particles' && particles === 'timeline';
+
 	}
 
 	onPostUpdate() {
@@ -190,11 +197,44 @@ export default class Particles extends Points {
 
 	setHelpers() {
 
-		const vertices = this.simulation.curve.getPoints( 1e4 );
-		const geometry = new BufferGeometry().setFromPoints( vertices );
-		const material = new LineBasicMaterial( { color: '#ff0000' } );
-		this.line = new Line( geometry, material );
-		this.add( this.line );
+		const isLine = false;
+
+		if ( isLine ) {
+
+			const vertices = this.simulation.curve.getPoints( 1e4 );
+			const geometry = new BufferGeometry().setFromPoints( vertices );
+			const material = new LineBasicMaterial( {
+
+				color: '#ffffff',
+				transparent: true,
+				opacity: .5,
+				fog: true
+
+			} );
+
+			this.line = new Line( geometry, material );
+			this.add( this.line );
+
+		} else {
+
+			const path = this.simulation.curve;
+			const tubularSegments = 1000;
+			const radius = .01;
+			const radialSegments = 5;
+
+			const geometry = new TubeGeometry( path, tubularSegments, radius, radialSegments, true );
+			const material = new MeshBasicMaterial( {
+
+				color: '#ffffff',
+				transparent: true,
+				opacity: .25
+
+			} );
+
+			this.tube = new Mesh( geometry, material );
+			this.add( this.tube );
+
+		}
 
 	}
 

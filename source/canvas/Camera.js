@@ -99,7 +99,7 @@ export default class Camera extends PerspectiveCamera {
 
 		this.offsetLeftFactor = 0;
 
-		Object.assign( this.parameters, { fov: 45, near: 1, far: 500 } );
+		Object.assign( this.parameters, { fov: 45, near: .1, far: 500 } );
 
 		switch ( Application.store.path ) {
 

@@ -21,6 +21,7 @@ export default class UserInfo extends HTMLElement {
 		this.wasVisible = true;
 
 		this.removeAttribute( 'hidden' );
+
 		setTimeout( this.hide, 4000 );
 
 	}
@@ -39,7 +40,7 @@ export default class UserInfo extends HTMLElement {
 
 		user-info {
 			position: fixed;
-			z-index: 99;
+			z-index: 15;
 			top: 0;
 			left: 0;
 			display: flex;
