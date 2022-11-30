@@ -105,6 +105,7 @@ export default class Cursor extends HTMLElement {
 				font-size: var( --font-size-xs );
 				opacity: .5;
 			}
+
 		}
 
 		cursor-number {
@@ -118,17 +119,22 @@ export default class Cursor extends HTMLElement {
 		cursor-color {
 			display: flex;
 			align-items: center;
-			margin-bottom: 5px;
+			margin-bottom: 10px;
 
 			& color-hex {
-				width: 15px;
-				height: 15px;
+				width: 25px;
+				height: 25px;
 				margin-right: 5px;
 				border: var( --border-size ) solid var( --border-color );
 			}
 
+			& span {
+				margin: 0 5px;
+				display: inline-block;
+			}
+
 			& color-code {
-				font-size: var( --font-size-xs );
+				font-size: var( --font-size-s );
 				font-family: var( --font-family-c );
 			}
 		}
@@ -141,8 +147,10 @@ export default class Cursor extends HTMLElement {
 
 			<cursor-color #color>
 				<color-hex #hex></color-hex>
+				<span>Hex: </span>
 				<color-code #code></color-code>
 			</cursor-color>
+
 			<h3 #caption>Comparaison: Side by Side View</h3>
 			<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
 			<h5 #title>Bistami <span>| 01</span></h5>

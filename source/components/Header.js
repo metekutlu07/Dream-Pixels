@@ -5,12 +5,33 @@ export default class Header extends HTMLElement {
 	onConnected() {
 
 		this.onResize();
+		this.setAnalytics();
 
 	}
 
 	onRouting() {
 
 		Application.store.set( 'display-menu', false );
+
+	}
+
+	onLoad() {
+
+		this.setAnalytics();
+
+	}
+
+	setAnalytics() {
+
+		if ( ! Application.assets[ 'common' ] ) return;
+
+		const { jsons } = Application.assets[ 'common' ];
+		const { analytics } = jsons[ 'Colors.json' ];
+
+		const { projects, images, pixels } = this.elements;
+		projects.textContent = analytics.projects;
+		images.textContent = analytics.images;
+		pixels.textContent = analytics.pixels;
 
 	}
 
@@ -215,6 +236,36 @@ export default class Header extends HTMLElement {
 			}
 		}
 
+		header-analytics {
+			position: absolute;
+			bottom: var( --margin-m );
+			left: var( --margin-m );
+			font-size: var( --font-size-xs );
+			font-family: var( --font-family-c );
+			transition: opacity 1s var( --timing-function );
+			opacity: 0;
+
+			/* [ path="/home" ] &, */
+			[ path="/about" ] &,
+			[ path="/works" ] &,
+			[ path="/contact" ] & {
+				opacity: 1;
+			}
+
+			& li {
+				list-style: none;
+
+				&:not(:last-child) {
+					margin-bottom: 5px;
+				}
+
+				&:first-child {
+					font-family: var( --font-family-a );
+					font-size: var( --font-size-m );
+				}
+			}
+		}
+
 		`;
 
 		const navigation = [
@@ -275,6 +326,13 @@ export default class Header extends HTMLElement {
 			<header-credits>
 				${ copyright }
 			</header-credits>
+
+			<header-analytics>
+				<li>Analytics of the Virtual Archive</li>
+				<li>Number of Projects: <span #projects>20</span></li>
+				<li>Number of Images: <span #images>122</span></li>
+				<li>Number of Pixels: <span #pixels>4 543 456 345</span></li>
+			</header-analytics>
 
 		</header-block>`;
 

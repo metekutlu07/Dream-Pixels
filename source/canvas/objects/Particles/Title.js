@@ -13,8 +13,8 @@ export default class Title extends MSDFText {
 
 		Application.events.add( this );
 
-		const { title } = content;
-		this.setParameters( title, { fontSize: .25 } );
+		const { title, subtitle, date } = content;
+		this.setParameters( `${ title }`, { fontSize: .25 } );
 
 		this.simulation = simulation;
 		this.content = content;
@@ -29,6 +29,22 @@ export default class Title extends MSDFText {
 		const { t } = this.point;
 		this.simulation.curve.getPointAt( t, this.position );
 		this.progress = t;
+
+		const parameters = { fontSize: .15 };
+		const lines = [
+
+			new MSDFText( SDFData, SDFMap ).setParameters( subtitle, parameters ),
+			new MSDFText( SDFData, SDFMap ).setParameters( date, parameters )
+
+		];
+
+		lines.forEach( ( line, index ) => {
+
+			line.position.y = index * -.2 - .3;
+			line.material = this.material;
+			this.add( line );
+
+		} );
 
 	}
 
@@ -69,7 +85,7 @@ export default class Title extends MSDFText {
 		this.quaternion.copy( quaternion );
 
 		const { particles } = Application.store;
-		const scale = particles === 'timeline' ? 1 : 1;
+		const scale = particles === 'timeline' ? .25 : 1;
 		this.scale.setScalar( scale );
 
 		this.visible = this.material.opacity > .01;

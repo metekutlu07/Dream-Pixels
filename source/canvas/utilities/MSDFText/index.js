@@ -22,7 +22,7 @@ export default class MSDFText extends InstancedMesh {
 
 		const envMap = Application.assets[ 'EnvMap' ];
 
-		const count = 35;
+		const count = 50;
 		const geometry = new PlaneGeometry();
 		const material = new MSDFTextMaterial( {
 
@@ -85,6 +85,8 @@ export default class MSDFText extends InstancedMesh {
 
 		this.setLines();
 
+		return this;
+
 	}
 
 	setLines() {
@@ -114,7 +116,7 @@ export default class MSDFText extends InstancedMesh {
 
 	}
 
-	setLine( line ) {
+	setLine( line, index ) {
 
 		const position = Vector2.get();
 		const coordinates = Vector4.get();
@@ -125,7 +127,7 @@ export default class MSDFText extends InstancedMesh {
 
 			const character = line.characters[ i ];
 			const glyph = character.glyph;
-			const object = this.objects[ this.index ];
+			const object = this.objects[ index ];
 
 			position.x = line.characters[ i ].x;
 			position.y = this.y;

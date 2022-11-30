@@ -18,6 +18,7 @@ export default class View extends HTMLElement {
 
 		this.toggleAttribute( 'hidden' );
 		await Application.time.wait( 100 );
+
 		if ( view !== this ) this.remove();
 
 	}

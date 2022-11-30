@@ -105,7 +105,7 @@ export default class Layout {
 
 		if ( this.leaveWhiteSpace ) return;
 
-		let last = line.characters.getLast();
+		let last = line.characters[ line.characters.length - 1 ];
 
 		while ( last.glyph.char === ' ' ) {
 
@@ -114,7 +114,7 @@ export default class Layout {
 			line.width -= advance;
 			line.characters.pop();
 
-			last = line.characters.getLast();
+			last = line.characters[ line.characters.length - 1 ];
 
 		}
 

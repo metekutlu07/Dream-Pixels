@@ -47,6 +47,8 @@ export async function getSampledColors( buffer, imageID ) {
 
 	}
 
+	return data.length;
+
 }
 
 export async function getColorList( content ) {
@@ -94,6 +96,10 @@ export async function getColorList( content ) {
 
 	} ) );
 
+	const analytics = { projects: 0, pixels: 0, images: 0 };
+	analytics.projects = projects.length;
+	analytics.images = images.length;
+
 	for ( let i = 0; i < images.length; i++ ) {
 
 		const { source } = images[ i ];
@@ -119,12 +125,13 @@ export async function getColorList( content ) {
 
 		} else await result.toFile( name );
 
-		await getSampledColors( buffer, i );
+		analytics.pixels += await getSampledColors( buffer, i );
 
 	}
 
+	console.log( analytics );
 
-	const data = JSON.stringify( { images, colors } );
+	const data = JSON.stringify( { analytics, images, colors } );
 	await writeFile( resolve( assets, 'packs/common/Colors.json' ), data );
 
 }

@@ -1,6 +1,9 @@
 export default class Timeline extends HTMLElement {
 
 	onConnected() {
+
+		this.setProjects();
+
 	}
 
 	onClick( event ) {
@@ -20,10 +23,12 @@ export default class Timeline extends HTMLElement {
 
 	onPreFrame() {
 
-		if ( ! this.items || ! Application.particles ) return;
+		if ( ! Application.particles ) return;
 
 		const { camera, titles } = Application.particles;
 		const progress = Math.euclideanModulo( camera.progress, 1 );
+
+		if ( ! this.items ) return;
 
 		this.items.forEach( ( itemA, index ) => {
 
@@ -39,13 +44,19 @@ export default class Timeline extends HTMLElement {
 
 	}
 
-	onLoad( files ) {
+	onLoad() {
 
-		if ( ! files[ 'common' ] ) return;
+		this.setProjects();
+
+	}
+
+	setProjects() {
+
+		if ( ! Application.assets[ 'common' ] ) return;
 
 		this.projects = {};
 
-		const { jsons } = files[ 'common' ];
+		const { jsons } = Application.assets[ 'common' ];
 		const { images, colors } = jsons[ 'Colors.json' ];
 
 		for ( let i = 0; i < colors.length; i++ ) {
@@ -65,7 +76,7 @@ export default class Timeline extends HTMLElement {
 			const project = keys.find( key => key === path );
 
 			if ( project ) item.progress = project.progress;
-			else item.parentNode.removeChild( item );
+			else item.style.display = 'none';
 
 			return project;
 
@@ -147,6 +158,28 @@ export default class Timeline extends HTMLElement {
 					transition: background .25s var( --timing-function ),
 						transform .25s var( --timing-function );
 				}
+
+				&:first-child,
+				&:last-child {
+					pointer-events: none !important;
+					opacity: .5;
+
+					&:after {
+						transform: scale( .5 );
+					}
+				}
+			}
+
+			& span {
+				display: flex;
+				flex-direction: column;
+				font-size: var( --font-size-m );
+				font-family: var( --font-family-a );
+			}
+
+			& h6 {
+				font-size: var( --font-size-xs );
+				font-family: var( --font-family-c );
 			}
 
 			[ view-enter ][ list="particles" ][ particles="timeline" ] & {
@@ -161,15 +194,44 @@ export default class Timeline extends HTMLElement {
 		`;
 
 		const { projects } = Application.content;
-		const list = projects.map( project => html`
+
+		const list = Array.from( projects ).reverse().map( project => html`
 			<li id="${ project.path }" @click #items>
-				${ project.title }
+				<span>
+					<h5>${ project.title }</h5>
+					<h6>${ project.date }</h6>
+				</span>
 			</li>` );
+
+		const date = new Date();
+		const year = 1900 + date.getYear();
+		const month = [
+
+			'January', 'February', 'March',
+			'April', 'May', 'June',
+			'July', 'August', 'September',
+			'October', 'November', 'December'
+
+		][ date.getMonth() ];
 
 		return html`
 
 		<project-timeline>
-			<ul>${ list }</ul>
+			<ul>
+				<li>
+					<span>
+						<h5>Current Date</h5>
+						<h6>${ month } ${ year }</h6>
+					</span>
+				</li>
+				${ list }
+				<li>
+					<span>
+						<h5>Doctorat Beginning</h5>
+						<h6>December 2018</h6>
+					</span>
+				</li>
+			</ul>
 		</project-timeline>
 
 		`;

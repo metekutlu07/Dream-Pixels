@@ -9,7 +9,7 @@ import P8 from './when-gaspard-paints-a-gospel';
 import P9 from './pigmentarium';
 import P10 from './impossible-columns-of-solomon';
 import P11 from './time-travelling-colours';
-import P12 from './augustus-ar';
+// import P12 from './augustus-ar';
 import P13 from './mosaic-go';
 import P14 from './humbaba';
 
@@ -17,6 +17,27 @@ import P14 from './humbaba';
 // Then import it here with a correct name like ( P + index of the project )
 // See photogrammetry.js for more explanation
 import P15 from './photogrammetry';
+
+// Add the imported project in the list below
+const projects = [
+
+	P1, P2, P3, P4,
+	P5, P6, P7, P8,
+	P9, P10, P11,
+	// P12,
+	P13, P14, P15
+
+];
+
+// Use to reorder projects by date, don't touch :)
+projects.sort( ( projectA, projectB ) => {
+
+	const dateA = new Date( projectA.date );
+	const dateB = new Date( projectB.date );
+
+	return dateA - dateB;
+
+} );
 
 export default {
 
@@ -50,7 +71,19 @@ export default {
 	credits: 'Founded by Mete Kutlu',
 	copyright: 'Feel free to use and remix, Paris 2022',
 	contact: 'Want to collaborate with us<br>or simply have a chat ?',
-	tutorial: 'Drag with your mouse<br>or with your fingers<br>to explore the archive.',
+	tutorial: [
+		{ title: 'Drag with your mouse<br>or with your fingers<br>to explore the archive.' },
+		{
+			title: `
+				Drag with your mouse or with your fingers<br>
+				to explore the nebula of pixels.`,
+			subtitle: `
+				You can use the control bar on the right<br>
+				to define the color range of pixels to display.<br>
+				You can also use the Timeline mode to fly among the pixels.`
+		}
+	],
+
 	mail: 'metekutlu@gmail.com',
 	address: `
 		10 rue du Penthièvre<br>
@@ -96,7 +129,6 @@ export default {
 	favicon: '/public/favicon.svg', // A square image 96x96 or svg
 	robots: '',
 
-	// Add the imported project in the list below
 	filters: { title: 'Filters' },
 	exploration: {
 		title: 'Cup of Jamshid',
@@ -109,42 +141,41 @@ export default {
 
 	grid: [
 
-		P1,
+		projects[ 0 ],
 		{ objectID: '009' },
-		P2,
-		P3,
+		projects[ 1 ],
+		projects[ 2 ],
 		{
 			quote: 'Although an architect, clearly he a myriad artists holds in sway. And, of sound jugement, he can tell the secrets of the stars as well. His gaze draws over the sphere a web, like the spider of the astrolabe. Like Apollonius wise, he can devise and loose all talismans. He knows the veiled ones of the sky.',
 			author: 'Nizami Ganjavi, Haft Paykar, 12th century'
 		},
-		P4,
-		P5,
+		projects[ 3 ],
+		projects[ 4 ],
 		{ objectID: '002' },
-		P6,
-		P7,
+		projects[ 5 ],
+		projects[ 6 ],
 		{
 			quote: 'The pen is of two kinds; the vegetal one is used in writing, and the second, made of cat hair, is used in painting. The wizards of art, similar in intelligence to Mani, and the Chinese and Frankish magicians, ascended the throne in the land of talent and have mecome masters in the workshop of Destiny.',
 			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		},
-		P8,
-		P9,
+		projects[ 7 ],
+		projects[ 8 ],
 		{ objectID: '010' },
-		P10,
-		P11,
+		projects[ 9 ],
+		projects[ 10 ],
 		{
 			quote: 'Let it be clear that the wonderful phantasy and strange native force of the artists are known in all lands. The force of imagination owned by these people are not found in any man of art. The image which the painter reveals on the tablets of the mind cannot be reflected in everybodys mirror of beauty. ',
 			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		},
-		P12,
+		projects[ 11 ],
 		{ objectID: '007' },
-		P13,
-		P14,
+		projects[ 12 ],
+		projects[ 13 ],
 		{ objectID: '011' },
 		{
 			quote: 'Well done, the magic-working masters of the brush whose bewitching tool bestows a new life. They master every creature, and conjure up to life the likeness of everyone, from the encompassing circle of the sky to the surface of the earth. They cast their glances about creation and make copies of every original. Their creative art is a guide to the plan of the universe. I cannot understand with what art they treat images so that they seem to be speaking to men.',
 			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
-		},
-		P15
+		}
 
 	],
 
