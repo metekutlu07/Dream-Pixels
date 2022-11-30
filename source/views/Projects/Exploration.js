@@ -29,7 +29,7 @@ export default class Exploration extends HTMLElement {
 			font-size: var( --font-size-s );
 			line-height: 1.8;
 			pointer-events: all;
-			max-height: calc( 100% - var( --margin-m ) * 2 - 50px );
+			max-height: calc( 100% - var( --margin-m ) * 2 - 200px );
 
 			& p {
 				&:not( :last-child ) {

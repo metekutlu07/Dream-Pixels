@@ -134,6 +134,7 @@ export default class Timeline extends HTMLElement {
 
 				&:not( :last-child ) {
 					margin-bottom: var( --margin-xs );
+
 					&:before {
 						content: '';
 						position: absolute;
@@ -162,10 +163,12 @@ export default class Timeline extends HTMLElement {
 				&:first-child,
 				&:last-child {
 					pointer-events: none !important;
-					opacity: .5;
 
 					&:after {
-						transform: scale( .5 );
+						width: 5px;
+						height: 5px;
+						border: none;
+						background: var( --color-white );
 					}
 				}
 			}

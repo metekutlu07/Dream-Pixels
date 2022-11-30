@@ -11,7 +11,8 @@ import {
 	MeshBasicMaterial,
 	Mesh,
 	LineBasicMaterial,
-	Line
+	Line,
+	AdditiveBlending
 
 } from 'three';
 
@@ -227,7 +228,8 @@ export default class Particles extends Points {
 
 				color: '#ffffff',
 				transparent: true,
-				opacity: .25
+				opacity: .25,
+				blending: AdditiveBlending
 
 			} );
 
