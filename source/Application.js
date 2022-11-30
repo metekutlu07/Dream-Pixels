@@ -28,6 +28,7 @@ import Header from '~/components/Header';
 import Effects from './components/Effects';
 import RotateDevice from './components/RotateDevice';
 import Canvas from './components/Canvas';
+import UserInfo from './components/UserInfo';
 
 import Home from '~/views/Home';
 import Projects from '~/views/Projects';
@@ -114,6 +115,7 @@ class Application {
 				${ Effects.render() }
 				${ RotateDevice.render() }
 				${ Editor.render() }
+				${ UserInfo.render() }
 			</body>
 
 		</html>

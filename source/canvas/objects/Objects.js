@@ -27,6 +27,7 @@ export default class Objects extends Object3D {
 				const map = textures[ `Objects/${ objectID }.png` ];
 				map.flipY = false;
 
+				const rotationFactor = Math.random() > .5 ? -1 : 1;
 				const clone = objects[ objectID ].clone();
 				const material = new MeshStandardMaterial( {
 
@@ -41,6 +42,7 @@ export default class Objects extends Object3D {
 				Object.assign( clone, {
 
 					opacity: 0,
+					rotationFactor,
 					material: material,
 					objectID: objectID,
 					castShadow: true,
@@ -115,7 +117,8 @@ export default class Objects extends Object3D {
 			child.rotation.x += Math.sin( time + index ) * .1;
 			child.rotation.z += Math.cos( time * 1.333 - index ) * .1;
 
-			const rotationY = html.offset.y * -.35;
+			const direction = html.columnID % 2 * 2 - 1;
+			const rotationY = html.offset.y * -.75 * direction;
 			child.rotation.y += rotationY;
 
 			child.material.opacity = opacity;

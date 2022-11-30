@@ -32,7 +32,7 @@ export default class Grid extends HTMLElement {
 		const { width } = Application.viewport;
 		const length = width < 450 ? 1 :
 			width < 1024 ? 2 :
-				width < 1280 ? 3 : 4;
+				width < 1280 ? 2 : 4;
 
 		if ( length === this.length ) return;
 		this.length = length;
@@ -40,12 +40,15 @@ export default class Grid extends HTMLElement {
 		const { items, grid } = this.elements;
 		this.columns = Array.from( { length }, () => document.createElement( 'grid-column' ) );
 
-		items.forEach( ( item, index ) => {
+		Array
+			.from( items )
+			.reverse()
+			.forEach( ( item, index ) => {
 
-			const column = index % length;
-			this.columns[ column ].appendChild( item );
+				const columnID = index % length;
+				this.columns[ columnID ].appendChild( item );
 
-		} );
+			} );
 
 		const count = Math.round( items.length / this.length );
 
@@ -59,8 +62,12 @@ export default class Grid extends HTMLElement {
 			const scale = count / length - index % 2 * .15;
 			const ratios = random.map( value => value / sum * length / scale );
 
-			for ( let i = 0; i < ratios.length; i++ )
+			for ( let i = 0; i < ratios.length; i++ ) {
+
+				children[ i ].columnID = index;
 				children[ i ].style.setProperty( '--aspect-ratio', ratios[ i ] );
+
+			}
 
 		} );
 
