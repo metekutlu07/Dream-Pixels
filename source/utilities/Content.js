@@ -9,6 +9,7 @@ export default class Content {
 		const filters = new Set();
 
 		this.projects = this.grid.filter( cell => cell.path );
+
 		this.projects.forEach( async project => {
 
 			const { sections } = project;

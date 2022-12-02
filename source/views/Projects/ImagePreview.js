@@ -24,6 +24,19 @@ export default class ImagePreview extends HTMLElement {
 			image.src = parameters.source;
 			image.onload = () => this.toggleAttribute( 'visible', true );
 
+			const { title, caption, tags } = this.elements;
+			const { projects } = Application.content;
+
+			const project = projects.find( project => project.path === parameters.path );
+			const index = projects.indexOf( project );
+			const number = ( '00' + ( index + 1 ) ).substr( -2 );
+
+			title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
+			caption.innerHTML = parameters.caption;
+			tags.innerHTML = parameters.tags
+				.map( tag => html`<span>${ tag }</span>` )
+				.join( ', ' );
+
 		}
 
 		if ( currentTarget.hasAttribute( 'project' ) ) {
@@ -93,6 +106,42 @@ export default class ImagePreview extends HTMLElement {
 			margin-bottom: var( --margin-xs );
 		}
 
+		image-preview-footer {
+			align-self: flex-start;
+			margin-top: var( --margin-xs );
+
+			& h3 {
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-m );
+				width: initial;
+				margin-bottom: 2px;
+
+				& span {
+					font-family: var( --font-family-b );
+					font-size: .9em;
+					opacity: .25;
+					display: none;
+				}
+			}
+
+			& h4 {
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-xs );
+				max-width: 400px;
+
+				& span {
+					display: inline-block;
+				}
+			}
+
+			& h5 {
+				margin-top: 5px;
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-xs );
+				opacity: .5;
+			}
+		}
+
 		`;
 
 		const buttons = [
@@ -111,6 +160,13 @@ export default class ImagePreview extends HTMLElement {
 					${ buttons.map( Button.render ) }
 				</image-preview-buttons>
 				<img src="/public/bistami/005.jpg" alt="Pixels Image Preview" #image/>
+
+				<image-preview-footer>
+					<h3 #caption>Comparaison: Side by Side View</h3>
+					<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
+					<h5 #title>Bistami <span>| 01</span></h5>
+				</image-preview-footer>
+
 			</image-preview>
 
 		</projects-image-preview>

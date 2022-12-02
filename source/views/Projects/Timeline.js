@@ -33,7 +33,7 @@ export default class Timeline extends HTMLElement {
 		this.items.forEach( ( itemA, index ) => {
 
 			const titleA = titles[ index ];
-			const titleB = titles[ index + 1 ];
+			const titleB = titles[ index - 1 ];
 
 			const min = titleA ? titleA.progress : -Infinity;
 			const max = titleB ? titleB.progress : Infinity;
@@ -75,10 +75,22 @@ export default class Timeline extends HTMLElement {
 			const keys = Object.keys( this.projects );
 			const project = keys.find( key => key === path );
 
-			if ( project ) item.progress = project.progress;
-			else item.style.display = 'none';
+			if ( ! project ) {
 
-			return project;
+				item.style.display = 'none';
+				return false;
+
+			}
+
+			return true;
+
+		} );
+
+		this.items.forEach( ( item, index ) => {
+
+			const { titles } = Application.particles;
+			const { progress } = titles[ index ];
+			item.progress = progress;
 
 		} );
 
