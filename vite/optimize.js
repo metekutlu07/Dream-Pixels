@@ -30,9 +30,7 @@ async function getFiles( directory, files = [] ) {
 export async function optimize() {
 
 	const files = await getFiles( assets );
-	const images = files
-		.filter( file => file.match( /jpeg|jpg|png/g ) )
-		.filter( file => ! file.match( /rasdelka/g ) );
+	const images = files.filter( file => file.match( /jpeg|jpg|png/g ) );
 
 	await Promise.all( images.map( async path => {
 
