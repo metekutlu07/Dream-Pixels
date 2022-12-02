@@ -115,8 +115,11 @@ export default class Navigation extends HTMLElement {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin-bottom: var( --margin-xs );
 			cursor: pointer;
+
+			&:not( :last-child ) {
+				margin-bottom: var( --margin-xs );
+			}
 
 			&:after {
 				content: '';

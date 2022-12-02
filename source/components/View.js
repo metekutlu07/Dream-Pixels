@@ -16,10 +16,10 @@ export default class View extends HTMLElement {
 
 	async onViewChange( view ) {
 
-		this.toggleAttribute( 'hidden' );
-		await Application.time.wait( 100 );
+		await Application.time.wait( 10 );
 
 		if ( view !== this ) this.remove();
+		else this.toggleAttribute( 'hidden' );
 
 	}
 

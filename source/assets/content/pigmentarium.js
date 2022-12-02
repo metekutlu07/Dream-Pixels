@@ -12,7 +12,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/when-ai-dreams-of-miniatures/ai-intro.mp4',
+				source: 'public/pigmentarium/ai-intro.mp4',
 				caption: 'Video Introduction'
 			}
 		},

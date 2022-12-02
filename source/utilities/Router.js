@@ -12,6 +12,8 @@ export default class Router {
 		const { origin, href } = location;
 		this.url = href.replace( origin, '' );
 
+		history.scrollRestoration = 'manual';
+
 	}
 
 	onStart() {
