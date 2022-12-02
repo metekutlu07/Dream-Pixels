@@ -8,7 +8,8 @@
     "build": "vite build --config=vite/config.js",
     "preview": "vite preview --config=vite/config.js",
     "deploy": "firebase deploy --project mete-kutlu---dream-pixels",
-    "parse": "node ./utilities/colors-extractor"
+    "parse": "node ./utilities/colors-extractor",
+    "optimize": "node ./vite/optimize"
   },
   "devDependencies": {
     "eslint": "^8.23.0",

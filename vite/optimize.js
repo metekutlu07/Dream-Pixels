@@ -1,0 +1,52 @@
+import { readdir, stat } from 'fs/promises';
+import { resolve, join } from 'path';
+import { normalizePath } from 'vite';
+
+import tinify from 'tinify';
+tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
+
+const assets = resolve( process.cwd(), 'source/assets' );
+
+async function getFiles( directory, files = [] ) {
+
+	const children = await readdir( directory );
+
+	for ( const file of children ) {
+
+		if ( file.startsWith( '.' ) ) continue;
+
+		const path = normalizePath( join( directory, file ) );
+		const stats = await stat( path );
+		const isDirectory = stats.isDirectory();
+
+		isDirectory ? await getFiles( path, files ) : files.push( path );
+
+	}
+
+	return files;
+
+}
+
+export async function optimize() {
+
+	const files = await getFiles( assets );
+	const images = files
+		.filter( file => file.match( /jpeg|jpg|png/g ) )
+		.filter( file => file.match( /rasdelka/g ) );
+
+	await Promise.all( images.map( async path => {
+
+		await tinify
+			.fromFile( path )
+			.toFile( path, function ( error ) {
+
+				if ( error instanceof tinify.AccountError )
+					console.log( 'The error message is: ' + error.message );
+
+			} );
+
+	} ) );
+
+}
+
+optimize();

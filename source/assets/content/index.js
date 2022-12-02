@@ -1,4 +1,4 @@
-import P1 from './augustus';
+// import P1 from './augustus';
 import P2 from './bamistun';
 import P3 from './bistami';
 import P4 from './cosmic-colors';
