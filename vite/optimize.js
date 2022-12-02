@@ -32,13 +32,15 @@ export async function optimize() {
 	const files = await getFiles( assets );
 	const images = files
 		.filter( file => file.match( /jpeg|jpg|png/g ) )
-		.filter( file => file.match( /rasdelka/g ) );
+		.filter( file => ! file.match( /rasdelka/g ) );
 
 	await Promise.all( images.map( async path => {
 
 		await tinify
 			.fromFile( path )
 			.toFile( path, function ( error ) {
+
+				console.log( path );
 
 				if ( error instanceof tinify.AccountError )
 					console.log( 'The error message is: ' + error.message );
