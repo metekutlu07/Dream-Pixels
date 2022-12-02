@@ -22,6 +22,7 @@ export default class ImagePreview extends HTMLElement {
 
 			this.parameters = Object.assign( {}, parameters );
 			image.src = parameters.source;
+			if ( image.src.match( 'mp4' ) ) image.src += '.png';
 			image.onload = () => this.toggleAttribute( 'visible', true );
 
 			const { title, caption, tags } = this.elements;
