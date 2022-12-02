@@ -26,18 +26,20 @@ export default class Images extends Object3D {
 
 		const { textures } = files[ 'works' ];
 
-		const maps = Object
+		const entries = Object
 			.entries( textures )
-			.filter( entries => entries[ 0 ].match( 'Images' ) )
-			.map( entries => entries[ 1 ] );
+			.filter( entries => entries[ 0 ].match( 'Images' ) );
 
 		const points = this
-			.getFibonacciSpherePoints( maps.length )
+			.getFibonacciSpherePoints( entries.length )
 			.sort( () => Math.random() - .5 );
 
-		maps.forEach( ( map, index ) => {
+		entries.forEach( ( entry, entryID ) => {
 
-			const point = points[ index ];
+			const [ key, map ] = entry;
+			const point = points[ entryID ];
+
+			const index = key.match( /\d+/g )[ 0 ];
 			const image = new Image( map, point, index );
 			this.add( image );
 
@@ -73,7 +75,7 @@ export default class Images extends Object3D {
 
 		const objects = this.children.filter( child => child.isVisible );
 		const intersect = this.raycaster.intersectObjects( objects, false )[ 0 ];
-		const object = intersect && ! pointer.isPressed ? intersect.object : null;
+		const object = intersect ? intersect.object : null;
 
 		if ( ! object ) Application.cursor.reset();
 

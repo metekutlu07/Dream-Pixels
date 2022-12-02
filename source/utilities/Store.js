@@ -41,8 +41,8 @@ export default class Parameter {
 	onStart() {
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'particles' );
-		this.set( 'particles', 'timeline' );
+		this.set( 'list', 'sphere' );
+		this.set( 'particles', 'color-range' );
 		this.set( 'range', [ 0, 1 ] );
 
 	}

@@ -59,10 +59,13 @@ export default class Image extends Mesh {
 		const { jsons } = Application.assets[ 'common' ];
 		const { images } = jsons[ 'Colors.json' ];
 		this.parameters = images[ index ];
+		this.isDisabled = this.parameters.excludeFromSphere;
 
 	}
 
 	async toggle( isVisible ) {
+
+		if ( this.isDisabled ) return;
 
 		if ( this.isVisible === isVisible ) return;
 		this.isVisible = isVisible;
@@ -89,6 +92,8 @@ export default class Image extends Mesh {
 
 	onUpdate() {
 
+		if ( this.isDisabled ) return this.visible = false;
+
 		this.visible = this.offset < .95;
 		this.material.opacity = 1 - this.offset;
 
@@ -109,6 +114,8 @@ export default class Image extends Mesh {
 	}
 
 	onPostUpdate() {
+
+		if ( this.isDisabled ) return;
 
 		this.border.visible = this.isHovered && this.offset < .05;
 

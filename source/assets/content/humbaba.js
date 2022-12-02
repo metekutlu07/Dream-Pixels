@@ -94,6 +94,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
 				source: 'public/humbaba/img/code04.jpg',
 				tags: [ 'Artificial Intelligence' ],
 				caption: 'Humbaba Caption'
@@ -102,6 +103,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
 				source: 'public/humbaba/img/code05.jpg',
 				tags: [ 'Photogrammetry' ],
 				caption: 'Humbaba Caption'
@@ -111,6 +113,7 @@ export default {
 			type: 'S3',
 			anchor: 'Anchor 3',
 			media: {
+				excludeFromSphere: true,
 				source: 'public/humbaba/img/code01.jpg',
 				tags: [ 'Artificial Intelligence' ],
 				caption: 'Humbaba Caption'
@@ -119,6 +122,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
 				source: 'public/humbaba/img/code02.jpg',
 				tags: [ 'Photogrammetry' ],
 				caption: 'Humbaba Caption'
@@ -127,6 +131,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
 				source: 'public/humbaba/img/code06.png',
 				tags: [ 'Photogrammetry' ],
 				caption: 'Humbaba Caption'

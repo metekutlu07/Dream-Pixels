@@ -1,6 +1,6 @@
 import View from '~/components/View';
 import Aside from '~/components/Aside';
-// import Video from '~/components/Video';
+import Video from '~/components/Video';
 
 export default class Home extends View {
 
@@ -88,15 +88,13 @@ export default class Home extends View {
 			.map( keyword => html`<span>${ keyword }</span>` )
 			.join( ' - ' );
 
-		// const source = 'public/common/Background.mp4';
-		// ${ Video.render( source, { fullscreen: true } ) }
+		const source = 'public/common/Background.mp4';
 
 		return html`
 
 		<home-view view>
 
-			<img src="public/common/Background.png" alt="Marbled Paper"/>
-
+			${ Video.render( source, { fullscreen: true } ) }
 			${ paragraphs ? Aside.render( html`
 
 				<h3>${ title }</h3>

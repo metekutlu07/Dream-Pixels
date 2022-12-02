@@ -112,6 +112,7 @@ export default class Particles extends Points {
 
 		this.titles = Object
 			.entries( this.projects )
+			.reverse()
 			.map( project => {
 
 				const [ path, { points } ] = project;

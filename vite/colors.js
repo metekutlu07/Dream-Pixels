@@ -68,7 +68,14 @@ export async function getColorList( content ) {
 			.filter( section => section.media.tags )
 			.map( section => {
 
-				const { source, tags, caption } = section.media;
+				const {
+
+					source,
+					tags,
+					caption,
+					excludeFromSphere
+
+				} = section.media;
 
 				if ( source.match( /mp4/ ) ) {
 
@@ -90,7 +97,7 @@ export async function getColorList( content ) {
 
 				}
 
-				images.push( { path, tags, source, caption } );
+				images.push( { path, tags, source, caption, excludeFromSphere } );
 
 			} ) );
 

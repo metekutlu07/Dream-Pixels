@@ -245,7 +245,6 @@ export default class Header extends HTMLElement {
 			transition: opacity 1s var( --timing-function );
 			opacity: 0;
 
-			/* [ path="/home" ] &, */
 			[ path="/about" ] &,
 			[ path="/works" ] &,
 			[ path="/contact" ] & {

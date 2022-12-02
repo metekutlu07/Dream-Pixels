@@ -21,6 +21,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
 				source: 'public/latent-voxels/003.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]

@@ -5,6 +5,7 @@ export default class ImagePreview extends HTMLElement {
 	onKeyDown( parameters ) {
 
 		if ( parameters.code !== 'Escape' ) return;
+		this.parameters = null;
 		this.toggleAttribute( 'visible', false );
 
 	}
@@ -19,7 +20,7 @@ export default class ImagePreview extends HTMLElement {
 
 		if ( currentTarget.matches( 'canvas' ) && parameters ) {
 
-			this.parameters = parameters;
+			this.parameters = Object.assign( {}, parameters );
 			image.src = parameters.source;
 			image.onload = () => this.toggleAttribute( 'visible', true );
 

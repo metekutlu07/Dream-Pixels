@@ -57,7 +57,7 @@ export default class UserInfo extends HTMLElement {
 			left: 0;
 			width: 100vw;
 			height: 100vh;
-			font-size: var( --font-size-xl );
+			font-size: 3rem;
 			pointer-events: none;
 		}
 
@@ -80,8 +80,9 @@ export default class UserInfo extends HTMLElement {
 
 			& p {
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-m );
-				margin-top: 5px;
+				font-size: var( --font-size-s );
+				margin-top: var( --margin-s );
+				line-height: 1.6;
 			}
 
 			&[ visible ] {

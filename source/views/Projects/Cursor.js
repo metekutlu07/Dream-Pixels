@@ -39,6 +39,7 @@ export default class Cursor extends HTMLElement {
 
 	set( parameters = {} ) {
 
+		if ( this.parameters === parameters ) return;
 		this.parameters = parameters;
 
 		const { projects } = Application.content;
@@ -49,7 +50,9 @@ export default class Cursor extends HTMLElement {
 		const { color, hex, code, title, caption, tags } = this.elements;
 		title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
 		caption.innerHTML = parameters.caption;
-		tags.innerHTML = parameters.tags.join( ', ' );
+		tags.innerHTML = parameters.tags
+			.map( tag => html`<span>${ tag }</span>` )
+			.join( ', ' );
 
 		color.style.display = parameters.hex ? '' : 'none';
 		hex.style.background = parameters.hex;
@@ -97,6 +100,11 @@ export default class Cursor extends HTMLElement {
 			& h4 {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
+				max-width: 400px;
+
+				& span {
+					display: inline-block;
+				}
 			}
 
 			& h5 {
