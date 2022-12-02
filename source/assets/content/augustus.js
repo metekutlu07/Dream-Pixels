@@ -1,6 +1,6 @@
 export default {
 
-	path: 'augustus-ar',
+	path: 'augustus',
 	title: 'Augustus',
 	subtitle: 'Augmented Promenade in Medieval Paris',
 	location: 'Paris',
@@ -10,7 +10,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/augustus-ar/000.mp4',
+				source: 'public/augustus/000.mp4',
 				caption: 'Application Walkthrough'
 			}
 		}

@@ -1,6 +1,6 @@
 export default {
 
-	path: 'when-gaspard-paints-a-gospel',
+	path: 'rasdelka',
 	title: 'Rasdelka',
 	subtitle: '3D Byzantine Miniature',
 	location: 'Paris',
@@ -10,11 +10,10 @@ export default {
 		{
 			type: 'S1'
 		},
-
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/03-rasdelka-intro.mp4',
+				source: 'public/rasdelka/03-rasdelka-intro.mp4',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -24,7 +23,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/compare-hd.jpg',
+				source: 'public/rasdelka/compare-hd.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -33,7 +32,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/comp02.mp4',
+				source: 'public/rasdelka/comp02.mp4',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -42,7 +41,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/axo01.jpg',
+				source: 'public/rasdelka/axo01.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -51,7 +50,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/cephe01.jpg',
+				source: 'public/rasdelka/cephe01.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -60,17 +59,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/cephe02.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Top View'
-			}
-		},
-
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/when-gaspard-paints-a-gospel/transition.mp4',
+				source: 'public/rasdelka/cephe02.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -80,16 +69,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/detay01.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Top View'
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/when-gaspard-paints-a-gospel/detay02.jpg',
+				source: 'public/rasdelka/transition.mp4',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -99,7 +79,26 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/doublepage.jpg',
+				source: 'public/rasdelka/detay01.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Top View'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/rasdelka/detay02.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Top View'
+			}
+		},
+
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/rasdelka/doublepage.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Building Texture'
 			}
@@ -108,7 +107,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/front.jpg',
+				source: 'public/rasdelka/front.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -116,16 +115,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/interpolation.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Top View'
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/when-gaspard-paints-a-gospel/projection-process.jpg',
+				source: 'public/rasdelka/interpolation.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -134,7 +124,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/top.jpg',
+				source: 'public/rasdelka/projection-process.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -143,7 +133,16 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/zoom01.jpg',
+				source: 'public/rasdelka/top.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Top View'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/rasdelka/zoom01.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -154,7 +153,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/makingof.mp4',
+				source: 'public/rasdelka/makingof.mp4',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -162,16 +161,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/shot01.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Top View'
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/when-gaspard-paints-a-gospel/shot03.png',
+				source: 'public/rasdelka/shot01.png',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -180,7 +170,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/shot04.png',
+				source: 'public/rasdelka/shot03.png',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}
@@ -189,7 +179,16 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/when-gaspard-paints-a-gospel/shot02.png',
+				source: 'public/rasdelka/shot04.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Top View'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/rasdelka/shot02.png',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Top View'
 			}

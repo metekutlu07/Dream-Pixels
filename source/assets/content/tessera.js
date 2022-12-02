@@ -1,6 +1,6 @@
 export default {
 
-	path: 'mosaic-go',
+	path: 'tessera',
 	title: 'Tessera',
 	subtitle: 'Roman Mosaics in AR',
 	location: 'Carthage',
@@ -13,7 +13,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/mosaic-go/main.jpg',
+				source: 'public/tessera/main.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -22,7 +22,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/main.jpg',
+				source: 'public/tessera/main.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -31,7 +31,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/echelle.jpg',
+				source: 'public/tessera/echelle.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -42,7 +42,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/carthage.jpg',
+				source: 'public/tessera/carthage.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -51,26 +51,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/parc.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-			}
-		},
-
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/mosaic-go/maison.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/mosaic-go/map.jpg',
+				source: 'public/tessera/parc.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -80,7 +61,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/mosaic-ar.jpg',
+				source: 'public/tessera/maison.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -89,16 +70,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/triclin01.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/mosaic-go/triclin02.jpg',
+				source: 'public/tessera/map.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -108,7 +80,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/cheveaux.jpg',
+				source: 'public/tessera/mosaic-ar.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}
@@ -117,7 +89,35 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/mosaic-go/menu.jpg',
+				source: 'public/tessera/triclin01.jpg',
+				caption: 'Video Presentation',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/tessera/triclin02.jpg',
+				caption: 'Video Presentation',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+			}
+		},
+
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/tessera/cheveaux.jpg',
+				caption: 'Video Presentation',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/tessera/menu.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 			}

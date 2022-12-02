@@ -1,268 +1,29 @@
 export default {
 
 	path: 'latent-voxels',
-	title: 'Cosmic Colors',
-	subtitle: 'When Minerals Become Particles',
+	title: 'Latent Voxels',
+	subtitle: 'Computerising Ornamental Urban Talismans',
 	location: 'Paris',
-	date: 'January 2021',
-	team: 'Mete Kutlu',
-	period: 'January 2021',
-
-	description: 'In the digitized image of the miniature, 2.5 million pixels simulate the colors of the pigments which are used in the miniature. Their colors are analyzed with algorithms to identify the dominant tones. The 12 talismanic towers of Constantinople are represented as clusters of particles. Each second, the mineral pictorial paste pops into millions of particles with constantly changing colors.',
+	date: 'February 2021',
+	description: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 	sections: [
 		{
 			type: 'S1',
 			media: {
-				source: 'public/latent-voxels/dome3.mp4',
+				source: 'public/latent-voxels/ai-intro.mp4',
 				caption: 'Video Introduction'
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/latent-voxels/003.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/blue-analyse.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/pink-analyse.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/group.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/panorama.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/dome-list.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/dome1.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/dome2.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/013.jpg',
-				caption: 'Florentine Geometrical Eye',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/015.jpg',
-				caption: 'Bezels of Wisdom',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/017.jpg',
-				caption: 'Constantinopolitan Eye',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/020.jpg',
-				caption: 'Color Analysis'
-			}
-		},
-
-		{
-			anchor: 'Istanbul University Library',
-			type: 'S2',
-			title: 'Realm of<br>Imagination',
-			paragraphs: 'Reflecting the spatial dynamics of miniatures, the architectural figures emerge as quasi-forms with blurred limites. They depict the colors existing in Suhrawerdi\'s intermediary Realm of Images, connecting terrestrial and heavenly worlds. They represent the Manichaean ideal: the liberation of particles of light from the world of matter.',
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/004.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/005.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Korean Architecture', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S2',
-			title: 'Alchemical of<br>Transmutation',
-			paragraphs: 'The Constantinopolitan Eye designed an alchemical transmutation through supernatural colors for the continuous reinvention of the talismanic urban space at the Earth\'s navel, the cosmic capital, the divine city of Constantine.',
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/006.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/007.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/008.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/009.jpg',
-				caption: 'Mosaic',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/010.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Korean Architecture', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/011.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			anchor: 'Anchor 2',
-			media: {
-				source: 'public/latent-voxels/012.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/014.jpg',
-				caption: 'Amalfitan Tower Top',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/016.jpg',
-				caption: 'Tower of Pharion',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-
-		{
-			type: 'S2',
-			title: 'Chromatic<br>Space',
-			paragraphs: 'In opposition with the Florentine geometrical eye, the architectural space is defined through colors that emphasize the magical complexity and variation in the universe, as well as the creative force of man\'s imagination.',
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/018.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/019.jpg',
-				caption: 'Tower of Kynegion'
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/021.jpg',
-				caption: 'Color Analysis'
 			}
 		},
 		{
 			type: 'S4',
 			paragraphs: `
-				In the digitized image of the miniature, 2.5 million pixels simulate the colors of the pigments which are used in the miniature.
-				Their colors are analyzed with algorithms to identify the dominant tones.
-				The 12 talismanic towers of Constantinople are represented as clusters of particles.
-				Each second, the mineral pictorial paste pops into millions of particles with constantly changing colors.
+				The following urbanscapes emerge from the imagination of the AI
+				upon its encounter with an Ottoman miniature of Byzantine Constantinople (c.1600).
+				Through 6 different city models, algorithms reinterpret the mystical representation of Constantinople.
+				These models are rational compositions which are based on Western architectural culture.
+				They are used as oneirogens, dream generators.
+				642 city models emerge during the process of transformation.
+				Each scenario is a different oneiropolids, a dream city.
 			`,
 			media: {
 				source: 'public/Common/Artwork.jpg',
@@ -272,7 +33,270 @@ export default {
 					Constantinople, c.1605
 				`
 			},
-		}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/01.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/ai01.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/02-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/03-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/ai02.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/ai03.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/ai04.mp4',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/04.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/05.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/06-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/08.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/09.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/10-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/10.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/501.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/1806.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/2221.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/p1601.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/p1710.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/p2011.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/p2109.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/x3ps.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/x7ps.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/3varps.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/oniro3_224.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/oniro6_554.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/son1.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/son3.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/son4.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/son5.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/oneiropolismo2x.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/planmo2x.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/towermo2x.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
 	]
-
 };

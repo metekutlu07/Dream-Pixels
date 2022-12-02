@@ -2,7 +2,7 @@ export default {
 
 	path: 'time-travelling-colours',
 	title: 'Time-Travelling Colours',
-	subtitle: 'Talking Miniatures ',
+	subtitle: 'Talking Miniatures',
 	location: 'Avignon',
 	date: 'February 2021',
 	team: 'Mete Kutlu',
@@ -81,7 +81,7 @@ export default {
 
 			media: {
 				source: 'public/time-travelling-colours/chapter4.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Pixel Transition'  ],
+				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Pixel Transition' ],
 				caption: 'How does the miniatures relate to our visual culture in the Digital Age?'
 			}
 		},

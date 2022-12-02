@@ -1,6 +1,6 @@
 export default {
 
-	path: 'terrazzo-miniatures',
+	path: 'bamistun',
 	title: 'Bamistun',
 	subtitle: 'Spatialising Artificial Randomness',
 	location: 'Paris',
@@ -14,7 +14,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/terrazzo-miniatures/comp-min.mp4',
+				source: 'public/bamistun/comp-min.mp4',
 				caption: 'Video Introduction'
 			}
 		},
@@ -22,7 +22,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/over04.jpg',
+				source: 'public/bamistun/over04.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -31,7 +31,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/test.mp4',
+				source: 'public/bamistun/test.mp4',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -40,7 +40,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/double-page-text-01.jpg',
+				source: 'public/bamistun/double-page-text-01.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -49,7 +49,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/hagia-top.jpg',
+				source: 'public/bamistun/hagia-top.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -58,7 +58,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/overs22.jpg',
+				source: 'public/bamistun/overs22.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -67,7 +67,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/test1.jpg',
+				source: 'public/bamistun/test1.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -76,7 +76,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/wired-hagia-front.jpg',
+				source: 'public/bamistun/wired-hagia-front.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
@@ -85,7 +85,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/terrazzo-miniatures/wired-hagia-right.jpg',
+				source: 'public/bamistun/wired-hagia-right.jpg',
 				caption: 'Color Analysis',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}

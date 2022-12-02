@@ -1,6 +1,6 @@
 export default {
 
-	path: 'impossible-columns-of-solomon',
+	path: 'solomon',
 	title: 'Solomon',
 	subtitle: 'Modelling The Divine Impossibility',
 	location: 'Rome',

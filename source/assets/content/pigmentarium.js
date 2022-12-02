@@ -19,7 +19,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri03.jpg',
+				source: 'public/pigmentarium/cri03.jpg',
 				tags: [ 'Augmented Reality' ],
 				caption: 'Particles Render 03'
 			}
@@ -27,7 +27,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri04.jpg',
+				source: 'public/pigmentarium/cri04.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 04'
 			}
@@ -35,7 +35,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri05.jpg',
+				source: 'public/pigmentarium/cri05.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 05'
 			}
@@ -43,7 +43,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri07.jpg',
+				source: 'public/pigmentarium/cri07.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 07'
 			}
@@ -51,7 +51,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri08x.jpg',
+				source: 'public/pigmentarium/cri08x.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 8x'
 			}
@@ -59,7 +59,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri09.jpg',
+				source: 'public/pigmentarium/cri09.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 09'
 			}
@@ -67,7 +67,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri10.jpg',
+				source: 'public/pigmentarium/cri10.jpg',
 				tags: [ 'Artificial Intelligence', 'Artificial Intelligence' ],
 				caption: 'Particles Render 10'
 			}
@@ -76,7 +76,7 @@ export default {
 			type: 'S3',
 			anchor: 'Anchor 4',
 			media: {
-				source: 'public/Pigmentarium/cri11.jpg',
+				source: 'public/pigmentarium/cri11.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 11'
 			}
@@ -84,7 +84,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri12.jpg',
+				source: 'public/pigmentarium/cri12.jpg',
 				tags: [ 'Augmented Reality' ],
 				caption: 'Particles Render 12'
 			}
@@ -92,7 +92,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/Pigmentarium/cri13.jpg',
+				source: 'public/pigmentarium/cri13.jpg',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
 				caption: 'Particles Render 13'
 			}

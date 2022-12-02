@@ -1,31 +1,32 @@
-import P1 from './bistami';
-import P2 from './theodora';
-import P3 from './latent-voxels';
-import P4 from './miniature-street-view';
-import P5 from './when-ai-dreams-of-miniatures';
-import P6 from './virtual-miniature';
-import P7 from './terrazzo-miniatures';
-import P8 from './when-gaspard-paints-a-gospel';
+import P1 from './augustus';
+import P2 from './bamistun';
+import P3 from './bistami';
+import P4 from './cosmic-colors';
+import P5 from './humbaba';
+import P6 from './latent-voxels';
+import P7 from './miniature-street-view';
+import P8 from './photogrammetry';
 import P9 from './pigmentarium';
-import P10 from './impossible-columns-of-solomon';
-import P11 from './time-travelling-colours';
-// import P12 from './augustus-ar';
-import P13 from './mosaic-go';
-import P14 from './humbaba';
+import P10 from './rasdelka';
+import P11 from './solomon';
+import P12 from './tessera';
+import P13 from './theodora';
+import P14 from './time-travelling-colours';
+import P15 from './virtual-miniature';
 
 // To add a project, create a .js file in the content directory
 // Then import it here with a correct name like ( P + index of the project )
 // See photogrammetry.js for more explanation
-import P15 from './photogrammetry';
+import P16 from './photogrammetry';
 
 // Add the imported project in the list below
 const projects = [
 
-	P1, P2, P3, P4,
+	// P1,
+	P2, P3, P4,
 	P5, P6, P7, P8,
-	P9, P10, P11,
-	// P12,
-	P13, P14, P15
+	P9, P10, P11, P12,
+	P13, P14, P15, P16
 
 ];
 

@@ -46,6 +46,10 @@ export default class Navigation extends HTMLElement {
 				opacity: 1;
 				transform: scale( 1 );
 			}
+
+			&[ hidden ] {
+				display: none;
+			}
 		}
 
 		navigation-title {
@@ -136,9 +140,11 @@ export default class Navigation extends HTMLElement {
 				<navigation-anchor @click>${ section.anchor }</navigation-anchor>
 			` );
 
+		const hidden = anchors.length ? '' : 'hidden';
+
 		return html`
 
-		<project-navigation blurred-background open #navigation|project-view>
+		<project-navigation ${ hidden } blurred-background open #navigation|project-view>
 
 			<navigation-title @click>
 				<h3>Navigation</h3>
