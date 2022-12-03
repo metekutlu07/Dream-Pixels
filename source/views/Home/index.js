@@ -43,10 +43,6 @@ export default class Home extends View {
 				width: 100%;
 				height: 100%;
 			}
-
-			& aside-block {
-				/* display: none; */
-			}
 		}
 
 		scrolling-text {

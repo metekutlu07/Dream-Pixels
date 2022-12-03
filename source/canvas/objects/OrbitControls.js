@@ -209,7 +209,7 @@ export default class OrbitControls extends Object3D {
 				maxAngle: 1,
 
 				minDistance: 15,
-				maxDistance: 30
+				maxDistance: 120
 
 			} );
 

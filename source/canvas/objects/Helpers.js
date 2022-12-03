@@ -74,13 +74,13 @@ export default class Helpers extends Object3D {
 			this.objects.push( directionalLightHelper );
 			this.add( directionalLightHelper );
 
-			// if ( object.castShadow ) {
+			if ( object.castShadow ) {
 
-			// 	const cameraHelper = new CameraHelper( object.shadow.camera );
-			// 	this.objects.push( cameraHelper );
-			// 	this.add( cameraHelper );
+				const cameraHelper = new CameraHelper( object.shadow.camera );
+				this.objects.push( cameraHelper );
+				this.add( cameraHelper );
 
-			// }
+			}
 
 		} else if ( object.type === 'SpotLight' ) {
 
@@ -88,13 +88,13 @@ export default class Helpers extends Object3D {
 			this.spotLightHelpers.push( spotLightHelper );
 			this.add( spotLightHelper );
 
-			// if ( object.castShadow ) {
+			if ( object.castShadow ) {
 
-			// 	const cameraHelper = new CameraHelper( object.shadow.camera );
-			// 	this.objects.push( cameraHelper );
-			// 	this.add( cameraHelper );
+				const cameraHelper = new CameraHelper( object.shadow.camera );
+				this.objects.push( cameraHelper );
+				this.add( cameraHelper );
 
-			// }
+			}
 
 		} else if ( object.type === 'PerspectiveCamera' ) {
 

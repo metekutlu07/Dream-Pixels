@@ -23,7 +23,7 @@ export default class Lighting extends Object3D {
 
 			ambientLight: {
 				color: '#ffffff',
-				intensity: { value: .15, max: 2 },
+				intensity: { value: .5, max: 2 },
 			},
 
 			hemisphereLight: {
@@ -34,13 +34,13 @@ export default class Lighting extends Object3D {
 
 			directionalLight: {
 				color: '#ffffff',
-				intensity: { value: .15, max: 2 },
-				castShadow: false,
+				intensity: { value: .5, max: 2 },
+				castShadow: true,
 				shadowCameraSize: { value: 15, max: 100 },
 				shadowCameraFar: { value: 50, max: 100 },
 				shadowMapSize: { value: 2048, options: [ 1024, 2048, 4096 ] },
 				position: {
-					value: new Vector3( -10, 25, -5 ),
+					value: new Vector3( 10, 25, 5 ),
 					min: new Vector3().setScalar( -50 ),
 					max: new Vector3().setScalar( 50 )
 				}

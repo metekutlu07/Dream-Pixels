@@ -28,7 +28,9 @@ export default class Sphere extends Mesh {
 
 			const { parameters } = Application.scene.orbitControls;
 			parameters.enableRotate = list !== 'grid';
-			parameters.rotateSpeed = list === 'particles' ? 5 : -2.5;
+			parameters.rotateSpeed =
+				list == 'particles' ? 5 :
+					list == 'places' ? 5 : -2.5;
 
 		}
 

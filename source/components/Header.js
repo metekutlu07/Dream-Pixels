@@ -47,11 +47,14 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'audio' ) ) audio.toggle();
 		if ( currentTarget.hasAttribute( 'display-aside' ) ) Application.store.toggle( 'display-aside' );
 		if ( currentTarget.hasAttribute( 'display-wireframe' ) ) Application.store.toggle( 'display-wireframe' );
+		if ( currentTarget.hasAttribute( 'places' ) ) Application.store.set( 'list', 'places' );
 		if ( currentTarget.hasAttribute( 'grid' ) ) Application.store.set( 'list', 'grid' );
 		if ( currentTarget.hasAttribute( 'sphere' ) ) Application.store.set( 'list', 'sphere' );
 		if ( currentTarget.hasAttribute( 'particles' ) ) Application.store.set( 'list', 'particles' );
 		if ( currentTarget.hasAttribute( 'color-range' ) ) Application.store.set( 'particles', 'color-range' );
 		if ( currentTarget.hasAttribute( 'timeline' ) ) Application.store.set( 'particles', 'timeline' );
+		if ( currentTarget.hasAttribute( 'cosmos' ) ) Application.store.set( 'places', 'cosmos' );
+		if ( currentTarget.hasAttribute( 'world' ) ) Application.store.set( 'places', 'world' );
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
 
 	}
@@ -275,14 +278,20 @@ export default class Header extends HTMLElement {
 		];
 
 		const modes = [
+			{ attributes: [ 'places', '@click|header-block' ], },
 			{ attributes: [ 'grid', '@click|header-block' ], },
 			{ attributes: [ 'sphere', '@click|header-block' ], },
 			{ attributes: [ 'particles', '@click|header-block' ], }
 		];
 
-		const submodes = [
+		const particles = [
 			{ attributes: [ 'color-range', '@click|header-block' ], },
 			{ attributes: [ 'timeline', '@click|header-block' ], },
+		];
+
+		const places = [
+			{ attributes: [ 'cosmos', '@click|header-block' ], },
+			{ attributes: [ 'world', '@click|header-block' ], },
 		];
 
 		const controls = [
@@ -311,7 +320,10 @@ export default class Header extends HTMLElement {
 
 			<header-grid-modes>
 				<div blurred-background>
-					${ submodes.map( Button.render ) }
+					${ particles.map( Button.render ) }
+				</div>
+				<div blurred-background>
+					${ places.map( Button.render ) }
 				</div>
 				<div blurred-background>
 					${ modes.map( Button.render ) }

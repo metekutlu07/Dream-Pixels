@@ -30,7 +30,7 @@ export default class Button extends HTMLElement {
 		const selectedIDs = [];
 		const activatedIDs = [];
 
-		const { path, list, particles } = Application.store;
+		const { path, list, places, particles } = Application.store;
 
 		switch ( path ) {
 
@@ -40,7 +40,7 @@ export default class Button extends HTMLElement {
 
 		case '/works':
 			selectedIDs.push( 'works' );
-			visibleIDs.push( 'grid', 'sphere', 'particles' );
+			visibleIDs.push( 'places', 'grid', 'sphere', 'particles' );
 			break;
 
 		case '/about':
@@ -66,13 +66,18 @@ export default class Button extends HTMLElement {
 
 		switch ( list ) {
 
+		case 'places':
+
+			if ( path === '/works' ) visibleIDs.push( 'cosmos', 'world' );
+			selectedIDs.push( 'places' ); break;
+
 		case 'grid': selectedIDs.push( 'grid' ); break;
 		case 'sphere': selectedIDs.push( 'sphere' ); break;
 		case 'particles':
-			selectedIDs.push( 'particles' );
 
-			if ( path === '/works' )visibleIDs.push( 'color-range', 'timeline' );
-			break;
+
+			if ( path === '/works' ) visibleIDs.push( 'color-range', 'timeline' );
+			selectedIDs.push( 'particles' ); break;
 
 		}
 
@@ -80,6 +85,13 @@ export default class Button extends HTMLElement {
 
 		case 'color-range': selectedIDs.push( 'color-range' ); break;
 		case 'timeline': selectedIDs.push( 'timeline' ); break;
+
+		}
+
+		switch ( places ) {
+
+		case 'cosmos': selectedIDs.push( 'cosmos' ); break;
+		case 'world': selectedIDs.push( 'world' ); break;
 
 		}
 

@@ -117,11 +117,14 @@ export default {
 		'project': [ 'See project' ],
 		'about': [ 'About' ],
 		'contact': [ 'Contact' ],
+		'places': [ 'Places' ],
 		'grid': [ 'Projects' ],
 		'sphere': [ 'Images' ],
 		'particles': [ 'Pixels' ],
 		'color-range': [ 'Color Range' ],
 		'timeline': [ 'Timeline' ],
+		'cosmos': [ 'Cosmos' ],
+		'world': [ 'World' ],
 		'display-menu': [ 'Menu', 'Close' ]
 	},
 
