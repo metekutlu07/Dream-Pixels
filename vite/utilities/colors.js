@@ -6,14 +6,19 @@ import { Color } from 'three';
 import getPixels from 'image-pixels';
 import sharp from 'sharp';
 import tinify from 'tinify';
+// tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
+tinify.key = '0D4XLXfwLFq6xZ6VFkDwKC574WcFbw4q';
 
-const assets = resolve( process.cwd(), 'source/assets' );
+import { server } from '../config.js';
 
-const optimize = false;
+const optimize = true;
 const images = [];
 const colors = [];
 
-tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
+const assets = resolve( process.cwd(), 'source/assets' );
+const module = await server.ssrLoadModule( '~/Application' );
+const Application = module.default;
+await getColorList( Application.content );
 
 export async function getSampledColors( buffer, imageID ) {
 
@@ -137,6 +142,7 @@ export async function getColorList( content ) {
 	}
 
 	console.log( analytics );
+	server.close();
 
 	const data = JSON.stringify( { analytics, images, colors } );
 	await writeFile( resolve( assets, 'packs/common/Colors.json' ), data );

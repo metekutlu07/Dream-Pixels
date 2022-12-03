@@ -39,7 +39,7 @@ export default class Effects extends HTMLElement {
 			}
 
 			& grid-effect {
-				background-image: url( "/public/Common/Grid.svg" );
+				background-image: url( "/public/common/Grid.svg" );
 				background-size: 15px;
 				background-position: center center;
 				transition: transform .5s var( --timing-function ), opacity .5s var( --timing-function );
@@ -53,14 +53,14 @@ export default class Effects extends HTMLElement {
 			}
 
 			& lines-effect {
-				background-image: url( "/public/common/line.svg" );
+				background-image: url( "/public/common/Line.svg" );
 				background-size: 2px;
 				background-position: center center;
 				opacity: .2;
 			}
 
 			& noise-effect {
-				background-image: url( "/public/common/noise.png" );
+				background-image: url( "/public/common/Noise.png" );
 				background-position: var( --background-position );
 				opacity: .25;
 			}
