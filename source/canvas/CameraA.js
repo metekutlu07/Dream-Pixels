@@ -8,20 +8,25 @@ import {
 
 } from 'three';
 
+import OrbitControls from './OrbitControls';
+
 export default class Camera extends PerspectiveCamera {
 
-	constructor() {
+	constructor( cameraID = 'Default' ) {
 
 		super( 10, 1, 50, 400 );
 
 		Application.events.add( this );
+
+		this.cameraID = cameraID;
+		this.orbitControls = new OrbitControls( this );
 
 		this.frustum = new Frustum();
 		this.object = new Object3D();
 		this.target = new Vector3();
 		this.offset = new Vector3();
 
-		this.parameters = Application.store.add( 'Camera', {
+		this.parameters = Application.store.add( cameraID, {
 
 			setShake: this.setShake,
 			fov: { value: 5, min: 10, max: 120 },
@@ -101,26 +106,26 @@ export default class Camera extends PerspectiveCamera {
 
 		Object.assign( this.parameters, { fov: 45, near: .1, far: 500 } );
 
-		switch ( Application.store.path ) {
+		// switch ( Application.store.path ) {
 
-		case '/virtual-miniature':
+		// case '/virtual-miniature':
 
-			Object.assign( this.parameters, { fov: 5, near: 5, far: 500 } );
-			this.isOrthographic = false;
+		// 	Object.assign( this.parameters, { fov: 5, near: 5, far: 500 } );
+		// 	this.isOrthographic = false;
 
-			anime( {
+		// 	anime( {
 
-				targets: this.parameters,
-				duration: 3000,
-				delay: 1000,
-				easing: 'easeInOutExpo',
-				fov: 45
+		// 		targets: this.parameters,
+		// 		duration: 3000,
+		// 		delay: 1000,
+		// 		easing: 'easeInOutExpo',
+		// 		fov: 45
 
-			} );
+		// 	} );
 
-			break;
+		// 	break;
 
-		}
+		// }
 
 	}
 
@@ -166,18 +171,18 @@ export default class Camera extends PerspectiveCamera {
 
 	setOrthography() {
 
-		this.isOrthographic = ! this.isOrthographic;
+		// this.isOrthographic = ! this.isOrthographic;
 
-		anime( {
+		// anime( {
 
-			targets: this.parameters,
-			duration: 1000,
-			easing: 'easeOutExpo',
-			fov: this.isOrthographic ? 10 : 45
+		// 	targets: this.parameters,
+		// 	duration: 1000,
+		// 	easing: 'easeOutExpo',
+		// 	fov: this.isOrthographic ? 10 : 45
 
-		} );
+		// } );
 
-		Application.store.set( 'orthographic', this.isOrthographic );
+		// Application.store.set( 'orthographic', this.isOrthographic );
 
 	}
 

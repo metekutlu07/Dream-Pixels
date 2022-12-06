@@ -10,6 +10,7 @@ export default class About extends View {
 		css`
 
 		about-view {
+			position: relative;
 			min-width: 100vw;
 			min-height: 100%;
 			display: flex;
@@ -17,6 +18,7 @@ export default class About extends View {
 			align-items: center;
 			justify-content: center;
 			font-size: 5rem;
+			background: rgba( 0, 0, 0, .75 );
 		}
 
 		`;

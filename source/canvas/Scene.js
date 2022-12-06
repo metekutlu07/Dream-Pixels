@@ -1,5 +1,8 @@
 import { Scene as Object3D, FogExp2, CubeTexture } from 'three';
 
+import CameraA from './CameraA';
+import CameraB from './CameraB';
+
 import Helpers from './objects/Helpers';
 import Lighting from './objects/Lighting';
 import Phone from './objects/Phone';
@@ -7,12 +10,13 @@ import Sky from './objects/Sky';
 import Church from './objects/Church';
 import Panorama from './objects/Panorama';
 import Miniature from './objects/Miniature';
-import Sphere from './objects/Sphere';
 import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
-import OrbitControls from './objects/OrbitControls';
-import Particles from './objects/Particles';
+
+import Sphere from './objects/Sphere';
 import Objects from './objects/Objects';
+import Particles from './objects/Particles';
+import Images from './objects/Images';
 import Map from './objects/Map';
 
 import { USDZExporter } from '~/vendors/three/USDZExporter';
@@ -25,7 +29,7 @@ export default class Scene extends Object3D {
 
 		this.parameters = Application.store.add( 'Scene', {
 
-			density: { value: 1e-2, max: .1 },
+			density: { value: 0, max: .1 },
 			color: '#000000'
 
 		} );
@@ -33,13 +37,9 @@ export default class Scene extends Object3D {
 		Application.events.add( this );
 
 		this.fog = new FogExp2();
-		// this.marble = new Marble();
 
 		this.lighting = new Lighting();
 		this.add( this.lighting );
-
-		this.orbitControls = new OrbitControls();
-		this.add( this.orbitControls );
 
 		this.sky = new Sky();
 		this.add( this.sky );
@@ -53,42 +53,99 @@ export default class Scene extends Object3D {
 		this.panorama = new Panorama();
 		this.add( this.panorama );
 
-		this.sphere = new Sphere();
-		this.add( this.sphere );
-
-		this.particles = new Particles();
-		this.add( this.particles );
-
 		this.pattern = new Pattern();
 		this.add( this.pattern );
 
 		this.miniature = new Miniature();
 		this.add( this.miniature );
 
-		this.objects = new Objects();
-		this.add( this.objects );
-
 		this.artwork = new Artwork();
 		this.add( this.artwork );
-
-		this.map = new Map();
-		this.add( this.map );
 
 		this.helpers = new Helpers();
 		this.add( this.helpers );
 
-		this.add( Application.camera );
+		this.sphere = new Sphere();
+		this.add( this.sphere );
+
+		this.map = new Map();
+		this.add( this.map );
+
+		this.objects = new Objects();
+		this.add( this.objects );
+
+		this.images = new Images();
+		this.add( this.images );
+
+		this.particles = new Particles();
+		this.add( this.particles );
+
+		this.cameras = Object.fromEntries( [
+
+			'Default',
+
+			'Radelska',
+			'MiniatureStreetView',
+			'VirtualMinature',
+			'Photogrammetry',
+
+			'Cosmos',
+			'World',
+			'Grid',
+			'Sphere',
+			'ColorRange',
+			'Timeline'
+
+		].map( cameraID => {
+
+			const Camera = cameraID === 'Timeline' ? CameraB : CameraA;
+			return [ cameraID, new Camera( cameraID ) ];
+
+		} ) );
 
 	}
 
 	onPreFrame() {
 
-		const { path, list, particles } = Application.store;
-		const target = path === '/works' && list === 'sphere' ? .005 :
-			path === '/works' && list === 'particles' ?
-				particles === 'color-range' ? .01 : .05 : 0;
+		const { list, path, places, particles } = Application.store;
 
-		this.parameters.density = Math.lerp( this.parameters.density, target, .05 );
+		this.cameraID = 'Default';
+
+		if ( path === '/radelska' ) this.cameraID = 'Radelska';
+		if ( path === '/miniature-street-view' ) this.cameraID = 'MiniatureStreetView';
+		if ( path === '/virtual-miniature' ) this.cameraID = 'VirtualMinature';
+		if ( path === '/photogrammetry' ) this.cameraID = 'Photogrammetry';
+
+		if ( path === '/works' ) {
+
+			if ( list === 'places' ) {
+
+				if ( places === 'cosmos' ) this.cameraID = 'Cosmos';
+				else if ( places === 'world' ) this.cameraID = 'World';
+
+			}
+
+			if ( list === 'particles' ) {
+
+				if ( particles === 'color-range' ) this.cameraID = 'ColorRange';
+				else if ( particles === 'timeline' ) this.cameraID = 'Timeline';
+
+			}
+
+			if ( list === 'grid' ) this.cameraID = 'Grid';
+			if ( list === 'sphere' ) this.cameraID = 'Sphere';
+
+		}
+
+		Application.camera = this.cameras[ this.cameraID ];
+
+		this.map.visible = list === 'places';
+		this.objects.visible = list === 'grid';
+		this.images.visible = list === 'sphere';
+		this.particles.visible = list === 'particles';
+
+		this.sphere.visible = ! ( path === '/works' && list === 'places' && places === 'cosmos' );
+		// this.parameters.density = Math.lerp( this.parameters.density, target, .05 );
 
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );

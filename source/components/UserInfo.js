@@ -59,6 +59,7 @@ export default class UserInfo extends HTMLElement {
 			height: 100vh;
 			font-size: 3rem;
 			pointer-events: none;
+			display: none;
 		}
 
 		user-info-text {

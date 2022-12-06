@@ -21,7 +21,7 @@ export default class Title extends MSDFText {
 		this.point = point;
 		this.renderOrder = 1e5;
 
-		this.material.opacity = 0;
+		this.material.opacity = 1;
 		this.material.depthTest = false;
 		this.material.transparent = true;
 		this.material.emissive.set( '#666666' );
@@ -69,13 +69,13 @@ export default class Title extends MSDFText {
 
 	onPreUpdate() {
 
-		const { path, list } = Application.store;
-		const isVisible = path === '/works' && list === 'particles';
+		// const { path, list } = Application.store;
+		// const isVisible = path === '/works' && list === 'particles';
 
-		if ( this.isVisible === isVisible ) return;
-		this.isVisible = isVisible;
+		// if ( this.isVisible === isVisible ) return;
+		// this.isVisible = isVisible;
 
-		this.toggle( this.isVisible );
+		// this.toggle( this.isVisible );
 
 	}
 
@@ -88,7 +88,7 @@ export default class Title extends MSDFText {
 		const scale = particles === 'timeline' ? .25 : 1;
 		this.scale.setScalar( scale );
 
-		this.visible = this.material.opacity > .01;
+		// this.visible = this.material.opacity > .01;
 
 	}
 

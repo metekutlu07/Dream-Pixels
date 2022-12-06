@@ -16,7 +16,7 @@ export default class View extends HTMLElement {
 
 	async onViewChange( view ) {
 
-		await Application.time.wait( 10 );
+		// await Application.time.wait( 10 );
 
 		if ( view !== this ) this.remove();
 		else this.toggleAttribute( 'hidden' );
@@ -31,7 +31,7 @@ export default class View extends HTMLElement {
 		Application.store.set( 'view-enter', false );
 		Application.store.set( 'view-exit', true );
 
-		await Application.time.wait( 500 );
+		// await Application.time.wait( 100 );
 
 		Application.audio.play( '004.m4a' );
 		Application.store.set( 'loading', true );
@@ -45,7 +45,7 @@ export default class View extends HTMLElement {
 		Application.store.set( 'loading', false );
 		Application.store.set( 'view-exit', false );
 
-		await Application.time.wait( 100 );
+		// await Application.time.wait( 100 );
 
 		document.body.scrollTop = 0;
 		Application.audio.play( '003.m4a' );

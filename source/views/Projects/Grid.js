@@ -31,8 +31,7 @@ export default class Grid extends HTMLElement {
 
 		const { width } = Application.viewport;
 		const length = width < 450 ? 1 :
-			width < 1024 ? 2 :
-				width < 1280 ? 2 : 4;
+			width < 1280 ? 2 : 4;
 
 		if ( length === this.length ) return;
 		this.length = length;

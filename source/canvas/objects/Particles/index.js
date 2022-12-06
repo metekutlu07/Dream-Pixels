@@ -20,7 +20,6 @@ import ParticlesMaterial from '~/canvas/materials/ParticlesMaterial';
 
 import Simulation from './Simulation';
 import Title from './Title';
-import Camera from './Camera';
 
 export default class Particles extends Points {
 
@@ -61,10 +60,9 @@ export default class Particles extends Points {
 		this.points = points;
 
 		this.frustumCulled = false;
-		this.visible = false;
+		this.visible = true;
 
 		this.raycaster = new Raycaster();
-		this.camera = new Camera( this.simulation );
 
 		this.setHelpers();
 
@@ -125,25 +123,24 @@ export default class Particles extends Points {
 			} );
 
 		this.geometry.attributes.color.needsUpdate = true;
+		this.simulation.toggle( true );
 
 	}
 
 	onPreUpdate() {
 
-		const { path, list } = Application.store;
-		const isVisible = ( path === '/works' && list === 'particles' ) ||
-			path === '/contact';
+		// const { path, list } = Application.store;
+		// const isVisible = ( path === '/works' && list === 'particles' ) ||
+		// 	path === '/contact';
 
-		if ( this.isVisible === isVisible || ! this.titles ) return;
-		this.isVisible = isVisible;
+		// if ( this.isVisible === isVisible || ! this.titles ) return;
+		// this.isVisible = isVisible;
 
-		this.simulation.toggle( this.isVisible );
+		// if ( this.isVisible ) this.visible = true;
+		// this.isHoverable = false;
 
-		if ( this.isVisible ) this.visible = true;
-		this.isHoverable = false;
-
-		clearTimeout( this.timeout );
-		this.timeout = setTimeout( this.onAnimationEnd, 5 * 1e3 );
+		// clearTimeout( this.timeout );
+		// this.timeout = setTimeout( this.onAnimationEnd, 5 * 1e3 );
 
 	}
 
@@ -165,16 +162,16 @@ export default class Particles extends Points {
 
 	onPostUpdate() {
 
-		if ( ! Application.cursor || ! this.isVisible ) return;
+		// if ( ! Application.cursor || ! this.isVisible ) return;
 
-		const index = this.getClosestIndex();
+		// const index = this.getClosestIndex();
 
-		if ( index === this.index ) return;
-		this.index = index;
+		// if ( index === this.index ) return;
+		// this.index = index;
 
-		const color = this.points[ this.index ];
-		if ( color ) Application.cursor.set( color );
-		else Application.cursor.reset();
+		// const color = this.points[ this.index ];
+		// if ( color ) Application.cursor.set( color );
+		// else Application.cursor.reset();
 
 	}
 
@@ -250,7 +247,7 @@ export default class Particles extends Points {
 
 		if ( ! this.isVisible || this.camera.isScrolling || orbitControls.isActive ) return;
 
-		const camera = Application.overrideCamera || Application.camera;
+		const camera = Application.camera;
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
@@ -272,7 +269,7 @@ export default class Particles extends Points {
 	intersectsPoints( points ) {
 
 		const { range } = Application.store;
-		const camera = Application.overrideCamera || Application.camera;
+		const camera = Application.camera;
 
 		let minDistance;
 		let index;

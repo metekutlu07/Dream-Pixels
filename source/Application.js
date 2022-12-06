@@ -18,7 +18,6 @@ import HTML from './utilities/HTML';
 import Content from './utilities/Content';
 
 import Renderer from '~/canvas/Renderer';
-import Camera from '~/canvas/Camera';
 import Scene from '~/canvas/Scene';
 import PostProcessing from '~/canvas/PostProcessing';
 
@@ -68,7 +67,6 @@ class Application {
 		this.pointer = new Pointer();
 
 		this.renderer = new Renderer();
-		this.camera = new Camera();
 		this.scene = new Scene();
 		this.postProcessing = new PostProcessing();
 

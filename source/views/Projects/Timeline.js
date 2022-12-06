@@ -25,7 +25,8 @@ export default class Timeline extends HTMLElement {
 
 		if ( ! Application.particles ) return;
 
-		const { camera, titles } = Application.particles;
+		const { titles } = Application.particles;
+		const camera = Application.scene.cameras[ 'Timeline' ];
 		const progress = Math.euclideanModulo( camera.progress, 1 );
 
 		if ( ! this.items ) return;
@@ -108,7 +109,7 @@ export default class Timeline extends HTMLElement {
 			margin: auto;
 			height: 500px;
 			opacity: 0;
-			transition: opacity .1s var( --timing-function );
+			/* transition: opacity .1s var( --timing-function ); */
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
@@ -168,8 +169,8 @@ export default class Timeline extends HTMLElement {
 					border: 1px solid var( --color-white );
 					border-radius: 50%;
 					margin-left: var( --margin-s );
-					transition: background .25s var( --timing-function ),
-						transform .25s var( --timing-function );
+					/* transition: background .25s var( --timing-function ),
+						transform .25s var( --timing-function ); */
 				}
 
 				&:first-child,

@@ -108,7 +108,7 @@ export default class Header extends HTMLElement {
 					top: 0;
 					opacity: 0;
 					background: var( --color-black );
-					transition: opacity .5s var( --timing-function );
+					/* transition: opacity .5s var( --timing-function ); */
 					z-index: 1;
 
 					[ display-menu ] & {
@@ -169,11 +169,9 @@ export default class Header extends HTMLElement {
 			@media ( max-width: 1024px ) {
 				& default-button {
 					transform: translateX( -200px );
-					transition-delay: calc( var( --index ) * .01s ) !important;
 
 					[ display-menu ] & {
 						transform: translateX( 0 );
-						transition-delay: calc( var( --index ) * .01s ) !important;
 					}
 				}
 			}
@@ -229,7 +227,7 @@ export default class Header extends HTMLElement {
 			right: var( --margin-m );
 			font-size: var( --font-size-xs );
 			font-family: var( --font-family-c );
-			transition: opacity 1s var( --timing-function );
+			/* transition: opacity 1s var( --timing-function ); */
 			opacity: 0;
 
 			[ path="/home" ] &,
@@ -245,7 +243,7 @@ export default class Header extends HTMLElement {
 			left: var( --margin-m );
 			font-size: var( --font-size-xs );
 			font-family: var( --font-family-c );
-			transition: opacity 1s var( --timing-function );
+			/* transition: opacity 1s var( --timing-function ); */
 			opacity: 0;
 
 			[ path="/about" ] &,

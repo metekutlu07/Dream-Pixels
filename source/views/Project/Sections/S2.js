@@ -6,10 +6,11 @@ export default class S2 {
 
 		section-type-2 {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			justify-content: center;
 			align-items: flex-start;
 			padding: calc( var( --margin-m ) * 2 );
+			padding-left: calc( var( --margin-m ) * 4 );
 
 			@media ( max-width: 1024px ) {
 				flex-direction: column;
@@ -22,7 +23,9 @@ export default class S2 {
 
 			& h3 {
 				font-size: var( --font-size-xxl );
-				text-align: right;
+				text-align: left;
+				margin-bottom: var( --margin-s );
+				max-width: min( 1024px, 65% );
 
 				@media ( max-width: 1280px ) {
 					font-size: var( --font-size-xl );
@@ -43,7 +46,7 @@ export default class S2 {
 				font-size: var( --font-size-m );
 				font-family: var( --font-family-c );
 				line-height: var( --line-height );
-				max-width: min( 600px, 65% );
+				max-width: min( 800px, 65% );
 
 				@media ( max-width: 1024px ) {
 					max-width: initial;

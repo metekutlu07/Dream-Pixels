@@ -34,7 +34,7 @@ export default class Filters extends HTMLElement {
 			top: var( --margin-m );
 			right: var( --margin-m );
 			border: var( --border-size ) solid var( --border-color );
-			transition: opacity 1s var( --timing-function );
+			/* transition: opacity 1s var( --timing-function ); */
 			padding: var( --margin-m );
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );
@@ -42,12 +42,12 @@ export default class Filters extends HTMLElement {
 			list-style: none;
 			overflow: scroll;
 			opacity: 0;
-			transition: opacity 1s var( --timing-function );
+			/* transition: opacity 1s var( --timing-function ); */
 			margin-top: 50px;
 
 			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;
-				transition-delay: .75s;
+				/* transition-delay: .75s; */
 				pointer-events: all;
 			}
 

@@ -1,16 +1,16 @@
-import { PerspectiveCamera, Vector3 } from 'three';
+import { PerspectiveCamera, Object3D, Vector3 } from 'three';
 
 export default class Camera extends PerspectiveCamera {
 
-	constructor( simulation ) {
+	constructor() {
 
 		super( 45, 1, .01, 250 );
 
 		Application.events.add( this );
 
+		this.object = new Object3D();
 		this.target = new Vector3();
 
-		this.simulation = simulation;
 		this.scroll = 0;
 		this.progress = 0;
 		this.friction = .1;
@@ -19,8 +19,11 @@ export default class Camera extends PerspectiveCamera {
 
 	onUpdate() {
 
+		if ( ! Application.particles ) return;
+
 		const { aspect } = Application.viewport;
-		const { curve } = this.simulation;
+		const { curve } = Application.particles.simulation;
+
 		this.aspect = aspect;
 		this.updateProjectionMatrix();
 
@@ -38,12 +41,6 @@ export default class Camera extends PerspectiveCamera {
 		this.lookAt( this.target );
 
 		Vector3.release( position, target );
-
-		const { particles, list, path } = Application.store;
-		const active = ( list === 'particles' && particles === 'timeline' ) || path === '/contact';
-		Application.overrideCamera = active ? this : null;
-
-		if ( path === '/contact' ) this.scroll += 1e-4;
 
 		this.isScrolling = this.position.distanceTo( position ) > .1;
 

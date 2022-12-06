@@ -42,7 +42,7 @@ export default class Image extends Mesh {
 
 		this.spherical = new Spherical();
 		this.radius = Math.randFloat( 50, 100 );
-		this.offset = 1;
+		this.offset = 0;
 
 		this.scale
 			.set( this.aspect, 1 )
@@ -70,23 +70,23 @@ export default class Image extends Mesh {
 		if ( this.isVisible === isVisible ) return;
 		this.isVisible = isVisible;
 
-		if ( this.animation ) this.animation.remove( this );
+		// if ( this.animation ) this.animation.remove( this );
 
-		const targets = this;
-		const easing = 'easeOutQuint';
-		const offset = isVisible ? 0 : 1;
-		const duration = isVisible ? 1000 : 500;
-		const delay = isVisible ? 500 + this.index * 5 : this.index * 5;
+		// const targets = this;
+		// const easing = 'easeOutQuint';
+		// const offset = isVisible ? 0 : 1;
+		// const duration = isVisible ? 1000 : 500;
+		// const delay = isVisible ? 500 + this.index * 5 : this.index * 5;
 
-		this.animation = anime( { targets, easing, duration, offset, delay } );
-		await this.animation.finished;
+		// this.animation = anime( { targets, easing, duration, offset, delay } );
+		// await this.animation.finished;
 
-		if ( ! isVisible ) {
+		// if ( ! isVisible ) {
 
-			const { x, y, z } = this.point;
-			this.spherical.setFromCartesianCoords( x, y, z );
+		// 	const { x, y, z } = this.point;
+		// 	this.spherical.setFromCartesianCoords( x, y, z );
 
-		}
+		// }
 
 	}
 

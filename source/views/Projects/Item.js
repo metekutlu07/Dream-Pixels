@@ -67,13 +67,13 @@ export default class Item extends HTMLElement {
 				transform: none !important;
 			}
 
-			&:nth-child( 3n+0 ) item-thumbnail { --animation: blink-1; }
+			/* &:nth-child( 3n+0 ) item-thumbnail { --animation: blink-1; }
 			&:nth-child( 3n+1 ) item-thumbnail { --animation: blink-2; }
 			&:nth-child( 3n+2 ) item-thumbnail { --animation: blink-3; }
 
 			&:nth-child( 3n+0 ) item-thumbnail { --animation: blink-1; }
 			&:nth-child( 3n+1 ) item-thumbnail { --animation: blink-2; }
-			&:nth-child( 3n+2 ) item-thumbnail { --animation: blink-3; }
+			&:nth-child( 3n+2 ) item-thumbnail { --animation: blink-3; } */
 
 			&:active { opacity: .75 }
 
@@ -117,22 +117,22 @@ export default class Item extends HTMLElement {
 		item-quote,
 		item-object {
 			opacity: 0;
-			transform: scale( .925 );
+			/* transform: scale( .925 );
 			transition: transform .5s var( --timing-function ), opacity .5s var( --timing-function );
-			transition-delay: var( --transition-delay );
+			transition-delay: var( --transition-delay ); */
 
 			[ view-exit ][ list="grid" ] & {
-				transition-delay: var( --transition-delay );
+				/* transition-delay: var( --transition-delay ); */
 				opacity: 0;
 			}
 
 			[ view-enter ][ list="grid" ] & {
 				opacity: 1;
-				transform: scale( 1 );
-				transition:
-				transform 1s var( --timing-function ),
-				opacity 1s var( --timing-function );
-				transition-delay: var( --transition-delay );
+				/* transform: scale( 1 ); */
+				/* transition: */
+					/* transform 1s var( --timing-function ), */
+					/* opacity 1s var( --timing-function ); */
+				/* transition-delay: var( --transition-delay ); */
 			}
 		}
 
@@ -264,7 +264,7 @@ export default class Item extends HTMLElement {
 			margin-bottom: var( --margin-xs );
 
 			[ view-enter ][ list="grid" ] & {
-				animation: 1.5s linear var( --transition-delay ) var( --animation );
+				/* animation: 1.5s linear var( --transition-delay ) var( --animation ); */
 			}
 
 			@media ( max-width: 1280px ) {

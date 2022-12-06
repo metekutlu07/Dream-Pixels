@@ -24,7 +24,7 @@ export default class Exploration extends HTMLElement {
 			border: var( --border-size ) solid var( --border-color );
 			max-width: 450px;
 			opacity: 0;
-			transition: opacity 1s var( --timing-function );
+			/* transition: opacity 1s var( --timing-function ); */
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );
 			line-height: 1.8;
@@ -40,7 +40,7 @@ export default class Exploration extends HTMLElement {
 			[ view-enter ][ list="sphere" ] &,
 			[ view-enter ][ list="particles" ] & {
 				opacity: 1;
-				transition-delay: .5s;
+				/* transition-delay: .5s; */
 				pointer-events: all;
 			}
 

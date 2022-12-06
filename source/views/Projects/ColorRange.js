@@ -110,7 +110,7 @@ export default class ColorRange extends HTMLElement {
 			width: 5px;
 			height: 500px;
 			opacity: 0;
-			transition: opacity .1s var( --timing-function );
+			/* transition: opacity .1s var( --timing-function ); */
 
 			[ view-enter ][ list="particles" ][ particles="color-range" ] & {
 				opacity: 1;

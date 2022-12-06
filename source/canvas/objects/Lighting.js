@@ -36,7 +36,7 @@ export default class Lighting extends Object3D {
 				color: '#ffffff',
 				intensity: { value: .5, max: 2 },
 				castShadow: true,
-				shadowCameraSize: { value: 15, max: 100 },
+				shadowCameraSize: { value: 40, max: 100 },
 				shadowCameraFar: { value: 50, max: 100 },
 				shadowMapSize: { value: 2048, options: [ 1024, 2048, 4096 ] },
 				position: {

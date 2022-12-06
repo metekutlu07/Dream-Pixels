@@ -41,7 +41,7 @@ export default class Objects extends Object3D {
 
 				Object.assign( clone, {
 
-					opacity: 0,
+					opacity: 1,
 					rotationFactor,
 					material: material,
 					objectID: objectID,
@@ -70,25 +70,25 @@ export default class Objects extends Object3D {
 
 	onPreUpdate() {
 
-		const { path, list } = Application.store;
-		const isVisible = path === '/works' && list === 'grid';
+		// const { path, list } = Application.store;
+		// const isVisible = path === '/works' && list === 'grid';
 
-		if ( this.isVisible === isVisible || ! this.children.length ) return;
-		this.isVisible = isVisible;
+		// if ( this.isVisible === isVisible || ! this.children.length ) return;
+		// this.isVisible = isVisible;
 
-		this.children.forEach( ( child, index ) => {
+		// this.children.forEach( ( child, index ) => {
 
-			if ( child.animation ) child.animation.remove( child );
+		// 	if ( child.animation ) child.animation.remove( child );
 
-			const targets = child;
-			const opacity = this.isVisible ? 1 : 0;
-			const duration = this.isVisible ? 1500 : 500;
-			const delay = this.isVisible ? 750 + index * 100 : 500;
-			const easing = 'easeOutQuint';
+		// 	const targets = child;
+		// 	const opacity = this.isVisible ? 1 : 0;
+		// 	const duration = this.isVisible ? 1500 : 500;
+		// 	const delay = this.isVisible ? 750 + index * 100 : 500;
+		// 	const easing = 'easeOutQuint';
 
-			child.animation = anime( { targets, delay, easing, duration, opacity } );
+		// 	child.animation = anime( { targets, delay, easing, duration, opacity } );
 
-		} );
+		// } );
 
 	}
 

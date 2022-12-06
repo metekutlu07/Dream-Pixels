@@ -2,11 +2,13 @@ import { Vector2, Object3D, Spherical, Vector3 } from 'three';
 
 export default class OrbitControls extends Object3D {
 
-	constructor() {
+	constructor( camera ) {
 
 		super();
 
-		this.parameters = Application.store.add( 'OrbitControls', {
+		const controlsID = `${ camera.cameraID }Controls`;
+
+		this.parameters = Application.store.add( controlsID, {
 
 			enableRotate: true,
 			rotateSpeed: { value: 4, max: 10 },
@@ -29,6 +31,7 @@ export default class OrbitControls extends Object3D {
 
 		Application.events.add( this );
 
+		this.camera = camera;
 		this.isGrabbed = false;
 
 		this.initialState = new State();
@@ -47,7 +50,191 @@ export default class OrbitControls extends Object3D {
 
 	}
 
+	onReset() {
+
+		Object.assign( this.parameters, {
+
+			rotateSpeed: 4,
+			enableRotate: true,
+			autoRotate: false,
+			enableZoom: true,
+			autoRotateSpeed: 1,
+
+			minAngle: -1.25,
+			maxAngle: 1.25
+
+		} );
+
+		switch ( this.camera.cameraID ) {
+
+		case 'Radelska':
+
+			this.lerpState.set( 25, .25, 0 );
+
+			Object.assign( this.parameters, {
+
+				autoRotate: true,
+				autoRotateDelay: 2
+
+			} );
+
+			break;
+
+		case 'MiniatureStreetView':
+
+			this.lerpState.set( 1, 0, 0 );
+
+			Object.assign( this.parameters, {
+
+				rotateSpeed: -2,
+				autoRotateDelay: 2
+
+			} );
+
+			break;
+
+		case 'VirtualMiniature':
+
+			this.lerpState.set( 25, .75, -.25 );
+			this.offsetState.radius = 45 - this.lerpState.radius;
+			this.offsetState.phi = .55 - this.lerpState.phi;
+			this.offsetState.theta = 0 - this.lerpState.theta;
+
+			Object.assign( this.parameters, {
+
+				autoRotate: true,
+				minAngle: .25,
+				maxAngle: 1,
+				minDistance: 20,
+				maxDistance: 35
+
+			} );
+
+			break;
+
+		case 'Photogrammetry':
+
+			this.lerpState.set( 50, 0, 0 );
+
+			Object.assign( this.parameters, {
+
+				rotateSpeed: 6,
+				enableRotate: true,
+				autoRotate: true,
+				enableZoom: true,
+
+				minDistance: 25,
+				maxDistance: 100
+
+			} );
+
+			break;
+
+		case 'Cosmos':
+
+			this.lerpState.set( 400, .75, 0 );
+
+			Object.assign( this.parameters, {
+
+				rotateSpeed: 5,
+				zoomSpeed: 5,
+				minAngle: .25,
+				minDistance: 250,
+				maxDistance: 400
+
+			} );
+
+			break;
+
+		case 'World':
+
+			this.lerpState.set( 50, .75, 0 );
+
+			Object.assign( this.parameters, {
+
+				enableRotate: false,
+				rotateSpeed: 5,
+				zoomSpeed: 5,
+				minAngle: .25,
+				minDistance: 25,
+				maxDistance: 50
+
+			} );
+
+			break;
+
+		case 'Grid':
+
+			this.lerpState.set( 25, 0, 0 );
+
+			Object.assign( this.parameters, {
+
+				enableRotate: false,
+				enableZoom: false,
+
+			} );
+
+			break;
+
+		case 'Sphere':
+
+			this.lerpState.set( 25, 0, 0 );
+
+			Object.assign( this.parameters, {
+
+				autoRotate: true,
+
+				autoRotateSpeed: .125,
+				rotateSpeed: -2.5,
+				zoomSpeed: 5,
+
+				autoRotateDelay: 10,
+				minAngle: -1,
+				maxAngle: 1,
+
+				minDistance: 15,
+				maxDistance: 35
+
+			} );
+
+			break;
+
+		case 'ColorRange':
+
+			this.lerpState.set( 25, 0, 0 );
+
+			Object.assign( this.parameters, {
+
+				autoRotate: true,
+
+				autoRotateSpeed: .125,
+				rotateSpeed: 2.5,
+				zoomSpeed: 5,
+
+				autoRotateDelay: 10,
+				minAngle: -1,
+				maxAngle: 1,
+
+				minDistance: 15,
+				maxDistance: 35
+
+			} );
+
+			break;
+
+		}
+
+	}
+
+	onPreFrame() {
+
+		this.isEnabled = Application.camera === this.camera;
+
+	}
+
 	onUpdate() {
+
+		if ( ! this.isEnabled ) return;
 
 		const {
 
@@ -93,7 +280,9 @@ export default class OrbitControls extends Object3D {
 
 	onPostUpdate() {
 
-		const { offset } = Application.camera.parameters;
+		if ( ! this.isEnabled ) return;
+
+		const { offset } = this.camera.parameters;
 
 		offset.x = this.offset.x;
 		offset.y = this.offset.y;
@@ -103,119 +292,7 @@ export default class OrbitControls extends Object3D {
 
 	async onViewChange() {
 
-		this.lerpState.set( 10, 0, 0 );
-
-		Object.assign( this.parameters, {
-
-			rotateSpeed: 4,
-			enableRotate: false,
-			autoRotate: false,
-			enableZoom: false,
-			autoRotateSpeed: 1,
-
-			minAngle: -1.25,
-			maxAngle: 1.25
-
-		} );
-
-		switch ( Application.store.path ) {
-
-		case '/when-gaspard-paints-a-gospel':
-
-			this.lerpState.set( 25, .25, 0 );
-
-			Object.assign( this.parameters, {
-
-				enableRotate: true,
-				autoRotate: true,
-				autoRotateDelay: 2
-
-			} );
-
-			break;
-
-		case '/miniature-street-view':
-
-			this.lerpState.set( 1, 0, 0 );
-
-			Object.assign( this.parameters, {
-
-				enableRotate: true,
-				autoRotate: false,
-				rotateSpeed: -2,
-				autoRotateDelay: 2
-
-			} );
-
-			break;
-
-		case '/virtual-miniature':
-
-			this.lerpState.set( 25, .75, -.25 );
-			this.offsetState.radius = 45 - this.lerpState.radius;
-			this.offsetState.phi = .55 - this.lerpState.phi;
-			this.offsetState.theta = 0 - this.lerpState.theta;
-
-			Object.assign( this.parameters, {
-
-				enableRotate: true,
-				autoRotate: true,
-				enableZoom: true,
-
-				minAngle: .25,
-				maxAngle: 1,
-
-				minDistance: 20,
-				maxDistance: 35
-
-			} );
-
-			break;
-
-		case '/photogrammetry':
-
-			this.lerpState.set( 50, 0, 0 );
-
-			Object.assign( this.parameters, {
-
-				rotateSpeed: 6,
-				enableRotate: true,
-				autoRotate: true,
-				enableZoom: true,
-
-				minDistance: 25,
-				maxDistance: 100
-
-			} );
-
-			break;
-
-		case '/works':
-
-			this.lerpState.set( 25, 0, 0 );
-
-			Object.assign( this.parameters, {
-
-				enableRotate: true,
-				autoRotate: true,
-				enableZoom: true,
-
-				autoRotateSpeed: .125,
-				rotateSpeed: 5,
-				zoomSpeed: 5,
-
-				autoRotateDelay: 10,
-				minAngle: -1,
-				maxAngle: 1,
-
-				minDistance: 15,
-				maxDistance: 120
-
-			} );
-
-			break;
-
-		}
+		this.onReset();
 
 		Application.store.set( 'grab', false );
 		Application.store.set( 'grabbing', false );
@@ -252,6 +329,8 @@ export default class OrbitControls extends Object3D {
 
 	onInputStart( event ) {
 
+		if ( ! this.isEnabled ) return;
+
 		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 		if ( ! this.parameters.enableRotate ) return;
 
@@ -267,6 +346,8 @@ export default class OrbitControls extends Object3D {
 	}
 
 	onInputMove() {
+
+		if ( ! this.isEnabled ) return;
 
 		const { isPressed } = Application.pointer;
 
@@ -288,6 +369,8 @@ export default class OrbitControls extends Object3D {
 
 	onInputEnd() {
 
+		if ( ! this.isEnabled ) return;
+
 		if ( ! this.parameters.enableRotate ) return;
 
 		this.isGrabbed = false;
@@ -295,6 +378,8 @@ export default class OrbitControls extends Object3D {
 	}
 
 	onWheel( event ) {
+
+		if ( ! this.isEnabled ) return;
 
 		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 
@@ -312,6 +397,8 @@ export default class OrbitControls extends Object3D {
 	}
 
 	setDelta() {
+
+		if ( ! this.isEnabled ) return;
 
 		Application.pointer
 			.getCoordinates( this.deltaState.position )

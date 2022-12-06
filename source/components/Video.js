@@ -83,7 +83,7 @@ export default class Video extends HTMLElement {
 		`;
 
 		const { controls, fullscreen, border } = parameters;
-		const attributes = [ 'playsinline', 'muted', 'loop' ];
+		const attributes = [ 'playsinline', 'muted', 'loop', 'preload' ];
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const src = source ? `src="${ source }#t=0.1"` : '';
 

@@ -132,9 +132,9 @@ export default class Button extends HTMLElement {
 			flex-direction: row-reverse;
 			align-items: stretch;
 			background-color: var( --background-color );
-			transition:
+			/* transition:
 				transform .5s var( --timing-function ),
-				opacity .5s var( --timing-function );
+				opacity .5s var( --timing-function ); */
 			border: var( --border-size ) solid var( --border-color );
 			opacity: 0;
 
@@ -144,14 +144,14 @@ export default class Button extends HTMLElement {
 
 			[ view-enter ] & {
 				opacity: 1;
-				transition:
-					transform .5s var( --timing-function ),
-					opacity .5s var( --timing-function );
+				/* transition: */
+					/* transform .5s var( --timing-function ), */
+					/* opacity .5s var( --timing-function ); */
 			}
 
-			&:nth-child( 3n+0 ) { --animation: blink-1 }
+			/* &:nth-child( 3n+0 ) { --animation: blink-1 }
 			&:nth-child( 3n+1 ) { --animation: blink-2 }
-			&:nth-child( 3n+2 ) { --animation: blink-3 }
+			&:nth-child( 3n+2 ) { --animation: blink-3 } */
 
 			&:not( :last-child ) {
 				margin-right: -1px;

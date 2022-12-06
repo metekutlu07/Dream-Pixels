@@ -58,6 +58,7 @@ export default class Global {
 			[ path="/about" ] &,
 			[ path="/photogrammetry" ] &,
 			[ path="/miniature-street-view" ] &,
+			[ path="/works" ][ list="places" ] &,
 			[ path="/works" ][ list="sphere" ] &,
 			[ path="/works" ][ list="particles" ] & {
 				overflow: hidden;
@@ -106,11 +107,11 @@ export default class Global {
 
 		[ view ] {
 			opacity: 0;
-			transform: scale( .975 );
-			transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function );
+			/* transform: scale( .975 ); */
+			/* transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function ); */
 
 			&:not( canvas ) {
-				transform-origin: var( --transform-origin );
+				/* transform-origin: var( --transform-origin ); */
 			}
 
 			&[ hidden ] {
@@ -119,12 +120,12 @@ export default class Global {
 
 			[ view-exit ] &:not( projects-views ) {
 				opacity: 0;
-				transform: scale( .975 );
+				/* transform: scale( .975 ); */
 			}
 
 			[ view-enter ] &:not( projects-views ) {
 				opacity: 1;
-				transform: scale( 1 );
+				/* transform: scale( 1 ); */
 			}
 
 		}

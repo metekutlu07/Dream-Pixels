@@ -1,4 +1,3 @@
-
 import View from '~/components/View';
 
 export default class Contact extends View {
@@ -21,7 +20,7 @@ export default class Contact extends View {
 			font-size: var( --font-size-xl );
 			text-align: center;
 			user-select: text;
-			background: rgba( 0, 0, 0, .5 );
+			background: rgba( 0, 0, 0, .75 );
 
 			& h4 {
 				margin-bottom: var( --margin-s );
@@ -50,11 +49,11 @@ export default class Contact extends View {
 
 		return html`
 
-			<contact-view view>
-				<h4>${ contact }</h4>
-				<h3>${ address }</h3>
-				<a href="mailto:${ mail }">${ mail }</a>
-			</contact-view>
+		<contact-view view>
+			<h4>${ contact }</h4>
+			<h3>${ address }</h3>
+			<a href="mailto:${ mail }">${ mail }</a>
+		</contact-view>
 
 		`;
 
