@@ -21,6 +21,10 @@ export default class OrbitControls extends Object3D {
 			enableZoom: true,
 			zoomSpeed: { value: 1. },
 
+			enablePan: false,
+			panSpeed: { value: .025 },
+			maxPan: { value: 35 },
+
 			minDistance: { value: 20, min: 5, max: 50 },
 			maxDistance: { value: 35, min: 5, max: 50 },
 
@@ -45,6 +49,12 @@ export default class OrbitControls extends Object3D {
 		this.offsetState.set( 0, 0, 0 );
 
 		this.offset = new Vector3();
+
+		this.currentPan = new Vector3();
+		this.lerpPan = new Vector3();
+		this.initialPan = new Vector3();
+		this.deltaPan = new Vector3();
+
 		this.autoRotateDelay = 0;
 		this.autoRotate = 0;
 
@@ -132,13 +142,14 @@ export default class OrbitControls extends Object3D {
 
 		case 'Cosmos':
 
-			this.lerpState.set( 400, .75, 0 );
+			this.lerpState.set( 400, .5, 0 );
 
 			Object.assign( this.parameters, {
 
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 				minAngle: .25,
+				maxAngle: .5,
 				minDistance: 250,
 				maxDistance: 400
 
@@ -148,11 +159,12 @@ export default class OrbitControls extends Object3D {
 
 		case 'World':
 
-			this.lerpState.set( 50, .75, 0 );
+			this.lerpState.set( 35, .75, 0 );
 
 			Object.assign( this.parameters, {
 
 				enableRotate: false,
+				enablePan: true,
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 				minAngle: .25,
@@ -163,7 +175,7 @@ export default class OrbitControls extends Object3D {
 
 			break;
 
-		case 'Grid':
+		case 'Default':
 
 			this.lerpState.set( 25, 0, 0 );
 
@@ -238,6 +250,7 @@ export default class OrbitControls extends Object3D {
 
 		const {
 
+			enablePan,
 			enableRotate,
 			dampingFactor,
 			autoRotate,
@@ -268,13 +281,19 @@ export default class OrbitControls extends Object3D {
 		this.offset.y = radius * Math.cos( Math.PI * .5 - phi );
 		this.offset.z = radius * Math.sin( Math.PI * .5 - phi ) * Math.cos( theta );
 
+		this.lerpPan.lerp( this.currentPan, .05 );
+
 		const vectorA = Vector3.get().setFromSpherical( this.currentState );
 		const vectorB = Vector3.get().setFromSpherical( this.lerpState );
 		this.isActive = vectorA.distanceTo( vectorB ) > .01;
 		Vector3.release( vectorA, vectorB );
 
-		Application.store.set( 'grab', enableRotate && ! this.isGrabbed );
-		Application.store.set( 'grabbing', enableRotate && this.isGrabbed );
+		if ( enablePan || enableRotate ) {
+
+			Application.store.set( 'grab', ! this.isGrabbed );
+			Application.store.set( 'grabbing', this.isGrabbed );
+
+		}
 
 	}
 
@@ -282,20 +301,20 @@ export default class OrbitControls extends Object3D {
 
 		if ( ! this.isEnabled ) return;
 
-		const { offset } = this.camera.parameters;
+		const { offset, target } = this.camera.parameters;
 
-		offset.x = this.offset.x;
+		offset.x = this.offset.x + this.lerpPan.x;
 		offset.y = this.offset.y;
-		offset.z = this.offset.z;
+		offset.z = this.offset.z + this.lerpPan.z;
+
+		target.x = this.lerpPan.x;
+		target.z = this.lerpPan.z;
 
 	}
 
 	async onViewChange() {
 
 		this.onReset();
-
-		Application.store.set( 'grab', false );
-		Application.store.set( 'grabbing', false );
 
 		this.currentState.copy( this.lerpState );
 		this.autoRotateDelay = 0;
@@ -330,15 +349,15 @@ export default class OrbitControls extends Object3D {
 	onInputStart( event ) {
 
 		if ( ! this.isEnabled ) return;
-
 		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
-		if ( ! this.parameters.enableRotate ) return;
 
 		this.initialState.copy( this.currentState );
+		this.initialPan.copy( this.currentPan );
 
 		Application.pointer.getCoordinates( this.initialState.position );
 
 		this.deltaState.copy( this.initialState );
+		this.deltaPan.copy( this.initialPan );
 		this.isGrabbed = true;
 
 		this.setDelta();
@@ -350,28 +369,40 @@ export default class OrbitControls extends Object3D {
 		if ( ! this.isEnabled ) return;
 
 		const { isPressed } = Application.pointer;
+		const { enableRotate, enablePan } = this.parameters;
 
-		if ( ! this.parameters.enableRotate || ! this.isGrabbed || ! isPressed ) return;
+		if ( ! this.isGrabbed || ! isPressed ) return;
 
 		this.setDelta();
 
-		const { rotateSpeed, minAngle, maxAngle } = this.parameters;
+		const { maxPan, panSpeed, rotateSpeed, minAngle, maxAngle } = this.parameters;
 		const { width } = Application.viewport;
 
-		let speedFactor = rotateSpeed * 1e-3;
-		speedFactor *= Math.mapLinear( width, 365, 1500, 2, 1 );
+		if ( enableRotate ) {
 
-		this.currentState.theta = this.initialState.theta - this.deltaState.position.x * speedFactor;
-		this.currentState.phi = this.initialState.phi + this.deltaState.position.y * speedFactor;
-		this.currentState.phi = Math.clamp( this.currentState.phi, minAngle, maxAngle );
+			let speedFactor = rotateSpeed * 1e-3;
+			speedFactor *= Math.mapLinear( width, 365, 1500, 2, 1 );
+
+			this.currentState.theta = this.initialState.theta - this.deltaState.position.x * speedFactor;
+			this.currentState.phi = this.initialState.phi + this.deltaState.position.y * speedFactor;
+			this.currentState.phi = Math.clamp( this.currentState.phi, minAngle, maxAngle );
+
+		}
+
+		if ( enablePan ) {
+
+			this.currentPan.z = this.initialPan.z - this.deltaState.position.y * panSpeed;
+			this.currentPan.x = this.initialPan.x - this.deltaState.position.x * panSpeed;
+			this.currentPan.x = Math.clamp( this.currentPan.x, -maxPan, maxPan );
+			this.currentPan.z = Math.clamp( this.currentPan.z, -maxPan, maxPan );
+
+		}
 
 	}
 
 	onInputEnd() {
 
 		if ( ! this.isEnabled ) return;
-
-		if ( ! this.parameters.enableRotate ) return;
 
 		this.isGrabbed = false;
 

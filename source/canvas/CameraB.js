@@ -17,6 +17,12 @@ export default class Camera extends PerspectiveCamera {
 
 	}
 
+	onPreFrame() {
+
+		this.isEnabled = Application.camera === this;
+
+	}
+
 	onUpdate() {
 
 		if ( ! Application.particles ) return;
@@ -47,6 +53,8 @@ export default class Camera extends PerspectiveCamera {
 	}
 
 	onWheel( event ) {
+
+		if ( ! this.isEnabled ) return;
 
 		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 

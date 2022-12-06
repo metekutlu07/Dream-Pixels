@@ -17,16 +17,15 @@ import P15 from './virtual-miniature';
 // To add a project, create a .js file in the content directory
 // Then import it here with a correct name like ( P + index of the project )
 // See photogrammetry.js for more explanation
-import P16 from './photogrammetry';
+// import P16 from './photogrammetry';
 
 // Add the imported project in the list below
 const projects = [
 
-	// P1,
 	P2, P3, P4,
 	P5, P6, P7, P8,
 	P9, P10, P11, P12,
-	P13, P14, P15, P16
+	P13, P14, P15
 
 ];
 

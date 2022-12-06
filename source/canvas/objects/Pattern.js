@@ -20,7 +20,7 @@ export default class Pattern extends Mesh {
 
 	onViewChange() {
 
-		this.visible = Application.store.path === '/augustus-ar';
+		this.visible = Application.store.path === '/augustus';
 
 	}
 

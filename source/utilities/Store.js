@@ -43,7 +43,7 @@ export default class Parameter {
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
 		this.set( 'list', 'places' );
 		this.set( 'particles', 'timeline' );
-		this.set( 'places', 'cosmos' );
+		this.set( 'places', 'world' );
 		this.set( 'range', [ 0, 1 ] );
 
 	}

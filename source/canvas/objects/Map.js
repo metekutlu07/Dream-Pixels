@@ -25,13 +25,14 @@ export default class Map extends Object3D {
 			if ( ! child.material ) return;
 
 			const { color } = child.material;
+			const isTitles = child.name.match( /Titles/ );
 
 			child.material = new MeshStandardMaterial( {
 
 				envMap,
 				color,
 				roughness: .15,
-				metalness: .75
+				metalness: isTitles ? .25 : .75
 
 			} );
 

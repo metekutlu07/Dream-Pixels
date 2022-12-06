@@ -12,6 +12,7 @@ import Panorama from './objects/Panorama';
 import Miniature from './objects/Miniature';
 import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
+import Cosmos from './objects/Cosmos';
 
 import Sphere from './objects/Sphere';
 import Objects from './objects/Objects';
@@ -80,6 +81,9 @@ export default class Scene extends Object3D {
 		this.particles = new Particles();
 		this.add( this.particles );
 
+		this.cosmos = new Cosmos();
+		this.add( this.cosmos );
+
 		this.cameras = Object.fromEntries( [
 
 			'Default',
@@ -91,7 +95,6 @@ export default class Scene extends Object3D {
 
 			'Cosmos',
 			'World',
-			'Grid',
 			'Sphere',
 			'ColorRange',
 			'Timeline'
@@ -109,40 +112,50 @@ export default class Scene extends Object3D {
 
 		const { list, path, places, particles } = Application.store;
 
-		this.cameraID = 'Default';
+		let cameraID = 'Default';
 
-		if ( path === '/radelska' ) this.cameraID = 'Radelska';
-		if ( path === '/miniature-street-view' ) this.cameraID = 'MiniatureStreetView';
-		if ( path === '/virtual-miniature' ) this.cameraID = 'VirtualMinature';
-		if ( path === '/photogrammetry' ) this.cameraID = 'Photogrammetry';
+		if ( path === '/radelska' ) cameraID = 'Radelska';
+		if ( path === '/miniature-street-view' ) cameraID = 'MiniatureStreetView';
+		if ( path === '/virtual-miniature' ) cameraID = 'VirtualMinature';
+		if ( path === '/photogrammetry' ) cameraID = 'Photogrammetry';
 
 		if ( path === '/works' ) {
 
 			if ( list === 'places' ) {
 
-				if ( places === 'cosmos' ) this.cameraID = 'Cosmos';
-				else if ( places === 'world' ) this.cameraID = 'World';
+				if ( places === 'cosmos' ) cameraID = 'Cosmos';
+				else if ( places === 'world' ) cameraID = 'World';
 
 			}
 
 			if ( list === 'particles' ) {
 
-				if ( particles === 'color-range' ) this.cameraID = 'ColorRange';
-				else if ( particles === 'timeline' ) this.cameraID = 'Timeline';
+				if ( particles === 'color-range' ) cameraID = 'ColorRange';
+				else if ( particles === 'timeline' ) cameraID = 'Timeline';
 
 			}
 
-			if ( list === 'grid' ) this.cameraID = 'Grid';
-			if ( list === 'sphere' ) this.cameraID = 'Sphere';
+			if ( list === 'sphere' ) cameraID = 'Sphere';
 
 		}
 
-		Application.camera = this.cameras[ this.cameraID ];
+		if ( cameraID !== this.cameraID ) {
 
-		this.map.visible = list === 'places';
-		this.objects.visible = list === 'grid';
-		this.images.visible = list === 'sphere';
-		this.particles.visible = list === 'particles';
+			this.cameraID = cameraID;
+
+			Application.store.set( 'grab', false );
+			Application.store.set( 'grabbing', false );
+			Application.camera = this.cameras[ cameraID ];
+
+		}
+
+		if ( ! path ) return;
+
+		this.objects.visible = path === '/works' && list === 'grid';
+		this.images.visible = path === '/works' && list === 'sphere';
+		this.map.visible = path === '/works' && list === 'places';
+		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
+		this.particles.visible = path === '/works' && list === 'particles';
 
 		this.sphere.visible = ! ( path === '/works' && list === 'places' && places === 'cosmos' );
 		// this.parameters.density = Math.lerp( this.parameters.density, target, .05 );
