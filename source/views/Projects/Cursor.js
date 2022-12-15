@@ -1,4 +1,4 @@
-import { Vector2 } from 'three';
+import { Vector2, Color } from 'three';
 
 export default class Cursor extends HTMLElement {
 
@@ -47,7 +47,7 @@ export default class Cursor extends HTMLElement {
 		const index = projects.indexOf( project );
 		const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
-		const { color, hex, code, title, caption, tags } = this.elements;
+		const { color, code, title, caption, tags } = this.elements;
 		title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
 		caption.innerHTML = parameters.caption;
 		tags.innerHTML = parameters.tags
@@ -55,8 +55,18 @@ export default class Cursor extends HTMLElement {
 			.join( ', ' );
 
 		color.style.display = parameters.hex ? '' : 'none';
-		hex.style.background = parameters.hex;
+		color.style.background = parameters.hex;
 		code.innerHTML = parameters.hex;
+
+		const hsl = {};
+		const c = Color.get()
+			.set( parameters.hex )
+			.getHSL( hsl );
+
+		Color.release( c );
+
+		const textColor = hsl.l > .5 ? 'var( --color-black )' : 'var( --color-white )';
+		color.style.setProperty( '--color', textColor );
 
 		this.toggleAttribute( 'visible', true );
 
@@ -70,11 +80,11 @@ export default class Cursor extends HTMLElement {
 			position: fixed;
 			top: 0;
 			left: 0;
-			padding: var( --margin-s );
 			background-color: var( --background-color );
 			border: var( --border-size ) solid var( --border-color );
-			justify-content: space-between;
-			align-items: center;
+			display: flex;
+			justify-content: center;
+			align-items: stretch;
 			opacity: 0;
 
 			@media ( hover: hover ) {
@@ -102,6 +112,10 @@ export default class Cursor extends HTMLElement {
 				font-size: var( --font-size-xs );
 				max-width: 400px;
 
+				&:before {
+					content: 'Subjects: '
+				}
+
 				& span {
 					display: inline-block;
 				}
@@ -116,6 +130,10 @@ export default class Cursor extends HTMLElement {
 
 		}
 
+		cursor-content {
+			padding: var( --margin-s );
+		}
+
 		cursor-number {
 			margin-left: var( --margin-m );
 			font-size: 3em;
@@ -125,19 +143,16 @@ export default class Cursor extends HTMLElement {
 		}
 
 		cursor-color {
+			position: relative;
+			padding: var( --margin-s );
 			display: flex;
 			align-items: center;
-			margin-bottom: 10px;
-
-			& color-hex {
-				width: 25px;
-				height: 25px;
-				margin-right: 5px;
-				border: var( --border-size ) solid var( --border-color );
-			}
+			justify-content: center;
+			flex-direction: column;
+			border-right: var( --border-size ) solid var( --border-color );
+			color: var( --color );
 
 			& span {
-				margin: 0 5px;
 				display: inline-block;
 			}
 
@@ -154,14 +169,15 @@ export default class Cursor extends HTMLElement {
 		<projects-cursor #cursor blurred-background>
 
 			<cursor-color #color>
-				<color-hex #hex></color-hex>
-				<span>Hex: </span>
+				<span>Hex code</span>
 				<color-code #code></color-code>
 			</cursor-color>
 
-			<h3 #caption>Comparaison: Side by Side View</h3>
-			<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
-			<h5 #title>Bistami <span>| 01</span></h5>
+			<cursor-content>
+				<h3 #caption>Comparaison: Side by Side View</h3>
+				<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
+				<h5 #title>Bistami <span>| 01</span></h5>
+			</cursor-content>
 
 		</projects-cursor>
 

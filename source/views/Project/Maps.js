@@ -35,7 +35,9 @@ export default class Maps extends HTMLElement {
 
 			if ( ! isActive ) return;
 
-			const { theta } = Application.scene.orbitControls.lerpState;
+			const camera = Application.scene.cameras[ 'MiniatureStreetView' ];
+
+			const { theta } = camera.orbitControls.lerpState;
 			const angle = Math.radToDeg( -theta + offsets[ pointID - 1 ] );
 			point.style.setProperty( '--angle', `${ angle }deg` );
 

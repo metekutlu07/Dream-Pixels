@@ -129,18 +129,18 @@ export default class Particles extends Points {
 
 	onPreUpdate() {
 
-		// const { path, list } = Application.store;
-		// const isVisible = ( path === '/works' && list === 'particles' ) ||
-		// 	path === '/contact';
+		const { path, list } = Application.store;
+		const isVisible = ( path === '/works' && list === 'particles' ) ||
+			path === '/contact';
 
-		// if ( this.isVisible === isVisible || ! this.titles ) return;
-		// this.isVisible = isVisible;
+		if ( this.isVisible === isVisible || ! this.titles ) return;
+		this.isVisible = isVisible;
 
-		// if ( this.isVisible ) this.visible = true;
-		// this.isHoverable = false;
+		if ( this.isVisible ) this.visible = true;
+		this.isHoverable = false;
 
-		// clearTimeout( this.timeout );
-		// this.timeout = setTimeout( this.onAnimationEnd, 5 * 1e3 );
+		clearTimeout( this.timeout );
+		this.timeout = setTimeout( this.onAnimationEnd, 5 * 1e3 );
 
 	}
 
@@ -162,16 +162,16 @@ export default class Particles extends Points {
 
 	onPostUpdate() {
 
-		// if ( ! Application.cursor || ! this.isVisible ) return;
+		if ( ! Application.cursor || ! this.isVisible ) return;
 
-		// const index = this.getClosestIndex();
+		const index = this.getClosestIndex();
 
-		// if ( index === this.index ) return;
-		// this.index = index;
+		if ( index === this.index ) return;
+		this.index = index;
 
-		// const color = this.points[ this.index ];
-		// if ( color ) Application.cursor.set( color );
-		// else Application.cursor.reset();
+		const color = this.points[ this.index ];
+		if ( color ) Application.cursor.set( color );
+		else Application.cursor.reset();
 
 	}
 
@@ -242,12 +242,13 @@ export default class Particles extends Points {
 
 		if ( ! this.isHoverable ) return;
 
-		const { pointer, scene } = Application;
-		const { orbitControls } = scene;
+		const { pointer } = Application;
 
-		if ( ! this.isVisible || this.camera.isScrolling || orbitControls.isActive ) return;
+		const camera = Application.scene.cameras[ 'Timeline' ];
+		const { orbitControls } = Application.scene.cameras[ 'ColorRange' ];
 
-		const camera = Application.camera;
+		if ( ! this.isVisible || camera.isScrolling || orbitControls.isActive ) return;
+
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
