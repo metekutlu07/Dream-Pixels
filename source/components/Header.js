@@ -108,7 +108,6 @@ export default class Header extends HTMLElement {
 					top: 0;
 					opacity: 0;
 					background: var( --color-black );
-					/* transition: opacity .5s var( --timing-function ); */
 					z-index: 1;
 
 					[ display-menu ] & {

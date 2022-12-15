@@ -106,26 +106,30 @@ export default class Camera extends PerspectiveCamera {
 
 		Object.assign( this.parameters, { fov: 45, near: .1, far: 500 } );
 
-		// switch ( Application.store.path ) {
+		switch ( this.cameraID ) {
 
-		// case '/virtual-miniature':
+		case 'VirtualMiniature':
 
-		// 	Object.assign( this.parameters, { fov: 5, near: 5, far: 500 } );
-		// 	this.isOrthographic = false;
+			Object.assign( this.parameters, { fov: 5, near: 5, far: 500 } );
+			this.isOrthographic = false;
 
-		// 	anime( {
+			anime( {
 
-		// 		targets: this.parameters,
-		// 		duration: 3000,
-		// 		delay: 1000,
-		// 		easing: 'easeInOutExpo',
-		// 		fov: 45
+				targets: this.parameters,
+				duration: 3000,
+				delay: 1000,
+				easing: 'easeInOutExpo',
+				fov: 45
 
-		// 	} );
+			} );
 
-		// 	break;
+			break;
 
-		// }
+		case 'Cosmos':
+			Object.assign( this.parameters, { fov: 45, near: 10, far: 750 } );
+			break;
+
+		}
 
 	}
 

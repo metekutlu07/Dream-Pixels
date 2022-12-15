@@ -75,7 +75,6 @@ export default class Button extends HTMLElement {
 		case 'sphere': selectedIDs.push( 'sphere' ); break;
 		case 'particles':
 
-
 			if ( path === '/works' ) visibleIDs.push( 'color-range', 'timeline' );
 			selectedIDs.push( 'particles' ); break;
 
@@ -113,8 +112,9 @@ export default class Button extends HTMLElement {
 		this.isSelected = selectedIDs.some( name => this.hasAttribute( name ) );
 		this.isActivated = activatedIDs.some( name => this.hasAttribute( name ) );
 
+		const isLink = this.hasAttribute( 'link' );
 		this.toggleAttribute( 'visible', this.isVisible );
-		this.toggleAttribute( 'selected', this.isSelected );
+		this.toggleAttribute( 'selected', ! isLink && this.isSelected );
 		this.toggleAttribute( 'activated', this.isActivated );
 
 	}

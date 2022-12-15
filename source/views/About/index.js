@@ -17,17 +17,27 @@ export default class About extends View {
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			font-size: 5rem;
+			font-size: var( --font-size-xl );
 			background: rgba( 0, 0, 0, .75 );
+
+			& p {
+				max-width: 50%;
+				font-family: var( --font-family-b );
+				text-align: center;
+				line-height: 1.2;
+				padding-bottom: var( --margin-s );
+			}
 		}
 
 		`;
 
+		const { about } = Application.content;
+
 		return html`
 
-			<about-view view>
-				<h3>About</h3>
-			</about-view>
+		<about-view view>
+			${ about.map( paragraph => html`<p>${ paragraph }</p>` ) }
+		</about-view>
 
 		`;
 

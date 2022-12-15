@@ -59,30 +59,33 @@ export default class UserInfo extends HTMLElement {
 			height: 100vh;
 			font-size: 3rem;
 			pointer-events: none;
-			display: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
 		}
 
 		user-info-text {
 			position: absolute;
+			bottom: 160px;
+			padding: var( --margin-m );
 			display: flex;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			width: 100vw;
-			height: 100vh;
-			justify-content: center;
 			flex-direction: column;
 			align-items: center;
+			justify-content: center;
 			text-align: center;
 			transition: opacity 1s;
-			background: rgba( 0, 0, 0, .8 );
 			opacity: 0;
+			border: 1px solid var( --color-white );
+
+			& h5 {
+				font-size: var( --font-size-l );
+			}
 
 			& p {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-s );
-				margin-top: var( --margin-s );
+				margin-top: var( --margin-xs );
 				line-height: 1.6;
 			}
 
@@ -100,10 +103,10 @@ export default class UserInfo extends HTMLElement {
 		return html`
 
 		<user-info>
-			<user-info-text #texts>
+			<user-info-text #texts blurred-background>
 				<h5>${ tutorial[ 0 ].title }</h5>
 			</user-info-text>
-			<user-info-text #texts>
+			<user-info-text #texts blurred-background>
 				<h5>${ tutorial[ 1 ].title }</h5>
 				<p>${ tutorial[ 1 ].subtitle }</p>
 			</user-info-text>

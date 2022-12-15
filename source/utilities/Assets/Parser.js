@@ -40,7 +40,7 @@ export default class Parser {
 			const { position, size, path } = file;
 			const type = this.map.find( parser => path.match( parser.extensions ) );
 			const slice = buffer.slice( offset + position, offset + position + size );
-			file.data = type ? await type.parser( slice ) : slice;
+			file.data = type ? await type.parser( slice, file ) : slice;
 
 			return file;
 
@@ -128,9 +128,10 @@ export default class Parser {
 
 	}
 
-	async getModels( buffer ) {
+	async getModels( buffer, file ) {
 
 		const { scene, animations } = await new Promise( resolve => this.GLTFloader.parse( buffer, '', resolve ) );
+		const capitalize = string => string[ 0 ].toUpperCase() + string.substr( 1 );
 
 		const model = {
 
@@ -143,14 +144,35 @@ export default class Parser {
 
 		scene.traverse( object => {
 
-			const name = object.name.match( 'fill' ) ? 'Fill' :
-				object.name.match( 'base' ) ? 'Base' :
-					object.name.match( /venice|vencie/g ) ? 'Base' :
-						object.name;
+			let name = object.name;
+
+			if ( object.name.match( 'fill' ) ) name = 'Fill';
+			if ( object.name.match( 'base' ) ) name = 'Base';
+			if ( object.name.match( /venice|vencie/g ) ) name = 'Base';
+
+			const isCosmos = file.path === 'Cosmos.glb';
+
+			if ( isCosmos && name.match( 'axis_mundi' ) ) name = 'AxisMundi';
+			else if ( isCosmos && name.match( 'earth_wireframe' ) ) name = 'EarthWireframe';
+			else if ( isCosmos && name.match( 'Scene' ) ) name = 'Scene';
+			else if ( isCosmos ) {
+
+				name = name
+					.replace( '_1', '_Left' )
+					.replace( '_sphere', '' )
+					.replace( '_world', '' )
+					.split( '_' )
+					.map( capitalize )
+					.join( '' );
+
+				if ( ! name.match( 'Left' ) ) name = name + 'Right';
+
+			}
 
 			const { geometries, materials, objects } = model;
 			const { geometry, material } = object;
 			objects[ name ] = object;
+			object.name = name;
 
 			if ( geometry ) geometries[ name ] = geometry;
 			if ( material ) materials[ material.name || material.type ] = material;

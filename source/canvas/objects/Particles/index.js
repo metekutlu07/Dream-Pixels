@@ -242,12 +242,9 @@ export default class Particles extends Points {
 
 		if ( ! this.isHoverable ) return;
 
-		const { pointer } = Application;
+		const { pointer, camera } = Application;
 
-		const camera = Application.scene.cameras[ 'Timeline' ];
-		const { orbitControls } = Application.scene.cameras[ 'ColorRange' ];
-
-		if ( ! this.isVisible || camera.isScrolling || orbitControls.isActive ) return;
+		if ( ! this.isVisible || camera.isScrolling ) return;
 
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );

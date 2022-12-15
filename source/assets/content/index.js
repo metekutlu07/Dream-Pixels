@@ -57,13 +57,13 @@ export default {
 
 		`Dream Pixels is an atelier which explores
 		forgotten architectural and urban dreams
-		in medieval visual cultures.`,
+		in medieval visual cultures.
 
-		`Using AI and digital design tools,
+		Using AI and digital design tools,
 		it invents novel methods of research and
-		mediation of miniature paintings.`,
+		mediation of miniature paintings.
 
-		`It weaves new relationships between
+		It weaves new relationships between
 		architecture andart history in the Age of AI.`
 
 	],
@@ -90,6 +90,21 @@ export default {
 		75008 Paris<br>
 		FRANCE
 		`,
+
+	about: [
+
+		`Dream Pixels is an atelier which explores
+		forgotten architectural and urban dreams
+		in medieval visual cultures.`,
+
+		`Using AI and digital design tools,
+		it invents novel methods of research and
+		mediation of miniature paintings.`,
+
+		`It weaves new relationships between
+		architecture andart history in the Age of AI.`
+
+	],
 
 	views: {
 

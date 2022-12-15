@@ -142,16 +142,16 @@ export default class OrbitControls extends Object3D {
 
 		case 'Cosmos':
 
-			this.lerpState.set( 400, .5, 0 );
+			this.lerpState.set( 500, .5, .5 );
 
 			Object.assign( this.parameters, {
 
 				rotateSpeed: 5,
-				zoomSpeed: 5,
+				zoomSpeed: 25,
 				minAngle: .25,
 				maxAngle: .5,
 				minDistance: 250,
-				maxDistance: 400
+				maxDistance: 500
 
 			} );
 
@@ -416,7 +416,8 @@ export default class OrbitControls extends Object3D {
 
 		if ( ! this.parameters.enableZoom ) return;
 
-		this.currentState.radius += Application.pointer.wheel.y * 1e-2;
+		const { zoomSpeed } = this.parameters;
+		this.currentState.radius += Application.pointer.wheel.y * 1e-2 * zoomSpeed;
 		this.currentState.radius = Math.clamp(
 
 			this.currentState.radius,
