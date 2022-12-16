@@ -128,13 +128,13 @@ export default class OrbitControls extends Object3D {
 
 			Object.assign( this.parameters, {
 
-				rotateSpeed: 6,
+				rotateSpeed: 2,
 				enableRotate: true,
 				autoRotate: true,
 				enableZoom: true,
 
 				minDistance: 25,
-				maxDistance: 100
+				maxDistance: 75
 
 			} );
 
@@ -142,7 +142,7 @@ export default class OrbitControls extends Object3D {
 
 		case 'Cosmos':
 
-			this.lerpState.set( 500, .5, .5 );
+			this.lerpState.set( 600, .5, .5 );
 
 			Object.assign( this.parameters, {
 
@@ -150,8 +150,8 @@ export default class OrbitControls extends Object3D {
 				zoomSpeed: 25,
 				minAngle: .25,
 				maxAngle: .5,
-				minDistance: 250,
-				maxDistance: 500
+				minDistance: 500,
+				maxDistance: 750
 
 			} );
 

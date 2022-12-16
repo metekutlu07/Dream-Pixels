@@ -1,0 +1,42 @@
+import { Mesh, MeshStandardMaterial, PlaneGeometry } from 'three';
+
+export default class Symbol extends Mesh {
+
+	constructor( symbolID ) {
+
+		const geometry = new PlaneGeometry( 20, 20 );
+		const material = new MeshStandardMaterial( {
+
+			opacity: 1,
+			transparent: true,
+			emissive: '#666666'
+
+		} );
+
+		super( geometry, material );
+
+		this.position.y = 15;
+		this.symbolID = symbolID;
+
+		Application.events.add( this );
+
+	}
+
+	onLoad( files ) {
+
+		if ( ! files[ 'works' ] ) return;
+
+		const { textures } = Application.assets[ 'works' ];
+		const map = Object
+			.entries( textures )
+			.filter( entry => entry[ 0 ].match( /Planets|Zodiacs/g ) )
+			.filter( entry => entry[ 0 ].match( this.symbolID ) )
+			.map( entry => entry[ 1 ] )
+			.pop();
+
+		if ( map ) Object.assign( this.material, { map } );
+		else this.visible = false;
+
+	}
+
+}

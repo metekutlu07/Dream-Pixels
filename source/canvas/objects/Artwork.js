@@ -59,7 +59,8 @@ export default class Artwork extends Object3D {
 
 	async setArtwork() {
 
-		const { lerpState, currentState } = Application.scene.orbitControls;
+		const { camera } = Application;
+		const { lerpState, currentState } = camera.orbitControls;
 		currentState.copy( lerpState.set( 50, 0, 0 ) );
 
 		Application.store.set( 'display-aside', false );

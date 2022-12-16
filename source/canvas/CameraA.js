@@ -126,7 +126,7 @@ export default class Camera extends PerspectiveCamera {
 			break;
 
 		case 'Cosmos':
-			Object.assign( this.parameters, { fov: 45, near: 10, far: 750 } );
+			Object.assign( this.parameters, { fov: 45, near: 10, far: 1000 } );
 			break;
 
 		}
@@ -175,18 +175,18 @@ export default class Camera extends PerspectiveCamera {
 
 	setOrthography() {
 
-		// this.isOrthographic = ! this.isOrthographic;
+		this.isOrthographic = ! this.isOrthographic;
 
-		// anime( {
+		anime( {
 
-		// 	targets: this.parameters,
-		// 	duration: 1000,
-		// 	easing: 'easeOutExpo',
-		// 	fov: this.isOrthographic ? 10 : 45
+			targets: this.parameters,
+			duration: 1000,
+			easing: 'easeOutExpo',
+			fov: this.isOrthographic ? 10 : 45
 
-		// } );
+		} );
 
-		// Application.store.set( 'orthographic', this.isOrthographic );
+		Application.store.set( 'orthographic', this.isOrthographic );
 
 	}
 

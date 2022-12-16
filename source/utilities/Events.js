@@ -71,7 +71,7 @@ export default class Events {
 			Application.events.add( element );
 			element.onConnected && element.onConnected( index );
 
-		} else if ( element.onDisconnected ) {
+		} else {
 
 			Application.events.remove( element );
 

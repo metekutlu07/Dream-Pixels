@@ -8,6 +8,8 @@ import {
 
 } from 'three';
 
+import Title from './Title';
+
 export default class Cosmos extends Object3D {
 
 	constructor() {
@@ -20,25 +22,45 @@ export default class Cosmos extends Object3D {
 
 	onPreFrame() {
 
+		const spreadX = 750;
+
 		this.traverse( child => {
 
-			const { name } = child;
+			const { name, isSphere, isTitle } = child;
 
-			if ( ! name.match( /(Left|Right)/g ) ) return;
+			if ( ! isSphere && ! isTitle ) return;
 
-			const direction = name.match( /Left/g ) ? -1 : 1;
-			const offsetX = child.offsetRatio * 250 * direction;
+			const sphereID = name.replace( /(Left|Right)/g, '' );
+			const { spread, radius } = this.spheres[ sphereID ];
+
+			const direction = name.match( /Right/g ) ? 1 : -1;
+			const offsetX = spread * spreadX * direction;
 			child.position.x = Math.lerp( 0, offsetX, 1 );
+
+			if ( sphereID === 'Zodiac' ) child.position.x -= 25;
+			if ( ! isTitle ) return;
+			child.position.y = radius + 35;
 
 		} );
 
-		this.position.x = 62.5;
+		this.zodiacs && this.zodiacs.forEach( zodiac => {
+
+			const { spread } = this.spheres[ 'Zodiac' ];
+			const offsetX = spread * spreadX * -1;
+			zodiac.position.x = Math.lerp( 0, offsetX, 1 );
+			zodiac.position.x -= 25;
+
+		} );
+
+		this.position.x = spreadX * .25;
 
 	}
 
 	onLoad( files ) {
 
 		if ( ! files[ 'works' ] ) return;
+
+		this.spheres = {};
 
 		const { models, textures } = Application.assets[ 'works' ];
 		const { objects } = models[ 'Cosmos.glb' ];
@@ -53,28 +75,99 @@ export default class Cosmos extends Object3D {
 			child.material = new MeshStandardMaterial();
 
 			const mapID = name.replace( /Left|Right/g, '' );
-			const map = textures[ `Cosmos/${ mapID }.jpg` ];
+			const map = textures[ `Cosmos/Patterns/${ mapID }.jpg` ];
+			const envMap = Application.assets[ 'EnvMap' ];
 
 			if ( name.match( 'Right' ) ) child.visible = false;
+
 			if ( map ) {
 
-				Object.assign( child.material, { map, roughness: .95, metalness: .25 } );
+				Object.assign( child.material, {
+
+					map,
+					envMap,
+					roughness: .65,
+					metalness: .75
+
+				} );
+
 				map.wrapT = map.wrapS = RepeatWrapping;
 
 			}
 
-			if ( name.match( /(Left|Right)/g ) ) {
+			if ( ! name.match( /(AxisMundi|Scene)/g ) ) {
+
+				child.isSphere = true;
 
 				box.setFromObject( child );
 				box.getSize( size );
 
-				child.offsetRatio = Math.mapLinear( size.y, 290, 600, 0, 1 );
+				const diameter = size.y;
+				const radius = diameter * .5;
+				const spread = Math.mapLinear( diameter, 270, 600, 0, 1 );
+				const sphereID = name.replace( /(Left|Right)/g, '' );
+
+				this.spheres[ sphereID ] = { radius, spread };
 
 			}
 
 		} );
 
 		this.scale.setScalar( .5 );
+
+		Object
+			.entries( this.spheres )
+			.forEach( entry => {
+
+				const [ sphereID, { radius } ] = entry;
+				const title = new Title( sphereID, radius );
+				title.isTitle = true;
+				title.name = sphereID;
+				this.add( title );
+
+			} );
+
+		this.setZodiacs();
+
+	}
+
+	setZodiacs() {
+
+		const { textures } = Application.assets[ 'works' ];
+		const radius = this.spheres[ 'Zodiac' ].radius + 25;
+
+		this.zodiacs = Object
+			.entries( textures )
+			.filter( entry => {
+
+				const [ textureID ] = entry;
+				return textureID.match( 'Cosmos/Zodiacs/' );
+
+			} ).map( entry => {
+
+				const [ textureID ] = entry;
+				if ( ! textureID.match( 'Cosmos/Zodiacs/' ) ) return;
+
+				const [ number, signID ] = textureID
+					.replace( 'Cosmos/Zodiacs/', '' )
+					.replace( /\s/g, '' )
+					.replace( /.png/g, '' )
+					.split( '-' );
+
+				const index = parseInt( number );
+				const step = Math.PI * 2 / 12;
+				const angle = ( index + .5 ) * step;
+
+				const title = new Title( signID );
+				this.add( title );
+
+				const y = Math.cos( angle ) * radius;
+				const z = Math.sin( angle ) * radius;
+				title.position.set( 0, y, z );
+
+				return title;
+
+			} );
 
 	}
 

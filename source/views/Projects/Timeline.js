@@ -9,7 +9,8 @@ export default class Timeline extends HTMLElement {
 	onClick( event ) {
 
 		const { currentTarget } = event;
-		const { camera, titles } = Application.particles;
+		const { titles } = Application.particles;
+		const camera = Application.scene.cameras[ 'Timeline' ];
 		const target = titles[ this.items.indexOf( currentTarget ) ].progress;
 
 		const progress = Math.euclideanModulo( camera.scroll, 1 );
