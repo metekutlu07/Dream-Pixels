@@ -68,7 +68,7 @@ export default class UserInfo extends HTMLElement {
 		user-info-text {
 			position: absolute;
 			bottom: 160px;
-			padding: var( --margin-m );
+			padding: var( --margin-s ) var( --margin-m );
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -79,12 +79,12 @@ export default class UserInfo extends HTMLElement {
 			border: 1px solid var( --color-white );
 
 			& h5 {
-				font-size: var( --font-size-l );
+				font-size: var( --font-size-m );
 			}
 
 			& p {
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-s );
+				font-size: var( --font-size-xs );
 				margin-top: var( --margin-xs );
 				line-height: 1.6;
 			}

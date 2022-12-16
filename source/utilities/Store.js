@@ -42,7 +42,7 @@ export default class Parameter {
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
 		this.set( 'list', 'particles' );
-		this.set( 'particles', 'timeline' );
+		this.set( 'particles', 'color-range' );
 		this.set( 'places', 'cosmos' );
 		this.set( 'range', [ 0, 1 ] );
 

@@ -79,7 +79,7 @@ export default class Simulation {
 		];
 
 		this.curlSize = .1;
-		this.duration = 2;
+		this.duration = 5;
 		this.deltaTime = 0;
 		this.needsUpdate = true;
 
@@ -158,11 +158,9 @@ export default class Simulation {
 				dataA[ i * 4 + 1 ] = y;
 				dataA[ i * 4 + 2 ] = z;
 				dataA[ i * 4 + 3 ] = w - .25;
-				// dataA[ i * 4 + 3 ] = t;
 
 				dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 3;
 				dataB[ i * 4 + 1 ] = .035 * 100;
-				// dataB[ i * 4 + 1 ] = 0;
 
 			}
 

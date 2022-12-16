@@ -30,7 +30,7 @@ void main() {
 
 	}
 
-	if ( life > .2 && life < lifespan ) {
+	if ( life > .5 && life < lifespan ) {
 
 		vec3 coordinates = position * curlSize;
 		float persistence = .1 + life * .1;
