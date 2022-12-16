@@ -44,7 +44,8 @@ export default class Overlay extends Mesh {
 			.normalize()
 			.multiplyScalar( 40 );
 
-		this.visible = Application.scene.miniature.artwork.visible;
+		const { visible } = Application.scene.miniature.artwork;
+		this.visible = visible;
 
 	}
 

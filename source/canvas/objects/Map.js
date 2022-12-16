@@ -43,9 +43,9 @@ export default class Map extends Object3D {
 			child.material = new MeshStandardMaterial( {
 
 				envMap,
-				color: '#666666',
-				roughness: .35,
-				metalness: .65
+				color: '#cccccc',
+				roughness: .75,
+				metalness: .25
 
 			} );
 

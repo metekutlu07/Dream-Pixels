@@ -11,14 +11,27 @@ export default class ColorRange extends HTMLElement {
 
 	}
 
+	onMouseDown( event ) {
+
+		this.onPointerDown( event );
+
+	}
+
+	onTouchStart( event ) {
+
+		this.onPointerDown( event );
+
+	}
+
 	onPointerDown( event ) {
 
-		const { pointer } = Application;
 		const { currentTarget } = event;
 
 		this.handle = currentTarget;
 		this.value = parseFloat( currentTarget.getAttribute( 'value' ) );
-		this.center = pointer.getCoordinates( new Vector2() );
+
+		const { clientX, clientY } = event.touches ? event.touches[ 0 ] : event;
+		this.center = new Vector2( clientX, clientY );
 
 	}
 
@@ -59,7 +72,7 @@ export default class ColorRange extends HTMLElement {
 
 			const value = parseFloat( handle.getAttribute( 'value' ) );
 			handle.style.transform = `translateY( ${ value * this.height }px )`;
-			handle.children[ 0 ].textContent = Math.round( value * 360 );
+			handle.children[ 0 ].textContent = Math.round( value * 360 ) + '°';
 			handle.toggleAttribute( 'grabbed', handle === this.handle );
 
 			Application.store.range[ index ] = value;
@@ -148,10 +161,6 @@ export default class ColorRange extends HTMLElement {
 				font-family: var( --font-family-a );
 				font-size: var( --font-size-s );
 				border-right: var( --border-size ) solid var( --border-color );
-
-				&:after {
-					content: '°';
-				}
 			}
 
 			& svg {
@@ -170,7 +179,8 @@ export default class ColorRange extends HTMLElement {
 			<color-range-handle
 				value="0"
 				#handles
-				@pointer-down
+				@touch-start
+				@mouse-down
 			>
 				<span></span>
 				${ Handle }
@@ -179,7 +189,8 @@ export default class ColorRange extends HTMLElement {
 			<color-range-handle
 				value="1"
 				#handles
-				@pointer-down
+				@touch-start
+				@mouse-down
 			>
 				<span></span>
 				${ Handle }

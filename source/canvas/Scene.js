@@ -90,7 +90,7 @@ export default class Scene extends Object3D {
 
 			'Radelska',
 			'MiniatureStreetView',
-			'VirtualMinature',
+			'VirtualMiniature',
 			'Photogrammetry',
 
 			'Cosmos',
@@ -106,6 +106,7 @@ export default class Scene extends Object3D {
 
 		} ) );
 
+
 	}
 
 	onPreFrame() {
@@ -116,7 +117,7 @@ export default class Scene extends Object3D {
 
 		if ( path === '/rasdelka' ) cameraID = 'Radelska';
 		if ( path === '/miniature-street-view' ) cameraID = 'MiniatureStreetView';
-		if ( path === '/virtual-miniature' ) cameraID = 'VirtualMinature';
+		if ( path === '/virtual-miniature' ) cameraID = 'VirtualMiniature';
 		if ( path === '/photogrammetry' ) cameraID = 'Photogrammetry';
 
 		if ( path === '/works' ) {
