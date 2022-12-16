@@ -10,38 +10,11 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/latent-voxels/ai-intro.mp4',
+				source: 'public/latent-voxels/ai01.mp4',
 				caption: 'Video Introduction'
 			}
 		},
-		{
-			type: 'S4',
-			paragraphs: `
-				The following urbanscapes emerge from the imagination of the AI
-				upon its encounter with an Ottoman miniature of Byzantine Constantinople (c.1600).
-				Through 6 different city models, algorithms reinterpret the mystical representation of Constantinople.
-				These models are rational compositions which are based on Western architectural culture.
-				They are used as oneirogens, dream generators.
-				642 city models emerge during the process of transformation.
-				Each scenario is a different oneiropolids, a dream city.
-			`,
-			media: {
-				source: 'public/Common/Artwork.jpg',
-				caption: `
-					Constantinople <br>
-					The Keys To Esoteric Knowledge <br>
-					Constantinople, c.1605
-				`
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/01.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
+
 		{
 			type: 'S3',
 			media: {
@@ -50,22 +23,7 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/02-min.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/03-min.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
+
 		{
 			type: 'S3',
 			media: {
@@ -90,62 +48,7 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/04.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/05.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/06-min.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/08.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/09.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/10-min.png',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/10.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-				caption: 'Image Caption'
-			}
-		},
+
 		{
 			type: 'S3',
 			media: {
@@ -298,5 +201,112 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/01.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/02-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/03-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/04.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/05.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/06-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/08.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/09.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/10-min.png',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/10.jpg',
+				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Image Caption'
+			}
+		},
+
+		{
+			type: 'S4',
+			paragraphs: `
+				The following urbanscapes emerge from the imagination of the AI
+				upon its encounter with an Ottoman miniature of Byzantine Constantinople (c.1600).
+				Through 6 different city models, algorithms reinterpret the mystical representation of Constantinople.
+				These models are rational compositions which are based on Western architectural culture.
+				They are used as oneirogens, dream generators.
+				642 city models emerge during the process of transformation.
+				Each scenario is a different oneiropolids, a dream city.
+			`,
+			media: {
+				source: 'public/Common/Artwork.jpg',
+				caption: `
+					Constantinople <br>
+					The Keys To Esoteric Knowledge <br>
+					Constantinople, c.1605
+				`
+			},
+		},
+
+
 	]
 };
