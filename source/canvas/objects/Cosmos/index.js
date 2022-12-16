@@ -80,20 +80,17 @@ export default class Cosmos extends Object3D {
 
 			if ( name.match( 'Right' ) ) child.visible = false;
 
-			if ( map ) {
+			if ( map ) map.wrapT = map.wrapS = RepeatWrapping;
 
-				Object.assign( child.material, {
+			Object.assign( child.material, {
 
-					map,
-					envMap,
-					roughness: .65,
-					metalness: .75
+				map: map || null,
+				envMap,
+				roughness: .65,
+				metalness: .15
 
-				} );
+			} );
 
-				map.wrapT = map.wrapS = RepeatWrapping;
-
-			}
 
 			if ( ! name.match( /(AxisMundi|Scene)/g ) ) {
 

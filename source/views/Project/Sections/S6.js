@@ -58,11 +58,11 @@ export default class S6 extends HTMLElement {
 
 			& h3 {
 				font-size: var( --font-size-l ) !important;
-				margin-bottom: 5px !important;
 			}
 
 			& p {
 				line-height: 1.2em;
+				margin-top: 5px;
 			}
 		}
 

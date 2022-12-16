@@ -10,12 +10,28 @@ export default class Map extends Object3D {
 
 	}
 
+	onPreFrame() {
+
+		const { places } = Application.store;
+		const { cosmos } = Application.scene;
+
+		if ( places !== 'cosmos' ) this.position.x = 0;
+		else this.position.x = cosmos.position.x;
+
+		this.children.forEach( child => {
+
+			child.visible = places !== 'cosmos' || child.name === 'MAP';
+
+		}, false );
+
+	}
+
 	onLoad( files ) {
 
 		if ( ! files[ 'works' ] ) return;
 
 		const { models } = Application.assets[ 'works' ];
-		const { objects } = models[ 'Scene.glb' ];
+		const { objects } = models[ 'Map.glb' ];
 		const envMap = Application.assets[ 'EnvMap' ];
 
 		this.copy( objects[ 'Scene' ] );
@@ -24,15 +40,12 @@ export default class Map extends Object3D {
 
 			if ( ! child.material ) return;
 
-			const { color } = child.material;
-			const isTitles = child.name.match( /Titles/ );
-
 			child.material = new MeshStandardMaterial( {
 
 				envMap,
-				color,
-				roughness: .15,
-				metalness: isTitles ? .25 : .75
+				color: '#666666',
+				roughness: .35,
+				metalness: .65
 
 			} );
 

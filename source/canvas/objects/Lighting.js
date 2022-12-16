@@ -23,7 +23,7 @@ export default class Lighting extends Object3D {
 
 			ambientLight: {
 				color: '#ffffff',
-				intensity: { value: .5, max: 2 },
+				intensity: { value: .15, max: 2 },
 			},
 
 			hemisphereLight: {
@@ -34,7 +34,7 @@ export default class Lighting extends Object3D {
 
 			directionalLight: {
 				color: '#ffffff',
-				intensity: { value: .5, max: 2 },
+				intensity: { value: .15, max: 2 },
 				castShadow: true,
 				shadowCameraSize: { value: 40, max: 100 },
 				shadowCameraFar: { value: 50, max: 100 },
@@ -121,14 +121,14 @@ export default class Lighting extends Object3D {
 
 		switch ( Application.store.path ) {
 
-		case '/when-gaspard-paints-a-gospel':
+		case '/rasdelka':
 
 			this.parameters.sky.topColor = '#fea85f';
 			this.parameters.sky.bottomColor = '#fcd49c';
 
 			break;
 
-		case '/augustus-ar':
+		case '/augustus':
 
 			this.parameters.sky.topColor = '#fac35f';
 			this.parameters.sky.bottomColor = '#25b69b';
@@ -151,11 +151,11 @@ export default class Lighting extends Object3D {
 
 		case '/virtual-miniature':
 
-			this.parameters.sky.topColor = '#FCD98F';
+			this.parameters.sky.topColor = '#fcd98f';
 			this.parameters.sky.bottomColor = '#ff80e3';
 
-			this.parameters.hemisphereLight.skyColor = '#e7c783';
-			this.parameters.hemisphereLight.groundColor = '#ff80e3';
+			this.parameters.hemisphereLight.skyColor = '#f9f0de';
+			this.parameters.hemisphereLight.groundColor = '#ffe5f9';
 
 			break;
 

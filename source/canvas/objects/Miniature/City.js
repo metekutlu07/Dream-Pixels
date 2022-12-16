@@ -59,6 +59,7 @@ export default class City extends Object3D {
 
 				aoMap,
 				envMap,
+				emissive: '#111111',
 				metalness: .05,
 				roughness: .5
 

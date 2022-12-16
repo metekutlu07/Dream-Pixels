@@ -129,20 +129,14 @@ export default class Header extends HTMLElement {
 		}
 
 		header-small-screen {
-			display: none;
+			top: 95px;
+
+			& [ display-menu ] {
+				display: none !important;
+			}
 
 			@media ( max-width: 1024px ) {
 				display: flex;
-			}
-
-			& default-button {
-				--blur: blur( 10px );
-				backdrop-filter: var( --blur );
-				-webkit-backdrop-filter: var( --blur );
-
-				&:not( :last-child ) {
-					margin-bottom: var( --margin-xs );
-				}
 			}
 		}
 
@@ -169,9 +163,9 @@ export default class Header extends HTMLElement {
 				& default-button {
 					transform: translateX( -200px );
 
-					[ display-menu ] & {
-						transform: translateX( 0 );
-					}
+					/* [ display-menu ] & { */
+						/* transform: translateX( 0 ); */
+					/* } */
 				}
 			}
 		}

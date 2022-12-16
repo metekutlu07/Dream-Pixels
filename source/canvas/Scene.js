@@ -114,7 +114,7 @@ export default class Scene extends Object3D {
 
 		let cameraID = 'Default';
 
-		if ( path === '/radelska' ) cameraID = 'Radelska';
+		if ( path === '/rasdelka' ) cameraID = 'Radelska';
 		if ( path === '/miniature-street-view' ) cameraID = 'MiniatureStreetView';
 		if ( path === '/virtual-miniature' ) cameraID = 'VirtualMinature';
 		if ( path === '/photogrammetry' ) cameraID = 'Photogrammetry';
@@ -156,9 +156,13 @@ export default class Scene extends Object3D {
 		this.map.visible = path === '/works' && list === 'places';
 		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
 		this.particles.visible = path === '/works' && list === 'particles';
+		this.sphere.visible = path === '/works' && places !== 'cosmos';
 
-		this.sphere.visible = ! ( path === '/works' && list === 'places' && places === 'cosmos' );
-		// this.parameters.density = Math.lerp( this.parameters.density, target, .05 );
+		this.parameters.density = 0;
+		if ( path === '/works' && list === 'grid' ) this.parameters.density = 0;
+		else if ( path === '/works' && list === 'sphere' ) this.parameters.density = .0075;
+		else if ( path === '/works' && list === 'particles' && particles === 'color-range' ) this.parameters.density = .025;
+		else if ( path === '/works' && list === 'particles' && particles === 'timeline' ) this.parameters.density = .1;
 
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );

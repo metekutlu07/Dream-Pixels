@@ -12,9 +12,9 @@ export default class Church extends Object3D {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'when-gaspard-paints-a-gospel' ] ) return;
+		if ( ! files[ 'rasdelka' ] ) return;
 
-		const { textures, models } = files[ 'when-gaspard-paints-a-gospel' ];
+		const { textures, models } = files[ 'rasdelka' ];
 		const { objects } = models[ 'Church.glb' ];
 		const { children } = objects[ 'Scene' ];
 
@@ -79,7 +79,7 @@ export default class Church extends Object3D {
 
 	async onViewChange() {
 
-		this.visible = Application.store.path === '/when-gaspard-paints-a-gospel';
+		this.visible = Application.store.path === '/rasdelka';
 
 	}
 

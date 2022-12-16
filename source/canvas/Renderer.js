@@ -9,8 +9,8 @@ export default class Renderer extends WebGLRenderer {
 			canvas: window.canvas,
 			powerPreference: 'high-performance',
 			logarithmicDepthBuffer: false,
-			antialias: true,
-			alpha: true
+			antialias: false,
+			alpha: false
 
 		} );
 

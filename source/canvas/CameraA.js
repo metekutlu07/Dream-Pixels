@@ -150,7 +150,7 @@ export default class Camera extends PerspectiveCamera {
 
 		const panel = document.querySelector( 'aside-block' );
 
-		if ( ! panel ) return;
+		if ( ! panel || this.cameraID === 'MiniatureStreetView' ) return;
 
 		const distance = this.position.length();
 		const height = 2. * distance * Math.tan( this.fov * .5 * ( Math.PI / 180 ) );

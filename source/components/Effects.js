@@ -21,7 +21,7 @@ export default class Effects extends HTMLElement {
 		effects-overlay {
 			z-index: 30;
 			position: fixed;
-			width: 100%;
+			width: 100%;x
 			height: 100%;
 			top: 0;
 			left: 0;

@@ -22,7 +22,7 @@ export default class OrbitControls extends Object3D {
 			zoomSpeed: { value: 1. },
 
 			enablePan: false,
-			panSpeed: { value: .025 },
+			panSpeed: { value: .05 },
 			maxPan: { value: 35 },
 
 			minDistance: { value: 20, min: 5, max: 50 },
@@ -84,7 +84,9 @@ export default class OrbitControls extends Object3D {
 			Object.assign( this.parameters, {
 
 				autoRotate: true,
-				autoRotateDelay: 2
+				autoRotateDelay: 5,
+				autoRotateSpeed: .25,
+				enableZoom: false
 
 			} );
 
@@ -97,7 +99,9 @@ export default class OrbitControls extends Object3D {
 			Object.assign( this.parameters, {
 
 				rotateSpeed: -2,
-				autoRotateDelay: 2
+				autoRotateDelay: 2,
+				minDistance: 1,
+				maxDistance: 1
 
 			} );
 
@@ -159,7 +163,7 @@ export default class OrbitControls extends Object3D {
 
 		case 'World':
 
-			this.lerpState.set( 35, .75, 0 );
+			this.lerpState.set( 50, .75, 0 );
 
 			Object.assign( this.parameters, {
 
@@ -168,8 +172,8 @@ export default class OrbitControls extends Object3D {
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 				minAngle: .25,
-				minDistance: 25,
-				maxDistance: 50
+				minDistance: 50,
+				maxDistance: 75
 
 			} );
 
@@ -348,8 +352,7 @@ export default class OrbitControls extends Object3D {
 
 	onInputStart( event ) {
 
-		if ( ! this.isEnabled ) return;
-		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
+		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
 
 		this.initialState.copy( this.currentState );
 		this.initialPan.copy( this.currentPan );
@@ -410,10 +413,7 @@ export default class OrbitControls extends Object3D {
 
 	onWheel( event ) {
 
-		if ( ! this.isEnabled ) return;
-
-		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
-
+		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
 		if ( ! this.parameters.enableZoom ) return;
 
 		const { zoomSpeed } = this.parameters;
@@ -437,6 +437,12 @@ export default class OrbitControls extends Object3D {
 			.sub( this.initialState.position );
 
 		this.autoRotateDelay = 0;
+
+	}
+
+	isOverCanvas( event ) {
+
+		return event.composedPath()[ 0 ].matches( 'canvas,section-type-1' );
 
 	}
 
