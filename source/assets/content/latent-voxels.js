@@ -10,7 +10,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/latent-voxels/ai01.mp4',
+				source: 'public/latent-voxels/latent_intro.mp4',
 				caption: 'Video Introduction'
 			}
 		},
