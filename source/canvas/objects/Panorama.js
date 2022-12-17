@@ -15,7 +15,7 @@ export default class Panorama extends Mesh {
 
 	constructor() {
 
-		const geometry = new SphereGeometry( 15 );
+		const geometry = new SphereGeometry( 32 );
 		const material = new PanoramaBasicMaterial( { side: BackSide } );
 
 		super( geometry, material );
@@ -77,8 +77,8 @@ export default class Panorama extends Mesh {
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
 
-		// const intersect = this.raycaster.intersectObject( this );
-		// console.log( intersect[ 0 ].point );
+		const intersect = this.raycaster.intersectObject( this );
+		if ( intersect[ 0 ] ) console.log( intersect[ 0 ].point );
 
 	}
 

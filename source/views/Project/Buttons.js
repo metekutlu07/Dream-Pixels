@@ -1,7 +1,5 @@
 import { Vector3 } from 'three';
 
-import Button from '~/components/Button';
-
 export default class Buttons extends HTMLElement {
 
 	onConnected() {
@@ -64,13 +62,33 @@ export default class Buttons extends HTMLElement {
 			height: 100%;
 			width: 100%;
 
-			& default-button {
+			& button {
 				top: 0;
 				left: 0;
 				pointer-events: all;
 				position: fixed;
-				transition: opacity 1s var( --timing-function ) !important;
-				display: none;
+				transition: opacity .5s var( --timing-function );
+				opacity: 0;
+				display: flex;
+				flex-direction: column;
+				pointer-events: none;
+
+				&[ clickable ] {
+					cursor: pointer;
+				}
+
+				&[ visible ] {
+					opacity: 1;
+					pointer-events: all;
+				}
+			}
+
+			& img {
+				max-width: 250px;
+
+				&:not( :last-child ) {
+					margin-bottom: 5px;
+				}
 			}
 		}
 
@@ -78,17 +96,28 @@ export default class Buttons extends HTMLElement {
 
 		const innerHTML = content.points.map( point => {
 
-			return Button.render( {
+			const attributes = [
 
-				labels: [ point.title ],
-				attributes: [
-					'@click|section-type-5',
-					'#buttons|section-type-5',
-					'#buttons|panorama-buttons',
-					'label-visible',
-				]
+				'@click|section-type-5',
+				'#buttons|section-type-5',
+				'#buttons|panorama-buttons'
 
-			} );
+			];
+
+			const { title, paragraphs } = point;
+			const path = `/public/miniature-street-view/Titles/${ title }`;
+
+			if ( paragraphs ) attributes.push( 'clickable' );
+
+			return html`
+
+				<button ${ attributes.join( ' ' ) }>
+					<img src="${ path }/en.png" alt="${ point.title }" onerror='this.style.display = "none"'>
+					<img src="${ path }/ot.png" alt="${ point.title }" onerror='this.style.display = "none"'>
+					<img src="${ path }/gr.png" alt="${ point.title }" onerror='this.style.display = "none"'>
+				</button>
+
+			`;
 
 		} );
 

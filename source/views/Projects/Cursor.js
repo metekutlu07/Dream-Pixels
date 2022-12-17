@@ -94,10 +94,11 @@ export default class Cursor extends HTMLElement {
 			}
 
 			& h3 {
-				font-family: var( --font-family-a );
-				font-size: var( --font-size-m );
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-xs );
 				width: initial;
-				margin-bottom: 2px;
+				font-weight: bold;
+				/* margin-bottom: 2px; */
 
 				& span {
 					font-family: var( --font-family-b );
@@ -105,9 +106,14 @@ export default class Cursor extends HTMLElement {
 					opacity: .25;
 					display: none;
 				}
+
+				&:before {
+					content: 'Image: '
+				}
 			}
 
 			& h4 {
+				margin-top: 4px;
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
 				max-width: 400px;
@@ -122,10 +128,14 @@ export default class Cursor extends HTMLElement {
 			}
 
 			& h5 {
-				margin-top: 5px;
+				margin-top: 4px;
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
 				opacity: .5;
+
+				&:before {
+					content: 'Project: '
+				}
 			}
 
 		}
