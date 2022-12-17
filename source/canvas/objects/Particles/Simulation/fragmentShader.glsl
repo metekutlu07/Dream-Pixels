@@ -30,16 +30,19 @@ void main() {
 
 	}
 
-	if ( life > .5 && life < lifespan ) {
+	if ( life > .15 && life < lifespan ) {
 
-		vec3 coordinates = position * curlSize;
 		float persistence = .1 + life * .1;
 
 		float offset = deltaTime > .0 ?
 			cubicOut( 1. - life / lifespan ) * speed :
 			cubicOut( 1. - life / lifespan ) * speed;
 
-		position += getCurlNoise( coordinates, .0, persistence ) * offset;
+		vec3 coordinatesA = position * curlSize * 2.;
+		position += getCurlNoise( coordinatesA, .0, persistence ) * offset * .15;
+
+		vec3 coordinatesB = position * curlSize * 5.;
+		position += getCurlNoise( coordinatesB, .0, persistence ) * offset * .5;
 
 	}
 

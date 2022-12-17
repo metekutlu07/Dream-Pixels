@@ -140,7 +140,7 @@ export default class Particles extends Points {
 		this.isHoverable = false;
 
 		clearTimeout( this.timeout );
-		this.timeout = setTimeout( this.onAnimationEnd, 9 * 1e3 );
+		this.timeout = setTimeout( this.onAnimationEnd, 8 * 1e3 );
 
 	}
 
@@ -153,7 +153,7 @@ export default class Particles extends Points {
 
 		const { particles, list, path } = Application.store;
 		const active = ( list === 'particles' && particles === 'timeline' ) || path === '/contact';
-		const scale = active ? .5 : 1;
+		const scale = active ? .25 : 1;
 		this.material.size = this.size * scale;
 
 		if ( this.tube ) this.tube.visible = list === 'particles' && particles === 'timeline';
@@ -304,7 +304,7 @@ export default class Particles extends Points {
 				.applyMatrix4( camera.matrixWorldInverse );
 
 			const scale = size.y * .5;
-			let pointSize = this.size * .5;
+			let pointSize = this.material.size * .5;
 
 			if ( this.material.sizeAttenuation ) pointSize *= ( scale / -coordinatesB.z );
 			if ( cursor.distanceTo( coordinatesA ) > pointSize ) continue;

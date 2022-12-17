@@ -12,7 +12,8 @@ import {
 	Vector3,
 	CatmullRomCurve3,
 	NearestFilter,
-	NoBlending
+	NoBlending,
+	RGB_PVRTC_2BPPV1_Format
 
 } from 'three';
 
@@ -159,7 +160,7 @@ export default class Simulation {
 				dataA[ i * 4 + 2 ] = z;
 				dataA[ i * 4 + 3 ] = w - .25;
 
-				dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 3;
+				dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 2;
 				dataB[ i * 4 + 1 ] = .035 * 100;
 
 			}
