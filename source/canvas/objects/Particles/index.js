@@ -140,7 +140,7 @@ export default class Particles extends Points {
 		this.isHoverable = false;
 
 		clearTimeout( this.timeout );
-		this.timeout = setTimeout( this.onAnimationEnd, 10 * 1e3 );
+		this.timeout = setTimeout( this.onAnimationEnd, 9 * 1e3 );
 
 	}
 

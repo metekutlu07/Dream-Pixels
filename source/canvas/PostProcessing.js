@@ -56,7 +56,7 @@ export default class PostProcessing {
 			},
 
 			linesPass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: .5, max: 1 },
 			},
 
@@ -66,7 +66,7 @@ export default class PostProcessing {
 			},
 
 			rgbShiftPass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: 1e-5, max: 1e-2 },
 				angle: { value: 0, max: 1 }
 			},
