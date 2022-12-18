@@ -38,7 +38,8 @@ export default class Exploration extends HTMLElement {
 			}
 
 			[ view-enter ][ list="sphere" ] &,
-			[ view-enter ][ list="particles" ] & {
+			[ view-enter ][ list="particles" ] &,
+			[ view-enter ][ list="places" ][ places="cosmos" ] & {
 				opacity: 1;
 				/* transition-delay: .5s; */
 				pointer-events: all;

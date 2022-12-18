@@ -57,6 +57,9 @@ export default class Title extends MSDFText {
 
 		this.material.opacity = 0;
 
+		const { path, list } = Application.store;
+		if ( ! ( path === '/works' && list === 'particles' ) ) return;
+
 		this.animation = anime( {
 
 			targets: this.material,

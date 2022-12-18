@@ -134,24 +134,32 @@ export default class Particles extends Points {
 
 	onModeChange() {
 
+		this.isHoverable = false;
 		this.simulation.toggle( true );
 
-	}
+		const { path, list, particles } = Application.store;
+		this.isVisible = (
 
-	onPreUpdate() {
+			( path === '/works' && list === 'particles' ) ||
+			( path === '/contact' || path === '/about' )
 
-		const { path, list } = Application.store;
-		const isVisible = ( path === '/works' && list === 'particles' ) ||
-			path === '/contact';
+		);
 
-		if ( this.isVisible === isVisible || ! this.titles ) return;
-		this.isVisible = isVisible;
+		const isColorRange = (
 
-		if ( this.isVisible ) this.visible = true;
+			path === '/works' &&
+			list === 'particles' &&
+			particles === 'color-range'
+
+		);
+
+		this.visible = this.isVisible;
 		this.isHoverable = false;
 
+		const duration = isColorRange ? 8 : 3;
+
 		clearTimeout( this.timeout );
-		this.timeout = setTimeout( this.onAnimationEnd, 8 * 1e3 );
+		this.timeout = setTimeout( this.onAnimationEnd, duration * 1e3 );
 
 	}
 
@@ -214,20 +222,18 @@ export default class Particles extends Points {
 
 	onAnimationEnd() {
 
-		if ( this.isVisible ) {
+		this.simulation.setPoints( this.points );
+		this.isHoverable = true;
 
-			this.simulation.setPoints( this.points );
-			this.isHoverable = true;
+		if ( ! this.images.length ) return;
 
-			Object
-				.values( this.images )
-				.map( ( { box, points } ) => box.setFromPoints( points ) );
+		Object
+			.values( this.images )
+			.map( ( { box, points } ) => box.setFromPoints( points ) );
 
-			Object
-				.values( this.projects )
-				.map( ( { box, points } ) => box.setFromPoints( points ) );
-
-		} else this.visible = false;
+		Object
+			.values( this.projects )
+			.map( ( { box, points } ) => box.setFromPoints( points ) );
 
 	}
 

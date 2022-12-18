@@ -79,7 +79,6 @@ export default class Simulation {
 		];
 
 		this.curlSize = .1;
-		this.duration = 5;
 		this.deltaTime = 0;
 		this.needsUpdate = true;
 
@@ -139,6 +138,17 @@ export default class Simulation {
 	}
 
 	async toggle( isVisible ) {
+
+		const { path, list, particles } = Application.store;
+		const isColorRange = (
+
+			path === '/works' &&
+			list === 'particles' &&
+			particles === 'color-range'
+
+		);
+
+		this.duration = isColorRange ? 5 : 0;
 
 		if ( isVisible ) {
 
