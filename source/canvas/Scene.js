@@ -87,6 +87,8 @@ export default class Scene extends Object3D {
 		this.cameras = Object.fromEntries( [
 
 			'Default',
+			'Contact',
+			'About',
 
 			'Radelska',
 			'MiniatureStreetView',
@@ -101,7 +103,7 @@ export default class Scene extends Object3D {
 
 		].map( cameraID => {
 
-			const Camera = cameraID === 'Timeline' ? CameraB : CameraA;
+			const Camera = cameraID.match( /Timeline|Contact|About/g ) ? CameraB : CameraA;
 			return [ cameraID, new Camera( cameraID ) ];
 
 		} ) );
@@ -119,6 +121,8 @@ export default class Scene extends Object3D {
 		if ( path === '/miniature-street-view' ) cameraID = 'MiniatureStreetView';
 		if ( path === '/virtual-miniature' ) cameraID = 'VirtualMiniature';
 		if ( path === '/photogrammetry' ) cameraID = 'Photogrammetry';
+		if ( path === '/contact' ) cameraID = 'Contact';
+		if ( path === '/about' ) cameraID = 'About';
 
 		if ( path === '/works' ) {
 
@@ -156,8 +160,12 @@ export default class Scene extends Object3D {
 		this.images.visible = path === '/works' && list === 'sphere';
 		this.map.visible = path === '/works' && list === 'places';
 		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
-		this.particles.visible = path === '/works' && list === 'particles';
 		this.sphere.visible = path === '/works' && places !== 'cosmos';
+
+		this.particles.visible = (
+			( path === '/works' && list === 'particles' ) ||
+			( path === '/contact' || path === '/about' )
+		);
 
 		this.parameters.density = 0;
 		if ( path === '/works' && list === 'grid' ) this.parameters.density = 0;

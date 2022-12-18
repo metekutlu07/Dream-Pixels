@@ -2,14 +2,16 @@ export default class Preloader extends HTMLElement {
 
 	onUpdate() {
 
-		const { percentLoaded } = Application.assets;
-		const { counter_text, circles } = this.elements;
+		const { percentLoaded, isLoading } = Application.assets;
+		const { counter_text, circles, square } = this.elements;
 		counter_text.textContent = ( '000' + percentLoaded ).substr( -3 );
 
 		const circle = circles[ circles.length - 1 ];
 		const circumference = circle.getAttribute( 'circumference' );
 		const strokeDashoffset = circumference * ( 1 - percentLoaded / 100 );
 		circle.style.strokeDashoffset = strokeDashoffset;
+
+		square.toggleAttribute( 'visible', isLoading );
 
 	}
 
@@ -46,6 +48,7 @@ export default class Preloader extends HTMLElement {
 				opacity: 0;
 				background: var( --color-black );
 				transition: opacity .5s var( --timing-function );
+				transition-delay: .5s;
 			}
 
 			[ loading ] & {
@@ -56,13 +59,22 @@ export default class Preloader extends HTMLElement {
 				& svg,
 				& text,
 				& preloader-counter,
-				& preloader-square {
+				& preloader-square[ visible ] {
 					opacity: 1 !important;
 					transform: scale( 1 ) !important;
 				}
 
 				&:before {
 					opacity: 1;
+					transition-delay: 0s;
+				}
+
+				& h1 {
+					transition: all .5s var( --timing-function );
+				}
+
+				& h2 {
+					transition: all .6s var( --timing-function );
 				}
 
 				& preloader-text {
@@ -75,9 +87,9 @@ export default class Preloader extends HTMLElement {
 				font-size: 6rem;
 				color: var( --color-white );
 				font-family: var( --font-family-a );
-				transition: all .9s var( --timing-function );
+				transition: all .6s var( --timing-function );
 				opacity: 0;
-				transform: scale( .95 );
+				transform: scale( .98 );
 
 				@media ( max-width: 1024px ) {
 					font-size: 4.5rem;
@@ -88,10 +100,10 @@ export default class Preloader extends HTMLElement {
 				font-size: 2.5rem;
 				color: var( --color-white );
 				font-family: var( --font-family-b );
-				transition: all .75s var( --timing-function );
+				transition: all .5s var( --timing-function );
 				margin-bottom: var( --margin-xs );
 				opacity: 0;
-				transform: scale( .95 );
+				transform: scale( .98 );
 
 				@media ( max-width: 1024px ) {
 					font-size: 1.5rem;
@@ -248,7 +260,7 @@ export default class Preloader extends HTMLElement {
 			<h1>${ title }</h1>
 			<h2>${ subtitle }</h2>
 
-			<preloader-square>
+			<preloader-square #square>
 
 				<preloader-counter>
 					<counter-text #>000</counter-text>

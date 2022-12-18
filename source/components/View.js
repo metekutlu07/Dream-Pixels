@@ -31,8 +31,6 @@ export default class View extends HTMLElement {
 		Application.store.set( 'view-enter', false );
 		Application.store.set( 'view-exit', true );
 
-		// await Application.time.wait( 100 );
-
 		Application.audio.play( '004.m4a' );
 		Application.store.set( 'loading', true );
 

@@ -12,8 +12,7 @@ import {
 	Vector3,
 	CatmullRomCurve3,
 	NearestFilter,
-	NoBlending,
-	RGB_PVRTC_2BPPV1_Format
+	NoBlending
 
 } from 'three';
 

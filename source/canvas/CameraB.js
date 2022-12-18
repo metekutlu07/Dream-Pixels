@@ -2,18 +2,19 @@ import { PerspectiveCamera, Object3D, Vector3 } from 'three';
 
 export default class Camera extends PerspectiveCamera {
 
-	constructor() {
+	constructor( cameraID ) {
 
 		super( 45, 1, .01, 250 );
 
 		Application.events.add( this );
 
+		this.cameraID = cameraID;
 		this.object = new Object3D();
 		this.target = new Vector3();
 
 		this.scroll = 0;
 		this.progress = 0;
-		this.friction = .1;
+		this.friction = cameraID === 'Timeline' ? .1 : .025;
 
 	}
 
@@ -34,8 +35,8 @@ export default class Camera extends PerspectiveCamera {
 		this.updateProjectionMatrix();
 
 		const offsetY = .1;
-
 		this.progress = Math.lerp( this.progress, this.scroll, .01 );
+
 		const progress = Math.euclideanModulo( this.progress, 1 );
 		const position = curve.getPointAt( progress, Vector3.get() );
 		position.y += offsetY;
@@ -49,6 +50,8 @@ export default class Camera extends PerspectiveCamera {
 		Vector3.release( position, target );
 
 		this.isScrolling = this.position.distanceTo( position ) > .1;
+
+		if ( this.cameraID !== 'Timeline' ) this.scroll += 1e-4;
 
 	}
 

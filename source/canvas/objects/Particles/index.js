@@ -152,7 +152,11 @@ export default class Particles extends Points {
 		this.material.uniforms[ 'simulation' ].value = texture;
 
 		const { particles, list, path } = Application.store;
-		const active = ( list === 'particles' && particles === 'timeline' ) || path === '/contact';
+		const active = (
+			( list === 'particles' && particles === 'timeline' ) ||
+			( path === '/contact' || path === '/about' )
+		);
+
 		const scale = active ? .25 : 1;
 		this.material.size = this.size * scale;
 
@@ -160,7 +164,29 @@ export default class Particles extends Points {
 
 	}
 
+	onInputStart() {
+
+		const { elapsedTime } = Application.time;
+		this.startTime = elapsedTime;
+
+	}
+
+	onInputEnd() {
+
+		this.startTime = null;
+
+	}
+
 	onPostUpdate() {
+
+		const { elapsedTime } = Application.time;
+
+		if ( this.startTime && elapsedTime - this.startTime > 100 ) {
+
+			Application.cursor.reset();
+			return;
+
+		}
 
 		if ( ! Application.cursor || ! this.isVisible ) return;
 

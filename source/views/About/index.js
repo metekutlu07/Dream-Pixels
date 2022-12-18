@@ -18,7 +18,7 @@ export default class About extends View {
 			align-items: center;
 			justify-content: center;
 			font-size: var( --font-size-xl );
-			background: rgba( 0, 0, 0, .75 );
+			background: rgba( 0, 0, 0, .5 );
 
 			& p {
 				max-width: 50%;

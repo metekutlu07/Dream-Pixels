@@ -20,7 +20,7 @@ export default class Contact extends View {
 			font-size: var( --font-size-xl );
 			text-align: center;
 			user-select: text;
-			background: rgba( 0, 0, 0, .75 );
+			background: rgba( 0, 0, 0, .5 );
 
 			& h4 {
 				margin-bottom: var( --margin-s );

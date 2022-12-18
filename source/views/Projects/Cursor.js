@@ -16,6 +16,12 @@ export default class Cursor extends HTMLElement {
 
 	}
 
+	onViewChange() {
+
+		this.reset();
+
+	}
+
 	onUpdate() {
 
 		const { cursor } = this.elements;

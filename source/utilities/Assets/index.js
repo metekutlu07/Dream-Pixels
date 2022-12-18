@@ -67,7 +67,12 @@ export default class Assets {
 			.filter( path => ! this.files[ path ] )
 			.filter( path => this.manifest.packs[ path ] );
 
-		if ( ! paths.length ) return;
+		if ( ! paths.length ) {
+
+			await Application.time.wait( 500 );
+			return;
+
+		}
 
 		this.isLoading = true;
 		this.progress = 0;

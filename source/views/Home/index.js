@@ -32,6 +32,10 @@ export default class Home extends View {
 				position: relative !important;
 			}
 
+			& video {
+				opacity: .5;
+			}
+
 			& h3 {
 				font-size: var( --font-size-xxl );
 				font-family: var( --font-family-a );
@@ -71,6 +75,10 @@ export default class Home extends View {
 				&:not( :last-child ) {
 					margin-right: -1px;
 				}
+			}
+
+			& span {
+				margin-bottom: -3px;
 			}
 		}
 
