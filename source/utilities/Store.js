@@ -40,6 +40,8 @@ export default class Parameter {
 
 	onStart() {
 
+		if ( this.name !== 'store' ) return;
+
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
 		this.set( 'list', 'particles' );
 		this.set( 'particles', 'color-range' );
@@ -60,7 +62,11 @@ export default class Parameter {
 
 		} else html.style.setProperty( name, value );
 
+		const isMode = !! name.match( /list|particles|places/g );
+		const isDifferent = this[ name ] !== value;
 		this[ name ] = value;
+
+		if ( isMode && isDifferent ) Application.events.dispatch( 'onModeChange' );
 
 	}
 

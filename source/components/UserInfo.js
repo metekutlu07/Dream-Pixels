@@ -78,6 +78,10 @@ export default class UserInfo extends HTMLElement {
 			opacity: 0;
 			border: 1px solid var( --color-white );
 
+			&:first-child {
+				bottom: 100px;
+			}
+
 			& h5 {
 				font-size: var( --font-size-m );
 			}

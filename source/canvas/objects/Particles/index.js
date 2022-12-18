@@ -123,6 +123,17 @@ export default class Particles extends Points {
 			} );
 
 		this.geometry.attributes.color.needsUpdate = true;
+
+	}
+
+	onViewChange() {
+
+		this.onModeChange();
+
+	}
+
+	onModeChange() {
+
 		this.simulation.toggle( true );
 
 	}

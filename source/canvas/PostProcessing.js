@@ -130,7 +130,7 @@ export default class PostProcessing {
 		this.composer.render();
 
 		const { path } = Application.store;
-		this.parameters.afterImagePass.enabled = !! path.match( /contact|about/g );
+		this.parameters.afterImagePass.enabled = path === '/contact' || path === '/about';
 
 	}
 
