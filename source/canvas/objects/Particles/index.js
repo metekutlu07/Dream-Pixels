@@ -225,7 +225,7 @@ export default class Particles extends Points {
 		this.simulation.setPoints( this.points );
 		this.isHoverable = true;
 
-		if ( ! this.images.length ) return;
+		if ( ! this.images ) return;
 
 		Object
 			.values( this.images )
