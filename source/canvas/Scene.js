@@ -13,6 +13,7 @@ import Miniature from './objects/Miniature';
 import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
 import Cosmos from './objects/Cosmos';
+import Cup from './objects/Cup';
 
 import Sphere from './objects/Sphere';
 import Objects from './objects/Objects';
@@ -84,6 +85,9 @@ export default class Scene extends Object3D {
 		this.cosmos = new Cosmos();
 		this.add( this.cosmos );
 
+		this.cup = new Cup();
+		this.add( this.cup );
+
 		this.cameras = Object.fromEntries( [
 
 			'Default',
@@ -107,7 +111,6 @@ export default class Scene extends Object3D {
 			return [ cameraID, new Camera( cameraID ) ];
 
 		} ) );
-
 
 	}
 
@@ -159,8 +162,8 @@ export default class Scene extends Object3D {
 		this.objects.visible = path === '/works' && list === 'grid';
 		this.images.visible = path === '/works' && list === 'sphere';
 		this.map.visible = path === '/works' && list === 'places';
+		this.sphere.visible = ! ( path === '/works' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
 		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
-		this.sphere.visible = path === '/works' && places !== 'cosmos';
 
 		this.particles.visible = (
 			( path === '/works' && list === 'particles' ) ||

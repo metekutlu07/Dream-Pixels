@@ -39,11 +39,12 @@ export default class View extends HTMLElement {
 		Application.store.set( 'path', path );
 		Application.store.set( 'route', route.path );
 
-		Application.events.dispatch( 'onViewChange', this );
 		Application.store.set( 'loading', false );
 		Application.store.set( 'view-exit', false );
 
-		// await Application.time.wait( 100 );
+		await Application.time.wait( 500 );
+
+		Application.events.dispatch( 'onViewChange', this );
 
 		document.body.scrollTop = 0;
 		Application.audio.play( '003.m4a' );

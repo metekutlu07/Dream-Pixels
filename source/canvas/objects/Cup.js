@@ -1,0 +1,79 @@
+import { Mesh, BufferGeometry, MeshStandardMaterial } from 'three';
+
+export default class Cup extends Mesh {
+
+	constructor() {
+
+		const geometry = new BufferGeometry();
+		const material = new MeshStandardMaterial();
+
+		super( geometry, material );
+
+		Application.events.add( this );
+
+	}
+
+	async onViewChange() {
+
+		this.onModeChange();
+
+	}
+
+	async onModeChange() {
+
+		if ( this.animation ) this.animation.remove( this.position );
+
+		const { path, list, places } = Application.store;
+		this.visible = path === '/works' && list === 'places' && places === 'cosmos';
+		if ( ! this.visible ) return;
+
+		this.position.y = -500;
+
+		this.animation = await anime( {
+
+			targets: this.position,
+			easing: 'easeInOutExpo',
+			duration: 3500,
+			delay: 250,
+			y: -1250,
+
+		} ).finished;
+
+		this.visible = false;
+
+	}
+
+	onLoad( files ) {
+
+		if ( ! files[ 'works' ] ) return;
+
+		this.spheres = {};
+
+		const { models, textures } = Application.assets[ 'works' ];
+		const { objects } = models[ 'Cup/Model.glb' ];
+		this.copy( objects[ 'Cup' ] );
+
+		const envMap = Application.assets[ 'EnvMap' ];
+
+		textures[ 'Cup/Albedo.jpg' ].flipY = false;
+		textures[ 'Cup/AO.jpg' ].flipY = false;
+		textures[ 'Cup/Roughness.jpg' ].flipY = false;
+		textures[ 'Cup/Metalness.jpg' ].flipY = false;
+		textures[ 'Cup/Normal.jpg' ].flipY = false;
+
+		Object.assign( this.material, {
+
+			envMap,
+			map: textures[ 'Cup/Albedo.jpg' ],
+			aoMap: textures[ 'Cup/AO.jpg' ],
+			roughnessMap: textures[ 'Cup/Roughness.jpg' ],
+			metalnessMap: textures[ 'Cup/Metalness.jpg' ],
+			normalMap: textures[ 'Cup/Normal.jpg' ]
+
+		} );
+
+		this.scale.setScalar( 25 );
+
+	}
+
+}

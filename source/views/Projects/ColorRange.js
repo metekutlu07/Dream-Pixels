@@ -65,6 +65,7 @@ export default class ColorRange extends HTMLElement {
 	onPreFrame() {
 
 		if ( ! this.gradient ) this.onResize();
+		if ( ! Application.store.range ) return;
 
 		const { handles } = this.elements;
 

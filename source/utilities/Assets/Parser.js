@@ -81,11 +81,16 @@ export default class Parser {
 
 	}
 
-	async getImage( buffer ) {
+	async getImage( buffer, file ) {
 
 		const image = new Image();
 		image.src = await this.getURI( buffer );
-		await image.decode().catch( error => console.log( error ) );
+		await image.decode().catch( error => {
+
+			console.log( file );
+			console.log( error );
+
+		} );
 
 		return image;
 
@@ -109,9 +114,9 @@ export default class Parser {
 
 	}
 
-	async getTexture( buffer ) {
+	async getTexture( buffer, file ) {
 
-		const image = await this.getImage( buffer );
+		const image = await this.getImage( buffer, file );
 		const texture = new Texture( image );
 
 		Object.assign( texture, {

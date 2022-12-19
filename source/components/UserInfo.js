@@ -74,12 +74,12 @@ export default class UserInfo extends HTMLElement {
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-			transition: opacity .1s;
+			transition: opacity .75s;
 			opacity: 0;
 			border: 1px solid var( --color-white );
 
 			&:first-child {
-				bottom: 100px;
+				bottom: 90px;
 			}
 
 			& h5 {

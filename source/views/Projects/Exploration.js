@@ -114,7 +114,7 @@ export default class Exploration extends HTMLElement {
 
 		return html`
 
-		<projects-exploration blurred-background @click>
+		<projects-exploration open blurred-background @click>
 
 			<exploration-title>
 				<h3>${ title }</h3>

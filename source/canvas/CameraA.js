@@ -126,7 +126,7 @@ export default class Camera extends PerspectiveCamera {
 			break;
 
 		case 'Cosmos':
-			Object.assign( this.parameters, { fov: 45, near: 10, far: 1000 } );
+			Object.assign( this.parameters, { fov: 45, near: 10, far: 1500 } );
 			break;
 
 		}

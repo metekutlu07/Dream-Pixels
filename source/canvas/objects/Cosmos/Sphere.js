@@ -1,72 +1,166 @@
 import {
 
 	Object3D,
-	Mesh,
-	SphereGeometry,
 	MeshStandardMaterial,
 	RepeatWrapping,
-	DoubleSide
+	Box3,
+	Vector3
 
 } from 'three';
 
+import Title from './Title';
+
 export default class Sphere extends Object3D {
 
-	constructor( index, map ) {
+	constructor( sphereID, parameters ) {
 
 		super();
 
 		Application.events.add( this );
 
-		const outerRadius = 60 + index * 8;
-		// const thickness = 2.5;
-		// const innerRadius = outerRadius - thickness;
+		this.titles = [];
 
-		const widthSegments = index === 0 ? 16 : 32;
-		const heightSegments = index === 0 ? 16 : 32;
+		const { textures } = Application.assets[ 'works' ];
+		const envMap = Application.assets[ 'EnvMap' ];
+		const map = textures[ `Cosmos/Patterns/${ sphereID }.jpg` ];
+		if ( map ) map.wrapT = map.wrapS = RepeatWrapping;
 
-		const geometry = new SphereGeometry( outerRadius, widthSegments, heightSegments );
-		const material = new MeshStandardMaterial( { side: DoubleSide } );
-		this.exterior = new Mesh( geometry, material );
-		this.add( this.exterior );
+		const material = new MeshStandardMaterial( {
 
-		// this.interior = new Mesh( new SphereGeometry( innerRadius, widthSegments, heightSegments ) );
-		// this.add( this.interior );
+			map: map || null,
+			envMap,
+			transparent: true,
+			roughness: .65,
+			metalness: .15
 
-		// this.ring = new Mesh( new RingGeometry( innerRadius, outerRadius ) );
-		// this.add( this.ring );
+		} );
 
-		if ( map ) {
+		if ( parameters.rightHalf ) {
 
-			map.wrapT = map.wrapS = RepeatWrapping;
-			map.repeat.set( 4, 4 );
-			material.map = map;
+			this.rightHalf = parameters.rightHalf;
+			this.add( this.rightHalf );
 
-		} else if ( index === 0 ) {
+			this.leftHalf = parameters.leftHalf;
+			this.add( this.leftHalf );
 
-			material.wireframe = true;
-			material.emissive.set( '#ffffff' );
+		} else {
 
-		} else this.visible = false;
+			this.mesh = parameters.mesh;
+			this.add( this.mesh );
 
-		material.onBeforeCompile = this.onBeforeCompile;
+		}
+
+		this.traverse( child => child.material = material.clone() );
+
+		this.boundingBox = new Box3();
+		this.size = new Vector3();
+
+		this.boundingBox.setFromObject( this );
+		this.boundingBox.getSize( this.size );
+		this.radius = this.size.y * .5;
+
+		this.title = new Title( sphereID );
+		this.title.position.y = this.radius + 35;
+		this.titles.push( this.title );
+		this.add( this.title );
+
+		if ( sphereID === 'Zodiac' ) this.setZodiacs();
 
 	}
 
-	onBeforeCompile( shader ) {
+	async enter() {
 
-		const replacement = `
+		const delay = 1250 + ( 11 - this.index ) * 75;
+		if ( this.leftHalf ) this.setHalves( delay );
+		this.titles.forEach( title => title.enter( delay ) );
 
-			#ifdef USE_MAP
+	}
 
-			vec4 sampledDiffuseColor = texture2D( map, vUv );
-			if ( vUv.x < 2. ) discard;
-			diffuseColor *= sampledDiffuseColor;
+	setHalves( delay ) {
 
-			#endif
+		this.leftHalf.position.x = 0;
+		this.rightHalf.position.x = 0;
+		this.rightHalf.material.opacity = 1;
 
-		`;
+		const targets = [
 
-		shader.fragmentShader = shader.fragmentShader.replace( '#include <map_fragment>', replacement );
+			this.leftHalf.position,
+			this.rightHalf.position,
+			this.rightHalf.material
+
+		];
+
+		if ( this.animations ) {
+
+			this.animations.forEach( animation => animation.remove( targets ) );
+			this.animations = null;
+
+		}
+
+		const x = ( this.index + 1 ) / 12 * 750;
+		const opacity = 0;
+		const parameters = {
+
+			delay,
+			easing: 'easeInOutExpo',
+			duration: 2000,
+
+		};
+
+		this.animations = [
+
+			anime( { ...parameters, targets: this.leftHalf.position, x: -x } ),
+			anime( { ...parameters, targets: this.rightHalf.position, x } ),
+			anime( { ...parameters, targets: this.rightHalf.material, opacity } ),
+
+		];
+
+	}
+
+	setZodiacs() {
+
+		const { textures } = Application.assets[ 'works' ];
+		const radius = this.radius + 25;
+
+		Object.entries( textures ).filter( entry => {
+
+			const [ textureID ] = entry;
+			return textureID.match( 'Cosmos/Zodiacs/' );
+
+		} ).map( entry => {
+
+			const [ textureID ] = entry;
+			if ( ! textureID.match( 'Cosmos/Zodiacs/' ) ) return;
+
+			const [ number, signID ] = textureID
+				.replace( 'Cosmos/Zodiacs/', '' )
+				.replace( /\s/g, '' )
+				.replace( /.png/g, '' )
+				.split( '-' );
+
+			const index = parseInt( number );
+			const step = Math.PI * 2 / 12;
+			const angle = ( index + .5 ) * step;
+
+			const title = new Title( signID );
+			this.add( title );
+
+			const y = Math.cos( angle ) * radius;
+			const z = Math.sin( angle ) * radius;
+			title.position.set( 0, y, z );
+
+			this.titles.push( title );
+
+			return title;
+
+		} );
+
+	}
+
+	onPreFrame() {
+
+		const { x } = ( this.leftHalf || this.mesh ).position;
+		this.titles.forEach( title => title.position.x = x );
 
 	}
 

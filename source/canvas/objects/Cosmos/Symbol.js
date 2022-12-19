@@ -9,7 +9,9 @@ export default class Symbol extends Mesh {
 
 			opacity: 1,
 			transparent: true,
-			emissive: '#666666'
+			emissive: '#666666',
+			roughness: .65,
+			metalness: .15
 
 		} );
 
@@ -19,6 +21,12 @@ export default class Symbol extends Mesh {
 		this.symbolID = symbolID;
 
 		Application.events.add( this );
+
+	}
+
+	onPreFrame() {
+
+		this.material.opacity = this.parent.material.opacity;
 
 	}
 

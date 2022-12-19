@@ -148,6 +148,13 @@ export default class OrbitControls extends Object3D {
 
 			this.lerpState.set( 600, .5, .5 );
 
+			this.offsetState.radius = 750;
+			this.offsetState.phi = -.75;
+			this.offsetState.theta = -2.75;
+
+			this.currentPan.y = -200;
+			this.lerpPan.y = -200;
+
 			Object.assign( this.parameters, {
 
 				rotateSpeed: 5,
@@ -155,7 +162,9 @@ export default class OrbitControls extends Object3D {
 				minAngle: .15,
 				maxAngle: .65,
 				minDistance: 500,
-				maxDistance: 750
+				maxDistance: 750,
+				autoRotate: true,
+				autoRotateDelay: 3
 
 			} );
 
@@ -308,17 +317,42 @@ export default class OrbitControls extends Object3D {
 		const { offset, target } = this.camera.parameters;
 
 		offset.x = this.offset.x + this.lerpPan.x;
-		offset.y = this.offset.y;
+		offset.y = this.offset.y + this.lerpPan.y;
 		offset.z = this.offset.z + this.lerpPan.z;
 
 		target.x = this.lerpPan.x;
+		target.y = this.lerpPan.y;
 		target.z = this.lerpPan.z;
+
+	}
+
+	async onModeChange() {
+
+		if ( this.camera.cameraID !== 'Cosmos' ) return;
+
+		this.onReset();
+
+		if ( this.animation ) this.animation.remove( this.offsetState );
+
+		this.animation = await anime( {
+
+			targets: [ this.offsetState, this.lerpPan, this.currentPan ],
+			easing: 'easeInOutExpo',
+			duration: 3500,
+			delay: 250,
+			y: 0,
+			radius: 0,
+			phi: 0,
+			theta: 0
+
+		} ).finished;
 
 	}
 
 	async onViewChange() {
 
 		this.onReset();
+		this.onModeChange();
 
 		this.currentState.copy( this.lerpState );
 		this.autoRotateDelay = 0;

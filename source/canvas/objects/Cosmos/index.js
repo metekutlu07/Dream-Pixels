@@ -1,14 +1,6 @@
-import {
+import { Object3D } from 'three';
 
-	MeshStandardMaterial,
-	Object3D,
-	RepeatWrapping,
-	Box3,
-	Vector3
-
-} from 'three';
-
-import Title from './Title';
+import Sphere from './Sphere';
 
 export default class Cosmos extends Object3D {
 
@@ -16,43 +8,39 @@ export default class Cosmos extends Object3D {
 
 		super();
 
+		this.spreadFactor = 0;
+
 		Application.events.add( this );
 
 	}
 
-	onPreFrame() {
+	async onViewChange() {
 
-		const spreadX = 750;
+		this.onModeChange();
 
-		this.traverse( child => {
+	}
 
-			const { name, isSphere, isTitle } = child;
+	async onModeChange() {
 
-			if ( ! isSphere && ! isTitle ) return;
+		const { path, list, places } = Application.store;
+		this.visible = path === '/works' && list === 'places' && places === 'cosmos';
+		if ( ! this.visible ) return;
 
-			const sphereID = name.replace( /(Left|Right)/g, '' );
-			const { spread, radius } = this.spheres[ sphereID ];
+		this.spheres.forEach( sphere => sphere.enter() );
 
-			const direction = name.match( /Right/g ) ? 1 : -1;
-			const offsetX = spread * spreadX * direction;
-			child.position.x = Math.lerp( 0, offsetX, 1 );
+		if ( this.animation ) this.animation.remove( this.position );
 
-			if ( sphereID === 'Zodiac' ) child.position.x -= 25;
-			if ( ! isTitle ) return;
-			child.position.y = radius + 35;
+		this.position.x = 0;
 
-		} );
+		this.animation = anime( {
 
-		this.zodiacs && this.zodiacs.forEach( zodiac => {
-
-			const { spread } = this.spheres[ 'Zodiac' ];
-			const offsetX = spread * spreadX * -1;
-			zodiac.position.x = Math.lerp( 0, offsetX, 1 );
-			zodiac.position.x -= 25;
+			targets: this.position,
+			easing: 'easeInOutExpo',
+			duration: 2500,
+			delay: 1000,
+			x: 190
 
 		} );
-
-		this.position.x = spreadX * .25;
 
 	}
 
@@ -62,109 +50,57 @@ export default class Cosmos extends Object3D {
 
 		this.spheres = {};
 
-		const { models, textures } = Application.assets[ 'works' ];
+		const { models } = Application.assets[ 'works' ];
 		const { objects } = models[ 'Cosmos.glb' ];
 		this.copy( objects[ 'Scene' ] );
 
-		const box = Box3.get();
-		const size = Vector3.get();
+		const parameters = {};
 
 		this.traverse( child => {
 
 			const { name } = child;
-			child.material = new MeshStandardMaterial();
 
-			const mapID = name.replace( /Left|Right/g, '' );
-			const map = textures[ `Cosmos/Patterns/${ mapID }.jpg` ];
+			if ( name.match( /(Scene)/g ) ) return;
+
 			const envMap = Application.assets[ 'EnvMap' ];
 
-			if ( name.match( 'Right' ) ) child.visible = false;
+			if ( name.match( /(AxisMundi)/g ) ) {
 
-			if ( map ) map.wrapT = map.wrapS = RepeatWrapping;
+				return Object.assign( child.material, {
 
-			Object.assign( child.material, {
+					envMap,
+					roughness: .65,
+					metalness: .15
 
-				map: map || null,
-				envMap,
-				roughness: .65,
-				metalness: .15
-
-			} );
-
-
-			if ( ! name.match( /(AxisMundi|Scene)/g ) ) {
-
-				child.isSphere = true;
-
-				box.setFromObject( child );
-				box.getSize( size );
-
-				const diameter = size.y;
-				const radius = diameter * .5;
-				const spread = Math.mapLinear( diameter, 270, 600, 0, 1 );
-				const sphereID = name.replace( /(Left|Right)/g, '' );
-
-				this.spheres[ sphereID ] = { radius, spread };
+				} );
 
 			}
 
-		} );
+			const sphereID = name.replace( /(Left|Right)/g, '' );
+			const matches = name.match( /(Left|Right)/g );
+			const side = matches ? matches[ 0 ].toLowerCase() + 'Half' : 'mesh';
 
+			if ( ! parameters[ sphereID ] ) parameters[ sphereID ] = {};
+			parameters[ sphereID ][ side ] = child;
+
+		}
+
+		);
+
+		this.spheres = Object
+			.entries( parameters )
+			.map( entry => {
+
+				const [ sphereID, parameters ] = entry;
+				const sphere = new Sphere( sphereID, parameters );
+				this.add( sphere );
+
+				return sphere;
+
+			} ).sort( ( a, b ) => a.radius - b.radius );
+
+		this.spheres.forEach( ( sphere, index ) => sphere.index = index );
 		this.scale.setScalar( .5 );
-
-		Object
-			.entries( this.spheres )
-			.forEach( entry => {
-
-				const [ sphereID, { radius } ] = entry;
-				const title = new Title( sphereID, radius );
-				title.isTitle = true;
-				title.name = sphereID;
-				this.add( title );
-
-			} );
-
-		this.setZodiacs();
-
-	}
-
-	setZodiacs() {
-
-		const { textures } = Application.assets[ 'works' ];
-		const radius = this.spheres[ 'Zodiac' ].radius + 25;
-
-		this.zodiacs = Object
-			.entries( textures )
-			.filter( entry => {
-
-				const [ textureID ] = entry;
-				return textureID.match( 'Cosmos/Zodiacs/' );
-
-			} ).map( entry => {
-
-				const [ textureID ] = entry;
-				if ( ! textureID.match( 'Cosmos/Zodiacs/' ) ) return;
-
-				const [ number, signID ] = textureID
-					.replace( 'Cosmos/Zodiacs/', '' )
-					.replace( /\s/g, '' )
-					.replace( /.png/g, '' )
-					.split( '-' );
-
-				const index = parseInt( number );
-				const step = Math.PI * 2 / 12;
-				const angle = ( index + .5 ) * step;
-
-				const title = new Title( signID );
-				this.add( title );
-
-				const y = Math.cos( angle ) * radius;
-				const z = Math.sin( angle ) * radius;
-				title.position.set( 0, y, z );
-
-				return title;
-
-			} );
 
 	}
 

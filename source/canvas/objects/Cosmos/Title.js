@@ -42,7 +42,21 @@ export default class Title extends MSDFText {
 
 	}
 
-	onPreUpdate() {
+	enter( delay ) {
+
+		if ( this.animation ) this.animation.remove( this.material );
+
+		this.material.opacity = 0;
+		this.animation = anime( {
+
+			targets: this.material,
+			easing: 'easeInOutExpo',
+			duration: 2500,
+			opacity: 1,
+			delay: delay + 250,
+
+		} );
+
 	}
 
 	onUpdate() {

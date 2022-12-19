@@ -120,7 +120,7 @@ export default {
 		'camera-mode': [ 'Perspective', 'Orthographic' ],
 		'panorama-map-mode': [ 'Top View', 'Miniature View' ],
 		'fullscreen': [ 'Fullscreen', 'Minimize' ],
-		'audio': [ 'Unmuted', 'Muted' ],
+		'audio': [ 'Muted', 'Unmuted' ],
 		'display-points': [ 'Points', 'Solid' ],
 		'display-wireframe': [ 'Wireframe', 'Default' ],
 		'display-aside': [ 'Show list', 'Hide list' ],

@@ -198,16 +198,16 @@ export default class Particles extends Points {
 
 	onPostUpdate() {
 
+		if ( ! Application.cursor || ! this.isVisible ) return;
+
 		const { elapsedTime } = Application.time;
 
-		if ( this.startTime && elapsedTime - this.startTime > 100 ) {
+		if ( this.startTime && elapsedTime - this.startTime > 250 ) {
 
 			Application.cursor.reset();
 			return;
 
 		}
-
-		if ( ! Application.cursor || ! this.isVisible ) return;
 
 		const index = this.getClosestIndex();
 

@@ -31,6 +31,7 @@ export default class ParticlesMaterial extends PointsMaterial {
 
 	onPreRender() {
 
+		if ( ! Application.store.range ) return;
 		const [ x, y ] = Application.store.range;
 		this.uniforms.range.value.set( x, y );
 
