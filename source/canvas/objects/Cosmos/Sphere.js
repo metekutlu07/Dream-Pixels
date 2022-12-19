@@ -70,7 +70,7 @@ export default class Sphere extends Object3D {
 
 	async enter() {
 
-		const delay = 1250 + ( 11 - this.index ) * 75;
+		const delay = 1250 + ( 12 - this.index ) * 75;
 		if ( this.leftHalf ) this.setHalves( delay );
 		this.titles.forEach( title => title.enter( delay ) );
 
@@ -97,7 +97,7 @@ export default class Sphere extends Object3D {
 
 		}
 
-		const x = ( this.index + 1 ) / 12 * 750;
+		const x = this.index / 12 * 750;
 		const opacity = 0;
 		const parameters = {
 
