@@ -57,7 +57,6 @@ export default class Cup extends Mesh {
 
 		textures[ 'Cup/Albedo.jpg' ].flipY = false;
 		textures[ 'Cup/AO.jpg' ].flipY = false;
-		textures[ 'Cup/Roughness.jpg' ].flipY = false;
 		textures[ 'Cup/Metalness.jpg' ].flipY = false;
 		textures[ 'Cup/Normal.jpg' ].flipY = false;
 
@@ -66,9 +65,9 @@ export default class Cup extends Mesh {
 			envMap,
 			map: textures[ 'Cup/Albedo.jpg' ],
 			aoMap: textures[ 'Cup/AO.jpg' ],
-			roughnessMap: textures[ 'Cup/Roughness.jpg' ],
 			metalnessMap: textures[ 'Cup/Metalness.jpg' ],
-			normalMap: textures[ 'Cup/Normal.jpg' ]
+			normalMap: textures[ 'Cup/Normal.jpg' ],
+			roughness: .15
 
 		} );
 

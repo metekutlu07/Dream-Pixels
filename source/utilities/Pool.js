@@ -4,7 +4,7 @@ export default class Pool {
 
 		const pool = new Pool( Module, { onReset } );
 		Module.get = () => pool.get();
-		Module.release = () => pool.release( ...arguments );
+		Module.release = function () { pool.release( ...arguments ) };
 
 	}
 
@@ -35,7 +35,7 @@ export default class Pool {
 
 		for ( const item of arguments ) {
 
-			if ( this.items.includes( item ) )
+			if ( this.items.indexOf( item ) > -1 )
 				this.availables.push( item );
 
 		}
@@ -44,10 +44,10 @@ export default class Pool {
 
 	get() {
 
-		if ( this.items.size > this.maxSize ) this.onMaxSizeReached();
+		if ( this.items.length > this.maxSize ) this.onMaxSizeReached();
 
 		const item = this.availables.pop() || new this.prototype();
-		if ( ! this.items.includes( item ) ) this.items.push( item );
+		if ( this.items.indexOf( item ) === -1 ) this.items.push( item );
 		else if ( this.onReset ) this.onReset( item );
 
 		return item;

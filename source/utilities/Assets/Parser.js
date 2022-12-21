@@ -155,7 +155,7 @@ export default class Parser {
 			if ( object.name.match( 'base' ) ) name = 'Base';
 			if ( object.name.match( /venice|vencie/g ) ) name = 'Base';
 
-			const isCosmos = file.path === 'Cosmos.glb';
+			const isCosmos = file.path === 'Cosmos/Model.glb';
 
 			if ( isCosmos && name.match( 'axis_mundi' ) ) name = 'AxisMundi';
 			else if ( isCosmos && name.match( 'earth_wireframe' ) ) name = 'EarthWireframe';

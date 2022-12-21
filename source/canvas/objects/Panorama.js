@@ -77,8 +77,8 @@ export default class Panorama extends Mesh {
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
 
-		const intersect = this.raycaster.intersectObject( this );
-		if ( intersect[ 0 ] ) console.log( intersect[ 0 ].point );
+		// const intersect = this.raycaster.intersectObject( this );
+		// if ( intersect[ 0 ] ) console.log( intersect[ 0 ].point );
 
 	}
 

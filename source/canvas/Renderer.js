@@ -20,7 +20,7 @@ export default class Renderer extends WebGLRenderer {
 
 		this.resolution = new Vector2();
 		this.shadowMap.enabled = true;
-		this.autoClear = false;
+		this.autoClear = true;
 
 		const { programs, memory, render } = this.info;
 		this.parameters = Application.store.add( 'Renderer', {

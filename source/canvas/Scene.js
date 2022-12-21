@@ -21,6 +21,9 @@ import Particles from './objects/Particles';
 import Images from './objects/Images';
 import Map from './objects/Map';
 
+import Ground from './objects/Ground';
+import Reflection from './objects/Reflection';
+
 import { USDZExporter } from '~/vendors/three/USDZExporter';
 
 export default class Scene extends Object3D {
@@ -39,6 +42,7 @@ export default class Scene extends Object3D {
 		Application.events.add( this );
 
 		this.fog = new FogExp2();
+		this.reflection = new Reflection();
 
 		this.lighting = new Lighting();
 		this.add( this.lighting );
@@ -72,6 +76,9 @@ export default class Scene extends Object3D {
 
 		this.map = new Map();
 		this.add( this.map );
+
+		this.ground = new Ground();
+		// this.add( this.ground );
 
 		this.objects = new Objects();
 		this.add( this.objects );
@@ -179,6 +186,12 @@ export default class Scene extends Object3D {
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );
 		this.fog.density = density;
+
+	}
+
+	onPreUpdate() {
+
+		this.reflection.render();
 
 	}
 

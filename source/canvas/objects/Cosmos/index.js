@@ -51,7 +51,7 @@ export default class Cosmos extends Object3D {
 		this.spheres = {};
 
 		const { models } = Application.assets[ 'works' ];
-		const { objects } = models[ 'Cosmos.glb' ];
+		const { objects } = models[ 'Cosmos/Model.glb' ];
 		this.copy( objects[ 'Scene' ] );
 
 		const parameters = {};

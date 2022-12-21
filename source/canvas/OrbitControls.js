@@ -22,7 +22,7 @@ export default class OrbitControls extends Object3D {
 			zoomSpeed: { value: 1. },
 
 			enablePan: false,
-			panSpeed: { value: .05 },
+			panSpeed: { value: .035 },
 			maxPan: { value: 35 },
 
 			minDistance: { value: 20, min: 5, max: 50 },
@@ -182,7 +182,7 @@ export default class OrbitControls extends Object3D {
 				zoomSpeed: 5,
 				minAngle: .25,
 				minDistance: 50,
-				maxDistance: 75
+				maxDistance: 100
 
 			} );
 
