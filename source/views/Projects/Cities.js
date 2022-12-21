@@ -148,6 +148,7 @@ export default class Cities extends HTMLElement {
 
 			& h2 {
 				font-size: var( --font-size-xl );
+				font-family: var( --font-family-b );
 				margin-bottom: var( --margin-s );
 			}
 
