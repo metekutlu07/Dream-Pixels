@@ -197,4 +197,40 @@ export default {
 
 	],
 
+	cities: {
+
+		'Constantinople': {
+			projects: [ 'bamistun', 'bistami', 'photogrammetry', ],
+			paragraphs: [
+				'Laboris sit enim aliqua veniam deserunt laboris minim sint enim nulla proident ut aliqua. Commodo non reprehenderit duis consequat non proident. Ad irure reprehenderit proident eiusmod id ut excepteur elit.',
+				'Nulla velit proident in duis laborum minim aliquip. Dolore ex id consectetur ullamco reprehenderit ut laborum cupidatat aliquip cillum mollit Lorem. Dolor exercitation eiusmod nisi ipsum. Velit non aliquip do consequat cillum minim pariatur ut labore elit. Fugiat sunt voluptate excepteur cupidatat reprehenderit esse culpa duis commodo non adipisicing labore magna ipsum. Ipsum ut nulla tempor veniam. Mollit aliqua ad sint tempor velit voluptate amet enim occaecat nisi.',
+			]
+		},
+
+		'Nicopolis': {
+			projects: [ 'photogrammetry', 'pigmentarium', 'rasdelka' ],
+			paragraphs: [
+				'Est magna Lorem cillum sit exercitation aute occaecat culpa ea. Occaecat sunt nisi proident elit nisi veniam minim officia. Veniam sit voluptate adipisicing velit quis anim reprehenderit ullamco aliquip duis dolor reprehenderit sunt non. Incididunt veniam deserunt velit nulla quis et esse enim excepteur minim laboris et est irure.',
+				'Ipsum enim sit commodo ex aliqua culpa reprehenderit irure aliquip aute. Commodo ipsum sit anim ea tempor dolor enim Lorem. Do velit magna labore nisi enim. Lorem excepteur deserunt id consequat adipisicing laboris non cillum sit exercitation mollit sit. Nostrud qui consequat exercitation cupidatat Lorem excepteur ex. Mollit consequat dolor dolor Lorem ut excepteur fugiat. Nisi adipisicing excepteur id cillum veniam nisi qui ut id aliqua occaecat enim aliquip.',
+			]
+		},
+
+		'Belgrad': {
+			projects: [ 'tessera', 'rasdelka' ],
+			paragraphs: [
+				'Sit cupidatat irure culpa esse voluptate culpa minim magna consectetur duis qui officia. Aute consequat duis quis aute ex excepteur in velit qui in do duis enim non. Duis excepteur sint ea id do voluptate minim cupidatat aliqua.',
+				'Ea mollit cillum est labore minim Lorem irure dolor esse reprehenderit tempor occaecat. Exercitation fugiat pariatur qui reprehenderit incididunt adipisicing id qui. Commodo irure ipsum ullamco anim occaecat mollit qui consectetur anim incididunt mollit qui. Adipisicing incididunt esse in est magna sint non minim.',
+			]
+		},
+
+		'Nicomedia': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		}
+
+	}
+
 };

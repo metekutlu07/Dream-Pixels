@@ -76,11 +76,12 @@ export default class Sphere extends Object3D {
 
 	}
 
-	setHalves( delay ) {
+	async setHalves( delay ) {
 
 		this.leftHalf.position.x = 0;
 		this.rightHalf.position.x = 0;
 		this.rightHalf.material.opacity = 1;
+		this.rightHalf.visible = true;
 
 		const targets = [
 
@@ -109,11 +110,15 @@ export default class Sphere extends Object3D {
 
 		this.animations = [
 
-			anime( { ...parameters, targets: this.leftHalf.position, x: -x } ),
-			anime( { ...parameters, targets: this.rightHalf.position, x } ),
-			anime( { ...parameters, targets: this.rightHalf.material, opacity } ),
+			await anime( { ...parameters, targets: this.leftHalf.position, x: -x } ),
+			await anime( { ...parameters, targets: this.rightHalf.position, x } ),
+			await anime( { ...parameters, targets: this.rightHalf.material, opacity } ),
 
 		];
+
+		await Promise.all( this.animations );
+
+		this.rightHalf.visible = false;
 
 	}
 

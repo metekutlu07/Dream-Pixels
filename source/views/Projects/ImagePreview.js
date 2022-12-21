@@ -78,10 +78,10 @@ export default class ImagePreview extends HTMLElement {
 			&[ visible ] {
 				opacity: 1;
 				pointer-events: all;
+
 				& img {
 					transform: scale( 1 );
 				}
-
 			}
 
 			& img {

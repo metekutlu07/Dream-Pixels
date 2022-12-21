@@ -29,7 +29,7 @@ export default class Canvas extends HTMLElement {
 		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
 		const distance = this.coordinates.distanceTo( coordinates );
 
-		if ( deltaTime > 350 || distance > 25 ) return;
+		if ( deltaTime > 250 || distance > 25 ) return;
 
 		const query = 'section-type-5, projects-image-preview';
 		const element = document.querySelector( query );

@@ -31,6 +31,7 @@ export default class Video extends HTMLElement {
 			height: 100%;
 			top: 0;
 			left: 0;
+			display: block;
 
 			[ path="/augustus-ar" ] & {
 				visibility: hidden;

@@ -6,6 +6,7 @@ import {
 	Object3D,
 	Raycaster,
 	Sphere,
+	Vector2,
 	Vector3,
 	// MeshBasicMaterial,
 	// SphereGeometry,
@@ -23,8 +24,48 @@ export default class Map extends Object3D {
 		super();
 
 		this.raycaster = new Raycaster();
+		this.coordinates = new Vector2();
 
+		this.cityIDs = Application.content.cities;
 		Application.events.add( this );
+
+	}
+
+	onViewChange() {
+
+		this.onModeChange();
+
+	}
+
+	onModeChange() {
+
+		this.city = null;
+		Application.store.set( 'pointer', false );
+		Application.store.set( 'city', null );
+
+	}
+
+	onInputStart() {
+
+		this.elapsedTime = Application.time.elapsedTime;
+		Application.pointer.getCoordinates( this.coordinates );
+
+	}
+
+	onInputEnd( event ) {
+
+		const currentTarget = event.composedPath()[ 0 ];
+		if ( ! currentTarget.matches( 'canvas' ) ) return;
+
+		const coordinates = Vector2.get();
+		Application.pointer.getCoordinates( coordinates );
+
+		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
+		const distance = this.coordinates.distanceTo( coordinates );
+
+		if ( deltaTime > 250 || distance > 25 || ! this.cityID ) return;
+
+		Application.store.set( 'city', this.cityID );
 
 	}
 
@@ -50,15 +91,15 @@ export default class Map extends Object3D {
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
 
-		const city = this.cities.find( city => {
+		const match = this.cities.find( city => {
 
-			const { name, boundingSphere } = city;
-			const isIntersected = this.raycaster.ray.intersectsSphere( boundingSphere );
-			if ( isIntersected ) return name;
+			const { boundingSphere } = city;
+			return this.raycaster.ray.intersectsSphere( boundingSphere );
 
 		} );
 
-		Application.store.set( 'pointer', !! city );
+		this.cityID = match ? match.name : null;
+		Application.store.set( 'pointer', !! ( this.cityID && this.cityIDs[ this.cityID ] ) );
 
 	}
 
@@ -81,8 +122,16 @@ export default class Map extends Object3D {
 
 		this.traverse( child => {
 
-			const isDisabled = child.name.match( /Mountain|Land|Islands|Ottoman/g );
-			child.visible = ! isDisabled;
+			if ( child === this ) return;
+			// const isDisabled = child.name.match( /Mountain|Land|Islands|Ottoman/g );
+			// child.visible = ! isDisabled;
+			child.visible = true;
+
+		} );
+
+		this.children.forEach( child => {
+
+			child.visible = places !== 'cosmos' || child.name === '003_Map';
 
 		} );
 
