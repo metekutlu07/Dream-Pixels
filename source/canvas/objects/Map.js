@@ -59,6 +59,7 @@ export default class Map extends Object3D {
 
 		const coordinates = Vector2.get();
 		Application.pointer.getCoordinates( coordinates );
+		Vector2.release( coordinates );
 
 		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
 		const distance = this.coordinates.distanceTo( coordinates );

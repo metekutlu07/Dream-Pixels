@@ -82,7 +82,7 @@ export default class UserInfo extends HTMLElement {
 			border: 1px solid var( --color-white );
 
 			&[ name="Images" ] {
-				bottom: 90px;
+				bottom: 100px;
 			}
 
 			& h5 {

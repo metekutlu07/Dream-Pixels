@@ -131,7 +131,7 @@ export default {
 	},
 
 	buttons: {
-		'camera-mode': [ 'Perspective', 'Orthographic' ],
+		'camera-mode': [ 'Orthographic', 'Perspective' ],
 		'panorama-map-mode': [ 'Top View', 'Miniature View' ],
 		'fullscreen': [ 'Fullscreen', 'Minimize' ],
 		'audio': [ 'Muted', 'Unmuted' ],

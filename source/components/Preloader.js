@@ -28,7 +28,7 @@ export default class Preloader extends HTMLElement {
 
 			display: flex;
 			position: fixed;
-			z-index: 20;
+			z-index: 25;
 			top: 0;
 			left: 0;
 			align-items: center;

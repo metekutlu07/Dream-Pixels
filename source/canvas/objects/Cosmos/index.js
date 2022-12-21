@@ -50,6 +50,7 @@ export default class Cosmos extends Object3D {
 
 		const coordinates = Vector2.get();
 		Application.pointer.getCoordinates( coordinates );
+		Vector2.release( coordinates );
 
 		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
 		const distance = this.coordinates.distanceTo( coordinates );
@@ -70,6 +71,7 @@ export default class Cosmos extends Object3D {
 
 		this.isHoverable = false;
 		this.popin = null;
+
 		Application.store.set( 'pointer', false );
 		Application.store.set( 'popin', null );
 
@@ -97,7 +99,9 @@ export default class Cosmos extends Object3D {
 
 		this.spheres.forEach( sphere => sphere.enter() );
 
+		await this.animation.finished;
 		await Application.time.wait( 1000 );
+
 		this.isHoverable = true;
 
 	}
