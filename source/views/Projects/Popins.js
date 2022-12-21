@@ -1,36 +1,36 @@
 import Button from '~/components/Button';
 import Video from '~/components/Video';
 
-export default class Cities extends HTMLElement {
+export default class Popins extends HTMLElement {
 
 	onKeyDown( parameters ) {
 
 		if ( parameters.code !== 'Escape' ) return;
-		Application.store.set( 'city', null );
+		Application.store.set( 'popin', null );
 
 	}
 
 	onClick() {
 
-		Application.store.set( 'city', null );
+		Application.store.set( 'popin', null );
 
 	}
 
 	onPreFrame() {
 
-		this.elements.cities.forEach( city => {
+		this.elements.popins.forEach( popin => {
 
-			const attribute = Application.store.city;
-			const cityID = city.getAttribute( 'name' );
-			city.toggleAttribute( 'visible', attribute === cityID );
+			const attribute = Application.store.popin;
+			const popinID = popin.getAttribute( 'name' );
+			popin.toggleAttribute( 'visible', attribute === popinID );
 
 		} );
 
 	}
 
-	static getCity( name, content ) {
+	static getPopin( name, content ) {
 
-		const projects = content.projects.map( projectID => {
+		const projects = content.projects ? content.projects.map( projectID => {
 
 			const {
 
@@ -59,36 +59,40 @@ export default class Cities extends HTMLElement {
 
 		`;
 
-		} );
+		} ) : '';
 
-		const buttons = [ { attributes: [ 'close', '@click|projects-cities' ] } ];
+		const buttons = [ { attributes: [ 'close', '@click|projects-popins' ] } ];
 		const { paragraphs } = content;
 
 		return html`
 
-		<projects-city blurred-background name="${ name }" #cities>
+		<projects-popin blurred-background name="${ name }" #popins>
 
 			${ buttons.map( Button.render ) }
 
-			<city-block>
+			<popin-block>
 
-				<city-columns>
+				<popin-columns>
 
-					<city-content>
+					<popin-content>
 						<h2>${ name }</h2>
 						${ paragraphs.map( paragraph => html`<p>${ paragraph }</p>` ) }
-					</city-content>
+					</popin-content>
 
-					<city-projects>
+					${ content.projects ? html`
+
+					<popin-projects>
 						<h2>Projects</h2>
 						${ projects }
-					</city-projects>
+					</popin-projects>
 
-				</city-columns>
+					` : '' }
 
-			</city-block>
+				</popin-columns>
 
-		</projects-city>
+			</popin-block>
+
+		</projects-popin>
 
 		`;
 
@@ -98,7 +102,7 @@ export default class Cities extends HTMLElement {
 
 		css`
 
-		projects-cities {
+		projects-popins {
 			& default-button {
 				position: absolute;
 				top: var( --margin-m );
@@ -106,7 +110,7 @@ export default class Cities extends HTMLElement {
 			}
 		}
 
-		projects-city {
+		projects-popin {
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -117,22 +121,20 @@ export default class Cities extends HTMLElement {
 			align-items: center;
 			z-index: 15;
 			background: rgba( 0, 0, 0, .5 );
-			transition: opacity .5s var( --timing-function );
-			opacity: 0;
-			transition: opacity .5s var( --timing-function );
+			transition: opacity .5s var( --timing-function ), visibility .5s var( --timing-function );
 			cursor: default;
+			opacity: 0;
+			visibility: hidden;
 
 			&[ visible ] {
 				opacity: 1;
+				visibility: visible;
 				pointer-events: all;
 			}
 
 			& video-block {
 				width: initial;
 				margin-right: var( --margin-s );
-
-				&:not( :last-child ) {
-				}
 			}
 
 			& video {
@@ -180,21 +182,21 @@ export default class Cities extends HTMLElement {
 		}
 
 
-		city-header {
+		popin-header {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			margin-bottom: var( --margin-s );
 		}
 
-		city-columns {
+		popin-columns {
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
 			align-items: flex-start;
 		}
 
-		city-content {
+		popin-content {
 			max-width: 500px;
 			padding-right: var( --margin-s );
 			margin-right: var( --margin-m );
@@ -213,21 +215,21 @@ export default class Cities extends HTMLElement {
 			}
 		}
 
-		city-projects {
+		popin-projects {
 			list-style: none;
 		}
 
 		`;
 
-		const cities = Object
-			.entries( Application.content.cities )
-			.map( entry => Cities.getCity( ...entry ) );
+		const popins = Object
+			.entries( Application.content.popins )
+			.map( entry => Popins.getPopin( ...entry ) );
 
 		return html`
 
-		<projects-cities>
-			${ cities }
-		</projects-cities>
+		<projects-popins>
+			${ popins }
+		</projects-popins>
 
 		`;
 
@@ -235,4 +237,4 @@ export default class Cities extends HTMLElement {
 
 }
 
-customElements.define( 'projects-cities', Cities );
+customElements.define( 'projects-popins', Popins );

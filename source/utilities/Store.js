@@ -46,7 +46,7 @@ export default class Parameter {
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
 		this.set( 'list', 'places' );
 		this.set( 'particles', 'color-range' );
-		this.set( 'places', 'world' );
+		this.set( 'places', 'cosmos' );
 		this.set( 'range', [ 0, 1 ] );
 
 	}

@@ -25,8 +25,8 @@ export default class Map extends Object3D {
 
 		this.raycaster = new Raycaster();
 		this.coordinates = new Vector2();
+		this.popinIDs = Application.content.popins;
 
-		this.cityIDs = Application.content.cities;
 		Application.events.add( this );
 
 	}
@@ -39,9 +39,9 @@ export default class Map extends Object3D {
 
 	onModeChange() {
 
-		this.city = null;
+		this.popin = null;
 		Application.store.set( 'pointer', false );
-		Application.store.set( 'city', null );
+		Application.store.set( 'popin', null );
 
 	}
 
@@ -63,9 +63,9 @@ export default class Map extends Object3D {
 		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
 		const distance = this.coordinates.distanceTo( coordinates );
 
-		if ( deltaTime > 250 || distance > 25 || ! this.cityID ) return;
+		if ( deltaTime > 250 || distance > 25 || ! this.popinID ) return;
 
-		Application.store.set( 'city', this.cityID );
+		Application.store.set( 'popin', this.popinID );
 
 	}
 
@@ -84,22 +84,24 @@ export default class Map extends Object3D {
 
 	onPreUpdate() {
 
-		if ( ! this.cities || ! this.visible ) return;
+		const { places } = Application.store;
+
+		if ( ! this.cities || ! this.visible || places !== 'world' ) return;
 
 		const { camera, pointer } = Application;
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );
 		Vector3.release( position );
 
-		const match = this.cities.find( city => {
+		const match = this.cities.find( popin => {
 
-			const { boundingSphere } = city;
+			const { boundingSphere } = popin;
 			return this.raycaster.ray.intersectsSphere( boundingSphere );
 
 		} );
 
-		this.cityID = match ? match.name : null;
-		Application.store.set( 'pointer', !! ( this.cityID && this.cityIDs[ this.cityID ] ) );
+		this.popinID = match ? match.name : null;
+		Application.store.set( 'pointer', !! ( this.popinID && this.popinIDs[ this.popinID ] ) );
 
 	}
 

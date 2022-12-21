@@ -19,6 +19,7 @@ export default class Sphere extends Object3D {
 		Application.events.add( this );
 
 		this.titles = [];
+		this.sphereID = sphereID;
 
 		const { textures } = Application.assets[ 'works' ];
 		const envMap = Application.assets[ 'EnvMap' ];
@@ -68,20 +69,9 @@ export default class Sphere extends Object3D {
 
 	}
 
-	async enter() {
+	onReset() {
 
-		const delay = 1250 + ( 12 - this.index ) * 75;
-		if ( this.leftHalf ) this.setHalves( delay );
-		this.titles.forEach( title => title.enter( delay ) );
-
-	}
-
-	async setHalves( delay ) {
-
-		this.leftHalf.position.x = 0;
-		this.rightHalf.position.x = 0;
-		this.rightHalf.material.opacity = 1;
-		this.rightHalf.visible = true;
+		if ( ! this.leftHalf ) return;
 
 		const targets = [
 
@@ -98,13 +88,32 @@ export default class Sphere extends Object3D {
 
 		}
 
+		this.leftHalf.position.x = 0;
+		this.rightHalf.position.x = 0;
+		this.rightHalf.material.opacity = 1;
+		this.rightHalf.visible = true;
+
+	}
+
+	async enter() {
+
+		this.onReset();
+
+		const delay = 1250 + ( 12 - this.index ) * 75;
+		if ( this.leftHalf ) this.setHalves( delay );
+		this.titles.forEach( title => title.enter( delay ) );
+
+	}
+
+	async setHalves( delay ) {
+
 		const x = this.index / 12 * 750;
 		const opacity = 0;
 		const parameters = {
 
 			delay,
 			easing: 'easeInOutExpo',
-			duration: 2000,
+			duration: 2000
 
 		};
 

@@ -14,15 +14,18 @@ export default class UserInfo extends HTMLElement {
 
 	onPreFrame() {
 
-		const { list, path } = Application.store;
+		const { path, list, places } = Application.store;
 		const { texts } = this.elements;
 
-		texts.forEach( ( text, index ) => {
+		texts.forEach( text => {
 
-			const isVisible = path === '/works' && (
+			const name = text.getAttribute( 'name' );
 
-				( list === 'sphere' && index === 0 ) ||
-				( list === 'particles' && index === 1 )
+			const isVisible = (
+
+				( path === '/works' && list === 'sphere' && name === 'Images' ) ||
+				( path === '/works' && list === 'particles' && name === 'Particles' ) ||
+				( path === '/works' && list === 'places' && places === 'cosmos' && name === 'Cosmos' )
 
 			);
 
@@ -46,7 +49,7 @@ export default class UserInfo extends HTMLElement {
 
 	static render() {
 
-		const { tutorial } = Application.content;
+		const { user_infos } = Application.content;
 
 		css`
 
@@ -78,17 +81,19 @@ export default class UserInfo extends HTMLElement {
 			opacity: 0;
 			border: 1px solid var( --color-white );
 
-			&:first-child {
+			&[ name="Images" ] {
 				bottom: 90px;
 			}
 
 			& h5 {
-				font-size: var( --font-size-m );
+				font-size: var( --font-size-l );
+				font-family: var( --font-family-b );
+				line-height: 1.4;
 			}
 
 			& p {
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
+				font-size: var( --font-size-s );
 				margin-top: var( --margin-xs );
 				line-height: 1.6;
 			}
@@ -104,17 +109,20 @@ export default class UserInfo extends HTMLElement {
 
 		`;
 
+		const list = Object
+			.entries( user_infos )
+			.map( ( [ name, { title, paragraphs } ] ) => html`
+
+			<user-info-text #texts blurred-background name="${ name }">
+				${ title ? html`<h5>${ title }</h5>` : '' }
+				${ paragraphs ? html`<p>${ paragraphs }</p>` : '' }
+			</user-info-text>
+
+			` );
+
 		return html`
 
-		<user-info>
-			<user-info-text #texts blurred-background>
-				<h5>${ tutorial[ 0 ].title }</h5>
-			</user-info-text>
-			<user-info-text #texts blurred-background>
-				<h5>${ tutorial[ 1 ].title }</h5>
-				<p>${ tutorial[ 1 ].subtitle }</p>
-			</user-info-text>
-		</user-info>
+		<user-info>${ list }</user-info>
 
 		`;
 

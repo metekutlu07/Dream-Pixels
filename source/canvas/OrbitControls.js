@@ -333,9 +333,15 @@ export default class OrbitControls extends Object3D {
 
 		this.onReset();
 
+		if ( this.wasClickedOnce ) Application.events.dispatch( 'onCosmosAnimation' );
+
+	}
+
+	async onCosmosAnimation() {
+
 		if ( this.animation ) this.animation.remove( this.offsetState );
 
-		this.animation = await anime( {
+		this.animation = anime( {
 
 			targets: [ this.offsetState, this.lerpPan, this.currentPan ],
 			easing: 'easeInOutExpo',
@@ -346,7 +352,7 @@ export default class OrbitControls extends Object3D {
 			phi: 0,
 			theta: 0
 
-		} ).finished;
+		} );
 
 	}
 
@@ -388,6 +394,13 @@ export default class OrbitControls extends Object3D {
 	onInputStart( event ) {
 
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+
+		if ( this.camera.cameraID === 'Cosmos' && ! this.wasClickedOnce ) {
+
+			this.wasClickedOnce = true;
+			Application.events.dispatch( 'onCosmosAnimation' );
+
+		}
 
 		this.initialState.copy( this.currentState );
 		this.initialPan.copy( this.currentPan );

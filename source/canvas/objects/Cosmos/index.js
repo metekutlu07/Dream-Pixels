@@ -1,4 +1,4 @@
-import { Object3D } from 'three';
+import { Object3D, Raycaster, Vector2, Vector3 } from 'three';
 
 import Sphere from './Sphere';
 
@@ -8,9 +8,55 @@ export default class Cosmos extends Object3D {
 
 		super();
 
-		this.spreadFactor = 0;
+		this.raycaster = new Raycaster();
+		this.coordinates = new Vector2();
 
 		Application.events.add( this );
+
+	}
+
+	onPreUpdate() {
+
+		if ( ! this.isHoverable ) return;
+
+		const { places } = Application.store;
+
+		if ( ! this.visible || ! this.spheres || places !== 'cosmos' ) return;
+
+		const { camera, pointer } = Application;
+		const position = pointer.getCoordinates( Vector3.get(), true );
+		this.raycaster.setFromCamera( position, camera );
+		Vector3.release( position );
+
+		const intersects = this.raycaster.intersectObjects( this.targets, false );
+		Application.store.set( 'pointer', !! intersects.length );
+
+		this.popinID = ! intersects.length ? null :
+			intersects[ 0 ].object.parent.sphereID;
+
+	}
+
+	onInputStart() {
+
+		this.elapsedTime = Application.time.elapsedTime;
+		Application.pointer.getCoordinates( this.coordinates );
+
+	}
+
+	onInputEnd( event ) {
+
+		const currentTarget = event.composedPath()[ 0 ];
+		if ( ! currentTarget.matches( 'canvas' ) ) return;
+
+		const coordinates = Vector2.get();
+		Application.pointer.getCoordinates( coordinates );
+
+		const deltaTime = Application.time.elapsedTime - this.elapsedTime;
+		const distance = this.coordinates.distanceTo( coordinates );
+
+		if ( deltaTime > 250 || distance > 25 || ! this.popinID ) return;
+
+		Application.store.set( 'popin', this.popinID );
 
 	}
 
@@ -22,15 +68,22 @@ export default class Cosmos extends Object3D {
 
 	async onModeChange() {
 
+		this.isHoverable = false;
+		this.popin = null;
+		Application.store.set( 'pointer', false );
+		Application.store.set( 'popin', null );
+
 		const { path, list, places } = Application.store;
 		this.visible = path === '/works' && list === 'places' && places === 'cosmos';
 		if ( ! this.visible ) return;
 
-		this.spheres.forEach( sphere => sphere.enter() );
-
 		if ( this.animation ) this.animation.remove( this.position );
 
 		this.position.x = 0;
+
+	}
+
+	async onCosmosAnimation() {
 
 		this.animation = anime( {
 
@@ -41,6 +94,11 @@ export default class Cosmos extends Object3D {
 			x: 190
 
 		} );
+
+		this.spheres.forEach( sphere => sphere.enter() );
+
+		await Application.time.wait( 1000 );
+		this.isHoverable = true;
 
 	}
 
@@ -100,6 +158,10 @@ export default class Cosmos extends Object3D {
 			} ).sort( ( a, b ) => a.radius - b.radius );
 
 		this.spheres.forEach( ( sphere, index ) => sphere.index = index );
+		this.targets = this.spheres
+			.map( sphere => sphere.leftHalf )
+			.filter( value => !! value );
+
 		this.scale.setScalar( .5 );
 
 	}

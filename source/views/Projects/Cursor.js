@@ -65,11 +65,13 @@ export default class Cursor extends HTMLElement {
 		code.innerHTML = parameters.hex;
 
 		const hsl = {};
-		const c = Color.get()
-			.set( parameters.hex )
+		const colorA = Color.get();
+
+		colorA.
+			set( parameters.hex )
 			.getHSL( hsl );
 
-		Color.release( c );
+		Color.release( colorA );
 
 		const textColor = hsl.l > .5 ? 'var( --color-black )' : 'var( --color-white )';
 		color.style.setProperty( '--color', textColor );

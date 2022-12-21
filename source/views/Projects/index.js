@@ -7,7 +7,7 @@ import Filters from './Filters';
 import ColorRange from './ColorRange';
 import Timeline from './Timeline';
 import ImagePreview from './ImagePreview';
-import Cities from './Cities';
+import Popins from './Popins';
 
 export default class Projects extends View {
 
@@ -36,7 +36,7 @@ export default class Projects extends View {
 			${ Filters }
 			${ ColorRange }
 			${ Timeline }
-			${ Cities }
+			${ Popins }
 
 		</projects-view>
 

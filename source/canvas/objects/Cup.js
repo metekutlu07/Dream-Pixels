@@ -21,15 +21,19 @@ export default class Cup extends Mesh {
 
 	async onModeChange() {
 
-		if ( this.animation ) this.animation.remove( this.position );
-
 		const { path, list, places } = Application.store;
 		this.visible = path === '/works' && list === 'places' && places === 'cosmos';
 		if ( ! this.visible ) return;
 
 		this.position.y = -500;
 
-		this.animation = await anime( {
+	}
+
+	async onCosmosAnimation() {
+
+		if ( this.animation ) this.animation.remove( this.position );
+
+		this.animation = anime( {
 
 			targets: this.position,
 			easing: 'easeInOutExpo',
@@ -37,8 +41,9 @@ export default class Cup extends Mesh {
 			delay: 250,
 			y: -1250,
 
-		} ).finished;
+		} );
 
+		await this.animation.finished;
 		this.visible = false;
 
 	}
