@@ -110,13 +110,13 @@ export default class Sphere extends Object3D {
 
 		this.animations = [
 
-			anime( { ...parameters, targets: this.leftHalf.position, x: -x } ).finished,
-			anime( { ...parameters, targets: this.rightHalf.position, x } ).finished,
-			anime( { ...parameters, targets: this.rightHalf.material, opacity } ).finished,
+			anime( { ...parameters, targets: this.leftHalf.position, x: -x } ),
+			anime( { ...parameters, targets: this.rightHalf.position, x } ),
+			anime( { ...parameters, targets: this.rightHalf.material, opacity } ),
 
 		];
 
-		await Promise.all( this.animations );
+		await Promise.all( this.animations.map( animation => animation.finished ) );
 
 		this.rightHalf.visible = false;
 

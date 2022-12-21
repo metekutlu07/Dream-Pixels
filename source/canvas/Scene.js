@@ -187,11 +187,11 @@ export default class Scene extends Object3D {
 		this.fog.color.set( color );
 		this.fog.density = density;
 
+		if ( path === '/works' && list === 'places' && places === 'world' ) this.reflection.render();
+
 	}
 
 	onPreUpdate() {
-
-		this.reflection.render();
 
 	}
 

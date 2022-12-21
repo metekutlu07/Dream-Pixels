@@ -174,7 +174,7 @@ export default class Map extends Object3D {
 			if ( ! child.material ) return;
 
 			const material = child.name.match( /Sea/g ) ? this.materialB : this.materialA;
-			Object.assign( child, { material, castShadow: false, receiveShadow: false } );
+			Object.assign( child, { material, castShadow: true, receiveShadow: true } );
 
 		} );
 
@@ -189,11 +189,6 @@ export default class Map extends Object3D {
 
 			boundingSphere.radius *= .5;
 			boundingSphere.center.y -= 2;
-
-			// const { radius, center } = boundingSphere;
-			// const mesh = new Mesh( new SphereGeometry( radius ), new MeshBasicMaterial( { wireframe: true } ) );
-			// mesh.position.copy( center );
-			// this.add( mesh );
 
 			return { name, boundingBox, boundingSphere };
 

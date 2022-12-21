@@ -147,6 +147,7 @@ export default class OrbitControls extends Object3D {
 		case 'Cosmos':
 
 			this.lerpState.set( 600, .5, .5 );
+			this.currentState.set( 600, .5, .5 );
 
 			this.offsetState.radius = 750;
 			this.offsetState.phi = -.75;
