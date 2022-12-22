@@ -432,7 +432,7 @@ export default class OrbitControls extends Object3D {
 		if ( enableRotate ) {
 
 			let speedFactor = rotateSpeed * 1e-3;
-			speedFactor *= Math.mapLinear( width, 365, 1500, 2, 1 );
+			speedFactor *= Math.clamp( Math.mapLinear( width, 365, 1500, 2, 1 ), 1, 2 );
 
 			this.currentState.theta = this.initialState.theta - this.deltaState.position.x * speedFactor;
 			this.currentState.phi = this.initialState.phi + this.deltaState.position.y * speedFactor;
