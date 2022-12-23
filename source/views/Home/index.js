@@ -28,12 +28,8 @@ export default class Home extends View {
 			align-items: center;
 			justify-content: center;
 
-			@media ( max-width: 768px ) {
-				position: relative !important;
-			}
-
 			& video {
-				opacity: .5;
+				opacity: .75;
 			}
 
 			& h3 {
@@ -44,6 +40,10 @@ export default class Home extends View {
 			& h4 {
 				font-size: var( --font-size-xl );
 				font-family: var( --font-family-b );
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-m );
+				}
 			}
 
 			& p {
@@ -52,6 +52,10 @@ export default class Home extends View {
 				font-family: var( --font-family-c );
 				line-height: var( --line-height );
 				text-align: center;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-xs );
+				}
 			}
 
 			& img {
@@ -75,10 +79,25 @@ export default class Home extends View {
 				&:not( :last-child ) {
 					margin-right: -1px;
 				}
+
+				@media ( max-width: 1024px ) {
+					padding: var( --margin-xs );
+					font-size: var( --font-size-l );
+				}
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-s ) !important;
+					padding: 2px !important;
+					margin-bottom: 0 !important;
+				}
 			}
 
 			& span {
 				margin-bottom: -3px;
+
+				@media ( max-width: 650px ) {
+					margin-bottom: 0;
+				}
 			}
 		}
 

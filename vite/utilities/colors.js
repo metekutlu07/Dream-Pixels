@@ -6,6 +6,7 @@ import { Color } from 'three';
 import getPixels from 'image-pixels';
 import sharp from 'sharp';
 import tinify from 'tinify';
+
 // tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
 tinify.key = '0D4XLXfwLFq6xZ6VFkDwKC574WcFbw4q';
 

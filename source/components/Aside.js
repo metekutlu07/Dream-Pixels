@@ -52,18 +52,14 @@ export default class Aside extends HTMLElement {
 				opacity .5s var( --timing-function );
 			border: var( --border-size ) solid var( --border-color );
 
-			@media ( max-width: 1024px ) {
-				bottom: var( --margin-s );
-				left: var( --margin-s );
-			}
-
 			&:not( [ scrollable ] ) {
 
-				@media ( max-width: 450px ) {
+				@media ( max-width: 650px ) {
 					padding: var( --margin-m ) var( --margin-s );
+					padding-top: calc( var( --margin-m ) * 3 );
 				}
 
-				@media ( max-width: 450px ) {
+				@media ( max-width: 650px ) {
 					bottom: 0;
 					left: 0;
 					right: 0;
@@ -117,10 +113,10 @@ export default class Aside extends HTMLElement {
 				}
 
 				@media ( max-width: 1024px ) {
-					padding: var( --margin-s );
+					/* padding: var( --margin-s ); */
 				}
 
-				@media ( max-width: 450px ) {
+				@media ( max-width: 650px ) {
 					width: 100%;
 					border-right: none;
 				}
@@ -141,6 +137,10 @@ export default class Aside extends HTMLElement {
 			& h4 {
 				font-size: var( --font-size-xl );
 				max-width: 600px;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-l );
+				}
 			}
 
 			& h4 {

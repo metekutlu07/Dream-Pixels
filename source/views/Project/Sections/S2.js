@@ -25,7 +25,7 @@ export default class S2 {
 				font-size: var( --font-size-xxl );
 				text-align: left;
 				margin-bottom: var( --margin-s );
-				max-width: min( 1024px, 65% );
+				max-width: 85%;
 
 				@media ( max-width: 1280px ) {
 					font-size: var( --font-size-xl );
@@ -43,10 +43,10 @@ export default class S2 {
 			}
 
 			& p {
-				font-size: var( --font-size-m );
+				font-size: var( --font-size-l );
 				font-family: var( --font-family-c );
 				line-height: var( --line-height );
-				max-width: min( 800px, 65% );
+				max-width: 85%;
 
 				@media ( max-width: 1024px ) {
 					max-width: initial;

@@ -73,7 +73,7 @@ export default class Header extends HTMLElement {
 
 		header-block {
 			--width: 350px;
-			z-index: 15;
+			z-index: 20;
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -87,17 +87,19 @@ export default class Header extends HTMLElement {
 			width: 100%;
 			height: 100%;
 			pointer-events: none;
-			transition:
-				transform .5s var( --timing-function ),
-				opacity .5s var( --timing-function );
+			transition: opacity .5s var( --timing-function );
+
+			@media ( max-width: 650px ) {
+				padding: var( --margin-s );
+			}
 
 			& default-button:not( [ visible ] ) {
 				&:not( [ display-menu ] ) { display: none }
 			}
 
-			@media ( max-width: 1024px ) {
-				padding: var( --margin-s );
+			 @media ( max-width: 1024px ) {
 				justify-content: flex-start;
+				align-items: flex-start;
 
 				&::before {
 					content: '';
@@ -109,9 +111,11 @@ export default class Header extends HTMLElement {
 					opacity: 0;
 					background: var( --color-black );
 					z-index: 1;
+					transition: opacity .5s var( --timing-function );
 
 					[ display-menu ] & {
 						opacity: .9;
+						pointer-events: all;
 					}
 				}
 			}
@@ -133,10 +137,10 @@ export default class Header extends HTMLElement {
 
 			& [ display-menu ] {
 				display: none !important;
-			}
 
-			@media ( max-width: 1024px ) {
-				display: flex;
+				@media ( max-width: 1024px ) {
+					display: flex !important;
+				}
 			}
 		}
 
@@ -150,6 +154,10 @@ export default class Header extends HTMLElement {
 				justify-content: flex-start;
 				align-items: flex-start;
 				z-index: 1;
+				left: initial;
+				top: initial;
+				right: initial;
+				bottom: initial;
 
 				&:not( :last-child ) {
 					margin-bottom: var( --margin-s );
@@ -159,13 +167,15 @@ export default class Header extends HTMLElement {
 
 		header-navigation,
 		header-controls {
-			@media ( max-width: 1024px ) {
-				& default-button {
-					transform: translateX( -200px );
+			transition: opacity .5s var( --timing-function );
 
-					/* [ display-menu ] & { */
-						/* transform: translateX( 0 ); */
-					/* } */
+			@media ( max-width: 1024px ) {
+				opacity: 0;
+				pointer-events: none;
+
+				[ display-menu ] & {
+					opacity: 1;
+					pointer-events: all;
 				}
 			}
 		}
@@ -173,11 +183,6 @@ export default class Header extends HTMLElement {
 		header-navigation {
 			left: var( --margin-m );
 			top: var( --margin-m );
-
-			@media ( max-width: 1024px ) {
-				left: initial;
-				top: initial;
-			}
 		}
 
 		header-grid-modes {
@@ -189,6 +194,14 @@ export default class Header extends HTMLElement {
 			flex-direction: column;
 			align-items: center;
 
+			& default-button {
+				margin-bottom: 0 !important;
+			}
+
+			@media ( max-width: 650px ) {
+				bottom: 0;
+			}
+
 			& > div {
 				display: flex;
 				justify-content: center;
@@ -197,21 +210,11 @@ export default class Header extends HTMLElement {
 					margin-bottom: var( --margin-xs );
 				}
 			}
-
-			@media ( max-width: 1024px ) {
-				bottom: var( --margin-s );
-			}
-
 		}
 
 		header-controls {
 			right: var( --margin-m );
 			bottom: var( --margin-m );
-
-			@media ( max-width: 1024px ) {
-				right: initial;
-				bottom: initial;
-			}
 		}
 
 		header-credits {
@@ -220,9 +223,13 @@ export default class Header extends HTMLElement {
 			right: var( --margin-m );
 			font-size: var( --font-size-xs );
 			font-family: var( --font-family-c );
-			/* transition: opacity 1s var( --timing-function ); */
 			opacity: 0;
 
+			@media ( max-width: 650px ) {
+				display: none;
+			}
+
+			[ path="/" ] &,
 			[ path="/home" ] &,
 			[ path="/about" ] &,
 			[ path="/contact" ] & {
@@ -236,13 +243,16 @@ export default class Header extends HTMLElement {
 			left: var( --margin-m );
 			font-size: var( --font-size-xs );
 			font-family: var( --font-family-c );
-			/* transition: opacity 1s var( --timing-function ); */
 			opacity: 0;
 
 			[ path="/about" ] &,
 			[ path="/works" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
+			}
+
+			@media ( max-width: 1024px ) {
+				display: none;
 			}
 
 			& li {

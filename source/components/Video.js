@@ -43,9 +43,9 @@ export default class Video extends HTMLElement {
 				padding: 0;
 				border: none;
 
-				@media ( max-width: 768px ) {
-					position: relative;
-					height: 50vh;
+				@media ( max-width: 650px ) {
+					/* position: relative; */
+					/* height: 50vh; */
 
 					[ path="/when-gaspard-paints-a-gospel" ] &,
 					[ path="/augustus-ar" ] & {
@@ -59,7 +59,7 @@ export default class Video extends HTMLElement {
 				padding: var( --margin-m );
 				height: auto;
 
-				@media ( max-width: 768px ) {
+				@media ( max-width: 650px ) {
 					padding: 0;
 				}
 			}

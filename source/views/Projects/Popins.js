@@ -103,10 +103,14 @@ export default class Popins extends HTMLElement {
 		css`
 
 		projects-popins {
+			z-index: 20;
+			position: absolute;
+
 			& default-button {
 				position: absolute;
 				top: var( --margin-m );
 				right: var( --margin-m );
+				z-index: 2;
 			}
 		}
 
@@ -135,11 +139,17 @@ export default class Popins extends HTMLElement {
 			& video-block {
 				width: initial;
 				margin-right: var( --margin-s );
+				flex-shrink: 0;
 			}
 
 			& video {
 				width: 100px !important;
 				height: 100px !important;
+
+				@media ( max-width: 650px ) {
+					width: 75px !important;
+					height: 75px !important;
+				}
 			}
 
 			& a {
@@ -165,6 +175,10 @@ export default class Popins extends HTMLElement {
 					font-size: .9em;
 					opacity: .25;
 				}
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-m );
+				}
 			}
 
 			& h4 {
@@ -172,12 +186,20 @@ export default class Popins extends HTMLElement {
 				font-size: var( --font-size-s );
 				line-height: 1.4;
 				margin-bottom: 4px;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-xs );
+				}
 			}
 
 			& h5 {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-s );
 				opacity: .5;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-xs );
+				}
 			}
 		}
 
@@ -194,12 +216,35 @@ export default class Popins extends HTMLElement {
 			flex-direction: row;
 			justify-content: center;
 			align-items: flex-start;
+
+			@media ( max-width: 1024px ) {
+				flex-direction: column;
+				justify-content: flex-start;
+			}
+		}
+
+		popin-block {
+			@media ( max-width: 1024px ) {
+				max-height: 100%;
+				padding: calc( var( --margin-m ) * 2 );
+				overflow: auto;
+			}
+
+			@media ( max-width: 650px ) {
+				padding: var( --margin-m ) !important;
+				padding-top: calc( var( --margin-m ) * 3 ) !important;
+			}
 		}
 
 		popin-content {
 			max-width: 500px;
 			padding-right: var( --margin-s );
 			margin-right: var( --margin-m );
+
+			@media ( max-width: 1024px ) {
+				max-width: initial;
+				margin-right: initial;
+			}
 
 			& p {
 				font-family: var( --font-family-c );
@@ -217,6 +262,10 @@ export default class Popins extends HTMLElement {
 
 		popin-projects {
 			list-style: none;
+
+			@media ( max-width: 1024px ) {
+				margin-top: var( --margin-m );
+			}
 		}
 
 		`;

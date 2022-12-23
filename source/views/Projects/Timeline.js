@@ -110,7 +110,6 @@ export default class Timeline extends HTMLElement {
 			margin: auto;
 			height: 500px;
 			opacity: 0;
-			/* transition: opacity .1s var( --timing-function ); */
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
@@ -121,6 +120,10 @@ export default class Timeline extends HTMLElement {
 
 			@media ( max-width: 1024px ) {
 				height: 300px;
+			}
+
+			@media ( max-width: 650px ) {
+				right: var( --margin-s );
 			}
 
 			& ul {
@@ -138,7 +141,15 @@ export default class Timeline extends HTMLElement {
 				justify-content: flex-end;
 				cursor: pointer;
 
-				&:hover,
+				@media ( hover: hover ) {
+					&:hover {
+						&:after {
+							transform: scale( 1.75 );
+							background: var( --color-white );
+						}
+					}
+				}
+
 				&[ selected ] {
 					&:after {
 						transform: scale( 1.75 );

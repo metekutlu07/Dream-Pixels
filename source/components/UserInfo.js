@@ -81,14 +81,34 @@ export default class UserInfo extends HTMLElement {
 			opacity: 0;
 			border: 1px solid var( --color-white );
 
+			@media ( max-width: 1024px ) {
+				padding: var( --margin-s );
+				margin: 0 var( --margin-m );
+			}
+
+			@media ( max-width: 650px ) {
+				bottom: 120px;
+			}
+
 			&[ name="Images" ] {
 				bottom: 100px;
+
+				@media ( max-width: 650px ) {
+					bottom: 60px;
+				}
 			}
 
 			& h5 {
 				font-size: var( --font-size-l );
 				font-family: var( --font-family-b );
 				line-height: 1.4;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-s );
+					& br {
+						display: none;
+					}
+				}
 			}
 
 			& p {
@@ -96,6 +116,14 @@ export default class UserInfo extends HTMLElement {
 				font-size: var( --font-size-s );
 				margin-top: var( --margin-xs );
 				line-height: 1.6;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-xxs );
+
+					& br {
+						display: none;
+					}
+				}
 			}
 
 			&[ visible ] {

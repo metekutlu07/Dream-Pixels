@@ -41,6 +41,7 @@ export default {
 				},
 				{
 					title: 'Tower of Selymbria',
+					panorama: '5',
 					positions: {
 						1: { x: 11, y: 7, z: -6 }
 					}

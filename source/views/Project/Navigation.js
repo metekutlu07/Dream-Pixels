@@ -23,7 +23,7 @@ export default class Navigation extends HTMLElement {
 		css`
 
 		project-navigation {
-			z-index: 2;
+			z-index: 5;
 			position: fixed;
 			display: flex;
 			flex-direction: column;
@@ -36,6 +36,10 @@ export default class Navigation extends HTMLElement {
 			opacity: 0;
 			transform: scale( .975 );
 			transition: transform .75s var( --timing-function ), opacity .75s var( --timing-function );
+
+			@media ( max-width: 650px ) {
+				display: none;
+			}
 
 			[ view-exit ] &{
 				opacity: 0;

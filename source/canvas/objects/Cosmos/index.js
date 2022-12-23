@@ -70,7 +70,7 @@ export default class Cosmos extends Object3D {
 	async onModeChange() {
 
 		this.isHoverable = false;
-		this.popin = null;
+		this.popinID = null;
 
 		Application.store.set( 'pointer', false );
 		Application.store.set( 'popin', null );

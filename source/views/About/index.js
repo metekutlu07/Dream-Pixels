@@ -20,12 +20,21 @@ export default class About extends View {
 			font-size: var( --font-size-xl );
 			background: rgba( 0, 0, 0, .5 );
 
+			@media ( max-width: 1024px ) {
+				font-size: var( --font-size-l );
+			}
+
 			& p {
 				max-width: 50%;
 				font-family: var( --font-family-b );
 				text-align: center;
 				line-height: 1.2;
 				padding-bottom: var( --margin-s );
+
+				@media ( max-width: 1024px ) {
+					max-width: 80%;
+				}
+
 			}
 		}
 

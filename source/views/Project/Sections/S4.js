@@ -11,21 +11,18 @@ export default class S4 {
 			padding: calc( var( --margin-m ) * 2 );
 			font-family: var( --font-family-c );
 
-			@media ( max-width: 1280px ) {
-			}
-
-			@media ( max-width: 768px ) {
-				padding: var( --margin-s );
+			@media ( max-width: 650px ) {
+				padding: var( --margin-m );
 				flex-direction: column;
 			}
 
 			& > p {
 				max-width: 40vw;
 				padding: var( --margin-m );
-				font-size: var( --font-size-s );
-				line-height: 1.6;
+				font-size: var( --font-size-l );
+				line-height: 1.8;
 
-				@media ( max-width: 768px ) {
+				@media ( max-width: 650px ) {
 					padding: var( --margin-m ) 0;
 					margin-top: var( --margin-s );
 					max-width: initial;
@@ -42,7 +39,7 @@ export default class S4 {
 				margin-left: var( --margin-m );
 				font-size: var( --font-size-xs );
 
-				@media ( max-width: 768px ) {
+				@media ( max-width: 650px ) {
 					margin-left: 0;
 					column-count: 2;
 					margin-top: var( --margin-m );
@@ -72,7 +69,8 @@ export default class S4 {
 				display: block;
 				margin-top: var( --margin-s );
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-s );
+				font-size: var( --font-size-m );
+				line-height: 1.6;
 			}
 
 		}

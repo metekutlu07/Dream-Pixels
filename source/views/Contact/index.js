@@ -22,10 +22,18 @@ export default class Contact extends View {
 			user-select: text;
 			background: rgba( 0, 0, 0, .5 );
 
+			@media ( max-width: 1024px ) {
+				font-size: var( --font-size-l );
+			}
+
 			& h4 {
 				margin-bottom: var( --margin-s );
 				font-size: var( --font-size-xxl );
 				line-height: .9;
+
+				@media ( max-width: 1024px ) {
+					font-size: var( --font-size-l );
+				}
 			}
 
 			& a {
@@ -34,6 +42,10 @@ export default class Contact extends View {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-m );
 				z-index: 0;
+
+				@media ( max-width: 1024px ) {
+					font-size: var( --font-size-s );
+				}
 
 				@media ( hover: hover ) {
 					&:hover {

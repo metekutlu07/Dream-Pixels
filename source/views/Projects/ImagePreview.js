@@ -69,7 +69,7 @@ export default class ImagePreview extends HTMLElement {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			z-index: 15;
+			z-index: 20;
 			background: rgba( 0, 0, 0, .5 );
 			opacity: 0;
 			transition: opacity .5s var( --timing-function );
@@ -98,6 +98,11 @@ export default class ImagePreview extends HTMLElement {
 			flex-direction: column;
 			justify-content: flex-end;
 			align-items: flex-end;
+			margin: var( --margin-m );
+
+			@media ( max-width: 650px ) {
+				margin: var( --margin-s );
+			}
 		}
 
 		image-preview-buttons {

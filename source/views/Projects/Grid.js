@@ -31,7 +31,7 @@ export default class Grid extends HTMLElement {
 
 		const { width } = Application.viewport;
 		const length = width < 450 ? 1 :
-			width < 1280 ? 2 : 4;
+			width < 1024 ? 2 : width < 1280 ? 3 : 4;
 
 		if ( length === this.length ) return;
 		this.length = length;
@@ -90,7 +90,7 @@ export default class Grid extends HTMLElement {
 			align-items: flex-start;
 			margin-bottom: 100px;
 
-			@media ( max-width: 1280px ) {
+			@media ( max-width: 650px ) {
 				padding: var( --margin-s );
 			}
 
@@ -106,11 +106,11 @@ export default class Grid extends HTMLElement {
 				margin-right: var( --margin-m );
 			}
 
-			@media ( max-width: 1280px ) {
+			/* @media ( max-width: 1280px ) {
 				&:not( :last-child ) {
 					margin-right: var( --margin-s );
 				}
-			}
+			} */
 		}
 
 		`;

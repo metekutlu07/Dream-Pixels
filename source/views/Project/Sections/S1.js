@@ -13,7 +13,7 @@ export default class S1 {
 			height: 100%;
 			user-select: none;
 
-			@media ( max-width: 768px ) {
+			@media ( max-width: 650px ) {
 				flex-direction: column;
 				height: initial;
 			}

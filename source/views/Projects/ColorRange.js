@@ -124,7 +124,11 @@ export default class ColorRange extends HTMLElement {
 			width: 5px;
 			height: 500px;
 			opacity: 0;
-			/* transition: opacity .1s var( --timing-function ); */
+
+			@media ( max-width: 650px ) {
+				right: var( --margin-s );
+				height: 250px;
+			}
 
 			[ view-enter ][ list="particles" ][ particles="color-range" ] & {
 				opacity: 1;
@@ -135,10 +139,6 @@ export default class ColorRange extends HTMLElement {
 				position: absolute;
 				height: 100%;
 				width: 100%;
-			}
-
-			@media ( max-width: 1024px ) {
-				height: 300px;
 			}
 
 		}

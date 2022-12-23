@@ -24,7 +24,7 @@ export default class RotateDevice extends HTMLElement {
 			text-align: center;
 			display: none;
 
-			@media ( max-width: 768px ) {
+			@media ( max-width: 650px ) {
 				@media ( orientation: landscape ) {
 					display: flex;
 				}

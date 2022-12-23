@@ -169,7 +169,7 @@ export default class Scene extends Object3D {
 		this.objects.visible = path === '/works' && list === 'grid';
 		this.images.visible = path === '/works' && list === 'sphere';
 		this.map.visible = path === '/works' && list === 'places';
-		this.sphere.visible = ! ( path === '/works' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
+		this.sphere.visible = path !== '/' && ! ( path === '/works' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
 		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
 
 		this.particles.visible = (

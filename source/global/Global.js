@@ -25,6 +25,7 @@ export default class Global {
 			--font-size-m: 1.6rem;
 			--font-size-s: 1.4rem;
 			--font-size-xs: 1.2rem;
+			--font-size-xxs: 1rem;
 
 			--line-height: 1.8;
 			--border-size: 1px;
@@ -64,7 +65,7 @@ export default class Global {
 				overflow: hidden;
 			}
 
-			@media ( max-width: 768px ) {
+			@media ( max-width: 650px ) {
 				font-size: 9px;
 			}
 		}

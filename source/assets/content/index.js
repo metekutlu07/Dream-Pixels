@@ -174,39 +174,39 @@ export default {
 	grid: [
 
 		projects[ 0 ],
-		{ objectID: '009' },
+		// { objectID: '009' },
 		projects[ 1 ],
 		projects[ 2 ],
-		{
-			quote: 'Although an architect, clearly he a myriad artists holds in sway. And, of sound jugement, he can tell the secrets of the stars as well. His gaze draws over the sphere a web, like the spider of the astrolabe. Like Apollonius wise, he can devise and loose all talismans. He knows the veiled ones of the sky.',
-			author: 'Nizami Ganjavi, Haft Paykar, 12th century'
-		},
+		// {
+		// 	quote: 'Although an architect, clearly he a myriad artists holds in sway. And, of sound jugement, he can tell the secrets of the stars as well. His gaze draws over the sphere a web, like the spider of the astrolabe. Like Apollonius wise, he can devise and loose all talismans. He knows the veiled ones of the sky.',
+		// 	author: 'Nizami Ganjavi, Haft Paykar, 12th century'
+		// },
 		projects[ 3 ],
 		projects[ 4 ],
-		{ objectID: '002' },
+		// { objectID: '002' },
 		projects[ 5 ],
 		projects[ 6 ],
-		{
-			quote: 'The pen is of two kinds; the vegetal one is used in writing, and the second, made of cat hair, is used in painting. The wizards of art, similar in intelligence to Mani, and the Chinese and Frankish magicians, ascended the throne in the land of talent and have mecome masters in the workshop of Destiny.',
-			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
-		},
+		// {
+		// 	quote: 'The pen is of two kinds; the vegetal one is used in writing, and the second, made of cat hair, is used in painting. The wizards of art, similar in intelligence to Mani, and the Chinese and Frankish magicians, ascended the throne in the land of talent and have mecome masters in the workshop of Destiny.',
+		// 	author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
+		// },
 		projects[ 7 ],
 		projects[ 8 ],
-		{ objectID: '010' },
+		// { objectID: '010' },
 		projects[ 9 ],
 		projects[ 10 ],
-		{
-			quote: 'Let it be clear that the wonderful phantasy and strange native force of the artists are known in all lands. The force of imagination owned by these people are not found in any man of art. The image which the painter reveals on the tablets of the mind cannot be reflected in everybodys mirror of beauty. ',
-			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
-		},
+		// {
+		// 	quote: 'Let it be clear that the wonderful phantasy and strange native force of the artists are known in all lands. The force of imagination owned by these people are not found in any man of art. The image which the painter reveals on the tablets of the mind cannot be reflected in everybodys mirror of beauty. ',
+		// 	author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
+		// },
 		projects[ 11 ],
-		{ objectID: '007' },
+		// { objectID: '007' },
 		projects[ 12 ],
-		{ objectID: '011' },
-		{
-			quote: 'Well done, the magic-working masters of the brush whose bewitching tool bestows a new life. They master every creature, and conjure up to life the likeness of everyone, from the encompassing circle of the sky to the surface of the earth. They cast their glances about creation and make copies of every original. Their creative art is a guide to the plan of the universe. I cannot understand with what art they treat images so that they seem to be speaking to men.',
-			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
-		},
+		// { objectID: '011' },
+		// {
+		// 	quote: 'Well done, the magic-working masters of the brush whose bewitching tool bestows a new life. They master every creature, and conjure up to life the likeness of everyone, from the encompassing circle of the sky to the surface of the earth. They cast their glances about creation and make copies of every original. Their creative art is a guide to the plan of the universe. I cannot understand with what art they treat images so that they seem to be speaking to men.',
+		// 	author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
+		// },
 		projects[ 13 ]
 
 	],

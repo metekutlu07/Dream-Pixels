@@ -63,7 +63,7 @@ export default class Item extends HTMLElement {
 				margin-bottom: 40px;
 			}
 
-			@media ( max-width: 768px ) {
+			@media ( max-width: 650px ) {
 				transform: none !important;
 			}
 
