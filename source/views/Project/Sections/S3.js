@@ -8,6 +8,7 @@ export default class S3 {
 
 		section-type-3 {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			background: var( --color-black );
@@ -19,6 +20,20 @@ export default class S3 {
 			& img {
 				object-fit: cover;
 				width: 100%;
+			}
+
+			& p {
+				margin: var( --margin-m );
+				margin-top: 25px;
+				font-family: var( --font-family-c );
+				font-size: var( --font-size-m );
+				opacity: .5;
+
+				@media ( max-width: 650px ) {
+					margin: var( --margin-s );
+					font-size: var( --font-size-s );
+				}
+
 			}
 		}
 
@@ -36,6 +51,8 @@ export default class S3 {
 
 		Video.render( source, { controls, border: true } ) :
 		html`<img src="${ source }" alt="${ caption }"/>` }
+
+		${ caption ? html`<p>${ caption }</p>` : '' }
 
 		</section-type-3>
 

@@ -44,19 +44,12 @@ export default class Video extends HTMLElement {
 				border: none;
 
 				@media ( max-width: 650px ) {
-					/* position: relative; */
-					/* height: 50vh; */
-
-					[ path="/when-gaspard-paints-a-gospel" ] &,
-					[ path="/augustus-ar" ] & {
-						height: 65vh;
-					}
+					position: relative;
 				}
 
 			}
 
 			&[ border ] {
-				padding: var( --margin-m );
 				height: auto;
 
 				@media ( max-width: 650px ) {

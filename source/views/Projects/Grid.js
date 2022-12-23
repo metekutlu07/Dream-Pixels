@@ -105,22 +105,16 @@ export default class Grid extends HTMLElement {
 			&:not( :last-child ) {
 				margin-right: var( --margin-m );
 			}
-
-			/* @media ( max-width: 1280px ) {
-				&:not( :last-child ) {
-					margin-right: var( --margin-s );
-				}
-			} */
 		}
 
 		`;
 
-		const cells = Application.content.grid.map( Item.render );
-
 		return html`
 
 		<projects-grid #grid>
-			${ cells }
+			${ Application.content.grid.map( Item.render ) }
+			<!-- \${ Application.content.quotes.map( Item.render ) } -->
+			<!-- \${ Application.content.objects.map( Item.render ) } -->
 		</projects-grid>
 
 		`;

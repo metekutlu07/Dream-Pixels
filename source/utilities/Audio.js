@@ -23,25 +23,24 @@ export default class AudioInterface {
 
 		if ( ! Application.assets ) return;
 
-		// const { buffers } = Application.assets[ 'audio' ];
+		const { buffers } = Application.assets[ 'audio' ];
 
-		// this.audioListener = new AudioListener();
-		// this.audioListener.setMasterVolume( 0 );
-		// Application.camera.add( this.audioListener );
+		this.audioListener = new AudioListener();
+		this.audioListener.setMasterVolume( 0 );
 
-		// const entries = Object.entries( buffers );
-		// await Promise.all( entries.map( async entry => {
+		const entries = Object.entries( buffers );
+		await Promise.all( entries.map( async entry => {
 
-		// 	const [ key, value ] = entry;
-		// 	buffers[ key ] = await this.getDecodedBuffer( value );
+			const [ key, value ] = entry;
+			buffers[ key ] = await this.getDecodedBuffer( value );
 
-		// } ) );
+		} ) );
 
-		// this.isLoaded = true;
-		// this.isMuted = false;
+		this.isLoaded = true;
+		this.isMuted = false;
 
-		// this.loop = this.play( '/public/audio.m4a' );
-		// this.loop.play();
+		this.loop = this.play( '/public/audio.m4a' );
+		this.loop.play();
 
 	}
 

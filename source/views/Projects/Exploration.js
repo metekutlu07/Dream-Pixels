@@ -1,10 +1,10 @@
 import Chevron from '~/assets/icons/Chevron';
 
-export default class Exploration extends HTMLElement {
+export default class Panels extends HTMLElement {
 
-	onClick() {
+	onClick( event ) {
 
-		this.toggleAttribute( 'open' );
+		event.currentTarget.toggleAttribute( 'open' );
 
 	}
 
@@ -12,7 +12,7 @@ export default class Exploration extends HTMLElement {
 
 		css`
 
-		projects-exploration {
+		projects-panel {
 			z-index: 4;
 			position: fixed;
 			display: flex;
@@ -27,7 +27,7 @@ export default class Exploration extends HTMLElement {
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );
 			line-height: 1.8;
-			pointer-events: all;
+			pointer-events: none;
 			max-height: calc( 100% - var( --margin-m ) * 2 - 200px );
 
 			& p {
@@ -36,9 +36,10 @@ export default class Exploration extends HTMLElement {
 				}
 			}
 
-			[ view-enter ][ list="sphere" ] &,
-			[ view-enter ][ list="particles" ] &,
-			[ view-enter ][ list="places" ][ places="cosmos" ] & {
+			[ view-enter ][ list="sphere" ] &[ name="Cup" ],
+			[ view-enter ][ list="particles" ] &[ name="Cup" ],
+			[ view-enter ][ list="places" ][ places="world" ] &[ name="World" ],
+			[ view-enter ][ list="places" ][ places="cosmos" ] &[ name="Cosmos" ] {
 				opacity: 1;
 				pointer-events: all;
 			}
@@ -48,7 +49,7 @@ export default class Exploration extends HTMLElement {
 			}
 		}
 
-		exploration-title {
+		panel-title {
 			padding: var( --margin-s );
 			display: flex;
 			justify-content: space-between;
@@ -65,7 +66,7 @@ export default class Exploration extends HTMLElement {
 				border-bottom: var( --border-size ) solid var( --border-color );
 			}
 
-			& exploration-chevron {
+			& panel-chevron {
 				height: 25px;
 				width: 25px;
 				display: flex;
@@ -94,7 +95,7 @@ export default class Exploration extends HTMLElement {
 			}
 		}
 
-		exploration-description {
+		panel-description {
 			max-height: 0;
 			overflow: hidden;
 			padding: 0;
@@ -108,29 +109,42 @@ export default class Exploration extends HTMLElement {
 
 		`;
 
-		const { title, description } = Application.content.exploration;
+
+		const panels = Object
+			.entries( Application.content.panels )
+			.map( panel => {
+
+				const [ name, { title, description } ] = panel;
+
+				return html`
+
+				<projects-panel blurred-background @click name="${ name }">
+
+					<panel-title>
+						<h3>${ title }</h3>
+						<panel-chevron>
+							${ Chevron }
+						</panel-chevron>
+					</panel-title>
+
+					<panel-description>
+						${ description.map( paragraph => html`<p>${ paragraph }</p>` ) }
+					</panel-description>
+
+				</projects-panel>
+
+			`;
+
+			} );
 
 		return html`
-
-		<projects-exploration blurred-background @click>
-
-			<exploration-title>
-				<h3>${ title }</h3>
-				<exploration-chevron>
-					${ Chevron }
-				</exploration-chevron>
-			</exploration-title>
-
-			<exploration-description>
-				${ description.map( paragraph => html`<p>${ paragraph }</p>` ) }
-			</exploration-description>
-
-		</projects-exploration>
-
+			<projects-panels>
+				${ panels }
+			</projects-panels>
 		`;
 
 	}
 
 }
 
-customElements.define( 'projects-exploration', Exploration );
+customElements.define( 'projects-panel', Panels );
