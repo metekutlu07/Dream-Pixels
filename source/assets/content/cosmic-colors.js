@@ -134,7 +134,50 @@ export default {
 
 		{
 			type: 'S3',
-			anchor: 'Images',
+			anchor: 'Making-of',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/import.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/pointvop_noise.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/pointvop_color.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/popnet.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+
+		{
+			type: 'S3',
+			anchor: 'Annex',
 			media: {
 				source: 'public/cosmic-colors/004.jpg',
 				caption: 'Color Analysis of the Venetian Tower',
