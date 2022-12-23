@@ -63,7 +63,8 @@ export default class Video extends HTMLElement {
 			width: 100%;
 			top: 0;
 			left: 0;
-			object-fit: cover;
+			object-fit: contain;
+			max-height: 100vh
 
 			[ fullscreen ] & {
 				height: 100%;

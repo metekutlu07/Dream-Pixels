@@ -18,13 +18,13 @@ export default class S3 {
 			}
 
 			& img {
-				object-fit: cover;
+				object-fit: contain;
 				width: 100%;
+				max-height: 100vh;
 			}
 
 			& p {
-				margin: var( --margin-m );
-				margin-top: 25px;
+				margin: var( --margin-s );
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-m );
 				opacity: .5;
