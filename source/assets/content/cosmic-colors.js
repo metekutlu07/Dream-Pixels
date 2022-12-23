@@ -20,20 +20,22 @@ export default {
 
 		{
 			type: 'S3',
+			anchor: 'Algorithmic Color Analysis',
 			media: {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/003.jpg',
 				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
 		{
 			type: 'S3',
+			anchor: 'Transforming miniature architecture into particle simulations',
 			media: {
 				source: 'public/cosmic-colors/blue-analyse.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Analysis of the Venetian Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
@@ -41,26 +43,28 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/pink-analyse.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Analysis of the Tower of Adrianople',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
 
 		{
 			type: 'S3',
+			anchor: 'Architecture as blurred figures of colours in mouvement',
 			media: {
 				source: 'public/cosmic-colors/group.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Miniature architecture as blurred figures of colors',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
+			anchor: 'Under the conical roofs of Constantinople',
 			media: {
 				source: 'public/cosmic-colors/panorama.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Under the conical roofs of Constantinople - Panorama',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
@@ -68,8 +72,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome-list.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Under the conical roofs of Constantinople 01',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
@@ -77,8 +81,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome1.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Under the conical roofs of Constantinople 02',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
@@ -86,127 +90,163 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome2.mp4',
-				caption: 'When Minerals Become Particles',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Under the conical roofs of Constantinople 03',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
 
 		{
 			type: 'S3',
+			anchor: 'Headlines',
 			media: {
 				source: 'public/cosmic-colors/013.jpg',
-				caption: 'Florentine Geometrical Eye',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Colours of Magical Complexity',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/015.jpg',
-				caption: 'Bezels of Wisdom',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Perplexity is life',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
+
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/017.jpg',
-				caption: 'Constantinopolitan Eye',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'The Constantinopolitan Eye',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
+
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/020.jpg',
-				caption: 'Color Analysis'
+				caption: 'Renaissance of the Miniaturists Dream',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
 		{
-			anchor: 'Istanbul University Library',
-			type: 'S2',
-			title: 'Realm of<br>Imagination',
-			paragraphs: 'Reflecting the spatial dynamics of miniatures, the architectural figures emerge as quasi-forms with blurred limites. They depict the colors existing in Suhrawerdi\'s intermediary Realm of Images, connecting terrestrial and heavenly worlds. They represent the Manichaean ideal: the liberation of particles of light from the world of matter.',
+			type: 'S3',
+			anchor: 'Making-of',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/import.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
 		},
 
 		{
 			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/pointvop_noise.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/pointvop_color.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/cosmic-colors/popnet.png',
+				caption: 'Importing the model of Kynegion Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+			}
+		},
+
+
+		{
+			type: 'S3',
+			anchor: 'Annex',
 			media: {
 				source: 'public/cosmic-colors/004.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Color Analysis of the Venetian Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/005.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Korean Architecture', 'Persian Miniature' ]
+				caption: 'Color Analysis of the Tower of Adrianople',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-		{
-			type: 'S2',
-			title: 'Alchemical of<br>Transmutation',
-			paragraphs: 'The Constantinopolitan Eye designed an alchemical transmutation through supernatural colors for the continuous reinvention of the talismanic urban space at the Earth\'s navel, the cosmic capital, the divine city of Constantine.',
-		},
+
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/006.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Towers of Constantinople as blurred figures of particles 01',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/007.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Towers of Constantinople as blurred figures of particles 02',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/008.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Towers of Constantinople as blurred figures of particles 03',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/009.jpg',
-				caption: 'Mosaic',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Under the conical roofs of Constantinople - Mosaic',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/010.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Korean Architecture', 'Persian Miniature' ]
+				caption: 'Inside the Tower of Selymbria 01',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/011.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Inside the Tower of Saint Romanus',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
-			anchor: 'Anchor 2',
 			media: {
 				source: 'public/cosmic-colors/012.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Inside the Tower of Adrianople',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
@@ -214,8 +254,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/014.jpg',
-				caption: 'Amalfitan Tower Top',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Inside the Amalfitan Tower',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
@@ -223,29 +263,27 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/016.jpg',
-				caption: 'Tower of Pharion',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Inside the Tower of Phanarion',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 
-		{
-			type: 'S2',
-			title: 'Chromatic<br>Space',
-			paragraphs: 'In opposition with the Florentine geometrical eye, the architectural space is defined through colors that emphasize the magical complexity and variation in the universe, as well as the creative force of man\'s imagination.',
-		},
+
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/018.jpg',
-				caption: 'Color Analysis',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
+				caption: 'Inside the Tower of Pisa',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/019.jpg',
-				caption: 'Tower of Kynegion'
+				caption: 'Inside the Tower of Kynegion',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+
 			}
 		},
 
@@ -253,9 +291,30 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/021.jpg',
-				caption: 'Color Analysis'
+				caption: 'Inside the Tower of Selymbria 02',
+				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+
 			}
 		},
+
+		{
+			type: 'S2',
+			title: 'Realm of<br>Imagination',
+			paragraphs: 'Reflecting the spatial dynamics of miniatures, the architectural figures emerge as quasi-forms with blurred limites. They depict the colors existing in Suhrawerdi\'s intermediary Realm of Images, connecting terrestrial and heavenly worlds. They represent the Manichaean ideal: the liberation of particles of light from the world of matter.',
+		},
+
+		{
+			type: 'S2',
+			title: 'Chromatic<br>Space',
+			paragraphs: 'In opposition with the Florentine geometrical eye, the architectural space is defined through colors that emphasize the magical complexity and variation in the universe, as well as the creative force of man\'s imagination.',
+		},
+
+		{
+			type: 'S2',
+			title: 'Alchemical of<br>Transmutation',
+			paragraphs: 'The Constantinopolitan Eye designed an alchemical transmutation through supernatural colors for the continuous reinvention of the talismanic urban space at the Earth\'s navel, the cosmic capital, the divine city of Constantine.',
+		},
+
 		{
 			type: 'S4',
 			paragraphs: `
