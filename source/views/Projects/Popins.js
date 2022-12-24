@@ -224,11 +224,9 @@ export default class Popins extends HTMLElement {
 		}
 
 		popin-block {
-			@media ( max-width: 1024px ) {
 				max-height: 100%;
 				padding: calc( var( --margin-m ) * 2 );
 				overflow: auto;
-			}
 
 			@media ( max-width: 650px ) {
 				padding: var( --margin-m ) !important;
@@ -237,7 +235,7 @@ export default class Popins extends HTMLElement {
 		}
 
 		popin-content {
-			max-width: 500px;
+			max-width: 40%;
 			padding-right: var( --margin-s );
 			margin-right: var( --margin-m );
 
