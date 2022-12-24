@@ -17,7 +17,7 @@ export default class CustomStandardMaterial extends MeshStandardMaterial {
 		this.uniforms = Object.assign( {
 
 			rimPower: { value: 1.5 },
-			rimStrength: { value: 1 },
+			rimStrength: { value: .75 },
 
 		}, UniformsUtils.clone( ShaderLib.standard.uniforms ) );
 
