@@ -33,7 +33,6 @@ export default class Viewport {
 		this.devicePixelRatio = devicePixelRatio || 1;
 		this.orientation = this.aspect > 1 ? 'landscape' : 'portrait';
 
-		Application.store.set( '--viewport-height', `${ height }px` );
 		Application.events.dispatch( 'onResize', this.size );
 
 	}
@@ -50,12 +49,6 @@ export default class Viewport {
 
 		const { innerWidth, innerHeight } = window;
 		this.setSize( innerWidth, innerHeight );
-
-		const scrollTop = document.body.scrollTop;
-		const x = innerWidth * .5;
-		const y = innerHeight * .5 + scrollTop;
-		Application.store.set( '--transform-origin', `${ x }px ${ y }px` );
-
 
 	}
 

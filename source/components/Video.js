@@ -63,15 +63,15 @@ export default class Video extends HTMLElement {
 			width: 100%;
 			top: 0;
 			left: 0;
-			object-fit: contain;
-			max-height: 100vh
+			object-fit: cover;
 
 			[ fullscreen ] & {
 				height: 100%;
 			}
 
 			[ border ] & {
-				border: var( --border-size ) solid rgba( 255, 255, 255, .15 );
+				max-height: 100vh;
+				object-fit: contain
 			}
 		}
 

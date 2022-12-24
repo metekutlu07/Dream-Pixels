@@ -172,7 +172,11 @@ export default class Item extends HTMLElement {
 
 		return html`
 
-		<grid-item quote #items|projects-grid>
+		<grid-item
+			quote
+			#items|projects-grid
+			#quotes|projects-grid
+		>
 			<item-quote>
 				<item-text>${ quote }</item-text>
 				<item-author>${ author }</item-author>
@@ -199,7 +203,11 @@ export default class Item extends HTMLElement {
 
 		return html`
 
-		<grid-item object="${ objectID }" #items|projects-grid>
+		<grid-item
+			object="${ objectID }"
+			#items|projects-grid
+			#objects|projects-grid
+		>
 			<item-object></item-object>
 		</grid-item>
 
@@ -298,7 +306,13 @@ export default class Item extends HTMLElement {
 
 		return html`
 
-		<grid-item link @click @mouse-enter #items|projects-grid>
+		<grid-item
+			link
+			@click
+			@mouse-enter
+			#items|projects-grid
+			#links|projects-grid
+		>
 			<item-link href="/${ path }" internal>
 				<item-thumbnail>
 					${ Video.render( `/public/${ path }/thumbnail.mp4` ) }

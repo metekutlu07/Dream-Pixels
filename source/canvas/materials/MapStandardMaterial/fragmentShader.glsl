@@ -87,12 +87,8 @@ varying vec3 vViewPosition;
 #include <logdepthbuf_pars_fragment>
 #include <clipping_planes_pars_fragment>
 
-uniform float reflectionStrength;
-uniform sampler2D reflectionMap;
 uniform float rimPower;
 uniform float rimStrength;
-
-varying vec4 vReflectionMapCoordinates;
 varying vec3 vEye;
 
 void main() {
@@ -153,9 +149,6 @@ void main() {
 	#endif
 
 	#include <output_fragment>
-
-	vec4 reflection = texture2DProj( reflectionMap, vReflectionMapCoordinates );
-	gl_FragColor = mix( gl_FragColor, reflection, reflectionStrength );
 
 	float rimLight = rimPower * abs( dot( vNormal, normalize( vEye ) ) );
 	rimLight = 1. - smoothstep( .0, 1., rimLight );

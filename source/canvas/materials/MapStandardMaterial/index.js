@@ -1,9 +1,9 @@
-import { MeshStandardMaterial, Matrix4, UniformsUtils, ShaderLib } from 'three';
+import { MeshStandardMaterial, UniformsUtils, ShaderLib } from 'three';
 
 import vertexShader from './vertexShader';
 import fragmentShader from './fragmentShader';
 
-export default class GroundStandardMaterial extends MeshStandardMaterial {
+export default class CustomStandardMaterial extends MeshStandardMaterial {
 
 	constructor( parameters = {} ) {
 
@@ -16,12 +16,8 @@ export default class GroundStandardMaterial extends MeshStandardMaterial {
 
 		this.uniforms = Object.assign( {
 
-			reflectionMap: { value: null },
-			reflectionMapMatrix: { value: new Matrix4() },
-			reflectionStrength: { value: .25 },
-
-			rimPower: { value: 2.5 },
-			rimStrength: { value: .5 },
+			rimPower: { value: 1.5 },
+			rimStrength: { value: 1 },
 
 		}, UniformsUtils.clone( ShaderLib.standard.uniforms ) );
 

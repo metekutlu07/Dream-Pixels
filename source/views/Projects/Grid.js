@@ -30,14 +30,23 @@ export default class Grid extends HTMLElement {
 	async onResize() {
 
 		const { width } = Application.viewport;
-		const length = width < 450 ? 1 :
-			width < 1024 ? 2 : width < 1280 ? 3 : 4;
+		const length = width < 450 ? 1 : width < 1024 ? 2 : width < 1280 ? 3 : 4;
 
 		if ( length === this.length ) return;
 		this.length = length;
 
-		const { items, grid } = this.elements;
+		const { links, objects, quotes, grid } = this.elements;
 		this.columns = Array.from( { length }, () => document.createElement( 'grid-column' ) );
+
+		const items = Array.from( links );
+		const inserts = objects.concat( quotes ).shuffle();
+
+		inserts.forEach( ( object, index ) => {
+
+			const step = Math.round( ( links.length / inserts.length ) );
+			items.splice( index * step, 0, object );
+
+		} );
 
 		Array
 			.from( items )
@@ -113,8 +122,8 @@ export default class Grid extends HTMLElement {
 
 		<projects-grid #grid>
 			${ Application.content.grid.map( Item.render ) }
-			<!-- \${ Application.content.quotes.map( Item.render ) } -->
-			<!-- \${ Application.content.objects.map( Item.render ) } -->
+			${ Application.content.quotes.map( Item.render ) }
+			${ Application.content.objects.map( Item.render ) }
 		</projects-grid>
 
 		`;
@@ -122,5 +131,18 @@ export default class Grid extends HTMLElement {
 	}
 
 }
+
+Array.prototype.shuffle = function () {
+
+	for ( let i = this.length - 1; i > 0; i-- ) {
+
+		const j = Math.floor( Math.random() * ( i + 1 ) );
+		[ this[ i ], this[ j ] ] = [ this[ j ], this[ i ] ];
+
+	}
+
+	return this;
+
+};
 
 customElements.define( 'projects-grid', Grid );

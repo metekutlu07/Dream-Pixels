@@ -219,7 +219,7 @@ export default {
 
 	popins: {
 
-		'Constantinople': {
+		'constantinople': {
 			projects: [ 'bamistun', 'bistami', 'photogrammetry', ],
 			paragraphs: [
 				'Laboris sit enim aliqua veniam deserunt laboris minim sint enim nulla proident ut aliqua. Commodo non reprehenderit duis consequat non proident. Ad irure reprehenderit proident eiusmod id ut excepteur elit.',

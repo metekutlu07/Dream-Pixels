@@ -1,17 +1,14 @@
-import { Mesh, MeshStandardMaterial, PlaneGeometry } from 'three';
+import { Mesh, MeshBasicMaterial, PlaneGeometry } from 'three';
 
 export default class Symbol extends Mesh {
 
 	constructor( symbolID ) {
 
 		const geometry = new PlaneGeometry( 20, 20 );
-		const material = new MeshStandardMaterial( {
+		const material = new MeshBasicMaterial( {
 
 			opacity: 1,
-			transparent: true,
-			emissive: '#666666',
-			roughness: .65,
-			metalness: .15
+			transparent: true
 
 		} );
 

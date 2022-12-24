@@ -7,9 +7,13 @@ import {
 	Vector4,
 	PerspectiveCamera,
 	WebGLRenderTarget,
-	LinearFilter
+	Vector2
 
 } from 'three';
+
+import RenderPass from '../post-processing/RenderPass';
+import ShaderPass from '../post-processing/ShaderPass';
+import EffectComposer from '../post-processing/EffectComposer';
 
 export default class Reflection extends Object3D {
 
@@ -37,15 +41,42 @@ export default class Reflection extends Object3D {
 		this.camera = new PerspectiveCamera();
 		this.camera.matrixAutoUpdate = true;
 
-		this.renderTarget = new WebGLRenderTarget( 1024, 1024, {
+		this.renderTargetA = new WebGLRenderTarget( 2048, 2048 );
 
-			minFilter: LinearFilter,
-			magFilter: LinearFilter,
-			generateMipmaps: false
+		this.texture = this.renderTargetA.texture;
+		// this.setEffectComposer();
 
-		} );
+	}
 
-		this.texture = this.renderTarget.texture;
+	setEffectComposer() {
+
+		const { renderer, scene } = Application;
+
+		this.verticalBlurPass = new ShaderPass( BlurShader );
+		this.horizontalBlurPass = new ShaderPass( BlurShader );
+
+		this.verticalBlurPass.uniforms[ 'direction' ].value.y =
+		this.horizontalBlurPass.uniforms[ 'direction' ].value.x = 1;
+
+		const size = 1024;
+		this.verticalBlurPass.uniforms[ 'size' ].value.setScalar( size );
+		this.horizontalBlurPass.uniforms[ 'size' ].value.setScalar( size );
+
+		this.renderTargetB = new WebGLRenderTarget( size, size );
+		this.composer = new EffectComposer( renderer, this.renderTargetB );
+
+		this.renderPass = new RenderPass( scene, this.camera );
+		this.composer.addPass( this.renderPass );
+
+		for ( let i = 0, l = 10; i < l; i++ ) {
+
+			this.composer.addPass( this.verticalBlurPass );
+			this.composer.addPass( this.horizontalBlurPass );
+
+		}
+
+		this.composer.setSize( size, size );
+		this.texture = this.renderTargetB.texture;
 
 	}
 
@@ -126,11 +157,71 @@ export default class Reflection extends Object3D {
 
 		this.updateTextureMatrix();
 
-		const { renderer, scene } = Application;
-		renderer.setRenderTarget( this.renderTarget );
-		renderer.render( scene, this.camera );
-		renderer.setRenderTarget( null );
+		if ( this.composer ) {
+
+			const { scene } = Application;
+			this.renderPass.scene = scene;
+			this.composer.render();
+
+		} else {
+
+			const { renderer, scene } = Application;
+			renderer.setRenderTarget( this.renderTargetA );
+			renderer.render( scene, this.camera );
+			renderer.setRenderTarget( null );
+
+		}
 
 	}
 
 }
+
+const BlurShader = {
+
+	uniforms: {
+
+		tDiffuse: { value: null },
+		size: { value: new Vector2() },
+		direction: { value: new Vector2() }
+
+	},
+
+	vertexShader: `
+
+	varying vec2 vUv;
+
+	void main() {
+
+		vUv = uv;
+		gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1. );
+
+	}
+
+	`,
+
+	fragmentShader: `
+		varying vec2 vUv;
+		uniform sampler2D tDiffuse;
+		uniform vec2 size;
+		uniform vec2 direction;
+
+		void main() {
+
+			vec4 color = vec4( .0 );
+			vec2 offset1 = vec2( 1.411764705882353 ) * direction;
+			vec2 offset2 = vec2( 3.2941176470588234 ) * direction;
+			vec2 offset3 = vec2( 5.176470588235294 ) * direction;
+
+			color += texture2D( tDiffuse, vUv ) * .1964825501511404;
+			color += texture2D( tDiffuse, vUv + ( offset1 / size ) ) * .2969069646728344;
+			color += texture2D( tDiffuse, vUv - ( offset1 / size ) ) * .2969069646728344;
+			color += texture2D( tDiffuse, vUv + ( offset2 / size ) ) * .09447039785044732;
+			color += texture2D( tDiffuse, vUv - ( offset2 / size ) ) * .09447039785044732;
+			color += texture2D( tDiffuse, vUv + ( offset3 / size ) ) * .010381362401148057;
+			color += texture2D( tDiffuse, vUv - ( offset3 / size ) ) * .010381362401148057;
+
+			gl_FragColor = color;
+
+		}
+	`,
+};

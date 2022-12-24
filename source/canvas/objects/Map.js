@@ -2,7 +2,6 @@ import {
 
 	Box3,
 	Mesh,
-	MeshStandardMaterial,
 	Object3D,
 	Raycaster,
 	Sphere,
@@ -15,6 +14,7 @@ import {
 
 import { mergeBufferGeometries } from '~/vendors/three/BufferGeometryUtils';
 
+import MapStandardMaterial from '~/canvas/materials/MapStandardMaterial';
 import ReflectionStandardMaterial from '~/canvas/materials/ReflectionStandardMaterial';
 
 export default class Map extends Object3D {
@@ -39,7 +39,7 @@ export default class Map extends Object3D {
 
 	onModeChange() {
 
-		this.popin = null;
+		this.popinID = null;
 		Application.store.set( 'pointer', false );
 		Application.store.set( 'popin', null );
 
@@ -126,8 +126,6 @@ export default class Map extends Object3D {
 		this.traverse( child => {
 
 			if ( child === this ) return;
-			// const isDisabled = child.name.match( /Mountain|Land|Islands|Ottoman/g );
-			// child.visible = ! isDisabled;
 			child.visible = true;
 
 		} );
@@ -150,36 +148,25 @@ export default class Map extends Object3D {
 
 		this.copy( objects[ 'Scene' ] );
 
-		textures[ 'Map/Albedo.png' ].flipY = false;
+		textures[ 'Map/Map.png' ].flipY = false;
 		textures[ 'Map/Metalness.png' ].flipY = false;
 		textures[ 'Map/Roughness.png' ].flipY = false;
 
-		this.materialA = new MeshStandardMaterial( {
+		const parameters = {
 
 			envMap,
-			map: textures[ 'Map/Albedo.png' ],
+			map: textures[ 'Map/Map.png' ],
 			metalnessMap: textures[ 'Map/Metalness.png' ],
-			roughnessMap: textures[ 'Map/Roughness.png' ]
+			roughnessMap: textures[ 'Map/Roughness.png' ],
+			metalness: .5,
+			roughness: .25
 
-		} );
+		};
 
-		this.materialB = new ReflectionStandardMaterial( {
-
-			envMap,
-			map: textures[ 'Map/Albedo.png' ],
-			metalnessMap: textures[ 'Map/Metalness.png' ],
-			roughnessMap: textures[ 'Map/Roughness.png' ]
-
-		} );
-
-		this.traverse( child => {
-
-			if ( ! child.material ) return;
-
-			const material = child.name.match( /Sea/g ) ? this.materialB : this.materialA;
-			Object.assign( child, { material, castShadow: true, receiveShadow: true } );
-
-		} );
+		this.materialA = new MapStandardMaterial( parameters );
+		this.materialB = new ReflectionStandardMaterial( parameters );
+		this.materialC = new MapStandardMaterial( parameters );
+		this.materialC.emissive.set( '#222222' );
 
 		const { children } = this.getObjectByName( '001_Cities' );
 		this.cities = children.map( child => {
@@ -199,7 +186,19 @@ export default class Map extends Object3D {
 
 		this.merge( '001_Cities' );
 		this.merge( '002_Details' );
+		this.merge( '003_Map' );
 		this.merge( '004_Titles' );
+
+		this.traverse( child => {
+
+			if ( ! child.material ) return;
+
+			const material = child.name.match( /Map/g ) ? this.materialB :
+				child.name.match( /Titles/g ) ? this.materialC : this.materialA;
+
+			Object.assign( child, { material, castShadow: true, receiveShadow: true } );
+
+		} );
 
 	}
 

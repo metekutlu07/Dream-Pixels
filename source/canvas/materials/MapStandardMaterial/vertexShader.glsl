@@ -21,9 +21,6 @@ varying vec3 vViewPosition;
 #include <logdepthbuf_pars_vertex>
 #include <clipping_planes_pars_vertex>
 
-uniform mat4 reflectionMapMatrix;
-
-varying vec4 vReflectionMapCoordinates;
 varying vec3 vEye;
 
 void main() {
@@ -49,12 +46,8 @@ void main() {
 	#include <clipping_planes_vertex>
 
 	vViewPosition = - mvPosition.xyz;
-	vEye = normalize( vec3( modelViewMatrix * vec4( transformed, 1. ) ) );
 
-	// include <worldpos_vertex>
-	vec4 worldPosition = modelMatrix * vec4( transformed, 1.0 );
-	vReflectionMapCoordinates = reflectionMapMatrix * worldPosition;
-
+	#include <worldpos_vertex>
 	#include <shadowmap_vertex>
 	#include <fog_vertex>
 
