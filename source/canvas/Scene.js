@@ -191,12 +191,12 @@ export default class Scene extends Object3D {
 
 	onPreUpdate() {
 
-		const { list, path, places } = Application.store;
+		// const { list, path, places } = Application.store;
 
-		const visible = this.sphere.visible;
-		this.sphere.visible = false;
-		if ( path === '/works' && list === 'places' && places === 'world' ) this.reflection.render();
-		this.sphere.visible = visible;
+		// const visible = this.sphere.visible;
+		// this.sphere.visible = false;
+		// if ( path === '/works' && list === 'places' && places === 'world' ) this.reflection.render();
+		// this.sphere.visible = visible;
 
 	}
 

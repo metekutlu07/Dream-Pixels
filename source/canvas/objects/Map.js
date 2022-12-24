@@ -6,9 +6,7 @@ import {
 	Raycaster,
 	Sphere,
 	Vector2,
-	Vector3,
-	// MeshBasicMaterial,
-	// SphereGeometry,
+	Vector3
 
 } from 'three';
 
@@ -114,14 +112,14 @@ export default class Map extends Object3D {
 		if ( places !== 'cosmos' ) this.position.x = 0;
 		else this.position.x = cosmos.position.x;
 
-		if ( this.materialB ) {
+		// if ( this.materialB ) {
 
-			const { texture, mapMatrix } = Application.scene.reflection;
-			const { uniforms } = this.materialB;
-			uniforms[ 'reflectionMap' ].value = texture;
-			uniforms[ 'reflectionMapMatrix' ].value.copy( mapMatrix );
+		// 	const { texture, mapMatrix } = Application.scene.reflection;
+		// 	const { uniforms } = this.materialB;
+		// 	uniforms[ 'reflectionMap' ].value = texture;
+		// 	uniforms[ 'reflectionMapMatrix' ].value.copy( mapMatrix );
 
-		}
+		// }
 
 		this.traverse( child => {
 
@@ -158,13 +156,13 @@ export default class Map extends Object3D {
 			map: textures[ 'Map/Map.png' ],
 			metalnessMap: textures[ 'Map/Metalness.png' ],
 			roughnessMap: textures[ 'Map/Roughness.png' ],
-			metalness: .5,
-			roughness: .25
+			metalness: .25,
+			roughness: .5
 
 		};
 
 		this.materialA = new MapStandardMaterial( parameters );
-		this.materialB = new ReflectionStandardMaterial( parameters );
+		this.materialB = new MapStandardMaterial( parameters );
 		this.materialC = new MapStandardMaterial( parameters );
 		this.materialC.emissive.set( '#222222' );
 

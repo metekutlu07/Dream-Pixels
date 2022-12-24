@@ -227,7 +227,7 @@ export default {
 			]
 		},
 
-		'Nicopolis': {
+		'nicopolis': {
 			projects: [ 'photogrammetry', 'pigmentarium', 'rasdelka' ],
 			paragraphs: [
 				'Est magna Lorem cillum sit exercitation aute occaecat culpa ea. Occaecat sunt nisi proident elit nisi veniam minim officia. Veniam sit voluptate adipisicing velit quis anim reprehenderit ullamco aliquip duis dolor reprehenderit sunt non. Incididunt veniam deserunt velit nulla quis et esse enim excepteur minim laboris et est irure.',
