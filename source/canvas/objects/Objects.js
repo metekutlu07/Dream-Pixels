@@ -18,7 +18,7 @@ export default class Objects extends Object3D {
 		const { objects } = models[ 'Objects/Objects.glb' ];
 		const envMap = Application.assets[ 'EnvMap' ];
 
-		Application.content.grid
+		Application.content.objects
 			.filter( child => child.objectID )
 			.forEach( child => {
 
@@ -125,7 +125,7 @@ export default class Objects extends Object3D {
 			child.visible = opacity > .05;
 
 			const { aspect } = viewport;
-			const scale = Math.mapLinear( aspect, .56, 1.7, 1.6, 1. );
+			const scale = aspect < 1 ? 1.25 : 1;
 			child.scale.setScalar( scale );
 
 		} );

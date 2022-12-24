@@ -182,7 +182,7 @@ export default class OrbitControls extends Object3D {
 				rotateSpeed: 5,
 				zoomSpeed: 5,
 				minAngle: .25,
-				minDistance: 50,
+				minDistance: 25,
 				maxDistance: 100
 
 			} );

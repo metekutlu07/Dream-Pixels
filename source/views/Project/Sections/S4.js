@@ -37,7 +37,7 @@ export default class S4 {
 
 			& ul {
 				margin-left: var( --margin-m );
-				font-size: var( --font-size-xs );
+				font-size: var( --font-size-s );
 
 				@media ( max-width: 650px ) {
 					margin-left: 0;

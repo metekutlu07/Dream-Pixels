@@ -35,28 +35,51 @@ export default class Grid extends HTMLElement {
 		if ( length === this.length ) return;
 		this.length = length;
 
-		const { links, objects, quotes, grid } = this.elements;
+		const { links, grid } = this.elements;
 		this.columns = Array.from( { length }, () => document.createElement( 'grid-column' ) );
 
-		const items = Array.from( links );
-		const inserts = objects.concat( quotes ).shuffle();
+		const items = Array.from( links ).reverse();
 
-		inserts.forEach( ( object, index ) => {
+		const objects = {
 
-			const step = Math.round( ( links.length / inserts.length ) );
-			items.splice( index * step, 0, object );
+			1: [ 1, 4, 11, 13, 17 ],
+			2: [ 1, 4, 6, 11, 16 ],
+			3: [ 1, 2, 10, 14, 18 ],
+			4: [ 1, 3, 11, 13, 17 ]
+
+		};
+
+		const quotes = {
+
+			1: [ 1, 7, 10, 18 ],
+			2: [ 1, 7, 10, 17 ],
+			3: [ 2, 7, 12, 17 ],
+			4: [ 1, 7, 12, 18 ]
+
+		};
+
+		this.elements.objects.forEach( ( object, index ) => {
+
+			const position = objects[ length ][ index ];
+			if ( ! position ) return;
+			items.splice( position, 0, object );
 
 		} );
 
-		Array
-			.from( items )
-			.reverse()
-			.forEach( ( item, index ) => {
+		this.elements.quotes.forEach( ( object, index ) => {
 
-				const columnID = index % length;
-				this.columns[ columnID ].appendChild( item );
+			const position = quotes[ length ][ index ];
+			if ( ! position ) return;
+			items.splice( position, 0, object );
 
-			} );
+		} );
+
+		items.forEach( ( item, index ) => {
+
+			const columnID = index % length;
+			this.columns[ columnID ].appendChild( item );
+
+		} );
 
 		const count = Math.round( items.length / this.length );
 

@@ -13,7 +13,6 @@ import {
 import { mergeBufferGeometries } from '~/vendors/three/BufferGeometryUtils';
 
 import MapStandardMaterial from '~/canvas/materials/MapStandardMaterial';
-import ReflectionStandardMaterial from '~/canvas/materials/ReflectionStandardMaterial';
 
 export default class Map extends Object3D {
 
@@ -156,7 +155,7 @@ export default class Map extends Object3D {
 			map: textures[ 'Map/Map.png' ],
 			metalnessMap: textures[ 'Map/Metalness.png' ],
 			roughnessMap: textures[ 'Map/Roughness.png' ],
-			metalness: .25,
+			metalness: .5,
 			roughness: .5
 
 		};
