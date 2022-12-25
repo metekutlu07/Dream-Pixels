@@ -138,15 +138,6 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/solomon/beon02.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-			}
-		},
-
-		{
-			type: 'S3',
-			media: {
 				source: 'public/solomon/renks.jpg',
 				caption: 'Video Presentation',
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],

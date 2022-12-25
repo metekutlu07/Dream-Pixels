@@ -219,40 +219,256 @@ export default {
 
 	popins: {
 
-		'constantinople': {
-			projects: [ 'bamistun', 'bistami', 'photogrammetry', ],
+
+		'alexandria': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
 			paragraphs: [
-				`
-				Laboris sit enim aliqua veniam deserunt laboris minim sint enim nulla proident ut aliqua. Commodo non reprehenderit duis consequat non proident. Ad irure reprehenderit proident eiusmod id ut excepteur elit.
-				Sit mollit officia pariatur est laborum est commodo non Lorem ex consequat eu amet. Sint aute anim nulla sit Lorem non qui non deserunt ad. Ipsum non elit do esse aute duis labore et consectetur deserunt eiusmod commodo. Qui consectetur eiusmod esse cupidatat veniam deserunt. Duis eiusmod officia reprehenderit elit dolore ea. Tempor sunt incididunt pariatur ullamco amet ipsum sit occaecat tempor consectetur consectetur.
-				Ex est non commodo nisi. Sint laboris in eiusmod non ut. Deserunt magna deserunt officia quis amet veniam aliquip aliqua velit anim ipsum incididunt. Incididunt magna deserunt ut mollit eu voluptate nisi. Quis occaecat in aliquip eiusmod. Nulla ullamco pariatur dolore velit eiusmod fugiat.
-				Amet exercitation aute enim in ullamco cillum anim consequat excepteur magna do. Aute sunt voluptate aliquip in occaecat cillum in velit elit. Nulla aute reprehenderit do eiusmod et ad.
-				`,
-				`
-				Nulla velit proident in duis laborum minim aliquip. Dolore ex id consectetur ullamco reprehenderit ut laborum cupidatat aliquip cillum mollit Lorem. Dolor exercitation eiusmod nisi ipsum. Velit non aliquip do consequat cillum minim pariatur ut labore elit. Fugiat sunt voluptate excepteur cupidatat reprehenderit esse culpa duis commodo non adipisicing labore magna ipsum. Ipsum ut nulla tempor veniam. Mollit aliqua ad sint tempor velit voluptate amet enim occaecat nisi.
-				Excepteur nulla sint sit reprehenderit anim quis labore dolor pariatur eiusmod magna deserunt enim adipisicing. Aliquip nisi anim velit magna ullamco labore eu enim irure veniam. Occaecat reprehenderit tempor dolor aliqua cillum id ea duis labore quis. Velit quis cupidatat tempor fugiat.
-				Dolor enim cillum aliqua incididunt adipisicing fugiat eiusmod exercitation elit tempor mollit enim dolore commodo. Eiusmod ad exercitation quis culpa sit minim pariatur cillum Lorem ut duis magna sunt tempor. Ad excepteur reprehenderit occaecat nulla laborum cupidatat magna. Veniam fugiat et anim ut. Id tempor irure reprehenderit laborum veniam sunt proident laboris in.
-				`,
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'antioch': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'avignon': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'baghdad': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'balkh': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'belgrad': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'busan': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'carthage': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'constantinople': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'dalian': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'damas': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'delhi': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'herat': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'iconia': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'ispahan': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'jerusalem': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'khiva': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'kiev': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'nicomedia': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
 		'nicopolis': {
-			projects: [ 'photogrammetry', 'pigmentarium', 'rasdelka' ],
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
 			paragraphs: [
-				'Est magna Lorem cillum sit exercitation aute occaecat culpa ea. Occaecat sunt nisi proident elit nisi veniam minim officia. Veniam sit voluptate adipisicing velit quis anim reprehenderit ullamco aliquip duis dolor reprehenderit sunt non. Incididunt veniam deserunt velit nulla quis et esse enim excepteur minim laboris et est irure.',
-				'Ipsum enim sit commodo ex aliqua culpa reprehenderit irure aliquip aute. Commodo ipsum sit anim ea tempor dolor enim Lorem. Do velit magna labore nisi enim. Lorem excepteur deserunt id consequat adipisicing laboris non cillum sit exercitation mollit sit. Nostrud qui consequat exercitation cupidatat Lorem excepteur ex. Mollit consequat dolor dolor Lorem ut excepteur fugiat. Nisi adipisicing excepteur id cillum veniam nisi qui ut id aliqua occaecat enim aliquip.',
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
-		'Belgrad': {
-			projects: [ 'tessera', 'rasdelka' ],
+		'nishapur': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
 			paragraphs: [
-				'Sit cupidatat irure culpa esse voluptate culpa minim magna consectetur duis qui officia. Aute consequat duis quis aute ex excepteur in velit qui in do duis enim non. Duis excepteur sint ea id do voluptate minim cupidatat aliqua.',
-				'Ea mollit cillum est labore minim Lorem irure dolor esse reprehenderit tempor occaecat. Exercitation fugiat pariatur qui reprehenderit incididunt adipisicing id qui. Commodo irure ipsum ullamco anim occaecat mollit qui consectetur anim incididunt mollit qui. Adipisicing incididunt esse in est magna sint non minim.',
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
-		'Nicomedia': {
+		'paris': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'rome': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'samarkand': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'seoul': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'shanghai': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'shiraz': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'tabriz': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'tashkent': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'trebizond': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'venice': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
+		'vienna': {
 			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
