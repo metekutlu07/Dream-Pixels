@@ -7,7 +7,7 @@ export default {
 	date: 'October 2020',
 	team: 'Mete Kutlu',
 	period: 'October 2020',
-	description: '',
+	description: 'This experiment brings together Euclidian geometry of the Albertian architect with the mystical symbolism of the miniaturist. A mist of chaotic lines is simulated to visualize the complexity of Nature that is beyond human intelligence in the mystical cosmologies of Pseudo-Dionysius and Ibn Arabi.',
 	sections: [
 		{
 			type: 'S1',
@@ -17,21 +17,13 @@ export default {
 			}
 		},
 
-		{
-			type: 'S3',
-			media: {
-				source: 'public/solomon/temple-list.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-			}
-		},
 
 		{
 			type: 'S3',
 			media: {
 				source: 'public/solomon/full.mp4',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Illusionistic 3D Modelling of the Impossible Columns',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				controls: false
 			}
 		},
@@ -40,19 +32,38 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/compare.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Original miniature of the Temple on the left and its 3D modelling on the right',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-
 
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+				source: 'public/solomon/temple-list.jpg',
+				caption: 'Representations of the Temple in the Homilies of James the Monk of Kokkinobaphos (vat.gr.1162)',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/solomon/renks.jpg',
+				caption: 'Color Variation in Architectural Settings',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
 				source: 'public/solomon/folio.png',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Impossible Columns of the Temple on folio 190r',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -60,8 +71,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/temple.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Capitals of the Solomonic Column 01',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -69,8 +80,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/temple01.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Capitals of the Solomonic Column 02',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -80,8 +91,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/window.mp4',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Spatializing Sacred Impossibilities',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				controls: false
 			}
 		},
@@ -90,8 +101,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/temple-plan.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Offset between the dome and its feet',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -101,8 +112,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/test-center.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Celestial Neon Domes',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -111,8 +122,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/neon.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Solid and Luminous Temples',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -121,8 +132,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/neon01.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Neon Dome over Solomonic Columns',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -130,27 +141,17 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/neon03.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Solomonic Capital',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-		{
-			type: 'S3',
-			media: {
-				source: 'public/solomon/renks.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
-			}
-		},
-
 
 		{
 			type: 'S3',
 			media: {
 				source: 'public/solomon/stairs.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Thrones',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -158,8 +159,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/white.png',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Throne & Temple',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
@@ -167,8 +168,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/solomon/uc-stairs.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Sacred Thrones',
+				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
 
