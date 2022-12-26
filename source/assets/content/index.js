@@ -13,6 +13,7 @@ import P12 from './tessera';
 import P13 from './theodora';
 import P14 from './time-travelling-colours';
 import P15 from './virtual-miniature';
+import P16 from './trail';
 
 // To add a project, create a .js file in the content directory
 // Then import it here with a correct name like ( P + index of the project )
@@ -25,7 +26,7 @@ const projects = [
 	P2, P3, P4,
 	P5, P6, P7, P8,
 	P9, P10, P11, P12,
-	P13, P14, P15
+	P13, P14, P15, P16
 
 ];
 
