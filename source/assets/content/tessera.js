@@ -15,7 +15,7 @@ export default {
 			media: {
 				source: 'public/tessera/main.jpg',
 				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -23,8 +23,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/main.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Homepage',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -32,8 +32,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/echelle.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Game levels and the scales of experience',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -43,8 +43,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/carthage.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Creating different itineraries (City Level)',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -52,8 +52,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/parc.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Tessera Collection and levelling up (Architectural Level)',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -62,8 +62,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/maison.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Mare Nostrum (Mediterranean Level)',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -71,8 +71,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/map.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Visualization of mosaic floors in augmented reality',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -81,8 +81,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/mosaic-ar.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Completition of original mosaic panels with projected frescoes',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -90,8 +90,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/triclin01.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Presentation Video',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -99,8 +99,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/tessera/triclin02.jpg',
-				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				caption: 'Interactive ',
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -110,7 +110,7 @@ export default {
 			media: {
 				source: 'public/tessera/cheveaux.jpg',
 				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 
@@ -119,7 +119,7 @@ export default {
 			media: {
 				source: 'public/tessera/menu.jpg',
 				caption: 'Video Presentation',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Augmented Reality', 'Roman Mosaics' ],
 			}
 		},
 

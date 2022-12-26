@@ -204,11 +204,11 @@ export default {
 			author: 'Nizami Ganjavi, Haft Paykar, 12th century'
 		},
 		{
-			quote: 'The pen is of two kinds; the vegetal one is used in writing, and the second, made of cat hair, is used in painting. The wizards of art, similar in intelligence to Mani, and the Chinese and Frankish magicians, ascended the throne in the land of talent and have mecome masters in the workshop of Destiny.',
+			quote: 'The pen is of two kinds; the vegetal one is used in writing, and the second, made of cat hair, is used in painting. The wizards of art, similar in intelligence to Mani, and the Chinese and Frankish magicians, ascended the throne in the land of talent and have become masters in the workshop of Destiny.',
 			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		},
 		{
-			quote: 'Let it be clear that the wonderful phantasy and strange native force of the artists are known in all lands. The force of imagination owned by these people are not found in any man of art. The image which the painter reveals on the tablets of the mind cannot be reflected in everybodys mirror of beauty. ',
+			quote: 'Let it be clear that the wonderful fantasy and strange native force of the artists are known in all lands. The force of imagination owned by these people are not found in any man of art. The image which the painter reveals on the tablets of the mind cannot be reflected in everybodys mirror of beauty. ',
 			author: 'Kadi Ahmed, The Rosegarden of Talents, 1606'
 		},
 		{
