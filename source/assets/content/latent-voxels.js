@@ -375,7 +375,7 @@ export default {
 			anchor: 'Making-of',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/latent-voxels/img/makinof04.jpg',
+				source: 'public/latent-voxels/img/p3.jpg',
 				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
 				caption: 'Oneirogens : Input Remixed City Models for Interpolation'
 			}
@@ -395,7 +395,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/latent-voxels/img/makinof02.png',
+				source: 'public/latent-voxels/img/ss01.png',
 				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
 				caption: ' The interpolating solver node on the right, and the interpolated model on the left'
 			}
