@@ -20,7 +20,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri03.jpg',
-				tags: [ 'Augmented Reality' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 03'
 			}
 		},
@@ -28,7 +28,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri04.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 04'
 			}
 		},
@@ -36,7 +36,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri05.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 05'
 			}
 		},
@@ -44,7 +44,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri07.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 07'
 			}
 		},
@@ -52,7 +52,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri08x.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 8x'
 			}
 		},
@@ -60,7 +60,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri09.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 09'
 			}
 		},
@@ -68,7 +68,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri10.jpg',
-				tags: [ 'Artificial Intelligence', 'Artificial Intelligence' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 10'
 			}
 		},
@@ -77,7 +77,7 @@ export default {
 			anchor: 'Anchor 4',
 			media: {
 				source: 'public/pigmentarium/cri11.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 11'
 			}
 		},
@@ -85,7 +85,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri12.jpg',
-				tags: [ 'Augmented Reality' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 12'
 			}
 		},
@@ -93,7 +93,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri13.jpg',
-				tags: [ 'Artificial Intelligence', 'Persian Miniature' ],
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 13'
 			}
 		},

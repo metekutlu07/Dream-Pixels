@@ -165,6 +165,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/rasdelka/makingof.mp4',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				caption: '3D Modelling and the Projection Process in Rhino'
@@ -173,6 +175,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/rasdelka/shot01.png',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				caption: 'Import to Cinema 4D for animation'
@@ -182,6 +186,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/rasdelka/shot03.png',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				caption: 'Nurbs Model of the Pink Church'
@@ -191,6 +197,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/rasdelka/shot04.png',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				caption: 'Projection of the miniature to 3D volumes'
@@ -200,6 +208,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/rasdelka/shot02.png',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				caption: 'Under the main dome'

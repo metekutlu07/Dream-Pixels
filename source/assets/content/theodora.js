@@ -226,6 +226,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/theodora/ss02.png',
 				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
 
@@ -236,6 +238,8 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				excludeFromSphere: true,
+
 				source: 'public/theodora/ss01.png',
 				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
 
