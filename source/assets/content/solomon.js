@@ -17,13 +17,11 @@ export default {
 				caption: 'Video Introduction'
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Field Study in Rome',
 			title: 'Field Study in Rome',
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -34,13 +32,11 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Modelling the Impossible Columns',
 			title: 'Modelling the Impossible Columns',
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -50,7 +46,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -59,7 +54,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -68,7 +62,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -78,7 +71,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -87,13 +79,11 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'The Temple Iconography',
 			title: 'The Temple Iconography',
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -103,8 +93,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -114,7 +102,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -124,7 +111,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -134,7 +120,20 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
+		{
+			type: 'S2',
+			paragraphs: `
+			During my residence at the Palais de France in Istanbul, November 2019,
+			I discovered the mosaics (1321) of the Church of Saint-Saveur-in-Chora
+			which depict the same scenes from the life of the Virgin as the miniatures
+			of the Homilies (12th century). This apocryphal episode of her life is
+			called the “Presentation of Mary in the Temple”. The main architectural
+			element of these scenes is the ciborium which is a construction
+			with a canopy resting on four columns. Its objective is the protection and enhancement of an altar.
+			This altar is represented as a table covered with a red cloth.
+			The ciborium represents the archetype of the temple which refers to the Holy of Holies of Solomon's Temple in Jerusalem.
+			`,
+		},
 		{
 			type: 'S3',
 			media: {
@@ -144,28 +143,34 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss14.png',
-				caption: 'Imported Polygon Throne in Cinema 4D',
+				caption: 'Penance of David drawn by Michael of Tokat (Turkey) in the Armenian Bible in Constantinople, 1625 (Vat.arm.1, folio 306v)',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
 				source: 'public/solomon/stairtest.jpg',
-				caption: 'Imported Polygon Throne in Cinema 4D',
+				caption: 'Elevated throne in Islamic Architecture and Miniatures',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
+		{
+			type: 'S2',
+			paragraphs: `
+			This elevated throne also appears in Islamic miniatures which depict
+			scenes taking place inside mosques. In Islamic architecture,
+			this architectural element is called the minbar.
+			From left to right, an Ottoman miniature representing the Prophet Mohammed
+			at the top of the minbar (Museum of Islamic and Turkish Arts, Istanbul, Siyer-i Nebi, TSMK 1976, folio 225) and two Arabic miniatures in another manuscript of the Sessions (BNF, Paris, folios 18v and 58v).
+			`,
+		},
 		{
 			type: 'S3',
 			media: {
@@ -175,7 +180,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -185,13 +189,11 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'The Neon Temple',
 			title: 'The Neon Temple',
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -200,8 +202,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -210,8 +210,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -220,7 +218,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -229,13 +226,11 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'The Divine Throne',
 			title: 'The Divine Throne',
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -244,7 +239,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -253,7 +247,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -262,7 +255,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Making-of',
@@ -273,7 +265,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -283,7 +274,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -293,7 +283,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -303,7 +292,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -313,7 +301,6 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {

@@ -14,7 +14,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/humbaba/t01.mp4',
+				source: 'public/humbaba/nft-intro.mp4',
 				caption: 'Video Introduction'
 			}
 		},
@@ -37,7 +37,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/humbaba/edgez.mp4',
+				source: 'public/humbaba/edge.mp4',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
 				caption: 'Shadows'
 			}
