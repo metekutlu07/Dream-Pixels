@@ -3,7 +3,7 @@ export default {
 	path: 'trail',
 	title: 'Kizil Elma',
 	subtitle: 'Colors of the Earthly Paradise',
-	location: 'Istanbul',
+	location: 'Paris',
 	date: 'December 2022',
 	team: 'Mete Kutlu',
 	period: 'December 2022',

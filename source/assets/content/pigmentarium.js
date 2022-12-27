@@ -12,7 +12,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/pigmentarium/ai-intro.mp4',
+				source: 'public/pigmentarium/yemen.mp4',
 				caption: 'Video Introduction'
 			}
 		},
@@ -21,16 +21,15 @@ export default {
 			media: {
 				source: 'public/pigmentarium/cri03-m.png',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 03'
+				caption: 'Colors of Szkesfehervar 01'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri04.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 04'
+				caption: 'Colors of Szkesfehervar 02'
 			}
 		},
 		{
@@ -38,25 +37,23 @@ export default {
 			media: {
 				source: 'public/pigmentarium/cri05.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 05'
+				caption: 'Colors of Szkesfehervar 03'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri10-m.png',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 03'
+				caption: 'Colors of Buda 01'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri07.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 07'
+				caption: 'Colors of Buda 02'
 			}
 		},
 		{
@@ -64,7 +61,7 @@ export default {
 			media: {
 				source: 'public/pigmentarium/cri08x.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 8x'
+				caption: 'Colors of Buda 03'
 			}
 		},
 		{
@@ -72,7 +69,7 @@ export default {
 			media: {
 				source: 'public/pigmentarium/cri09.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 09'
+				caption: 'Colors of Buda 04'
 			}
 		},
 		{
@@ -80,29 +77,25 @@ export default {
 			media: {
 				source: 'public/pigmentarium/cri11.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 11'
+				caption: 'Colors of Buda 05'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri13-m.png',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 03'
+				caption: 'Colors of Nicopolis 01'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/pigmentarium/cri12.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 12'
+				caption: 'Colors of Nicopolis 02'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -111,7 +104,6 @@ export default {
 				caption: 'Particles Render 13'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -120,7 +112,6 @@ export default {
 				caption: 'Particles Render 13'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -129,7 +120,6 @@ export default {
 				caption: 'Particles Render 13'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -138,7 +128,6 @@ export default {
 				caption: 'Particles Render 13'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -147,7 +136,6 @@ export default {
 				caption: 'Particles Render 13'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {

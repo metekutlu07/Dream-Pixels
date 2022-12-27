@@ -14,7 +14,6 @@ export default {
 				caption: 'Video Introduction'
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Silicon City Dreams',
@@ -29,7 +28,6 @@ export default {
 			642 city models emerge during the process of transformation.
 			Each scenario is a different oneiropolids, a dream city.`,
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -38,8 +36,6 @@ export default {
 				caption: 'The Dusk of Data at the Hippodrome of Constantinople  '
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -48,9 +44,6 @@ export default {
 				caption: 'Algorithmic Urban Dreams - Axonometric View'
 			}
 		},
-
-
-
 		{
 			type: 'S3',
 			media: {
@@ -59,7 +52,6 @@ export default {
 				caption: 'Oneiropolis Details'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -68,8 +60,6 @@ export default {
 				caption: 'Algorithmic Urban Dreams - Top View'
 			}
 		},
-
-
 		{
 			type: 'S2',
 			anchor: 'Digital Mysticism',
@@ -88,16 +78,14 @@ export default {
 			allowing us to imagine talismanic spaces in the Age of AI.
 			`,
 		},
-
 		{
 			type: 'S3',
 			media: {
-				source: 'public/latent-voxels/test.mp4',
+				source: 'public/latent-voxels/streetview.mp4',
 				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
 				caption: 'Transmutating Electronic Urbanscapes inside the Silicon Chip'
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Oneiropolis 464',
@@ -113,7 +101,6 @@ export default {
 			are combined to represent a suprasensbile urban space.
 			`,
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -131,7 +118,6 @@ export default {
 				caption: 'Notiones constantinopolitana'
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Konstantinopelidee',
@@ -156,8 +142,6 @@ export default {
 
 			`,
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -174,16 +158,14 @@ export default {
 				caption: 'Prophetical Towers of Neo-Apollonius'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
-				source: 'public/latent-voxels/com3.mp4',
+				source: 'public/latent-voxels/cctv.mp4',
 				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
 				caption: 'Algorithmic Urban Dreams - Axonometric View'
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Divine Protection',
@@ -213,8 +195,6 @@ export default {
 			Or to the Virgin as the mistress of the City.<br><br>
 			`,
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -223,8 +203,6 @@ export default {
 				caption: 'Urban Dreams of a Young Cyborg'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -233,7 +211,6 @@ export default {
 				caption: 'Friday Sunset on the Cybernetic Square'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -242,7 +219,6 @@ export default {
 				caption: 'Boulevards of Holographic Turkish Delights'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -251,7 +227,6 @@ export default {
 				caption: 'Ecumenical Information Processing Complex'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -260,7 +235,6 @@ export default {
 				caption: 'The Silicon Nymphaeum in Eminenu'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -269,7 +243,6 @@ export default {
 				caption: 'Quarter of Cybernetic Mystics'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -278,8 +251,6 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -288,7 +259,6 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -297,7 +267,6 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -306,7 +275,6 @@ export default {
 				caption: 'Low-Energy Android Slums in Levent'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -315,7 +283,6 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -324,8 +291,6 @@ export default {
 				caption: 'Galactic Comms Towers of Neo-Seraglio'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -334,7 +299,6 @@ export default {
 				caption: 'Playgrounds in the Data Land'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -343,7 +307,6 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -352,7 +315,6 @@ export default {
 				caption: 'The Turkish Revamp of Filarete`s Ideal City'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -361,13 +323,10 @@ export default {
 				caption: 'Image Caption'
 			}
 		},
-
 		{
 			type: 'S2',
 			title: 'MAKING-OF',
 		},
-
-
 		{
 			type: 'S3',
 			anchor: 'Making-of',
@@ -378,7 +337,6 @@ export default {
 				caption: 'Oneirogens : Input Remixed City Models for Interpolation'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -388,7 +346,6 @@ export default {
 				caption: 'Node graph prepared in Houdini for voxel and pixel interpolation'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -398,7 +355,6 @@ export default {
 				caption: ' The interpolating solver node on the right, and the interpolated model on the left'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -408,7 +364,6 @@ export default {
 				caption: 'Conversion of Compositional Assemblage To A Topological Surface'
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Bibliography',
