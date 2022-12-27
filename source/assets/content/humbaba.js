@@ -18,12 +18,10 @@ export default {
 				caption: 'Video Introduction'
 			}
 		},
-
 		{
 			type: 'S2',
 			title: 'Animations',
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Animations',
@@ -33,7 +31,6 @@ export default {
 				caption: 'Disco Lion'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -42,7 +39,6 @@ export default {
 				caption: 'Shadows'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -51,7 +47,6 @@ export default {
 				caption: 'Laser Lion'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -60,54 +55,42 @@ export default {
 				caption: 'Humbaba Experiments'
 			}
 		},
-
 		{
 			type: 'S2',
 			title: 'Storyboard',
 		},
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-
 				source: 'public/humbaba/img/test3.png',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
-
 				caption: 'A Name Eternal'
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Storyboard',
 			media: {
 				excludeFromSphere: true,
-
 				source: 'public/humbaba/img/test2.png',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
-
 				caption: 'An Unwinnable Battle'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-
 				source: 'public/humbaba/img/test4.png',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
-
 				caption: 'Death of Humbaba'
 			}
 		},
-
 		{
 			type: 'S2',
 			title: 'Projection Mapping',
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Projection Mapping',
@@ -117,8 +100,6 @@ export default {
 				caption: 'Chapter 1'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -127,7 +108,6 @@ export default {
 				caption: 'Chapter 2'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -136,7 +116,6 @@ export default {
 				caption: 'Chapter 3'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -153,22 +132,18 @@ export default {
 				caption: 'Chapter 6'
 			}
 		},
-
 		{
 			type: 'S2',
 			title: 'Making-of',
 		},
-
 		{
 			type: 'S3',
-			anchor: 'Making-of',
 			media: {
 				source: 'public/humbaba/img/drawing.png',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
 				caption: 'Initial Illustrator drawing'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -178,7 +153,6 @@ export default {
 				caption: 'Disco Materials'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -188,7 +162,6 @@ export default {
 				caption: 'Material randomizing Xpresso graph prepared in Cinema 4D'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -197,7 +170,6 @@ export default {
 				caption: 'Building the Disco graph'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -216,45 +188,36 @@ export default {
 				caption: 'Graph Detail'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-
 				source: 'public/humbaba/img/edge.jpg',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
 				caption: 'Line Animation in Cinema 4D'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-
 				source: 'public/humbaba/img/rhino.png',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
 				caption: 'Pieces of the unfolded 3D model for building the cardboard model as projection base '
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-
 				source: 'public/humbaba/img/madmapper1.png',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
 				caption: 'Projection mapping'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
-
 				source: 'public/humbaba/humbaba-histogram.mp4',
 				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
 				caption: 'Humbaba Caption'

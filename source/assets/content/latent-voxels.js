@@ -64,14 +64,13 @@ export default {
 			type: 'S2',
 			anchor: 'Digital Mysticism',
 			title: 'Digital Mysticism',
-			paragraphs: `The Ottoman miniaturist sought to reveal
+			paragraphs: `
+			The Ottoman miniaturist sought to reveal
 			the hidden treasures which are concealed behind material appearances.<br><br>
-
 			In this experiment, the symbolism of the invisible is used for the
 			hacking of the artificial logic of the machine.
 			This transtemporal fusion explores the possibility of
 			a “digital mysticism" in contemporary architecture.<br><br>
-
 			The mystical use of AI gives birth to
 			the figure of alchemist-architect.
 			The algorithms become the elixir
@@ -90,7 +89,8 @@ export default {
 			type: 'S2',
 			anchor: 'Oneiropolis 464',
 			title: 'Oneiropolis 464',
-			paragraphs: `Architectural details are added with generative algorithms.
+			paragraphs: `
+			Architectural details are added with generative algorithms.
 			Various words and phrases are integrated into the urban space.<br><br>
 
 			These citations are taken from medieval Byzantine literature
@@ -123,7 +123,6 @@ export default {
 			anchor: 'Konstantinopelidee',
 			title: 'KONSTANTINOPELIDEE',
 			paragraphs: `
-
 			Second Rome (Δεύτερη Ρώμη, Defteri Romi) in Themistios, Himerios & Libanios <br>
 			New Rome (Νέα Ρώμη, Nea Romi) in Gregory of Naziance, Procopius & Paulus Silentiarius <br>
 			New Jerusalem <br>
@@ -139,7 +138,6 @@ export default {
 			The eye and the heart of Earth in Micheal Psellos, Théodore Prodrome & Constantin Manassès <br>
 			Theater of the universe in Manuel Holobos, Grégoire de Chypre & Théodore Métochite <br>
 			The city was named Anthousa by Constantine the Great. (Eusthate, Commentarii in Dionysii Periegesin, Geographi Graeci Minores. F. Didot, p.357)
-
 			`,
 		},
 		{
@@ -172,25 +170,19 @@ export default {
 			paragraphs: `Ρώμη Φλώρα, και Κωνσταντινούπολις, ήγουν άνθουσα.<br>
 			Rome was Flora, and Constantinople Anthousa.<br>
 			(Jean Le Lydien, De Mensibus, IV, 75, ed. Wuensch, p. 126, 16-17)<br><br>
-
 			Χριστέ ó Θεος άτάραχτονκαΐ άπόλεμον φύλαττε τήν πόλιν σου.<br>
 			Christ o Lord, undisturbed, protect your city from war.<br>
 			(Inscription on the walls of Constantinople dating from the 11th century)<br><br>
-
 			Σύ, Χριστέ, κόσμου βασιλεύς και δεσπότης σοί προστίθημι τήνδε τήν δούλην πόλιν και σκήπτρα τήσδε καί τό πάν 'Ρώμης κράτος φύλαττε ταύτην, σώζε δ' έκ πάσης βλάβης.<br>
 			O Christ, King and Despot of the world, I added to you the slave city and the scepters of the whole Roman state. Guarded it and save it from all harm.<br>
 			(Constantine the Rhodian cited by Kedrenos in Historiarum compendium)<br><br>
-
 			ή πόλις σου Θεοτόκε<br>
 			Your city, o Theotokos!<br><br>
-
 			Της Θεοτόκου ή πόλις τη Θεοτόκω<br>
 			The city of Theotokos to Theotokos<br><br>
-
 			Είς άπειρους αιώνας εύόδωσον ταύτην.<br>
 			Lord, let this city prosper for infinite centuries.<br>
 			Παραστάσεις σύντομοι χρονικαι (Parastesis, I p57, Preger)<br><br>
-
 			Constantinople consecrated to Christ<br>
 			Or to the Virgin as the mistress of the City.<br><br>
 			`,
@@ -369,7 +361,6 @@ export default {
 			anchor: 'Bibliography',
 			title: 'Bibliography',
 			paragraphs: `
-
 			> Eusebius of Caesarea, Universal History (Παντοδαπὴ ἱστορία, Pantodape historia)<br>
 			> Life of Constantine the Great, 4th c.<br>
 			> Zosimus, New History, Ἱστορία Νέα, 5th c.<br>
@@ -390,7 +381,5 @@ export default {
 			> Erwin Fenser, Laudes Constantinopolitanae <br>
 			`,
 		},
-
-
 	]
 };

@@ -310,20 +310,5 @@ export default {
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 			}
 		},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	]
-
 };

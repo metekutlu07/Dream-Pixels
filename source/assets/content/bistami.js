@@ -43,8 +43,6 @@ export default {
 				'City': 'Istanbul, Turkey'
 			}
 		},
-
-
 		{
 			type: 'S3',
 			anchor: 'Into The Miniature Space',
@@ -55,7 +53,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -65,7 +62,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -75,7 +71,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -85,7 +80,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Comparative View',
@@ -96,7 +90,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Historical Plan of Constantinople',
@@ -107,7 +100,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Plan of The Miniature',
@@ -118,7 +110,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Miniature Revisited',
@@ -129,7 +120,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -139,7 +129,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -149,7 +138,6 @@ export default {
 				controls: false
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Projection Process',
@@ -160,22 +148,17 @@ export default {
 				controls: false
 			}
 		},
-
-
-
 		{
 			type: 'S2',
 			anchor: 'Theoretical Description',
 			title: '3D Modelling<br>of Miniatures',
 			paragraphs: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
 		},
-
 		{
 			type: 'S2',
 			title: 'Magical<br>Vision',
 			paragraphs: 'The original miniature represented the urban space of Constantinople as a magical condensation of invisible and eclectic myths, far beyond its material appearance. The "Constantinopolitan Eye" saw in the metallic and mineral architecture of the city a supernatural origine, a divine reason of existence and an apocalyptic destiny. Underlying the colorful and dream-like representations of miniatures, the Ottoman understanding of space is fundemantally different than our modern, western-born, mathematical and materialistic definition.'
 		},
-
 		{
 			type: 'S2',
 			title: 'Transtemporal<br>Juxtaposition',

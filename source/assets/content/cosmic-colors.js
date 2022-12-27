@@ -17,7 +17,6 @@ export default {
 				caption: 'Video Introduction'
 			}
 		},
-
 		{
 			type: 'S3',
 			anchor: 'Algorithmic Color Analysis',
@@ -41,7 +40,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -50,7 +48,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Blurred Figures of Colors',
@@ -82,7 +79,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -91,7 +87,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -100,13 +95,11 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Stargazing in Constantinople',
 			title: 'Stargazing in Constantinople',
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -115,7 +108,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -124,7 +116,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -133,7 +124,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -142,7 +132,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -151,7 +140,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S2',
 			anchor: 'Headlines',
@@ -173,7 +161,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -182,7 +169,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -205,7 +191,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -233,8 +218,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
-
 		{
 			type: 'S2',
 			anchor: 'Annex',
@@ -264,7 +247,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -321,7 +303,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -330,7 +311,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -339,8 +319,6 @@ export default {
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
 			}
 		},
-
-
 		{
 			type: 'S3',
 			media: {
@@ -358,117 +336,93 @@ export default {
 
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/021.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/kynegion.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/adrianopolis.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome01.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome02.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome03.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/dome04.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/bonus.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/romanus.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
 				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
-
 			}
 		},
-
-
-
 		{
 			type: 'S2',
 			title: 'Realm of<br>Imagination',
 			paragraphs: 'Reflecting the spatial dynamics of miniatures, the architectural figures emerge as quasi-forms with blurred limites. They depict the colors existing in Suhrawerdi\'s intermediary Realm of Images, connecting terrestrial and heavenly worlds. They represent the Manichaean ideal: the liberation of particles of light from the world of matter.',
 		},
-
 		{
 			type: 'S2',
 			title: 'Chromatic<br>Space',
 			paragraphs: 'In opposition with the Florentine geometrical eye, the architectural space is defined through colors that emphasize the magical complexity and variation in the universe, as well as the creative force of man\'s imagination.',
 		},
-
 		{
 			type: 'S2',
 			title: 'Alchemical of<br>Transmutation',
 			paragraphs: 'The Constantinopolitan Eye designed an alchemical transmutation through supernatural colors for the continuous reinvention of the talismanic urban space at the Earth\'s navel, the cosmic capital, the divine city of Constantine.',
 		},
-
 		{
 			type: 'S4',
 			paragraphs: `

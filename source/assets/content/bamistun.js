@@ -18,7 +18,6 @@ export default {
 				caption: 'Video Introduction'
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -27,7 +26,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -36,7 +34,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -45,7 +42,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -54,7 +50,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -63,7 +58,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -72,7 +66,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
@@ -81,7 +74,6 @@ export default {
 				tags: [ 'Artificial Intelligence', 'Persian Miniature' ]
 			}
 		},
-
 		{
 			type: 'S3',
 			media: {
