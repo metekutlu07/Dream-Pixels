@@ -19,11 +19,12 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cri03.jpg',
+				source: 'public/pigmentarium/cri03-m.png',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 03'
 			}
 		},
+
 		{
 			type: 'S3',
 			media: {
@@ -40,6 +41,16 @@ export default {
 				caption: 'Particles Render 05'
 			}
 		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/cri10-m.png',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 03'
+			}
+		},
+
 		{
 			type: 'S3',
 			media: {
@@ -67,20 +78,21 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cri10.jpg',
-				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
-				caption: 'Particles Render 10'
-			}
-		},
-		{
-			type: 'S3',
-			anchor: 'Anchor 4',
-			media: {
 				source: 'public/pigmentarium/cri11.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 11'
 			}
 		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/cri13-m.png',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 03'
+			}
+		},
+
 		{
 			type: 'S3',
 			media: {
@@ -89,10 +101,57 @@ export default {
 				caption: 'Particles Render 12'
 			}
 		},
+
+
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cri13.jpg',
+				source: 'public/pigmentarium/cvbsatura.jpg',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/vivx.jpg',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/vv2.jpg',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/vvv.jpg',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/cc.jpg',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/cc.png',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 13'
 			}

@@ -15,6 +15,8 @@ import P14 from './time-travelling-colours';
 import P15 from './virtual-miniature';
 import P16 from './trail';
 import P17 from './spolia-botanique';
+import P18 from './gilbertus';
+
 
 
 // To add a project, create a .js file in the content directory
@@ -28,7 +30,7 @@ const projects = [
 	P2, P3, P4,
 	P5, P6, P7, P8,
 	P9, P10, P11, P12,
-	P13, P14, P15, P16, P17
+	P13, P14, P15, P16, P17, P18
 
 ];
 

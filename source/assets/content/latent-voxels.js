@@ -316,8 +316,6 @@ export default {
 			}
 		},
 
-
-
 		{
 			type: 'S3',
 			media: {
