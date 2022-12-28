@@ -20,6 +20,14 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				source: 'public/augustus/experience.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
+		},
+		{
+			type: 'S3',
+			media: {
 				source: 'public/augustus/stops01.jpg',
 				caption: 'Paris by Jean Fouquet, illumination from the manuscript of the Hours of Étienne Chevalier, around 1452, Metropolitan Museum of New York, 1975.1.2490',
 				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
@@ -58,6 +66,14 @@ export default {
 			}
 		},
 		{
+			type: 'S3',
+			media: {
+				source: 'public/augustus/gps.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
+		},
+		{
 			type: 'S2',
 			title: 'Iconographic Research',
 		},
@@ -88,6 +104,22 @@ export default {
 		{
 			type: 'S2',
 			title: 'Making-of',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/augustus/workflow.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/augustus/code01.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
 		},
 		{
 			type: 'S3',
@@ -129,10 +161,29 @@ export default {
 				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
 			}
 		},
-
-
-
-
+		{
+			type: 'S3',
+			media: {
+				source: 'public/augustus/make01.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/augustus/make02.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/augustus/make03.png',
+				caption: 'Importing assets inside an AR view',
+				tags: [ 'Augmented Reality', 'Architecture History', 'Medieval Architecture' ]
+			}
+		},
 	]
-
 };

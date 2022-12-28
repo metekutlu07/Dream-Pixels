@@ -80,7 +80,7 @@ export default {
 	],
 
 	credits: 'Founded by Mete Kutlu',
-	copyright: 'Feel free to use and remix, Paris 2022',
+	copyright: 'Feel free to use and remix, Paris 2023',
 	contact: 'Want to collaborate with us<br>or simply have a chat ?',
 	user_infos: {
 
