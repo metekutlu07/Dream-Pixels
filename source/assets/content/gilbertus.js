@@ -53,6 +53,25 @@ export default {
 			}
 		},
 		{
+			type: 'S2',
+			anchor: 'Catalogue of Virtual Casts',
+			title: 'Catalogue of Virtual Casts',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/gilbertus/catalogue-animate.mp4',
+				caption: 'Catalogue of Virtual Casts 02'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/gilbertus/catalogue01.jpg',
+				caption: 'Catalogue of Virtual Casts 01'
+			}
+		},
+		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/grid.jpg',
@@ -99,25 +118,6 @@ export default {
 			media: {
 				source: 'public/gilbertus/holdingipad.jpg',
 				caption: 'List View'
-			}
-		},
-		{
-			type: 'S2',
-			anchor: 'Catalogue of Virtual Casts',
-			title: 'Catalogue of Virtual Casts',
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/catalogue01.jpg',
-				caption: 'Catalogue of Virtual Casts 01'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/catalogue-animate.mp4',
-				caption: 'Catalogue of Virtual Casts 02'
 			}
 		},
 		{
@@ -200,5 +200,27 @@ export default {
 				caption: 'Material design for the churche apse in Quixel Mixer'
 			}
 		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/gilbertus/code-magicmap.png',
+				caption: 'Part of the magic map code'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/gilbertus/code-arview.png',
+				caption: 'Part of the AR view code'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/gilbertus/code-bottomsheet.png',
+				caption: 'Part of the bottomsheet code'
+			}
+		},
+
 	]
 };
