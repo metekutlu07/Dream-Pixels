@@ -5,12 +5,12 @@ import CameraB from './CameraB';
 
 import Helpers from './objects/Helpers';
 import Lighting from './objects/Lighting';
-import Phone from './objects/Phone';
+// import Phone from './objects/Phone';
 import Sky from './objects/Sky';
-import Church from './objects/Church';
+// import Church from './objects/Church';
 import Panorama from './objects/Panorama';
 import Miniature from './objects/Miniature';
-import Pattern from './objects/Pattern';
+// import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
 import Cosmos from './objects/Cosmos';
 import Cup from './objects/Cup';
@@ -46,17 +46,17 @@ export default class Scene extends Object3D {
 		this.sky = new Sky();
 		this.add( this.sky );
 
-		this.phone = new Phone();
-		this.add( this.phone );
+		// this.phone = new Phone();
+		// this.add( this.phone );
 
-		this.church = new Church();
-		this.add( this.church );
+		// this.church = new Church();
+		// this.add( this.church );
 
 		this.panorama = new Panorama();
 		this.add( this.panorama );
 
-		this.pattern = new Pattern();
-		this.add( this.pattern );
+		// this.pattern = new Pattern();
+		// this.add( this.pattern );
 
 		this.miniature = new Miniature();
 		this.add( this.miniature );

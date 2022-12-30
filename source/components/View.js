@@ -16,8 +16,6 @@ export default class View extends HTMLElement {
 
 	async onViewChange( view ) {
 
-		// await Application.time.wait( 10 );
-
 		if ( view !== this ) this.remove();
 		else this.toggleAttribute( 'hidden' );
 
