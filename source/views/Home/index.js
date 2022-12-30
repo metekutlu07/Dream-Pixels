@@ -28,6 +28,12 @@ export default class Home extends View {
 			align-items: center;
 			justify-content: center;
 
+			& video-block {
+				@media ( max-width: 650px ) {
+					position: absolute !important;
+				}
+			}
+
 			& video {
 				opacity: .75;
 			}

@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Object3D, Vector3 } from 'three';
+import { PerspectiveCamera, Object3D, Spherical, Vector2, Vector3 } from 'three';
 
 export default class Camera extends PerspectiveCamera {
 
@@ -15,6 +15,17 @@ export default class Camera extends PerspectiveCamera {
 		this.scroll = 0;
 		this.progress = 0;
 		this.friction = cameraID === 'Timeline' ? .1 : .025;
+
+		this.initialState = new State();
+		this.currentState = new State();
+		this.lerpState = new State();
+		this.deltaState = new State();
+		this.offsetState = new State();
+
+		this.currentPan = new Vector3();
+		this.lerpPan = new Vector3();
+		this.initialPan = new Vector3();
+		this.deltaPan = new Vector3();
 
 	}
 
@@ -35,7 +46,8 @@ export default class Camera extends PerspectiveCamera {
 		this.updateProjectionMatrix();
 
 		const offsetY = .1;
-		this.progress = Math.lerp( this.progress, this.scroll, .01 );
+		const scroll = this.scroll + this.currentPan.y;
+		this.progress = Math.lerp( this.progress, scroll, .01 );
 
 		const progress = Math.euclideanModulo( this.progress, 1 );
 		const position = curve.getPointAt( progress, Vector3.get() );
@@ -65,6 +77,89 @@ export default class Camera extends PerspectiveCamera {
 		if ( particles !== 'timeline' ) return;
 
 		this.scroll += event.deltaY * 1e-5 * 2.5;
+
+	}
+
+	onInputStart( event ) {
+
+		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+
+		this.initialState.copy( this.currentState );
+		this.initialPan.copy( this.currentPan );
+
+		Application.pointer.getCoordinates( this.initialState.position );
+
+		this.deltaState.copy( this.initialState );
+		this.deltaPan.copy( this.initialPan );
+		this.isGrabbed = true;
+
+		this.setDelta();
+
+	}
+
+	onInputMove() {
+
+		if ( ! this.isEnabled ) return;
+
+		const { isPressed } = Application.pointer;
+
+		if ( ! this.isGrabbed || ! isPressed ) return;
+
+		this.setDelta();
+
+		this.currentPan.y = this.initialPan.y + this.deltaState.position.y * 1e-4;
+
+	}
+
+	onInputEnd() {
+
+		if ( ! this.isEnabled ) return;
+
+		this.isGrabbed = false;
+
+	}
+
+	setDelta() {
+
+		if ( ! this.isEnabled ) return;
+
+		Application.pointer
+			.getCoordinates( this.deltaState.position )
+			.sub( this.initialState.position );
+
+	}
+
+	isOverCanvas( event ) {
+
+		return event.composedPath()[ 0 ].matches( 'canvas,section-type-1' );
+
+	}
+
+}
+
+
+class State extends Spherical {
+
+	constructor( parameters ) {
+
+		super( parameters );
+
+		this.position = new Vector2();
+
+	}
+
+	copy( other ) {
+
+		super.copy( other );
+
+		this.radius = other.radius;
+		this.position.copy( other.position );
+
+	}
+
+	clone() {
+
+		return new this.constructor().copy( this );
 
 	}
 

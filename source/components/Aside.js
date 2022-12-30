@@ -112,10 +112,6 @@ export default class Aside extends HTMLElement {
 					padding: var( --margin-m ) 0;
 				}
 
-				@media ( max-width: 1024px ) {
-					/* padding: var( --margin-s ); */
-				}
-
 				@media ( max-width: 650px ) {
 					width: 100%;
 					border-right: none;

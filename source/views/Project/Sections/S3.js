@@ -13,6 +13,15 @@ export default class S3 {
 			align-items: center;
 			background: var( --color-black );
 
+			&[ centered ] {
+				padding: 10vw;
+
+				@media ( max-width: 1024px ) {
+					padding: 0;
+				}
+
+			}
+
 			section-type-3 + & {
 				padding-top: var( --margin-s );
 			}
@@ -40,12 +49,13 @@ export default class S3 {
 		`;
 
 		const { anchor } = content;
-		const { source, caption, controls, } = content.media;
+		const { source, caption, controls, centered } = content.media;
 		const isVideo = source.match( /mp4/g );
+		const attributes = centered ? [ 'centered' ] : '';
 
 		return html`
 
-		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' }>
+		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' } ${ attributes }>
 
 		${ isVideo ?
 

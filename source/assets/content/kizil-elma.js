@@ -19,6 +19,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				centered: true,
 				source: 'public/kizil-elma/miniatures.jpg',
 				caption: 'Buda, Belgrad, Nicopolis & Vienna'
 			}

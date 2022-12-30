@@ -113,12 +113,12 @@ export async function getColorList( content ) {
 	analytics.projects = projects.length;
 	analytics.images = images.length;
 
-	for ( let i = 0; i < images.length; i++ ) {
+	await Promise.all( images.map( async ( image, index ) => {
 
-		const { source } = images[ i ];
+		const { source } = image;
 
 		const extension = source.match( /mp4/ ) ? '.png' : '';
-		const name = resolve( destination, `${ i }.png` );
+		const name = resolve( destination, `${ index }.png` );
 		const parameters = { width: 512, fit: 'contain' };
 
 		const path = resolve( assets, source + extension );
@@ -138,9 +138,9 @@ export async function getColorList( content ) {
 
 		} else await result.toFile( name );
 
-		analytics.pixels += await getSampledColors( buffer, i );
+		analytics.pixels += await getSampledColors( buffer, index );
 
-	}
+	} ) );
 
 	console.log( analytics );
 	server.close();
