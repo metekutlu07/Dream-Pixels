@@ -11,6 +11,7 @@ export default class S2 {
 			align-items: flex-start;
 			padding: calc( var( --margin-m ) * 2 );
 			padding-left: calc( var( --margin-m ) * 4 );
+			background: var( --color-black );
 
 			@media ( max-width: 1024px ) {
 				flex-direction: column;

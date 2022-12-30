@@ -44,7 +44,7 @@ export default class Parameter {
 		this.isInitialized = true;
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'sphere' );
+		this.set( 'list', 'grid' );
 		this.set( 'particles', 'color-range' );
 		this.set( 'places', 'cosmos' );
 		this.set( 'range', [ 0, 1 ] );
