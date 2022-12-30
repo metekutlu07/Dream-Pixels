@@ -16,6 +16,7 @@ export default class Images extends Object3D {
 
 		Application.events.add( this );
 
+		this.maxCount = 250;
 		this.raycaster = new Raycaster();
 
 	}
@@ -29,6 +30,13 @@ export default class Images extends Object3D {
 		const entries = Object
 			.entries( textures )
 			.filter( entries => entries[ 0 ].match( 'Images' ) );
+
+		if ( entries.length > this.maxCount ) {
+
+			entries.shuffle();
+			entries.length = this.maxCount;
+
+		}
 
 		const points = this
 			.getFibonacciSpherePoints( entries.length )
