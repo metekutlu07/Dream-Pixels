@@ -68,16 +68,6 @@ export default class Map extends Object3D {
 	}
 
 	onPreFrame() {
-
-		this.children.forEach( child => {
-
-			const isMap = child.name.match( 'Map' );
-			const isTitles = child.name.match( 'Titles' );
-			const hasMaterialB = child.material === this.materialB;
-			child.visible = ! isMap && ! isTitles && ! hasMaterialB;
-
-		} );
-
 	}
 
 	onPreUpdate() {
@@ -111,22 +101,6 @@ export default class Map extends Object3D {
 		if ( places !== 'cosmos' ) this.position.x = 0;
 		else this.position.x = cosmos.position.x;
 
-		// if ( this.materialB ) {
-
-		// 	const { texture, mapMatrix } = Application.scene.reflection;
-		// 	const { uniforms } = this.materialB;
-		// 	uniforms[ 'reflectionMap' ].value = texture;
-		// 	uniforms[ 'reflectionMapMatrix' ].value.copy( mapMatrix );
-
-		// }
-
-		this.traverse( child => {
-
-			if ( child === this ) return;
-			child.visible = true;
-
-		} );
-
 		this.children.forEach( child => {
 
 			child.visible = places !== 'cosmos' || child.name === '003_Map';
@@ -145,14 +119,14 @@ export default class Map extends Object3D {
 
 		this.copy( objects[ 'Scene' ] );
 
-		textures[ 'Map/Map.png' ].flipY = false;
+		textures[ 'Map/Albedo.png' ].flipY = false;
 		textures[ 'Map/Metalness.png' ].flipY = false;
 		textures[ 'Map/Roughness.png' ].flipY = false;
 
 		const parameters = {
 
 			envMap,
-			map: textures[ 'Map/Map.png' ],
+			map: textures[ 'Map/Albedo.png' ],
 			metalnessMap: textures[ 'Map/Metalness.png' ],
 			roughnessMap: textures[ 'Map/Roughness.png' ],
 			metalness: .5,
@@ -165,7 +139,10 @@ export default class Map extends Object3D {
 		this.materialC = new MapStandardMaterial( parameters );
 		this.materialC.emissive.set( '#222222' );
 
+		this.visible = false;
+
 		const { children } = this.getObjectByName( '001_Cities' );
+
 		this.cities = children.map( child => {
 
 			const { name } = child;

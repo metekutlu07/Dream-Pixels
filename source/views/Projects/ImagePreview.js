@@ -133,7 +133,6 @@ export default class ImagePreview extends HTMLElement {
 			& h4 {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
-				max-width: 400px;
 
 				& span {
 					display: inline-block;
