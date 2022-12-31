@@ -17,16 +17,120 @@ export default {
 			}
 		},
 		{
+			type: 'S2',
+			anchor: 'Photogrammetric Dancheong Datasets',
+			title: 'Photogrammetric Dancheong Datasets',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/dataset01.jpg',
+				caption: 'Dataset 01 - Large'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/dataset02.jpg',
+				caption: 'Dataset 02 - Reduced'
+			}
+		},
+		{
+			type: 'S2',
+			anchor: 'Photogrammetric Latent Walk',
+			title: 'Photogrammetric Latent Walk',
+		},
+		{
 			type: 'S3',
 			media: {
 				source: 'public/dancheong-dreams/slider01.mp4',
+				caption: 'Latent Walks - Large Dataset'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/slider02.mp4',
+				caption: 'Latent Walks - Reduced Dataset'
+			}
+		},
+		{
+			type: 'S2',
+			anchor: '3D Latents',
+			title: '3D Latents',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/3d-slider01.mp4',
+				caption: '3D Latent - Large Dataset'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/3d-slider02.mp4',
+				caption: '3D Latent - Reduced Dataset'
+			}
+		},
+		{
+			type: 'S2',
+			anchor: 'Cybernetic Alchemy',
+			title: 'Cybernetic Alchemy',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/metalic03long.mp4',
 				caption: 'Magic Map'
 			}
 		},
 		{
 			type: 'S3',
 			media: {
-				source: 'public/dancheong-dreams/metalic01.mp4',
+				source: 'public/dancheong-dreams/alchemy01.png',
+				caption: 'In the Cybernetic Lotus Pond'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/alchemy02.png',
+				caption: 'In the Cybernetic Lotus Pond'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/alchemy03.png',
+				caption: 'In the Cybernetic Lotus Pond'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/alchemylarge01.png',
+				caption: 'In the Cybernetic Lotus Pond'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/alchemylarge02.png',
+				caption: 'In the Cybernetic Lotus Pond'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/alchemylarge03.png',
+				caption: 'In the Cybernetic Lotus Pond'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/metalic-zoom.mp4',
 				caption: 'Magic Map'
 			}
 		},
