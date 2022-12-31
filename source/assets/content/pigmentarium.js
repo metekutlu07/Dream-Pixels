@@ -7,7 +7,7 @@ export default {
 	date: 'September 2021',
 	team: 'Mete Kutlu',
 	period: 'September 2021',
-	description: 'In this experiment, I made a 3D model of an Ottoman miniature representing the city of Constantinople. This virtual three-dimensional miniature allows us to go through the golden frame and the pictorial surface of pigments, and finally dive into the city from different angles. We can walk through its alleys, fly around its domes and explore the hidden corners of Constantinople as imagined by the miniaturist.',
+	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat felis vitae lorem scelerisque placerat. Quisque est dolor, euismod ac ornare vulputate, gravida ac nunc. Nunc suscipit lacinia ante non hendrerit. Donec porta ut leo eu suscipit. Nullam vitae sagittis sapien. Sed lacinia tincidunt risus non scelerisque. Pellentesque et nulla porttitor eros pharetra semper. Nam id dui nec purus condimentum pulvinar. Vivamus a tortor arcu. Ut eu lorem eu turpis vulputate gravida. Duis ut viverra risus. Quisque volutpat in enim in consequat. Mauris vitae efficitur urna, nec interdum erat. ',
 	sections: [
 		{
 			type: 'S1',
