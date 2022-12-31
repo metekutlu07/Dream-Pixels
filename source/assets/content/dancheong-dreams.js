@@ -16,6 +16,21 @@ export default {
 				caption: 'Video Introduction'
 			}
 		},
-	]
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/slider01.mp4',
+				caption: 'Magic Map'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/dancheong-dreams/metalic01.mp4',
+				caption: 'Magic Map'
+			}
+		},
 
+
+	]
 };
