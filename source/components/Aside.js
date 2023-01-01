@@ -20,7 +20,7 @@ export default class Aside extends HTMLElement {
 		if ( ! this.hasAttribute( 'visible' ) ) return;
 		this.toggleAttribute( 'visible', false );
 
-		Application.audio.play( '002.m4a' );
+		Application.audio.play( '002.mp3' );
 		Application.camera.setOffsetLeftFactor( 0 );
 
 	}
@@ -30,7 +30,7 @@ export default class Aside extends HTMLElement {
 		if ( this.hasAttribute( 'visible' ) ) return;
 		this.toggleAttribute( 'visible', true );
 
-		Application.audio.play( '001.m4a' );
+		Application.audio.play( '001.mp3' );
 		Application.camera.setOffsetLeftFactor( 1 );
 
 	}

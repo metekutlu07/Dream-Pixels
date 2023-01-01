@@ -25,11 +25,11 @@ export default class View extends HTMLElement {
 
 		const { path, route } = Application.router.parseURL();
 
-		Application.audio.play( '005.m4a' );
+		Application.audio.play( '005.mp3' );
 		Application.store.set( 'view-enter', false );
 		Application.store.set( 'view-exit', true );
 
-		Application.audio.play( '004.m4a' );
+		Application.audio.play( '004.mp3' );
 		Application.store.set( 'loading', true );
 
 		await Application.assets.load( this.getPackIDs( path ) );
@@ -45,7 +45,7 @@ export default class View extends HTMLElement {
 		Application.events.dispatch( 'onViewChange', this );
 
 		document.body.scrollTop = 0;
-		Application.audio.play( '003.m4a' );
+		Application.audio.play( '003.mp3' );
 		Application.store.set( 'view-enter', true );
 
 		const content = Application.content.get( path );
