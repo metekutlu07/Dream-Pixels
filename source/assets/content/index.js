@@ -16,7 +16,7 @@ import P15 from './virtual-miniature';
 import P16 from './kizil-elma';
 import P17 from './spolia-botanique';
 import P18 from './gilbertus';
-import P19 from './dancheong-dreams';
+import P19 from './cyber-lotus';
 import P20 from './augustus';
 
 
@@ -109,7 +109,7 @@ export default {
 		}
 	},
 
-	mail: 'metekutlu@gmail.com',
+	mail: 'contact@dreampixels.fr',
 	address: `
 		10 rue du Penthièvre<br>
 		75008 Paris<br>
