@@ -32,7 +32,15 @@ export default class View extends HTMLElement {
 		Application.audio.play( '004.mp3' );
 		Application.store.set( 'loading', true );
 
-		await Application.assets.load( this.getPackIDs( path ) );
+		try {
+
+			await Application.assets.load( this.getPackIDs( path ) );
+
+		} catch ( error ) {
+
+			console.log( error );
+
+		}
 
 		Application.store.set( 'path', path );
 		Application.store.set( 'route', route.path );

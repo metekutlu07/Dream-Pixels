@@ -81,16 +81,12 @@ export default class Parser {
 
 	}
 
-	async getImage( buffer, file ) {
+	async getImage( buffer ) {
 
 		const image = new Image();
 		image.src = await this.getURI( buffer );
-		await image.decode().catch( error => {
-
-			console.log( file );
-			console.log( error );
-
-		} );
+		image.onerror = error => console.log( error );
+		await new Promise( resolve => image.onload = resolve );
 
 		return image;
 
