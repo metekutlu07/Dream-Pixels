@@ -1,5 +1,4 @@
 import Button from '~/components/Button';
-import Video from '~/components/Video';
 
 export default class Popins extends HTMLElement {
 
@@ -49,7 +48,7 @@ export default class Popins extends HTMLElement {
 			return html`
 
 			<a href="/${ path }" internal>
-				${ Video.render( `/public/${ path }/thumbnail.mp4` ) }
+				<img src="/public/${ path }/thumbnail.png" alt="Thumbnail">
 				<div>
 					<h3>${ title }<span>| ${ number }</span></h3>
 					<h4>${ subtitle }</h4>
@@ -136,15 +135,12 @@ export default class Popins extends HTMLElement {
 				pointer-events: all;
 			}
 
-			& video-block {
-				width: initial;
-				margin-right: var( --margin-s );
+			& img {
 				flex-shrink: 0;
-			}
-
-			& video {
+				margin-right: var( --margin-s );
 				width: 100px !important;
 				height: 100px !important;
+				object-fit: cover;
 
 				@media ( max-width: 650px ) {
 					width: 75px !important;

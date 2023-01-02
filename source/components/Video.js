@@ -6,19 +6,32 @@ export default class Video extends HTMLElement {
 		this.elements.video.muted = Application.audio.isMuted;
 
 		let section = this.parentNode;
-		if ( section.matches( 'item-thumbnail' ) ) section = section.parentNode;
 
-		if ( video.hasAttribute( 'controls' ) ) return;
+		if ( section.matches( 'item-thumbnail' ) )
+			section = section.parentNode.parentNode;
+
+		if ( video.hasAttribute( 'controls' ) || video.hasAttribute( 'popin' ) ) return;
+
+		let element = this;
+		let clientTop = 0;
+
+		do {
+
+			clientTop += element.offsetTop || 0;
+			element = element.offsetParent;
+
+		} while ( element );
+
+		if ( section.parentNode.offsetY ) clientTop -= section.parentNode.offsetY;
 
 		const { height } = Application.viewport;
-		const scrollTop = document.body.scrollTop;
-		const scrollRatio = scrollTop / height;
-		const offsetBottom = ( section.offsetTop + this.clientHeight ) / height;
-		const offsetTop = section.offsetTop / height;
+		const scrollTop = Math.round( document.body.scrollTop );
 
-		const isOutsideViewport = offsetBottom - scrollRatio < .1 || offsetTop - scrollRatio > .9;
-		if ( video.paused && ! isOutsideViewport ) video.play();
-		else if ( ! video.paused && isOutsideViewport ) video.pause();
+		const offsetBottom = ( clientTop + this.offsetHeight ) - scrollTop;
+		const offsetTop = clientTop - scrollTop;
+		const isInside = offsetTop + 100 < height && offsetBottom - 100 > 0;
+		if ( video.paused && isInside ) video.play();
+		else if ( ! video.paused && ! isInside ) video.pause();
 
 	}
 

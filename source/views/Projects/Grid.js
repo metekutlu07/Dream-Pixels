@@ -21,6 +21,7 @@ export default class Grid extends HTMLElement {
 			const height = heights[ index ];
 			const offset = ( highest / height - 1 );
 			column.translateY = -( scrollTop - offset * scrollTop );
+			column.offsetY = -offset * scrollTop;
 			column.style.transform = `translateY( ${ offset * scrollTop }px )`;
 
 		} );
