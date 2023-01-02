@@ -110,6 +110,7 @@ export default class Cosmos extends Object3D {
 
 		if ( ! files[ 'works' ] ) return;
 
+		this.visible = false;
 		this.spheres = {};
 
 		const { models } = Application.assets[ 'works' ];

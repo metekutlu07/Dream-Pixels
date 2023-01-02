@@ -13,6 +13,7 @@ export default class Objects extends Object3D {
 	onLoad( files ) {
 
 		if ( ! files[ 'works' ] ) return;
+		this.visible = false;
 
 		const { models, textures } = Application.assets[ 'works' ];
 		const { objects } = models[ 'Objects/Objects.glb' ];

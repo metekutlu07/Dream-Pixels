@@ -26,6 +26,7 @@ export default class Images extends Object3D {
 		if ( ! files[ 'works' ] ) return;
 
 		const { textures } = files[ 'works' ];
+		this.visible = false;
 
 		const entries = Object
 			.entries( textures )
@@ -68,7 +69,7 @@ export default class Images extends Object3D {
 
 		this.children.forEach( child => child.toggle( this.isVisible ) );
 
-		Application.cursor.reset();
+		Application.cursor && Application.cursor.reset();
 
 	}
 
@@ -85,7 +86,7 @@ export default class Images extends Object3D {
 		const intersect = this.raycaster.intersectObjects( objects, false )[ 0 ];
 		const object = intersect ? intersect.object : null;
 
-		if ( ! object ) Application.cursor.reset();
+		if ( ! object && Application.cursor ) Application.cursor.reset();
 
 		this.children.forEach( child => child.isHovered = child === object );
 

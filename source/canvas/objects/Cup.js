@@ -53,6 +53,7 @@ export default class Cup extends Mesh {
 		if ( ! files[ 'works' ] ) return;
 
 		this.spheres = {};
+		this.visible = false;
 
 		const { models, textures } = Application.assets[ 'works' ];
 		const { objects } = models[ 'Cup/Model.glb' ];

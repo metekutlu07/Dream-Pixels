@@ -134,7 +134,8 @@ export default class Image extends Mesh {
 
 		}
 
-		if ( this.isHovered ) Application.cursor.set( this.parameters );
+		if ( ! this.isHovered || ! Application.cursor ) return;
+		Application.cursor.set( this.parameters );
 
 	}
 

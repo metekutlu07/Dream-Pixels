@@ -3,14 +3,14 @@ import { Scene as Object3D, FogExp2, CubeTexture } from 'three';
 import CameraA from './CameraA';
 import CameraB from './CameraB';
 
+// import Phone from './objects/Phone';
+// import Church from './objects/Church';
+// import Pattern from './objects/Pattern';
 import Helpers from './objects/Helpers';
 import Lighting from './objects/Lighting';
-// import Phone from './objects/Phone';
 import Sky from './objects/Sky';
-// import Church from './objects/Church';
 import Panorama from './objects/Panorama';
 import Miniature from './objects/Miniature';
-// import Pattern from './objects/Pattern';
 import Artwork from './objects/Artwork';
 import Cosmos from './objects/Cosmos';
 import Cup from './objects/Cup';
@@ -52,11 +52,11 @@ export default class Scene extends Object3D {
 		// this.church = new Church();
 		// this.add( this.church );
 
-		this.panorama = new Panorama();
-		this.add( this.panorama );
-
 		// this.pattern = new Pattern();
 		// this.add( this.pattern );
+
+		this.panorama = new Panorama();
+		this.add( this.panorama );
 
 		this.miniature = new Miniature();
 		this.add( this.miniature );
@@ -179,17 +179,6 @@ export default class Scene extends Object3D {
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );
 		this.fog.density = density;
-
-	}
-
-	onPreUpdate() {
-
-		// const { list, path, places } = Application.store;
-
-		// const visible = this.sphere.visible;
-		// this.sphere.visible = false;
-		// if ( path === '/works' && list === 'places' && places === 'world' ) this.reflection.render();
-		// this.sphere.visible = visible;
 
 	}
 

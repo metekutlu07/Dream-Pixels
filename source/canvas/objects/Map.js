@@ -1,12 +1,12 @@
 import {
 
-	Box3,
 	Mesh,
 	Object3D,
 	Raycaster,
-	Sphere,
 	Vector2,
-	Vector3
+	Vector3,
+	Box3,
+	Sphere
 
 } from 'three';
 
@@ -112,6 +112,7 @@ export default class Map extends Object3D {
 	onLoad( files ) {
 
 		if ( ! files[ 'works' ] ) return;
+		this.visible = false;
 
 		const { models, textures } = Application.assets[ 'works' ];
 		const { objects } = models[ 'Map/Model.glb' ];
