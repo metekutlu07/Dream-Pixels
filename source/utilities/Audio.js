@@ -4,11 +4,14 @@ export default class AudioInterface {
 
 	constructor() {
 
+		Application.events.add( this );
+
 		this.isMuted = true;
 		this.volume = 1;
 		this.cache = {};
 
-		Application.events.add( this );
+		addEventListener( 'mousedown', this.onUnlock );
+		addEventListener( 'touchstart', this.onUnlock );
 
 	}
 
@@ -19,28 +22,27 @@ export default class AudioInterface {
 
 	}
 
-	async onUserFirstInput() {
+	onLoad() {
+
+		this.isLoaded = true;
+
+	}
+
+	async onUnlock() {
 
 		if ( ! Application.assets ) return;
 
-		const { buffers } = Application.assets[ 'audio' ];
-
 		this.audioListener = new AudioListener();
-		this.audioListener.setMasterVolume( 0 );
+		this.loop = new Audio( '/public/audio.mp3' );
+		this.loop.play();
 
-		const entries = Object.entries( buffers );
-		await Promise.all( entries.map( async entry => {
+		const node = new Node( this.audioListener );
+		node.setMediaElementSource( this.loop );
 
-			const [ key, value ] = entry;
-			buffers[ key ] = await this.getDecodedBuffer( value );
-
-		} ) );
-
-		this.isLoaded = true;
 		this.isMuted = false;
 
-		this.loop = this.play( '/public/audio.m4a' );
-		this.loop.play();
+		removeEventListener( 'mousedown', this.onUnlock );
+		removeEventListener( 'touchstart', this.onUnlock );
 
 	}
 
@@ -50,14 +52,18 @@ export default class AudioInterface {
 
 		const { path, route } = Application.store;
 		const directory = route === '/:project' ? path : '';
-		const source = `/public${ directory }/audio.m4a`;
+		const source = `/public${ directory }/audio.mp3`;
 
 		if ( this.loop.src.match( source ) ) return;
 
 		await this.fade( this.loop, 0 );
 
-		this.loop.src = source;
-		this.loop.play();
+		try {
+
+			this.loop.src = source;
+			this.loop.play();
+
+		} catch ( error ) { console.log( error ) }
 
 		await this.fade( this.loop, 1 );
 
@@ -78,7 +84,7 @@ export default class AudioInterface {
 
 	}
 
-	play( audioID, {
+	async play( audioID, {
 
 		volume = 1,
 		playbackRate = 1,
@@ -86,26 +92,22 @@ export default class AudioInterface {
 
 	} = {} ) {
 
-		if ( ! this.isLoaded ) return;
+		if ( ! this.audioListener ) return;
 
 		const { buffers } = Application.assets[ 'audio' ];
-		const audio = new Node( this.audioListener );
-		const buffer = buffers[ audioID ];
 
-		if ( buffer ) audio.setBuffer( buffers[ audioID ] );
-		else audio.setMediaElementSource( new Audio( audioID ) );
+		if ( ! buffers[ audioID ] ) return;
+		if ( ! buffers[ audioID ].duration )
+			buffers[ audioID ] = await this.getDecodedBuffer( buffers[ audioID ] );
 
-		if ( audio.hasPlaybackControl ) {
+		const audio = new Node( this.audioListener )
+			.setBuffer( buffers[ audioID ] )
+			.setVolume( volume )
+			.setPlaybackRate( playbackRate )
+			.setLoop( loop )
+			.play();
 
-			audio
-				.setVolume( volume )
-				.setPlaybackRate( playbackRate )
-				.setLoop( loop )
-				.play();
-
-			return audio;
-
-		} else return audio.source.mediaElement;
+		return audio;
 
 	}
 
