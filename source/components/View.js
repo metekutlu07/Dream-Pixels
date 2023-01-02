@@ -36,11 +36,7 @@ export default class View extends HTMLElement {
 
 			await Application.assets.load( this.getPackIDs( path ) );
 
-		} catch ( error ) {
-
-			console.log( error );
-
-		}
+		} catch ( error ) { console.log( error ) }
 
 		Application.store.set( 'path', path );
 		Application.store.set( 'route', route.path );
