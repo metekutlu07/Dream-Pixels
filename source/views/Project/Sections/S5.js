@@ -13,8 +13,16 @@ export default class S5 extends HTMLElement {
 
 		let index = -1;
 
-		if ( buttons ) index = buttons.indexOf( currentTarget );
-		else if ( index === -1 && points ) {
+		if ( currentTarget.hasAttribute( 'panorama' ) ) {
+
+			const index = currentTarget.getAttribute( 'panorama' );
+			Application.scene.panorama.load( index );
+
+		} else if ( buttons ) {
+
+			index = buttons.indexOf( currentTarget );
+
+		} else if ( index === -1 && points ) {
 
 			const point = points.children.find( point => point.isHovered );
 			if ( point ) index = point.index;
@@ -68,11 +76,11 @@ export default class S5 extends HTMLElement {
 
 			if ( ! paragraphs ) return '';
 
-			const { source, caption } = media;
+			const image = media ? `<img src="${ media.source }" alt="${ media.caption }"/>` : '';
 
 			return Aside.render( html`
 
-				<img src="${ source }" alt="${ caption }"/>
+				${ image }
 				<h3 font-style-title>${ title }</h3>
 				<h4>${ subtitle }</h4>
 				<p>${ paragraphs }</p>

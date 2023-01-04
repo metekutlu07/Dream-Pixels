@@ -11,9 +11,35 @@ export default {
 			type: 'S5',
 			points: [
 				{
+					// Le titre doit correspondre au nom du dossier dans
+					// source/assets/public/miniature-street-view/Titles
+					// donc pour celui-ci source/assets/public/miniature-street-view/Titles/Palace of Porphyrogenitus
+					// (Voir Image_001)
+					// Si les assets pour les titres ne sont pas présent dans le dossier ou que le nom ne match pas
+					// alors le point se s'affichera pas
 					title: 'Palace of Porphyrogenitus',
+
+					// "paragraphs"  correspond au texte du panneau latéral
+					// Si il n'ya pas de texte, alors le point n'aura pas de panneau et ne sera pas cliquable
 					paragraphs: 'The Palace was constructed during the late 13th or early 14th centuries as part of the Blachernae palace complex, where the Theodosian Walls join with the later walls of the suburb of Blachernae.\nAlthough the palace appears at first glance to be named after the 10th-century emperor Constantine VII Porphyrogenitus, it was built long after his time, and is in fact named after Constantine Palaiologos, a son of the Emperor Michael VIII Palaiologos. "Porphyrogenitus", meaning literally "born to the purple", indicated a child born to a reigning emperor. The palace served as an imperial residence during the final years of the Byzantine Empire.',
+
+					// L'image du panneau latéral (elle n'est pas obligatoirement présente)
 					media: { source: 'public/virtual-miniature/000.jpg', caption: 'Palace of Porphyrygenitus' },
+
+					// Les positions du point sur chaques panoramas
+					// positions: {
+					// 	1: position du point sur la sphère 1
+					// 	3: position du point sur la sphère 3
+					// 	5: position du point sur la sphère 5
+					// }
+
+					// Pour obtenir la position du point:
+					// - Se rendre sur http://localhost:3000/miniature-street-view
+					// - Ouvrir la console (https://appuals.com/open-browser-console/)
+					// - Cliquer à l'endroit où le point sera défini
+					// - Les coordonnées s'affichent dans la console (les arrondir au besoin)
+					// (Voir Image_002)
+					// - Change de panorama et répéter l'opération pour récupérer les coordonées
 					positions: {
 						1: { x: 13, y: 2.8, z: 6.5 }
 					}
@@ -41,6 +67,8 @@ export default {
 				},
 				{
 					title: 'Tower of Selymbria',
+					// Si la propriété "panorama" est présente alors le clique déclenchera une "téléportation" au point indiqué
+					// Ici, vers le panorama numéro 5
 					panorama: '5',
 					positions: {
 						1: { x: 11, y: 7, z: -6 }

@@ -104,10 +104,11 @@ export default class Buttons extends HTMLElement {
 
 			];
 
-			const { title, paragraphs } = point;
+			const { title, paragraphs, panorama } = point;
 			const path = `/public/miniature-street-view/Titles/${ title }`;
 
-			if ( paragraphs ) attributes.push( 'clickable' );
+			if ( paragraphs || panorama ) attributes.push( 'clickable' );
+			if ( panorama ) attributes.push( `panorama=${ panorama }` );
 
 			return html`
 
