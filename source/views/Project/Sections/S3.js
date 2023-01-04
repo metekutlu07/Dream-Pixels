@@ -22,6 +22,16 @@ export default class S3 {
 
 			}
 
+			&[ model ] {
+				height: 100vh;
+				width: 100vw;
+				background: none;
+
+				& img {
+					visibility: hidden;
+				}
+			}
+
 			section-type-3 + & {
 				padding-top: var( --margin-s );
 			}
@@ -51,7 +61,10 @@ export default class S3 {
 		const { anchor } = content;
 		const { source, caption, controls, centered } = content.media;
 		const isVideo = source.match( /mp4/g );
-		const attributes = centered ? [ 'centered' ] : '';
+		const attributes = [];
+
+		if ( ! source.length ) attributes.push( 'model' );
+		if ( centered ) attributes.push( 'centered' );
 
 		return html`
 

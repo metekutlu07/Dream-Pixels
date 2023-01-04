@@ -16,6 +16,10 @@ export default {
 			}
 		},
 		{
+			type: 'S3',
+			media: { source: '' }
+		},
+		{
 			type: 'S2',
 			anchor: 'Original Folio',
 			title: 'Original Folio',

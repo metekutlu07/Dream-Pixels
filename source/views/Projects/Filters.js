@@ -44,6 +44,7 @@ export default class Filters extends HTMLElement {
 			opacity: 0;
 			/* transition: opacity 1s var( --timing-function ); */
 			margin-top: 50px;
+			max-height: 510px;
 
 			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;

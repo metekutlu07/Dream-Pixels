@@ -315,7 +315,7 @@ export default class Item extends HTMLElement {
 		>
 			<item-link href="/${ path }" internal>
 				<item-thumbnail>
-					${ Video.render( `/public/${ path }/thumbnail.mp4` ) }
+					${ Video.render( `/public/${ path }/thumbnail.mp4`, { poster: true } ) }
 					<item-overlay>
 						${ Button.render( { attributes: [ 'label-visible' ], icons: [ Next ], } ) }
 					</item-overlay>

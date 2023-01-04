@@ -4,8 +4,8 @@ import CameraA from './CameraA';
 import CameraB from './CameraB';
 
 // import Phone from './objects/Phone';
-// import Church from './objects/Church';
 // import Pattern from './objects/Pattern';
+import Church from './objects/Church';
 import Helpers from './objects/Helpers';
 import Lighting from './objects/Lighting';
 import Sky from './objects/Sky';
@@ -49,11 +49,11 @@ export default class Scene extends Object3D {
 		// this.phone = new Phone();
 		// this.add( this.phone );
 
-		// this.church = new Church();
-		// this.add( this.church );
-
 		// this.pattern = new Pattern();
 		// this.add( this.pattern );
+
+		this.church = new Church();
+		this.add( this.church );
 
 		this.panorama = new Panorama();
 		this.add( this.panorama );

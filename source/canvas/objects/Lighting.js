@@ -135,8 +135,8 @@ export default class Lighting extends Object3D {
 
 		case '/rasdelka':
 
-			// this.parameters.sky.topColor = '#fea85f';
-			// this.parameters.sky.bottomColor = '#fcd49c';
+			this.parameters.sky.topColor = '#fea85f';
+			this.parameters.sky.bottomColor = '#fcd49c';
 
 			break;
 

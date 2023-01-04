@@ -90,12 +90,13 @@ export default class Video extends HTMLElement {
 
 		`;
 
-		const { controls, fullscreen, border } = parameters;
+		const { controls, fullscreen, border, poster } = parameters;
 		const attributes = [ 'playsinline', 'muted', 'loop', 'preload' ];
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const src = source ? `src="${ source }#t=0.1"` : '';
 
 		if ( controls ) attributes.push( 'controls' );
+		if ( poster ) attributes.push( `poster="${ source.replace( 'mp4', 'png' ) }"` );
 
 		return html`
 

@@ -490,7 +490,7 @@ export default class OrbitControls extends Object3D {
 
 	isOverCanvas( event ) {
 
-		return event.composedPath()[ 0 ].matches( 'canvas,section-type-1' );
+		return event.composedPath()[ 0 ].matches( 'canvas, section-type-1, [ model ]' );
 
 	}
 
