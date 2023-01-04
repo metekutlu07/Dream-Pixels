@@ -12,7 +12,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/firuze/firuze-intro.mp4',
+				source: 'public/firuze/shadi-mulk-aqa01.mp4',
 				caption: 'Firuze Video Introduction',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			}
@@ -107,8 +107,41 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				source: 'public/firuze/ustad-ali-nasafi.mp4',
+				caption: 'Architectural detail from the Ustad Ali Nasafi Mausoleum, Samarkand, No.4-41-15',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+
+		{
+			type: 'S3',
+			media: {
 				source: 'public/firuze/wire-i03.jpg',
 				caption: 'Architectural detail from the Shad-i Mulk Aqa Mausoleum, Samarkand, No.i03',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/shadi-mulk-aqa04.mp4',
+				caption: 'Architectural detail from the Shad-i Mulk Aqa Mausoleum, Samarkand, No.4-02-10',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/wire-i01.jpg',
+				caption: 'Architectural details from the Amirzadeh and Shad-i Mulk Aqa Mausoleums, Samarkand, No.i01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/shadi-mulk-aqa03.mp4',
+				caption: 'Architectural detail from the Shad-i Mulk Aqa Mausoleum, Samarkand, No.4-02-10',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
 		},
@@ -123,7 +156,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/base-4-02-10.png',
+				source: 'public/firuze/shadi-mulk-aqa02.mp4',
 				caption: 'Architectural detail from the Shad-i Mulk Aqa Mausoleum, Samarkand, No.4-02-10',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -139,15 +172,15 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/wire-i01.jpg',
-				caption: 'Architectural detail from the Amirzadeh Mausoleum, Samarkand, No.i01',
+				source: 'public/firuze/wire-b06.jpg',
+				caption: 'Architectural detail from the Abdullah Khan Madrasa, Samarkand, No.b06',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
 		},
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/wire-b06.jpg',
+				source: 'public/firuze/abdullah-khan.mp4',
 				caption: 'Architectural detail from the Abdullah Khan Madrasa, Samarkand, No.b06',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -186,6 +219,43 @@ export default {
 			media: {
 				source: 'public/firuze/mosaics02.png',
 				caption: 'Enameled polychrome tiles of Haft Rang',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/arcs01.jpg',
+				caption: 'Iwan Ornements of the Ulugh Beg Madrasa (1421) in Samarkand',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/arcs02.jpg',
+				caption: 'Iwan Ornements of the Khanakah (1620) and Madrasa (1622) of Nadir Divan Begi at the Lab-i Hauz in Bukhara',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/arcs03.jpg',
+				caption: 'Iwan Ornements of the Tilla Kari Madrasa (1660) in Samarkand and the Kalan Mosque (1514) in Bukhara',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S2',
+			anchor: 'Maps',
+			title: 'Maps',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/samarkand.png',
+				caption: 'Historical Sites selected as study cases in Samarkand',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
 		},
