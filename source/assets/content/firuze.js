@@ -254,8 +254,32 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/samarkand.png',
-				caption: 'Historical Sites selected as study cases in Samarkand',
+				source: 'public/firuze/shahi-zinda-plan.png',
+				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/timurid-map.png',
+				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/babur-samarkand.png',
+				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/firuze/samarkand-zoom.png',
+				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
 		},
