@@ -2,7 +2,7 @@ export default {
 
 	path: 'firuze',
 	title: 'Firuze',
-	subtitle: 'Digitizing thr Timurid Mosaics',
+	subtitle: 'Digitizing the Timurid Mosaics',
 	location: 'Paris',
 	date: 'October 2022',
 	team: 'Mete Kutlu',
