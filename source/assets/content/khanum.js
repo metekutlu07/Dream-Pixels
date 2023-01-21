@@ -1,7 +1,7 @@
 export default {
 
-	path: 'hatun',
-	title: 'Hatun',
+	path: 'khanum',
+	title: 'Khanum',
 	subtitle: 'Virtual Mausoleum',
 	location: 'Paris',
 	date: 'January 2023',
@@ -12,7 +12,7 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/hatun/coverup-front.mp4',
+				source: 'public/khanum/coverup-front.mp4',
 				caption: 'Marco Video Introduction',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			}
@@ -20,7 +20,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/coverup-main.mp4',
+				source: 'public/khanum/coverup-main.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -28,7 +28,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/coverup-bot-f.mp4',
+				source: 'public/khanum/coverup-bot-f.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -36,7 +36,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/qutluq-drawings.png',
+				source: 'public/khanum/qutluq-drawings.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -44,7 +44,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/pendentive-muqarnas.png',
+				source: 'public/khanum/pendentive-muqarnas.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -52,7 +52,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/pishtaq-muqarnas.png',
+				source: 'public/khanum/pishtaq-muqarnas.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -60,7 +60,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/xray-rising-slow.mp4',
+				source: 'public/khanum/xray-rising-slow.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -68,7 +68,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/xray-axo-45.png',
+				source: 'public/khanum/xray-axo-45.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -76,7 +76,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/xray-elevations.jpg',
+				source: 'public/khanum/xray-elevations.jpg',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -84,7 +84,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/xray-top.png',
+				source: 'public/khanum/xray-top.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -92,7 +92,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/xray-inside.png',
+				source: 'public/khanum/xray-inside.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -100,7 +100,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brickup-boole-slow.mp4',
+				source: 'public/khanum/brickup-boole-slow.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -108,7 +108,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brickup-back.mp4',
+				source: 'public/khanum/brickup-back.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -116,7 +116,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brickup-inside.mp4',
+				source: 'public/khanum/brickup-inside.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -124,7 +124,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brick-elevations.jpg',
+				source: 'public/khanum/brick-elevations.jpg',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -132,7 +132,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/laps.mp4',
+				source: 'public/khanum/laps.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -140,7 +140,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/muqarnas.mp4',
+				source: 'public/khanum/muqarnas.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -148,7 +148,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/entry.mp4',
+				source: 'public/khanum/entry.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -156,7 +156,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brick-epic.png',
+				source: 'public/khanum/brick-epic.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -164,7 +164,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brick-muqarnas.png',
+				source: 'public/khanum/brick-muqarnas.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -172,7 +172,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brick-inside.png',
+				source: 'public/khanum/brick-inside.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -181,7 +181,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brick-top.png',
+				source: 'public/khanum/brick-top.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -189,7 +189,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brick-30.png',
+				source: 'public/khanum/brick-30.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -197,7 +197,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brickup-back.png',
+				source: 'public/khanum/brickup-back.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -205,7 +205,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/hatun/brickup-front.png',
+				source: 'public/khanum/brickup-front.png',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},

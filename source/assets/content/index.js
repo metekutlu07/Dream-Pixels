@@ -21,7 +21,7 @@ import P20 from './augustus';
 import P21 from './firuze';
 import P22 from './marco';
 import P23 from './sanshin';
-import P24 from './hatun';
+import P24 from './khanum';
 
 
 
