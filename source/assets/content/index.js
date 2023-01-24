@@ -284,6 +284,14 @@ export default {
 			]
 		},
 
+		'bukhara': {
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			paragraphs: [
+				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
 		'busan': {
 			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
 			paragraphs: [
