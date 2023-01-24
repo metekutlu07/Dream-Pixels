@@ -103,7 +103,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/cyber-lotus/alchemy01.png',
+				source: 'public/cyber-lotus/alchemy01.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
@@ -111,7 +111,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/cyber-lotus/alchemy02.png',
+				source: 'public/cyber-lotus/alchemy02.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
@@ -119,7 +119,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/cyber-lotus/alchemy03.png',
+				source: 'public/cyber-lotus/alchemy03.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
@@ -127,7 +127,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/cyber-lotus/alchemylarge01.png',
+				source: 'public/cyber-lotus/alchemylarge01.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
@@ -135,7 +135,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/cyber-lotus/alchemylarge02.png',
+				source: 'public/cyber-lotus/alchemylarge02.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
@@ -143,7 +143,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/cyber-lotus/alchemylarge03.png',
+				source: 'public/cyber-lotus/alchemylarge03.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
