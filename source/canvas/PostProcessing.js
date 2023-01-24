@@ -56,12 +56,12 @@ export default class PostProcessing {
 			},
 
 			linesPass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: .5, max: 1 },
 			},
 
 			noisePass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: .15, max: 1 },
 			},
 
