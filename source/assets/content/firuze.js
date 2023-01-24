@@ -49,7 +49,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/wall02.png',
+				source: 'public/firuze/wall02.jpg',
 				caption: 'Firuze Video Introduction',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -217,7 +217,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/mosaics02.png',
+				source: 'public/firuze/mosaics02.jpg',
 				caption: 'Enameled polychrome tiles of Haft Rang',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -254,7 +254,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/shahi-zinda-plan.png',
+				source: 'public/firuze/shahi-zinda-plan.jpg',
 				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -262,7 +262,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/timurid-map.png',
+				source: 'public/firuze/timurid-map.jpg',
 				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -270,7 +270,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/babur-samarkand.png',
+				source: 'public/firuze/babur-samarkand.jpg',
 				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
@@ -278,7 +278,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/firuze/samarkand-zoom.png',
+				source: 'public/firuze/samarkand-zoom.jpg',
 				caption: 'Scanned Ornaments from the Mausoleums of Shah-i Zinda, Samarkand',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},

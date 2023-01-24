@@ -49,7 +49,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/augustus/experience.png',
+				source: 'public/augustus/experience.jpg',
 				caption: 'Tour Montgomery in AR',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -62,7 +62,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/augustus/gps.png',
+				source: 'public/augustus/gps.jpg',
 				caption: 'GPS-based proximity notifications',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -131,7 +131,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/augustus/miniature03.png',
+				source: 'public/augustus/miniature03.jpg',
 				caption: 'Siege of Avignon (118v), Siege of Melun (259r), Cession of Auxerre and Siege of Avalon (folio 262r), Les Grandes Chroniques de France, Royal MS 16 G IV, British Library, London.',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -145,7 +145,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/workflow.png',
+				source: 'public/augustus/workflow.jpg',
 				caption: 'Workflow',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -159,7 +159,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/code01.png',
+				source: 'public/augustus/code01.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -168,7 +168,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/code01.png',
+				source: 'public/augustus/code01.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -177,7 +177,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/code02.png',
+				source: 'public/augustus/code02.jpg',
 				caption: 'Anchoring 3D models to 3D object targets using ARKit Scanner',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -186,7 +186,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/ar-scanner.png',
+				source: 'public/augustus/ar-scanner.jpg',
 				caption: 'Creation of 3D anchors triggering AR experiences',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -200,7 +200,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/uvmap.png',
+				source: 'public/augustus/uvmap.jpg',
 				caption: 'UV mapping of 3D models',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -209,7 +209,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/scene.png',
+				source: 'public/augustus/scene.jpg',
 				caption: 'Scene setup',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -218,7 +218,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/interaction.png',
+				source: 'public/augustus/interaction.jpg',
 				caption: 'Integrating interactive properties to scenes with Reality Composer',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -232,7 +232,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/make01.png',
+				source: 'public/augustus/make01.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -241,7 +241,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/make02.png',
+				source: 'public/augustus/make02.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -250,7 +250,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/make03.png',
+				source: 'public/augustus/make03.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -264,7 +264,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/tracking01.png',
+				source: 'public/augustus/tracking01.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
@@ -273,7 +273,7 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/augustus/tracking02.png',
+				source: 'public/augustus/tracking02.jpg',
 				caption: 'Importing assets inside an AR view',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}

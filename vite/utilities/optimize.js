@@ -5,7 +5,7 @@ import { normalizePath } from 'vite';
 import tinify from 'tinify';
 tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
 
-const assets = resolve( process.cwd(), 'source/assets' );
+const assets = resolve( process.cwd(), 'source/mete-optimize' );
 
 async function getFiles( directory, files = [] ) {
 
