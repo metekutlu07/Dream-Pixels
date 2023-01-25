@@ -19,7 +19,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cri03-m.png',
+				source: 'public/pigmentarium/cri03-m.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Colors of Szkesfehervar 01'
 			}
@@ -43,7 +43,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cri10-m.png',
+				source: 'public/pigmentarium/cri10-m.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Colors of Buda 01'
 			}
@@ -83,7 +83,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cri13-m.png',
+				source: 'public/pigmentarium/cri13-m.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Colors of Nicopolis 01'
 			}
@@ -139,7 +139,23 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/pigmentarium/cc.png',
+				source: 'public/pigmentarium/cc2.jpg',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/ziget.mp4',
+				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
+				caption: 'Particles Render 13'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/pigmentarium/kars.mp4',
 				tags: [ 'Particle Simulation', 'Ottoman Miniature', 'Color Study' ],
 				caption: 'Particles Render 13'
 			}
