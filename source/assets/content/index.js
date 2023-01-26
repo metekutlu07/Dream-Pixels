@@ -237,7 +237,7 @@ export default {
 
 
 		'alexandria': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'bistami' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -245,7 +245,7 @@ export default {
 		},
 
 		'antioch': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'bistami' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -253,15 +253,15 @@ export default {
 		},
 
 		'avignon': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'tessera', 'time-travelling-colours' ],
 			paragraphs: [
-				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'XEnim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
 		'baghdad': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -269,7 +269,7 @@ export default {
 		},
 
 		'balkh': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -277,15 +277,23 @@ export default {
 		},
 
 		'belgrad': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'kizil-elma' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
+		'buda': {
+			projects: [ 'kizil-elma' ],
+			paragraphs: [
+				'bEnim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+			]
+		},
+
 		'bukhara': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'firuze', 'khanum', 'time-travelling-colours' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -293,7 +301,7 @@ export default {
 		},
 
 		'busan': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'sanshin', 'cyber-lotus' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -301,39 +309,39 @@ export default {
 		},
 
 		'carthage': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'tessera' ],
 			paragraphs: [
-				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
-				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+				'quat aliqua laboris laborum.',
+				'I was invited by the UNESCO Club Volubilis to join an interdisciplinary team to come up with an innovative digital mediation project for the mosaics of Roman villas in Carthage. The project was in  partnership with the Municipality of Carthage, the Tunisian National Institut of Heritage with the funding of the Regional Municipality of Côte d’Azur.'
 			]
 		},
 
 		'constantinople': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka', 'bistami', 'cosmic-colors', 'theodora', 'bamistun', 'latent-voxels', 'virtual-miniature', 'time-travelling-colours' ],
 			paragraphs: [
-				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Constantinople, the cosmic capital with an apocalyptic destiny. The Ottoman Eye',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
 		'dalian': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
-				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+				' The International Academy of Arts under the Dalian University of Foreign Languages '
 			]
 		},
 
 		'damas': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
-				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
-				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
+				'Damascus is an ancient center of hermetical knowledge where mystical schools of thinking and alchemical practices florished. The Ottoman magician Bistami has passed from here before writing his eschatological treatise on the messianic destiny of the Ottoman Dynasty.',
+				''
 			]
 		},
 
 		'delhi': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -341,15 +349,15 @@ export default {
 		},
 
 		'herat': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'firuze', 'khanum', 'time-travelling-colours' ],
 			paragraphs: [
-				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
+				'Herat is the Florence of the Turquoise Renaissance. Lorenzo, Ali Shir Navai ',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
 			]
 		},
 
 		'iconia': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -357,7 +365,7 @@ export default {
 		},
 
 		'ispahan': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -365,7 +373,7 @@ export default {
 		},
 
 		'jerusalem': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'solomon' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -373,7 +381,7 @@ export default {
 		},
 
 		'khiva': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'firuze', 'khanum', 'time-travelling-colours' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -381,7 +389,7 @@ export default {
 		},
 
 		'kiev': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -389,7 +397,7 @@ export default {
 		},
 
 		'nicomedia': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'bistami', 'latent-voxels' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -397,7 +405,7 @@ export default {
 		},
 
 		'nicopolis': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'kizil-elma' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -405,7 +413,7 @@ export default {
 		},
 
 		'nishapur': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -413,7 +421,7 @@ export default {
 		},
 
 		'paris': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'gilbertus', 'augustus' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -421,7 +429,7 @@ export default {
 		},
 
 		'rome': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'solomon', 'theodora' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -429,7 +437,7 @@ export default {
 		},
 
 		'samarkand': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'firuze', 'khanum', 'time-travelling-colours' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -437,7 +445,7 @@ export default {
 		},
 
 		'seoul': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'sanshin', 'cyber-lotus' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -445,7 +453,7 @@ export default {
 		},
 
 		'shanghai': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -453,7 +461,7 @@ export default {
 		},
 
 		'shiraz': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'time-travelling-colours' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -461,7 +469,7 @@ export default {
 		},
 
 		'tabriz': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'time-travelling-colours' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -469,7 +477,7 @@ export default {
 		},
 
 		'tashkent': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'firuze', 'khanum', 'time-travelling-colours' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -477,7 +485,7 @@ export default {
 		},
 
 		'trebizond': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -485,7 +493,7 @@ export default {
 		},
 
 		'venice': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'marco' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
@@ -493,7 +501,7 @@ export default {
 		},
 
 		'vienna': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka' ],
+			projects: [ 'kizil-elma' ],
 			paragraphs: [
 				'Enim adipisicing proident ex occaecat duis non duis laborum dolore pariatur laboris. Enim ea cillum qui proident ipsum eu anim. Qui enim mollit ipsum consequat aliqua laboris laborum.',
 				'Enim incididunt tempor enim magna in pariatur fugiat. Pariatur excepteur labore deserunt enim. Adipisicing officia consequat duis cupidatat cupidatat incididunt mollit deserunt consectetur dolore culpa minim. Esse sit veniam sint eu officia est proident elit magna voluptate esse ullamco. Irure ullamco ullamco cupidatat pariatur reprehenderit sit do.'
