@@ -49,8 +49,8 @@ export default class View extends HTMLElement {
 		Application.events.dispatch( 'onViewChange', this );
 
 		document.body.scrollTop = 0;
-		Application.audio.play( '003.mp3' );
 		Application.store.set( 'view-enter', true );
+		Application.audio.play( '003.mp3' );
 
 		const content = Application.content.get( path );
 		const { title } = Application.content;
