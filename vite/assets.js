@@ -14,7 +14,7 @@ import {
 } from 'fs/promises';
 
 import tinify from 'tinify';
-tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
+tinify.key = 'DB3HnPLflNmDb1rclzC9Sf58DXd81Xbf';
 
 const build = resolve( process.cwd(), 'build' );
 const assets = resolve( process.cwd(), 'source/assets' );
