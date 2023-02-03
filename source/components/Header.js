@@ -47,7 +47,6 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'audio' ) ) audio.toggle();
 		if ( currentTarget.hasAttribute( 'display-aside' ) ) Application.store.toggle( 'display-aside' );
 		if ( currentTarget.hasAttribute( 'display-wireframe' ) ) Application.store.toggle( 'display-wireframe' );
-		if ( currentTarget.hasAttribute( 'places' ) ) Application.store.set( 'list', 'places' );
 		if ( currentTarget.hasAttribute( 'grid' ) ) Application.store.set( 'list', 'grid' );
 		if ( currentTarget.hasAttribute( 'sphere' ) ) Application.store.set( 'list', 'sphere' );
 		if ( currentTarget.hasAttribute( 'particles' ) ) Application.store.set( 'list', 'particles' );
@@ -56,6 +55,12 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'cosmos' ) ) Application.store.set( 'places', 'cosmos' );
 		if ( currentTarget.hasAttribute( 'world' ) ) Application.store.set( 'places', 'world' );
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
+		if ( currentTarget.hasAttribute( 'places' ) ) {
+
+			Application.store.set( 'places', 'world' );
+			Application.store.set( 'list', 'places' );
+
+		}
 
 	}
 
@@ -196,10 +201,6 @@ export default class Header extends HTMLElement {
 
 			& default-button {
 				margin-bottom: 0 !important;
-			}
-
-			@media ( max-width: 650px ) {
-				bottom: 0;
 			}
 
 			& > div {
