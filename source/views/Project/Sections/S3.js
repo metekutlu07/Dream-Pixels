@@ -46,6 +46,7 @@ export default class S3 {
 				margin: var( --margin-s );
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-m );
+				opacity: 1
 
 				@media ( max-width: 650px ) {
 					margin: var( --margin-s );
