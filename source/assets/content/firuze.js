@@ -56,8 +56,8 @@ export default {
 		},
 		{
 			type: 'S2',
-			anchor: 'Turquoise Archive',
-			title: 'Turquoise Archive',
+			anchor: 'Turquoise Catalogue',
+			title: 'Turquoise Catalogue',
 		},
 		{
 			type: 'S3',

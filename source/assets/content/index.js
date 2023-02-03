@@ -85,7 +85,7 @@ export default {
 	],
 
 	credits: 'Founded by Mete Kutlu',
-	copyright: 'Feel free to use and remix, Paris 2023',
+	copyright: 'Feel free to use and remix. Paris, 2023.',
 	contact: 'Want to collaborate with us<br>or simply have a chat ?',
 	user_infos: {
 
@@ -132,7 +132,7 @@ export default {
 		mediation of miniature paintings.`,
 
 		`It weaves new relationships between
-		architecture andart history in the Age of AI.`
+		architecture and art history in the Age of AI.`
 
 	],
 
