@@ -40,13 +40,13 @@ export default class Parameter {
 
 	onLoad() {
 
-		if ( this.name !== 'store' && ! this.isInitialized ) return;
+		if ( this.name !== 'store' || this.isInitialized ) return;
 		this.isInitialized = true;
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
 		this.set( 'list', 'grid' );
 		this.set( 'particles', 'color-range' );
-		this.set( 'places', 'cosmos' );
+		this.set( 'places', 'world' );
 		this.set( 'range', [ 0, 1 ] );
 
 	}

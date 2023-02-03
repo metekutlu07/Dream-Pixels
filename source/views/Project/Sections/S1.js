@@ -52,6 +52,8 @@ export default class S1 {
 			subtitle,
 			anchor,
 			description,
+			location,
+			designer,
 			team,
 			period,
 			partners,
@@ -83,7 +85,9 @@ export default class S1 {
 				<h4>${ subtitle }</h4>
 
 				<ul>
+					${ designer ? html`<li>Designer / ${ designer }</p>` : '' }
 					${ team ? html`<li>Team / ${ team }</p>` : '' }
+					${ location ? html`<li>Location / ${ location }</p>` : '' }
 					${ period ? html`<li>Period / ${ period }</p>` : '' }
 					${ partners ? html`<li>Partners / ${ partners }</p>` : '' }
 					${ clients ? html`<li>Clients / ${ clients }</p>` : '' }

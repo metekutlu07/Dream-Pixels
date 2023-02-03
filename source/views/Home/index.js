@@ -12,6 +12,7 @@ export default class Home extends View {
 		const { currentTarget } = event;
 		const { name } = currentTarget.attributes[ 0 ];
 		Application.store.set( 'list', name );
+		if ( name === 'places' ) Application.store.set( 'places', 'world' );
 		Application.router.navigate( '/works' );
 
 	}
