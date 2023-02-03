@@ -118,7 +118,7 @@ export default class Panels extends HTMLElement {
 
 				return html`
 
-				<projects-panel blurred-background @click name="${ name }">
+				<projects-panel blurred-background @click name="${ name }" open>
 
 					<panel-title>
 						<h3>${ title }</h3>
