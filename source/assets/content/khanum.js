@@ -32,6 +32,15 @@ export default {
 			},
 		},
 		{
+			type: 'S2',
+			paragraphs: `Khanum is Turkish for lady and it's derived from the word “khan” which means
+			the leader of the clan, similar to a king. The letter “m” in Turkish is used as first-person
+			possessive suffix. So, khanum literally signifies “my khan”, my leader, my king. Lady in Turkish is
+			the “leader of man”, “khan of the khan”. The khan of the clan also has his khan. The Khanum project is a tribute to the powerful Timurid
+			women and the significant role which they played as great patrons of art and architecture during the
+			Turquoise Renaissance.`,
+		},
+		{
 			type: 'S3',
 			media: {
 				source: 'public/khanum/coverup-bot-f.mp4',
@@ -56,7 +65,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/khanum/pendentive-muqarnas.png',
-				caption: 'Plan of the pendantive muqarnas ',
+				caption: 'Plan of the pendentive muqarnas ',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
 			},
 		},
