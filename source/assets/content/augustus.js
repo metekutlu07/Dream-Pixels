@@ -2,12 +2,14 @@ export default {
 
 	path: 'augustus',
 	title: 'Augustus',
-	subtitle: 'Augmented Promenade in Medieval Paris',
+	subtitle: 'An Augmented Promenade in Medieval Paris',
 	location: 'Paris',
 	date: 'December 2022',
 	team: 'Mete Kutlu & Theuns Botha',
+	partners: 'Comet Lab, AUSser Laboratory, Éditions La commune',
+	client: 'Philippe Auguste Foundation',
 	period: 'Ongoing',
-	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat felis vitae lorem scelerisque placerat. Quisque est dolor, euismod ac ornare vulputate, gravida ac nunc. Nunc suscipit lacinia ante non hendrerit. Donec porta ut leo eu suscipit. Nullam vitae sagittis sapien. Sed lacinia tincidunt risus non scelerisque. Pellentesque et nulla porttitor eros pharetra semper. Nam id dui nec purus condimentum pulvinar. Vivamus a tortor arcu. Ut eu lorem eu turpis vulputate gravida. Duis ut viverra risus. Quisque volutpat in enim in consequat. Mauris vitae efficitur urna, nec interdum erat. ',
+	description: 'Augustus is a research project for the development of a mobile app that offers an “augmented promenade” along the life-size virtual reconstruction of the Wall of Philippe Augustus in Paris. The app lets the users visualize in augmented reality the medieval wall, of which only a few fragments are left in the dense urban fabric of the city. A hybrid urban space is formed by resuscitating and superposing in 3D fragments of medieval Paris over the contemporary urban space. The app transforms the screen of the phone into a “magical” window opening into a trans-temporal urban space where two different temporalities are intertwined. It proposes an urban experience which takes places in a threshold between past and present, between the virtual and physical realms.',
 	sections: [
 		{
 			type: 'S1',
@@ -45,6 +47,12 @@ export default {
 				caption: 'Tour Montgomery displayed in augmented reality on an iPad',
 				tags: [ 'Augmented Reality', 'Mobile App', 'Architecture History', 'Medieval Architecture' ]
 			}
+		},
+		{
+			type: 'S2',
+			anchor: 'Cybernetic Urban Experience',
+			title: 'Cybernetic Urban Experience',
+			paragraphs: 'Augustus is an experimental project which investigates in practice the theory of the cyborg-inhabitant suggested by William Mitchel at MIT and by Antoin Picon at Harvard. As a cybernetic organism which is half human and half machine, the figure of cyborg synthesizes our increasing dependency on digital technologies in our daily lives. The Augustus app is a tool which lets us explore the qualities of the emerging cybernetic urban experience. The project seeks to study the physiological and physical effects of a long-term experience in augmented reality on the contemporary inhabitant, as well as the paradigm shift that augmented reality induces in the process of architectural design.',
 		},
 		{
 			type: 'S3',
