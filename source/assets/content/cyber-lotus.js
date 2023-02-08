@@ -8,7 +8,7 @@ export default {
 	team: 'Mete Kutlu & Dilara Baskoylu',
 	period: 'September-December 2022',
 	partners: 'Hanyang University & University of Paris-Est',
-	description: 'Cyber Lotus is composed of a series of images and videos created by an artificial neural network trained to paint unseen examples of dancheong, the Korean art of painting used to decorate wooden Buddhist temples. The research project is an investigation on the rising cybernetic culture of image-making, as well as the tension between spirituality and technology. During a collaboration with Hanyang University, Mete Kutlu takes around 16000 photos for the photogrammetric 3D scanning of Buddhist mountain temples. This archive is then used as a dataset to train an AI which first identifies certain visual protocols of dancheong and then demonstrates his talents as an artificial artist of dancheong.',
+	description: ' ',
 	sections: [
 		{
 			type: 'S1',
@@ -17,6 +17,10 @@ export default {
 				caption: 'Cyber Lotus Video Introduction',
 				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
 			}
+		},
+		{
+			type: 'S2',
+			paragraphs: 'Cyber Lotus is composed of a series of images and videos created by an artificial neural network trained to paint unseen examples of dancheong, the Korean art of painting used to decorate wooden Buddhist temples. The research project is an investigation on the rising cybernetic culture of image-making, as well as the tension between spirituality and technology. During a collaboration with Hanyang University, Mete Kutlu takes around 16000 photos for the photogrammetric 3D scanning of Buddhist mountain temples. This archive is then used as a dataset to train an AI which first identifies certain visual protocols of dancheong and then demonstrates his talents as an artificial artist of dancheong.',
 		},
 		{
 			type: 'S2',

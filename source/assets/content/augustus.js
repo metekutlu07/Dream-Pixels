@@ -9,7 +9,7 @@ export default {
 	partners: 'Comet Lab, AUSser Laboratory, Éditions La commune',
 	client: 'Philippe Auguste Foundation',
 	period: 'Ongoing',
-	description: 'Augustus is a research project for the development of a mobile app that offers an “augmented promenade” along the life-size virtual reconstruction of the Wall of Philippe Augustus in Paris. The app lets the users visualize in augmented reality the medieval wall, of which only a few fragments are left in the dense urban fabric of the city. A hybrid urban space is formed by resuscitating and superposing in 3D fragments of medieval Paris over the contemporary urban space. The app transforms the screen of the phone into a “magical” window opening into a trans-temporal urban space where two different temporalities are intertwined. It proposes an urban experience which takes places in a threshold between past and present, between the virtual and physical realms.',
+	description: ' ',
 	sections: [
 		{
 			type: 'S1',
@@ -21,11 +21,11 @@ export default {
 		},
 		{
 			type: 'S2',
-			anchor: 'Introduction',
-			title: 'Introduction',
+			paragraphs: 'Augustus is a research project for the development of a mobile app that offers an “augmented promenade” along the life-size virtual reconstruction of the Wall of Philippe Augustus in Paris. The app lets the users visualize in augmented reality the medieval wall, of which only a few fragments are left in the dense urban fabric of the city. A hybrid urban space is formed by resuscitating and superposing in 3D fragments of medieval Paris over the contemporary urban space. The app transforms the screen of the phone into a “magical” window opening into a trans-temporal urban space where two different temporalities are intertwined. It proposes an urban experience which takes places in a threshold between past and present, between the virtual and physical realms.',
 		},
 		{
 			type: 'S3',
+			anchor: 'Introduction',
 			media: {
 				source: 'public/augustus/mockup01.mp4',
 				caption: 'Life-size virtual reconstruction of the Montgomery Tower seen in augmented reality',

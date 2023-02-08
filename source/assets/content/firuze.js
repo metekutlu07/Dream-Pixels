@@ -7,7 +7,8 @@ export default {
 	date: 'October 2022',
 	team: 'Mete Kutlu',
 	period: 'October 2022',
-	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat felis vitae lorem scelerisque placerat. Quisque est dolor, euismod ac ornare vulputate, gravida ac nunc. Nunc suscipit lacinia ante non hendrerit. Donec porta ut leo eu suscipit. Nullam vitae sagittis sapien. Sed lacinia tincidunt risus non scelerisque. Pellentesque et nulla porttitor eros pharetra semper. Nam id dui nec purus condimentum pulvinar. Vivamus a tortor arcu. Ut eu lorem eu turpis vulputate gravida. Duis ut viverra risus. Quisque volutpat in enim in consequat. Mauris vitae efficitur urna, nec interdum erat. ',
+	partners: 'French Institute of Oriental Studies',
+	description: ' ',
 	sections: [
 		{
 			type: 'S1',
@@ -16,6 +17,10 @@ export default {
 				caption: 'Firuze Video Introduction',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			}
+		},
+		{
+			type: 'S2',
+			paragraphs: 'Firuze is a luminous archive of virtual Timurid mosaics. These holographic enamels emerge from the trans-temporal confrontation between the cutting-edge algorithms of photogrammetry and the mosaics of enameled tiles, the star-shaped symbols of cosmic favor and divine destiny. They blend the superhuman complexity of the contemporary algorithms with the ancient mystical teachings of light, shamanistic intuitions of the nomadic Turks, the glittering discoveries of the Persian alchemists and the genius of the Timurid architect. In the holographic enamel, the electronic light of the pixel submits itself to the intuition of the Timurid architect to sublimate the earthly colors of baked bricks into the divine blue of the heavens. It is the virtual reflection of the Timurid Eye’s fundamental predilection: luminous visual impressions. Expressed across different media, scales and ways, it takes the form a glittering glazed tile in architecture, a gold-sprinkled folio in a manuscript and the polished mirror of the artist’s heart in mystical literature.',
 		},
 		{
 			type: 'S2',
@@ -90,6 +95,11 @@ export default {
 				caption: 'Catalogue of Scans',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
+		},
+		{
+			type: 'S2',
+			paragraphs: `As an experiment on the notion of digital handcrafts, Firuze confronts cutting-edge photogrammetric algorithms of 3D scanning with the intricate Timurid mosaics made of enameled tiles dating from the fourteenth and fifteenth centuries. In Firuze, photogrammetry, the complementary sister technology of augmented reality, is used in two experimental ways. First, it becomes a key research tool of field study in digital humanities. Instead of limiting data collection to texts or two-dimensional photos and sketches, it allows to bring back home an entire fragment of space in 3D and to visit, whenever required, in augmented reality a life-size piece of architecture acquired from a distant research site.
+			Secondly, photogrammetry is used as an architectural on-site research tool to study the visual and spatial dynamics privileged by the “Timurid Eye” and the Turquoise Renaissance. It requires a particular way of taking pictures which depends on the materiality, geometry and context of the object to scan. It allows and requires the close-up examination of different types of enameled ornaments and their different visual qualities such as reflectivity and roughness. The resulting 3D models are first cleaned and catalogued. Then they are transformed into animated holograms or glowing wireframes offering almost a tactile experience.`,
 		},
 		{
 			type: 'S2',

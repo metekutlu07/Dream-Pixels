@@ -8,7 +8,7 @@ export default {
 	designer: 'Mete Kutlu',
 	period: 'January 2023',
 	partners: 'French Institute of Central Asian Studies (IFEAC)',
-	description: 'Khanum seeks to elaborate an experimental method to create a virtual reconstruction of an architectural heritage which can convey both constructive qualities and cultural context, the taste of a civilization. It combines 3D scanning with traditional 3D modelling and motion graphics. <br><br>The monument of this initial experiment is the Mausoleum of Princess Kutlu Aga (Blessed Lady) from the royal necropolis of Shah-i Zinda in Samarkand, Uzbekistan. The reconstruction takes places in three steps: holographic emanation, brick layering and luminous mosaic cladding. These stages are considered as a metaphor for the historical development of a turquoise civilization, starting with the emanationist ideals of the mystics and crystallizing in the mosaics of star-shaped glazed tiles.',
+	description: ' ',
 	sections: [
 		{
 			type: 'S1',
@@ -17,6 +17,10 @@ export default {
 				caption: 'Khanum Video Introduction',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
 			}
+		},
+		{
+			type: 'S2',
+			paragraphs: 'Khanum seeks to elaborate an experimental method to create a virtual reconstruction of an architectural heritage which can convey both constructive qualities and cultural context, the taste of a civilization. It combines 3D scanning with traditional 3D modelling and motion graphics. <br><br>The monument of this initial experiment is the Mausoleum of Princess Kutlu Aga (Blessed Lady) from the royal necropolis of Shah-i Zinda in Samarkand, Uzbekistan. The reconstruction takes places in three steps: holographic emanation, brick layering and luminous mosaic cladding. These stages are considered as a metaphor for the historical development of a turquoise civilization, starting with the emanationist ideals of the mystics and crystallizing in the mosaics of star-shaped glazed tiles.',
 		},
 		{
 			type: 'S2',
@@ -33,10 +37,10 @@ export default {
 		},
 		{
 			type: 'S2',
-			paragraphs: `Khanum is Turkish for lady and it's derived from the word “khan” which means
+			paragraphs: `Khanum is Turkish for lady and it is derived from the word “khan” which means
 			the leader of the clan, similar to a king. The letter “m” in Turkish is used as first-person
-			possessive suffix. So, khanum literally signifies “my khan”, my leader, my king. Lady in Turkish is
-			the “leader of man”, “khan of the khan”. The khan of the clan also has his khan. The Khanum project is a tribute to the powerful Timurid
+			possessive suffix. So, khanum literally signifies “my khan”, my leader, my king. The Turkish language considers the lady
+			as the khan of khan, the leader of man. It is how the khan would call his wife. The Khanum project is a tribute to the powerful Timurid
 			women and the significant role which they played as great patrons of art and architecture during the
 			Turquoise Renaissance.`,
 		},
