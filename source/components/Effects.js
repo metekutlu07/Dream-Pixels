@@ -74,6 +74,8 @@ export default class Effects extends HTMLElement {
 
 				[ loading ] & {
 					opacity: 1;
+					display: none;
+
 				}
 			}
 
