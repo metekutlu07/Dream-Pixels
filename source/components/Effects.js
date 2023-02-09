@@ -1,16 +1,16 @@
-import { Vector2 } from 'three';
+//import { Vector2 } from 'three';
 
 export default class Effects extends HTMLElement {
 
 	onUpdate() {
 
-		const { noise_effect } = this.elements;
+		//const { noise_effect } = this.elements;
 
-		const { x, y } = new Vector2()
-			.random()
-			.multiplyScalar( 100 );
+		//const { x, y } = new Vector2()
+		//			.random()
+		//			.multiplyScalar( 100 );
 
-		noise_effect.style.setProperty( '--background-position', `${ x }% ${ y }%` );
+		//		noise_effect.style.setProperty( '--background-position', `${ x }% ${ y }%` );
 
 	}
 
@@ -63,6 +63,7 @@ export default class Effects extends HTMLElement {
 				background-image: url( "/public/common/Noise.png" );
 				background-position: var( --background-position );
 				opacity: .25;
+				display: none;
 			}
 
 			& vignette-effect {

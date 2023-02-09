@@ -27,6 +27,16 @@ export default {
 	sections: [ {
 		type: 'S6',
 		artworks: {
+			'korea-01-roof': {
+				title: 'korea-test',
+				location: 'Church of Saint Foy',
+				city: 'Conques'
+			},
+			'korea-02-roof': {
+				title: 'korea-test2',
+				location: 'Church of Saint Foy',
+				city: 'Conques'
+			},
 			'france-01-annunciation': {
 				title: 'Annunciation',
 				location: 'Church of Saint Foy',
