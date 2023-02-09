@@ -3,10 +3,11 @@ export default {
 	path: 'marco',
 	title: 'Marco',
 	subtitle: 'Digitizing Venetian Mosaics',
-	location: 'Paris',
+	location: 'Venice',
 	date: 'April 2022',
 	team: 'Mete Kutlu',
 	period: 'April 2022',
+	partners: 'Giorgio Cini Foundation',
 	description: ' ',
 	sections: [
 		{
@@ -51,6 +52,30 @@ export default {
 			media: {
 				source: 'public/marco/venezia-catalogue04.jpg',
 				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/marco/v13.mp4',
+				caption: 'Ceiling mouldings from the Palazzo Grimani',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/marco/v14.mp4',
+				caption: 'Lion Polyptich of the Annunctiation by Lorenzo Veneziano',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/marco/v01.mp4',
+				caption: 'Saints Tryptich by Paolo Veneziano',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
 		},
