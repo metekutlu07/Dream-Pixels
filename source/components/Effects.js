@@ -57,6 +57,7 @@ export default class Effects extends HTMLElement {
 				background-size: 2px;
 				background-position: center center;
 				opacity: .25;
+				display: none;
 			}
 
 			& noise-effect {
