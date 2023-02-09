@@ -8,7 +8,7 @@ import sharp from 'sharp';
 import tinify from 'tinify';
 
 // tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
-tinify.key = '0D4XLXfwLFq6xZ6VFkDwKC574WcFbw4q';
+tinify.key = 'BD8sD0ZXRT6rBfYx0BhKrJ8tx1j1zZ9p';
 
 import { server } from '../config.js';
 

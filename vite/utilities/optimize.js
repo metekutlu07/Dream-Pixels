@@ -3,7 +3,7 @@ import { resolve, join } from 'path';
 import { normalizePath } from 'vite';
 
 import tinify from 'tinify';
-tinify.key = 'wzB57x2sZ18pxdZLdZY1r3PqKPxm3Q4D';
+tinify.key = 'BD8sD0ZXRT6rBfYx0BhKrJ8tx1j1zZ9p';
 
 const assets = resolve( process.cwd(), 'source/mete-optimize' );
 
