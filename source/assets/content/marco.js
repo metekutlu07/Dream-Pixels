@@ -19,6 +19,22 @@ export default {
 			}
 		},
 		{
+			type: 'S3',
+			media: {
+				source: 'public/marco/v14.mp4',
+				caption: 'Lion Polyptich of the Annunctiation by Lorenzo Veneziano',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/marco/v01.mp4',
+				caption: 'Saints Tryptich by Paolo Veneziano',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
 			type: 'S2',
 			anchor: 'Golden Catalogue',
 			title: 'Golden Catalogue',
@@ -63,21 +79,6 @@ export default {
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
 		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/marco/v14.mp4',
-				caption: 'Lion Polyptich of the Annunctiation by Lorenzo Veneziano',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/marco/v01.mp4',
-				caption: 'Saints Tryptich by Paolo Veneziano',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
-			},
-		},
+
 	]
 };
