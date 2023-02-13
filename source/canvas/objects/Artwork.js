@@ -63,8 +63,6 @@ export default class Artwork extends Object3D {
 		const { lerpState, currentState } = camera.orbitControls;
 		currentState.copy( lerpState.set( 50, 0, 0 ) );
 
-		Application.store.set( 'display-aside', false );
-
 		this.scale.setScalar( 1 );
 		this.position.setScalar( 0 );
 		this.remove( ...this.children );
