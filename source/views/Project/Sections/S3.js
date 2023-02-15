@@ -13,15 +13,6 @@ export default class S3 {
 			align-items: center;
 			background: var( --color-black );
 
-			&[ centered ] {
-				padding: 10vw;
-
-				@media ( max-width: 1024px ) {
-					padding: 0;
-				}
-
-			}
-
 			&[ model ] {
 				height: 100vh;
 				width: 100vw;
@@ -37,9 +28,22 @@ export default class S3 {
 			}
 
 			& img {
-				object-fit: contain;
+				object-fit: cover;
 				width: 100%;
-				max-height: 100vh;
+			}
+
+			&[ centered ] {
+				padding-top: var( --margin-s );
+
+				& img {
+					object-fit: contain;
+					max-width: 50vw;
+					max-height: 100vh;
+
+					@media ( max-width: 1024px ) {
+						max-width: unset;
+					}
+				}
 			}
 
 			& p {
