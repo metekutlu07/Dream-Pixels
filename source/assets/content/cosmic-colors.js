@@ -432,7 +432,7 @@ export default {
 				Each second, the mineral pictorial paste pops into millions of particles with constantly changing colors.
 			`,
 			media: {
-				source: 'public/Common/Artwork.jpg',
+				source: 'public/common/Artwork.jpg',
 				caption: `
 					Constantinople <br>
 					The Keys To Esoteric Knowledge <br>

@@ -20,7 +20,7 @@ export default {
 			type: 'S4',
 			anchor: 'Miniature Details',
 			media: {
-				source: 'public/Common/Artwork.jpg',
+				source: 'public/common/Artwork.jpg',
 				caption: `
 					Constantinople <br>
 					The Keys To Esoteric Knowledge <br>
