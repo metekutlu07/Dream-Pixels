@@ -118,6 +118,7 @@ export default class Popins extends HTMLElement {
 			top: 0;
 			left: 0;
 			height: 100vh;
+			height: calc(var(--vh, 1vh) * 100);
 			width: 100vw;
 			display: flex;
 			justify-content: center;

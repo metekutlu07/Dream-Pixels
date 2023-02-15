@@ -60,6 +60,7 @@ export default class UserInfo extends HTMLElement {
 			left: 0;
 			width: 100vw;
 			height: 100vh;
+    		height: calc(var(--vh, 1vh) * 100);
 			font-size: 3rem;
 			pointer-events: none;
 			display: flex;

@@ -15,6 +15,7 @@ export default class S3 {
 
 			&[ model ] {
 				height: 100vh;
+    			height: calc(var(--vh, 1vh) * 100);
 				width: 100vw;
 				background: none;
 

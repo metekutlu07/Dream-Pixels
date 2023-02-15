@@ -84,6 +84,7 @@ export default class Video extends HTMLElement {
 
 			[ border ] & {
 				max-height: 100vh;
+    			max-height: calc(var(--vh, 1vh) * 100);
 				object-fit: contain
 			}
 		}
