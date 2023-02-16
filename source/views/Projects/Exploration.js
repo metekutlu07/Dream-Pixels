@@ -36,8 +36,8 @@ export default class Panels extends HTMLElement {
 				}
 			}
 
-			[ view-enter ][ list="sphere" ] &[ name="Cup" ],
-			[ view-enter ][ list="particles" ] &[ name="Cup" ],
+			[ view-enter ][ list="sphere" ] &[ name="Images" ],
+			[ view-enter ][ list="particles" ] &[ name="Pixels" ],
 			[ view-enter ][ list="places" ][ places="world" ] &[ name="World" ],
 			[ view-enter ][ list="places" ][ places="cosmos" ] &[ name="Cosmos" ] {
 				opacity: 1;
