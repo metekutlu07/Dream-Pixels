@@ -66,7 +66,7 @@ export default {
 
 	// Keywords used for SEO and displayed on the scrolling text
 	themes: 'Cyber Nomadism, Digital Humanities, Postmodern Medievalism, Digital Primitivism, Digital Handcrafts, Medieval Iconography, Premodern Cosmology, Silk Road Cultures, Mediterranean Eschatology, Hermetical Sciences',
-	skills: 'Digital Scenography, Virtual Reconstruction, Augmented Reality, 3D Scanning, 3D Modelling, Animation, Mobile App Development, Projection Mapping, Architectural Drawing',
+	skills: 'Digital Scenography, Virtual Reconstruction, Augmented Reality, 3D Scanning, 3D Modelling, Animation, Mobile App Development, Projection Mapping',
 
 	// Introduction displayed on the home page
 	introduction: [
