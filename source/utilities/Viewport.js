@@ -35,6 +35,16 @@ export default class Viewport {
 
 		Application.events.dispatch( 'onResize', this.size );
 
+		this.set100vhFix( this.height );
+
+	}
+
+	set100vhFix( height ) {
+
+		// fix 100vh issue on mobile devices
+		const vh = height * 0.01;
+		document.documentElement.style.setProperty( '--vh', `${ vh }px` );
+
 	}
 
 	onStart() {

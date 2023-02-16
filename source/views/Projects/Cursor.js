@@ -114,10 +114,6 @@ export default class Cursor extends HTMLElement {
 					opacity: .25;
 					display: none;
 				}
-
-				&:before {
-					content: 'Image: '
-				}
 			}
 
 			& h4 {
@@ -125,10 +121,6 @@ export default class Cursor extends HTMLElement {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
 				max-width: 400px;
-
-				&:before {
-					content: 'Subjects: '
-				}
 
 				& span {
 					display: inline-block;
@@ -140,10 +132,6 @@ export default class Cursor extends HTMLElement {
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-xs );
 				opacity: .5;
-
-				&:before {
-					content: 'Project: '
-				}
 			}
 
 		}

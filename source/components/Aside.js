@@ -5,6 +5,7 @@ export default class Aside extends HTMLElement {
 	onConnected( index ) {
 
 		this.index = index;
+		Application.store.set( 'display-aside', true );
 
 	}
 

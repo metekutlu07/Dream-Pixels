@@ -60,6 +60,7 @@ export default class UserInfo extends HTMLElement {
 			left: 0;
 			width: 100vw;
 			height: 100vh;
+    		height: calc(var(--vh, 1vh) * 100);
 			font-size: 3rem;
 			pointer-events: none;
 			display: flex;
@@ -86,16 +87,8 @@ export default class UserInfo extends HTMLElement {
 				margin: 0 var( --margin-m );
 			}
 
-			@media ( max-width: 650px ) {
-				bottom: 120px;
-			}
-
 			&[ name="Images" ] {
 				bottom: 100px;
-
-				@media ( max-width: 650px ) {
-					bottom: 60px;
-				}
 			}
 
 			& h5 {

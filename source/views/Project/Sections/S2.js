@@ -65,7 +65,7 @@ export default class S2 {
 		<section-type-2 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
 			${ title ? html`<h3 font-style-title>${ title }</h3>` : '' }
-			${ paragraphs ? html` <p>${ paragraphs }</p>` : '' }
+			${ paragraphs ? html`<p>${ paragraphs }</p>` : '' }
 
 		</section-type-2>
 

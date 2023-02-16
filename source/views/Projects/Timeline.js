@@ -1,3 +1,5 @@
+import Handle from '~/assets/icons/Handle';
+
 export default class Timeline extends HTMLElement {
 
 	onConnected() {
@@ -9,6 +11,21 @@ export default class Timeline extends HTMLElement {
 	onClick( event ) {
 
 		const { currentTarget } = event;
+
+		if ( currentTarget.hasAttribute( 'scroll-top' ) ) {
+
+			this.scrollTimeline( 'top' );
+			return;
+
+		}
+
+		if ( currentTarget.hasAttribute( 'scroll-bottom' ) ) {
+
+			this.scrollTimeline( 'bottom' );
+			return;
+
+		}
+
 		const { titles } = Application.particles;
 		const camera = Application.scene.cameras[ 'Timeline' ];
 		const target = titles[ this.items.indexOf( currentTarget ) ].progress;
@@ -19,6 +36,20 @@ export default class Timeline extends HTMLElement {
 
 		if ( backwardDelta < forwardDelta ) camera.scroll -= backwardDelta;
 		else if ( forwardDelta < backwardDelta ) camera.scroll += forwardDelta;
+
+	}
+
+	scrollTimeline( direction ) {
+
+		if ( direction == 'top' ) {
+
+			this.elements.container.scrollTop -= 250;
+
+		} else {
+
+			this.elements.container.scrollTop += 250;
+
+		}
 
 	}
 
@@ -111,9 +142,7 @@ export default class Timeline extends HTMLElement {
 			height: 500px;
 			opacity: 0;
 			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-			justify-content: center;
+			align-items: center;
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );
 			pointer-events: none;
@@ -126,12 +155,50 @@ export default class Timeline extends HTMLElement {
 				right: var( --margin-s );
 			}
 
-			& ul {
+			timeline-navigation {
+				position: absolute;
+				right: 0;
 				display: flex;
-				flex-direction: column;
-				align-items: flex-end;
-				justify-content: flex-end;
+				align-items: center;
+				cursor: pointer;
+				pointer-events: all;
+				border: var( --border-size ) solid var( --border-color );
+
+				@media ( hover: hover ) {
+					&:hover {
+						background-color: rgba( 255, 255, 255, .25 );
+					}
+				}
+
+				& svg {
+					height: 32px;
+					width: 32px;
+					fill: var( --color-white );
+				}
+
+				&[ scroll-top ] {
+					top: -48px;
+
+					& svg {
+						transform: rotate(270deg);
+					}
+				}
+
+				&[ scroll-bottom ] {
+					bottom: -48px;
+
+					& svg {
+						transform: rotate(90deg);
+					}
+				}
+			}
+
+			& ul {
+				height: 100%;
+				padding-right: 8px;
 				pointer-events: none;
+				overflow-y: scroll;
+				scroll-behavior: smooth;
 			}
 
 			& li {
@@ -245,7 +312,10 @@ export default class Timeline extends HTMLElement {
 		return html`
 
 		<project-timeline>
-			<ul>
+			<timeline-navigation scroll-top @click>
+				${ Handle }
+			</timeline-navigation>
+			<ul #container>
 				<li>
 					<span>
 						<h5>Current Date</h5>
@@ -260,6 +330,9 @@ export default class Timeline extends HTMLElement {
 					</span>
 				</li>
 			</ul>
+			<timeline-navigation scroll-bottom @click>
+				${ Handle }
+			</timeline-navigation>
 		</project-timeline>
 
 		`;

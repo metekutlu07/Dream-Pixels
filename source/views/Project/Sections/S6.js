@@ -82,7 +82,7 @@ export default class S6 extends HTMLElement {
 			>
 
 				<img
-					src="${ `public/Photogrammetry/${ artworkID }.png` }"
+					src="${ `public/photogrammetry/${ artworkID }.png` }"
 					alt="${ title } - ${ location }, ${ city }"
 				/>
 
