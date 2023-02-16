@@ -51,7 +51,6 @@ export default class S1 {
 			title,
 			subtitle,
 			anchor,
-			description,
 			location,
 			designer,
 			team,
@@ -79,7 +78,7 @@ export default class S1 {
 		<section-type-1 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
 			${ media }
-			${ description ? Aside.render( html`
+			${ Aside.render( html`
 
 				<h3>${ title }</h3>
 				<h4>${ subtitle }</h4>
@@ -93,9 +92,7 @@ export default class S1 {
 					${ clients ? html`<li>Clients / ${ clients }</p>` : '' }
 				</ul>
 
-				<p>${ description }</p>
-
-			` ) : '' }
+			` ) }
 
 		</section-type-1>
 
