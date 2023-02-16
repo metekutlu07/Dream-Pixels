@@ -1,7 +1,7 @@
 export default {
 
 	path: 'kizil-elma',
-	title: 'Kizil Elma',
+	title: 'Kizil Elma Curls',
 	subtitle: 'Colors of the Earthly Paradise',
 	location: 'Paris',
 	date: 'December 2022',
@@ -18,7 +18,35 @@ export default {
 		},
 		{
 			type: 'S2',
-			paragraphs: 'Kizil Elma Curls is the virtual reflection of the earthly garden of paradise which the Ottoman House thought itself destined to create. The project takes its name from the mystical notion of Kizil Elma, meaning “red apple” in Turkish. Kizil Elma announces the establishment of the earthly paradise by the Ottomans before the advent of the apocalypse and becomes the name given to major European cities to conquer. According to the eschatological tradition, the world is to last for 7000 years and the Ottoman House is the ultimate culmination of about 6700 years of cosmic history starting from the Fall of Adam. It had the messianic mission to lead and unite the world during the last centuries of humankind. In this dynastic quest, Rome would become the Kizil Elma for Fatih Sultan Mehmed Khan, and Vienne, Buda and Esztergom for Suleyman the Magnificent. As part of the apocalyptical archival mission ordered by the court, these Kizil Elma cities are depicted meticulously by the Ottoman miniaturists. The Kizil Elma Curls experiment is based on such four miniatures, those of Vienne, Buda, Belgrade and Nicopolis.',
+			paragraphs: 'Kizil Elma Curls is the virtual reflection of the earthly garden of paradise which the Ottoman House thought itself destined to create. The project takes its name from the mystical notion of Kizil Elma, meaning “red apple” in Turkish. Kizil Elma announces the establishment of the earthly paradise by the Ottomans before the advent of the apocalypse and becomes the name given to major European cities to conquer. According to the eschatological tradition, the world is to last for 7000 years and the Ottoman House is the ultimate culmination of about 6700 years of cosmic history starting from the Fall of Adam. It had the messianic mission to lead and unite the world during the last centuries of humankind. In this dynastic quest, Rome would become the Kizil Elma for Fatih Sultan Mehmed Khan, and Vienne, Buda and Esztergom for Suleyman the Magnificent. As part of the apocalyptical archival mission ordered by the court, these Kizil Elma cities are depicted meticulously by the Ottoman miniaturists. The Kizil Elma Curls experiment is based on such five miniatures, those of Vienne, Szekesfehervar, Buda(pest), Belgrade and Nicopolis.',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/kizil-elma/szekes-main.mp4',
+				caption: 'Szekesfehervar Miniature & Curls'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/kizil-elma/szekes02.jpg',
+				caption: 'Szekesfehervar General View'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/kizil-elma/szekes01.jpg',
+				caption: 'Szekesfehervar Zoom'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/kizil-elma/szekes03.jpg',
+				caption: 'Szekesfehervar Zoom'
+			}
 		},
 		{
 			type: 'S3',
@@ -96,27 +124,6 @@ export default {
 			media: {
 				source: 'public/kizil-elma/nico03.jpg',
 				caption: 'Nicopolis Zoom'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/szekes01.jpg',
-				caption: 'Szekesfehervar Zoom'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/szekes03.jpg',
-				caption: 'Szekesfehervar Zoom'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/szekes02.jpg',
-				caption: 'Szekesfehervar General View'
 			}
 		},
 		{

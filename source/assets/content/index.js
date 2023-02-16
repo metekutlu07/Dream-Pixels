@@ -58,29 +58,20 @@ projects.sort( ( projectA, projectB ) => {
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Experiments in Digital Scenography',
+	subtitle: 'A Transtemporal Journey Into Cyber Mysticism',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
 	description: 'Dream Pixels is an atelier which explores forgotten architectural and urban dreams in medieval visual cultures. Using AI and digital design tools, it invents novel methods of research and mediation of miniature paintings. It weaves new relationships between architecture and art history in the Age of AI.',
 
 	// Keywords used for SEO and displayed on the scrolling text
-	themes: 'Medieval Iconography, Premodern Cosmology, Non-Euclidean Geometry, Mediterranean Eschatology, Hermetical Sciences, Digital Humanities',
-	skills: 'Motion Graphics, 3D Modelling, Animation, Augmented Reality, 3D Printing, App Development, Projection Mapping, Architectural Drawing, Rendering',
+	themes: 'Cyber Nomadism, Digital Humanities, Postmodern Medievalism, Digital Primitivism, Digital Handcrafts, Medieval Iconography, Premodern Cosmology, Silk Road Cultures, Mediterranean Eschatology, Hermetical Sciences',
+	skills: 'Digital Scenography, Virtual Reconstruction, Augmented Reality, 3D Scanning, 3D Modelling, Animation, Mobile App Development, Projection Mapping, Architectural Drawing',
 
 	// Introduction displayed on the home page
 	introduction: [
 
-		`Dream Pixels is an atelier which explores
-		forgotten architectural and urban dreams
-		in medieval visual cultures.
-
-		Using AI and digital design tools,
-		it invents novel methods of research and
-		mediation of miniature paintings.
-
-		It weaves new relationships between
-		architecture andart history in the Age of AI.`
+		'Welcome to the virtual archive of Dream Pixels.<br>Here you can explore the birth of a mystico-digital cosmogony through four cybernetic experiences. In Places mode, you can fly over a virtual and transtemporal reflection of a mappa mundi and hop on a journey along the Silk Road. In the projects mode, you will find virtual talismans composing a unique heteroclite visual experience. The Images mode places you at the center of an iconosphere reflecting the mystical notion of the bewildering cosmic mirror. And lastly, the Pixels mode offers you a ride on a cosmic rollercoaster going through a nebula of pixels inside the realm of colours. '
 
 	],
 
