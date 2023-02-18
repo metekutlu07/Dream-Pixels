@@ -6,15 +6,19 @@ export default class S7 extends HTMLElement {
 
 		section-type-7 {
 			display: flex;
-			padding: 0 20vw;
+			padding: 0 10vw;
 			background: var( --color-black );
 
 			& h3 {
 				text-align: center;
-				font-size: var( --font-size-xl );
+				font-size: var( --font-size-xxl );
 				font-family: var( --font-family-a );
 
 				@media ( max-width: 1280px ) {
+					font-size: var( --font-size-xl );
+				}
+
+				@media ( max-width: 1024px ) {
 					font-size: var( --font-size-l );
 				}
 			}
@@ -26,24 +30,26 @@ export default class S7 extends HTMLElement {
 
 			& [col-one] {
 				width: 30%;
-				padding: 16px;
+				padding: 32px;
 			}
 
 			& [col-two] {
 				width: 70%;
-				padding: 16px;
+				padding: 32px;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				row-gap: 32px;
+				row-gap: 16px;
 
 				& div {
 					display: flex;
 					align-items: center;
+					justify-content: space-evenly;
+					column-gap: 32px;
+					padding: 32px;
 
 					& a {
-						width: 50%;
-						padding: 16px;
+						width: 35%;
 					}
 				}
 			}
@@ -58,6 +64,15 @@ export default class S7 extends HTMLElement {
 
 				& [col-two] {
 					width: 100%;
+					padding: 0;
+
+					& div {
+						padding: 16px;
+
+						& a {
+							width: 40%;
+						}
+					}
 				}
 			}
 
