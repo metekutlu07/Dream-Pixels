@@ -7,6 +7,7 @@ export default class S7 extends HTMLElement {
 		section-type-7 {
 			display: flex;
 			padding: 0 20vw;
+			background: var( --color-black );
 
 			& h3 {
 				text-align: center;
