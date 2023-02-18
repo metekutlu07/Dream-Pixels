@@ -6,10 +6,11 @@ import S3 from './Sections/S3';
 import S4 from './Sections/S4';
 import S5 from './Sections/S5';
 import S6 from './Sections/S6';
+import S7 from './Sections/S7';
 
 import Navigation from './Navigation';
 
-const Types = { S1, S2, S3, S4, S5, S6 };
+const Types = { S1, S2, S3, S4, S5, S6, S7 };
 
 export default class Project extends View {
 
