@@ -2,6 +2,14 @@ import Handle from '~/assets/icons/Handle';
 
 export default class Timeline extends HTMLElement {
 
+	constructor() {
+
+		super();
+		this.selectedTimelineItem = null;
+		this.previousSelectedTimelineItem = null;
+
+	}
+
 	onConnected() {
 
 		this.setProjects();
@@ -75,11 +83,27 @@ export default class Timeline extends HTMLElement {
 
 		} );
 
+		// Autoscroll to active timeline item on canvas scroll
+		this.selectedTimelineItem = this.items.find( item => item.hasAttribute( 'selected' ) );
+		if ( this.selectedTimelineItem && this.previousSelectedTimelineItem !== this.selectedTimelineItem ) {
+
+			this.selectedTimelineItem.scrollIntoView();
+			this.previousSelectedTimelineItem = this.selectedTimelineItem;
+
+		}
+
 	}
 
 	onLoad() {
 
 		this.setProjects();
+
+		// scroll to beginning date onload
+		setTimeout( () => {
+
+			this.elements.beginning.scrollIntoView();
+
+		}, 1000 );
 
 	}
 
@@ -323,7 +347,7 @@ export default class Timeline extends HTMLElement {
 					</span>
 				</li>
 				${ list }
-				<li>
+				<li #beginning>
 					<span>
 						<h5>Doctorat Beginning</h5>
 						<h6>December 2018</h6>
