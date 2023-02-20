@@ -71,7 +71,7 @@ export default class Canvas extends HTMLElement {
 		return html`
 
 		<canvas-block @touch-move>
-			<canvas>
+			<canvas></canvas>
 		</canvas-block>
 
 		`;
