@@ -156,8 +156,8 @@ export default {
 		'grid': [ 'Projects' ],
 		'sphere': [ 'Images' ],
 		'particles': [ 'Pixels' ],
-		'color-range': [ 'Color Range' ],
-		'timeline': [ 'Timeline' ],
+		'color-range': [ 'General' ],
+		'timeline': [ 'Rollercoaster' ],
 		'cosmos': [ 'Cosmos' ],
 		'world': [ 'World' ],
 		'display-menu': [ 'Menu', 'Close' ]
@@ -173,7 +173,7 @@ export default {
 
 	panels: {
 		'Cosmos': {
-			title: 'Cosmos',
+			title: 'Cup of Jamshid',
 			description: [
 				'We invite you to explore the digital archive of our works through this immserive interface that we baptised as The Cup of Jamshid. With its three different navigation modes, you can wander around the archive at the level of projects, images or even pixels. ',
 				'It represents our attempt to investigate the quasi-alchemical transmutation in our visual culture and perception of architectural space. Brought about by the current transition from pigments to pixels, this paradigm change stands upon our colours which no longer have a body, weight, depth and volume. The Cup of Jamshid offers a glimpse into the novel ways with which we can engage with information in the Age of Artificial Intelligence. It is our humble experiment on how luminous colours can reveal patterns and relationships which otherwise would have stayed undiscovered.',
@@ -181,15 +181,16 @@ export default {
 			]
 		},
 		'World': {
-			title: 'World',
+			title: 'Tramamu',
 			description: [
-				'We invite you to explore the digital archive of our works through this immserive interface that we baptised as The Cup of Jamshid. With its three different navigation modes, you can wander around the archive at the level of projects, images or even pixels. ',
-				'It represents our attempt to investigate the quasi-alchemical transmutation in our visual culture and perception of architectural space. Brought about by the current transition from pigments to pixels, this paradigm change stands upon our colours which no longer have a body, weight, depth and volume. The Cup of Jamshid offers a glimpse into the novel ways with which we can engage with information in the Age of Artificial Intelligence. It is our humble experiment on how luminous colours can reveal patterns and relationships which otherwise would have stayed undiscovered.',
-				'In Persian mythology, the Cup of Jamshid is described as a magical object of divination containing the elixir of immortality, a ruby-colored wine-like drink. On its surface, the elixir would show the whole seven heavens of the universe and the destiny of all the atoms in the cosmos. It was in a way the mystical early imagination of our internet browsers, satellites and radars. It was not associated only with the Persian kings but also with Alexander the Great of the Greeks and Suleyman the Magnificient of the Ottomans.'
+				'Tramamu is the spatialized representation of a series of experiments which explores the emerging notion of “cyber-mystical vision of space” in the Age of Artificial Intelligence. It takes the form of a virtual 3D reinterpretation of the medieval world map drawn by the Andalusian geographer Idrisi in 1154. It is one of the 70 maps of the atlas “The Excursion of One Who is Eager to Penetrate the Distant Horizons” which he prepared for Roger II, the King of Sicily. Different from our modern maps, his map seeks to convey a unique cultural reality by combining geographic information with symbolic, imaginary and fantastical figures. The south is on top. You can see Asia on the left, Europe on the right and Africa on top. The world is surrounded by a sea beyond which the Ottoman cosmology describes a series of mountains, including the mythical Mount Qaf where jinns and phoenix live.',
+				'At the centre of the disk-shaped world is Constantinople, considered as the cosmic capital whose apocalyptic destiny is tied to that of humanity. The central position of Constantinople also suggests considering the “Ottoman Eye” as a new point of reference in studying the contemporary paradigm shift in architecture. The research replaces the mechanical, standardising and rational tendencies of the Florentine Quattrocento Eye with the mystical, nomadic and heteroclite inclinations of the contemporaneous Ottoman Eye. This short-circuit in space-time provides us with a more flexible and appropriate framework to understand the complex, non-linear and fluctuating dynamics of the digital paradigm.',
+				'Tramamu is the short form of Transtemporal Mappa Mundi. A mappa mundi is simply a medieval map of the world. The term “transtemporal” refers to transcending time, time-travel or communication between one time and another. Just as its form which combines medieval imagination with digital technologies, the content of Tramamu is also based on different temporal juxtapositions. The mapped experiments of virtual scenography seek to confront different digital design tools with the mystical visions of space elaborated by the premodern societies in contact with each other along the Silk Road.',
+				'The cities are represented as 3D reinterpretations of the medieval castles drawn by the Ottoman polymath Matrakci Nasuh in his topographic miniatures. You can click on any of these castles to explore the experiment which took place there or which is historically related to the region. In the cyber-magical realm of Tramamu, each castle is a virtual portal opening to a unique transtemporal visual experience. Each one reveals a different facet of digital medievalism, but also reveals the cultural transfers which took place along the Silk Road and influenced the “Constantinopolitan Eye”.'
 			]
 		},
 		'Pixels': {
-			title: 'Pixels',
+			title: 'Galactic Rollercoaster',
 			description: [
 				'We invite you to explore the digital archive of our works through this immserive interface that we baptised as The Cup of Jamshid. With its three different navigation modes, you can wander around the archive at the level of projects, images or even pixels. ',
 				'It represents our attempt to investigate the quasi-alchemical transmutation in our visual culture and perception of architectural space. Brought about by the current transition from pigments to pixels, this paradigm change stands upon our colours which no longer have a body, weight, depth and volume. The Cup of Jamshid offers a glimpse into the novel ways with which we can engage with information in the Age of Artificial Intelligence. It is our humble experiment on how luminous colours can reveal patterns and relationships which otherwise would have stayed undiscovered.',
@@ -197,7 +198,7 @@ export default {
 			]
 		},
 		'Images': {
-			title: 'Images',
+			title: 'Iconosphere',
 			description: [
 				'We invite you to explore the digital archive of our works through this immserive interface that we baptised as The Cup of Jamshid. With its three different navigation modes, you can wander around the archive at the level of projects, images or even pixels. ',
 				'It represents our attempt to investigate the quasi-alchemical transmutation in our visual culture and perception of architectural space. Brought about by the current transition from pigments to pixels, this paradigm change stands upon our colours which no longer have a body, weight, depth and volume. The Cup of Jamshid offers a glimpse into the novel ways with which we can engage with information in the Age of Artificial Intelligence. It is our humble experiment on how luminous colours can reveal patterns and relationships which otherwise would have stayed undiscovered.',
