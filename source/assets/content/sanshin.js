@@ -12,10 +12,90 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/sanshin/kore-intro.mp4',
+				source: 'public/sanshin/k69.mp4',
 				caption: 'Marco Video Introduction',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k138.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k161-new.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/thumbs1.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/thumbs2.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/dragon01.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/introy.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k117.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k119.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k124.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k128.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
 		},
 		{
 			type: 'S3',
@@ -29,6 +109,14 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/sanshin/dragon02.mp4',
+				caption: 'Golden Catalogue 01',
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k80.mp4',
 				caption: 'Golden Catalogue 01',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
 			},
