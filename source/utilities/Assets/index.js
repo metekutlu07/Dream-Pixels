@@ -59,7 +59,7 @@ export default class Assets {
 
 	}
 
-	async load( paths ) {
+	async load( paths, wait = true ) {
 
 		if ( ! Array.isArray( paths ) ) paths = [ paths ];
 
@@ -69,7 +69,7 @@ export default class Assets {
 
 		if ( ! paths.length ) {
 
-			await Application.time.wait( 500 );
+			if ( wait ) await Application.time.wait( 500 );
 			return;
 
 		}

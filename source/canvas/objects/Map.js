@@ -111,10 +111,10 @@ export default class Map extends Object3D {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'works' ] ) return;
+		if ( ! files[ 'places' ] ) return;
 		this.visible = false;
 
-		const { models, textures } = Application.assets[ 'works' ];
+		const { models, textures } = Application.assets[ 'places' ];
 		const { objects } = models[ 'Map/Model.glb' ];
 		const envMap = Application.assets[ 'EnvMap' ];
 

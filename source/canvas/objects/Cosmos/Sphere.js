@@ -21,7 +21,7 @@ export default class Sphere extends Object3D {
 		this.titles = [];
 		this.sphereID = sphereID;
 
-		const { textures } = Application.assets[ 'works' ];
+		const { textures } = Application.assets[ 'places' ];
 		const envMap = Application.assets[ 'EnvMap' ];
 		const map = textures[ `Cosmos/Patterns/${ sphereID }.jpg` ];
 		if ( map ) map.wrapT = map.wrapS = RepeatWrapping;
@@ -133,7 +133,7 @@ export default class Sphere extends Object3D {
 
 	setZodiacs() {
 
-		const { textures } = Application.assets[ 'works' ];
+		const { textures } = Application.assets[ 'places' ];
 		const radius = this.radius + 25;
 
 		Object.entries( textures ).filter( entry => {

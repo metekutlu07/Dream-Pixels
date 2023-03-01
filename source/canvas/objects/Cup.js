@@ -50,12 +50,12 @@ export default class Cup extends Mesh {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'works' ] ) return;
+		if ( ! files[ 'places' ] ) return;
 
 		this.spheres = {};
 		this.visible = false;
 
-		const { models, textures } = Application.assets[ 'works' ];
+		const { models, textures } = Application.assets[ 'places' ];
 		const { objects } = models[ 'Cup/Model.glb' ];
 		this.copy( objects[ 'Cup' ] );
 

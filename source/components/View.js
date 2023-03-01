@@ -61,7 +61,20 @@ export default class View extends HTMLElement {
 	getPackIDs( path ) {
 
 		const packID = path.replace( /\//g, '' );
-		const packIDs = [ 'common', 'audio', packID ];
+		const packIDs = [ 'common', 'audio' ];
+		const { list } = Application.store;
+
+		if ( packID === 'works' ) {
+
+			if ( list === 'places' ) packIDs.push( 'places' );
+			else if ( list === 'sphere' ) packIDs.push( 'sphere' );
+			else packIDs.push( 'works' );
+
+		} else {
+
+			packIDs.push( packID );
+
+		}
 
 		if ( packID === 'photogrammetry' )
 			packIDs.push( 'france-01-annunciation' );
