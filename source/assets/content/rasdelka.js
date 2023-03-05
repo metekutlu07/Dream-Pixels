@@ -9,15 +9,14 @@ export default {
 	sections: [
 		{
 			type: 'S1',
+		},
+		{
+			type: 'S3',
 			media: {
 				source: 'public/rasdelka/03-rasdelka-intro.mp4',
 				tags: [ '3D Miniature', 'Byzantine Miniature' ],
 				caption: 'Top View'
 			}
-		},
-		{
-			type: 'S3',
-			media: { source: '' }
 		},
 		{
 			type: 'S2',
