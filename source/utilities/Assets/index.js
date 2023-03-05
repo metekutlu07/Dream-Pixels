@@ -42,10 +42,8 @@ export default class Assets {
 		if ( ! this.isLoading ) return;
 
 		const files = Object.values( this.files );
-		const progress = this.getProgress();
-
-		this.progress = Math.lerp( this.progress, progress, this.dampingFactor );
-		this.percentLoaded = Math.ceil( this.progress * 100 );
+		this.progress = this.getProgress();
+		this.percentLoaded = Math.floor( this.progress * 100 );
 
 		if ( this.percentLoaded < 100 ) return;
 
@@ -59,7 +57,7 @@ export default class Assets {
 
 	}
 
-	async load( paths ) {
+	async load( paths, wait = true ) {
 
 		if ( ! Array.isArray( paths ) ) paths = [ paths ];
 
@@ -69,7 +67,7 @@ export default class Assets {
 
 		if ( ! paths.length ) {
 
-			await Application.time.wait( 500 );
+			if ( wait ) await Application.time.wait( 500 );
 			return;
 
 		}

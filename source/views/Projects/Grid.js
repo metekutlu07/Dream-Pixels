@@ -41,14 +41,14 @@ export default class Grid extends HTMLElement {
 
 		const items = Array.from( links ).reverse();
 
-		const objects = {
+		// const objects = {
 
-			1: [ 1, 4, 11, 13, 17 ],
-			2: [ 1, 4, 6, 11, 16 ],
-			3: [ 1, 2, 10, 14, 18 ],
-			4: [ 1, 3, 11, 13, 17 ]
+		// 	1: [ 1, 4, 11, 13, 17 ],
+		// 	2: [ 1, 4, 6, 11, 16 ],
+		// 	3: [ 1, 2, 10, 14, 18 ],
+		// 	4: [ 1, 3, 11, 13, 17 ]
 
-		};
+		// };
 
 		const quotes = {
 
@@ -59,13 +59,13 @@ export default class Grid extends HTMLElement {
 
 		};
 
-		this.elements.objects.forEach( ( object, index ) => {
+		// this.elements.objects.forEach( ( object, index ) => {
 
-			const position = objects[ length ][ index ];
-			if ( ! position ) return;
-			items.splice( position, 0, object );
+		// 	const position = objects[ length ][ index ];
+		// 	if ( ! position ) return;
+		// 	items.splice( position, 0, object );
 
-		} );
+		// } );
 
 		this.elements.quotes.forEach( ( object, index ) => {
 
@@ -147,10 +147,12 @@ export default class Grid extends HTMLElement {
 		<projects-grid #grid>
 			${ Application.content.grid.map( Item.render ) }
 			${ Application.content.quotes.map( Item.render ) }
-			${ Application.content.objects.map( Item.render ) }
 		</projects-grid>
 
 		`;
+
+		// Removed 3d objects in projects list page, to include it again, add following commented line in the html above after quotes.
+		// ${ Application.content.objects.map( Item.render ) }
 
 	}
 

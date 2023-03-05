@@ -29,9 +29,9 @@ export default class Symbol extends Mesh {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'works' ] ) return;
+		if ( ! files[ 'places' ] ) return;
 
-		const { textures } = Application.assets[ 'works' ];
+		const { textures } = Application.assets[ 'places' ];
 		const map = Object
 			.entries( textures )
 			.filter( entry => entry[ 0 ].match( /Planets|Zodiacs/g ) )

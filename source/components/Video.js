@@ -91,8 +91,8 @@ export default class Video extends HTMLElement {
 
 		`;
 
-		const { controls, fullscreen, border, poster } = parameters;
-		const attributes = [ 'playsinline', 'muted', 'loop', 'preload' ];
+		const { controls, fullscreen, border, poster, preloadMedia } = parameters;
+		const attributes = [ 'autoplay', 'playsinline', 'muted', 'loop' ];
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const src = source ? `src="${ source }#t=0.1"` : '';
 
@@ -102,7 +102,7 @@ export default class Video extends HTMLElement {
 		return html`
 
 		<video-block ${ type }>
-			<video ${ src } ${ attributes.join( ' ' ) } #></video>
+			<video ${ src } ${ attributes.join( ' ' ) } class="${ preloadMedia ? 'preloadMedia' : '' }" #></video>
 		</video-block>
 
 		`;

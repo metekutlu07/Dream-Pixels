@@ -35,7 +35,7 @@ export default class Header extends HTMLElement {
 
 	}
 
-	onClick() {
+	async onClick() {
 
 		const { currentTarget } = event;
 		const { camera, fullscreen, scene, audio } = Application;
@@ -48,19 +48,39 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'display-aside' ) ) Application.store.toggle( 'display-aside' );
 		if ( currentTarget.hasAttribute( 'display-wireframe' ) ) Application.store.toggle( 'display-wireframe' );
 		if ( currentTarget.hasAttribute( 'grid' ) ) Application.store.set( 'list', 'grid' );
-		if ( currentTarget.hasAttribute( 'sphere' ) ) Application.store.set( 'list', 'sphere' );
 		if ( currentTarget.hasAttribute( 'particles' ) ) Application.store.set( 'list', 'particles' );
 		if ( currentTarget.hasAttribute( 'color-range' ) ) Application.store.set( 'particles', 'color-range' );
 		if ( currentTarget.hasAttribute( 'timeline' ) ) Application.store.set( 'particles', 'timeline' );
 		if ( currentTarget.hasAttribute( 'cosmos' ) ) Application.store.set( 'places', 'cosmos' );
 		if ( currentTarget.hasAttribute( 'world' ) ) Application.store.set( 'places', 'world' );
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
+		if ( currentTarget.hasAttribute( 'sphere' ) ) {
+
+			await this.loadPack( 'sphere' );
+			Application.store.set( 'list', 'sphere' );
+
+		}
 		if ( currentTarget.hasAttribute( 'places' ) ) {
 
+			await this.loadPack( 'places' );
 			Application.store.set( 'places', 'world' );
 			Application.store.set( 'list', 'places' );
 
 		}
+
+	}
+
+	async loadPack( packID ) {
+
+		Application.store.set( 'loading', true );
+
+		try {
+
+			await Application.assets.load( packID, false );
+
+		} catch ( error ) { console.log( error ) }
+
+		Application.store.set( 'loading', false );
 
 	}
 

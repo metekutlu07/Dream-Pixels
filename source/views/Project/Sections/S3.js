@@ -64,7 +64,7 @@ export default class S3 {
 		`;
 
 		const { anchor } = content;
-		const { source, caption, controls, centered } = content.media;
+		const { source, caption, controls, centered, preloadMedia } = content.media;
 		const isVideo = source.match( /mp4/g );
 		const attributes = [];
 
@@ -77,8 +77,8 @@ export default class S3 {
 
 		${ isVideo ?
 
-		Video.render( source, { controls, border: true } ) :
-		html`<img src="${ source }" alt="${ caption }"/>` }
+		Video.render( source, { controls, border: true, preloadMedia } ) :
+		html`<img src="${ source }" alt="${ caption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
 
 		${ caption ? html`<p>${ caption }</p>` : '' }
 

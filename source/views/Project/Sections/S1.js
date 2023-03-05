@@ -64,12 +64,12 @@ export default class S1 {
 
 		if ( content.media ) {
 
-			const { source, caption, controls, } = content.media;
+			const { source, caption, controls, preloadMedia } = content.media;
 			const isVideo = source.match( /mp4/g );
 
 			media = isVideo ?
-				Video.render( source, { controls, fullscreen: true } ) :
-				html`<img src="${ source }" alt="${ caption }"/>`;
+				Video.render( source, { controls, fullscreen: true, preloadMedia } ) :
+				html`<img src="${ source }" alt="${ caption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />`;
 
 		}
 
