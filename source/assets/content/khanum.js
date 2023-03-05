@@ -15,7 +15,8 @@ export default {
 			media: {
 				source: 'public/khanum/coverup-front.mp4',
 				caption: 'Khanum Video Introduction',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ],
+				preloadMedia: true
 			}
 		},
 		{
@@ -32,7 +33,8 @@ export default {
 			media: {
 				source: 'public/khanum/coverup-main.mp4',
 				caption: 'Façade cladding with mosaics made of enameled tiles - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ],
+				preloadMedia: true
 			},
 		},
 		{
@@ -40,7 +42,8 @@ export default {
 			media: {
 				source: 'public/khanum/t01.jpg',
 				caption: 'Façade cladding with mosaics made of enameled tiles - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ],
+				preloadMedia: true
 			},
 		},
 		{

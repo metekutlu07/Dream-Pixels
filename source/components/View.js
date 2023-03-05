@@ -16,8 +16,52 @@ export default class View extends HTMLElement {
 
 	async onViewChange( view ) {
 
-		if ( view !== this ) this.remove();
-		else this.toggleAttribute( 'hidden' );
+		if ( view !== this ) {
+
+			this.remove();
+
+		} else {
+
+			this.toggleAttribute( 'hidden' );
+
+			// Preloading images and videos for /works and /{project}
+
+			if ( view.tagName === 'PROJECTS-VIEW' || view.tagName === 'PROJECT-VIEW' ) {
+
+				const elements = Array.from( view.getElementsByClassName( 'preloadMedia' ) );
+				const images = elements.filter( element => element.tagName === 'IMG' && ! element.complete );
+				const videos = elements.filter( element => element.tagName === 'VIDEO' );
+
+				await Promise.allSettled( videos.map( this.preloadVideo ) );
+				await Promise.allSettled( images.map( this.preloadImage ) );
+
+			}
+
+			Application.store.set( 'loading', false );
+
+		}
+
+
+	}
+
+	preloadVideo( video ) {
+
+		return new Promise( ( resolve ) => {
+
+			video.oncanplaythrough = resolve;
+			video.load();
+
+		} );
+
+	}
+
+	preloadImage( image ) {
+
+		return new Promise( ( resolve ) => {
+
+			image.onload = image.onerror = resolve;
+
+		} );
 
 	}
 
@@ -41,7 +85,6 @@ export default class View extends HTMLElement {
 		Application.store.set( 'path', path );
 		Application.store.set( 'route', route.path );
 
-		Application.store.set( 'loading', false );
 		Application.store.set( 'view-exit', false );
 
 		await Application.time.wait( 500 );
@@ -68,7 +111,6 @@ export default class View extends HTMLElement {
 
 			if ( list === 'places' ) packIDs.push( 'places' );
 			else if ( list === 'sphere' ) packIDs.push( 'sphere' );
-			else packIDs.push( 'works' );
 
 		} else {
 

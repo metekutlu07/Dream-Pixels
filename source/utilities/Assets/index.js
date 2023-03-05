@@ -42,10 +42,8 @@ export default class Assets {
 		if ( ! this.isLoading ) return;
 
 		const files = Object.values( this.files );
-		const progress = this.getProgress();
-
-		this.progress = Math.lerp( this.progress, progress, this.dampingFactor );
-		this.percentLoaded = Math.ceil( this.progress * 100 );
+		this.progress = this.getProgress();
+		this.percentLoaded = Math.floor( this.progress * 100 );
 
 		if ( this.percentLoaded < 100 ) return;
 

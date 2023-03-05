@@ -301,6 +301,7 @@ export default class Item extends HTMLElement {
 		} = content;
 
 		const { projects } = Application.content;
+		const projectsLength = projects.length;
 		const index = projects.findIndex( project => project.path === path );
 		const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
@@ -315,7 +316,7 @@ export default class Item extends HTMLElement {
 		>
 			<item-link href="/${ path }" internal>
 				<item-thumbnail>
-					${ Video.render( `/public/${ path }/thumbnail.mp4`, { poster: true } ) }
+					${ Video.render( `/public/${ path }/thumbnail.mp4`, { poster: true, preloadMedia: index >= ( projectsLength - 3 ) } ) }
 					<item-overlay>
 						${ Button.render( { attributes: [ 'label-visible' ], icons: [ Next ], } ) }
 					</item-overlay>

@@ -13,7 +13,8 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/kizil-elma/test03.mp4',
-				caption: 'Video Introduction'
+				caption: 'Video Introduction',
+				preloadMedia: true
 			}
 		},
 		{
@@ -24,14 +25,16 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/szekes-main.mp4',
-				caption: 'Szekesfehervar Miniature & Curls'
+				caption: 'Szekesfehervar Miniature & Curls',
+				preloadMedia: true
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/szekes02.jpg',
-				caption: 'Szekesfehervar General View'
+				caption: 'Szekesfehervar General View',
+				preloadMedia: true
 			}
 		},
 		{
