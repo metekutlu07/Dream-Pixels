@@ -203,6 +203,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				centered: 'true',
 				source: 'public/firuze/test.jpg',
 				caption: 'Enameled polychrome tiles of Haft Rang',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
@@ -211,6 +212,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				centered: 'true',
 				source: 'public/firuze/test1.jpg',
 				caption: 'Enameled polychrome tiles of Haft Rang',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
@@ -219,6 +221,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				centered: 'true',
 				source: 'public/firuze/mosaics01.jpg',
 				caption: 'Enameled polychrome tiles of Haft Rang',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
@@ -227,6 +230,7 @@ export default {
 		{
 			type: 'S3',
 			media: {
+				centered: 'true',
 				source: 'public/firuze/mosaics02.jpg',
 				caption: 'Enameled polychrome tiles of Haft Rang',
 				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]

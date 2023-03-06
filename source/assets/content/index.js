@@ -58,7 +58,7 @@ projects.sort( ( projectA, projectB ) => {
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'A Transtemporal Journey Into Cyber Mysticism',
+	subtitle: 'Cyber Mystical Places Across Time',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
@@ -118,11 +118,10 @@ export default {
 		forgotten architectural and urban dreams
 		in medieval visual cultures.`,
 
-		`Using AI and digital design tools,
-		it invents novel methods of research and
-		mediation of miniature paintings.`,
+		`Using emerging digital tools,
+		we explore new horizons in digital scenograhy and cultural mediation.`,
 
-		`It weaves new relationships between
+		`We weave new relationships between
 		architecture and art history in the Age of AI.`
 
 	],

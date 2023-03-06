@@ -38,31 +38,6 @@ export default {
 			},
 		},
 		{
-			type: 'S3',
-			media: {
-				source: 'public/khanum/t01.jpg',
-				caption: 'Façade cladding with mosaics made of enameled tiles - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ],
-				preloadMedia: true
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/khanum/t02.jpg',
-				caption: 'Façade cladding with mosaics made of enameled tiles - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/khanum/t03.jpg',
-				caption: 'Façade cladding with mosaics made of enameled tiles - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
-			},
-		},
-		{
 			type: 'S2',
 			paragraphs: `Khanum is Turkish for lady and it is derived from the word “khan” which means
 			the leader of the clan, similar to a king. The letter “m” in Turkish is used as first-person
