@@ -14,7 +14,8 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/solomon/intro.mp4',
-				caption: 'Video Introduction'
+				caption: 'Video Introduction',
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -29,7 +30,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss09.jpg',
 				caption: '3D miniatures of the Throne and the Temple prepared during the residency at the Villa Medici in Februrary 2020',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -42,7 +43,7 @@ export default {
 			media: {
 				source: 'public/solomon/full.mp4',
 				caption: 'Illusionistic 3D Modelling of the Impossible Columns',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				controls: false
 			}
 		},
@@ -51,7 +52,7 @@ export default {
 			media: {
 				source: 'public/solomon/compare.jpg',
 				caption: 'Original miniature of the Temple on the left and its 3D modelling on the right',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -59,7 +60,7 @@ export default {
 			media: {
 				source: 'public/solomon/temple01.jpg',
 				caption: 'Capitals of the Solomonic Column 02',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -67,7 +68,7 @@ export default {
 			media: {
 				source: 'public/solomon/window.mp4',
 				caption: 'Spatializing Sacred Impossibilities',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				controls: false
 			}
 		},
@@ -76,7 +77,7 @@ export default {
 			media: {
 				source: 'public/solomon/temple-plan.jpg',
 				caption: 'Offset between the dome and its feet',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 			}
 		},
 		{
@@ -90,7 +91,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/temple-list.jpg',
 				caption: 'Representations of the Temple in the Homilies of James the Monk of Kokkinobaphos (vat.gr.1162)',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -99,7 +100,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/dsc02498.jpg',
 				caption: 'Mosaic representations of the Temple from the Chora Church, Istanbul',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -108,7 +109,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/p01.jpg',
 				caption: 'Mosaic representations of the Temple from the Chora Church, Istanbul',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -117,7 +118,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/p02.jpg',
 				caption: 'Mosaic representations of the Temple from the Chora Church, Istanbul',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -140,7 +141,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss13.png',
 				caption: 'The Church of Holy Apostles (no longer extant) in Co',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -149,7 +150,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss14.png',
 				caption: 'Penance of David drawn by Michael of Tokat (Turkey) in the Armenian Bible in Constantinople, 1625 (Vat.arm.1, folio 306v)',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -158,7 +159,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/stairtest.jpg',
 				caption: 'Elevated throne in Islamic Architecture and Miniatures',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -177,7 +178,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/renks.jpg',
 				caption: 'Color Variation in Architectural Settings',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -186,7 +187,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/folio.png',
 				caption: 'Impossible Columns of the Temple on folio 190r',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -199,7 +200,7 @@ export default {
 			media: {
 				source: 'public/solomon/test-center.jpg',
 				caption: 'Celestial Neon Domes',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -207,7 +208,7 @@ export default {
 			media: {
 				source: 'public/solomon/neon.jpg',
 				caption: 'Solid and Luminous Temples',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -215,7 +216,7 @@ export default {
 			media: {
 				source: 'public/solomon/neon01.jpg',
 				caption: 'Neon Dome over Solomonic Columns',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -223,7 +224,7 @@ export default {
 			media: {
 				source: 'public/solomon/neon03.jpg',
 				caption: 'Solomonic Capital',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -236,7 +237,7 @@ export default {
 			media: {
 				source: 'public/solomon/stairs.jpg',
 				caption: 'Thrones',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -244,7 +245,7 @@ export default {
 			media: {
 				source: 'public/solomon/white.png',
 				caption: 'Throne & Temple',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -252,7 +253,7 @@ export default {
 			media: {
 				source: 'public/solomon/uc-stairs.jpg',
 				caption: 'Sacred Thrones',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -262,7 +263,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss06.png',
 				caption: 'Solomonic Experiments',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -271,7 +272,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss05.png',
 				caption: 'Nurbs Model of the Temple',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -280,7 +281,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss01.png',
 				caption: 'Imported Polygon Model of the Temple in Cinema 4D',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -289,7 +290,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss02.png',
 				caption: 'Imported Polygon Model of the Temple in Cinema 4D',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -298,7 +299,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss04.png',
 				caption: 'Nurbs Model of the Throne in Rhino',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -307,7 +308,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss03.png',
 				caption: 'Imported Polygon Throne in Cinema 4D',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
 	]

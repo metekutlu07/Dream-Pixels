@@ -15,7 +15,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/cyberpond02.mp4',
 				caption: 'Cyber Lotus Video Introduction',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -32,7 +32,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/dataset01.jpg',
 				caption: 'Dataset 01 - Large',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -40,7 +40,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/dataset02.jpg',
 				caption: 'Dataset 02 - Reduced',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -60,7 +60,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/slider01.mp4',
 				caption: 'Latent Walks - Large Dataset',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -68,7 +68,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/slider02.mp4',
 				caption: 'Latent Walks - Reduced Dataset',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -80,7 +80,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/large-01.mp4',
-				caption: '3D Latent'
+				caption: '3D Latent',
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -88,7 +89,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/3d-slider01.mp4',
 				caption: '3D Latent - Large Dataset',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -96,7 +97,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/3d-slider02.mp4',
 				caption: '3D Latent - Reduced Dataset',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -115,7 +116,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/metalic03.mp4',
 				caption: 'Light of the Electronic Buddha',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -123,7 +124,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemy01.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -131,7 +132,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemy02.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -139,7 +140,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemy03.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -147,7 +148,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemylarge01.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -155,7 +156,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemylarge02.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -163,7 +164,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemylarge03.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -171,7 +172,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemy04.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -179,7 +180,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/alchemy05.jpg',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
@@ -187,10 +188,8 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/metalic-zoom.mp4',
 				caption: 'In the Cybernetic Lotus Pond',
-				tags: [ 'Korean Architecture', 'Architectural Heritage', 'Photogrammetry', 'Machine Learning', 'Artificial Intelligence' ]
+				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
-
-
 	]
 };

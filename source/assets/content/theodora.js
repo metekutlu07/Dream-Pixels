@@ -15,14 +15,15 @@ export default {
 			paragraphs: '',
 			media: {
 				source: 'public/theodora/part04.mp4',
-				caption: 'Video Introduction'
+				caption: 'Theodora Video Introduction',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/theodora/part01.mp4',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Detexturing'
 			}
 		},
@@ -39,7 +40,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/part02.mp4',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Cloud of Potentials'
 			}
 		},
@@ -53,7 +54,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/part03.mp4',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Revelation of the City of Light'
 			}
 		},
@@ -61,7 +62,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/part05.mp4',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Constantinople between order and chaos'
 			}
 		},
@@ -69,7 +70,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/13.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Nev Kostantiniyye: The City of Electronic Gods'
 			}
 		},
@@ -77,7 +78,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/14.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Eternal Lights of the Phanarion'
 			}
 		},
@@ -91,7 +92,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/02.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Coming From Adrianople'
 			}
 		},
@@ -99,7 +100,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/03.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Talismanic Photon Towers'
 			}
 		},
@@ -107,7 +108,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/04.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Over the Square of Pseudo-Dionysius'
 			}
 		},
@@ -121,7 +122,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/05.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Zoom'
 			}
 		},
@@ -129,7 +130,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/06.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Renovatio constantinopolitanae'
 			}
 		},
@@ -137,7 +138,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/07.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Towers of Electronic Light'
 			}
 		},
@@ -145,7 +146,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/08.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'In the Apocalyptic City of Light 01'
 			}
 		},
@@ -153,8 +154,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/11.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
-
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'In the Apocalyptic City of Light 02'
 			}
 		},
@@ -162,8 +162,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/002.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
-
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'In the Apocalyptic City of Light'
 			}
 		},
@@ -171,7 +170,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/talis4k.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Talismanic Urbanscape of Constantinople'
 			}
 		},
@@ -179,7 +178,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/theodora/tower4k.jpg',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Talismanic Towers of Constantinople'
 			}
 		},
@@ -193,7 +192,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/theodora/ss02.png',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Decomposition and recomposition of the wireframe'
 			}
 		},
@@ -202,17 +201,9 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/theodora/ss01.png',
-				tags: [ 'Motion Graphics', 'Geometrical Study', 'Ottoman Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Hair render of the wireframe and its animation with the frizz function'
 			}
 		},
-
-
-
-
-
-
-
 	]
-
 };

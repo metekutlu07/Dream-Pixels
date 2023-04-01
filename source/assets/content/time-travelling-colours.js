@@ -14,7 +14,8 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/time-travelling-colours/intropage.mp4',
-				caption: 'Video Introduction'
+				caption: 'Video Introduction',
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 			}
 		},
 		{
@@ -22,7 +23,7 @@ export default {
 			anchor: 'Introduction',
 			media: {
 				source: 'public/time-travelling-colours/intro.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', '3D Miniature' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 				caption: 'Introduction'
 			}
 		},
@@ -36,7 +37,7 @@ export default {
 			anchor: 'Chapter 1: Metallic Luminosity',
 			media: {
 				source: 'public/time-travelling-colours/chapter1.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Alchemical Images' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 				caption: 'How did the miniaturists use light?'
 			}
 		},
@@ -50,7 +51,7 @@ export default {
 			anchor: 'Chapter 2: Luminous Mysticism',
 			media: {
 				source: 'public/time-travelling-colours/chapter2.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Manicheanism', 'Sufism' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 				caption: 'Why did they develop such techniques?'
 			}
 		},
@@ -64,7 +65,7 @@ export default {
 			anchor: 'Chapter 3: Luminous Colours',
 			media: {
 				source: 'public/time-travelling-colours/chapter3.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Alchemical Images' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 				caption: 'How did the miniaturists use colours?'
 			}
 		},
@@ -78,7 +79,7 @@ export default {
 			anchor: 'Chapter 4: Light-Colours',
 			media: {
 				source: 'public/time-travelling-colours/chapter4.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Pixel Transition' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 				caption: 'How does the miniatures relate to our visual culture in the Digital Age?'
 			}
 		},
@@ -92,7 +93,7 @@ export default {
 			anchor: 'Chapter 5: Luminous Architecture',
 			media: {
 				source: 'public/time-travelling-colours/chapter5.mp4',
-				tags: [ 'Ottoman Miniature', 'Timurid Renaissance', 'Luminous Architecture' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
 				caption: 'How does light-colours influence architecture?'
 			}
 		},

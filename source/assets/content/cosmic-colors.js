@@ -14,7 +14,7 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/cosmic-colors/dome3.mp4',
-				caption: 'Video Introduction'
+				caption: 'Cyber Lotus Video Introduction'
 			}
 		},
 		{
@@ -24,7 +24,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/003.jpg',
 				caption: 'Color Analysis',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -37,7 +37,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/blue-analyse.mp4',
 				caption: 'Analysis of the Venetian Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -45,7 +45,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/pink-analyse.mp4',
 				caption: 'Analysis of the Tower of Adrianople',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -58,7 +58,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/group.mp4',
 				caption: 'Miniature architecture as blurred figures of colors',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -67,7 +67,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/panorama.mp4',
 				caption: 'Cosmic Cones of Constantinople - Mosaic',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 
@@ -76,7 +76,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome-list.mp4',
 				caption: 'Cosmic Cones of Constantinople 01',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -84,7 +84,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome1.mp4',
 				caption: 'Cosmic Cones of Constantinople 01',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -92,7 +92,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome2.mp4',
 				caption: 'Cosmic Cones of Constantinople 01',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -105,7 +105,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/gazer0.jpg',
 				caption: 'Stargazer 01',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -113,7 +113,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/gazer1.jpg',
 				caption: 'Stargazer 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -121,7 +121,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/gazer2.jpg',
 				caption: 'Stargazer 03',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -129,7 +129,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/gazer3.jpg',
 				caption: 'Stargazer 04',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -137,7 +137,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/gazer4.jpg',
 				caption: 'Stargazer 04',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -150,7 +150,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/013.jpg',
 				caption: 'Colours of Magical Complexity',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -158,7 +158,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/015.jpg',
 				caption: 'Perplexity is life',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -166,7 +166,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/017.jpg',
 				caption: 'The Constantinopolitan Eye',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -174,7 +174,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/020.jpg',
 				caption: 'Renaissance of the Miniaturists Dream',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -188,7 +188,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/import.png',
 				caption: 'Importing the model of Kynegion Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -197,7 +197,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/pointvop_noise.png',
 				caption: 'Importing the model of Kynegion Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -206,7 +206,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/pointvop_color.png',
 				caption: 'Importing the model of Kynegion Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -215,7 +215,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/popnet.png',
 				caption: 'Importing the model of Kynegion Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -228,7 +228,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/004.jpg',
 				caption: 'Color Analysis of the Venetian Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -236,7 +236,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/004.jpg',
 				caption: 'Color Analysis of the Venetian Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -244,7 +244,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/005.jpg',
 				caption: 'Color Analysis of the Tower of Adrianople',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -252,7 +252,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/006.jpg',
 				caption: 'Towers of Constantinople as blurred figures of particles 01',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -260,7 +260,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/007.jpg',
 				caption: 'Towers of Constantinople as blurred figures of particles 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -268,7 +268,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/008.jpg',
 				caption: 'Towers of Constantinople as blurred figures of particles 03',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -276,7 +276,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/009.jpg',
 				caption: 'Under the conical roofs of Constantinople - Mosaic',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -284,7 +284,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/010.jpg',
 				caption: 'Inside the Tower of Selymbria 01',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -292,7 +292,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/011.jpg',
 				caption: 'Inside the Tower of Saint Romanus',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -300,7 +300,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/012.jpg',
 				caption: 'Inside the Tower of Adrianople',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -308,7 +308,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/014.jpg',
 				caption: 'Inside the Amalfitan Tower',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -316,7 +316,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/016.jpg',
 				caption: 'Inside the Tower of Phanarion',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -324,7 +324,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/018.jpg',
 				caption: 'Inside the Tower of Pisa',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -332,7 +332,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/019.jpg',
 				caption: 'Inside the Tower of Kynegion',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 
 			}
 		},
@@ -341,7 +341,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/021.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -349,7 +349,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/kynegion.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -357,7 +357,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/adrianopolis.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -365,7 +365,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome01.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -373,7 +373,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome02.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -381,7 +381,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome03.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -389,7 +389,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/dome04.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -397,7 +397,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/bonus.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -405,7 +405,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/romanus.jpg',
 				caption: 'Inside the Tower of Selymbria 02',
-				tags: [ 'Particle Simulation', 'Colour Study', 'Pigments to Pixels', 'Ottoman Miniature' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -441,5 +441,4 @@ export default {
 			},
 		}
 	]
-
 };

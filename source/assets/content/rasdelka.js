@@ -14,7 +14,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/03-rasdelka-intro.mp4',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Top View'
 			}
 		},
@@ -27,7 +27,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/doublepage.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'The original Byzantine folio on the right (vat. gr. 1162, 1v) juxtaposed later with a Latin chant of St. Nicholas'
 			}
 		},
@@ -35,7 +35,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/compare-hd.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'The original miniature of the Pink Church and its 3D Modelling'
 			}
 		},
@@ -48,7 +48,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/comp02.mp4',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'The zigzag Radiant Frieze and peacock reliefs'
 			}
 		},
@@ -56,7 +56,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/axo01.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Volumetric reconstruction of the miniature space'
 			}
 		},
@@ -64,7 +64,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/cephe01.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Interpolated left façade'
 			}
 		},
@@ -72,7 +72,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/cephe02.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Interpolated right façade'
 			}
 		},
@@ -80,7 +80,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/top.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Celestial Waves - Top View'
 			}
 		},
@@ -88,7 +88,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/transition.mp4',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'The Ecclesiastic Digital Transition'
 			}
 		},
@@ -96,7 +96,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/zoom01.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Constructing the Divine Light '
 			}
 		},
@@ -104,7 +104,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/detay01.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'The Radiant Frieze'
 			}
 		},
@@ -112,7 +112,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/detay02.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Heavenly roofs of blue waves'
 			}
 		},
@@ -125,7 +125,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/projection-process.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'The Projection Process and the calculation of depth'
 			}
 		},
@@ -133,7 +133,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/rasdelka/interpolation.jpg',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: '3D Reconstruction System'
 			}
 		},
@@ -147,7 +147,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/rasdelka/makingof.mp4',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: '3D Modelling and the Projection Process in Rhino'
 			}
 		},
@@ -156,7 +156,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/rasdelka/shot01.png',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Import to Cinema 4D for animation'
 			}
 		},
@@ -165,7 +165,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/rasdelka/shot03.png',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Nurbs Model of the Pink Church'
 			}
 		},
@@ -174,7 +174,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/rasdelka/shot04.png',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Projection of the miniature to 3D volumes'
 			}
 		},
@@ -183,7 +183,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/rasdelka/shot02.png',
-				tags: [ '3D Miniature', 'Byzantine Miniature' ],
+				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				caption: 'Under the main dome'
 			}
 		}

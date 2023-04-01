@@ -20,7 +20,7 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/spolia-botanique/bota-intro03.mp4',
-				caption: 'Video Introduction'
+				caption: 'Spolia botanique Video Introduction'
 			}
 		},
 	]

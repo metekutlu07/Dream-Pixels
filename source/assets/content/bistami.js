@@ -13,7 +13,8 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/bistami/bistami-intro.mp4',
-				caption: 'Video Introduction'
+				caption: 'Bistami Video Introduction',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -49,7 +50,7 @@ export default {
 			media: {
 				source: 'public/bistami/bistami-part01.mp4',
 				caption: 'Video Presentation 01',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
 		},
@@ -58,7 +59,7 @@ export default {
 			media: {
 				source: 'public/bistami/bistami-part02.mp4',
 				caption: 'Video Presentation 02',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
 		},
@@ -67,7 +68,7 @@ export default {
 			media: {
 				source: 'public/bistami/bistami-part03.mp4',
 				caption: 'Video Presentation 03',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
 		},
@@ -76,7 +77,7 @@ export default {
 			media: {
 				source: 'public/bistami/bistami-part04.mp4',
 				caption: 'Video Presentatio 04',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
 		},
@@ -86,8 +87,7 @@ export default {
 			media: {
 				source: 'public/bistami/02-bistami-02.jpg',
 				caption: 'Comparative View',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -96,8 +96,7 @@ export default {
 			media: {
 				source: 'public/bistami/02-bistami-03.jpg',
 				caption: 'Historical Plan of Constantinople',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -106,8 +105,7 @@ export default {
 			media: {
 				source: 'public/bistami/02-bistami-04.jpg',
 				caption: 'Plan of The Miniature',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -116,8 +114,7 @@ export default {
 			media: {
 				source: 'public/bistami/02-bistami-05.jpg',
 				caption: 'Miniature Revisited with Identified Places 01',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -125,8 +122,7 @@ export default {
 			media: {
 				source: 'public/bistami/02-bistami-06.jpg',
 				caption: 'Miniature Revisited with Identified Places 02',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -134,8 +130,7 @@ export default {
 			media: {
 				source: 'public/bistami/02-bistami-07.jpg',
 				caption: 'Miniature Revisited with Identified Places 03',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -144,8 +139,7 @@ export default {
 			media: {
 				source: 'public/bistami/pro.jpg',
 				caption: 'Projection Projection',
-				tags: [ 'Ottoman Miniature', '3D Miniature', 'Eschatological Images', 'Urban Representation' ],
-				controls: false
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{

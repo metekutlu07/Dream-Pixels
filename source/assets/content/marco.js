@@ -15,7 +15,7 @@ export default {
 			media: {
 				source: 'public/marco/marco-intro.mp4',
 				caption: 'Marco Video Introduction',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			}
 		},
 		{
@@ -23,7 +23,7 @@ export default {
 			media: {
 				source: 'public/marco/v14.mp4',
 				caption: 'Lion Polyptich of the Annunctiation by Lorenzo Veneziano',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 		{
@@ -31,7 +31,7 @@ export default {
 			media: {
 				source: 'public/marco/v01.mp4',
 				caption: 'Saints Tryptich by Paolo Veneziano',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 		{
@@ -44,7 +44,7 @@ export default {
 			media: {
 				source: 'public/marco/venezia-catalogue01.jpg',
 				caption: 'Golden Catalogue 01',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 		{
@@ -52,7 +52,7 @@ export default {
 			media: {
 				source: 'public/marco/venezia-catalogue02.jpg',
 				caption: 'Golden Catalogue 01',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 		{
@@ -60,7 +60,7 @@ export default {
 			media: {
 				source: 'public/marco/venezia-catalogue03.jpg',
 				caption: 'Golden Catalogue 01',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 		{
@@ -68,7 +68,7 @@ export default {
 			media: {
 				source: 'public/marco/venezia-catalogue04.jpg',
 				caption: 'Golden Catalogue 01',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 		{
@@ -76,7 +76,7 @@ export default {
 			media: {
 				source: 'public/marco/v13.mp4',
 				caption: 'Ceiling mouldings from the Palazzo Grimani',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry' ]
+				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},
 

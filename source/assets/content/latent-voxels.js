@@ -11,7 +11,8 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/latent-voxels/latent_intro.mp4',
-				caption: 'Video Introduction'
+				caption: 'Video Introduction',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -32,7 +33,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/tex03.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'The Dusk of Data at the Hippodrome of Constantinople  '
 			}
 		},
@@ -40,7 +41,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/axo.mp4',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Algorithmic Urban Dreams - Axonometric View'
 			}
 		},
@@ -48,7 +49,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/oneiropolismo2x.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Oneiropolis Details'
 			}
 		},
@@ -56,7 +57,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/ai02.mp4',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Algorithmic Urban Dreams - Top View'
 			}
 		},
@@ -81,7 +82,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/streetview.mp4',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Transmutating Electronic Urbanscapes inside the Silicon Chip'
 			}
 		},
@@ -105,7 +106,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/ai03.mp4',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Constantinople 2049 - The Oneiropolis 464'
 			}
 		},
@@ -114,7 +115,7 @@ export default {
 			anchor: 'Notiones constantinopolitana',
 			media: {
 				source: 'public/latent-voxels/ai04.mp4',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Notiones constantinopolitana'
 			}
 		},
@@ -144,7 +145,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/planmo2x.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Kotelnikov Patterns of Digital Talismans'
 			}
 		},
@@ -152,7 +153,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/towermo2x.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Prophetical Towers of Neo-Apollonius'
 			}
 		},
@@ -160,7 +161,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/cctv.mp4',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Algorithmic Urban Dreams - Axonometric View'
 			}
 		},
@@ -191,7 +192,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/tex01.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Urban Dreams of a Young Cyborg'
 			}
 		},
@@ -199,7 +200,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/renToRando02.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Friday Sunset on the Cybernetic Square'
 			}
 		},
@@ -207,7 +208,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/central3.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Boulevards of Holographic Turkish Delights'
 			}
 		},
@@ -215,7 +216,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/central4.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Ecumenical Information Processing Complex'
 			}
 		},
@@ -223,7 +224,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/toCentral.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'The Silicon Nymphaeum in Eminenu'
 			}
 		},
@@ -231,7 +232,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi01.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Quarter of Cybernetic Mystics'
 			}
 		},
@@ -239,7 +240,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi04.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Image Caption'
 			}
 		},
@@ -247,7 +248,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/renToRandoTop.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Image Caption'
 			}
 		},
@@ -255,7 +256,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/central2.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Image Caption'
 			}
 		},
@@ -263,7 +264,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/radiToDense01.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Low-Energy Android Slums in Levent'
 			}
 		},
@@ -271,7 +272,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/orthos.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Image Caption'
 			}
 		},
@@ -279,7 +280,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/renToRando03.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Galactic Comms Towers of Neo-Seraglio'
 			}
 		},
@@ -287,7 +288,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/renToRando.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Playgrounds in the Data Land'
 			}
 		},
@@ -295,7 +296,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/denseToRenai02.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Image Caption'
 			}
 		},
@@ -303,7 +304,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/denseToRenai01.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'The Turkish Revamp of Filarete`s Ideal City'
 			}
 		},
@@ -311,7 +312,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Image Caption'
 			}
 		},
@@ -325,7 +326,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/p3.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Oneirogens : Input Remixed City Models for Interpolation'
 			}
 		},
@@ -334,7 +335,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/makinof03.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Node graph prepared in Houdini for voxel and pixel interpolation'
 			}
 		},
@@ -343,7 +344,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/ss01.png',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: ' The interpolating solver node on the right, and the interpolated model on the left'
 			}
 		},
@@ -352,7 +353,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/makinof01.jpg',
-				tags: [ 'Artificial Intelligence', 'Parametric Design', 'Ottoman Miniature' ],
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Conversion of Compositional Assemblage To A Topological Surface'
 			}
 		},

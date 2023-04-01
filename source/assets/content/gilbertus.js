@@ -13,14 +13,17 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/gilbertus/gilbertus-intro.mp4',
-				caption: 'Video Introduction'
+				caption: 'Gilbertus Video Introduction',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/magic-map-animate.mp4',
-				caption: 'Magic Map'
+				caption: 'Magic Map',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -34,7 +37,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/stories-animation.mp4',
-				caption: 'Immerse yourself in large-scale architectural settings from France'
+				caption: 'Immerse yourself in large-scale architectural settings from France',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -46,26 +50,30 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/catalogue-animate.mp4',
-				caption: 'Catalogue of Virtual Casts 02'
+				caption: 'Catalogue of Virtual Casts 02',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/catalogue01.jpg',
-				caption: 'Catalogue of Virtual Casts 01'
+				caption: 'Catalogue of Virtual Casts 01',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S2',
 			anchor: 'Immersive Architectural Environments',
 			title: 'Immersive Architectural Environments',
+			tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/stories.mp4',
-				caption: 'Visualize large-scale architectural environments in AR'
+				caption: 'Visualize large-scale architectural environments in AR',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -77,7 +85,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/list-view.mp4',
-				caption: 'List View'
+				caption: 'List View',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -89,63 +98,72 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/magic-map.mp4',
-				caption: 'Magic Map'
+				caption: 'Magic Map',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/grid.jpg',
-				caption: 'Storyboard'
+				caption: 'Storyboard',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/promo01.mp4',
-				caption: 'Video Introduction'
+				caption: 'Video Introduction',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/iphone01.jpg',
-				caption: 'List View'
+				caption: 'List View',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/iphone02.jpg',
-				caption: 'List View'
+				caption: 'List View',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/iphone03.jpg',
-				caption: 'List View'
+				caption: 'List View',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/iphone04.jpg',
-				caption: 'List View'
+				caption: 'List View',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/holdingipad.jpg',
-				caption: 'iPad compatible'
+				caption: 'iPad compatible',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/chapeloverlay.jpg',
-				caption: 'Catalogue of Virtual Casts 02'
+				caption: 'Catalogue of Virtual Casts 02',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -157,14 +175,16 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/choeur.jpg',
-				caption: 'Photo of the choir before restoration and painting, Basilica of Notre-Dame-du-Port, Clermont-Ferrand'
+				caption: 'Photo of the choir before restoration and painting, Basilica of Notre-Dame-du-Port, Clermont-Ferrand',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/stories-context.mp4',
-				caption: 'Modelling'
+				caption: 'Modelling',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -177,7 +197,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/chapelwire.jpg',
-				caption: 'Catalogue of Virtual Casts 02'
+				caption: 'Catalogue of Virtual Casts 02',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -185,7 +206,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/chapelxcode.jpg',
-				caption: 'Catalogue of Virtual Casts 02'
+				caption: 'Catalogue of Virtual Casts 02',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -193,7 +215,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/magicmap01.jpg',
-				caption: '3D modeling and decimation of the magic map in Cinema 4D'
+				caption: '3D modeling and decimation of the magic map in Cinema 4D',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -201,7 +224,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/magicmap02.jpg',
-				caption: '3D modeling and decimation of the magic map in Cinema 4D'
+				caption: '3D modeling and decimation of the magic map in Cinema 4D',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -209,7 +233,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/magicmap03.jpg',
-				caption: 'Material design for the magic map in Quixel Mixer'
+				caption: 'Material design for the magic map in Quixel Mixer',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -217,7 +242,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/map-animate.jpg',
-				caption: 'Animation and interaction design for the magic map in Reality Composer'
+				caption: 'Animation and interaction design for the magic map in Reality Composer',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -225,7 +251,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/stories-animate.mp4',
-				caption: 'Animation and interaction design for the church apse in Reality Composer'
+				caption: 'Animation and interaction design for the church apse in Reality Composer',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -233,7 +260,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/stories-material.jpg',
-				caption: 'Material design for the churche apse in Quixel Mixer'
+				caption: 'Material design for the churche apse in Quixel Mixer',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -241,7 +269,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/code-magicmap.jpg',
-				caption: 'Part of the magic map code'
+				caption: 'Part of the magic map code',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -249,7 +278,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/code-arview.jpg',
-				caption: 'Part of the AR view code'
+				caption: 'Part of the AR view code',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -257,7 +287,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/code-bottomsheet.jpg',
-				caption: 'Part of the bottomsheet code'
+				caption: 'Part of the bottomsheet code',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -265,7 +296,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/uvmap01.jpg',
-				caption: 'Complex UV maps generated by photogrammetric algorithms of Object API'
+				caption: 'Complex UV maps generated by photogrammetric algorithms of Object API',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
@@ -273,10 +305,9 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/gilbertus/uvmap02.jpg',
-				caption: 'Complex UV maps generated by photogrammetric algorithms of Object API'
+				caption: 'Complex UV maps generated by photogrammetric algorithms of Object API',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
-
-
 	]
 };

@@ -15,7 +15,7 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/humbaba/nft-intro.mp4',
-				caption: 'Video Introduction'
+				caption: 'Humbaba Video Introduction'
 			}
 		},
 		{
@@ -27,7 +27,7 @@ export default {
 			anchor: 'Animations',
 			media: {
 				source: 'public/humbaba/disco.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Disco Lion'
 			}
 		},
@@ -35,7 +35,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/edge.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Shadows'
 			}
 		},
@@ -43,7 +43,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/green.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Laser Lion'
 			}
 		},
@@ -51,7 +51,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/img/videos.jpg',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Humbaba Experiments'
 			}
 		},
@@ -64,7 +64,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/test3.png',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'A Name Eternal'
 			}
 		},
@@ -74,7 +74,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/test2.png',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'An Unwinnable Battle'
 			}
 		},
@@ -83,7 +83,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/test4.png',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Death of Humbaba'
 			}
 		},
@@ -96,7 +96,7 @@ export default {
 			anchor: 'Projection Mapping',
 			media: {
 				source: 'public/humbaba/humbaba1.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Chapter 1'
 			}
 		},
@@ -104,7 +104,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/humbaba2.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Chapter 2'
 			}
 		},
@@ -112,7 +112,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/humbaba3.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Chapter 3'
 			}
 		},
@@ -120,7 +120,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/humbaba4.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Chapter 4'
 			}
 		},
@@ -128,7 +128,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/humbaba5.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Chapter 6'
 			}
 		},
@@ -140,7 +140,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/img/drawing.png',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Initial Illustrator drawing'
 			}
 		},
@@ -149,7 +149,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/code04.jpg',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Disco Materials'
 			}
 		},
@@ -158,7 +158,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/code06.jpg',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Material randomizing Xpresso graph prepared in Cinema 4D'
 			}
 		},
@@ -166,7 +166,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/humbaba-making-of.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Building the Disco graph'
 			}
 		},
@@ -175,7 +175,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/code01.jpg',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Material randomizing Xpresso graph prepared in Cinema 4D'
 			}
 		},
@@ -184,7 +184,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/code02.jpg',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Graph Detail'
 			}
 		},
@@ -193,7 +193,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/edge.jpg',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Line Animation in Cinema 4D'
 			}
 		},
@@ -202,7 +202,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/rhino.png',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Pieces of the unfolded 3D model for building the cardboard model as projection base '
 			}
 		},
@@ -211,7 +211,7 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/humbaba/img/madmapper1.png',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Projection mapping'
 			}
 		},
@@ -219,11 +219,9 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/humbaba/humbaba-histogram.mp4',
-				tags: [ 'Projection Mapping', 'Sumerian Mythology', 'Motion Graphics' ],
+				tags: [ 'Projection Mapping', 'Sumerian' ],
 				caption: 'Humbaba Caption'
 			}
 		},
-
 	]
-
 };

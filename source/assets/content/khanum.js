@@ -15,7 +15,7 @@ export default {
 			media: {
 				source: 'public/khanum/coverup-front.mp4',
 				caption: 'Khanum Video Introduction',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ],
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ],
 				preloadMedia: true
 			}
 		},
@@ -33,7 +33,7 @@ export default {
 			media: {
 				source: 'public/khanum/coverup-main.mp4',
 				caption: 'Façade cladding with mosaics made of enameled tiles - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ],
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ],
 				preloadMedia: true
 			},
 		},
@@ -51,7 +51,7 @@ export default {
 			media: {
 				source: 'public/khanum/coverup-bot-f.mp4',
 				caption: 'Façade cladding with mosaics made of enameled tiles - Close-up',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -64,7 +64,7 @@ export default {
 			media: {
 				source: 'public/khanum/qutluq-drawings.png',
 				caption: 'Geometric harmony of the Mausoleum of Kutlu Aga',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -72,7 +72,7 @@ export default {
 			media: {
 				source: 'public/khanum/pendentive-muqarnas.png',
 				caption: 'Plan of the pendentive muqarnas ',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -80,7 +80,7 @@ export default {
 			media: {
 				source: 'public/khanum/pishtaq-muqarnas.png',
 				caption: 'Plan of the muqarnas on the pishtaq of the Shad-i Mulk Mausoleum',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -93,7 +93,7 @@ export default {
 			media: {
 				source: 'public/khanum/xray-rising-slow.mp4',
 				caption: 'Holographic emanations - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -101,7 +101,7 @@ export default {
 			media: {
 				source: 'public/khanum/xray-axo-45.png',
 				caption: 'Holographic model - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -109,7 +109,7 @@ export default {
 			media: {
 				source: 'public/khanum/xray-elevations.jpg',
 				caption: 'Holographic model - Elevations',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -117,7 +117,7 @@ export default {
 			media: {
 				source: 'public/khanum/xray-top.png',
 				caption: 'Holographic model - Top view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -125,7 +125,7 @@ export default {
 			media: {
 				source: 'public/khanum/xray-inside.png',
 				caption: 'Holographic model - Interior',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -138,7 +138,7 @@ export default {
 			media: {
 				source: 'public/khanum/brickup-boole-slow.mp4',
 				caption: 'Materialization in baked brick - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -146,7 +146,7 @@ export default {
 			media: {
 				source: 'public/khanum/brickup-back.mp4',
 				caption: 'Materialization in baked brick - Dome view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -154,7 +154,7 @@ export default {
 			media: {
 				source: 'public/khanum/brickup-inside.mp4',
 				caption: 'Materialization in baked brick - Interior',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -162,7 +162,7 @@ export default {
 			media: {
 				source: 'public/khanum/brick-elevations.jpg',
 				caption: 'Brick model - Elevations',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -170,7 +170,7 @@ export default {
 			media: {
 				source: 'public/khanum/laps.mp4',
 				caption: 'Brick model - Timelapse',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -178,7 +178,7 @@ export default {
 			media: {
 				source: 'public/khanum/muqarnas.mp4',
 				caption: 'Brick model - Pendentive muqarnas',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -186,7 +186,7 @@ export default {
 			media: {
 				source: 'public/khanum/entry.mp4',
 				caption: 'Enterting the mausoleum - Pendentive Muqarnas',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -194,7 +194,7 @@ export default {
 			media: {
 				source: 'public/khanum/brick-epic.png',
 				caption: 'Looking at the pishtaq muqarnas',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -202,7 +202,7 @@ export default {
 			media: {
 				source: 'public/khanum/brick-top.png',
 				caption: 'Brick underlayer - Top view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -210,7 +210,7 @@ export default {
 			media: {
 				source: 'public/khanum/brick-30.png',
 				caption: 'Brick underlayer - General view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -218,7 +218,7 @@ export default {
 			media: {
 				source: 'public/khanum/brickup-back.png',
 				caption: 'Materialization - Dome view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
 		{
@@ -226,10 +226,8 @@ export default {
 			media: {
 				source: 'public/khanum/brickup-front.png',
 				caption: 'Materialization - Top-front view',
-				tags: [ 'Timurid Architecture', 'Architectural Heritage', 'Photogrammetry', 'Virtual Reconstruction', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},
-
-
 	]
 };

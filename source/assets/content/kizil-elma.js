@@ -14,6 +14,7 @@ export default {
 			media: {
 				source: 'public/kizil-elma/test03.mp4',
 				caption: 'Video Introduction',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				preloadMedia: true
 			}
 		},
@@ -26,6 +27,7 @@ export default {
 			media: {
 				source: 'public/kizil-elma/szekes-main.mp4',
 				caption: 'Szekesfehervar Miniature & Curls',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				preloadMedia: true
 			}
 		},
@@ -34,6 +36,7 @@ export default {
 			media: {
 				source: 'public/kizil-elma/szekes02.jpg',
 				caption: 'Szekesfehervar General View',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				preloadMedia: true
 			}
 		},
@@ -41,21 +44,24 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/szekes01.jpg',
-				caption: 'Szekesfehervar Zoom'
+				caption: 'Szekesfehervar Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/szekes03.jpg',
-				caption: 'Szekesfehervar Zoom'
+				caption: 'Szekesfehervar Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/miniatures.jpg',
-				caption: 'Buda, Belgrad, Nicopolis & Vienna'
+				caption: 'Buda, Belgrad, Nicopolis & Vienna',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -66,14 +72,16 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/buda-belgrad.mp4',
-				caption: 'Buda & Belgrad'
+				caption: 'Buda & Belgrad',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/nicopolis-vienna.mp4',
-				caption: 'Nicopolis & Vienna'
+				caption: 'Nicopolis & Vienna',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -84,56 +92,64 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/vienna-zoom.mp4',
-				caption: 'Vienna Zoom'
+				caption: 'Vienna Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/vienna.jpg',
-				caption: 'Vienna Zoom'
+				caption: 'Vienna Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/buda-zoom.mp4',
-				caption: 'Buda Zoom'
+				caption: 'Buda Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/buda01.jpg',
-				caption: 'Buda Zoom'
+				caption: 'Buda Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/nicopolis-zoom.mp4',
-				caption: 'Nicopolis Zoom'
+				caption: 'Nicopolis Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/nico02.jpg',
-				caption: 'Nicopolis Zoom'
+				caption: 'Nicopolis Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/nico03.jpg',
-				caption: 'Nicopolis Zoom'
+				caption: 'Nicopolis Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/belgrad-zoom.mp4',
-				caption: 'Belgrad Zoom'
+				caption: 'Belgrad Zoom',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 	]
