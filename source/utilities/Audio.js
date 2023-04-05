@@ -39,8 +39,6 @@ export default class AudioInterface {
 		const node = new Node( this.audioListener );
 		node.setMediaElementSource( this.loop );
 
-		this.isMuted = false;
-
 		removeEventListener( 'mousedown', this.onUnlock );
 		removeEventListener( 'touchstart', this.onUnlock );
 
