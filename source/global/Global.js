@@ -19,6 +19,8 @@ export default class Global {
 			--font-family-b: "B";
 			--font-family-c: "C";
 
+			--font-size-4xl: 8rem;
+			--font-size-3xl: 6rem;
 			--font-size-xxl: 4.5rem;
 			--font-size-xl: 3.5rem;
 			--font-size-l: 2.25rem;
@@ -56,7 +58,6 @@ export default class Global {
 
 			[ path="/virtual-miniature" ] &,
 			[ path="/contact" ] &,
-			[ path="/about" ] &,
 			[ path="/photogrammetry" ] &,
 			[ path="/miniature-street-view" ] &,
 			[ path="/works" ][ list="places" ] &,
