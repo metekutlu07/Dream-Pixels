@@ -29,6 +29,7 @@ export default class Home extends View {
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			overflow-x: hidden;
 
 			& video-block {
 				@media ( max-width: 650px ) {
@@ -41,16 +42,33 @@ export default class Home extends View {
 			}
 
 			& h3 {
-				font-size: var( --font-size-xxl );
+				font-size: var( --font-size-4xl );
 				font-family: var( --font-family-a );
+				line-height: 1.25;
+				text-align: center;
+
+				@media ( max-width: 650px ) {
+					font-size: var( --font-size-3xl );
+				}
+
+				@media ( max-width: 650px ) and ( max-height:750px ) {
+					font-size: 5rem;
+				}
 			}
 
 			& h4 {
-				font-size: var( --font-size-xl );
+				font-size: var( --font-size-xxl );
 				font-family: var( --font-family-b );
+				line-height: 1.25;
+				text-align: center;
 
 				@media ( max-width: 650px ) {
-					font-size: var( --font-size-m );
+					font-size: 3.25rem;
+					line-height: 1.5;
+				}
+
+				@media ( max-width: 650px ) and ( max-height:750px ) {
+					font-size: 3rem;
 				}
 			}
 
@@ -75,28 +93,34 @@ export default class Home extends View {
 		}
 
 		home-buttons {
+			position: relative;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
+			gap: var( --margin-xs );
 			margin: var( --margin-m ) 0;
 
+			@media ( max-width: 650px ) {
+				flex-direction: column;
+			}
+
 			& default-button {
-				font-size: var( --font-size-xl );
-				padding: var( --margin-s );
+				font-size: var( --font-size-xxl );
+				font-family: var( --font-family-a );
+				border: none;
 
 				&:not( :last-child ) {
 					margin-right: -1px;
 				}
 
-				@media ( max-width: 1024px ) {
-					padding: var( --margin-xs );
-					font-size: var( --font-size-l );
+				@media ( hover: hover ) {
+					&:hover {
+						--background-color: transparent;
+					}
 				}
 
-				@media ( max-width: 650px ) {
-					font-size: var( --font-size-s ) !important;
-					padding: 2px !important;
-					margin-bottom: 0 !important;
+				@media ( max-width: 650px ) and ( max-height:750px ) {
+					font-size: 3.25rem;
 				}
 			}
 
@@ -110,49 +134,57 @@ export default class Home extends View {
 		}
 
 		scrolling-text {
-			font-size: 2rem;
-			max-width: 600px;
+			--gap: 0.25rem;
 			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			overflow: auto;
-			white-space: nowrap;
+			overflow: hidden;
+			user-select: none;
+			gap: var( --gap );
+			font-size: 3rem;
 			margin-top: var( --margin-m );
 
-			&:last-child {
-				margin-top: 5px;
+			& scrolling-animation {
+				flex-shrink: 0;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				min-width: 90%;
+				gap: var( --gap );
+				animation: scroll 50s linear infinite;
 
-				& scrolling-animation {
-					animation: scrolling 40s linear infinite;
+				& span:nth-child( even ) {
+					font-family: var( --font-family-b );
+					font-size: 0.9em;
 				}
 			}
 
-			& scrolling-animation {
-				animation: scrolling 50s linear infinite;
+			@keyframes scroll {
+				from {
+					transform: translateX(0);
+				}
+				to {
+					transform: translateX(calc(-100% - var(--gap)));
+				}
 			}
 
-			& span:nth-child( even ) {
-				font-family: var( --font-family-b );
-				font-size: .9em;
+			@media ( max-width: 650px ) and ( max-height:750px ) {
+				font-size: 2.25rem;
 			}
-
 		}
 
 		`;
 
-		const { title, introduction, subtitle, themes, skills } = Application.content;
-		const paragraphs = introduction.map( paragraph => html`<p>${ paragraph }</p>` );
+		const { title, subtitle, themes, skills } = Application.content;
+		const keywords = `${ themes }, ${ skills }`;
 
-		const duplicate = string => `${ string }, ${ string },`
-			.split( ',' )
-			.map( keyword => html`<span>${ keyword }</span>` )
-			.join( ' - ' );
+		const scrollingText = string => string.split( ',' )
+			.map( keyword => html`<span class="keyword">${ keyword }</span> -` )
+			.join( '' );
 
 		const source = 'public/common/Background.mp4';
 		const modes = [
 
-			{ attributes: [ 'places', 'link', '@click|home-view' ] },
 			{ attributes: [ 'grid', 'link', '@click|home-view' ] },
+			{ attributes: [ 'places', 'link', '@click|home-view' ] },
 			{ attributes: [ 'sphere', 'link', '@click|home-view' ] },
 			{ attributes: [ 'particles', 'link', '@click|home-view' ] }
 
@@ -167,21 +199,16 @@ export default class Home extends View {
 			<h3>${ title }</h3>
 			<h4>${ subtitle }</h4>
 
-			<home-buttons blurred-background>
+			<home-buttons>
 				${ modes.map( Button.render ) }
 			</home-buttons>
 
-			${ paragraphs }
-
 			<scrolling-text>
 				<scrolling-animation>
-					${ duplicate( themes ) }
+					${ scrollingText( keywords ) }
 				</scrolling-animation>
-			</scrolling-text>
-
-			<scrolling-text>
-				<scrolling-animation>
-					${ duplicate( skills ) }
+				<scrolling-animation aria-hidden="true">
+					${ scrollingText( keywords ) }
 				</scrolling-animation>
 			</scrolling-text>
 
