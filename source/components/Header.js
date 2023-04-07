@@ -250,9 +250,6 @@ export default class Header extends HTMLElement {
 				display: none;
 			}
 
-			[ path="/" ] &,
-			[ path="/home" ] &,
-			[ path="/about" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
 			}
@@ -266,7 +263,6 @@ export default class Header extends HTMLElement {
 			font-family: var( --font-family-c );
 			opacity: 0;
 
-			[ path="/about" ] &,
 			[ path="/works" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
