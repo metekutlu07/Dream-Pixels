@@ -27,9 +27,14 @@ export default class Home extends View {
     		height: calc(var(--vh, 1vh) * 100);
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			justify-content: center;
+			justify-content: space-around;
 			overflow-x: hidden;
+			padding-top: calc(var(--vh, 1vh) * 14);
+			padding-bottom: calc(var(--vh, 1vh) * 7);
+
+			@media ( max-width: 1024px ) {
+				justify-content: space-between;
+			}
 
 			& video-block {
 				@media ( max-width: 650px ) {
@@ -41,34 +46,27 @@ export default class Home extends View {
 				opacity: .75;
 			}
 
-			& h3 {
-				font-size: var( --font-size-4xl );
-				font-family: var( --font-family-a );
+			& home-title {
+				display: block;
 				line-height: 1.25;
 				text-align: center;
 
-				@media ( max-width: 650px ) {
-					font-size: var( --font-size-3xl );
+				& h3 {
+					font-size: 8rem;
+					font-family: var( --font-family-a );
+
+					@media ( max-width: 650px ) {
+						font-size: 5.5rem;
+					}
 				}
 
-				@media ( max-width: 650px ) and ( max-height:750px ) {
-					font-size: 5rem;
-				}
-			}
+				& h4 {
+					font-size: var( --font-size-xxl );
+					font-family: var( --font-family-b );
 
-			& h4 {
-				font-size: var( --font-size-xxl );
-				font-family: var( --font-family-b );
-				line-height: 1.25;
-				text-align: center;
-
-				@media ( max-width: 650px ) {
-					font-size: 3.25rem;
-					line-height: 1.5;
-				}
-
-				@media ( max-width: 650px ) and ( max-height:750px ) {
-					font-size: 3rem;
+					@media ( max-width: 650px ) {
+						font-size: 3rem;
+					}
 				}
 			}
 
@@ -96,9 +94,9 @@ export default class Home extends View {
 			position: relative;
 			display: flex;
 			flex-direction: row;
+			justify-content: center;
 			align-items: center;
-			gap: var( --margin-xs );
-			margin: var( --margin-m ) 0;
+			gap: 5px;
 
 			@media ( max-width: 650px ) {
 				flex-direction: column;
@@ -119,8 +117,8 @@ export default class Home extends View {
 					}
 				}
 
-				@media ( max-width: 650px ) and ( max-height:750px ) {
-					font-size: 3.25rem;
+				@media ( max-width: 650px ) {
+					font-size: 4rem;
 				}
 			}
 
@@ -140,7 +138,6 @@ export default class Home extends View {
 			user-select: none;
 			gap: var( --gap );
 			font-size: 3rem;
-			margin-top: var( --margin-m );
 
 			& scrolling-animation {
 				flex-shrink: 0;
@@ -166,7 +163,7 @@ export default class Home extends View {
 				}
 			}
 
-			@media ( max-width: 650px ) and ( max-height:750px ) {
+			@media ( max-width: 650px ) {
 				font-size: 2.25rem;
 			}
 		}
@@ -174,7 +171,6 @@ export default class Home extends View {
 		`;
 
 		const { title, subtitle, themes, skills } = Application.content;
-		const keywords = `${ themes }, ${ skills }`;
 
 		const scrollingText = string => string.split( ',' )
 			.map( keyword => html`<span class="keyword">${ keyword }</span> -` )
@@ -196,21 +192,34 @@ export default class Home extends View {
 
 			${ Video.render( source, { fullscreen: true } ) }
 
-			<h3>${ title }</h3>
-			<h4>${ subtitle }</h4>
+			<home-title>
+				<h3>${ title }</h3>
+				<h4>${ subtitle }</h4>
+			</home-title>
 
 			<home-buttons>
 				${ modes.map( Button.render ) }
 			</home-buttons>
 
-			<scrolling-text>
-				<scrolling-animation>
-					${ scrollingText( keywords ) }
-				</scrolling-animation>
-				<scrolling-animation aria-hidden="true">
-					${ scrollingText( keywords ) }
-				</scrolling-animation>
-			</scrolling-text>
+			<div>
+				<scrolling-text>
+					<scrolling-animation>
+						${ scrollingText( themes ) }
+					</scrolling-animation>
+					<scrolling-animation aria-hidden="true">
+						${ scrollingText( themes ) }
+					</scrolling-animation>
+				</scrolling-text>
+
+				<scrolling-text>
+					<scrolling-animation>
+						${ scrollingText( skills ) }
+					</scrolling-animation>
+					<scrolling-animation aria-hidden="true">
+						${ scrollingText( skills ) }
+					</scrolling-animation>
+				</scrolling-text>
+			</div>
 
 		</home-view>
 

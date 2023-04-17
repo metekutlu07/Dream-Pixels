@@ -84,7 +84,7 @@ export default class Preloader extends HTMLElement {
 			}
 
 			& h1 {
-				font-size: var( --font-size-4xl );
+				font-size: 8rem;
 				color: var( --color-white );
 				font-family: var( --font-family-a );
 				line-height: 1.25;
@@ -94,11 +94,7 @@ export default class Preloader extends HTMLElement {
 				transform: scale( .98 );
 
 				@media ( max-width: 650px ) {
-					font-size: var( --font-size-3xl );
-				}
-
-				@media ( max-width: 650px ) and ( max-height:750px ) {
-					font-size: 5rem;
+					font-size: 5.5rem;
 				}
 			}
 
@@ -114,11 +110,6 @@ export default class Preloader extends HTMLElement {
 				transform: scale( .98 );
 
 				@media ( max-width: 650px ) {
-					font-size: 3.25rem;
-					line-height: 1.5;
-				}
-
-				@media ( max-width: 650px ) and ( max-height:750px ) {
 					font-size: 3rem;
 				}
 			}
