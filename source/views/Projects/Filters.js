@@ -43,7 +43,7 @@ export default class Filters extends HTMLElement {
 			background-color: var( --background-color );
 			top: var( --margin-m );
 			right: var( --margin-m );
-			margin-top: 50px;
+			margin-top: 70px;
 			border: var( --border-size ) solid var( --border-color );
 			/* transition: opacity 1s var( --timing-function ); */
 			/* padding: var( --margin-m ); */
@@ -64,6 +64,7 @@ export default class Filters extends HTMLElement {
 
 			@media ( max-width: 1024px ) {
 				display: none;
+				margin-top: 50px;
 			}
 		}
 

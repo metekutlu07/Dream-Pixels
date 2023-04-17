@@ -259,17 +259,13 @@ export default class Header extends HTMLElement {
 			position: absolute;
 			bottom: var( --margin-m );
 			left: var( --margin-m );
-			font-size: var( --font-size-xs );
+			font-size: var( --font-size-m );
 			font-family: var( --font-family-c );
 			opacity: 0;
 
 			[ path="/works" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
-			}
-
-			@media ( max-width: 1024px ) {
-				display: none;
 			}
 
 			& li {
@@ -281,7 +277,18 @@ export default class Header extends HTMLElement {
 
 				&:first-child {
 					font-family: var( --font-family-a );
-					font-size: var( --font-size-m );
+					font-size: var( --font-size-l );
+				}
+			}
+
+			@media ( max-width: 1024px ) {
+				display: none;
+				font-size: var( --font-size-xs );
+
+				& li {
+					&:first-child {
+						font-size: var( --font-size-m );
+					}
 				}
 			}
 		}

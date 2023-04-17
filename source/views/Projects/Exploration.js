@@ -20,7 +20,7 @@ export default class Panels extends HTMLElement {
 			background-color: var( --background-color );
 			top: var( --margin-m );
 			left: var( --margin-m );
-			margin-top: 50px;
+			margin-top: 70px;
 			border: var( --border-size ) solid var( --border-color );
 			max-width: 450px;
 			opacity: 0;
@@ -46,6 +46,7 @@ export default class Panels extends HTMLElement {
 
 			@media ( max-width: 1024px ) {
 				display: none;
+				margin-top: 50px;
 			}
 		}
 
