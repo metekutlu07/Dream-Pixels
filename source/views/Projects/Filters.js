@@ -1,3 +1,5 @@
+import Chevron from '~/assets/icons/Chevron';
+
 export default class Filters extends HTMLElement {
 
 	onConnected() {
@@ -21,6 +23,14 @@ export default class Filters extends HTMLElement {
 
 	}
 
+	onClick() {
+
+		const { container } = this.elements;
+
+		container.toggleAttribute( 'open' );
+
+	}
+
 	static render() {
 
 		css`
@@ -33,9 +43,10 @@ export default class Filters extends HTMLElement {
 			background-color: var( --background-color );
 			top: var( --margin-m );
 			right: var( --margin-m );
+			margin-top: 50px;
 			border: var( --border-size ) solid var( --border-color );
 			/* transition: opacity 1s var( --timing-function ); */
-			padding: var( --margin-m );
+			/* padding: var( --margin-m ); */
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );
 			line-height: 1.8;
@@ -43,13 +54,83 @@ export default class Filters extends HTMLElement {
 			overflow: scroll;
 			opacity: 0;
 			/* transition: opacity 1s var( --timing-function ); */
-			margin-top: 50px;
-			max-height: 510px;
+			max-height: calc( 100% - var( --margin-m ) * 2 - 200px );
 
 			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;
 				/* transition-delay: .75s; */
 				pointer-events: all;
+			}
+
+			@media ( max-width: 1024px ) {
+				display: none;
+			}
+		}
+
+		projects-filters-title {
+			padding: var( --margin-s );
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+
+			@media ( hover: hover ) {
+				&:hover {
+					background-color: rgba( 255, 255, 255, .25 );
+				}
+			}
+
+			[ open ] & {
+				border-bottom: var( --border-size ) solid var( --border-color );
+			}
+
+			& projects-filters-chevron {
+				height: 25px;
+				width: 25px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			& svg {
+				height: 20px;
+				width: 20px;
+				fill: var( --color-white );
+				transform: rotate( 90deg );
+
+				[ open ] & {
+					transform: rotate( -90deg );
+				}
+			}
+
+			& h3 {
+				line-height: 1;
+				font-size: var( --font-size-l );
+
+				& + p {
+					margin-top: var( --margin-s );
+				}
+			}
+		}
+
+		projects-filters-description {
+			max-height: 0;
+			overflow: hidden;
+			padding: 0 var( --margin-s );
+			overflow: scroll;
+
+			[ open ] & {
+				max-height: initial;
+				padding: var( --margin-s );
+			}
+
+			& h4 {
+				font-size: 2rem;
+				font-family: var( --font-family-c );
+			}
+
+			& ul {
+				padding: var( --margin-xs ) var( --margin-s );
 			}
 
 			& li {
@@ -91,35 +172,73 @@ export default class Filters extends HTMLElement {
 					}
 				}
 			}
-
-			@media ( max-width: 1024px ) {
-				display: none;
-			}
 		}
 
 		`;
 
-		const { filters } = Application.content;
+		const filters = {
+			technologies: [
+				'Augmented Reality',
+				'3D Miniature',
+				'Particle Simulation',
+				'Generative Design',
+				'Projection Mapping',
+				'3D Scanning',
+				'Machine Learning',
+				'Virtual Reconstruction',
+			],
+			cultures: [
+				'Roman',
+				'Ottoman',
+				'Byzantine',
+				'Timurid',
+				'Sumerian',
+				'Venetian',
+				'Korean',
+				'French',
+			],
+			subjects: [
+				'Mosaics',
+				'Miniatures',
+				'Painting',
+				'Architectural Heritage',
+				'Botany',
+			],
+		};
 
-		const tags = filters.tags.map( tag => html`
+		const generateFilters = ( tags ) => tags.map( tag => html`
 
-			<li>
-				<label>
-					<input
-						type="checkbox"
-						value="${ tag }"
-						#inputs
-					/>
-					${ tag }
-				</label>
-			</li>
+		<li>
+			<label>
+				<input
+					type="checkbox"
+					value="${ tag }"
+					#inputs
+				/>
+				${ tag }
+			</label>
+		</li>
 
 		` );
 
 		return html`
 
-		<projects-filters blurred-background>
-			${ tags }
+		<projects-filters blurred-background open #container>
+			<projects-filters-title @click>
+				<h3>Filters</h3>
+				<projects-filters-chevron>
+					${ Chevron }
+				</projects-filters-chevron>
+			</project-filters-title>
+
+			<projects-filters-description>
+				<h4>Technology</h4>
+				<ul>${ generateFilters( filters.technologies ) }</ul>
+				<h4>Culture</h4>
+				<ul>${ generateFilters( filters.cultures ) }</ul>
+				<h4>Subject</h4>
+				<ul>${ generateFilters( filters.subjects ) }</ul>
+			</projects-filters-description>
 		</projects-filters>
 
 		`;
