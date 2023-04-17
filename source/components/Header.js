@@ -286,6 +286,25 @@ export default class Header extends HTMLElement {
 			}
 		}
 
+		header-socials {
+			position: absolute;
+			bottom: var( --margin-m );
+			left: var( --margin-m );
+			font-size: var( --font-size-s );
+			font-family: var( --font-family-c );
+			pointer-events: all;
+			display: none;
+
+			[ path="/" ] & {
+				display: block;
+			}
+
+			@media ( max-width: 1024px ) {
+				bottom: var( --margin-s );
+				left: var( --margin-s );
+			}
+		}
+
 		`;
 
 		const navigation = [
@@ -362,6 +381,12 @@ export default class Header extends HTMLElement {
 				<li>Number of Images: <span #images>122</span></li>
 				<li>Number of Pixels: <span #pixels>4 543 456 345</span></li>
 			</header-analytics>
+
+			<header-socials>
+				<a href="https://www.instagram.com/dreampixels.fr/" target="_blank" rel="noreferrer">
+					@dreampixels.fr
+				</a>
+			</header-socials>
 
 		</header-block>`;
 
