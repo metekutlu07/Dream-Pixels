@@ -26,6 +26,10 @@ export default class S3 {
 
 			section-type-3 + & {
 				padding-top: var( --margin-s );
+
+				@media ( max-width: 1024px ) {
+					padding-top: 0;
+				}
 			}
 
 			& img {
