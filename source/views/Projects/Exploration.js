@@ -98,7 +98,6 @@ export default class Panels extends HTMLElement {
 
 		panel-description {
 			max-height: 0;
-			overflow: hidden;
 			padding: 0;
 			overflow: scroll;
 

@@ -116,62 +116,71 @@ export default class Filters extends HTMLElement {
 
 		projects-filters-description {
 			max-height: 0;
-			overflow: hidden;
-			padding: 0 var( --margin-s );
 			overflow: scroll;
 
 			[ open ] & {
 				max-height: initial;
-				padding: var( --margin-s );
+				padding: var( --margin-s ) 0;
 			}
 
-			& h4 {
-				font-size: 2rem;
-				font-family: var( --font-family-c );
-			}
+			& div {
+				padding: 0 var( --margin-s );
 
-			& ul {
-				padding: var( --margin-xs ) var( --margin-s );
-			}
-
-			& li {
-				display: flex;
-				align-items: center;
-				padding-right: 20px;
-			}
-
-			& label {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-			}
-
-			& input {
-				appearance: none;
-				border: var( --border-size ) solid rgba( 255, 255, 255, .25 );
-				height: 15px;
-				width: 15px;
-				margin-right: var( --margin-xs );
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-
-				&:before {
-					display: block;
-					content: '';
-					height: 8px;
-					width: 8px;
-					background: var( --color-white );
-					opacity: 0;
+				& h4 {
+					font-family: var( --font-family-b );
+					font-size: 2rem;
+					line-height: normal;
 				}
 
-				&:checked {
+				& ul {
+					padding: var( --margin-xs ) var( --margin-s );
+				}
+
+				& li {
+					display: flex;
+					align-items: center;
+					padding-right: 20px;
+				}
+
+				& label {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+				}
+
+				& input {
+					appearance: none;
+					border: var( --border-size ) solid rgba( 255, 255, 255, .25 );
+					height: 15px;
+					width: 15px;
+					margin-right: var( --margin-xs );
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+
 					&:before {
-						opacity: 1;
+						display: block;
+						content: '';
+						height: 8px;
+						width: 8px;
+						background: var( --color-white );
+						opacity: 0;
+					}
+
+					&:checked {
+						&:before {
+							opacity: 1;
+						}
 					}
 				}
+			}
+
+			& hr {
+				border-color: var( --border-color );
+				margin-top: calc(0.5 * var( --margin-xs ));
+				margin-bottom: var( --margin-s );
 			}
 		}
 
@@ -233,12 +242,20 @@ export default class Filters extends HTMLElement {
 			</project-filters-title>
 
 			<projects-filters-description>
-				<h4>Technology</h4>
-				<ul>${ generateFilters( filters.technologies ) }</ul>
-				<h4>Culture</h4>
-				<ul>${ generateFilters( filters.cultures ) }</ul>
-				<h4>Subject</h4>
-				<ul>${ generateFilters( filters.subjects ) }</ul>
+				<div>
+					<h4>Technology</h4>
+					<ul>${ generateFilters( filters.technologies ) }</ul>
+				</div>
+				<hr />
+				<div>
+					<h4>Culture</h4>
+					<ul>${ generateFilters( filters.cultures ) }</ul>
+				</div>
+				<hr />
+				<div>
+					<h4>Subject</h4>
+					<ul>${ generateFilters( filters.subjects ) }</ul>
+				</div>
 			</projects-filters-description>
 		</projects-filters>
 
