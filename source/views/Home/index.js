@@ -32,7 +32,7 @@ export default class Home extends View {
 			padding-top: calc(var(--vh, 1vh) * 14);
 			padding-bottom: calc(var(--vh, 1vh) * 7);
 
-			@media ( max-width: 1024px ) {
+			@media ( max-width: 650px ) {
 				justify-content: space-between;
 			}
 
@@ -93,40 +93,48 @@ export default class Home extends View {
 		home-buttons {
 			position: relative;
 			display: flex;
-			flex-direction: row;
 			justify-content: center;
-			align-items: center;
-			gap: 5px;
 
-			@media ( max-width: 650px ) {
-				flex-direction: column;
-			}
+			& div {
+				display: flex;
+				flex-direction: row;
 
-			& default-button {
-				font-size: var( --font-size-xxl );
-				font-family: var( --font-family-a );
-				border: none;
-
-				&:not( :last-child ) {
-					margin-right: -1px;
+				@media ( max-width: 650px ) {
+					--blur: 0 !important;
+					flex-direction: column;
+					align-items: center;
+					gap: 5px;
 				}
 
-				@media ( hover: hover ) {
-					&:hover {
-						--background-color: transparent;
+				& default-button {
+					font-size: var( --font-size-xxl );
+					font-family: var( --font-family-a );
+					padding: var( --margin-xs );
+
+					&:not( :last-child ) {
+						margin-right: -1px;
+					}
+
+					@media ( max-width: 1024px ) {
+						font-size: 4rem;
+					}
+
+					@media ( max-width: 650px ) {
+						padding: 2px;
+						border: none;
+
+						&:hover {
+							--background-color: transparent;
+						}
 					}
 				}
 
-				@media ( max-width: 650px ) {
-					font-size: 4rem;
-				}
-			}
+				& span {
+					margin-bottom: -3px;
 
-			& span {
-				margin-bottom: -3px;
-
-				@media ( max-width: 650px ) {
-					margin-bottom: 0;
+					@media ( max-width: 650px ) {
+						margin-bottom: 0;
+					}
 				}
 			}
 		}
@@ -198,7 +206,9 @@ export default class Home extends View {
 			</home-title>
 
 			<home-buttons>
-				${ modes.map( Button.render ) }
+				<div blurred-background>
+					${ modes.map( Button.render ) }
+				</div>
 			</home-buttons>
 
 			<div>
