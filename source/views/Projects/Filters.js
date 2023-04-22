@@ -51,7 +51,6 @@ export default class Filters extends HTMLElement {
 			font-size: var( --font-size-s );
 			line-height: 1.8;
 			list-style: none;
-			overflow: scroll;
 			opacity: 0;
 			/* transition: opacity 1s var( --timing-function ); */
 			max-height: calc( 100% - var( --margin-m ) * 2 - 200px );
@@ -116,7 +115,22 @@ export default class Filters extends HTMLElement {
 
 		projects-filters-description {
 			max-height: 0;
-			overflow: scroll;
+			overflow: auto;
+
+			&::-webkit-scrollbar {
+				width: 18px;
+				display: initial;
+			}
+
+			&::-webkit-scrollbar-track {
+				border-left: 1px solid var( --color-white );
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: var( --color-white );
+				border: 6px solid rgba(0, 0, 0, 0);
+				background-clip: padding-box;
+			}
 
 			[ open ] & {
 				max-height: initial;
