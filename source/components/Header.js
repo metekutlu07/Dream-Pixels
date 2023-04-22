@@ -321,8 +321,8 @@ export default class Header extends HTMLElement {
 		];
 
 		const modes = [
-			{ attributes: [ 'places', '@click|header-block' ], },
 			{ attributes: [ 'grid', '@click|header-block' ], },
+			{ attributes: [ 'places', '@click|header-block' ], },
 			{ attributes: [ 'sphere', '@click|header-block' ], },
 			{ attributes: [ 'particles', '@click|header-block' ], }
 		];

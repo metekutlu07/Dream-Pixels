@@ -141,7 +141,7 @@ export default {
 		'contact': [ 'Contact' ],
 		'places': [ 'Places' ],
 		'grid': [ 'Projects' ],
-		'sphere': [ 'Images' ],
+		'sphere': [ 'Pictures' ],
 		'particles': [ 'Pixels' ],
 		'color-range': [ 'General' ],
 		'timeline': [ 'Rollercoaster' ],
