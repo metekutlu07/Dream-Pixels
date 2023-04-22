@@ -56,18 +56,15 @@ export default class Aside extends HTMLElement {
 			&:not( [ scrollable ] ) {
 
 				@media ( max-width: 650px ) {
-					padding: var( --margin-m ) var( --margin-s );
-					padding-top: calc( var( --margin-m ) * 3 );
-				}
+					padding: var( --margin-s );
+					left: var( --margin-s );
+					right: var( --margin-s );
 
-				@media ( max-width: 650px ) {
-					bottom: 0;
-					left: 0;
-					right: 0;
-					position: relative;
-					overflow: visible;
-					width: 100%;
-					border: none;
+					& scrolling-block {
+						& ul {
+							display: none;
+						}
+					}
 				}
 			}
 

@@ -13,11 +13,6 @@ export default class S1 {
 			height: 100%;
 			user-select: none;
 
-			@media ( max-width: 650px ) {
-				flex-direction: column;
-				height: initial;
-			}
-
 			& h3 {
 				font-size: var( --font-size-xl );
 				font-family: var( --font-family-a );
