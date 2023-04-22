@@ -175,7 +175,6 @@ export default class Header extends HTMLElement {
 			@media ( max-width: 1024px ) {
 				position: relative;
 				flex-direction: column;
-				backdrop-filter: none !important;
 				justify-content: flex-start;
 				align-items: flex-start;
 				z-index: 1;
