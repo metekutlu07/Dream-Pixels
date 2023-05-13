@@ -36,16 +36,17 @@ export default class Contact extends View {
 				}
 			}
 
+			& h3 {
+				margin-top: var( --margin-s );
+				font-family: var( --font-family-b );
+				font-size: var( --font-size-m );
+				line-height: 1.1;
+			}
+
 			& a {
 				color: var( --color-white );
-				margin-top: var( --margin-s );
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-m );
-				z-index: 0;
-
-				@media ( max-width: 1024px ) {
-					font-size: var( --font-size-s );
-				}
+				font-size: 100%;
 
 				@media ( hover: hover ) {
 					&:hover {
@@ -63,8 +64,8 @@ export default class Contact extends View {
 
 		<contact-view view>
 			<h4>${ contact }</h4>
-			<h3>${ address }</h3>
 			<a href="mailto:${ mail }">${ mail }</a>
+			<h3>${ address }</h3>
 		</contact-view>
 
 		`;
