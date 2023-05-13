@@ -309,6 +309,10 @@ export default class Header extends HTMLElement {
 				bottom: var( --margin-s );
 				left: var( --margin-s );
 			}
+
+			div {
+				font-weight: 600;
+			}
 		}
 
 		`;
@@ -389,6 +393,7 @@ export default class Header extends HTMLElement {
 			</header-analytics>
 
 			<header-socials>
+				<div>Follow us:</div>
 				<a href="https://www.instagram.com/dreampixels.fr/" target="_blank" rel="noreferrer">
 					@dreampixels.fr
 				</a>
