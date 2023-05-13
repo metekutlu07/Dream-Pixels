@@ -27,10 +27,9 @@ export default class Home extends View {
     		height: calc(var(--vh, 1vh) * 100);
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
 			overflow-x: hidden;
 			padding-top: calc(var(--vh, 1vh) * 14);
-			padding-bottom: calc(var(--vh, 1vh) * 7);
+			padding-bottom: calc(var(--vh, 1vh) * 9);
 
 			@media ( max-width: 650px ) {
 				justify-content: space-between;
@@ -94,17 +93,11 @@ export default class Home extends View {
 			position: relative;
 			display: flex;
 			justify-content: center;
+			margin-top: 60px;
 
 			& div {
 				display: flex;
 				flex-direction: row;
-
-				@media ( max-width: 650px ) {
-					--blur: 0 !important;
-					flex-direction: column;
-					align-items: center;
-					gap: 5px;
-				}
 
 				& default-button {
 					font-size: var( --font-size-xxl );
@@ -118,8 +111,23 @@ export default class Home extends View {
 					@media ( max-width: 1024px ) {
 						font-size: 4rem;
 					}
+				}
 
-					@media ( max-width: 650px ) {
+				& span {
+					margin-bottom: -3px;
+				}
+			}
+
+			@media ( max-width: 650px ) {
+				margin-top: 0;
+
+				& div {
+					--blur: 0 !important;
+					flex-direction: column;
+					align-items: center;
+					gap: 5px;
+
+					& default-button {
 						padding: 2px;
 						border: none;
 
@@ -127,52 +135,56 @@ export default class Home extends View {
 							--background-color: transparent;
 						}
 					}
-				}
 
-				& span {
-					margin-bottom: -3px;
-
-					@media ( max-width: 650px ) {
+					& span {
 						margin-bottom: 0;
 					}
 				}
 			}
 		}
 
-		scrolling-text {
-			--gap: 0.25rem;
-			display: flex;
-			overflow: hidden;
-			user-select: none;
-			gap: var( --gap );
-			font-size: 3rem;
+		scrolling-text-container {
+			margin: auto 0;
 
-			& scrolling-animation {
-				flex-shrink: 0;
+			& scrolling-text {
+				--gap: 0.25rem;
 				display: flex;
-				justify-content: space-around;
-				align-items: center;
-				min-width: 90%;
+				overflow: hidden;
+				user-select: none;
 				gap: var( --gap );
-				animation: scroll 50s linear infinite;
+				font-size: 3rem;
 
-				& span:nth-child( even ) {
-					font-family: var( --font-family-b );
-					font-size: 0.9em;
-				}
-			}
+				& scrolling-animation {
+					flex-shrink: 0;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					min-width: 90%;
+					gap: var( --gap );
+					animation: scroll 50s linear infinite;
 
-			@keyframes scroll {
-				from {
-					transform: translateX(0);
+					& span:nth-child( even ) {
+						font-family: var( --font-family-b );
+						font-size: 0.9em;
+					}
 				}
-				to {
-					transform: translateX(calc(-100% - var(--gap)));
+
+				@keyframes scroll {
+					from {
+						transform: translateX(0);
+					}
+					to {
+						transform: translateX(calc(-100% - var(--gap)));
+					}
 				}
 			}
 
 			@media ( max-width: 650px ) {
-				font-size: 2.25rem;
+				margin: 0;
+
+				& scrolling-text {
+					font-size: 2.25rem;
+				}
 			}
 		}
 
@@ -211,7 +223,7 @@ export default class Home extends View {
 				</div>
 			</home-buttons>
 
-			<div>
+			<scrolling-text-container>
 				<scrolling-text>
 					<scrolling-animation>
 						${ scrollingText( themes ) }
@@ -229,7 +241,7 @@ export default class Home extends View {
 						${ scrollingText( skills ) }
 					</scrolling-animation>
 				</scrolling-text>
-			</div>
+			</scrolling-text-container>
 
 		</home-view>
 
