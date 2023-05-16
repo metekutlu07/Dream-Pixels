@@ -71,7 +71,7 @@ export default class UserInfo extends HTMLElement {
 
 		user-info-text {
 			position: absolute;
-			bottom: 160px;
+			bottom: 180px;
 			padding: var( --margin-s ) var( --margin-m );
 			display: flex;
 			flex-direction: column;
@@ -82,13 +82,18 @@ export default class UserInfo extends HTMLElement {
 			opacity: 0;
 			border: 1px solid var( --color-white );
 
-			@media ( max-width: 1024px ) {
-				padding: var( --margin-s );
-				margin: 0 var( --margin-m );
+			&[ name="Images" ] {
+				bottom: 120px;
 			}
 
-			&[ name="Images" ] {
-				bottom: 100px;
+			@media ( max-width: 1024px ) {
+				bottom: 160px;
+				padding: var( --margin-s );
+				margin: 0 var( --margin-m );
+
+				&[ name="Images" ] {
+					bottom: 100px;
+				}
 			}
 
 			& h5 {

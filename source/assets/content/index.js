@@ -58,7 +58,7 @@ projects.sort( ( projectA, projectB ) => {
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Cyber Mystical Places Across Time',
+	subtitle: 'Spatialised Pigments <br> Across Time',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
@@ -112,39 +112,7 @@ export default {
 		FRANCE
 		`,
 
-	about: [
-
-		'Dream Pixels is the virtual archive of our experiments on digital scenography and mediation. We are a young interdisciplinary team of creatives gathered around a common passion: the exploration of emerging forms of spatial and visual experience in the Age of Artificial Intelligence. We investigate the current upheaval of our definitions of space, time and nature brought about by the ubiquity of algorithms and spatialization of pixels. And more than anything, we love colors. ',
-
-		'Between tradition and innovation, each experiment is a journey across time. Past blends with future, here with there, nature with technology and virtual with physical. We believe in surrealist juxtapositions, hip-hop remixes, nomadic adaptations, mystical transmutations and hacker evolutions. ',
-
-		'We develop augmented reality apps to be used for the mediation of cultural heritage as well as for design, research and education purposes in various disciplines. We combine augmented reality with 3D scanning of artworks, plants and buildings to create ever more engaging experiences. We make 3D miniatures which transform medieval miniature paintings into spatial immersive experiences. The viewer “jumps” inside a painting and takes a walk in the fantastical city it represents. Besides these virtual and medieval augmentations of the contemporary image, we use machine learning to reinterpret historical artistic traditions in a way that AI becomes the craftsman.  ',
-
-		'The archive was first designed and developed by Mete Kutlu as an immersive platform around 3D miniatures. His doctoral research suggests that the digital transition is bringing back certain dynamics of space and form-making which belonged to the artisanal traditions of medieval and premodern cultures. To investigate this digital medievalism, he suggested replacing our conventional reference point which is the Florentine Renaissance with the Timurid Renaissance and its extension, the Constantinopolitan Eye. ',
-
-		'His research followed the path on which two key pictorial figures, the curly cloud and the dragon were diffused along the Silk Road. During his doctoral journey, several creative minds around the world joined this dragon chase, among whom Theuns Botha and François Émilien are initial key talents. Today our team is mainly composed of young artists, developers, architects and researchers. On a project basis, our squad expands to include individuals from a wide range of backgrounds, such as botanists, producers, art historians, archeologists, urban designers and engineers. ',
-
-		'The establishments which supported this research with various grants, sponsorships, invitations and residencies: ',
-
-		`Villa Medici, Rome <br>
-		French School of Rome
-		Giorgio Cini Foundation, Venice
-		French Institute of Anatolian Studies, Istanbul
-		Pera Museum, Istanbul
-		French Ministry of Culture, Paris
-		ENSA Paris-Belleville, Paris
-		Paris-Est University, Paris
-		Quai d’Orsay - Jacques Chirac Museum, Paris
-		International Colour Association
-		Colour Group, London
-		French Institute of Central Asian Studies, Bishkek
-		Hanyang University, Seoul
-		Tokyo University of Science, Tokyo
-		International Academy of Arts, Dalian
-		Tongji University, Shanghai
-		 `
-
-	],
+	about: [],
 
 	views: {
 
@@ -160,7 +128,7 @@ export default {
 		'camera-mode': [ 'Orthographic', 'Perspective' ],
 		'panorama-map-mode': [ 'Top View', 'Miniature View' ],
 		'fullscreen': [ 'Fullscreen', 'Minimize' ],
-		'audio': [ 'Muted', 'Unmuted' ],
+		'audio': [ 'Mute', 'Unmute' ],
 		'display-points': [ 'Points', 'Solid' ],
 		'display-wireframe': [ 'Wireframe', 'Default' ],
 		'display-aside': [ 'Show list', 'Hide list' ],
@@ -173,7 +141,7 @@ export default {
 		'contact': [ 'Contact' ],
 		'places': [ 'Places' ],
 		'grid': [ 'Projects' ],
-		'sphere': [ 'Images' ],
+		'sphere': [ 'Pictures' ],
 		'particles': [ 'Pixels' ],
 		'color-range': [ 'General' ],
 		'timeline': [ 'Rollercoaster' ],

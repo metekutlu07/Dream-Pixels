@@ -27,8 +27,13 @@ export default class Home extends View {
     		height: calc(var(--vh, 1vh) * 100);
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			justify-content: center;
+			overflow-x: hidden;
+			padding-top: calc(var(--vh, 1vh) * 14);
+			padding-bottom: calc(var(--vh, 1vh) * 9);
+
+			@media ( max-width: 650px ) {
+				justify-content: space-between;
+			}
 
 			& video-block {
 				@media ( max-width: 650px ) {
@@ -40,17 +45,27 @@ export default class Home extends View {
 				opacity: .75;
 			}
 
-			& h3 {
-				font-size: var( --font-size-xxl );
-				font-family: var( --font-family-a );
-			}
+			& home-title {
+				display: block;
+				line-height: 1.25;
+				text-align: center;
 
-			& h4 {
-				font-size: var( --font-size-xl );
-				font-family: var( --font-family-b );
+				& h3 {
+					font-size: 8rem;
+					font-family: var( --font-family-a );
 
-				@media ( max-width: 650px ) {
-					font-size: var( --font-size-m );
+					@media ( max-width: 650px ) {
+						font-size: 5.5rem;
+					}
+				}
+
+				& h4 {
+					font-size: var( --font-size-xxl );
+					font-family: var( --font-family-b );
+
+					@media ( max-width: 650px ) {
+						font-size: 3rem;
+					}
 				}
 			}
 
@@ -75,84 +90,117 @@ export default class Home extends View {
 		}
 
 		home-buttons {
+			position: relative;
 			display: flex;
-			flex-direction: row;
-			align-items: center;
-			margin: var( --margin-m ) 0;
+			justify-content: center;
+			margin-top: 60px;
 
-			& default-button {
-				font-size: var( --font-size-xl );
-				padding: var( --margin-s );
+			& div {
+				display: flex;
+				flex-direction: row;
 
-				&:not( :last-child ) {
-					margin-right: -1px;
-				}
-
-				@media ( max-width: 1024px ) {
+				& default-button {
+					font-size: var( --font-size-xxl );
+					font-family: var( --font-family-a );
 					padding: var( --margin-xs );
-					font-size: var( --font-size-l );
+
+					&:not( :last-child ) {
+						margin-right: -1px;
+					}
+
+					@media ( max-width: 1024px ) {
+						font-size: 4rem;
+					}
 				}
 
-				@media ( max-width: 650px ) {
-					font-size: var( --font-size-s ) !important;
-					padding: 2px !important;
-					margin-bottom: 0 !important;
+				& span {
+					margin-bottom: -3px;
 				}
 			}
 
-			& span {
-				margin-bottom: -3px;
+			@media ( max-width: 650px ) {
+				margin-top: 0;
 
-				@media ( max-width: 650px ) {
-					margin-bottom: 0;
+				& div {
+					--blur: 0 !important;
+					flex-direction: column;
+					align-items: center;
+					gap: 5px;
+
+					& default-button {
+						padding: 2px;
+						border: none;
+
+						&:hover {
+							--background-color: transparent;
+						}
+					}
+
+					& span {
+						margin-bottom: 0;
+					}
 				}
 			}
 		}
 
-		scrolling-text {
-			font-size: 2rem;
-			max-width: 600px;
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			overflow: auto;
-			white-space: nowrap;
-			margin-top: var( --margin-m );
+		scrolling-text-container {
+			margin: auto 0;
 
-			&:last-child {
-				margin-top: 5px;
+			& scrolling-text {
+				--gap: 0.25rem;
+				display: flex;
+				overflow: hidden;
+				user-select: none;
+				gap: var( --gap );
+				font-size: 3rem;
 
 				& scrolling-animation {
-					animation: scrolling 40s linear infinite;
+					flex-shrink: 0;
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					min-width: 90%;
+					gap: var( --gap );
+					animation: scroll 50s linear infinite;
+
+					& span:nth-child( even ) {
+						font-family: var( --font-family-b );
+						font-size: 0.9em;
+					}
+				}
+
+				@keyframes scroll {
+					from {
+						transform: translateX(0);
+					}
+					to {
+						transform: translateX(calc(-100% - var(--gap)));
+					}
 				}
 			}
 
-			& scrolling-animation {
-				animation: scrolling 50s linear infinite;
-			}
+			@media ( max-width: 650px ) {
+				margin: 0;
 
-			& span:nth-child( even ) {
-				font-family: var( --font-family-b );
-				font-size: .9em;
+				& scrolling-text {
+					font-size: 2.25rem;
+				}
 			}
-
 		}
 
 		`;
 
-		const { title, introduction, subtitle, themes, skills } = Application.content;
-		const paragraphs = introduction.map( paragraph => html`<p>${ paragraph }</p>` );
+		const { title, subtitle, themes, skills } = Application.content;
 
-		const duplicate = string => `${ string }, ${ string },`
-			.split( ',' )
-			.map( keyword => html`<span>${ keyword }</span>` )
-			.join( ' - ' );
+		const scrollingText = string => string.split( ',' )
+			.map( keyword => html`<span class="keyword">${ keyword }</span> -` )
+			.join( '' );
 
 		const source = 'public/common/Background.mp4';
 		const modes = [
 
-			{ attributes: [ 'places', 'link', '@click|home-view' ] },
 			{ attributes: [ 'grid', 'link', '@click|home-view' ] },
+			{ attributes: [ 'places', 'link', '@click|home-view' ] },
 			{ attributes: [ 'sphere', 'link', '@click|home-view' ] },
 			{ attributes: [ 'particles', 'link', '@click|home-view' ] }
 
@@ -164,26 +212,36 @@ export default class Home extends View {
 
 			${ Video.render( source, { fullscreen: true } ) }
 
-			<h3>${ title }</h3>
-			<h4>${ subtitle }</h4>
+			<home-title>
+				<h3>${ title }</h3>
+				<h4>${ subtitle }</h4>
+			</home-title>
 
-			<home-buttons blurred-background>
-				${ modes.map( Button.render ) }
+			<home-buttons>
+				<div blurred-background>
+					${ modes.map( Button.render ) }
+				</div>
 			</home-buttons>
 
-			${ paragraphs }
+			<scrolling-text-container>
+				<scrolling-text>
+					<scrolling-animation>
+						${ scrollingText( themes ) }
+					</scrolling-animation>
+					<scrolling-animation aria-hidden="true">
+						${ scrollingText( themes ) }
+					</scrolling-animation>
+				</scrolling-text>
 
-			<scrolling-text>
-				<scrolling-animation>
-					${ duplicate( themes ) }
-				</scrolling-animation>
-			</scrolling-text>
-
-			<scrolling-text>
-				<scrolling-animation>
-					${ duplicate( skills ) }
-				</scrolling-animation>
-			</scrolling-text>
+				<scrolling-text>
+					<scrolling-animation>
+						${ scrollingText( skills ) }
+					</scrolling-animation>
+					<scrolling-animation aria-hidden="true">
+						${ scrollingText( skills ) }
+					</scrolling-animation>
+				</scrolling-text>
+			</scrolling-text-container>
 
 		</home-view>
 

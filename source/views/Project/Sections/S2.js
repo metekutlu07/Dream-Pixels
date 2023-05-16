@@ -51,6 +51,7 @@ export default class S2 {
 
 				@media ( max-width: 1024px ) {
 					max-width: initial;
+					font-size: var(--font-size-m );
 				}
 			}
 

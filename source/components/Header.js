@@ -175,7 +175,6 @@ export default class Header extends HTMLElement {
 			@media ( max-width: 1024px ) {
 				position: relative;
 				flex-direction: column;
-				backdrop-filter: none !important;
 				justify-content: flex-start;
 				align-items: flex-start;
 				z-index: 1;
@@ -250,9 +249,6 @@ export default class Header extends HTMLElement {
 				display: none;
 			}
 
-			[ path="/" ] &,
-			[ path="/home" ] &,
-			[ path="/about" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
 			}
@@ -262,18 +258,13 @@ export default class Header extends HTMLElement {
 			position: absolute;
 			bottom: var( --margin-m );
 			left: var( --margin-m );
-			font-size: var( --font-size-xs );
+			font-size: var( --font-size-m );
 			font-family: var( --font-family-c );
 			opacity: 0;
 
-			[ path="/about" ] &,
 			[ path="/works" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
-			}
-
-			@media ( max-width: 1024px ) {
-				display: none;
 			}
 
 			& li {
@@ -285,8 +276,42 @@ export default class Header extends HTMLElement {
 
 				&:first-child {
 					font-family: var( --font-family-a );
-					font-size: var( --font-size-m );
+					font-size: var( --font-size-l );
 				}
+			}
+
+			@media ( max-width: 1024px ) {
+				display: none;
+				font-size: var( --font-size-xs );
+
+				& li {
+					&:first-child {
+						font-size: var( --font-size-m );
+					}
+				}
+			}
+		}
+
+		header-socials {
+			position: absolute;
+			bottom: var( --margin-m );
+			left: var( --margin-m );
+			font-size: var( --font-size-s );
+			font-family: var( --font-family-c );
+			pointer-events: all;
+			display: none;
+
+			[ path="/" ] & {
+				display: block;
+			}
+
+			@media ( max-width: 1024px ) {
+				bottom: var( --margin-s );
+				left: var( --margin-s );
+			}
+
+			div {
+				font-weight: 600;
 			}
 		}
 
@@ -300,8 +325,8 @@ export default class Header extends HTMLElement {
 		];
 
 		const modes = [
-			{ attributes: [ 'places', '@click|header-block' ], },
 			{ attributes: [ 'grid', '@click|header-block' ], },
+			{ attributes: [ 'places', '@click|header-block' ], },
 			{ attributes: [ 'sphere', '@click|header-block' ], },
 			{ attributes: [ 'particles', '@click|header-block' ], }
 		];
@@ -366,6 +391,13 @@ export default class Header extends HTMLElement {
 				<li>Number of Images: <span #images>122</span></li>
 				<li>Number of Pixels: <span #pixels>4 543 456 345</span></li>
 			</header-analytics>
+
+			<header-socials>
+				<div>Follow us:</div>
+				<a href="https://www.instagram.com/dreampixels.fr/" target="_blank" rel="noreferrer">
+					@dreampixels.fr
+				</a>
+			</header-socials>
 
 		</header-block>`;
 

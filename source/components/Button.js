@@ -126,7 +126,7 @@ export default class Button extends HTMLElement {
 		default-button {
 			cursor: pointer;
 			color: var( --color-white );
-			font-size: var( --font-size-m );
+			font-size: var( --font-size-l );
 			font-family: var( --font-family-b );
 			display: flex;
 			flex-direction: row-reverse;
@@ -228,6 +228,10 @@ export default class Button extends HTMLElement {
 				width: 100%;
 				position: absolute;
 			}
+
+			@media ( max-width: 1024px ) {
+				font-size: var( --font-size-m );
+			}
 		}
 
 		button-label,
@@ -251,8 +255,12 @@ export default class Button extends HTMLElement {
 			--border: var( --border-size ) solid var( --border-color );
 			align-items: center;
 			justify-content: center;
-			padding: var( --margin-xs ) var( --margin-s );
+			padding: 14px 28px;
 			display: flex;
+
+			@media ( max-width: 1024px ) {
+				padding: var( --margin-xs ) var( --margin-s );
+			}
 		}
 
 		a {

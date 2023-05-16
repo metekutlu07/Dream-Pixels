@@ -56,7 +56,6 @@ export default class Global {
 
 			[ path="/virtual-miniature" ] &,
 			[ path="/contact" ] &,
-			[ path="/about" ] &,
 			[ path="/photogrammetry" ] &,
 			[ path="/miniature-street-view" ] &,
 			[ path="/works" ][ list="places" ] &,
@@ -152,8 +151,143 @@ export default class Global {
 
 		@font-face {
 			font-family: 'C';
-			src: url('/fonts/C.woff2') format('woff2'),
-				url('/fonts/C.woff') format('woff');
+			src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-Bold.woff') format('woff');
+			font-weight: bold;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-ExtraBold.woff') format('woff');
+			font-weight: bold;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-ExtraBoldItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-ExtraBoldItalic.woff') format('woff');
+			font-weight: bold;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-ExtraLight.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-ExtraLight.woff') format('woff');
+			font-weight: 200;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-BoldItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-BoldItalic.woff') format('woff');
+			font-weight: bold;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-Italic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-Italic.woff') format('woff');
+			font-weight: normal;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-LightItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-LightItalic.woff') format('woff');
+			font-weight: 300;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-SemiBoldItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-SemiBoldItalic.woff') format('woff');
+			font-weight: 600;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-SemiBold.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-SemiBold.woff') format('woff');
+			font-weight: 600;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-ThinItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-ThinItalic.woff') format('woff');
+			font-weight: 100;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-Medium.woff') format('woff');
+			font-weight: 500;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-Thin.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-Thin.woff') format('woff');
+			font-weight: 100;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-Light.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-Light.woff') format('woff');
+			font-weight: 300;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-MediumItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-MediumItalic.woff') format('woff');
+			font-weight: 500;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-ExtraLightItalic.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-ExtraLightItalic.woff') format('woff');
+			font-weight: 200;
+			font-style: italic;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'C';
+			src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2'),
+				url('/fonts/JetBrainsMono-Regular.woff') format('woff');
 			font-weight: normal;
 			font-style: normal;
 			font-display: swap;
@@ -164,10 +298,38 @@ export default class Global {
 		return `
 			<link rel="preload" href="/fonts/A.woff2" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="/fonts/B.woff2" as="font" type="font/woff2" crossorigin>
-			<link rel="preload" href="/fonts/C.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Thin.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraLight.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Light.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraBoldItalic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Italic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-LightItalic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-SemiBoldItalic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ThinItalic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-MediumItalic.woff2" as="font" type="font/woff2" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraLightItalic.woff2" as="font" type="font/woff2" crossorigin>
 			<link rel="preload" href="/fonts/A.woff" as="font" type="font/woff" crossorigin>
 			<link rel="preload" href="/fonts/B.woff" as="font" type="font/woff" crossorigin>
-			<link rel="preload" href="/fonts/C.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Regular.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Thin.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraLight.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Light.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Medium.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Bold.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraBold.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraBoldItalic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-BoldItalic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-Italic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-LightItalic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-SemiBoldItalic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ThinItalic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-MediumItalic.woff" as="font" type="font/woff" crossorigin>
+			<link rel="preload" href="/fonts/JetBrainsMono-ExtraLightItalic.woff" as="font" type="font/woff" crossorigin>
 		`;
 
 	}

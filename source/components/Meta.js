@@ -24,7 +24,7 @@ export default class Meta {
 			<title>${ content.title } - ${ title }</title>
 
 			<meta charset="utf-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 			<meta name="robots" content="${ robots }"/>
 
 			<link rel="icon" href="${ favicon }">

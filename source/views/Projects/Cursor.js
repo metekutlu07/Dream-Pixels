@@ -51,7 +51,7 @@ export default class Cursor extends HTMLElement {
 		const { projects } = Application.content;
 		const project = projects.find( project => project.path === parameters.path );
 		const index = projects.indexOf( project );
-		const number = ( '00' + ( index + 1 ) ).substr( -2 );
+		const number = index + 1;
 
 		const { color, code, title, caption, tags } = this.elements;
 		title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
@@ -94,6 +94,7 @@ export default class Cursor extends HTMLElement {
 			justify-content: center;
 			align-items: stretch;
 			opacity: 0;
+			max-width: 450px;
 
 			@media ( hover: hover ) {
 				canvas-block:hover ~ projects-view &[ visible ] {
@@ -101,43 +102,43 @@ export default class Cursor extends HTMLElement {
 				}
 			}
 
-			& h3 {
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
-				width: initial;
-				font-weight: bold;
-				/* margin-bottom: 2px; */
+			cursor-content {
+				padding: var( --margin-s ) var(--margin-s) var(--margin-xs);
 
-				& span {
-					font-family: var( --font-family-b );
-					font-size: .9em;
-					opacity: .25;
-					display: none;
+				& h3 {
+					font-family: var( --font-family-c );
+					font-size: var( --font-size-xs );
+					font-weight: bold;
+
+					& span {
+						font-family: var( --font-family-b );
+						font-size: .9em;
+						opacity: .25;
+						display: none;
+					}
+				}
+
+				& h4 {
+					margin-top: 6px;
+					font-family: var( --font-family-c );
+					font-size: var( --font-size-xs );
+					font-style: italic;
+					opacity: .5;
+
+					& span {
+						display: inline-block;
+					}
+				}
+
+				& h5 {
+					margin-top: 8px;
+					font-family: var( --font-family-c );
+					font-size: var( --font-size-m );
+					font-weight: bold;
+					text-align: right;
 				}
 			}
 
-			& h4 {
-				margin-top: 4px;
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
-				max-width: 400px;
-
-				& span {
-					display: inline-block;
-				}
-			}
-
-			& h5 {
-				margin-top: 4px;
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
-				opacity: .5;
-			}
-
-		}
-
-		cursor-content {
-			padding: var( --margin-s );
 		}
 
 		cursor-number {
@@ -182,7 +183,7 @@ export default class Cursor extends HTMLElement {
 			<cursor-content>
 				<h3 #caption>Comparaison: Side by Side View</h3>
 				<h4 #tags>Artificial Intelligence, Persian Miniature</h4>
-				<h5 #title>Bistami <span>| 01</span></h5>
+				<h5 #title>Bistami <span>| 1</span></h5>
 			</cursor-content>
 
 		</projects-cursor>
