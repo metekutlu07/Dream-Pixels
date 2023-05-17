@@ -28,11 +28,22 @@ export default class Home extends View {
 			display: flex;
 			flex-direction: column;
 			overflow-x: hidden;
-			padding-top: calc(var(--vh, 1vh) * 14);
-			padding-bottom: calc(var(--vh, 1vh) * 9);
+			padding-top: calc(var(--vh, 1vh) * 18);
+			padding-bottom: calc(var(--vh, 1vh) * 16);
 
-			@media ( max-width: 650px ) {
+			@media ( max-width: 1680px ) {
+				padding-top: calc(var(--vh, 1vh) * 16);
+				padding-bottom: calc(var(--vh, 1vh) * 16);
+			}
+
+			@media ( max-width: 1400px ) {
+				padding-bottom: 120px;;
+			}
+
+			@media ( max-width: 1024px ) {
 				justify-content: space-between;
+				padding-top: calc(var(--vh, 1vh) * 14);
+				padding-bottom: calc(var(--vh, 1vh) * 9);
 			}
 
 			& video-block {
@@ -144,7 +155,7 @@ export default class Home extends View {
 		}
 
 		scrolling-text-container {
-			margin: auto 0;
+			margin-top: auto;
 
 			& scrolling-text {
 				--gap: 0.25rem;

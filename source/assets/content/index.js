@@ -109,7 +109,7 @@ export default {
 	address: `
 		10 rue du Penthièvre<br>
 		75008 Paris<br>
-		FRANCE
+		France
 		`,
 
 	about: [],
