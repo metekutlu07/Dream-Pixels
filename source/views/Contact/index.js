@@ -27,7 +27,7 @@ export default class Contact extends View {
 			}
 
 			& h4 {
-				margin-bottom: var( --margin-s );
+				margin-bottom: var( --margin-m );
 				font-size: var( --font-size-xxl );
 				line-height: .9;
 
@@ -37,13 +37,12 @@ export default class Contact extends View {
 			}
 
 			& h3 {
-				margin-top: var( --margin-s );
-				font-family: var( --font-family-b );
-				font-size: var( --font-size-m );
+				font-family: var( --font-family-c );
 				line-height: 1.1;
 			}
 
 			& a {
+				margin-bottom: var( --margin-m );
 				color: var( --color-white );
 				font-family: var( --font-family-c );
 				font-size: 100%;
