@@ -241,7 +241,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi04.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Image Caption'
+				caption: 'Neo Taksim'
 			}
 		},
 		{
@@ -249,7 +249,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/renToRandoTop.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Image Caption'
+				caption: 'Neo Filaret'
 			}
 		},
 		{
@@ -257,7 +257,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/central2.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Image Caption'
+				caption: 'Old Town of Mechanicals'
 			}
 		},
 		{
@@ -273,7 +273,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthos.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Image Caption'
+				caption: 'Quarter of Youngster Androids'
 			}
 		},
 		{
@@ -297,7 +297,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/denseToRenai02.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Image Caption'
+				caption: 'Silicon Dreams'
 			}
 		},
 		{
@@ -313,7 +313,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Image Caption'
+				caption: 'Oneiropolis 231'
 			}
 		},
 		{
