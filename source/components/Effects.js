@@ -40,15 +40,14 @@ export default class Effects extends HTMLElement {
 
 			& grid-effect {
 				background-image: url( "/public/common/Grid.svg" );
-				background-size: 25px;
+				background-size: 50px;
 				background-position: center center;
-				transition: transform .5s var( --timing-function ), opacity .5s var( --timing-function );
-				transform: scale( 1 );
+				transition: opacity .5s var( --timing-function );
 				opacity: 0;
 
-				[ loading ] & {
+				[ loading ] &,
+				[ path="/works" ][ list="particles" ]:not( [ pixel-experience-started ] ):not( [ pixel-experience-transitioning ] ) & {
 					opacity: .25;
-					transform: scale( 1.05 );
 				}
 			}
 

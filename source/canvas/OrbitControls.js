@@ -227,7 +227,7 @@ export default class OrbitControls extends Object3D {
 
 		case 'ColorRange':
 
-			this.lerpState.set( 25, 0, 0 );
+			this.lerpState.set( 18.75, 0, 0 );
 
 			Object.assign( this.parameters, {
 
@@ -241,7 +241,7 @@ export default class OrbitControls extends Object3D {
 				minAngle: -1,
 				maxAngle: 1,
 
-				minDistance: 15,
+				minDistance: 12,
 				maxDistance: 35
 
 			} );

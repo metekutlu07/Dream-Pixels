@@ -7,6 +7,20 @@ export default class Home extends View {
 	static path = '/';
 	static silent = false;
 
+	onConnected() {
+
+		Application.store.set( 'pixel-experience-started', false );
+		Application.store.set( 'pixel-experience-gate-visible', false );
+		Application.store.set( 'pixel-experience-background-visible', false );
+		Application.store.set( 'pixel-experience-transitioning', false );
+		Application.store.set( 'ui-ready', false );
+		Application.store.set( 'intro-ready', false );
+		Application.store.set( 'list', 'particles' );
+		Application.store.set( 'particles', 'color-range' );
+		Application.router.navigate( '/works' );
+
+	}
+
 	onClick( event ) {
 
 		const { currentTarget } = event;

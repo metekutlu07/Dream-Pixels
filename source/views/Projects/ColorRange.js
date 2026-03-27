@@ -73,7 +73,6 @@ export default class ColorRange extends HTMLElement {
 
 			const value = parseFloat( handle.getAttribute( 'value' ) );
 			handle.style.transform = `translateY( ${ value * this.height }px )`;
-			handle.children[ 0 ].textContent = Math.round( value * 360 ) + '°';
 			handle.toggleAttribute( 'grabbed', handle === this.handle );
 
 			Application.store.range[ index ] = value;
@@ -124,13 +123,14 @@ export default class ColorRange extends HTMLElement {
 			width: 5px;
 			height: 500px;
 			opacity: 0;
+			transition: opacity 2s var( --timing-function );
 
 			@media ( max-width: 650px ) {
 				right: var( --margin-s );
 				height: 250px;
 			}
 
-			[ view-enter ][ list="particles" ][ particles="color-range" ] & {
+			[ view-enter ][ list="particles" ][ particles="color-range" ][ ui-ready ]:not( [ pixel-experience-gate-visible ] ):not( [ pixel-experience-transitioning ] ) & {
 				opacity: 1;
 				pointer-events: all;
 			}
@@ -139,6 +139,18 @@ export default class ColorRange extends HTMLElement {
 				position: absolute;
 				height: 100%;
 				width: 100%;
+			}
+
+			& color-range-label {
+				position: absolute;
+				bottom: calc( 100% + 19px );
+				right: 50%;
+				transform: translateX( 50% );
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-m );
+				letter-spacing: .08em;
+				text-transform: uppercase;
+				white-space: nowrap;
 			}
 
 		}
@@ -158,10 +170,7 @@ export default class ColorRange extends HTMLElement {
 			}
 
 			& span {
-				padding: 5px 8px;
-				font-family: var( --font-family-a );
-				font-size: var( --font-size-s );
-				border-right: var( --border-size ) solid var( --border-color );
+				display: none;
 			}
 
 			& svg {
@@ -176,6 +185,8 @@ export default class ColorRange extends HTMLElement {
 		return html`
 
 		<projects-color-range>
+
+			<color-range-label>Spectrum</color-range-label>
 
 			<color-range-handle
 				value="0"

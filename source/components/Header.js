@@ -6,18 +6,27 @@ export default class Header extends HTMLElement {
 
 		this.onResize();
 		this.setAnalytics();
+		this.syncLandingState();
 
 	}
 
 	onRouting() {
 
 		Application.store.set( 'display-menu', false );
+		this.syncLandingState();
 
 	}
 
 	onLoad() {
 
 		this.setAnalytics();
+		this.syncLandingState();
+
+	}
+
+	onPreFrame() {
+
+		this.syncLandingState();
 
 	}
 
@@ -31,7 +40,7 @@ export default class Header extends HTMLElement {
 		const { projects, images, pixels } = this.elements;
 		projects.textContent = analytics.projects;
 		images.textContent = analytics.images;
-		pixels.textContent = analytics.pixels;
+		pixels.textContent = `${ analytics.pixels }`.replace( /\B(?=(\d{3})+(?!\d))/g, '.' );
 
 	}
 
@@ -89,6 +98,54 @@ export default class Header extends HTMLElement {
 		const { header } = this.elements;
 		const width = `${ header.clientWidth + 1 }px`;
 		document.documentElement.style.setProperty( '--header-width', width );
+
+	}
+
+	syncLandingState() {
+
+		const {
+			loading,
+			path,
+			list,
+			particles
+		} = Application.store;
+
+		const uiReady = Application.store[ 'ui-ready' ];
+		const pixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
+		const pixelExperienceGateVisible = Application.store[ 'pixel-experience-gate-visible' ];
+		const pixelExperienceTransitioning = Application.store[ 'pixel-experience-transitioning' ];
+		const isPixelLanding = (
+			path === '/works' &&
+			list === 'particles' &&
+			particles === 'color-range'
+		);
+
+		const shouldHideArchiveUI = (
+			loading ||
+			path === '/' ||
+			(
+				isPixelLanding &&
+				(
+					! pixelExperienceStarted ||
+					! uiReady ||
+					pixelExperienceGateVisible ||
+					pixelExperienceTransitioning
+				)
+			)
+		);
+
+		this.toggleAttribute( 'landing-hidden', shouldHideArchiveUI );
+
+		const groups = this.querySelectorAll(
+			'header-small-screen, header-navigation, header-grid-modes, header-controls, header-analytics'
+		);
+
+		groups.forEach( group => {
+
+			group.style.opacity = shouldHideArchiveUI ? '0' : '';
+			group.style.pointerEvents = shouldHideArchiveUI ? 'none' : '';
+
+		} );
 
 	}
 
@@ -155,6 +212,16 @@ export default class Header extends HTMLElement {
 			flex-direction: row;
 			position: absolute;
 			pointer-events: all;
+			opacity: 1;
+			transition: opacity 2s var( --timing-function );
+		}
+
+		header-analytics {
+			position: absolute;
+			display: block;
+			pointer-events: all;
+			opacity: 1;
+			transition: opacity 2s var( --timing-function );
 		}
 
 		header-small-screen {
@@ -191,8 +258,6 @@ export default class Header extends HTMLElement {
 
 		header-navigation,
 		header-controls {
-			transition: opacity .5s var( --timing-function );
-
 			@media ( max-width: 1024px ) {
 				opacity: 0;
 				pointer-events: none;
@@ -201,6 +266,22 @@ export default class Header extends HTMLElement {
 					opacity: 1;
 					pointer-events: all;
 				}
+			}
+		}
+
+		[ loading ] &,
+		[ path="/" ] &,
+		[ path="/works" ][ list="particles" ]:not( [ ui-ready ] ) &,
+		[ path="/works" ][ list="particles" ][ pixel-experience-gate-visible ] &,
+		[ path="/works" ][ list="particles" ][ pixel-experience-transitioning ] &,
+		&[ landing-hidden ] {
+			& header-small-screen,
+			& header-navigation,
+			& header-grid-modes,
+			& header-controls,
+			& header-analytics {
+				opacity: 0;
+				pointer-events: none;
 			}
 		}
 
@@ -220,6 +301,11 @@ export default class Header extends HTMLElement {
 
 			& default-button {
 				margin-bottom: 0 !important;
+
+				&:not( :last-child ) {
+					margin-right: 0;
+					border-right: none;
+				}
 			}
 
 			& > div {
@@ -234,7 +320,8 @@ export default class Header extends HTMLElement {
 
 		header-controls {
 			right: var( --margin-m );
-			bottom: var( --margin-m );
+			top: var( --margin-m );
+			bottom: auto;
 		}
 
 		header-credits {
@@ -257,10 +344,11 @@ export default class Header extends HTMLElement {
 		header-analytics {
 			position: absolute;
 			bottom: var( --margin-m );
-			left: var( --margin-m );
+			right: var( --margin-m );
 			font-size: var( --font-size-m );
 			font-family: var( --font-family-c );
 			opacity: 0;
+			text-align: right;
 
 			[ path="/works" ] &,
 			[ path="/contact" ] & {
@@ -318,17 +406,17 @@ export default class Header extends HTMLElement {
 		`;
 
 		const navigation = [
-			{ attributes: [ 'home' ], link: { internal: true } },
 			{ attributes: [ 'works' ], link: { internal: true } },
 			{ attributes: [ 'about' ], link: { internal: true } },
+			{ attributes: [ 'empire' ], link: { attributes: [ 'href="https://www.empireofclouds.com"', 'target="_blank"', 'rel="noreferrer"' ] } },
 			{ attributes: [ 'contact' ], link: { internal: true } },
 		];
 
 		const modes = [
-			{ attributes: [ 'grid', '@click|header-block' ], },
-			{ attributes: [ 'places', '@click|header-block' ], },
+			{ attributes: [ 'particles', '@click|header-block' ], },
 			{ attributes: [ 'sphere', '@click|header-block' ], },
-			{ attributes: [ 'particles', '@click|header-block' ], }
+			{ attributes: [ 'places', '@click|header-block' ], },
+			{ attributes: [ 'grid', '@click|header-block' ], },
 		];
 
 		const particles = [
@@ -386,10 +474,10 @@ export default class Header extends HTMLElement {
 			</header-credits>
 
 			<header-analytics>
-				<li>Analytics of the Virtual Archive</li>
-				<li>Number of Projects: <span #projects>20</span></li>
-				<li>Number of Images: <span #images>122</span></li>
-				<li>Number of Pixels: <span #pixels>4 543 456 345</span></li>
+				<li>Archive Analytics</li>
+				<li>Projects: <span #projects>20</span></li>
+				<li>Images: <span #images>122</span></li>
+				<li>Pixels: <span #pixels>4 543 456 345</span></li>
 			</header-analytics>
 
 			<header-socials>

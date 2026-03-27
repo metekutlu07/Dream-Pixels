@@ -14,8 +14,8 @@
     "editor.formatOnPaste": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.fixAll.stylelint": true
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit"
     },
     "editor.rulers": [ 80, 120 ],
     "workbench.tree.indent": 12,

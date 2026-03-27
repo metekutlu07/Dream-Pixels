@@ -58,7 +58,7 @@ projects.sort( ( projectA, projectB ) => {
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Spatialised Pigments <br> Across Time',
+	subtitle: 'Spatialized Pigments <br> Across Time',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
@@ -95,13 +95,27 @@ export default {
 		},
 
 		'Particles': {
-			title: `
-				Drag with your mouse or with your fingers<br>
-				to explore the nebula of pixels.`,
-			paragraphs: `
-				You can use the control bar on the right<br>
-				to define the color range of pixels to display.<br>
-				You can also use the Timeline mode to fly among the pixels.`
+			steps: [
+				{
+					title: 'THE ARCHIVE OF THE AGE OF AI',
+					paragraphs: `
+						This collection preserves 23 experiments by Mete Kutlu, derived from the doctoral thesis Empire of Clouds: Codes, Colors, and Cosmos.<br><br>
+						Here, algorithms are the foundation of the universe, and colors are its interface. In this space, you are journeying through the machine mind, an interstellar void where knowledge forms a cosmic cloud.
+					`
+				},
+				{
+					title: 'NAVIGATION',
+					paragraphs: `
+						Each particle represents a single pixel extracted from the archive.<br><br>
+						Click these virtual atoms to reveal a hundred worlds hidden within.<br><br>
+						<strong>Controls</strong><br><br>
+						<strong>Orbit</strong> - Click and drag to rotate the celestial sphere<br>
+						<strong>Scale</strong> - Scroll to travel through the cloud<br>
+						<strong>Filter</strong> - Use the spectrum bar to isolate chromatic frequencies<br>
+						<strong>Select</strong> - Click a particle to reveal the project data
+					`
+				}
+			]
 		}
 	},
 
@@ -117,7 +131,7 @@ export default {
 	views: {
 
 		home: { path: '/', title: 'Home' },
-		works: { path: '/works', title: 'Works' },
+		works: { path: '/works', title: 'Experiments' },
 		about: { path: '/about', title: 'About' },
 		contact: { path: '/contact', title: 'Contact' },
 		update: { path: '/update', title: 'Update' }
@@ -135,16 +149,17 @@ export default {
 		'augmented-reality': [ 'Augmented Reality' ],
 		'home': [ 'Home' ],
 		'close': [ 'Close' ],
-		'works': [ 'Works' ],
-		'project': [ 'See project' ],
+		'works': [ 'Dream Pixels' ],
 		'about': [ 'About' ],
+		'empire': [ 'Empire' ],
+		'project': [ 'See project' ],
 		'contact': [ 'Contact' ],
 		'places': [ 'Places' ],
 		'grid': [ 'Projects' ],
 		'sphere': [ 'Pictures' ],
 		'particles': [ 'Pixels' ],
-		'color-range': [ 'General' ],
-		'timeline': [ 'Rollercoaster' ],
+		'color-range': [ 'Outside' ],
+		'timeline': [ 'Inside' ],
 		'cosmos': [ 'Cosmos' ],
 		'world': [ 'World' ],
 		'display-menu': [ 'Menu', 'Close' ]

@@ -19,21 +19,21 @@ export default class PostProcessing {
 
 		this.parameters = Application.store.add( 'PostProcessing', {
 
-			enabled: false,
+			enabled: true,
 
 			vignettePass: {
-				enabled: true,
+				enabled: false,
 				color: '#000000',
 				strength: { value: .25, max: 2 },
 			},
 
 			chromaticAberrationPass: {
 				enabled: true,
-				strength: { value: .2, max: 2 },
+				strength: { value: .3, max: 2 },
 			},
 
 			bloomPass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: .75, max: 1 },
 				radius: { value: .05, max: 5 },
 				threshold: { value: .75, max: 1 },
@@ -45,7 +45,7 @@ export default class PostProcessing {
 			},
 
 			afterImagePass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: .975, min: .75, max: 1 }
 			},
 
@@ -56,17 +56,17 @@ export default class PostProcessing {
 			},
 
 			linesPass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: .5, max: 1 },
 			},
 
 			noisePass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: .15, max: 1 },
 			},
 
 			rgbShiftPass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: 1e-5, max: 1e-2 },
 				angle: { value: 0, max: 1 }
 			},
@@ -137,7 +137,7 @@ export default class PostProcessing {
 	onResize() {
 
 		const { x, y } = Application.renderer.resolution;
-		this.composer.setSize( x, y );
+		this.composer.setSize( Math.round( x * .75 ), Math.round( y * .75 ) );
 
 	}
 

@@ -54,6 +54,13 @@ export default class Canvas extends HTMLElement {
 			margin: auto;
 			top: 0;
 			left: 0;
+			transition: opacity .45s var( --timing-function );
+
+			[ path="/works" ][ list="particles" ]:not( [ pixel-experience-started ] ):not( [ pixel-experience-background-visible ] ) &,
+			[ path="/works" ][ list="particles" ][ pixel-experience-transitioning ]:not( [ pixel-experience-background-visible ] ) & {
+				opacity: 0;
+				pointer-events: none;
+			}
 
 			@media ( hover: hover ) {
 

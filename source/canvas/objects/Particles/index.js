@@ -135,7 +135,6 @@ export default class Particles extends Points {
 	onModeChange() {
 
 		this.isHoverable = false;
-		this.simulation.toggle( true );
 
 		const { path, list, particles } = Application.store;
 		this.isVisible = (
@@ -156,10 +155,29 @@ export default class Particles extends Points {
 		this.visible = this.isVisible;
 		this.isHoverable = false;
 
+		clearTimeout( this.introTimeout );
+		clearTimeout( this.timeout );
+
+		const shouldWaitForStart = (
+			isColorRange &&
+			! Application.store[ 'pixel-experience-started' ]
+		);
+
+		this.visible = this.isVisible && ! shouldWaitForStart;
+
+		if ( shouldWaitForStart ) return;
+
+		this.simulation.toggle( true );
+
 		const duration = isColorRange ? 8 : 3;
 
-		clearTimeout( this.timeout );
-		this.timeout = setTimeout( this.onAnimationEnd, duration * 1e3 );
+		if ( isColorRange ) {
+
+			Application.store.set( 'ui-ready', false );
+			Application.store.set( 'intro-ready', false );
+
+		}
+		this.timeout = setTimeout( () => this.onAnimationEnd(), duration * 1e3 );
 
 	}
 
@@ -224,6 +242,20 @@ export default class Particles extends Points {
 
 		this.simulation.setPoints( this.points );
 		this.isHoverable = true;
+
+		const { path, list, particles } = Application.store;
+		const isPixelLanding = (
+			path === '/works' &&
+			list === 'particles' &&
+			particles === 'color-range'
+		);
+
+		if ( isPixelLanding ) {
+
+			Application.store.set( 'ui-ready', true );
+			Application.store.set( 'intro-ready', true );
+
+		}
 
 		if ( ! this.images ) return;
 

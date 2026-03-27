@@ -83,6 +83,7 @@ export default class Simulation {
 		this.needsUpdate = true;
 
 		this.setCurve();
+		this.seed();
 
 	}
 
@@ -137,6 +138,46 @@ export default class Simulation {
 
 	}
 
+	seed( duration = 0 ) {
+
+		const { width, height, count } = this;
+
+		const point = new Vector3();
+		const dataA = new Float32Array( count * 4 );
+		const dataB = new Float32Array( count * 4 );
+
+		for ( let i = 0; i < count; i++ ) {
+
+			const t = i / count;
+			const { x, y, z } = this.curve.getPointAt( t, point );
+			const w = Math.randFloat( t, t + .25 ) * -duration;
+
+			dataA[ i * 4 + 0 ] = x;
+			dataA[ i * 4 + 1 ] = y;
+			dataA[ i * 4 + 2 ] = z;
+			dataA[ i * 4 + 3 ] = w - .25;
+
+			dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 2;
+			dataB[ i * 4 + 1 ] = .035 * 100;
+
+		}
+
+		const parametersA = new DataTexture( dataA, width, height, RGBAFormat, FloatType );
+		parametersA.needsUpdate = true;
+
+		const parametersB = new DataTexture( dataB, width, height, RGBAFormat, FloatType );
+		parametersB.needsUpdate = true;
+
+		this.timeFactor = 1;
+		this.duration = duration;
+
+		this.uniforms[ 'deltaTime' ].value = 0;
+		this.uniforms[ 'parametersA' ].value = parametersA;
+		this.uniforms[ 'parametersB' ].value = parametersB;
+		this.renderTargets.forEach( this.render );
+
+	}
+
 	async toggle( isVisible ) {
 
 		const { path, list, particles } = Application.store;
@@ -148,46 +189,7 @@ export default class Simulation {
 
 		);
 
-		this.duration = isColorRange ? 5 : 0;
-
-		if ( isVisible ) {
-
-			const { width, height, count } = this;
-
-			const point = new Vector3();
-			const dataA = new Float32Array( count * 4 );
-			const dataB = new Float32Array( count * 4 );
-
-			for ( let i = 0; i < count; i++ ) {
-
-				const t = i / count;
-				const { x, y, z } = this.curve.getPointAt( t, point );
-				const w = Math.randFloat( t, t + .25 ) * -this.duration;
-
-				dataA[ i * 4 + 0 ] = x;
-				dataA[ i * 4 + 1 ] = y;
-				dataA[ i * 4 + 2 ] = z;
-				dataA[ i * 4 + 3 ] = w - .25;
-
-				dataB[ i * 4 + 0 ] = Math.randFloat( .95, 1 ) * 2;
-				dataB[ i * 4 + 1 ] = .035 * 100;
-
-			}
-
-			const parametersA = new DataTexture( dataA, width, height, RGBAFormat, FloatType );
-			parametersA.needsUpdate = true;
-
-			const parametersB = new DataTexture( dataB, width, height, RGBAFormat, FloatType );
-			parametersB.needsUpdate = true;
-
-			this.timeFactor = 1;
-
-			this.uniforms[ 'deltaTime' ].value = 0;
-			this.uniforms[ 'parametersA' ].value = parametersA;
-			this.uniforms[ 'parametersB' ].value = parametersB;
-			this.renderTargets.forEach( this.render );
-
-		}
+		if ( isVisible ) this.seed( isColorRange ? 5 : 0 );
 
 	}
 

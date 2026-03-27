@@ -26,7 +26,7 @@ export default class Button extends HTMLElement {
 
 	onPreFrame() {
 
-		const visibleIDs = [ 'audio', 'display-menu', 'home', 'works', 'about', 'contact' ];
+		const visibleIDs = [ 'audio', 'display-menu', 'home', 'works', 'about', 'contact', 'empire' ];
 		const selectedIDs = [];
 		const activatedIDs = [];
 
@@ -39,7 +39,6 @@ export default class Button extends HTMLElement {
 			break;
 
 		case '/works':
-			selectedIDs.push( 'works' );
 			visibleIDs.push( 'places', 'grid', 'sphere', 'particles' );
 			break;
 

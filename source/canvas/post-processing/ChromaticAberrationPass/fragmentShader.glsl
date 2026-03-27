@@ -1,4 +1,4 @@
-const int ITERATIONS = 5;
+const int ITERATIONS = 3;
 
 varying vec2 vUv;
 

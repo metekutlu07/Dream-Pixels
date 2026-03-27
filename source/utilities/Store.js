@@ -44,10 +44,16 @@ export default class Parameter {
 		this.isInitialized = true;
 
 		this.set( 'ar', document.createElement( 'a' ).relList.supports( 'ar' ) );
-		this.set( 'list', 'grid' );
+		this.set( 'list', 'particles' );
 		this.set( 'particles', 'color-range' );
 		this.set( 'places', 'world' );
 		this.set( 'range', [ 0, 1 ] );
+		this.set( 'pixel-experience-started', false );
+		this.set( 'pixel-experience-gate-visible', false );
+		this.set( 'pixel-experience-background-visible', false );
+		this.set( 'pixel-experience-transitioning', false );
+		this.set( 'ui-ready', true );
+		this.set( 'intro-ready', true );
 
 	}
 

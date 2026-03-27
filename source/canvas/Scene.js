@@ -165,8 +165,12 @@ export default class Scene extends Object3D {
 		this.sphere.visible = path !== '/' && ! ( path === '/works' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
 		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
 
+		const isParticleWorksView = path === '/works' && list === 'particles';
+		const isParticleColorRange = isParticleWorksView && particles === 'color-range';
+		const hasPixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
+
 		this.particles.visible = (
-			( path === '/works' && list === 'particles' ) ||
+			( isParticleWorksView && ( ! isParticleColorRange || hasPixelExperienceStarted ) ) ||
 			( path === '/contact' || path === '/about' )
 		);
 
@@ -266,4 +270,3 @@ export default class Scene extends Object3D {
 	}
 
 }
-
