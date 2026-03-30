@@ -32,6 +32,7 @@ export default class UserInfo extends HTMLElement {
 
 				( path === '/works' && list === 'sphere' && name === 'Images' ) ||
 				( path === '/works' && list === 'particles' && name === 'Particles' ) ||
+				( path === '/works' && list === 'places' && places === 'world' && name === 'World' ) ||
 				( path === '/works' && list === 'places' && places === 'cosmos' && name === 'Cosmos' )
 
 			);
@@ -83,6 +84,12 @@ export default class UserInfo extends HTMLElement {
 
 		if ( currentTarget.hasAttribute( 'explore' ) ) {
 
+			if ( text.getAttribute( 'name' ) === 'Particles' ) {
+
+				Application.store.set( 'particle-archive-entered', true );
+				Application.store.set( 'particle-user-info-seen', true );
+
+			}
 			text.toggleAttribute( 'dismissed', true );
 			this.hide();
 
@@ -120,7 +127,7 @@ export default class UserInfo extends HTMLElement {
 
 			const step = parseInt( text.getAttribute( 'step' ) || '0' );
 			const index = Math.clamp( step, 0, text.steps.length - 1 );
-			const { title, paragraphs } = text.steps[ index ];
+			const { title, paragraphs, cue } = text.steps[ index ];
 			const titleElement = text.querySelector( 'h5' );
 			const paragraphElement = text.querySelector( 'p' );
 			const nextButton = text.querySelector( '[ next ]' );
@@ -128,6 +135,8 @@ export default class UserInfo extends HTMLElement {
 
 			if ( titleElement ) titleElement.innerHTML = title || '';
 			if ( paragraphElement ) paragraphElement.innerHTML = paragraphs || '';
+			if ( cue ) text.setAttribute( 'cue', cue );
+			else text.removeAttribute( 'cue' );
 			if ( nextButton ) nextButton.toggleAttribute( 'hidden', index >= text.steps.length - 1 );
 			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', index >= text.steps.length - 1 );
 			text.toggleAttribute( 'last-step', index >= text.steps.length - 1 );
@@ -184,8 +193,88 @@ export default class UserInfo extends HTMLElement {
 			pointer-events: none;
 			border: 1px solid var( --color-white );
 
-			&[ name="Images" ] {
-				bottom: 120px;
+			&[ name="World" ] {
+				top: 50%;
+				left: 50%;
+				bottom: auto;
+				width: 780px;
+				max-width: calc( 100vw - 64px );
+				padding: 22px 28px 20px;
+				box-sizing: border-box;
+				transform: translate( -50%, -50% );
+				background: rgba( 0, 0, 0, .28 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
+				border: var( --border-size ) solid var( --border-color );
+
+				& h5 {
+					display: none;
+				}
+
+				& p {
+					margin-top: 0;
+					font-size: 18px;
+					line-height: 1.6;
+				}
+
+				& user-info-actions {
+					padding-top: 36px;
+					display: flex;
+					justify-content: center;
+				}
+
+				& user-info-button {
+					cursor: pointer;
+					min-width: 0;
+					padding: 12px 18px;
+					border: var( --border-size ) solid var( --border-color );
+					background: rgba( 0, 0, 0, .18 );
+					font-family: var( --font-family-b );
+					font-size: 16px;
+					letter-spacing: .08em;
+					text-transform: uppercase;
+				}
+			}
+
+				&[ name="Images" ] {
+					bottom: auto;
+					top: 50%;
+					left: 50%;
+					transform: translate( -50%, -50% );
+					width: min( 520px, calc( 100vw - 64px ) );
+					padding: 20px 22px 18px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid var( --border-color );
+
+				& h5 {
+					display: none;
+				}
+
+				& p {
+					margin-top: 0;
+					font-size: 18px;
+					line-height: 1.6;
+				}
+
+				& user-info-actions {
+					padding-top: 36px;
+					display: flex;
+					justify-content: center;
+				}
+
+					& user-info-button {
+						cursor: pointer;
+						min-width: 0;
+						padding: 12px 18px;
+						border: var( --border-size ) solid var( --border-color );
+						background: rgba( 0, 0, 0, .18 );
+						font-family: var( --font-family-b );
+						font-size: 16px;
+					letter-spacing: .08em;
+					text-transform: uppercase;
+				}
 			}
 
 			@media ( max-width: 1024px ) {
@@ -193,8 +282,18 @@ export default class UserInfo extends HTMLElement {
 				padding: var( --margin-s );
 				margin: 0 var( --margin-m );
 
+				&[ name="World" ] {
+					top: 50%;
+					bottom: auto;
+					left: 50%;
+					transform: translate( -50%, -50% );
+				}
+
 				&[ name="Images" ] {
-					bottom: 100px;
+					top: 50%;
+					bottom: auto;
+					left: 50%;
+					transform: translate( -50%, -50% );
 				}
 			}
 
@@ -242,48 +341,54 @@ export default class UserInfo extends HTMLElement {
 			}
 
 			&[ name="Particles" ] {
-				top: 50%;
-				bottom: auto;
-				left: 50%;
-				transform: translate( -50%, -50% );
-				width: min( 900px, calc( 100vw - 120px ) );
-				min-height: 540px;
-				padding: 34px 44px 32px;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transform: none;
+				width: 100%;
+				height: 100%;
+				min-height: 0;
+				padding: 0;
 				box-sizing: border-box;
-				background: rgba( 6, 6, 8, .84 );
-				border-color: rgba( 255, 255, 255, .22 );
+				background: none;
+				border: none;
+				pointer-events: none;
+
+				& user-info-guide {
+					position: absolute;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 14px;
+					max-width: 380px;
+					transition: opacity .75s var( --timing-function );
+					will-change: opacity;
+					pointer-events: all;
+				}
+
+				& user-info-copy {
+					padding: 22px 26px 20px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid var( --border-color );
+					text-align: center;
+				}
 
 				& h5 {
-					font-size: clamp( 2.6rem, 2.2vw, 3.9rem );
-					font-family: var( --font-family-a );
-					line-height: 1.3;
-					letter-spacing: .03em;
-					max-width: none;
-					width: 100%;
-					text-align: left;
+					display: none;
 				}
 
 				& p {
-					margin-top: 24px;
-					font-size: clamp( 1.4rem, 1.2vw, 1.9rem );
-					line-height: 1.65;
-					max-width: none;
-					width: 100%;
-					text-align: left;
-
-					& strong {
-						display: inline-block;
-						font-family: var( --font-family-a );
-						font-size: 1.05em;
-						letter-spacing: .04em;
-						text-transform: uppercase;
-						color: rgba( 255, 255, 255, .96 );
-					}
+					margin-top: 0;
+					font-size: 18px;
+					line-height: 1.5;
+					text-align: center;
 				}
 
 				& user-info-actions {
-					margin-top: auto;
-					padding-top: 34px;
+					padding-top: 36px;
 					display: flex;
 					justify-content: center;
 					gap: 12px;
@@ -291,13 +396,13 @@ export default class UserInfo extends HTMLElement {
 
 				& user-info-button {
 					cursor: pointer;
-					min-width: 200px;
-					padding: 14px 24px;
-					border: 1px solid rgba( 255, 255, 255, .3 );
-					background: rgba( 0, 0, 0, .88 );
+					min-width: 0;
+					padding: 14px 20px;
+					border: 1px solid rgba( 255, 255, 255, .9 );
+					background: rgba( 0, 0, 0, .12 );
 					font-family: var( --font-family-b );
-					font-size: clamp( 1.45rem, 1vw, 1.8rem );
-					letter-spacing: .12em;
+					font-size: 18px;
+					letter-spacing: .08em;
 					text-transform: uppercase;
 					transition: background-color .35s var( --timing-function ), border-color .35s var( --timing-function ), opacity .35s var( --timing-function );
 
@@ -317,31 +422,230 @@ export default class UserInfo extends HTMLElement {
 					}
 				}
 
+				& user-info-visual {
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: rgba( 255, 255, 255, .92 );
+					font-family: var( --font-family-c );
+					font-size: 3rem;
+					letter-spacing: .04em;
+				}
+
+				&[ cue="intro" ] user-info-guide {
+					top: 50%;
+					left: 50%;
+					transform: translate( -50%, -50% );
+					width: 480px;
+					max-width: calc( 100vw - 80px );
+					min-height: 292px;
+					box-sizing: border-box;
+					padding: 22px 26px 20px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid var( --border-color );
+				}
+
+				&[ cue="intro" ] user-info-copy {
+					padding: 0;
+					background: none;
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+					border: none;
+				}
+
+				&[ cue="intro" ] user-info-copy {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					gap: 12px;
+					width: 100%;
+					height: 100%;
+				}
+
+				&[ cue="intro" ] p {
+					width: 100%;
+					max-width: 100%;
+					overflow-wrap: anywhere;
+					text-align: center;
+				}
+
+				&[ cue="intro" ] p {
+					text-align: left;
+				}
+
+				&[ cue="intro" ] user-info-visual {
+					display: none;
+				}
+
+				&[ cue="spectrum" ] user-info-guide {
+					top: 50%;
+					right: calc( var( --margin-m ) + 196px );
+					transform: translateY( -50% );
+					width: 380px;
+					flex-direction: row;
+					align-items: center;
+					gap: 26px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid var( --border-color );
+
+					& user-info-copy {
+						order: 1;
+						width: 520px;
+						background: none;
+						backdrop-filter: none;
+						-webkit-backdrop-filter: none;
+						border: none;
+						text-align: left;
+					}
+				}
+
+				&[ cue="spectrum" ] user-info-visual {
+					order: 2;
+					width: 72px;
+					height: 72px;
+
+					&::after {
+						content: '→';
+						font-size: 5.4rem;
+						line-height: 1;
+					}
+				}
+
+				&[ cue="viewpoint" ] user-info-guide {
+					left: 50%;
+					bottom: 270px;
+					transform: translateX( -50% );
+					width: 760px;
+					height: 210px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid var( --border-color );
+				}
+
+				&[ cue="viewpoint" ] user-info-copy {
+					order: 1;
+					margin-bottom: 14px;
+					width: 700px;
+					background: none;
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+					border: none;
+				}
+
+				&[ cue="viewpoint" ] user-info-visual {
+					order: 2;
+					width: 72px;
+					height: 72px;
+					transform: translateY( -10px );
+
+					&::before {
+						content: '↓';
+						font-size: 5.4rem;
+						line-height: 1;
+					}
+				}
+
+				&[ cue="spectrum" ] p {
+					text-align: left;
+					white-space: nowrap;
+				}
+
+				&[ visible ]:not( [ hidden ] ) {
+					opacity: 1;
+					pointer-events: none;
+
+					& user-info-guide {
+						opacity: 1;
+						pointer-events: all;
+					}
+				}
+
+				&[ hidden ] {
+					opacity: 1;
+					pointer-events: none;
+
+					& user-info-guide {
+						opacity: .001;
+						pointer-events: none;
+					}
+				}
+
+				[ path="/works" ][ list="particles" ]:not( [ intro-ready ] ) & {
+					opacity: 1;
+					pointer-events: none;
+
+					& user-info-guide {
+						opacity: .001;
+						pointer-events: none;
+					}
+				}
+
 				@media ( max-width: 1024px ) {
-					width: calc( 100vw - 64px );
-					min-height: 500px;
-					padding: 28px 30px 26px;
+					&[ cue="spectrum" ] user-info-guide {
+						right: calc( var( --margin-m ) + 148px );
+					}
+
+					&[ cue="viewpoint" ] user-info-guide {
+						bottom: 132px;
+					}
 				}
 
 				@media ( max-width: 650px ) {
-					width: calc( 100vw - 32px );
-					min-height: 440px;
+					& user-info-guide {
+						max-width: calc( 100vw - 32px );
+					}
 
-					& h5 {
-						font-size: var( --font-size-m );
+					& user-info-copy {
+						padding: 18px 18px 16px;
 					}
 
 					& p {
-						font-size: var( --font-size-xxs );
+						font-size: 16px;
 					}
 
 					& user-info-actions {
-						padding-top: 28px;
+						padding-top: 18px;
+						flex-wrap: wrap;
 					}
 
 					& user-info-button {
-						min-width: 170px;
-						padding: 12px 18px;
+						width: 100%;
+						font-size: 16px;
+					}
+
+					&[ cue="intro" ] user-info-guide {
+						top: 50%;
+						width: calc( 100vw - 32px );
+						max-width: calc( 100vw - 32px );
+						min-height: 240px;
+					}
+
+					&[ cue="spectrum" ] user-info-guide {
+						right: calc( var( --margin-s ) + 84px );
+						gap: 10px;
+
+						& user-info-copy {
+							width: 100%;
+						}
+					}
+
+					&[ cue="viewpoint" ] user-info-guide {
+						bottom: 156px;
+					}
+
+					&[ cue="intro" ] user-info-copy {
+						width: 100%;
+					}
+
+					&[ cue="spectrum" ] p {
+						white-space: normal;
 					}
 				}
 			}
@@ -359,14 +663,40 @@ export default class UserInfo extends HTMLElement {
 				step="0"
 				steps="${ steps ? steps.length : 1 }"
 			>
-				<h5>${ steps ? steps[ 0 ].title : ( title || '' ) }</h5>
-				<p>${ steps ? steps[ 0 ].paragraphs : ( paragraphs || '' ) }</p>
-				${ steps ? html`
-					<user-info-actions>
-						<user-info-button next @click|user-info>Continue</user-info-button>
-						<user-info-button explore @click|user-info>Enter the Archive</user-info-button>
-					</user-info-actions>
-				` : '' }
+				${ name === 'Particles' && steps ? html`
+					<user-info-guide>
+						<user-info-visual></user-info-visual>
+						<user-info-copy>
+							<h5>${ steps[ 0 ].title }</h5>
+							<p>${ steps[ 0 ].paragraphs }</p>
+							<user-info-actions>
+								<user-info-button next @click|user-info>Next</user-info-button>
+								<user-info-button explore @click|user-info>Start</user-info-button>
+							</user-info-actions>
+						</user-info-copy>
+					</user-info-guide>
+					` : name === 'Images' && steps ? html`
+						<h5>${ steps[ 0 ].title }</h5>
+						<p>${ steps[ 0 ].paragraphs }</p>
+						<user-info-actions>
+							<user-info-button explore @click|user-info>Start</user-info-button>
+						</user-info-actions>
+					` : name === 'World' ? html`
+						<h5>${ title || '' }</h5>
+						<p>${ paragraphs || '' }</p>
+						<user-info-actions>
+							<user-info-button explore @click|user-info>Start</user-info-button>
+						</user-info-actions>
+					` : html`
+						<h5>${ steps ? steps[ 0 ].title : ( title || '' ) }</h5>
+						<p>${ steps ? steps[ 0 ].paragraphs : ( paragraphs || '' ) }</p>
+					${ steps ? html`
+						<user-info-actions>
+							<user-info-button next @click|user-info>Continue</user-info-button>
+							<user-info-button explore @click|user-info>Enter the Archive</user-info-button>
+						</user-info-actions>
+					` : '' }
+				` }
 			</user-info-text>
 
 			` );

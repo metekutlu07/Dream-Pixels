@@ -28,12 +28,12 @@ export default class PostProcessing {
 			},
 
 			chromaticAberrationPass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: .3, max: 2 },
 			},
 
 			bloomPass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: .75, max: 1 },
 				radius: { value: .05, max: 5 },
 				threshold: { value: .75, max: 1 },
@@ -66,7 +66,7 @@ export default class PostProcessing {
 			},
 
 			rgbShiftPass: {
-				enabled: true,
+				enabled: false,
 				strength: { value: 1e-5, max: 1e-2 },
 				angle: { value: 0, max: 1 }
 			},
@@ -125,12 +125,35 @@ export default class PostProcessing {
 		Application.renderer.info.reset();
 
 		const { overrideCamera, camera, scene } = Application;
-		this.renderPass.camera = overrideCamera || camera;
+		const { path } = Application.store;
+		const afterImageEnabled = path === '/' || path === '/contact' || path === '/about';
+		this.parameters.afterImagePass.enabled = afterImageEnabled;
+
+		const hasActivePass = (
+			this.parameters.vignettePass.enabled ||
+			this.parameters.chromaticAberrationPass.enabled ||
+			this.parameters.bloomPass.enabled ||
+			this.parameters.motionBlurPass.enabled ||
+			this.parameters.afterImagePass.enabled ||
+			this.parameters.glitchPass.enabled ||
+			this.parameters.rgbShiftPass.enabled ||
+			this.parameters.slicesPass.enabled
+		);
+
+		const activeCamera = overrideCamera || camera;
+
+		if ( ! hasActivePass ) {
+
+			Application.metrics.renderMode = 'renderer';
+			Application.renderer.render( scene, activeCamera );
+			return;
+
+		}
+
+		Application.metrics.renderMode = 'composer';
+		this.renderPass.camera = activeCamera;
 		this.renderPass.scene = scene;
 		this.composer.render();
-
-		const { path } = Application.store;
-		this.parameters.afterImagePass.enabled = path === '/contact' || path === '/about';
 
 	}
 

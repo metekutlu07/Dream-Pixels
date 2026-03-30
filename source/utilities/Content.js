@@ -37,12 +37,14 @@ export default class Content {
 
 			return this.projects
 				.map( project => `/${ project.path }` )
-				.concat( [ '/', '/works', '/about', '/contact' ] );
+				.concat( [ '/', '/works', '/mete-kutlu', '/about', '/contact' ] );
 
 		} else {
 
 			const project = this.projects.find( project => project.path === path );
-			const view = this.views[ path === '' ? 'home' : path ];
+			const key = path === '' ? 'home' : path;
+			const view = this.views[ key ] ||
+				Object.values( this.views ).find( view => view.path === `/${ path }` );
 			return view || project;
 
 		}

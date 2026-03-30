@@ -36,12 +36,11 @@ export default class Panels extends HTMLElement {
 				}
 			}
 
-			[ view-enter ][ list="sphere" ] &[ name="Images" ],
-			[ view-enter ][ list="places" ][ places="world" ] &[ name="World" ],
+			/* [ view-enter ][ list="places" ][ places="world" ] &[ name="World" ],
 			[ view-enter ][ list="places" ][ places="cosmos" ] &[ name="Cosmos" ] {
 				opacity: 1;
 				pointer-events: all;
-			}
+			} */
 
 			@media ( max-width: 1024px ) {
 				display: none;

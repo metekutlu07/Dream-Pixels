@@ -93,6 +93,8 @@ export default class Scene extends Object3D {
 			'Default',
 			'Contact',
 			'About',
+			'Mete',
+			'MeteSlow',
 
 			'Radelska',
 			'MiniatureStreetView',
@@ -107,7 +109,7 @@ export default class Scene extends Object3D {
 
 		].map( cameraID => {
 
-			const Camera = cameraID.match( /Timeline|Contact|About/g ) ? CameraB : CameraA;
+			const Camera = cameraID.match( /Timeline|Contact|About|Mete/g ) ? CameraB : CameraA;
 			return [ cameraID, new Camera( cameraID ) ];
 
 		} ) );
@@ -124,8 +126,10 @@ export default class Scene extends Object3D {
 		if ( path === '/miniature-street-view' ) cameraID = 'MiniatureStreetView';
 		if ( path === '/virtual-miniature' ) cameraID = 'VirtualMiniature';
 		if ( path === '/photogrammetry' ) cameraID = 'Photogrammetry';
+		if ( path === '/' ) cameraID = 'Mete';
 		if ( path === '/contact' ) cameraID = 'Contact';
 		if ( path === '/about' ) cameraID = 'About';
+		if ( path === '/mete-kutlu' ) cameraID = 'MeteSlow';
 
 		if ( path === '/works' ) {
 
@@ -171,7 +175,7 @@ export default class Scene extends Object3D {
 
 		this.particles.visible = (
 			( isParticleWorksView && ( ! isParticleColorRange || hasPixelExperienceStarted ) ) ||
-			( path === '/contact' || path === '/about' )
+			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
 		);
 
 		this.parameters.density = 0;

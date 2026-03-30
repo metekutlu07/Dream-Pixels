@@ -49,6 +49,16 @@ export default class Header extends HTMLElement {
 		const { currentTarget } = event;
 		const { camera, fullscreen, scene, audio } = Application;
 
+		if ( currentTarget.hasAttribute( 'works' ) ) {
+
+			Application.store.set( 'list', 'particles' );
+			Application.store.set( 'particles', 'color-range' );
+			Application.store.set( 'skip-particle-gate', true );
+			Application.router.navigate( '/works' );
+			return;
+
+		}
+
 		if ( currentTarget.hasAttribute( 'augmented-reality' ) ) scene.export();
 		if ( currentTarget.hasAttribute( 'camera-mode' ) ) camera.setOrthography();
 		if ( currentTarget.hasAttribute( 'fullscreen' ) ) fullscreen.toggle();
@@ -96,6 +106,7 @@ export default class Header extends HTMLElement {
 	onResize() {
 
 		const { header } = this.elements;
+		if ( ! header ) return;
 		const width = `${ header.clientWidth + 1 }px`;
 		document.documentElement.style.setProperty( '--header-width', width );
 
@@ -111,6 +122,7 @@ export default class Header extends HTMLElement {
 		} = Application.store;
 
 		const uiReady = Application.store[ 'ui-ready' ];
+		const homeGateVisible = path === '/' && Application.store[ 'home-gate-visible' ];
 		const pixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
 		const pixelExperienceGateVisible = Application.store[ 'pixel-experience-gate-visible' ];
 		const pixelExperienceTransitioning = Application.store[ 'pixel-experience-transitioning' ];
@@ -122,7 +134,7 @@ export default class Header extends HTMLElement {
 
 		const shouldHideArchiveUI = (
 			loading ||
-			path === '/' ||
+			homeGateVisible ||
 			(
 				isPixelLanding &&
 				(
@@ -136,14 +148,24 @@ export default class Header extends HTMLElement {
 
 		this.toggleAttribute( 'landing-hidden', shouldHideArchiveUI );
 
-		const groups = this.querySelectorAll(
-			'header-small-screen, header-navigation, header-grid-modes, header-controls, header-analytics'
+		const sharedGroups = this.querySelectorAll(
+			'header-small-screen, header-navigation, header-controls'
 		);
 
-		groups.forEach( group => {
+		sharedGroups.forEach( group => {
 
 			group.style.opacity = shouldHideArchiveUI ? '0' : '';
 			group.style.pointerEvents = shouldHideArchiveUI ? 'none' : '';
+
+		} );
+
+		const archiveGroups = this.querySelectorAll( 'header-grid-modes, header-analytics' );
+		const shouldHideArchivePanels = shouldHideArchiveUI || path === '/';
+
+		archiveGroups.forEach( group => {
+
+			group.style.opacity = shouldHideArchivePanels ? '0' : '';
+			group.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
 
 		} );
 
@@ -155,6 +177,7 @@ export default class Header extends HTMLElement {
 
 		header-block {
 			--width: 350px;
+			--top-panel-gap: calc( var( --margin-xs ) / 2 );
 			z-index: 20;
 			position: fixed;
 			top: 0;
@@ -224,6 +247,26 @@ export default class Header extends HTMLElement {
 			transition: opacity 2s var( --timing-function );
 		}
 
+		header-top-row {
+			position: absolute;
+			top: var( --margin-m );
+			left: 50%;
+			transform: translateX( -50% );
+			display: flex;
+			align-items: flex-start;
+			flex-wrap: nowrap;
+			gap: 14px;
+			pointer-events: none;
+
+			@media ( max-width: 1024px ) {
+				position: relative;
+				top: initial;
+				left: initial;
+				transform: none;
+				display: contents;
+			}
+		}
+
 		header-small-screen {
 			top: 95px;
 
@@ -286,8 +329,44 @@ export default class Header extends HTMLElement {
 		}
 
 		header-navigation {
-			left: var( --margin-m );
-			top: var( --margin-m );
+			left: 0;
+			top: 0;
+			position: relative;
+			flex-wrap: nowrap;
+			background: rgba( 0, 0, 0, .28 );
+
+			& default-button {
+				font-family: var( --font-family-c );
+				font-size: 1.65rem;
+				letter-spacing: .04em;
+			}
+
+			& default-button[ home ] {
+				font-family: var( --font-family-b );
+				font-size: 2.6rem;
+				font-weight: 800;
+				letter-spacing: .02em;
+			}
+
+			& button-label,
+			& button-label span {
+				white-space: nowrap;
+			}
+
+			& default-button button-label {
+				min-height: 60px;
+				box-sizing: border-box;
+			}
+
+			& default-button[ home ] button-label {
+				padding-left: 30px;
+				padding-right: 72px;
+			}
+
+			& default-button[ home ]:hover {
+				--background-color: transparent;
+				z-index: 1;
+			}
 		}
 
 		header-grid-modes {
@@ -311,34 +390,42 @@ export default class Header extends HTMLElement {
 			& > div {
 				display: flex;
 				justify-content: center;
+				background: rgba( 0, 0, 0, .28 );
 
 				&:not( :last-child ) {
-					margin-bottom: var( --margin-xs );
+					margin-bottom: calc( var( --margin-xs ) / 2 );
 				}
 			}
 		}
 
 		header-controls {
-			right: var( --margin-m );
-			top: var( --margin-m );
+			left: 0;
+			top: 0;
 			bottom: auto;
+			right: auto;
+			position: relative;
+			flex-wrap: nowrap;
+			background: rgba( 0, 0, 0, .28 );
+
+			& default-button {
+				font-family: var( --font-family-c );
+				font-size: 1.65rem;
+				letter-spacing: .04em;
+			}
+
+			& button-label,
+			& button-label span {
+				white-space: nowrap;
+			}
+
+			& default-button button-label {
+				min-height: 60px;
+				box-sizing: border-box;
+			}
 		}
 
 		header-credits {
-			position: absolute;
-			top: var( --margin-m );
-			right: var( --margin-m );
-			font-size: var( --font-size-xs );
-			font-family: var( --font-family-c );
-			opacity: 0;
-
-			@media ( max-width: 650px ) {
-				display: none;
-			}
-
-			[ path="/contact" ] & {
-				opacity: 1;
-			}
+			display: none;
 		}
 
 		header-analytics {
@@ -348,9 +435,12 @@ export default class Header extends HTMLElement {
 			font-size: var( --font-size-m );
 			font-family: var( --font-family-c );
 			opacity: 0;
-			text-align: right;
+			padding: 16px;
+			border: var( --border-size ) solid var( --border-color );
+			background: rgba( 0, 0, 0, .2 );
+			text-align: left;
 
-			[ path="/works" ] &,
+			[ path="/works" ][ list="particles" ] &,
 			[ path="/contact" ] & {
 				opacity: 1;
 			}
@@ -361,22 +451,29 @@ export default class Header extends HTMLElement {
 				&:not(:last-child) {
 					margin-bottom: 5px;
 				}
-
-				&:first-child {
-					font-family: var( --font-family-a );
-					font-size: var( --font-size-l );
-				}
 			}
 
 			@media ( max-width: 1024px ) {
 				display: none;
 				font-size: var( --font-size-xs );
+			}
+		}
 
-				& li {
-					&:first-child {
-						font-size: var( --font-size-m );
-					}
-				}
+		header-analytics-title {
+			width: calc( 100% + 32px );
+			margin: -16px -16px 12px;
+			padding: 16px 16px 12px;
+			margin-bottom: 12px;
+			border-bottom: var( --border-size ) solid rgba( 255, 255, 255, .75 );
+			display: block;
+			font-family: var( --font-family-c );
+			font-size: var( --font-size-m );
+			font-weight: normal;
+			letter-spacing: .04em;
+			text-align: center;
+
+			@media ( max-width: 1024px ) {
+				font-size: var( --font-size-xs );
 			}
 		}
 
@@ -406,9 +503,11 @@ export default class Header extends HTMLElement {
 		`;
 
 		const navigation = [
-			{ attributes: [ 'works' ], link: { internal: true } },
+			{ attributes: [ 'home' ], link: { internal: true } },
 			{ attributes: [ 'about' ], link: { internal: true } },
+			{ attributes: [ 'works', '@click|header-block' ], labels: [ 'Experiments' ] },
 			{ attributes: [ 'empire' ], link: { attributes: [ 'href="https://www.empireofclouds.com"', 'target="_blank"', 'rel="noreferrer"' ] } },
+			{ attributes: [ 'mete' ], link: { internal: true } },
 			{ attributes: [ 'contact' ], link: { internal: true } },
 		];
 
@@ -430,12 +529,12 @@ export default class Header extends HTMLElement {
 		];
 
 		const controls = [
+			{ attributes: [ 'fullscreen', '@click|header-block' ] },
+			{ attributes: [ 'audio', '@click|header-block' ] },
 			{ attributes: [ 'augmented-reality', '@click|header-block' ] },
 			{ attributes: [ 'display-wireframe', '@click|header-block' ] },
 			{ attributes: [ 'display-points', '@click|header-block' ] },
-			{ attributes: [ 'camera-mode', '@click|header-block' ] },
-			{ attributes: [ 'fullscreen', '@click|header-block' ] },
-			{ attributes: [ 'audio', '@click|header-block' ] }
+			{ attributes: [ 'camera-mode', '@click|header-block' ] }
 		];
 
 		const { copyright } = Application.content;
@@ -449,9 +548,15 @@ export default class Header extends HTMLElement {
 				${ Button.render( { attributes: [ 'display-aside', '@click|header-block' ] } ) }
 			</header-small-screen>
 
-			<header-navigation blurred-background>
-				${ navigation.map( Button.render ) }
-			</header-navigation>
+			<header-top-row>
+				<header-navigation blurred-background #navigation>
+					${ navigation.map( Button.render ) }
+				</header-navigation>
+
+				<header-controls blurred-background #controls>
+					${ controls.map( Button.render ) }
+				</header-controls>
+			</header-top-row>
 
 			<header-grid-modes>
 				<div blurred-background>
@@ -465,16 +570,12 @@ export default class Header extends HTMLElement {
 				</div>
 			</header-grid-modes>
 
-			<header-controls blurred-background>
-				${ controls.map( Button.render ) }
-			</header-controls>
-
 			<header-credits>
 				${ copyright }
 			</header-credits>
 
-			<header-analytics>
-				<li>Archive Analytics</li>
+			<header-analytics blurred-background>
+				<header-analytics-title>Archive Analytics</header-analytics-title>
 				<li>Projects: <span #projects>20</span></li>
 				<li>Images: <span #images>122</span></li>
 				<li>Pixels: <span #pixels>4 543 456 345</span></li>

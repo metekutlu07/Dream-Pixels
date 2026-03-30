@@ -394,6 +394,7 @@ export default class OrbitControls extends Object3D {
 	onInputStart( event ) {
 
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) return;
 
 		if ( this.camera.cameraID === 'Cosmos' && ! this.wasClickedOnce ) {
 
@@ -462,6 +463,7 @@ export default class OrbitControls extends Object3D {
 	onWheel( event ) {
 
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) return;
 		if ( ! this.parameters.enableZoom ) return;
 
 		const { zoomSpeed } = this.parameters;

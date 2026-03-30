@@ -32,10 +32,11 @@ import UserInfo from './components/UserInfo';
 import Home from '~/views/Home';
 import Projects from '~/views/Projects';
 import About from '~/views/About';
+import Mete from '~/views/Mete';
 import Project from '~/views/Project';
 import Contact from '~/views/Contact';
 
-const Views = [ Home, Projects, About, Contact, Project ];
+const Views = [ Home, Projects, About, Mete, Contact, Project ];
 
 class Application {
 
@@ -54,6 +55,7 @@ class Application {
 		this.events = new Events();
 		this.router = new Router();
 		this.store = new Store();
+		this.metrics = {};
 
 		Views.forEach( view => this.router.add( view.path ) );
 

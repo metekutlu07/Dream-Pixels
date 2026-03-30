@@ -58,7 +58,7 @@ projects.sort( ( projectA, projectB ) => {
 export default {
 
 	title: 'Dream Pixels',
-	subtitle: 'Spatialized Pigments <br> Across Time',
+	subtitle: 'Between Cosmos and Algorithm',
 	author: 'Mete Kutlu',
 
 	// Description displayed results from explorer like Google
@@ -77,7 +77,7 @@ export default {
 
 	credits: 'Founded by Mete Kutlu',
 	copyright: 'Feel free to use and remix. Paris, 2023.',
-	contact: 'Want to collaborate with us<br>or simply have a chat ?',
+	contact: 'Want to collaborate or reach out?',
 	user_infos: {
 
 		'Cosmos': {
@@ -90,40 +90,50 @@ export default {
 			`
 		},
 
+		'World': {
+			title: '',
+			paragraphs: `
+				Discover the experiments based on their location.<br><br>
+				Click on a city to learn more about related projects.<br>
+				Drag with your mouse to navigate the map.<br>
+				Scroll to zoom in and out.<br><br>
+				This is a worldmap designed by 3D modelling a medieval mappamundi drawn by Andalusian geographer Idrisi in 1154 for Roger, the king of Sicily.<br><br>
+				North is in the bottom, South is on top. Constantinople is the center of the world. On the edge of the world is Mount Qaf, the green mountain chain made of chrysolite.
+			`
+		},
+
 		'Images': {
-			title: 'Drag with your mouse<br>or with your fingers<br>to explore the archive.'
+			steps: [
+				{
+					title: '',
+					paragraphs: 'You are inside the iconosphere.<br>Drag with your mouse to explore.<br>Click the images to explore the projects.'
+				}
+			]
 		},
 
 		'Particles': {
 			steps: [
 				{
-					title: 'THE ARCHIVE OF THE AGE OF AI',
-					paragraphs: `
-						This collection preserves 23 experiments by Mete Kutlu, derived from the doctoral thesis Empire of Clouds: Codes, Colors, and Cosmos.<br><br>
-						Here, algorithms are the foundation of the universe, and colors are its interface. In this space, you are journeying through the machine mind, an interstellar void where knowledge forms a cosmic cloud.
-					`
+					cue: 'intro',
+					title: '',
+					paragraphs: 'Each particle represents a pixel extracted from an image in the archive.<br><br>Click these virtual atoms to explore a hundred worlds hidden within.<br><br>Drag with your mouse to rotate the point cloud.<br><br>Scroll to zoom in and out.'
 				},
 				{
-					title: 'NAVIGATION',
-					paragraphs: `
-						Each particle represents a single pixel extracted from the archive.<br><br>
-						Click these virtual atoms to reveal a hundred worlds hidden within.<br><br>
-						<strong>Controls</strong><br><br>
-						<strong>Orbit</strong> - Click and drag to rotate the celestial sphere<br>
-						<strong>Scale</strong> - Scroll to travel through the cloud<br>
-						<strong>Filter</strong> - Use the spectrum bar to isolate chromatic frequencies<br>
-						<strong>Select</strong> - Click a particle to reveal the project data
-					`
+					cue: 'spectrum',
+					title: '',
+					paragraphs: 'Drag handles to filter color.'
+				},
+				{
+					cue: 'viewpoint',
+					title: '',
+					paragraphs: 'Explore the cloud from inside or outside.<br><br>Discover the archive through four different modes.'
 				}
 			]
 		}
 	},
 
-	mail: 'contact@dreampixels.fr',
+	mail: 'metekutlu@gmail.com',
 	address: `
-		10 rue du Penthièvre<br>
-		75008 Paris<br>
-		France
 		`,
 
 	about: [],
@@ -132,6 +142,7 @@ export default {
 
 		home: { path: '/', title: 'Home' },
 		works: { path: '/works', title: 'Experiments' },
+		mete: { path: '/mete-kutlu', title: 'Mete Kutlu' },
 		about: { path: '/about', title: 'About' },
 		contact: { path: '/contact', title: 'Contact' },
 		update: { path: '/update', title: 'Update' }
@@ -141,17 +152,18 @@ export default {
 	buttons: {
 		'camera-mode': [ 'Orthographic', 'Perspective' ],
 		'panorama-map-mode': [ 'Top View', 'Miniature View' ],
-		'fullscreen': [ 'Fullscreen', 'Minimize' ],
+		'fullscreen': [ 'Full Screen', 'Minimize' ],
 		'audio': [ 'Mute', 'Unmute' ],
 		'display-points': [ 'Points', 'Solid' ],
 		'display-wireframe': [ 'Wireframe', 'Default' ],
 		'display-aside': [ 'Show list', 'Hide list' ],
 		'augmented-reality': [ 'Augmented Reality' ],
-		'home': [ 'Home' ],
+		'home': [ 'Dream Pixels' ],
 		'close': [ 'Close' ],
 		'works': [ 'Dream Pixels' ],
+		'mete': [ 'Mete Kutlu' ],
 		'about': [ 'About' ],
-		'empire': [ 'Empire' ],
+		'empire': [ 'Empire of Clouds' ],
 		'project': [ 'See project' ],
 		'contact': [ 'Contact' ],
 		'places': [ 'Places' ],

@@ -15,6 +15,7 @@ export default class Camera extends PerspectiveCamera {
 		this.scroll = 0;
 		this.progress = 0;
 		this.friction = cameraID === 'Timeline' ? .1 : .025;
+		this.speedFactor = cameraID === 'MeteSlow' ? .1 : 1;
 
 		this.initialState = new State();
 		this.currentState = new State();
@@ -32,6 +33,20 @@ export default class Camera extends PerspectiveCamera {
 	onPreFrame() {
 
 		this.isEnabled = Application.camera === this;
+
+	}
+
+	onViewChange() {
+
+		if ( this.cameraID !== 'MeteSlow' ) return;
+		if ( Application.store.path !== '/mete-kutlu' ) return;
+
+		const start = 0.35;
+		this.scroll = start;
+		this.progress = start;
+		this.currentPan.set( 0, 0, 0 );
+		this.lerpPan.set( 0, 0, 0 );
+		this.snapToProgress( start );
 
 	}
 
@@ -63,26 +78,28 @@ export default class Camera extends PerspectiveCamera {
 
 		this.isScrolling = this.position.distanceTo( position ) > .1;
 
-		if ( this.cameraID !== 'Timeline' ) this.scroll += 1e-4;
+		if ( this.cameraID !== 'Timeline' ) this.scroll += 1e-4 * this.speedFactor;
 
 	}
 
 	onWheel( event ) {
 
 		if ( ! this.isEnabled ) return;
+		if ( ! Application.store[ 'particle-archive-entered' ] && Application.store.particles === 'timeline' ) return;
 
 		if ( ! event.composedPath()[ 0 ].matches( 'canvas' ) ) return;
 
 		const { particles } = Application.store;
 		if ( particles !== 'timeline' ) return;
 
-		this.scroll += event.deltaY * 1e-5 * 2.5;
+		this.scroll += event.deltaY * 1e-5 * 2.5 * this.speedFactor;
 
 	}
 
 	onInputStart( event ) {
 
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+		if ( ! Application.store[ 'particle-archive-entered' ] && Application.store.particles === 'timeline' ) return;
 
 		this.initialState.copy( this.currentState );
 		this.initialPan.copy( this.currentPan );
@@ -107,7 +124,7 @@ export default class Camera extends PerspectiveCamera {
 
 		this.setDelta();
 
-		this.currentPan.y = this.initialPan.y + this.deltaState.position.y * 1e-4;
+		this.currentPan.y = this.initialPan.y + this.deltaState.position.y * 1e-4 * this.speedFactor;
 
 	}
 
@@ -132,6 +149,27 @@ export default class Camera extends PerspectiveCamera {
 	isOverCanvas( event ) {
 
 		return event.composedPath()[ 0 ].matches( 'canvas,section-type-1' );
+
+	}
+
+	snapToProgress( progress ) {
+
+		if ( ! Application.particles ) return;
+
+		const { curve } = Application.particles.simulation;
+		const offsetY = .1;
+		const normalizedProgress = Math.euclideanModulo( progress, 1 );
+		const position = curve.getPointAt( normalizedProgress, Vector3.get() );
+		const target = curve.getPointAt( Math.euclideanModulo( normalizedProgress + 1e-3, 1 ), Vector3.get() );
+
+		position.y += offsetY;
+		target.y += offsetY;
+
+		this.position.copy( position );
+		this.target.copy( target );
+		this.lookAt( this.target );
+
+		Vector3.release( position, target );
 
 	}
 

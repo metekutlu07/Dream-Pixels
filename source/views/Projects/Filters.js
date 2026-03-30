@@ -40,10 +40,9 @@ export default class Filters extends HTMLElement {
 			position: fixed;
 			display: flex;
 			flex-direction: column;
-			background-color: var( --background-color );
-			top: var( --margin-m );
-			right: var( --margin-m );
-			margin-top: 70px;
+			background: rgba( 0, 0, 0, .28 );
+			top: calc( var( --margin-m ) + 150px );
+			left: var( --margin-m );
 			border: var( --border-size ) solid var( --border-color );
 			/* transition: opacity 1s var( --timing-function ); */
 			/* padding: var( --margin-m ); */
@@ -53,7 +52,7 @@ export default class Filters extends HTMLElement {
 			list-style: none;
 			opacity: 0;
 			/* transition: opacity 1s var( --timing-function ); */
-			max-height: calc( 100% - var( --margin-m ) * 2 - 200px );
+			max-height: calc( 100% - var( --margin-m ) * 2 - 300px );
 
 			[ view-enter ][ list="sphere" ] & {
 				opacity: 1;
@@ -63,7 +62,6 @@ export default class Filters extends HTMLElement {
 
 			@media ( max-width: 1024px ) {
 				display: none;
-				margin-top: 50px;
 			}
 		}
 
@@ -222,28 +220,33 @@ export default class Filters extends HTMLElement {
 				'Venetian',
 			],
 			subjects: [
-				'Architectural Heritage',
-				'Botany',
+				'Architecture',
 				'Miniatures',
 				'Mosaics',
 				'Painting',
 			],
 		};
 
-		const generateFilters = ( tags ) => tags.map( tag => html`
+		const generateFilters = tags => tags.map( tag => {
+
+			const value = tag === 'Architecture' ? 'Architectural Heritage' : tag;
+
+			return html`
 
 		<li>
 			<label>
 				<input
 					type="checkbox"
-					value="${ tag }"
+					value="${ value }"
 					#inputs
 				/>
 				${ tag }
 			</label>
 		</li>
 
-		` );
+		`;
+
+		} );
 
 		return html`
 
@@ -257,18 +260,18 @@ export default class Filters extends HTMLElement {
 
 			<projects-filters-description>
 				<div>
-					<h4>Technology</h4>
-					<ul>${ generateFilters( filters.technologies ) }</ul>
-				</div>
-				<hr />
-				<div>
-					<h4>Culture</h4>
+					<h4>Civilization</h4>
 					<ul>${ generateFilters( filters.cultures ) }</ul>
 				</div>
 				<hr />
 				<div>
-					<h4>Subject</h4>
+					<h4>Artisanal Media</h4>
 					<ul>${ generateFilters( filters.subjects ) }</ul>
+				</div>
+				<hr />
+				<div>
+					<h4>Digital Media</h4>
+					<ul>${ generateFilters( filters.technologies ) }</ul>
 				</div>
 			</projects-filters-description>
 		</projects-filters>

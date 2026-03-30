@@ -11,6 +11,7 @@ uniform float scale;
 attribute vec3 color;
 uniform sampler2D simulation;
 varying vec3 vColor;
+varying vec2 vSeed;
 
 void main() {
 
@@ -22,6 +23,7 @@ void main() {
 	float life = data.w;
 	transformed = data.xyz;
 	vColor = color;
+	vSeed = position.xy;
 
 	if ( life <= .0 ) transformed.y += 1e5;
 

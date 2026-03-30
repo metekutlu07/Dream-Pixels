@@ -91,7 +91,12 @@ export default class View extends HTMLElement {
 
 		Application.events.dispatch( 'onViewChange', this );
 
+		const scrollingElement = document.scrollingElement || document.documentElement || document.body;
+		scrollingElement.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
 		document.body.scrollTop = 0;
+		window.scrollTo( 0, 0 );
+
 		Application.store.set( 'view-enter', true );
 		Application.audio.play( '003.mp3' );
 
@@ -129,4 +134,3 @@ export default class View extends HTMLElement {
 	}
 
 }
-

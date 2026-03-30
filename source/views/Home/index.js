@@ -1,33 +1,114 @@
 import View from '~/components/View';
-import Video from '~/components/Video';
-import Button from '~/components/Button';
+import Maximize from '~/assets/icons/Maximize';
+import Minimize from '~/assets/icons/Minimize';
+import Speaker from '~/assets/icons/Speaker';
+import Muted from '~/assets/icons/Muted';
 
 export default class Home extends View {
 
 	static path = '/';
 	static silent = false;
 
+	constructor() {
+
+		super();
+
+		this.startParticlesExperience = this.startParticlesExperience.bind( this );
+		this.toggleFullscreen = this.toggleFullscreen.bind( this );
+		this.toggleAudio = this.toggleAudio.bind( this );
+		this.enterHome = this.enterHome.bind( this );
+
+	}
+
 	onConnected() {
 
+		Application.store.set( 'list', 'particles' );
+		Application.store.set( 'particles', 'color-range' );
 		Application.store.set( 'pixel-experience-started', false );
 		Application.store.set( 'pixel-experience-gate-visible', false );
 		Application.store.set( 'pixel-experience-background-visible', false );
 		Application.store.set( 'pixel-experience-transitioning', false );
+		Application.store.set( 'skip-particle-gate', false );
+		Application.store.set( 'particle-archive-entered', false );
 		Application.store.set( 'ui-ready', false );
 		Application.store.set( 'intro-ready', false );
+		Application.store.set( 'home-gate-visible', ! Application.store[ 'home-gate-seen' ] );
+
+		this.elements.start?.addEventListener( 'click', this.startParticlesExperience );
+		this.elements.fullscreen?.addEventListener( 'click', this.toggleFullscreen );
+		this.elements.audio?.addEventListener( 'click', this.toggleAudio );
+		this.elements.enter?.addEventListener( 'click', this.enterHome );
+
+		this.syncGateState();
+
+		super.onConnected();
+
+	}
+
+	onDisconnected() {
+
+		this.elements.start?.removeEventListener( 'click', this.startParticlesExperience );
+		this.elements.fullscreen?.removeEventListener( 'click', this.toggleFullscreen );
+		this.elements.audio?.removeEventListener( 'click', this.toggleAudio );
+		this.elements.enter?.removeEventListener( 'click', this.enterHome );
+
+	}
+
+	onPreFrame() {
+
+		this.syncGateState();
+
+	}
+
+	syncGateState() {
+
+		const gateVisible = (
+			Application.store.path === '/' &&
+			Application.store[ 'home-gate-visible' ] &&
+			! Application.store.loading
+		);
+
+		this.toggleAttribute( 'gate-visible', gateVisible );
+
+		this.elements.fullscreen?.toggleAttribute( 'active', Application.fullscreen.isActive );
+		this.elements.audio?.toggleAttribute( 'active', ! Application.audio.isMuted );
+
+	}
+
+	startParticlesExperience( event ) {
+
+		event.preventDefault();
+		event.stopPropagation();
+
 		Application.store.set( 'list', 'particles' );
 		Application.store.set( 'particles', 'color-range' );
+		Application.store.set( 'skip-particle-gate', true );
 		Application.router.navigate( '/works' );
 
 	}
 
-	onClick( event ) {
+	toggleFullscreen( event ) {
 
-		const { currentTarget } = event;
-		const { name } = currentTarget.attributes[ 0 ];
-		Application.store.set( 'list', name );
-		if ( name === 'places' ) Application.store.set( 'places', 'world' );
-		Application.router.navigate( '/works' );
+		event.preventDefault();
+		Application.fullscreen.toggle();
+		this.syncGateState();
+
+	}
+
+	toggleAudio( event ) {
+
+		event.preventDefault();
+		Application.audio.toggle();
+		this.syncGateState();
+
+	}
+
+	enterHome( event ) {
+
+		event.preventDefault();
+		Application.store.set( 'home-gate-visible', false );
+		Application.store.set( 'home-gate-seen', true );
+		this.syncGateState();
 
 	}
 
@@ -36,238 +117,360 @@ export default class Home extends View {
 		css`
 
 		home-view {
-			width: 100vw;
-			height: 100vh;
-    		height: calc(var(--vh, 1vh) * 100);
+			position: relative;
+			min-width: 100vw;
+			min-height: 100vh;
+			min-height: calc( var( --vh, 1vh ) * 100 );
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: calc( var( --margin-m ) * 2 );
+			overflow: hidden;
+
+			@media ( max-width: 650px ) {
+				padding: calc( var( --margin-m ) * 2 ) var( --margin-s );
+			}
+		}
+
+		home-content {
+			position: relative;
+			z-index: 35;
+			width: min( 1720px, calc( 100vw - 120px ) );
 			display: flex;
 			flex-direction: column;
-			overflow-x: hidden;
-			padding-top: calc(var(--vh, 1vh) * 18);
-			padding-bottom: calc(var(--vh, 1vh) * 16);
+			align-items: center;
+			text-align: center;
+			color: var( --color-white );
 
-			@media ( max-width: 1680px ) {
-				padding-top: calc(var(--vh, 1vh) * 16);
-				padding-bottom: calc(var(--vh, 1vh) * 16);
+			[ path="/" ][ home-gate-visible ] & {
+				opacity: 0;
+				pointer-events: none;
+				visibility: hidden;
 			}
+		}
 
-			@media ( max-width: 1400px ) {
-				padding-bottom: 120px;;
-			}
+		home-title {
+			font-family: var( --font-family-a );
+			font-size: clamp( 4.2rem, 4.9vw, 8.2rem );
+			line-height: 1.02;
+			letter-spacing: .04em;
+			text-transform: none;
+			white-space: nowrap;
+		}
 
-			@media ( max-width: 1024px ) {
-				justify-content: space-between;
-				padding-top: calc(var(--vh, 1vh) * 14);
-				padding-bottom: calc(var(--vh, 1vh) * 9);
-			}
+		home-copy {
+			margin-top: 28px;
+			font-family: var( --font-family-c );
+			font-size: clamp( 1.9rem, 1.6vw, 3rem );
+			line-height: 1.6;
+			text-transform: none;
 
-			& video-block {
-				@media ( max-width: 650px ) {
-					position: absolute !important;
-				}
-			}
-
-			& video {
-				opacity: .75;
-			}
-
-			& home-title {
+			& span {
 				display: block;
-				line-height: 1.25;
-				text-align: center;
+				white-space: nowrap;
+			}
+		}
 
-				& h3 {
-					font-size: 8rem;
-					font-family: var( --font-family-a );
+		home-start {
+			cursor: pointer;
+			position: relative;
+			z-index: 36;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			pointer-events: all;
+			margin-top: 84px;
+			padding: 18px;
+			border: 1px solid rgba( 255, 255, 255, .32 );
+			font-family: var( --font-family-b );
+			font-size: clamp( 2.1rem, 1.5vw, 2.4rem );
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			color: var( --color-white );
+			background: rgba( 8, 8, 8, .34 );
+			backdrop-filter: blur( 10px );
+			-webkit-backdrop-filter: blur( 10px );
+			transition: background-color .25s var( --timing-function ), border-color .25s var( --timing-function );
 
-					@media ( max-width: 650px ) {
-						font-size: 5.5rem;
-					}
+			@media ( hover: hover ) {
+				&:hover {
+					background: rgba( 255, 255, 255, .16 );
+					border-color: rgba( 255, 255, 255, .5 );
 				}
+			}
+		}
 
-				& h4 {
-					font-size: var( --font-size-xxl );
-					font-family: var( --font-family-b );
+		home-gate {
+			position: fixed;
+			inset: 0;
+			z-index: 40;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 48px;
+			background: var( --color-black );
+			opacity: 0;
+			pointer-events: none;
+			visibility: hidden;
+			transition: opacity .45s var( --timing-function ), visibility .45s var( --timing-function );
 
-					@media ( max-width: 650px ) {
-						font-size: 3rem;
-					}
-				}
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background-image: url( "/public/common/Grid.svg" );
+				background-size: 50px;
+				background-position: center center;
+				opacity: .25;
+			}
+
+			[ path="/" ][ home-gate-visible ] & {
+				opacity: 1;
+				pointer-events: all;
+				visibility: visible;
+			}
+
+			@media ( max-width: 650px ) {
+				padding: 24px 16px;
+			}
+		}
+
+		home-gate-panel {
+			position: relative;
+			z-index: 1;
+			width: min( 980px, calc( 100vw - 120px ) );
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			color: var( --color-white );
+
+			@media ( max-width: 900px ) {
+				width: calc( 100vw - 48px );
+			}
+
+			@media ( max-width: 650px ) {
+				width: calc( 100vw - 32px );
+			}
+		}
+
+		home-gate-copy {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 28px;
+
+			& h2 {
+				font-family: var( --font-family-a );
+				font-size: clamp( 3.2rem, 3.4vw, 5.2rem );
+				line-height: 1.05;
+				letter-spacing: .05em;
+				text-transform: uppercase;
 			}
 
 			& p {
-				max-width: 600px !important;
-				font-size: var( --font-size-m );
+				max-width: 34ch;
 				font-family: var( --font-family-c );
-				line-height: var( --line-height );
-				text-align: center;
-
-				@media ( max-width: 650px ) {
-					font-size: var( --font-size-xs );
-				}
-			}
-
-			& img {
-				position: relative;
-				object-fit: cover;
-				width: 100%;
-				height: 100%;
+				font-size: clamp( 1.6rem, 1.2vw, 2rem );
+				line-height: 1.8;
 			}
 		}
 
-		home-buttons {
-			position: relative;
+		home-gate-actions {
 			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			margin-top: 50px;
+		}
+
+		home-gate-options {
+			display: flex;
+			align-items: flex-start;
 			justify-content: center;
-			margin-top: 60px;
+			gap: clamp( 52px, 7vw, 108px );
+			width: 100%;
 
-			& div {
-				display: flex;
-				flex-direction: row;
+			@media ( max-width: 650px ) {
+				flex-direction: column;
+				align-items: center;
+				gap: 28px;
+			}
+		}
 
-				& default-button {
-					font-size: var( --font-size-xxl );
-					font-family: var( --font-family-a );
-					padding: var( --margin-xs );
+		[ home-gate-option ] {
+			cursor: pointer;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 18px;
+			padding: 0;
+			border: none;
+			background: transparent;
+			color: rgba( 255, 255, 255, .78 );
+			transition: color .35s var( --timing-function );
 
-					&:not( :last-child ) {
-						margin-right: -1px;
+			@media ( hover: hover ) {
+				&:hover {
+					color: var( --color-white );
+
+					& home-gate-option-frame {
+						border-color: rgba( 255, 255, 255, .42 );
+						background: rgba( 0, 0, 0, .95 );
 					}
-
-					@media ( max-width: 1024px ) {
-						font-size: 4rem;
-					}
-				}
-
-				& span {
-					margin-bottom: -3px;
 				}
 			}
 
-			@media ( max-width: 650px ) {
-				margin-top: 0;
+			&[ active ] {
+				color: var( --color-green );
 
-				& div {
-					--blur: 0 !important;
-					flex-direction: column;
-					align-items: center;
-					gap: 5px;
-
-					& default-button {
-						padding: 2px;
-						border: none;
-
-						&:hover {
-							--background-color: transparent;
-						}
-					}
-
-					& span {
-						margin-bottom: 0;
-					}
+				& home-gate-option-frame {
+					border-color: currentColor;
 				}
 			}
 		}
 
-		scrolling-text-container {
-			margin-top: auto;
+		home-gate-option-frame {
+			width: clamp( 82px, 6vw, 98px );
+			height: clamp( 82px, 6vw, 98px );
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid rgba( 255, 255, 255, .18 );
+			background: rgba( 0, 0, 0, .9 );
+			transition: border-color .35s var( --timing-function ), background-color .35s var( --timing-function ), color .35s var( --timing-function );
 
-			& scrolling-text {
-				--gap: 0.25rem;
-				display: flex;
-				overflow: hidden;
-				user-select: none;
-				gap: var( --gap );
-				font-size: 3rem;
+			& svg {
+				width: 34px;
+				height: 34px;
+			}
 
-				& scrolling-animation {
-					flex-shrink: 0;
-					display: flex;
-					justify-content: space-around;
-					align-items: center;
-					min-width: 90%;
-					gap: var( --gap );
-					animation: scroll 50s linear infinite;
+			& path {
+				fill: currentColor !important;
+			}
+		}
 
-					& span:nth-child( even ) {
-						font-family: var( --font-family-b );
-						font-size: 0.9em;
-					}
-				}
+		home-gate-option-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-				@keyframes scroll {
-					from {
-						transform: translateX(0);
-					}
-					to {
-						transform: translateX(calc(-100% - var(--gap)));
-					}
+			& > *:nth-child( 2 ) {
+				display: none;
+			}
+
+			[ active ] & > *:first-child {
+				display: none;
+			}
+
+			[ active ] & > *:nth-child( 2 ) {
+				display: block;
+			}
+		}
+
+		home-gate-option-label {
+			font-family: var( --font-family-b );
+			font-size: clamp( 1.35rem, 1vw, 1.7rem );
+			letter-spacing: .08em;
+			text-transform: uppercase;
+		}
+
+		[ home-gate-enter ] {
+			cursor: pointer;
+			margin-top: 76px;
+			padding: 16px 46px;
+			min-width: 220px;
+			border: 1px solid rgba( 255, 255, 255, .3 );
+			background: rgba( 0, 0, 0, .92 );
+			font-family: var( --font-family-b );
+			font-size: clamp( 1.6rem, 1.1vw, 1.95rem );
+			letter-spacing: .1em;
+			text-transform: uppercase;
+			color: var( --color-white );
+			transition: background-color .35s var( --timing-function ), border-color .35s var( --timing-function ), color .35s var( --timing-function );
+
+			@media ( hover: hover ) {
+				&:hover {
+					background: rgba( 255, 255, 255, .08 );
+					border-color: rgba( 255, 255, 255, .5 );
 				}
 			}
 
-			@media ( max-width: 650px ) {
-				margin: 0;
+			@media ( max-width: 900px ) {
+				margin-top: 62px;
+			}
 
-				& scrolling-text {
-					font-size: 2.25rem;
-				}
+			@media ( max-width: 650px ) {
+				margin-top: 52px;
+			}
+		}
+
+		home-credit {
+			position: fixed;
+			right: 18px;
+			bottom: 18px;
+			z-index: 2;
+			font-family: var( --font-family-c );
+			font-size: 1.3rem;
+			letter-spacing: .04em;
+			color: rgba( 255, 255, 255, .78 );
+
+			@media ( max-width: 650px ) {
+				right: 14px;
+				bottom: 14px;
 			}
 		}
 
 		`;
 
-		const { title, subtitle, themes, skills } = Application.content;
-
-		const scrollingText = string => string.split( ',' )
-			.map( keyword => html`<span class="keyword">${ keyword }</span> -` )
-			.join( '' );
-
-		const source = 'public/common/Background.mp4';
-		const modes = [
-
-			{ attributes: [ 'grid', 'link', '@click|home-view' ] },
-			{ attributes: [ 'places', 'link', '@click|home-view' ] },
-			{ attributes: [ 'sphere', 'link', '@click|home-view' ] },
-			{ attributes: [ 'particles', 'link', '@click|home-view' ] }
-
-		];
-
 		return html`
 
 		<home-view view>
+			<home-gate>
+				<home-gate-panel>
+					<home-gate-copy>
+						<h2>Prepare the journey</h2>
+						<p>For a better experience, switch on full screen and sound before entering the archive.</p>
+					</home-gate-copy>
 
-			${ Video.render( source, { fullscreen: true } ) }
+					<home-gate-actions>
+						<home-gate-options>
+							<button #fullscreen type="button" home-gate-option>
+								<home-gate-option-frame>
+									<home-gate-option-icon>
+										${ Maximize }
+										${ Minimize }
+									</home-gate-option-icon>
+								</home-gate-option-frame>
+								<home-gate-option-label>Full Screen</home-gate-option-label>
+							</button>
 
-			<home-title>
-				<h3>${ title }</h3>
-				<h4>${ subtitle }</h4>
-			</home-title>
+							<button #audio type="button" home-gate-option>
+								<home-gate-option-frame>
+									<home-gate-option-icon>
+										${ Muted }
+										${ Speaker }
+									</home-gate-option-icon>
+								</home-gate-option-frame>
+								<home-gate-option-label>Sound</home-gate-option-label>
+							</button>
+						</home-gate-options>
 
-			<home-buttons>
-				<div blurred-background>
-					${ modes.map( Button.render ) }
-				</div>
-			</home-buttons>
+						<button #enter type="button" home-gate-enter>Enter</button>
+					</home-gate-actions>
+				</home-gate-panel>
+			</home-gate>
 
-			<scrolling-text-container>
-				<scrolling-text>
-					<scrolling-animation>
-						${ scrollingText( themes ) }
-					</scrolling-animation>
-					<scrolling-animation aria-hidden="true">
-						${ scrollingText( themes ) }
-					</scrolling-animation>
-				</scrolling-text>
-
-				<scrolling-text>
-					<scrolling-animation>
-						${ scrollingText( skills ) }
-					</scrolling-animation>
-					<scrolling-animation aria-hidden="true">
-						${ scrollingText( skills ) }
-					</scrolling-animation>
-				</scrolling-text>
-			</scrolling-text-container>
-
+			<home-content>
+				<home-title>An Archive of the Age of AI</home-title>
+				<home-copy>
+					<span>Experiments from my doctoral thesis, <em>Empire of Clouds.</em></span>
+					<span>Six years of research entangling cosmos and algorithm.</span>
+					<span>An iridescent data storm.</span>
+				</home-copy>
+				<home-start #start blurred-background start>Explore the Experiments</home-start>
+			</home-content>
+			<home-credit>© Mete Kutlu, 2026.</home-credit>
 		</home-view>
 
 		`;

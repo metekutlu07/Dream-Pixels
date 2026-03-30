@@ -17,6 +17,9 @@ export default class Projects extends View {
 
 	onConnected() {
 
+		Application.store.set( 'list', 'particles' );
+		Application.store.set( 'particles', 'color-range' );
+
 		const { list, particles } = Application.store;
 		const isPixelLanding = list === 'particles' && particles === 'color-range';
 
@@ -26,12 +29,39 @@ export default class Projects extends View {
 			Application.store.set( 'pixel-experience-gate-visible', false );
 			Application.store.set( 'pixel-experience-background-visible', false );
 			Application.store.set( 'pixel-experience-transitioning', false );
+			Application.store.set( 'particle-archive-entered', false );
 			Application.store.set( 'ui-ready', false );
 			Application.store.set( 'intro-ready', false );
 
 		}
 
 		super.onConnected();
+
+	}
+
+	beginParticleExperience() {
+
+		Application.store.set( 'pixel-experience-gate-visible', false );
+		Application.store.set( 'pixel-experience-background-visible', false );
+		Application.store.set( 'pixel-experience-transitioning', true );
+		Application.store.set( 'skip-particle-gate', false );
+
+		clearTimeout( this.backgroundTimeout );
+		clearTimeout( this.startTimeout );
+
+		this.backgroundTimeout = setTimeout( () => {
+
+			Application.store.set( 'pixel-experience-background-visible', true );
+
+		}, 1000 );
+
+		this.startTimeout = setTimeout( () => {
+
+			Application.store.set( 'pixel-experience-started', true );
+			Application.store.set( 'pixel-experience-transitioning', false );
+			Application.events.dispatch( 'onModeChange' );
+
+		}, 2000 );
 
 	}
 
@@ -59,8 +89,16 @@ export default class Projects extends View {
 			Application.store.set( 'pixel-experience-gate-visible', false );
 			Application.store.set( 'pixel-experience-background-visible', false );
 			Application.store.set( 'pixel-experience-transitioning', false );
+			Application.store.set( 'particle-archive-entered', false );
 			Application.store.set( 'ui-ready', false );
 			Application.store.set( 'intro-ready', false );
+
+			if ( Application.store[ 'skip-particle-gate' ] ) {
+
+				this.beginParticleExperience();
+				return;
+
+			}
 
 			this.gateTimeout = setTimeout( () => {
 
@@ -75,6 +113,7 @@ export default class Projects extends View {
 		Application.store.set( 'pixel-experience-gate-visible', false );
 		Application.store.set( 'pixel-experience-background-visible', false );
 		Application.store.set( 'pixel-experience-transitioning', false );
+		Application.store.set( 'particle-archive-entered', true );
 		Application.store.set( 'ui-ready', true );
 		Application.store.set( 'intro-ready', true );
 

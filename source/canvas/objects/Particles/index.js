@@ -2,6 +2,7 @@ import {
 
 	Raycaster,
 	Float32BufferAttribute,
+	Vector2,
 	Vector3,
 	Color,
 	Points,
@@ -58,9 +59,12 @@ export default class Particles extends Points {
 		this.size = size;
 		this.simulation = simulation;
 		this.points = points;
+		this.hasLoadedColors = false;
+		this.hoverPosition = new Vector2( Infinity, Infinity );
+		this.lastHoverCheck = 0;
 
 		this.frustumCulled = false;
-		this.visible = true;
+		this.visible = false;
 
 		this.raycaster = new Raycaster();
 
@@ -88,6 +92,8 @@ export default class Particles extends Points {
 
 			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
 			const { source, path, caption, tags } = images[ imageID ];
+			const content = Application.content.get( path );
+			const title = content?.title || '';
 			const color = new Color();
 
 			const project = { box: new Box3(), points: [] };
@@ -104,7 +110,7 @@ export default class Particles extends Points {
 			array[ i * 3 + 1 ] = g;
 			array[ i * 3 + 2 ] = b;
 
-			Object.assign( point, { source, path, caption, tags, hex, hsl } );
+			Object.assign( point, { source, path, title, caption, tags, hex, hsl } );
 
 		}
 
@@ -123,6 +129,8 @@ export default class Particles extends Points {
 			} );
 
 		this.geometry.attributes.color.needsUpdate = true;
+		this.hasLoadedColors = true;
+		this.onModeChange();
 
 	}
 
@@ -140,7 +148,7 @@ export default class Particles extends Points {
 		this.isVisible = (
 
 			( path === '/works' && list === 'particles' ) ||
-			( path === '/contact' || path === '/about' )
+			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
 
 		);
 
@@ -157,15 +165,31 @@ export default class Particles extends Points {
 
 		clearTimeout( this.introTimeout );
 		clearTimeout( this.timeout );
+		clearTimeout( this.infoTimeout );
 
 		const shouldWaitForStart = (
 			isColorRange &&
 			! Application.store[ 'pixel-experience-started' ]
 		);
+		const shouldReuseColorRange = (
+			isColorRange &&
+			Application.store[ 'pixel-experience-started' ] &&
+			this.hasCompletedColorRangeIntro
+		);
 
-		this.visible = this.isVisible && ! shouldWaitForStart;
+		this.visible = this.isVisible && ! shouldWaitForStart && this.hasLoadedColors;
 
-		if ( shouldWaitForStart ) return;
+		if ( shouldWaitForStart ) this.hasCompletedColorRangeIntro = false;
+		if ( shouldWaitForStart || ! this.hasLoadedColors || ! this.isVisible ) return;
+
+		if ( shouldReuseColorRange ) {
+
+			this.isHoverable = true;
+			Application.store.set( 'ui-ready', true );
+			Application.store.set( 'intro-ready', false );
+			return;
+
+		}
 
 		this.simulation.toggle( true );
 
@@ -183,6 +207,10 @@ export default class Particles extends Points {
 
 	onUpdate() {
 
+		const previewVisible = Application.imagePreview?.hasAttribute( 'visible' );
+		Application.metrics.simulationState = previewVisible ? 'paused' : ( this.visible ? 'running' : 'hidden' );
+		if ( ! this.visible || previewVisible ) return;
+
 		this.simulation.render();
 
 		const { texture } = this.simulation.renderTargets[ 0 ];
@@ -191,7 +219,7 @@ export default class Particles extends Points {
 		const { particles, list, path } = Application.store;
 		const active = (
 			( list === 'particles' && particles === 'timeline' ) ||
-			( path === '/contact' || path === '/about' )
+			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
 		);
 
 		const scale = active ? .25 : 1;
@@ -216,7 +244,8 @@ export default class Particles extends Points {
 
 	onPostUpdate() {
 
-		if ( ! Application.cursor || ! this.isVisible ) return;
+		if ( ! Application.cursor || ! this.isVisible || ! this.isHoverable ) return;
+		if ( Application.imagePreview?.hasAttribute( 'visible' ) ) return;
 
 		const { elapsedTime } = Application.time;
 
@@ -227,13 +256,40 @@ export default class Particles extends Points {
 
 		}
 
+		const pointer = Application.pointer.getCoordinates( Vector2.get() );
+		const pointerDelta = this.hoverPosition.distanceToSquared( pointer );
+		const shouldRefreshHover = (
+			pointerDelta > 9 ||
+			elapsedTime - this.lastHoverCheck > 75
+		);
+
+		if ( ! shouldRefreshHover ) {
+
+			Vector2.release( pointer );
+			return;
+
+		}
+
+		this.hoverPosition.copy( pointer );
+		this.lastHoverCheck = elapsedTime;
+		Vector2.release( pointer );
+
+		const startTime = performance.now();
 		const index = this.getClosestIndex();
+		const elapsedPick = performance.now() - startTime;
+		const previousPick = Application.metrics.particlePickMs || elapsedPick;
+		Application.metrics.particlePickMs = previousPick * .75 + elapsedPick * .25;
 
 		if ( index === this.index ) return;
 		this.index = index;
 
 		const color = this.points[ this.index ];
-		if ( color ) Application.cursor.set( color );
+		if ( color ) {
+
+			color.mode = 'particle';
+			Application.cursor.set( color );
+
+		}
 		else Application.cursor.reset();
 
 	}
@@ -252,8 +308,19 @@ export default class Particles extends Points {
 
 		if ( isPixelLanding ) {
 
+			this.hasCompletedColorRangeIntro = true;
 			Application.store.set( 'ui-ready', true );
-			Application.store.set( 'intro-ready', true );
+			Application.store.set( 'intro-ready', false );
+
+			if ( ! Application.store[ 'particle-user-info-seen' ] ) {
+
+				this.infoTimeout = setTimeout( () => {
+
+					Application.store.set( 'intro-ready', true );
+
+				}, 2200 );
+
+			}
 
 		}
 

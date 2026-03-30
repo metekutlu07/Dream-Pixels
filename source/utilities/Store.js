@@ -52,6 +52,11 @@ export default class Parameter {
 		this.set( 'pixel-experience-gate-visible', false );
 		this.set( 'pixel-experience-background-visible', false );
 		this.set( 'pixel-experience-transitioning', false );
+		this.set( 'skip-particle-gate', false );
+		this.set( 'particle-archive-entered', false );
+		this.set( 'particle-user-info-seen', false );
+		this.set( 'home-gate-visible', true );
+		this.set( 'home-gate-seen', false );
 		this.set( 'ui-ready', true );
 		this.set( 'intro-ready', true );
 
