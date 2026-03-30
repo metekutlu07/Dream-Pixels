@@ -17,6 +17,7 @@ export default class Home extends View {
 		this.toggleFullscreen = this.toggleFullscreen.bind( this );
 		this.toggleAudio = this.toggleAudio.bind( this );
 		this.enterHome = this.enterHome.bind( this );
+		this.runRevealSequence = this.runRevealSequence.bind( this );
 
 	}
 
@@ -33,6 +34,8 @@ export default class Home extends View {
 		Application.store.set( 'ui-ready', false );
 		Application.store.set( 'intro-ready', false );
 		Application.store.set( 'home-gate-visible', ! Application.store[ 'home-gate-seen' ] );
+		Application.store.set( 'home-nav-ready', false );
+		Application.store.set( 'home-copy-ready', false );
 
 		this.elements.start?.addEventListener( 'click', this.startParticlesExperience );
 		this.elements.fullscreen?.addEventListener( 'click', this.toggleFullscreen );
@@ -43,14 +46,43 @@ export default class Home extends View {
 
 		super.onConnected();
 
+		if ( ! Application.store[ 'home-gate-visible' ] ) this.runRevealSequence();
+
 	}
 
 	onDisconnected() {
+
+		clearTimeout( this.gateRevealTimeout );
+		clearTimeout( this.gateExitTimeout );
+		clearTimeout( this.navRevealTimeout );
+		clearTimeout( this.copyRevealTimeout );
 
 		this.elements.start?.removeEventListener( 'click', this.startParticlesExperience );
 		this.elements.fullscreen?.removeEventListener( 'click', this.toggleFullscreen );
 		this.elements.audio?.removeEventListener( 'click', this.toggleAudio );
 		this.elements.enter?.removeEventListener( 'click', this.enterHome );
+
+	}
+
+	runRevealSequence() {
+
+		clearTimeout( this.navRevealTimeout );
+		clearTimeout( this.copyRevealTimeout );
+
+		Application.store.set( 'home-nav-ready', false );
+		Application.store.set( 'home-copy-ready', false );
+
+		this.navRevealTimeout = setTimeout( () => {
+
+			Application.store.set( 'home-nav-ready', true );
+
+		}, 2000 );
+
+		this.copyRevealTimeout = setTimeout( () => {
+
+			Application.store.set( 'home-copy-ready', true );
+
+		}, 3000 );
 
 	}
 
@@ -69,6 +101,32 @@ export default class Home extends View {
 		);
 
 		this.toggleAttribute( 'gate-visible', gateVisible );
+
+		if ( gateVisible ) {
+
+			if (
+				! this.hasAttribute( 'gate-entered' ) &&
+				! this.hasAttribute( 'gate-closing' ) &&
+				! this.gateRevealTimeout
+			) {
+
+				this.gateRevealTimeout = setTimeout( () => {
+
+					this.toggleAttribute( 'gate-entered', true );
+					this.gateRevealTimeout = null;
+
+				}, 60 );
+
+			}
+
+		} else {
+
+			clearTimeout( this.gateRevealTimeout );
+			this.gateRevealTimeout = null;
+			this.toggleAttribute( 'gate-entered', false );
+			this.toggleAttribute( 'gate-closing', false );
+
+		}
 
 		this.elements.fullscreen?.toggleAttribute( 'active', Application.fullscreen.isActive );
 		this.elements.audio?.toggleAttribute( 'active', ! Application.audio.isMuted );
@@ -106,9 +164,23 @@ export default class Home extends View {
 	enterHome( event ) {
 
 		event.preventDefault();
-		Application.store.set( 'home-gate-visible', false );
-		Application.store.set( 'home-gate-seen', true );
-		this.syncGateState();
+
+		if ( this.hasAttribute( 'gate-closing' ) ) return;
+
+		this.toggleAttribute( 'gate-closing', true );
+		this.toggleAttribute( 'gate-entered', false );
+
+		clearTimeout( this.gateExitTimeout );
+
+		this.gateExitTimeout = setTimeout( () => {
+
+			Application.store.set( 'home-gate-visible', false );
+			Application.store.set( 'home-gate-seen', true );
+			this.toggleAttribute( 'gate-closing', false );
+			this.runRevealSequence();
+			this.syncGateState();
+
+		}, 450 );
 
 	}
 
@@ -141,11 +213,10 @@ export default class Home extends View {
 			align-items: center;
 			text-align: center;
 			color: var( --color-white );
+			pointer-events: none;
 
-			[ path="/" ][ home-gate-visible ] & {
-				opacity: 0;
-				pointer-events: none;
-				visibility: hidden;
+			[ path="/" ][ home-copy-ready ] & {
+				pointer-events: all;
 			}
 		}
 
@@ -156,6 +227,25 @@ export default class Home extends View {
 			letter-spacing: .04em;
 			text-transform: none;
 			white-space: nowrap;
+			opacity: 0;
+			transform: translateY( 18px );
+			visibility: hidden;
+			transition:
+				opacity .75s var( --timing-function ),
+				transform .75s var( --timing-function ),
+				visibility .75s var( --timing-function );
+
+			[ path="/" ][ home-copy-ready ] & {
+				opacity: 1;
+				transform: none;
+				visibility: visible;
+			}
+
+			[ path="/" ][ home-gate-visible ] & {
+				opacity: 0;
+				transform: translateY( 18px );
+				visibility: hidden;
+			}
 		}
 
 		home-copy {
@@ -164,6 +254,25 @@ export default class Home extends View {
 			font-size: clamp( 1.9rem, 1.6vw, 3rem );
 			line-height: 1.6;
 			text-transform: none;
+			opacity: 0;
+			transform: translateY( 18px );
+			visibility: hidden;
+			transition:
+				opacity .75s var( --timing-function ),
+				transform .75s var( --timing-function ),
+				visibility .75s var( --timing-function );
+
+			[ path="/" ][ home-copy-ready ] & {
+				opacity: 1;
+				transform: none;
+				visibility: visible;
+			}
+
+			[ path="/" ][ home-gate-visible ] & {
+				opacity: 0;
+				transform: translateY( 18px );
+				visibility: hidden;
+			}
 
 			& span {
 				display: block;
@@ -182,20 +291,56 @@ export default class Home extends View {
 			margin-top: 84px;
 			padding: 18px;
 			border: 1px solid rgba( 255, 255, 255, .32 );
+			overflow: hidden;
+			isolation: isolate;
 			font-family: var( --font-family-b );
 			font-size: clamp( 2.1rem, 1.5vw, 2.4rem );
 			letter-spacing: .1em;
 			text-transform: uppercase;
 			color: var( --color-white );
-			background: rgba( 8, 8, 8, .34 );
-			backdrop-filter: blur( 10px );
-			-webkit-backdrop-filter: blur( 10px );
-			transition: background-color .25s var( --timing-function ), border-color .25s var( --timing-function );
+			background: transparent;
+			opacity: 0;
+			transform: translateY( 18px ) translateZ( 0 );
+			visibility: hidden;
+			will-change: opacity, transform;
+			transition:
+				background-color .25s var( --timing-function ),
+				border-color .25s var( --timing-function ),
+				opacity .75s var( --timing-function ),
+				transform .75s var( --timing-function ),
+				visibility .75s var( --timing-function );
+
+			[ path="/" ][ home-copy-ready ] & {
+				opacity: 1;
+				transform: translateZ( 0 );
+				visibility: visible;
+			}
+
+			[ path="/" ][ home-gate-visible ] & {
+				opacity: 0;
+				transform: translateY( 18px ) translateZ( 0 );
+				visibility: hidden;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				z-index: -1;
+				background: rgba( 8, 8, 8, .34 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
+				transform: translateZ( 0 );
+				will-change: opacity;
+			}
 
 			@media ( hover: hover ) {
 				&:hover {
-					background: rgba( 255, 255, 255, .16 );
 					border-color: rgba( 255, 255, 255, .5 );
+
+					&::before {
+						background: rgba( 255, 255, 255, .16 );
+					}
 				}
 			}
 		}
@@ -230,6 +375,10 @@ export default class Home extends View {
 				visibility: visible;
 			}
 
+			[ gate-closing ] & {
+				pointer-events: none;
+			}
+
 			@media ( max-width: 650px ) {
 				padding: 24px 16px;
 			}
@@ -259,6 +408,14 @@ export default class Home extends View {
 			flex-direction: column;
 			align-items: center;
 			gap: 28px;
+			opacity: 0;
+			transform: translateY( 16px );
+			transition: opacity .6s var( --timing-function ), transform .6s var( --timing-function );
+
+			[ gate-entered ] & {
+				opacity: 1;
+				transform: none;
+			}
 
 			& h2 {
 				font-family: var( --font-family-a );
@@ -290,6 +447,15 @@ export default class Home extends View {
 			justify-content: center;
 			gap: clamp( 52px, 7vw, 108px );
 			width: 100%;
+			opacity: 0;
+			transform: translateY( 16px );
+			transition: opacity .6s var( --timing-function ), transform .6s var( --timing-function );
+
+			[ gate-entered ] & {
+				opacity: 1;
+				transform: none;
+				transition-delay: .12s;
+			}
 
 			@media ( max-width: 650px ) {
 				flex-direction: column;
@@ -387,7 +553,20 @@ export default class Home extends View {
 			letter-spacing: .1em;
 			text-transform: uppercase;
 			color: var( --color-white );
-			transition: background-color .35s var( --timing-function ), border-color .35s var( --timing-function ), color .35s var( --timing-function );
+			opacity: 0;
+			transform: translateY( 16px );
+			transition:
+				background-color .35s var( --timing-function ),
+				border-color .35s var( --timing-function ),
+				color .35s var( --timing-function ),
+				opacity .6s var( --timing-function ),
+				transform .6s var( --timing-function );
+
+			[ gate-entered ] & {
+				opacity: 1;
+				transform: none;
+				transition-delay: .22s;
+			}
 
 			@media ( hover: hover ) {
 				&:hover {
@@ -414,6 +593,20 @@ export default class Home extends View {
 			font-size: 1.3rem;
 			letter-spacing: .04em;
 			color: rgba( 255, 255, 255, .78 );
+			opacity: 0;
+			transform: translateY( 12px );
+			pointer-events: none;
+			visibility: hidden;
+			transition:
+				opacity .75s var( --timing-function ),
+				transform .75s var( --timing-function ),
+				visibility .75s var( --timing-function );
+
+			[ path="/" ][ home-copy-ready ] & {
+				opacity: 1;
+				transform: none;
+				visibility: visible;
+			}
 
 			@media ( max-width: 650px ) {
 				right: 14px;
@@ -466,7 +659,7 @@ export default class Home extends View {
 				<home-copy>
 					<span>Experiments from my doctoral thesis, <em>Empire of Clouds.</em></span>
 					<span>Six years of research entangling cosmos and algorithm.</span>
-					<span>An iridescent data storm.</span>
+					<span>An iridescent data breeze.</span>
 				</home-copy>
 				<home-start #start blurred-background start>Explore the Experiments</home-start>
 			</home-content>

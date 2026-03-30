@@ -57,6 +57,8 @@ export default class Parameter {
 		this.set( 'particle-user-info-seen', false );
 		this.set( 'home-gate-visible', true );
 		this.set( 'home-gate-seen', false );
+		this.set( 'home-nav-ready', false );
+		this.set( 'home-copy-ready', false );
 		this.set( 'ui-ready', true );
 		this.set( 'intro-ready', true );
 

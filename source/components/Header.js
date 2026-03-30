@@ -123,6 +123,7 @@ export default class Header extends HTMLElement {
 
 		const uiReady = Application.store[ 'ui-ready' ];
 		const homeGateVisible = path === '/' && Application.store[ 'home-gate-visible' ];
+		const homeNavReady = path === '/' && Application.store[ 'home-nav-ready' ];
 		const pixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
 		const pixelExperienceGateVisible = Application.store[ 'pixel-experience-gate-visible' ];
 		const pixelExperienceTransitioning = Application.store[ 'pixel-experience-transitioning' ];
@@ -135,6 +136,7 @@ export default class Header extends HTMLElement {
 		const shouldHideArchiveUI = (
 			loading ||
 			homeGateVisible ||
+			( path === '/' && ! homeNavReady ) ||
 			(
 				isPixelLanding &&
 				(
@@ -313,7 +315,6 @@ export default class Header extends HTMLElement {
 		}
 
 		[ loading ] &,
-		[ path="/" ] &,
 		[ path="/works" ][ list="particles" ]:not( [ ui-ready ] ) &,
 		[ path="/works" ][ list="particles" ][ pixel-experience-gate-visible ] &,
 		[ path="/works" ][ list="particles" ][ pixel-experience-transitioning ] &,
@@ -477,29 +478,6 @@ export default class Header extends HTMLElement {
 			}
 		}
 
-		header-socials {
-			position: absolute;
-			bottom: var( --margin-m );
-			left: var( --margin-m );
-			font-size: var( --font-size-s );
-			font-family: var( --font-family-c );
-			pointer-events: all;
-			display: none;
-
-			[ path="/" ] & {
-				display: block;
-			}
-
-			@media ( max-width: 1024px ) {
-				bottom: var( --margin-s );
-				left: var( --margin-s );
-			}
-
-			div {
-				font-weight: 600;
-			}
-		}
-
 		`;
 
 		const navigation = [
@@ -580,13 +558,6 @@ export default class Header extends HTMLElement {
 				<li>Images: <span #images>122</span></li>
 				<li>Pixels: <span #pixels>4 543 456 345</span></li>
 			</header-analytics>
-
-			<header-socials>
-				<div>Follow us:</div>
-				<a href="https://www.instagram.com/dreampixels.fr/" target="_blank" rel="noreferrer">
-					@dreampixels.fr
-				</a>
-			</header-socials>
 
 		</header-block>`;
 
