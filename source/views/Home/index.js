@@ -662,7 +662,7 @@ export default class Home extends View {
 				</home-copy>
 				<home-start #start blurred-background start>Explore the Experiments</home-start>
 			</home-content>
-			<home-credit>© Mete Kutlu, 2026.</home-credit>
+			<home-credit>© Mete Kutlu, 2026</home-credit>
 		</home-view>
 
 		`;

@@ -5,6 +5,44 @@ export default class About extends View {
 	static path = '/about';
 	static silent = false;
 
+	constructor() {
+
+		super();
+
+		this.runRevealSequence = this.runRevealSequence.bind( this );
+
+	}
+
+	onDisconnected() {
+
+		clearTimeout( this.revealTimeout );
+
+	}
+
+	async onViewChange( view ) {
+
+		await super.onViewChange( view );
+
+		if ( view !== this ) return;
+
+		this.runRevealSequence();
+
+	}
+
+	runRevealSequence() {
+
+		clearTimeout( this.revealTimeout );
+
+		this.toggleAttribute( 'revealing', true );
+
+		this.revealTimeout = setTimeout( () => {
+
+			this.toggleAttribute( 'revealing', false );
+
+		}, 600 );
+
+	}
+
 	static render() {
 
 		const sections = [
@@ -108,6 +146,25 @@ export default class About extends View {
 			}
 		}
 
+		about-reveal {
+			position: fixed;
+			inset: 0;
+			z-index: 39;
+			background: var( --color-black );
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition:
+				opacity 1.8s var( --timing-function ),
+				visibility 0s linear 1.8s;
+
+			[ revealing ] & {
+				opacity: 1;
+				visibility: visible;
+				transition: none;
+			}
+		}
+
 		about-credit {
 			position: fixed;
 			right: 18px;
@@ -130,13 +187,14 @@ export default class About extends View {
 		return html`
 
 		<about-view view>
+			<about-reveal></about-reveal>
 			<section>
 				${ sections.map( ( { title, paragraphs } ) => html`
 					<h3>${ title }</h3>
 					${ paragraphs.map( paragraph => html`<p>${ paragraph }</p>` ) }
 				` ) }
 			</section>
-			<about-credit>© Mete Kutlu, 2026.</about-credit>
+			<about-credit>© Mete Kutlu, 2026</about-credit>
 		</about-view>
 
 		`;

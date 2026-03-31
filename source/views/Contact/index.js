@@ -5,6 +5,44 @@ export default class Contact extends View {
 	static path = '/contact';
 	static silent = false;
 
+	constructor() {
+
+		super();
+
+		this.runRevealSequence = this.runRevealSequence.bind( this );
+
+	}
+
+	onDisconnected() {
+
+		clearTimeout( this.revealTimeout );
+
+	}
+
+	async onViewChange( view ) {
+
+		await super.onViewChange( view );
+
+		if ( view !== this ) return;
+
+		this.runRevealSequence();
+
+	}
+
+	runRevealSequence() {
+
+		clearTimeout( this.revealTimeout );
+
+		this.toggleAttribute( 'revealing', true );
+
+		this.revealTimeout = setTimeout( () => {
+
+			this.toggleAttribute( 'revealing', false );
+
+		}, 600 );
+
+	}
+
 	static render() {
 
 		css`
@@ -55,6 +93,25 @@ export default class Contact extends View {
 			}
 		}
 
+		contact-reveal {
+			position: fixed;
+			inset: 0;
+			z-index: 39;
+			background: var( --color-black );
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition:
+				opacity 1.8s var( --timing-function ),
+				visibility 0s linear 1.8s;
+
+			[ revealing ] & {
+				opacity: 1;
+				visibility: visible;
+				transition: none;
+			}
+		}
+
 		contact-credit {
 			position: fixed;
 			right: 18px;
@@ -79,10 +136,11 @@ export default class Contact extends View {
 		return html`
 
 		<contact-view view>
+			<contact-reveal></contact-reveal>
 			<h4>${ contact }</h4>
 			<a href="mailto:${ mail }">${ mail }</a>
 			<h3>${ address }</h3>
-			<contact-credit>© Mete Kutlu, 2026.</contact-credit>
+			<contact-credit>© Mete Kutlu, 2026</contact-credit>
 		</contact-view>
 
 		`;

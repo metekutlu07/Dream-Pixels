@@ -5,6 +5,44 @@ export default class Mete extends View {
 	static path = '/mete-kutlu';
 	static silent = false;
 
+	constructor() {
+
+		super();
+
+		this.runRevealSequence = this.runRevealSequence.bind( this );
+
+	}
+
+	onDisconnected() {
+
+		clearTimeout( this.revealTimeout );
+
+	}
+
+	async onViewChange( view ) {
+
+		await super.onViewChange( view );
+
+		if ( view !== this ) return;
+
+		this.runRevealSequence();
+
+	}
+
+	runRevealSequence() {
+
+		clearTimeout( this.revealTimeout );
+
+		this.toggleAttribute( 'revealing', true );
+
+		this.revealTimeout = setTimeout( () => {
+
+			this.toggleAttribute( 'revealing', false );
+
+		}, 600 );
+
+	}
+
 	static render() {
 
 		css`
@@ -77,6 +115,25 @@ export default class Mete extends View {
 			}
 		}
 
+		mete-reveal {
+			position: fixed;
+			inset: 0;
+			z-index: 39;
+			background: var( --color-black );
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition:
+				opacity 1.8s var( --timing-function ),
+				visibility 0s linear 1.8s;
+
+			[ revealing ] & {
+				opacity: 1;
+				visibility: visible;
+				transition: none;
+			}
+		}
+
 		mete-credit {
 			position: fixed;
 			right: 18px;
@@ -99,6 +156,7 @@ export default class Mete extends View {
 		return html`
 
 		<mete-view view>
+			<mete-reveal></mete-reveal>
 			<section>
 				<p>
 					I'm a creative technologist and researcher based in Paris. Trained as an architect at ENSA Paris-Malaquais (2016), I began my professional career in Japan, China, and South Korea, working with architects such as Kazuyo Sejima, Kengo Kuma, Jean Sonand Wang Shu. Since 2019, I have been teaching the master's seminar <em>Metropolises in Mirror</em> at ENSA Paris-Belleville, where the city is approached as a form of writing specific to a civilization, a place, and a given moment in time. In 2025, I completed my PhD at Université Gustave Eiffel in Paris, under the joint supervision of Tongji University. Since then, I have been an associate researcher at the IPRAUS laboratory.
@@ -116,7 +174,7 @@ export default class Mete extends View {
 					Paris, 2026.
 				</p>
 			</section>
-			<mete-credit>© Mete Kutlu, 2026.</mete-credit>
+			<mete-credit>© Mete Kutlu, 2026</mete-credit>
 		</mete-view>
 
 		`;
