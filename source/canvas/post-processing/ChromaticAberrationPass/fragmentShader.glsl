@@ -47,7 +47,7 @@ void main() {
 		float t = float( i ) / float( ITERATIONS );
 
 		vec4 weight = getSpectrumOffset( t );
-		vec2 barrelDistortion = getBarrelDistortion( vUv, .6 * strength * t );
+		vec2 barrelDistortion = getBarrelDistortion( vUv, 1.2 * strength * t );
 
 		totalWeight += weight;
 		totalColor += weight * texture2D( tDiffuse, barrelDistortion );

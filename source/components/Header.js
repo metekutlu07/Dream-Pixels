@@ -161,13 +161,29 @@ export default class Header extends HTMLElement {
 
 		} );
 
-		const archiveGroups = this.querySelectorAll( 'header-grid-modes, header-analytics' );
+		const analyticsGroup = this.querySelector( 'header-analytics' );
+		const gridModesGroup = this.querySelector( 'header-grid-modes' );
+		const gridModePanels = this.querySelectorAll( 'header-grid-modes > div' );
 		const shouldHideArchivePanels = shouldHideArchiveUI || path === '/';
 
-		archiveGroups.forEach( group => {
+		if ( analyticsGroup ) {
 
-			group.style.opacity = shouldHideArchivePanels ? '0' : '';
-			group.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
+			analyticsGroup.style.opacity = shouldHideArchivePanels ? '0' : '';
+			analyticsGroup.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
+
+		}
+
+		if ( gridModesGroup ) {
+
+			gridModesGroup.style.opacity = '';
+			gridModesGroup.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
+
+		}
+
+		gridModePanels.forEach( panel => {
+
+			panel.style.opacity = shouldHideArchivePanels ? '0' : '1';
+			panel.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
 
 		} );
 
@@ -239,6 +255,10 @@ export default class Header extends HTMLElement {
 			pointer-events: all;
 			opacity: 1;
 			transition: opacity 2s var( --timing-function );
+
+			[ path="/" ] & {
+				transition: none;
+			}
 		}
 
 		header-analytics {
@@ -247,6 +267,10 @@ export default class Header extends HTMLElement {
 			pointer-events: all;
 			opacity: 1;
 			transition: opacity 2s var( --timing-function );
+
+			[ path="/" ] & {
+				transition: none;
+			}
 		}
 
 		header-top-row {
@@ -392,6 +416,10 @@ export default class Header extends HTMLElement {
 				display: flex;
 				justify-content: center;
 				background: rgba( 0, 0, 0, .28 );
+				position: relative;
+				isolation: isolate;
+				opacity: 1;
+				transition: opacity 2s var( --timing-function );
 
 				&:not( :last-child ) {
 					margin-bottom: calc( var( --margin-xs ) / 2 );
@@ -441,8 +469,7 @@ export default class Header extends HTMLElement {
 			background: rgba( 0, 0, 0, .2 );
 			text-align: left;
 
-			[ path="/works" ][ list="particles" ] &,
-			[ path="/contact" ] & {
+			[ path="/works" ][ list="particles" ] & {
 				opacity: 1;
 			}
 
@@ -471,7 +498,7 @@ export default class Header extends HTMLElement {
 			font-size: var( --font-size-m );
 			font-weight: normal;
 			letter-spacing: .04em;
-			text-align: center;
+			text-align: left;
 
 			@media ( max-width: 1024px ) {
 				font-size: var( --font-size-xs );
@@ -553,7 +580,7 @@ export default class Header extends HTMLElement {
 			</header-credits>
 
 			<header-analytics blurred-background>
-				<header-analytics-title>Archive Analytics</header-analytics-title>
+				<header-analytics-title>ANALYTICS</header-analytics-title>
 				<li>Projects: <span #projects>20</span></li>
 				<li>Images: <span #images>122</span></li>
 				<li>Pixels: <span #pixels>4 543 456 345</span></li>

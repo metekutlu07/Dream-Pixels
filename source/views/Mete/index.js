@@ -77,6 +77,23 @@ export default class Mete extends View {
 			}
 		}
 
+		mete-credit {
+			position: fixed;
+			right: 18px;
+			bottom: 18px;
+			z-index: 2;
+			font-family: var( --font-family-c );
+			font-size: 1.5rem;
+			letter-spacing: .04em;
+			color: rgba( 255, 255, 255, .78 );
+			pointer-events: none;
+
+			@media ( max-width: 650px ) {
+				right: 14px;
+				bottom: 14px;
+			}
+		}
+
 		`;
 
 		return html`
@@ -99,6 +116,7 @@ export default class Mete extends View {
 					Paris, 2026.
 				</p>
 			</section>
+			<mete-credit>© Mete Kutlu, 2026.</mete-credit>
 		</mete-view>
 
 		`;

@@ -46,16 +46,13 @@ export default class Home extends View {
 
 		super.onConnected();
 
-		if ( ! Application.store[ 'home-gate-visible' ] ) this.runRevealSequence();
-
 	}
 
 	onDisconnected() {
 
 		clearTimeout( this.gateRevealTimeout );
 		clearTimeout( this.gateExitTimeout );
-		clearTimeout( this.navRevealTimeout );
-		clearTimeout( this.copyRevealTimeout );
+		clearTimeout( this.revealTimeout );
 
 		this.elements.start?.removeEventListener( 'click', this.startParticlesExperience );
 		this.elements.fullscreen?.removeEventListener( 'click', this.toggleFullscreen );
@@ -64,25 +61,31 @@ export default class Home extends View {
 
 	}
 
+	async onViewChange( view ) {
+
+		await super.onViewChange( view );
+
+		if ( view !== this ) return;
+		if ( Application.store[ 'home-gate-visible' ] ) return;
+
+		this.runRevealSequence();
+
+	}
+
 	runRevealSequence() {
 
-		clearTimeout( this.navRevealTimeout );
-		clearTimeout( this.copyRevealTimeout );
+		clearTimeout( this.revealTimeout );
 
-		Application.store.set( 'home-nav-ready', false );
-		Application.store.set( 'home-copy-ready', false );
+		Application.store.set( 'home-nav-ready', true );
+		Application.store.set( 'home-copy-ready', true );
 
-		this.navRevealTimeout = setTimeout( () => {
+		this.toggleAttribute( 'revealing', true );
 
-			Application.store.set( 'home-nav-ready', true );
+		this.revealTimeout = setTimeout( () => {
 
-		}, 2000 );
+			this.toggleAttribute( 'revealing', false );
 
-		this.copyRevealTimeout = setTimeout( () => {
-
-			Application.store.set( 'home-copy-ready', true );
-
-		}, 3000 );
+		}, 600 );
 
 	}
 
@@ -220,6 +223,25 @@ export default class Home extends View {
 			}
 		}
 
+		home-reveal {
+			position: fixed;
+			inset: 0;
+			z-index: 39;
+			background: var( --color-black );
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition:
+				opacity 1.8s var( --timing-function ),
+				visibility 0s linear 1.8s;
+
+			[ revealing ] & {
+				opacity: 1;
+				visibility: visible;
+				transition: none;
+			}
+		}
+
 		home-title {
 			font-family: var( --font-family-a );
 			font-size: clamp( 4.2rem, 4.9vw, 8.2rem );
@@ -228,22 +250,15 @@ export default class Home extends View {
 			text-transform: none;
 			white-space: nowrap;
 			opacity: 0;
-			transform: translateY( 18px );
 			visibility: hidden;
-			transition:
-				opacity .75s var( --timing-function ),
-				transform .75s var( --timing-function ),
-				visibility .75s var( --timing-function );
 
 			[ path="/" ][ home-copy-ready ] & {
 				opacity: 1;
-				transform: none;
 				visibility: visible;
 			}
 
 			[ path="/" ][ home-gate-visible ] & {
 				opacity: 0;
-				transform: translateY( 18px );
 				visibility: hidden;
 			}
 		}
@@ -255,22 +270,15 @@ export default class Home extends View {
 			line-height: 1.6;
 			text-transform: none;
 			opacity: 0;
-			transform: translateY( 18px );
 			visibility: hidden;
-			transition:
-				opacity .75s var( --timing-function ),
-				transform .75s var( --timing-function ),
-				visibility .75s var( --timing-function );
 
 			[ path="/" ][ home-copy-ready ] & {
 				opacity: 1;
-				transform: none;
 				visibility: visible;
 			}
 
 			[ path="/" ][ home-gate-visible ] & {
 				opacity: 0;
-				transform: translateY( 18px );
 				visibility: hidden;
 			}
 
@@ -300,15 +308,12 @@ export default class Home extends View {
 			color: var( --color-white );
 			background: transparent;
 			opacity: 0;
-			transform: translateY( 18px ) translateZ( 0 );
+			transform: translateZ( 0 );
 			visibility: hidden;
 			will-change: opacity, transform;
 			transition:
 				background-color .25s var( --timing-function ),
-				border-color .25s var( --timing-function ),
-				opacity .75s var( --timing-function ),
-				transform .75s var( --timing-function ),
-				visibility .75s var( --timing-function );
+				border-color .25s var( --timing-function );
 
 			[ path="/" ][ home-copy-ready ] & {
 				opacity: 1;
@@ -318,7 +323,7 @@ export default class Home extends View {
 
 			[ path="/" ][ home-gate-visible ] & {
 				opacity: 0;
-				transform: translateY( 18px ) translateZ( 0 );
+				transform: translateZ( 0 );
 				visibility: hidden;
 			}
 
@@ -354,10 +359,9 @@ export default class Home extends View {
 			justify-content: center;
 			padding: 48px;
 			background: var( --color-black );
-			opacity: 0;
 			pointer-events: none;
 			visibility: hidden;
-			transition: opacity .45s var( --timing-function ), visibility .45s var( --timing-function );
+			transition: visibility 0s linear .45s;
 
 			&::before {
 				content: '';
@@ -370,9 +374,9 @@ export default class Home extends View {
 			}
 
 			[ path="/" ][ home-gate-visible ] & {
-				opacity: 1;
 				pointer-events: all;
 				visibility: visible;
+				transition-delay: 0s;
 			}
 
 			[ gate-closing ] & {
@@ -590,21 +594,15 @@ export default class Home extends View {
 			bottom: 18px;
 			z-index: 2;
 			font-family: var( --font-family-c );
-			font-size: 1.3rem;
+			font-size: 1.5rem;
 			letter-spacing: .04em;
 			color: rgba( 255, 255, 255, .78 );
 			opacity: 0;
-			transform: translateY( 12px );
 			pointer-events: none;
 			visibility: hidden;
-			transition:
-				opacity .75s var( --timing-function ),
-				transform .75s var( --timing-function ),
-				visibility .75s var( --timing-function );
 
 			[ path="/" ][ home-copy-ready ] & {
 				opacity: 1;
-				transform: none;
 				visibility: visible;
 			}
 
@@ -619,6 +617,7 @@ export default class Home extends View {
 		return html`
 
 		<home-view view>
+			<home-reveal></home-reveal>
 			<home-gate>
 				<home-gate-panel>
 					<home-gate-copy>

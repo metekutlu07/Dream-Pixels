@@ -28,7 +28,7 @@ export default class Preloader extends HTMLElement {
 
 			display: flex;
 			position: fixed;
-			z-index: 25;
+			z-index: 45;
 			top: 0;
 			left: 0;
 			align-items: center;
@@ -37,6 +37,9 @@ export default class Preloader extends HTMLElement {
 			width: 100vw;
 			height: 100%;
 			pointer-events: none;
+			background: var( --color-black );
+			opacity: 0;
+			transition: opacity .45s var( --timing-function );
 
 			&::before {
 				content: '';
@@ -46,12 +49,15 @@ export default class Preloader extends HTMLElement {
 				left: 0;
 				top: 0;
 				opacity: 0;
-				background: var( --color-black );
+				background-image: url( "/public/common/Grid.svg" );
+				background-size: 50px;
+				background-position: center center;
 				transition: opacity .5s var( --timing-function );
-				transition-delay: .5s;
+				transition-delay: 0s;
 			}
 
 			[ loading ] & {
+				opacity: 1;
 				pointer-events: all;
 
 				& h1,
@@ -65,7 +71,7 @@ export default class Preloader extends HTMLElement {
 				}
 
 				&:before {
-					opacity: 1;
+					opacity: .25;
 					transition-delay: 0s;
 				}
 

@@ -55,6 +55,23 @@ export default class Contact extends View {
 			}
 		}
 
+		contact-credit {
+			position: fixed;
+			right: 18px;
+			bottom: 18px;
+			z-index: 2;
+			font-family: var( --font-family-c );
+			font-size: 1.5rem;
+			letter-spacing: .04em;
+			color: rgba( 255, 255, 255, .78 );
+			pointer-events: none;
+
+			@media ( max-width: 650px ) {
+				right: 14px;
+				bottom: 14px;
+			}
+		}
+
 		`;
 
 		const { mail, address, contact } = Application.content;
@@ -65,6 +82,7 @@ export default class Contact extends View {
 			<h4>${ contact }</h4>
 			<a href="mailto:${ mail }">${ mail }</a>
 			<h3>${ address }</h3>
+			<contact-credit>© Mete Kutlu, 2026.</contact-credit>
 		</contact-view>
 
 		`;

@@ -74,11 +74,25 @@ export default class Particles extends Points {
 
 	}
 
-	async onLoad( files ) {
+	onPreFrame() {
+
+		if ( this.hasLoadedColors || ! Application.assets[ 'common' ] ) return;
+		this.applyColors( Application.assets[ 'common' ] );
+
+	}
+
+	onLoad( files ) {
 
 		if ( ! files[ 'common' ] ) return;
+		this.applyColors( files[ 'common' ] );
 
-		const { jsons } = files[ 'common' ];
+	}
+
+	applyColors( common ) {
+
+		if ( this.hasLoadedColors || ! common ) return;
+
+		const { jsons } = common;
 		const { images, colors } = jsons[ 'Colors.json' ];
 		const { array } = this.geometry.attributes.color;
 		const { count } = this.simulation.setPoints( this.points );

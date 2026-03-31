@@ -176,7 +176,7 @@ export default class Scene extends Object3D {
 		this.particles.visible = (
 			( isParticleWorksView && ( ! isParticleColorRange || hasPixelExperienceStarted ) ) ||
 			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
-		);
+		) && this.particles.hasLoadedColors;
 
 		this.parameters.density = 0;
 		if ( path === '/works' && list === 'grid' ) this.parameters.density = 0;

@@ -22,11 +22,14 @@ export default class UserInfo extends HTMLElement {
 
 		const { path, list, places } = Application.store;
 		const introReady = Application.store[ 'intro-ready' ];
+		const particleUserInfoSeen = Application.store[ 'particle-user-info-seen' ];
 		const { texts } = this.elements;
 
 		texts.forEach( text => {
 
 			const name = text.getAttribute( 'name' );
+			const wasVisible = text.hasAttribute( 'visible' );
+			const seenOnce = text.hasAttribute( 'seen-once' );
 
 			const isVisible = (
 
@@ -41,10 +44,30 @@ export default class UserInfo extends HTMLElement {
 
 			if ( ! isVisible ) {
 
-				text.toggleAttribute( 'hidden', false );
-				text.toggleAttribute( 'dismissed', false );
+				if ( wasVisible ) text.toggleAttribute( 'seen-once', true );
+
+				if ( text.hasAttribute( 'seen-once' ) || ( name === 'Particles' && particleUserInfoSeen ) ) {
+
+					text.toggleAttribute( 'hidden', true );
+					text.toggleAttribute( 'dismissed', true );
+
+				} else {
+
+					text.toggleAttribute( 'hidden', false );
+					text.toggleAttribute( 'dismissed', false );
+
+				}
+
 				text.setAttribute( 'step', '0' );
 				this.syncStep( text );
+				return;
+
+			}
+
+			if ( seenOnce || ( name === 'Particles' && particleUserInfoSeen ) ) {
+
+				text.toggleAttribute( 'hidden', true );
+				text.toggleAttribute( 'dismissed', true );
 				return;
 
 			}
@@ -83,6 +106,8 @@ export default class UserInfo extends HTMLElement {
 		}
 
 		if ( currentTarget.hasAttribute( 'explore' ) ) {
+
+			text.toggleAttribute( 'seen-once', true );
 
 			if ( text.getAttribute( 'name' ) === 'Particles' ) {
 
@@ -151,6 +176,7 @@ export default class UserInfo extends HTMLElement {
 		texts.forEach( text => {
 
 			if ( ! text.hasAttribute( 'visible' ) ) return;
+			text.toggleAttribute( 'seen-once', true );
 			text.toggleAttribute( 'hidden', true );
 
 		} );
@@ -521,7 +547,8 @@ export default class UserInfo extends HTMLElement {
 					left: 50%;
 					bottom: 270px;
 					transform: translateX( -50% );
-					width: 760px;
+					width: 800px;
+					max-width: calc( 100vw - 80px );
 					height: 210px;
 					background: rgba( 0, 0, 0, .28 );
 					backdrop-filter: blur( 10px );
@@ -532,7 +559,7 @@ export default class UserInfo extends HTMLElement {
 				&[ cue="viewpoint" ] user-info-copy {
 					order: 1;
 					margin-bottom: 14px;
-					width: 700px;
+					width: 860px;
 					background: none;
 					backdrop-filter: none;
 					-webkit-backdrop-filter: none;

@@ -5,6 +5,7 @@ import CopyPass from './post-processing/CopyPass';
 import MotionBlurPass from './post-processing/MotionBlurPass';
 import ChromaticAberrationPass from './post-processing/ChromaticAberrationPass';
 import BloomPass from './post-processing/BloomPass';
+import NoisePass from './post-processing/NoisePass';
 
 import AfterImagePass from './post-processing/AfterImagePass';
 import GlitchPass from './post-processing/GlitchPass';
@@ -33,7 +34,7 @@ export default class PostProcessing {
 			},
 
 			bloomPass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: .75, max: 1 },
 				radius: { value: .05, max: 5 },
 				threshold: { value: .75, max: 1 },
@@ -62,6 +63,7 @@ export default class PostProcessing {
 
 			noisePass: {
 				enabled: false,
+				scale: { value: 4, max: 8 },
 				strength: { value: .15, max: 1 },
 			},
 
@@ -89,6 +91,7 @@ export default class PostProcessing {
 		this.bloomPass = new BloomPass();
 		this.motionBlurPass = new MotionBlurPass();
 		this.chromaticAberrationPass = new ChromaticAberrationPass();
+		this.noisePass = new NoisePass();
 		this.vignettePass = new VignettePass();
 
 		this.afterImagePass = new AfterImagePass();
@@ -102,6 +105,7 @@ export default class PostProcessing {
 		this.composer.addPass( this.bloomPass );
 		this.composer.addPass( this.motionBlurPass );
 		this.composer.addPass( this.chromaticAberrationPass );
+		this.composer.addPass( this.noisePass );
 		this.composer.addPass( this.afterImagePass );
 		this.composer.addPass( this.glitchPass );
 		this.composer.addPass( this.rgbShiftPass );
@@ -133,6 +137,7 @@ export default class PostProcessing {
 			this.parameters.vignettePass.enabled ||
 			this.parameters.chromaticAberrationPass.enabled ||
 			this.parameters.bloomPass.enabled ||
+			this.parameters.noisePass.enabled ||
 			this.parameters.motionBlurPass.enabled ||
 			this.parameters.afterImagePass.enabled ||
 			this.parameters.glitchPass.enabled ||
