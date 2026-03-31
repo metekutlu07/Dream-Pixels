@@ -61,6 +61,9 @@ export default class Parameter {
 		this.set( 'home-copy-ready', false );
 		this.set( 'ui-ready', true );
 		this.set( 'intro-ready', true );
+		this.set( 'last-experiments-list', 'particles' );
+		this.set( 'last-experiments-particles', 'color-range' );
+		this.set( 'last-experiments-places', 'world' );
 
 	}
 

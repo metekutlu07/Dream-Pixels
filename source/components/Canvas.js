@@ -20,8 +20,16 @@ export default class Canvas extends HTMLElement {
 
 	onInputEnd( event ) {
 
+		if ( Application.time.elapsedTime < ( Application.store[ 'block-image-preview-until' ] || 0 ) ) return;
+
 		const currentTarget = event.composedPath()[ 0 ];
 		if ( ! currentTarget.matches( 'canvas' ) ) return;
+
+		const imagesIntro = document.querySelector(
+			'user-info-text[name="Images"][visible]:not([hidden])'
+		);
+
+		if ( imagesIntro ) return;
 
 		const coordinates = Vector2.get();
 		Application.pointer.getCoordinates( coordinates );

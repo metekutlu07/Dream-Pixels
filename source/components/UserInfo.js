@@ -6,21 +6,21 @@ export default class UserInfo extends HTMLElement {
 
 	}
 
-	onWheel() {
+	onWheel( event ) {
 
-		this.hideOnInteraction();
+		this.hideOnInteraction( event );
 
 	}
 
-	onInputStart() {
+	onInputStart( event ) {
 
-		this.hideOnInteraction();
+		this.hideOnInteraction( event );
 
 	}
 
 	onPreFrame() {
 
-		const { path, list, places } = Application.store;
+		const { path, list, places, particles } = Application.store;
 		const introReady = Application.store[ 'intro-ready' ];
 		const particleUserInfoSeen = Application.store[ 'particle-user-info-seen' ];
 		const { texts } = this.elements;
@@ -74,6 +74,19 @@ export default class UserInfo extends HTMLElement {
 
 			if (
 				name === 'Particles' &&
+				particles === 'timeline'
+			) {
+
+				text.toggleAttribute( 'seen-once', true );
+				text.toggleAttribute( 'hidden', true );
+				text.toggleAttribute( 'dismissed', true );
+				Application.store.set( 'particle-user-info-seen', true );
+				return;
+
+			}
+
+			if (
+				name === 'Particles' &&
 				introReady &&
 				! text.hasAttribute( 'dismissed' )
 			) text.toggleAttribute( 'hidden', false );
@@ -93,6 +106,8 @@ export default class UserInfo extends HTMLElement {
 	onClick( event ) {
 
 		const { currentTarget } = event;
+		event.preventDefault();
+		event.stopPropagation();
 		const text = currentTarget.closest( 'user-info-text' );
 		if ( ! text ) return;
 
@@ -107,6 +122,12 @@ export default class UserInfo extends HTMLElement {
 
 		if ( currentTarget.hasAttribute( 'explore' ) ) {
 
+			if ( text.getAttribute( 'name' ) === 'Images' ) {
+
+				Application.store.set( 'block-image-preview-until', Application.time.elapsedTime + 400 );
+
+			}
+
 			text.toggleAttribute( 'seen-once', true );
 
 			if ( text.getAttribute( 'name' ) === 'Particles' ) {
@@ -120,14 +141,30 @@ export default class UserInfo extends HTMLElement {
 
 		}
 
+		if ( currentTarget.hasAttribute( 'close' ) ) {
+
+			text.toggleAttribute( 'seen-once', true );
+
+			if ( text.getAttribute( 'name' ) === 'Particles' ) {
+
+				Application.store.set( 'particle-user-info-seen', true );
+
+			}
+
+			text.toggleAttribute( 'dismissed', true );
+			this.hide();
+
+		}
+
 	}
 
-	hideOnInteraction() {
+	hideOnInteraction( event ) {
 
 		const { texts } = this.elements;
 		const activeText = texts.find( text => text.hasAttribute( 'visible' ) && ! text.hasAttribute( 'hidden' ) );
 		if ( ! activeText ) return;
 		if ( activeText.getAttribute( 'name' ) === 'Particles' ) return;
+		if ( event?.composedPath?.().includes( activeText ) ) return;
 		this.hide();
 
 	}
@@ -157,6 +194,7 @@ export default class UserInfo extends HTMLElement {
 			const paragraphElement = text.querySelector( 'p' );
 			const nextButton = text.querySelector( '[ next ]' );
 			const exploreButton = text.querySelector( '[ explore ]' );
+			const closeButton = text.querySelector( '[ close ]' );
 
 			if ( titleElement ) titleElement.innerHTML = title || '';
 			if ( paragraphElement ) paragraphElement.innerHTML = paragraphs || '';
@@ -164,6 +202,7 @@ export default class UserInfo extends HTMLElement {
 			else text.removeAttribute( 'cue' );
 			if ( nextButton ) nextButton.toggleAttribute( 'hidden', index >= text.steps.length - 1 );
 			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', index >= text.steps.length - 1 );
+			if ( closeButton ) closeButton.toggleAttribute( 'hidden', index !== 0 );
 			text.toggleAttribute( 'last-step', index >= text.steps.length - 1 );
 
 		} );
@@ -698,6 +737,7 @@ export default class UserInfo extends HTMLElement {
 							<p>${ steps[ 0 ].paragraphs }</p>
 							<user-info-actions>
 								<user-info-button next @click|user-info>Next</user-info-button>
+								<user-info-button close @click|user-info>Close</user-info-button>
 								<user-info-button explore @click|user-info>Start</user-info-button>
 							</user-info-actions>
 						</user-info-copy>

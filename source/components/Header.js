@@ -51,9 +51,14 @@ export default class Header extends HTMLElement {
 
 		if ( currentTarget.hasAttribute( 'works' ) ) {
 
-			Application.store.set( 'list', 'particles' );
-			Application.store.set( 'particles', 'color-range' );
-			Application.store.set( 'skip-particle-gate', true );
+			const list = Application.store[ 'last-experiments-list' ] || 'particles';
+			const particles = Application.store[ 'last-experiments-particles' ] || 'color-range';
+			const places = Application.store[ 'last-experiments-places' ] || 'world';
+
+			Application.store.set( 'list', list );
+			Application.store.set( 'particles', particles );
+			Application.store.set( 'places', places );
+			Application.store.set( 'skip-particle-gate', list === 'particles' );
 			Application.router.navigate( '/works' );
 			return;
 

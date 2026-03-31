@@ -17,8 +17,13 @@ export default class Projects extends View {
 
 	onConnected() {
 
-		Application.store.set( 'list', 'particles' );
-		Application.store.set( 'particles', 'color-range' );
+		const lastList = Application.store[ 'last-experiments-list' ] || 'particles';
+		const lastParticles = Application.store[ 'last-experiments-particles' ] || 'color-range';
+		const lastPlaces = Application.store[ 'last-experiments-places' ] || 'world';
+
+		Application.store.set( 'list', lastList );
+		Application.store.set( 'particles', lastParticles );
+		Application.store.set( 'places', lastPlaces );
 
 		const { list, particles } = Application.store;
 		const isPixelLanding = list === 'particles' && particles === 'color-range';
@@ -36,6 +41,17 @@ export default class Projects extends View {
 		}
 
 		super.onConnected();
+
+	}
+
+	onModeChange() {
+
+		if ( Application.store.path !== '/works' ) return;
+
+		const { list, particles, places } = Application.store;
+		Application.store.set( 'last-experiments-list', list );
+		Application.store.set( 'last-experiments-particles', particles );
+		Application.store.set( 'last-experiments-places', places );
 
 	}
 

@@ -17,6 +17,7 @@ export default class Home extends View {
 		this.toggleFullscreen = this.toggleFullscreen.bind( this );
 		this.toggleAudio = this.toggleAudio.bind( this );
 		this.enterHome = this.enterHome.bind( this );
+		this.queueRevealSequence = this.queueRevealSequence.bind( this );
 		this.runRevealSequence = this.runRevealSequence.bind( this );
 
 	}
@@ -53,6 +54,7 @@ export default class Home extends View {
 		clearTimeout( this.gateRevealTimeout );
 		clearTimeout( this.gateExitTimeout );
 		clearTimeout( this.revealTimeout );
+		this.pendingReveal = false;
 
 		this.elements.start?.removeEventListener( 'click', this.startParticlesExperience );
 		this.elements.fullscreen?.removeEventListener( 'click', this.toggleFullscreen );
@@ -68,18 +70,25 @@ export default class Home extends View {
 		if ( view !== this ) return;
 		if ( Application.store[ 'home-gate-visible' ] ) return;
 
-		this.runRevealSequence();
+		this.queueRevealSequence();
+
+	}
+
+	queueRevealSequence() {
+
+		clearTimeout( this.revealTimeout );
+		this.pendingReveal = true;
+		this.toggleAttribute( 'revealing', true );
 
 	}
 
 	runRevealSequence() {
 
 		clearTimeout( this.revealTimeout );
+		this.pendingReveal = false;
 
 		Application.store.set( 'home-nav-ready', true );
 		Application.store.set( 'home-copy-ready', true );
-
-		this.toggleAttribute( 'revealing', true );
 
 		this.revealTimeout = setTimeout( () => {
 
@@ -92,6 +101,14 @@ export default class Home extends View {
 	onPreFrame() {
 
 		this.syncGateState();
+
+		if (
+			this.pendingReveal &&
+			Application.store.path === '/' &&
+			! Application.store.loading &&
+			Application.particles?.hasLoadedColors &&
+			Application.scene?.particles?.visible
+		) this.runRevealSequence();
 
 	}
 
@@ -141,9 +158,14 @@ export default class Home extends View {
 		event.preventDefault();
 		event.stopPropagation();
 
-		Application.store.set( 'list', 'particles' );
-		Application.store.set( 'particles', 'color-range' );
-		Application.store.set( 'skip-particle-gate', true );
+		const list = Application.store[ 'last-experiments-list' ] || 'particles';
+		const particles = Application.store[ 'last-experiments-particles' ] || 'color-range';
+		const places = Application.store[ 'last-experiments-places' ] || 'world';
+
+		Application.store.set( 'list', list );
+		Application.store.set( 'particles', particles );
+		Application.store.set( 'places', places );
+		Application.store.set( 'skip-particle-gate', list === 'particles' );
 		Application.router.navigate( '/works' );
 
 	}
@@ -180,7 +202,7 @@ export default class Home extends View {
 			Application.store.set( 'home-gate-visible', false );
 			Application.store.set( 'home-gate-seen', true );
 			this.toggleAttribute( 'gate-closing', false );
-			this.runRevealSequence();
+			this.queueRevealSequence();
 			this.syncGateState();
 
 		}, 450 );

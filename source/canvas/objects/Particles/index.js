@@ -76,8 +76,9 @@ export default class Particles extends Points {
 
 	onPreFrame() {
 
-		if ( this.hasLoadedColors || ! Application.assets[ 'common' ] ) return;
-		this.applyColors( Application.assets[ 'common' ] );
+		const common = Application.assets[ 'common' ];
+		if ( this.hasLoadedColors || ! common?.jsons?.[ 'Colors.json' ] ) return;
+		this.applyColors( common );
 
 	}
 
@@ -90,7 +91,7 @@ export default class Particles extends Points {
 
 	applyColors( common ) {
 
-		if ( this.hasLoadedColors || ! common ) return;
+		if ( this.hasLoadedColors || ! common?.jsons?.[ 'Colors.json' ] ) return;
 
 		const { jsons } = common;
 		const { images, colors } = jsons[ 'Colors.json' ];
@@ -190,6 +191,12 @@ export default class Particles extends Points {
 			Application.store[ 'pixel-experience-started' ] &&
 			this.hasCompletedColorRangeIntro
 		);
+		const shouldReuseExistingArchiveSimulation = (
+			path === '/works' &&
+			list === 'particles' &&
+			Application.store[ 'pixel-experience-started' ] &&
+			this.hasCompletedColorRangeIntro
+		);
 
 		this.visible = this.isVisible && ! shouldWaitForStart && this.hasLoadedColors;
 
@@ -201,6 +208,19 @@ export default class Particles extends Points {
 			this.isHoverable = true;
 			Application.store.set( 'ui-ready', true );
 			Application.store.set( 'intro-ready', false );
+			return;
+
+		}
+
+		if ( shouldReuseExistingArchiveSimulation ) {
+
+			this.isHoverable = isColorRange;
+			if ( isColorRange ) {
+
+				Application.store.set( 'ui-ready', true );
+				Application.store.set( 'intro-ready', false );
+
+			}
 			return;
 
 		}

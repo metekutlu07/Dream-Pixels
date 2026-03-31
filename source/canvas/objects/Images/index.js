@@ -76,6 +76,25 @@ export default class Images extends Object3D {
 	onPostUpdate() {
 
 		if ( ! this.isVisible ) return;
+		if ( Application.time.elapsedTime < ( Application.store[ 'block-image-preview-until' ] || 0 ) ) {
+
+			this.children.forEach( child => child.isHovered = false );
+			Application.cursor && Application.cursor.reset();
+			return;
+
+		}
+
+		const imagesIntro = document.querySelector(
+			'user-info-text[name="Images"][visible]:not([hidden])'
+		);
+
+		if ( imagesIntro ) {
+
+			this.children.forEach( child => child.isHovered = false );
+			Application.cursor && Application.cursor.reset();
+			return;
+
+		}
 
 		const { camera, pointer } = Application;
 		const position = pointer.getCoordinates( Vector3.get(), true );
