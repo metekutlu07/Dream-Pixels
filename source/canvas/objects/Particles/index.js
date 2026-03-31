@@ -2,7 +2,6 @@ import {
 
 	Raycaster,
 	Float32BufferAttribute,
-	Vector2,
 	Vector3,
 	Color,
 	Points,
@@ -60,13 +59,10 @@ export default class Particles extends Points {
 		this.simulation = simulation;
 		this.points = points;
 		this.hasLoadedColors = false;
-		this.hoverPosition = new Vector2( Infinity, Infinity );
-		this.lastHoverCheck = 0;
+		this.raycaster = new Raycaster();
 
 		this.frustumCulled = false;
 		this.visible = false;
-
-		this.raycaster = new Raycaster();
 
 		this.setHelpers();
 
@@ -158,18 +154,19 @@ export default class Particles extends Points {
 	onModeChange() {
 
 		this.isHoverable = false;
+		Application.cursor && Application.cursor.reset();
 
 		const { path, list, particles } = Application.store;
 		this.isVisible = (
 
-			( path === '/works' && list === 'particles' ) ||
+			( path === '/experiments' && list === 'particles' ) ||
 			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
 
 		);
 
 		const isColorRange = (
 
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			particles === 'color-range'
 
@@ -192,7 +189,7 @@ export default class Particles extends Points {
 			this.hasCompletedColorRangeIntro
 		);
 		const shouldReuseExistingArchiveSimulation = (
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			Application.store[ 'pixel-experience-started' ] &&
 			this.hasCompletedColorRangeIntro
@@ -205,7 +202,6 @@ export default class Particles extends Points {
 
 		if ( shouldReuseColorRange ) {
 
-			this.isHoverable = true;
 			Application.store.set( 'ui-ready', true );
 			Application.store.set( 'intro-ready', false );
 			return;
@@ -214,7 +210,6 @@ export default class Particles extends Points {
 
 		if ( shouldReuseExistingArchiveSimulation ) {
 
-			this.isHoverable = isColorRange;
 			if ( isColorRange ) {
 
 				Application.store.set( 'ui-ready', true );
@@ -265,77 +260,56 @@ export default class Particles extends Points {
 
 	onInputStart() {
 
-		const { elapsedTime } = Application.time;
-		this.startTime = elapsedTime;
+		if ( this.visible && Application.cursor ) Application.cursor.reset();
+		this.startTime = Application.time.elapsedTime;
 
 	}
 
 	onInputEnd() {
 
+		const previewVisible = Application.imagePreview?.hasAttribute( 'visible' );
+		if ( previewVisible || ! this.visible || ! this.hasLoadedColors ) return;
+
+		const particlesInfo = document.querySelector(
+			'user-info-text[name="Particles"][visible]:not([hidden])'
+		);
+		if ( particlesInfo ) return;
+
+		if ( this.startTime && Application.time.elapsedTime - this.startTime > 250 ) {
+
+			this.startTime = null;
+			return;
+
+		}
+
 		this.startTime = null;
+		this.updateBoxes();
+
+		const index = this.getClosestIndex();
+		const point = this.points[ index ];
+
+		if ( ! point || ! Application.cursor ) {
+
+			Application.cursor && Application.cursor.reset();
+			return;
+
+		}
+
+		Application.cursor.parameters = point;
 
 	}
 
 	onPostUpdate() {
-
-		if ( ! Application.cursor || ! this.isVisible || ! this.isHoverable ) return;
-		if ( Application.imagePreview?.hasAttribute( 'visible' ) ) return;
-
-		const { elapsedTime } = Application.time;
-
-		if ( this.startTime && elapsedTime - this.startTime > 250 ) {
-
-			Application.cursor.reset();
-			return;
-
-		}
-
-		const pointer = Application.pointer.getCoordinates( Vector2.get() );
-		const pointerDelta = this.hoverPosition.distanceToSquared( pointer );
-		const shouldRefreshHover = (
-			pointerDelta > 9 ||
-			elapsedTime - this.lastHoverCheck > 75
-		);
-
-		if ( ! shouldRefreshHover ) {
-
-			Vector2.release( pointer );
-			return;
-
-		}
-
-		this.hoverPosition.copy( pointer );
-		this.lastHoverCheck = elapsedTime;
-		Vector2.release( pointer );
-
-		const startTime = performance.now();
-		const index = this.getClosestIndex();
-		const elapsedPick = performance.now() - startTime;
-		const previousPick = Application.metrics.particlePickMs || elapsedPick;
-		Application.metrics.particlePickMs = previousPick * .75 + elapsedPick * .25;
-
-		if ( index === this.index ) return;
-		this.index = index;
-
-		const color = this.points[ this.index ];
-		if ( color ) {
-
-			color.mode = 'particle';
-			Application.cursor.set( color );
-
-		}
-		else Application.cursor.reset();
 
 	}
 
 	onAnimationEnd() {
 
 		this.simulation.setPoints( this.points );
-		this.isHoverable = true;
 
 		const { path, list, particles } = Application.store;
 		const isPixelLanding = (
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			particles === 'color-range'
 		);
@@ -357,16 +331,6 @@ export default class Particles extends Points {
 			}
 
 		}
-
-		if ( ! this.images ) return;
-
-		Object
-			.values( this.images )
-			.map( ( { box, points } ) => box.setFromPoints( points ) );
-
-		Object
-			.values( this.projects )
-			.map( ( { box, points } ) => box.setFromPoints( points ) );
 
 	}
 
@@ -414,13 +378,26 @@ export default class Particles extends Points {
 
 	}
 
+	updateBoxes() {
+
+		if ( ! this.images ) return;
+
+		this.simulation.setPoints( this.points );
+
+		Object
+			.values( this.images )
+			.forEach( ( { box, points } ) => box.setFromPoints( points ) );
+
+		Object
+			.values( this.projects )
+			.forEach( ( { box, points } ) => box.setFromPoints( points ) );
+
+	}
+
 	getClosestIndex() {
 
-		if ( ! this.isHoverable ) return;
-
 		const { pointer, camera } = Application;
-
-		if ( ! this.isVisible || camera.isScrolling ) return;
+		if ( ! this.visible || ! this.images || camera.isScrolling ) return;
 
 		const position = pointer.getCoordinates( Vector3.get(), true );
 		this.raycaster.setFromCamera( position, camera );
@@ -436,7 +413,6 @@ export default class Particles extends Points {
 			.sort( ( a, b ) => b.minDistance - a.minDistance )
 			.map( point => point.index )
 			.pop();
-
 
 	}
 
@@ -501,5 +477,4 @@ export default class Particles extends Points {
 		return { index, minDistance };
 
 	}
-
 }

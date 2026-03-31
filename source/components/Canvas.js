@@ -64,16 +64,16 @@ export default class Canvas extends HTMLElement {
 			left: 0;
 			transition: opacity .45s var( --timing-function );
 
-			[ path="/works" ][ list="particles" ]:not( [ pixel-experience-started ] ):not( [ pixel-experience-background-visible ] ) &,
-			[ path="/works" ][ list="particles" ][ pixel-experience-transitioning ]:not( [ pixel-experience-background-visible ] ) & {
+			[ path="/experiments" ][ list="particles" ]:not( [ pixel-experience-started ] ):not( [ pixel-experience-background-visible ] ) &,
+			[ path="/experiments" ][ list="particles" ][ pixel-experience-transitioning ]:not( [ pixel-experience-background-visible ] ) & {
 				opacity: 0;
 				pointer-events: none;
 			}
 
 			@media ( hover: hover ) {
 
-				[ path="/works" ][ list="sphere" ] &,
-				[ path="/works" ][ list="particles" ] & {
+				[ path="/experiments" ][ list="sphere" ] &,
+				[ path="/experiments" ][ list="particles" ] & {
 					cursor: crosshair;
 				}
 

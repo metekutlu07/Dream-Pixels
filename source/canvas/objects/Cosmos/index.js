@@ -76,7 +76,7 @@ export default class Cosmos extends Object3D {
 		Application.store.set( 'popin', null );
 
 		const { path, list, places } = Application.store;
-		this.visible = path === '/works' && list === 'places' && places === 'cosmos';
+		this.visible = path === '/experiments' && list === 'places' && places === 'cosmos';
 		if ( ! this.visible ) return;
 
 		if ( this.animation ) this.animation.remove( this.position );

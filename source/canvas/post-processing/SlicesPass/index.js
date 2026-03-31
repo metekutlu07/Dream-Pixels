@@ -37,13 +37,12 @@ export default class SlicePass extends ShaderPass {
 		this.uniforms[ 'elapsedTime' ].value = elapsedTime * 1e-3;
 
 		const { parameters } = Application.postProcessing;
-		const { count, offset, speed, enabled } = parameters.slicesPass;
+		const { count, offset, speed } = parameters.slicesPass;
 		this.uniforms[ 'count' ].value = count;
 		this.uniforms[ 'offset' ].value = offset;
 		this.uniforms[ 'speed' ].value.copy( speed );
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'slicesPass' );
 
 	}
 
 }
-

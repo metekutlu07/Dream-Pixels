@@ -14,7 +14,6 @@ import P13 from './theodora';
 import P14 from './time-travelling-colours';
 import P15 from './virtual-miniature';
 import P16 from './kizil-elma';
-import P17 from './spolia-botanique';
 import P18 from './gilbertus';
 import P19 from './cyber-lotus';
 import P20 from './augustus';
@@ -41,7 +40,7 @@ const projects = [
 	P2, P3, P4,
 	P5, P6, P7, P8,
 	P9, P10, P11, P12,
-	P13, P14, P15, P16, P17, P18, P19, P20, P21, P22, P23, P24
+	P13, P14, P15, P16, P18, P19, P20, P21, P22, P23, P24
 
 ];
 
@@ -141,7 +140,7 @@ export default {
 	views: {
 
 		home: { path: '/', title: 'Home' },
-		works: { path: '/works', title: 'Experiments' },
+		works: { path: '/experiments', title: 'Experiments' },
 		mete: { path: '/mete-kutlu', title: 'Mete Kutlu' },
 		about: { path: '/about', title: 'About' },
 		contact: { path: '/contact', title: 'Contact' },

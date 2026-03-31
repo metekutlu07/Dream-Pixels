@@ -22,7 +22,7 @@ export default class Cup extends Mesh {
 	async onModeChange() {
 
 		const { path, list, places } = Application.store;
-		this.visible = path === '/works' && list === 'places' && places === 'cosmos';
+		this.visible = path === '/experiments' && list === 'places' && places === 'cosmos';
 		if ( ! this.visible ) return;
 
 		this.position.y = -500;

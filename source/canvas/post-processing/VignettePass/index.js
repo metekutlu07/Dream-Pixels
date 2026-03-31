@@ -30,12 +30,11 @@ export default class VignettePass extends ShaderPass {
 	onPreFrame() {
 
 		const { vignettePass } = Application.postProcessing.parameters;
-		const { strength, color, enabled } = vignettePass;
+		const { strength, color } = vignettePass;
 		this.uniforms[ 'strength' ].value = strength;
 		this.uniforms[ 'color' ].value.set( color );
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'vignettePass' );
 
 	}
 
 }
-

@@ -10,7 +10,10 @@ export default class Router {
 		if ( typeof location === 'undefined' ) return;
 
 		const { origin, href } = location;
-		this.url = href.replace( origin, '' );
+		const url = href.replace( origin, '' );
+		this.url = this.normalizeURL( url );
+
+		if ( url !== this.url ) history.replaceState( history.state || {}, '', this.url );
 
 		history.scrollRestoration = 'manual';
 
@@ -26,8 +29,10 @@ export default class Router {
 	onPopState() {
 
 		const { origin, href } = window.location;
-		const path = href.replace( origin, '' );
-		this.navigate( path, false );
+		const url = href.replace( origin, '' );
+		const normalizedURL = this.normalizeURL( url );
+		if ( normalizedURL !== url ) history.replaceState( history.state || {}, '', normalizedURL );
+		this.navigate( normalizedURL, false );
 
 	}
 
@@ -52,6 +57,8 @@ export default class Router {
 
 	parseURL( url = this.url ) {
 
+		url = this.normalizeURL( url );
+
 		const [ path, queryString ] = url.split( '?' );
 
 		const route = this.getRoute( path );
@@ -63,6 +70,8 @@ export default class Router {
 	}
 
 	navigate( url, setHistory = true ) {
+
+		url = this.normalizeURL( url );
 
 		if ( url === this.url ) return;
 
@@ -127,6 +136,14 @@ export default class Router {
 
 		const state = { previous: this.url, url };
 		history.pushState( state, '', silent ? null : url );
+
+	}
+
+	normalizeURL( url = '' ) {
+
+		const [ path, queryString ] = url.split( '?' );
+		const normalizedPath = path === '/works' ? '/experiments' : path;
+		return queryString ? `${ normalizedPath }?${ queryString }` : normalizedPath;
 
 	}
 

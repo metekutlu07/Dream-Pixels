@@ -111,9 +111,9 @@ export default class Lighting extends Object3D {
 
 		const { path, list, places } = Application.store;
 
-		if ( path === '/works' ) {
+		if ( path === '/experiments' ) {
 
-			const isWorld = path === '/works' && list === 'places' && places === 'world';
+			const isWorld = path === '/experiments' && list === 'places' && places === 'world';
 			const topColor = isWorld ? '#fcd98f' : '#000000';
 			const bottomColor = isWorld ? '#ff80e3' : '#111111';
 			this.parameters.sky.topColor = topColor;
@@ -126,7 +126,7 @@ export default class Lighting extends Object3D {
 	onViewChange() {
 
 		const { path, list, places } = Application.store;
-		const isWorld = path === '/works' && list === 'places' && places === 'world';
+		const isWorld = path === '/experiments' && list === 'places' && places === 'world';
 
 		this.parameters.sky.topColor = '#000000';
 		this.parameters.sky.bottomColor = '#000000';
@@ -157,7 +157,7 @@ export default class Lighting extends Object3D {
 
 			break;
 
-		case '/works':
+		case '/experiments':
 
 			const topColor = isWorld ? '#fcd98f' : '#000000';
 			const bottomColor = isWorld ? '#ff80e3' : '#111111';

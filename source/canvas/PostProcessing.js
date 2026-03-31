@@ -29,7 +29,7 @@ export default class PostProcessing {
 			},
 
 			chromaticAberrationPass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: .3, max: 2 },
 			},
 
@@ -46,7 +46,7 @@ export default class PostProcessing {
 			},
 
 			afterImagePass: {
-				enabled: false,
+				enabled: true,
 				strength: { value: .975, min: .75, max: 1 }
 			},
 
@@ -62,7 +62,7 @@ export default class PostProcessing {
 			},
 
 			noisePass: {
-				enabled: false,
+				enabled: true,
 				scale: { value: 4, max: 8 },
 				strength: { value: .15, max: 1 },
 			},
@@ -84,6 +84,29 @@ export default class PostProcessing {
 			}
 
 		} );
+
+		this.passTargets = {
+
+			afterImagePass: [
+				{ path: '/' },
+				{ path: '/contact' },
+				{ path: '/about' }
+			],
+
+			bloomPass: [
+				{ path: '/' }
+			],
+
+			chromaticAberrationPass: [
+				{ path: '/' }
+			],
+
+			noisePass: [
+				{ path: '/experiments', list: 'places' },
+				{ path: '/experiments', list: 'grid' }
+			]
+
+		};
 
 		this.copyPass = new CopyPass();
 		this.renderPass = new RenderPass();
@@ -129,20 +152,17 @@ export default class PostProcessing {
 		Application.renderer.info.reset();
 
 		const { overrideCamera, camera, scene } = Application;
-		const { path } = Application.store;
-		const afterImageEnabled = path === '/' || path === '/contact' || path === '/about';
-		this.parameters.afterImagePass.enabled = afterImageEnabled;
 
 		const hasActivePass = (
-			this.parameters.vignettePass.enabled ||
-			this.parameters.chromaticAberrationPass.enabled ||
-			this.parameters.bloomPass.enabled ||
-			this.parameters.noisePass.enabled ||
-			this.parameters.motionBlurPass.enabled ||
-			this.parameters.afterImagePass.enabled ||
-			this.parameters.glitchPass.enabled ||
-			this.parameters.rgbShiftPass.enabled ||
-			this.parameters.slicesPass.enabled
+			this.isPassEnabled( 'vignettePass' ) ||
+			this.isPassEnabled( 'chromaticAberrationPass' ) ||
+			this.isPassEnabled( 'bloomPass' ) ||
+			this.isPassEnabled( 'noisePass' ) ||
+			this.isPassEnabled( 'motionBlurPass' ) ||
+			this.isPassEnabled( 'afterImagePass' ) ||
+			this.isPassEnabled( 'glitchPass' ) ||
+			this.isPassEnabled( 'rgbShiftPass' ) ||
+			this.isPassEnabled( 'slicesPass' )
 		);
 
 		const activeCamera = overrideCamera || camera;
@@ -166,6 +186,38 @@ export default class PostProcessing {
 
 		const { x, y } = Application.renderer.resolution;
 		this.composer.setSize( Math.round( x * .75 ), Math.round( y * .75 ) );
+
+	}
+
+	isPassEnabled( passID ) {
+
+		const parameters = this.parameters[ passID ];
+		if ( ! parameters || ! parameters.enabled ) return false;
+
+		const targets = this.passTargets[ passID ];
+		if ( ! targets || ! targets.length ) return true;
+
+		return targets.some( target => this.matchesTarget( target ) );
+
+	}
+
+	matchesTarget( target = {} ) {
+
+		const state = {
+			path: Application.store.path,
+			list: Application.store.list,
+			particles: Application.store.particles,
+			places: Application.store.places
+		};
+
+		return Object
+			.entries( target )
+			.every( ( [ key, value ] ) => {
+
+				const stateValue = state[ key ];
+				return Array.isArray( value ) ? value.includes( stateValue ) : stateValue === value;
+
+			} );
 
 	}
 

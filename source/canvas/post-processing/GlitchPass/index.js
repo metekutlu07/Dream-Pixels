@@ -65,10 +65,10 @@ export default class GlitchPass extends Pass {
 	onPreFrame() {
 
 		const { parameters } = Application.postProcessing;
-		const { strength, size, enabled } = parameters.glitchPass;
+		const { strength, size } = parameters.glitchPass;
 		this.uniforms[ 'strength' ].value = strength;
 		this.uniforms[ 'size' ].value = size;
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'glitchPass' );
 
 	}
 

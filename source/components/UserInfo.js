@@ -33,10 +33,10 @@ export default class UserInfo extends HTMLElement {
 
 			const isVisible = (
 
-				( path === '/works' && list === 'sphere' && name === 'Images' ) ||
-				( path === '/works' && list === 'particles' && name === 'Particles' ) ||
-				( path === '/works' && list === 'places' && places === 'world' && name === 'World' ) ||
-				( path === '/works' && list === 'places' && places === 'cosmos' && name === 'Cosmos' )
+				( path === '/experiments' && list === 'sphere' && name === 'Images' ) ||
+				( path === '/experiments' && list === 'particles' && name === 'Particles' ) ||
+				( path === '/experiments' && list === 'places' && places === 'world' && name === 'World' ) ||
+				( path === '/experiments' && list === 'places' && places === 'cosmos' && name === 'Cosmos' )
 
 			);
 
@@ -147,6 +147,7 @@ export default class UserInfo extends HTMLElement {
 
 			if ( text.getAttribute( 'name' ) === 'Particles' ) {
 
+				Application.store.set( 'particle-archive-entered', true );
 				Application.store.set( 'particle-user-info-seen', true );
 
 			}
@@ -400,7 +401,7 @@ export default class UserInfo extends HTMLElement {
 				pointer-events: none;
 			}
 
-			[ path="/works" ][ list="particles" ]:not( [ intro-ready ] ) & {
+			[ path="/experiments" ][ list="particles" ]:not( [ intro-ready ] ) & {
 				opacity: 0;
 				pointer-events: none;
 			}
@@ -643,7 +644,7 @@ export default class UserInfo extends HTMLElement {
 					}
 				}
 
-				[ path="/works" ][ list="particles" ]:not( [ intro-ready ] ) & {
+				[ path="/experiments" ][ list="particles" ]:not( [ intro-ready ] ) & {
 					opacity: 1;
 					pointer-events: none;
 

@@ -58,9 +58,9 @@ export default class Global {
 			[ path="/contact" ] &,
 			[ path="/photogrammetry" ] &,
 			[ path="/miniature-street-view" ] &,
-			[ path="/works" ][ list="places" ] &,
-			[ path="/works" ][ list="sphere" ] &,
-			[ path="/works" ][ list="particles" ] & {
+			[ path="/experiments" ][ list="places" ] &,
+			[ path="/experiments" ][ list="sphere" ] &,
+			[ path="/experiments" ][ list="particles" ] & {
 				overflow: hidden;
 			}
 

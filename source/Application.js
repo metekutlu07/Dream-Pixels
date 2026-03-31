@@ -92,9 +92,9 @@ class Application {
 
 	render( url ) {
 
-		const { route, parameters } = this.router.parseURL( url );
+		const { path, route, parameters } = this.router.parseURL( url );
 		const View = Views.find( view => view.path === route.path );
-		this.store.path = url;
+		this.store.path = path;
 
 		return html`
 

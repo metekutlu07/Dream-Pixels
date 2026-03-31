@@ -62,7 +62,7 @@ export default class Images extends Object3D {
 	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = path === '/works' && list === 'sphere';
+		const isVisible = path === '/experiments' && list === 'sphere';
 
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;

@@ -58,11 +58,10 @@ export default class MotionBlurPass extends ShaderPass {
 	onPreFrame() {
 
 		const { motionBlurPass } = Application.postProcessing.parameters;
-		const { enabled, strength } = motionBlurPass;
+		const { strength } = motionBlurPass;
 		this.uniforms[ 'strength' ].value = strength;
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'motionBlurPass' );
 
 	}
 
 }
-

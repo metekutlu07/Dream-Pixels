@@ -131,7 +131,7 @@ export default class Scene extends Object3D {
 		if ( path === '/about' ) cameraID = 'About';
 		if ( path === '/mete-kutlu' ) cameraID = 'MeteSlow';
 
-		if ( path === '/works' ) {
+		if ( path === '/experiments' ) {
 
 			if ( list === 'places' ) {
 
@@ -163,13 +163,13 @@ export default class Scene extends Object3D {
 
 		if ( ! path ) return;
 
-		this.objects.visible = path === '/works' && list === 'grid';
-		this.images.visible = path === '/works' && list === 'sphere';
-		this.map.visible = path === '/works' && list === 'places';
-		this.sphere.visible = path !== '/' && ! ( path === '/works' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
-		this.cosmos.visible = path === '/works' && list === 'places' && places === 'cosmos';
+		this.objects.visible = path === '/experiments' && list === 'grid';
+		this.images.visible = path === '/experiments' && list === 'sphere';
+		this.map.visible = path === '/experiments' && list === 'places';
+		this.sphere.visible = path !== '/' && ! ( path === '/experiments' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
+		this.cosmos.visible = path === '/experiments' && list === 'places' && places === 'cosmos';
 
-		const isParticleWorksView = path === '/works' && list === 'particles';
+		const isParticleWorksView = path === '/experiments' && list === 'particles';
 		const isParticleColorRange = isParticleWorksView && particles === 'color-range';
 		const hasPixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
 
@@ -179,10 +179,10 @@ export default class Scene extends Object3D {
 		) && this.particles.hasLoadedColors;
 
 		this.parameters.density = 0;
-		if ( path === '/works' && list === 'grid' ) this.parameters.density = 0;
-		else if ( path === '/works' && list === 'sphere' ) this.parameters.density = .0075;
-		else if ( path === '/works' && list === 'particles' && particles === 'color-range' ) this.parameters.density = .025;
-		else if ( path === '/works' && list === 'particles' && particles === 'timeline' ) this.parameters.density = .1;
+		if ( path === '/experiments' && list === 'grid' ) this.parameters.density = 0;
+		else if ( path === '/experiments' && list === 'sphere' ) this.parameters.density = .0075;
+		else if ( path === '/experiments' && list === 'particles' && particles === 'color-range' ) this.parameters.density = .025;
+		else if ( path === '/experiments' && list === 'particles' && particles === 'timeline' ) this.parameters.density = .1;
 
 		const { color, density } = this.parameters;
 		this.fog.color.set( color );

@@ -419,6 +419,12 @@ export default class OrbitControls extends Object3D {
 	onInputMove() {
 
 		if ( ! this.isEnabled ) return;
+		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) {
+
+			this.isGrabbed = false;
+			return;
+
+		}
 
 		const { isPressed } = Application.pointer;
 		const { enableRotate, enablePan } = this.parameters;

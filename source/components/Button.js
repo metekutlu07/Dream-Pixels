@@ -34,7 +34,7 @@ export default class Button extends HTMLElement {
 
 		switch ( path ) {
 
-		case '/works':
+		case '/experiments':
 			visibleIDs.push( 'places', 'grid', 'sphere', 'particles' );
 			break;
 
@@ -67,14 +67,14 @@ export default class Button extends HTMLElement {
 
 		case 'places':
 
-			if ( path === '/works' ) visibleIDs.push( 'cosmos', 'world' );
+			if ( path === '/experiments' ) visibleIDs.push( 'cosmos', 'world' );
 			selectedIDs.push( 'places' ); break;
 
 		case 'grid': selectedIDs.push( 'grid' ); break;
 		case 'sphere': selectedIDs.push( 'sphere' ); break;
 		case 'particles':
 
-			if ( path === '/works' ) visibleIDs.push( 'color-range', 'timeline' );
+			if ( path === '/experiments' ) visibleIDs.push( 'color-range', 'timeline' );
 			selectedIDs.push( 'particles' ); break;
 
 		}

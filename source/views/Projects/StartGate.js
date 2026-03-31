@@ -48,7 +48,7 @@ export default class StartGate extends HTMLElement {
 
 		const { path, list, particles } = Application.store;
 		const isPixelLanding = (
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			particles === 'color-range'
 		);
@@ -85,7 +85,7 @@ export default class StartGate extends HTMLElement {
 		const pixelExperienceTransitioning = Application.store[ 'pixel-experience-transitioning' ];
 		const pixelExperienceGateVisible = Application.store[ 'pixel-experience-gate-visible' ];
 		const isVisible = (
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			particles === 'color-range' &&
 			pixelExperienceGateVisible &&

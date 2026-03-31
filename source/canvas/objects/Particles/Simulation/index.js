@@ -183,7 +183,7 @@ export default class Simulation {
 		const { path, list, particles } = Application.store;
 		const isColorRange = (
 
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			particles === 'color-range'
 

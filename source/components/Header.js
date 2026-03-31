@@ -59,7 +59,7 @@ export default class Header extends HTMLElement {
 			Application.store.set( 'particles', particles );
 			Application.store.set( 'places', places );
 			Application.store.set( 'skip-particle-gate', list === 'particles' );
-			Application.router.navigate( '/works' );
+			Application.router.navigate( '/experiments' );
 			return;
 
 		}
@@ -133,7 +133,7 @@ export default class Header extends HTMLElement {
 		const pixelExperienceGateVisible = Application.store[ 'pixel-experience-gate-visible' ];
 		const pixelExperienceTransitioning = Application.store[ 'pixel-experience-transitioning' ];
 		const isPixelLanding = (
-			path === '/works' &&
+			path === '/experiments' &&
 			list === 'particles' &&
 			particles === 'color-range'
 		);
@@ -344,9 +344,9 @@ export default class Header extends HTMLElement {
 		}
 
 		[ loading ] &,
-		[ path="/works" ][ list="particles" ]:not( [ ui-ready ] ) &,
-		[ path="/works" ][ list="particles" ][ pixel-experience-gate-visible ] &,
-		[ path="/works" ][ list="particles" ][ pixel-experience-transitioning ] &,
+		[ path="/experiments" ][ list="particles" ]:not( [ ui-ready ] ) &,
+		[ path="/experiments" ][ list="particles" ][ pixel-experience-gate-visible ] &,
+		[ path="/experiments" ][ list="particles" ][ pixel-experience-transitioning ] &,
 		&[ landing-hidden ] {
 			& header-small-screen,
 			& header-navigation,
@@ -474,7 +474,7 @@ export default class Header extends HTMLElement {
 			background: rgba( 0, 0, 0, .2 );
 			text-align: left;
 
-			[ path="/works" ][ list="particles" ] & {
+			[ path="/experiments" ][ list="particles" ] & {
 				opacity: 1;
 			}
 

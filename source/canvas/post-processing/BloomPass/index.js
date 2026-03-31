@@ -343,9 +343,9 @@ export default class BloomPass extends Pass {
 	onPreFrame() {
 
 		const { bloomPass } = Application.postProcessing.parameters;
-		const { enabled, strength, radius, threshold } = bloomPass;
+		const { strength, radius, threshold } = bloomPass;
 
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'bloomPass' );
 		this.strength = strength;
 		this.radius = radius;
 		this.threshold = threshold;

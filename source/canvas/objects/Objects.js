@@ -72,7 +72,7 @@ export default class Objects extends Object3D {
 	onPreUpdate() {
 
 		const { path, list } = Application.store;
-		const isVisible = path === '/works' && list === 'grid';
+		const isVisible = path === '/experiments' && list === 'grid';
 
 		if ( this.isVisible === isVisible || ! this.children.length ) return;
 		this.isVisible = isVisible;

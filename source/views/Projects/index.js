@@ -12,7 +12,7 @@ import Popins from './Popins';
 
 export default class Projects extends View {
 
-	static path = '/works';
+	static path = '/experiments';
 	static silent = false;
 
 	onConnected() {
@@ -46,7 +46,7 @@ export default class Projects extends View {
 
 	onModeChange() {
 
-		if ( Application.store.path !== '/works' ) return;
+		if ( Application.store.path !== '/experiments' ) return;
 
 		const { list, particles, places } = Application.store;
 		Application.store.set( 'last-experiments-list', list );

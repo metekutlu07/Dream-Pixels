@@ -46,7 +46,7 @@ export default class Effects extends HTMLElement {
 				opacity: 0;
 
 				[ loading ] &,
-				[ path="/works" ][ list="particles" ]:not( [ pixel-experience-started ] ):not( [ pixel-experience-transitioning ] ) & {
+				[ path="/experiments" ][ list="particles" ]:not( [ pixel-experience-started ] ):not( [ pixel-experience-transitioning ] ) & {
 					opacity: .25;
 				}
 			}

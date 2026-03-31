@@ -49,12 +49,11 @@ export default class NoisePass extends ShaderPass {
 		this.uniforms[ 'offset' ].value.set( Math.random(), Math.random() );
 
 		const { parameters } = Application.postProcessing;
-		const { strength, scale, enabled } = parameters.noisePass;
+		const { strength, scale } = parameters.noisePass;
 		this.uniforms[ 'strength' ].value = strength;
 		this.uniforms[ 'scale' ].value = scale;
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'noisePass' );
 
 	}
 
 }
-

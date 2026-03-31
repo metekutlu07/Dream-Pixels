@@ -24,7 +24,7 @@ export default class View extends HTMLElement {
 
 			this.toggleAttribute( 'hidden' );
 
-			// Preloading images and videos for /works and /{project}
+			// Preloading images and videos for /experiments and /{project}
 
 			if ( view.tagName === 'PROJECTS-VIEW' || view.tagName === 'PROJECT-VIEW' ) {
 
@@ -111,8 +111,9 @@ export default class View extends HTMLElement {
 		const packID = path.replace( /\//g, '' );
 		const packIDs = [ 'common', 'audio' ];
 		const { list } = Application.store;
+		const isExperimentsRoute = packID === 'experiments' || packID === 'works';
 
-		if ( packID === 'works' ) {
+		if ( isExperimentsRoute ) {
 
 			if ( list === 'places' ) packIDs.push( 'places' );
 			else if ( list === 'sphere' ) packIDs.push( 'sphere' );

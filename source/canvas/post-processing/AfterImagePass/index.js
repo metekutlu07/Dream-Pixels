@@ -79,9 +79,9 @@ export default class AfterImagePass extends Pass {
 	onPreFrame() {
 
 		const { parameters } = Application.postProcessing;
-		const { strength, enabled } = parameters.afterImagePass;
+		const { strength } = parameters.afterImagePass;
 		this.uniforms[ 'strength' ].value = strength;
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'afterImagePass' );
 
 	}
 

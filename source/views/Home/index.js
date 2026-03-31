@@ -166,7 +166,7 @@ export default class Home extends View {
 		Application.store.set( 'particles', particles );
 		Application.store.set( 'places', places );
 		Application.store.set( 'skip-particle-gate', list === 'particles' );
-		Application.router.navigate( '/works' );
+		Application.router.navigate( '/experiments' );
 
 	}
 

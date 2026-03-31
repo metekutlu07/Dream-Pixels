@@ -29,12 +29,11 @@ export default class RGBShiftPass extends ShaderPass {
 	onPreFrame() {
 
 		const { parameters } = Application.postProcessing;
-		const { strength, angle, enabled } = parameters.rgbShiftPass;
+		const { strength, angle } = parameters.rgbShiftPass;
 		this.uniforms[ 'strength' ].value = strength;
 		this.uniforms[ 'angle' ].value = angle;
-		this.enabled = enabled;
+		this.enabled = Application.postProcessing.isPassEnabled( 'rgbShiftPass' );
 
 	}
 
 }
-
