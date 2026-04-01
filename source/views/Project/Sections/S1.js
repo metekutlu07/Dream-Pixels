@@ -79,7 +79,7 @@ export default class S1 {
 
 			& h4 {
 				margin-top: 12px;
-				font-size: clamp( 2.2rem, 2.3vw, 3.5rem );
+				font-size: clamp( 2.4rem, 2.5vw, 3.8rem );
 				font-family: var( --font-family-b );
 				letter-spacing: .06em;
 				text-transform: uppercase;

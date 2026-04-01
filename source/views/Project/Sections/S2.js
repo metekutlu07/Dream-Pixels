@@ -22,17 +22,27 @@ export default class S2 {
 				margin-right: var( --margin-m );
 			}
 
+			&[ text-centered ] {
+				align-items: center;
+
+				& h3,
+				& p {
+					text-align: center;
+				}
+			}
+
 			& h3 {
 				font-size: var( --font-size-xxl );
 				text-align: left;
 				margin-bottom: var( --margin-s );
-				max-width: 85%;
+				max-width: calc( 85% - 200px );
 
 				@media ( max-width: 1280px ) {
 					font-size: var( --font-size-xl );
 				}
 
 				@media ( max-width: 1024px ) {
+					max-width: initial;
 					text-align: left;
 					margin-bottom: var( --margin-s );
 					margin-right: 0 !important;
@@ -47,7 +57,7 @@ export default class S2 {
 				font-size: 2rem;
 				font-family: var( --font-family-c );
 				line-height: var( --line-height );
-				max-width: 85%;
+				max-width: calc( 85% - 200px );
 
 				@media ( max-width: 1024px ) {
 					max-width: initial;
@@ -59,11 +69,11 @@ export default class S2 {
 
 		`;
 
-		const { title, paragraphs, anchor } = content;
+		const { title, paragraphs, anchor, centeredText } = content;
 
 		return html`
 
-		<section-type-2 section ${ anchor ? `anchor="${ anchor }"` : '' }>
+		<section-type-2 section ${ anchor ? `anchor="${ anchor }"` : '' } ${ centeredText ? 'text-centered' : '' }>
 
 			${ title ? html`<h3 font-style-title>${ title }</h3>` : '' }
 			${ paragraphs ? html`<p>${ paragraphs }</p>` : '' }

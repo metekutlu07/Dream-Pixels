@@ -15,11 +15,16 @@ export default class S12 {
 			width: min( 1180px, calc( 100vw - ( var( --margin-m ) * 6 ) ) );
 			display: grid;
 			grid-template-columns: minmax( 0, 1fr ) minmax( 0, 1fr );
-			gap: 72px;
+			gap: 18px;
 			padding: 0;
 			border: none;
 			background: none;
 			backdrop-filter: none;
+		}
+
+		presentation-card[ single-column ] {
+			grid-template-columns: minmax( 0, 1fr );
+			gap: 0;
 		}
 
 		presentation-group {
@@ -106,11 +111,12 @@ export default class S12 {
 			...( leaderName ? [ `${ leaderName } (Team Leader)` ] : [] ),
 			...flattenedTeam.filter( person => person !== leaderName )
 		];
+		const hasTeam = orderedTeam.length > 0;
 
 		return html`
 
 		<section-type-12 section ${ anchor ? `anchor="${ anchor }"` : '' }>
-			<presentation-card>
+			<presentation-card ${ hasTeam ? '' : 'single-column' }>
 				<presentation-group>
 					<presentation-stack>
 						<presentation-heading>Sponsor</presentation-heading>
@@ -122,10 +128,12 @@ export default class S12 {
 					</presentation-stack>
 				</presentation-group>
 
-				<presentation-group>
-					<presentation-heading>Team</presentation-heading>
-					${ orderedTeam.map( person => html`<presentation-person>${ person }</presentation-person>` ) }
-				</presentation-group>
+				${ hasTeam ? html`
+					<presentation-group>
+						<presentation-heading>Team</presentation-heading>
+						${ orderedTeam.map( person => html`<presentation-person>${ person }</presentation-person>` ) }
+					</presentation-group>
+				` : '' }
 			</presentation-card>
 		</section-type-12>
 

@@ -12,7 +12,7 @@ export default class S3 {
 			.replace( /<[^>]*>/g, ' ' )
 			.replace( /\s+/g, ' ' )
 			.trim() : '';
-		const plainAlt = alt || plainCaption;
+		const plainAlt = alt || plainCaption || 'project media';
 
 		css`
 

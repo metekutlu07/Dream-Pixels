@@ -20,18 +20,43 @@ export default {
 		},
 		{
 			type: 'S2',
-			paragraphs: 'Cyber Lotus is composed of a series of images and videos created by an artificial neural network trained to paint unseen examples of dancheong, the Korean art of painting used to decorate wooden Buddhist temples. The research project is an investigation on the rising cybernetic culture of image-making, as well as the tension between spirituality and technology. During a collaboration with Hanyang University, Mete Kutlu takes around 16000 photos for the photogrammetric 3D scanning of Buddhist mountain temples. This archive is then used as a dataset to train an AI which first identifies certain visual protocols of dancheong and then demonstrates his talents as an artificial artist of dancheong.',
+			paragraphs: 'Cyber Lotus is a machine learning experiment in which an artificial intelligence is trained to reimagine and paint Korean <em>dancheong</em> patterns, the vibrant ornaments that decorate the wooden structures of Buddhist temples. Derived from stylized lotus figures, symbols of purity, transcendence, and enlightenment, and painted according to the cosmic color scheme of <em>obangsaek, dancheong</em>  paintings transformed temple architecture into hypnotizing three-dimensional mandalas." Drawing on a photographic archive accumulated during my Silk Road fieldwork, I curated a dataset of <em> dancheong</em>  motifs and trained a machine learning model to explore their transformations. The results will be demonstrated through a series of images and video sequences. In this experiment, what was once the metaphysical light of the Buddha becomes a kind of electronic <em>qi</em> , animated by machinic breath. The <em>dancheong</em> patterns, once cosmograms of a premodern world attuned to natural rhythms, now reappear as speculative virtual cosmograms shaped by the artificial mind. Within this posthuman imagination, the lotus patterns hallucinated by the neural net unfold into undulating organic topographies. These terrains evoke the bumpy epidermis of a lotus leaf observed under a scanning electron microscope, revealing the papillary nanostructures that grant the lotus its superhydrophobic feature, the innate capacity to remain unstained in muddy waters.',
+		},
+		{
+			type: 'S12',
+			sponsor: [
+				'Paris-Est University'
+			],
+			partners: [
+				'Hanyang University (Seoul)'
+			],
+			team: [
+				{
+					leader: true,
+					people: [ 'Mete Kutlu' ]
+				},
+				{
+					people: [ 'Dilara Baskoylu', 'Tugce Topada' ]
+				}
+			]
+		},
+		{
+			type: 'S13',
+			media: {
+				source: 'https://youtu.be/IxfaLM0myzw'
+			}
 		},
 		{
 			type: 'S2',
-			anchor: 'Photogrammetric Dancheong Datasets',
-			title: 'Photogrammetric Dancheong Datasets',
+			centeredText: true,
+			title: 'Photogrammetric <em>Dancheong</em> Datasets',
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/dataset01.jpg',
-				caption: 'Dataset 01 - Large',
+				caption: 'Input: a sample from the <em>dancheong</em> dataset (1,000 photos).',
+				explain: '<br>Prepared for training a neural net, from images taken during photogrammetric scans of various temples across the Korean peninsula. For machine learning to be effective, the dataset must maintain visual consistency: objects should belong to the same category, and the angle of view should remain uniform. I selected relatively frontal views of beam decorations featuring lotus motifs, geometric patterns, and radiating wave forms.',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
@@ -39,26 +64,22 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/dataset02.jpg',
-				caption: 'Dataset 02 - Reduced',
+				caption: 'Output: When Al paints <em>dancheong.</em>',
+				explain: '<br>The dataset was used to train a StyleGAN2 model, a generative adversarial network (GAN) developed by Nvidia in 2019. After 9,000 training steps, the generated images stabilized, and the process was halted. Displayed above is a selection of outputs produced by the model. Wooden textures and latticework structures emerge, while lotus motifs and radiating waves dissolve into organic circular forms interwoven with one another.',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
 			type: 'S2',
-			anchor: 'Virtual Sukhavati',
-			title: 'Virtual Sukhavati',
-			paragraphs: 'Central to dancheong decorations is the lotus flower, the symbol of enlightenment in Buddhism. Around the lotus flower are drawn patterns of radiant waves representing the light of Buddha. Using the five colours of the Ying Yang philosophy, dancheong transforms the wooden construction into an earthly version of Sukhavati, the Buddhist paradise. In Cyber Lotus, these colours and figures are reinterpreted by the AI to suggest a virtual Sukhavati, an electronic Land of Bliss. Figures of cybernetic lotus flowers emerge and represent the intertwining digital and spiritual realms. The glowing pixels of these artificial dancheong examples suggest a multi-dimensional digital lotus pond from which emanates the electronic light offering salvation to mankind in the Age of AI. The light of Buddha seems swapped or fused with the light of AI. While questioning our techno-centered culture rising since the chase of God from the natural world, the project also hints at a shared dream of an immaterial, ideal and imaginary world between the spiritual and virtual realms. ',
-		},
-
-		{
-			type: 'S2',
+			centeredText: true,
 			title: 'Photogrammetric Latent Walk',
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/slider01.mp4',
-				caption: 'Latent Walks - Large Dataset',
+				caption: '',
+				explain: '',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
@@ -66,20 +87,21 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/slider02.mp4',
-				caption: 'Latent Walks - Reduced Dataset',
+				caption: '',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
 		{
 			type: 'S2',
-			anchor: '3D Latents',
 			title: '3D Latents',
+			paragraphs: 'Landscapes from an algorithmic paradise: latent walks in 3D. The 3D forms were generated by mapping the brightness of pixels from 2D images created by a neural network: darker areas sink into valleys, while lighter regions rise into peaks. The image is a screenshot from a video visualizing a latent walk, which refers to the continuous transition between machine-generated predictions within the model\'s latent space.',
 		},
 		{
 			type: 'S3',
 			media: {
+				centeredText: true,
 				source: 'public/cyber-lotus/large-01.mp4',
-				caption: '',
+				caption: 'Synthetic <em>dancheong</em> series.',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
@@ -101,18 +123,13 @@ export default {
 		},
 		{
 			type: 'S2',
-			anchor: 'A Risky Swap',
-			title: 'A Risky Swap',
-			paragraphs: 'Cyber Lotus builds upon the questionings of Regis Debray on the transformation of the way in which our eyes see the world following the advent of the television screen. The modern image, at its birth, in the form of a Renaissance tableau, imitates and references directly the natural world. Made of vegetal or mineral pigments, it is material and needs the light of our sun to reflect and be visible. However, the self-lit and self-referential images of the television screen reverses this equation. It brings forth a certain kind of idolatry of the electronic image which reminds us of the pre-modern image, the Byzantine icon. The electronic light of the television takes the place of the divine light “emanating” from the saintly figures. Today the ubiquitous smart screens made of weightless pixels take this phenomenon to a global scale. Their algorithmic intelligence creates a self-sustaining world which is able to govern the physical world at unseen scales, speed and precision. Cyber Lotus signals to this exchange of light which our modern societies accomplished. Nam June Paik, a Korean artist, hints to the tension between spirituality and technology in his “TV Buddha” series. Cyber Lotus seeks to update this questioning in the Age of AI.',
-		},
-		{
-			type: 'S2',
-			anchor: 'Cybernetic Alchemy',
 			title: 'Cybernetic Alchemy',
+			paragraphs: 'After depth was applied to the generated image, a metallic material was overlaid to introduce reflections and luminous color effects, evoking the electronic radiance of a cybernetic lotus.',
 		},
 		{
 			type: 'S3',
 			media: {
+				centeredText: true,
 				source: 'public/cyber-lotus/metalic03.mp4',
 				caption: 'Light of the Electronic Buddha',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
