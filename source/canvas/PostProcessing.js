@@ -103,7 +103,9 @@ export default class PostProcessing {
 
 			noisePass: [
 				{ path: '/experiments', list: 'places' },
-				{ path: '/experiments', list: 'grid' }
+				{ path: '/experiments', list: 'grid' },
+				{ path: '/augustus' }
+
 			]
 
 		};

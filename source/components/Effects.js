@@ -1,16 +1,12 @@
-//import { Vector2 } from 'three';
-
 export default class Effects extends HTMLElement {
 
-	onUpdate() {
+	onPreFrame() {
 
-		//const { noise_effect } = this.elements;
+		const path = Application.store.path;
+		const isProjectPath = Application.content.projects
+			.some( project => `/${ project.path }` === path );
 
-		//const { x, y } = new Vector2()
-		//			.random()
-		//			.multiplyScalar( 100 );
-
-		//		noise_effect.style.setProperty( '--background-position', `${ x }% ${ y }%` );
+		this.toggleAttribute( 'project-noise', isProjectPath );
 
 	}
 
@@ -61,9 +57,17 @@ export default class Effects extends HTMLElement {
 
 			& noise-effect {
 				background-image: url( "/public/common/Noise.png" );
-				background-position: var( --background-position );
-				opacity: .25;
+				background-repeat: repeat;
+				background-size: 180px;
+				background-position: 0 0;
+				opacity: 0;
 				display: none;
+			}
+
+			&[ project-noise ] noise-effect {
+				display: block;
+				opacity: .14;
+				animation: project-noise-shift .28s steps( 2 ) infinite;
 			}
 
 			& vignette-effect {
@@ -76,6 +80,14 @@ export default class Effects extends HTMLElement {
 					display: none;
 
 				}
+			}
+
+			@keyframes project-noise-shift {
+				0% { background-position: 0 0; }
+				25% { background-position: 37px 19px; }
+				50% { background-position: -21px 44px; }
+				75% { background-position: 18px -27px; }
+				100% { background-position: 0 0; }
 			}
 
 		}

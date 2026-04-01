@@ -44,14 +44,14 @@ export default class S2 {
 			}
 
 			& p {
-				font-size: var( --font-size-l );
+				font-size: 2rem;
 				font-family: var( --font-family-c );
 				line-height: var( --line-height );
 				max-width: 85%;
 
 				@media ( max-width: 1024px ) {
 					max-width: initial;
-					font-size: var(--font-size-m );
+					font-size: 1.5rem;
 				}
 			}
 

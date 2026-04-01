@@ -96,14 +96,6 @@ export default {
 			},
 		},
 		{
-			type: 'S3',
-			media: {
-				source: 'public/firuze/wire-4-02-10.jpg',
-				caption: 'Architectural detail from the Shad-i Mulk Aqa Mausoleum, Samarkand, No.4-02-10',
-				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
-			},
-		},
-		{
 			type: 'S8',
 			media: {
 				source: 'public/firuze/shadi-mulk-aqa02.mp4',
@@ -204,35 +196,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			anchor: 'Blue Enamels',
-			title: 'Blue Enamels',
-		},
-		{
-			type: 'S3',
-			media: {
-				centered: 'true',
-				source: 'public/firuze/test.jpg',
-				caption: 'Enameled polychrome tiles of Haft Rang',
-				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				centered: 'true',
-				source: 'public/firuze/test1.jpg',
-				caption: 'Enameled polychrome tiles of Haft Rang',
-				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				centered: 'true',
-				source: 'public/firuze/mosaics01.jpg',
-				caption: 'Enameled polychrome tiles of Haft Rang',
-				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
-			},
+			title: 'Fieldwork Photographs',
 		},
 		{
 			type: 'S3',
@@ -266,11 +230,6 @@ export default {
 				caption: 'Iwan Ornements of the Tilla Kari Madrasa (1660) in Samarkand and the Kalan Mosque (1514) in Bukhara',
 				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
-		},
-		{
-			type: 'S2',
-			anchor: 'Field Study Photos',
-			title: 'Field Study Photos',
 		},
 		{
 			type: 'S8',

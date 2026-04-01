@@ -7,7 +7,7 @@ export default class S3 {
 		const variant = content.type === 'S8' ? 'compact' :
 			content.type === 'S9' ? 'medium' : '';
 		const { anchor } = content;
-		const { source, caption, explain, alt, controls, centered, preloadMedia } = content.media;
+		const { source, caption, explain, alt, controls, centered, centeredText, preloadMedia } = content.media;
 		const plainCaption = caption ? caption
 			.replace( /<[^>]*>/g, ' ' )
 			.replace( /\s+/g, ' ' )
@@ -148,6 +148,31 @@ export default class S3 {
 				}
 			}
 
+			& p[ centered-text ] {
+				padding-left: 0;
+				padding-right: 0;
+				align-self: center;
+				text-align: center;
+			}
+
+			&[ compact ] p[ centered-text ],
+			&[ medium ] p[ centered-text ] {
+				margin-left: auto;
+				margin-right: auto;
+				padding-left: 0;
+				padding-right: 0;
+				align-self: center;
+				text-align: center;
+			}
+
+			&[ compact ] p[ centered-text ] {
+				width: min( 788px, 100% );
+			}
+
+			&[ medium ] p[ centered-text ] {
+				width: min( 54.67vw, 1067px );
+			}
+
 			& project-caption strong,
 			& p strong {
 				font-weight: inherit;
@@ -177,6 +202,10 @@ export default class S3 {
 						padding-left: 72px;
 						padding-right: 0;
 					}
+				}
+
+				& p[ centered-text ] {
+					padding-left: 0;
 				}
 			}
 
@@ -222,7 +251,7 @@ export default class S3 {
 			</media-frame>
 
 			${ caption || explain ? html`
-				<p>
+				<p ${ centeredText ? 'centered-text' : '' }>
 					${ caption ? html`<project-caption>${ caption }</project-caption>` : '' }
 					${ explain ? html`<project-explain>${ explain }</project-explain>` : '' }
 				</p>

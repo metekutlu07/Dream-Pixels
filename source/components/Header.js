@@ -61,10 +61,7 @@ export default class Header extends HTMLElement {
 
 		}
 
-		if (
-			currentTarget.hasAttribute( 'works' ) ||
-			currentTarget.hasAttribute( 'back' )
-		) {
+		if ( currentTarget.hasAttribute( 'works' ) ) {
 
 			Application.particles?.ensureColorsReady?.();
 
@@ -538,7 +535,6 @@ export default class Header extends HTMLElement {
 		`;
 
 		const navigation = [
-			{ attributes: [ 'back', '@click|header-block' ] },
 			{ attributes: [ 'home', '@click|header-block' ], link: { internal: true } },
 			{ attributes: [ 'about' ], link: { internal: true } },
 			{ attributes: [ 'works', '@click|header-block' ], labels: [ 'Experiments' ] },

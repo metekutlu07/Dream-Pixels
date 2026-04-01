@@ -33,16 +33,16 @@ export default class S1 {
 			& hero-lines {
 				z-index: 1;
 				background:
-					linear-gradient( 180deg, rgba( 0, 0, 0, .58 ) 0%, rgba( 0, 0, 0, .24 ) 38%, rgba( 0, 0, 0, .56 ) 100% ),
+					linear-gradient( 180deg, rgba( 0, 0, 0, .42 ) 0%, rgba( 0, 0, 0, .42 ) 100% ),
 					repeating-linear-gradient(
 						180deg,
-						rgba( 255, 255, 255, .065 ) 0,
-						rgba( 255, 255, 255, .065 ) 1px,
-						rgba( 0, 0, 0, .22 ) 1px,
-						rgba( 0, 0, 0, .22 ) 4px
+						rgba( 255, 255, 255, .075 ) 0,
+						rgba( 255, 255, 255, .075 ) 2px,
+						rgba( 255, 255, 255, 0 ) 2px,
+						rgba( 255, 255, 255, 0 ) 6px
 					);
-				mix-blend-mode: multiply;
-				opacity: .95;
+				mix-blend-mode: normal;
+				opacity: 1;
 				pointer-events: none;
 			}
 
@@ -79,7 +79,7 @@ export default class S1 {
 
 			& h4 {
 				margin-top: 12px;
-				font-size: clamp( 2rem, 2vw, 3.2rem );
+				font-size: clamp( 2.2rem, 2.3vw, 3.5rem );
 				font-family: var( --font-family-b );
 				letter-spacing: .06em;
 				text-transform: uppercase;
@@ -167,7 +167,7 @@ export default class S1 {
 			<hero-media>${ media }</hero-media>
 			<hero-lines></hero-lines>
 			<hero-overlay>
-				${ projectNumber ? html`<hero-index>Project ${ projectNumber }</hero-index>` : '' }
+				${ projectNumber ? html`<hero-index>Experiment ${ projectNumber }</hero-index>` : '' }
 				<h3>${ title }</h3>
 				${ subtitle ? html`<h4>${ subtitle }</h4>` : '' }
 				${ meta ? html`<hero-meta>${ meta }</hero-meta>` : '' }

@@ -643,6 +643,15 @@ export default class UserInfo extends HTMLElement {
 					}
 				}
 
+				&:not( [ visible ] ) {
+					pointer-events: none;
+
+					& user-info-guide {
+						opacity: .001;
+						pointer-events: none;
+					}
+				}
+
 				&[ hidden ] {
 					opacity: 1;
 					pointer-events: none;

@@ -85,8 +85,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			anchor: 'Holographic Emanations',
-			title: 'Holographic Emanations',
+			title: 'Holographic Reconstruction',
 		},
 		{
 			type: 'S3',

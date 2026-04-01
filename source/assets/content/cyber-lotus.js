@@ -52,7 +52,6 @@ export default {
 
 		{
 			type: 'S2',
-			anchor: 'Photogrammetric Latent Walk',
 			title: 'Photogrammetric Latent Walk',
 		},
 		{
@@ -80,7 +79,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/large-01.mp4',
-				caption: '3D Latent',
+				caption: '',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
@@ -88,7 +87,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/3d-slider01.mp4',
-				caption: '3D Latent - Large Dataset',
+				caption: '',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
@@ -96,7 +95,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cyber-lotus/3d-slider02.mp4',
-				caption: '3D Latent - Reduced Dataset',
+				caption: '',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
