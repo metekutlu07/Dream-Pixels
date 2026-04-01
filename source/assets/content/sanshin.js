@@ -18,6 +18,24 @@ export default {
 			}
 		},
 		{
+			type: 'S12',
+			sponsor: [
+				'Paris-Est University'
+			],
+			partners: [
+				'Hanyang University (Seoul)'
+			],
+			team: [
+				{
+					leader: true,
+					people: [ 'Mete Kutlu' ]
+				},
+				{
+					people: [ 'Theuns Botha' ]
+				}
+			]
+		},
+		{
 			type: 'S3',
 			media: {
 				source: 'public/sanshin/k138.mp4',

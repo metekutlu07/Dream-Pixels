@@ -2,7 +2,7 @@ export default {
 
 	path: 'gilbertus',
 	title: 'Gilbertus',
-	subtitle: 'Augmented Repertoire of French Monumental Sculpture',
+	subtitle: 'Augmented Repertoire of French Sculpture',
 	location: 'Paris',
 	date: 'November 2022',
 	team: 'Mete Kutlu & Theuns Botha',
