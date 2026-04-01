@@ -7,11 +7,12 @@ export default class S3 {
 		const variant = content.type === 'S8' ? 'compact' :
 			content.type === 'S9' ? 'medium' : '';
 		const { anchor } = content;
-		const { source, caption, explain, controls, centered, preloadMedia } = content.media;
+		const { source, caption, explain, alt, controls, centered, preloadMedia } = content.media;
 		const plainCaption = caption ? caption
 			.replace( /<[^>]*>/g, ' ' )
 			.replace( /\s+/g, ' ' )
 			.trim() : '';
+		const plainAlt = alt || plainCaption;
 
 		css`
 
@@ -35,7 +36,7 @@ export default class S3 {
 			}
 
 			section-type-3 + & {
-				padding-top: var( --margin-s );
+				padding-top: calc( var( --margin-s ) * 4 );
 
 				@media ( max-width: 1024px ) {
 					padding-top: 0;
@@ -67,7 +68,7 @@ export default class S3 {
 
 			&[ compact ],
 			&[ medium ] {
-				padding: var( --margin-s ) 0;
+				padding: calc( var( --margin-s ) * 4 ) 0;
 
 				& content-frame {
 					width: min( 75vw, 1400px );
@@ -127,14 +128,22 @@ export default class S3 {
 			}
 
 			& p {
-				margin: var( --margin-s );
+				width: 1000px;
+				margin: var( --margin-s ) 0 0;
+				padding-left: 300px;
+				box-sizing: content-box;
+				align-self: flex-start;
+				text-align: left;
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-m );
-				font-weight: 400;
+				font-weight: 350;
 				opacity: 1;
 
 				@media ( max-width: 650px ) {
-					margin: var( --margin-s );
+					width: 100%;
+					margin: var( --margin-s ) 0 0;
+					padding-left: 0;
+					box-sizing: border-box;
 					font-size: var( --font-size-s );
 				}
 			}
@@ -208,8 +217,8 @@ export default class S3 {
 			<media-frame>
 			${ isVideo ?
 
-			Video.render( source, { controls, border: true, preloadMedia } ) :
-			html`<img src="${ source }" alt="${ plainCaption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
+		Video.render( source, { controls, border: true, preloadMedia } ) :
+		html`<img src="${ source }" alt="${ plainAlt }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
 			</media-frame>
 
 			${ caption || explain ? html`

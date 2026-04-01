@@ -31,6 +31,10 @@ export default class Button extends HTMLElement {
 		const activatedIDs = [];
 
 		const { path, list, places, particles } = Application.store;
+		const isProjectPath = Application.content.projects
+			.some( project => `/${ project.path }` === path );
+
+		if ( isProjectPath ) visibleIDs.push( 'back' );
 
 		switch ( path ) {
 

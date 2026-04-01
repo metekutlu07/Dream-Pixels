@@ -8,8 +8,6 @@ import S5 from './Sections/S5';
 import S6 from './Sections/S6';
 import S7 from './Sections/S7';
 
-import Navigation from './Navigation';
-
 const Types = { S1, S2, S3, S4, S5, S6, S7, S8: S3, S9: S3 };
 
 export default class Project extends View {
@@ -21,17 +19,11 @@ export default class Project extends View {
 
 		super.onConnected();
 
-		const content = Application.content.get( Application.store.path );
-		if ( content?.hideNavigation ) return;
-		document.body.appendChild( this.elements.navigation );
-
 	}
 
 	remove() {
 
 		super.remove();
-
-		this.elements.navigation?.remove();
 
 	}
 
@@ -83,7 +75,6 @@ export default class Project extends View {
 		<project-view view>
 
 			${ blocks }
-			${ content.hideNavigation ? '' : Navigation.render( parameters ) }
 
 		</project-view>
 

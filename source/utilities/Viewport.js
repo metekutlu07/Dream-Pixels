@@ -21,6 +21,8 @@ export default class Viewport {
 	setSize( width, height ) {
 
 		const { devicePixelRatio } = window;
+		const isLocalHost = [ 'localhost', '127.0.0.1' ].includes( window.location.hostname );
+		const maxPixelRatio = isLocalHost ? 1.25 : 2;
 		const hasChanged = this.width !== width || this.height !== height;
 
 		if ( ! hasChanged ) return;
@@ -30,7 +32,7 @@ export default class Viewport {
 		this.aspect = this.width / this.height;
 		this.size.set( this.width, this.height );
 
-		this.devicePixelRatio = devicePixelRatio || 1;
+		this.devicePixelRatio = Math.min( devicePixelRatio || 1, maxPixelRatio );
 		this.orientation = this.aspect > 1 ? 'landscape' : 'portrait';
 
 		Application.events.dispatch( 'onResize', this.size );

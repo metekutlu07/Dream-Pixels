@@ -172,7 +172,8 @@ export default {
 		'timeline': [ 'Inside' ],
 		'cosmos': [ 'Cosmos' ],
 		'world': [ 'World' ],
-		'display-menu': [ 'Menu', 'Close' ]
+		'display-menu': [ 'Menu', 'Close' ],
+		'back': [ 'Back' ]
 	},
 
 	// Image for link sharing preview on Facebook, WhatsApp, etc...,

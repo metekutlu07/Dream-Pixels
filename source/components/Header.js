@@ -48,6 +48,9 @@ export default class Header extends HTMLElement {
 
 		const { currentTarget } = event;
 		const { camera, fullscreen, scene, audio } = Application;
+		const list = Application.store[ 'last-experiments-list' ] || 'particles';
+		const particles = Application.store[ 'last-experiments-particles' ] || 'color-range';
+		const places = Application.store[ 'last-experiments-places' ] || 'world';
 
 		if ( currentTarget.hasAttribute( 'home' ) ) {
 
@@ -58,11 +61,10 @@ export default class Header extends HTMLElement {
 
 		}
 
-		if ( currentTarget.hasAttribute( 'works' ) ) {
-
-			const list = Application.store[ 'last-experiments-list' ] || 'particles';
-			const particles = Application.store[ 'last-experiments-particles' ] || 'color-range';
-			const places = Application.store[ 'last-experiments-places' ] || 'world';
+		if (
+			currentTarget.hasAttribute( 'works' ) ||
+			currentTarget.hasAttribute( 'back' )
+		) {
 
 			Application.particles?.ensureColorsReady?.();
 
@@ -406,6 +408,15 @@ export default class Header extends HTMLElement {
 				padding-right: 72px;
 			}
 
+			& default-button[ back ] {
+				margin-right: 14px;
+
+				@media ( max-width: 1024px ) {
+					margin-right: 0;
+					margin-bottom: 14px;
+				}
+			}
+
 			& default-button[ home ]:hover {
 				--background-color: transparent;
 				z-index: 1;
@@ -527,6 +538,7 @@ export default class Header extends HTMLElement {
 		`;
 
 		const navigation = [
+			{ attributes: [ 'back', '@click|header-block' ] },
 			{ attributes: [ 'home', '@click|header-block' ], link: { internal: true } },
 			{ attributes: [ 'about' ], link: { internal: true } },
 			{ attributes: [ 'works', '@click|header-block' ], labels: [ 'Experiments' ] },
