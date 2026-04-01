@@ -13,62 +13,26 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/bistami/bistami-intro.mp4',
+				source: 'public/bistami/bistami-part01.mp4',
 				caption: 'Bistami Video Introduction',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
-			type: 'S4',
-			anchor: 'Miniature Details',
+			type: 'S9',
+			anchor: 'Comparative View',
 			media: {
-				source: 'public/common/Artwork.jpg',
-				caption: `
-					Constantinople <br>
-					The Keys To Esoteric Knowledge <br>
-					Constantinople, c.1605
-				`
-			},
-			details: {
-				'Title': 'Messianic Conquest of Constantinople',
-				'Miniaturist': 'Anonymous',
-				'Manuscript': 'The Translation of The Key of Occult Knowledge<br>Tercume-i Miftah-i Cifru\'l-Cami',
-				'Author': 'Abdurrahman Bistami',
-				'Translator': 'Serif Mehmed Efendi (From Arabic to Ottoman Turkish)',
-				'Date of Translation': '1598',
-				'Patron': 'Sultan Ahmed I',
-				'Place of Production': 'Constantinople',
-				'Date of Production': '1603-1610',
-				'Style': 'Post-Classical School of Hasan',
-				'Archive': 'Istanbul University Library',
-				'No': 'T6624, Folio 91b',
-				'City': 'Istanbul, Turkey'
+				source: 'public/bistami/02-bistami-02.jpg',
+				caption: '<strong> Thinking of the apocalypse in Constantinople, now and then.</strong><br><br><strong> The prophesied conquest of Constantinople.</strong>  This miniature depicts the conquest as one of the apocalyptic portents in Ottoman eschatology, which inherited elements of Byzantine traditions. The city was to be taken by the Blessed Guide of humanity, the <em>Mahdi</em>, expected to appear in the final days before the Apocalypse and unite the world under one kingdom. From the Translation of <em>The Key to All Prophecies (Tercüme-i Miftah-i Cifr’ül Cami)</em>, originally written by Abdurrahman Bistami, an Antiochian master of the science of letters, around 1450. This miniature comes from a copy produced in Constantinople for Sultan Ahmed I around 1610. Istanbul University Library, TY 6644, fol. 91b.<br><br><strong>3D miniature of Constantinople.</strong> The miniature is transformed into a 3D environment, letting us see the same painting from different angles. The 3D model invites us into the imagination of the Ottoman painter. Artwork by the author, digital reconstruction, 2020.',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S8',
 			anchor: 'Into The Miniature Space',
 			media: {
-				source: 'public/bistami/bistami-part01.mp4',
+				source: 'public/bistami/bistami-intro.mp4',
 				caption: 'Video Presentation 01',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				controls: false
-			}
-		},
-		{
-			type: 'S8',
-			media: {
-				source: 'public/bistami/bistami-part02.mp4',
-				caption: 'Video Presentation 02',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				controls: false
-			}
-		},
-		{
-			type: 'S8',
-			media: {
-				source: 'public/bistami/bistami-part03.mp4',
-				caption: 'Video Presentation 03',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
@@ -80,15 +44,6 @@ export default {
 				caption: 'Video Presentatio 04',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
-			}
-		},
-		{
-			type: 'S9',
-			anchor: 'Comparative View',
-			media: {
-				source: 'public/bistami/02-bistami-02.jpg',
-				caption: '<strong> Thinking of the apocalypse in Constantinople, now and then.</strong><br><br><strong> The prophesied conquest of Constantinople.</strong>  This miniature depicts the conquest as one of the apocalyptic portents in Ottoman eschatology, which inherited elements of Byzantine traditions. The city was to be taken by the Blessed Guide of humanity, the <em>Mahdi</em>, expected to appear in the final days before the Apocalypse and unite the world under one kingdom. From the Translation of <em>The Key to All Prophecies (Tercüme-i Miftah-i Cifr’ül Cami)</em>, originally written by Abdurrahman Bistami, an Antiochian master of the science of letters, around 1450. This miniature comes from a copy produced in Constantinople for Sultan Ahmed I around 1610. Istanbul University Library, TY 6644, fol. 91b.<br><br><strong>3D miniature of Constantinople.</strong> The miniature is transformed into a 3D environment, letting us see the same painting from different angles. The 3D model invites us into the imagination of the Ottoman painter. Artwork by the author, digital reconstruction, 2020.',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -142,6 +97,24 @@ export default {
 				source: 'public/bistami/pro.jpg',
 				caption: 'Drawing the plan of imaginary Constantinople. Illustration by the author, 2020. The process begins by drawing the circular bases of the towers. A projection method is then applied to transform the bird’s-eye view into a top view, producing the plan.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+			}
+		},
+		{
+			type: 'S8',
+			media: {
+				source: 'public/bistami/bistami-part02.mp4',
+				caption: 'Video Presentation 02',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				controls: false
+			}
+		},
+		{
+			type: 'S8',
+			media: {
+				source: 'public/bistami/bistami-part03.mp4',
+				caption: 'Video Presentation 03',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				controls: false
 			}
 		},
 	]

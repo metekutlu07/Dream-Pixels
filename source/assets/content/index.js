@@ -2,7 +2,6 @@
 import P2 from './bamistun';
 import P3 from './bistami';
 import P4 from './cosmic-colors';
-import P5 from './humbaba';
 import P6 from './latent-voxels';
 import P7 from './miniature-street-view';
 import P8 from './photogrammetry';
@@ -38,7 +37,7 @@ import P24 from './khanum';
 const projects = [
 
 	P2, P3, P4,
-	P5, P6, P7, P8,
+	P6, P7, P8,
 	P9, P10, P11, P12,
 	P13, P14, P15, P16, P18, P19, P20, P21, P22, P23, P24
 

@@ -104,7 +104,7 @@ export default class Particles extends Points {
 			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
 			const { source, path, caption, explain, tags } = images[ imageID ];
 			const content = Application.content.get( path );
-			const title = content?.title || '';
+			const title = content?.title || path || '';
 			const color = new Color();
 
 			const project = { box: new Box3(), points: [] };
@@ -128,6 +128,7 @@ export default class Particles extends Points {
 		this.titles = Object
 			.entries( this.projects )
 			.reverse()
+			.filter( ( [ path ] ) => !! Application.content.get( path ) )
 			.map( project => {
 
 				const [ path, { points } ] = project;
@@ -293,6 +294,13 @@ export default class Particles extends Points {
 		if ( ! point || ! Application.cursor ) {
 
 			Application.cursor && Application.cursor.reset();
+			return;
+
+		}
+
+		if ( ! Application.content.get( point.path ) ) {
+
+			Application.cursor.reset();
 			return;
 
 		}
