@@ -50,15 +50,6 @@ export default class Grid extends HTMLElement {
 
 		// };
 
-		const quotes = {
-
-			1: [ 1, 7, 10, 18 ],
-			2: [ 1, 7, 10, 17 ],
-			3: [ 2, 7, 12, 17 ],
-			4: [ 1, 7, 12, 18 ]
-
-		};
-
 		// this.elements.objects.forEach( ( object, index ) => {
 
 		// 	const position = objects[ length ][ index ];
@@ -66,14 +57,6 @@ export default class Grid extends HTMLElement {
 		// 	items.splice( position, 0, object );
 
 		// } );
-
-		this.elements.quotes.forEach( ( object, index ) => {
-
-			const position = quotes[ length ][ index ];
-			if ( ! position ) return;
-			items.splice( position, 0, object );
-
-		} );
 
 		items.forEach( ( item, index ) => {
 
@@ -146,7 +129,6 @@ export default class Grid extends HTMLElement {
 
 		<projects-grid #grid>
 			${ Application.content.grid.map( Item.render ) }
-			${ Application.content.quotes.map( Item.render ) }
 		</projects-grid>
 
 		`;

@@ -83,7 +83,7 @@ export default class Item extends HTMLElement {
 
 			& h3 {
 				font-family: var( --font-family-a );
-				font-size: var( --font-size-l );
+				font-size: var( --font-size-xl );
 				width: initial;
 				margin-bottom: 2px;
 
@@ -96,14 +96,14 @@ export default class Item extends HTMLElement {
 
 			& h4 {
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-s );
+				font-size: var( --font-size-m );
 				line-height: 1.4;
 				margin-bottom: 4px;
 			}
 
 			& h5 {
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
+				font-size: var( --font-size-s );
 				opacity: .5;
 			}
 

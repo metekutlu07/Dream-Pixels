@@ -36,6 +36,7 @@ export default class Global {
 			--margin-m: 40px;
 			--margin-s: 20px;
 			--margin-xs: 10px;
+			--archive-wide-width: 1392px;
 
 			text-rendering: geometricPrecision;
 			-webkit-text-size-adjust: none;

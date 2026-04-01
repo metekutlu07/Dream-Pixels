@@ -47,11 +47,18 @@ export default class S3 {
 				width: 100%;
 			}
 
-			& media-frame {
+			& content-frame {
 				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			& media-frame {
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				width: 100%;
 
 				& > * {
 					width: 100%;
@@ -62,8 +69,9 @@ export default class S3 {
 			&[ medium ] {
 				padding: var( --margin-s ) 0;
 
-				& media-frame {
+				& content-frame {
 					width: min( 75vw, 1400px );
+					align-items: flex-start;
 				}
 
 				& img,
@@ -75,28 +83,26 @@ export default class S3 {
 				& p {
 					width: min( 50vw, 934px );
 					margin: 18px 0 0;
-					padding-left: 0;
-					padding-right: 48px;
+					padding: 0 48px 0 0;
 					box-sizing: border-box;
 					text-align: left;
+					align-self: flex-start;
 				}
 			}
 
 			&[ compact ] {
-				& media-frame,
-				& p {
-					width: 1180px;
-					max-width: calc( 100vw - ( var( --margin-m ) * 2 ) );
+				& content-frame {
+					width: min( var( --archive-wide-width ), calc( 100vw - ( var( --margin-m ) * 2 ) ) );
 				}
 
 				& p {
+					width: min( 788px, 100% );
 					padding-right: 0;
 				}
 			}
 
 			&[ medium ] {
-				& media-frame,
-				& p {
+				& content-frame {
 					width: min( 82vw, 1600px );
 				}
 
@@ -143,25 +149,22 @@ export default class S3 {
 			}
 
 			& project-explain {
-				font-weight: 400;
+				font-weight: 300;
 			}
 
 			& project-caption + project-explain::before {
 				content: ' ';
 			}
-			& project-explain strong {
-				font-weight: 600;
-			}
 
 			@media ( max-width: 1024px ) {
 				&[ compact ],
 				&[ medium ] {
-					& media-frame,
-					& p {
+					& content-frame {
 						width: calc( 100vw - ( var( --margin-m ) * 2 ) );
 					}
 
 					& p {
+						width: min( 100%, 1067px );
 						padding-left: 72px;
 						padding-right: 0;
 					}
@@ -173,12 +176,12 @@ export default class S3 {
 				&[ medium ] {
 					padding: var( --margin-s ) 0;
 
-					& media-frame,
-					& p {
+					& content-frame {
 						width: calc( 100vw - ( var( --margin-s ) * 2 ) );
 					}
 
 					& p {
+						width: 100%;
 						margin-top: var( --margin-s );
 						padding-left: 0;
 						padding-right: 0;
@@ -201,19 +204,21 @@ export default class S3 {
 
 		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' } ${ attributes }>
 
-		<media-frame>
-		${ isVideo ?
+		<content-frame>
+			<media-frame>
+			${ isVideo ?
 
-		Video.render( source, { controls, border: true, preloadMedia } ) :
-		html`<img src="${ source }" alt="${ plainCaption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
-		</media-frame>
+			Video.render( source, { controls, border: true, preloadMedia } ) :
+			html`<img src="${ source }" alt="${ plainCaption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
+			</media-frame>
 
-		${ caption || explain ? html`
-			<p>
-				${ caption ? html`<project-caption>${ caption }</project-caption>` : '' }
-				${ explain ? html`<project-explain>${ explain }</project-explain>` : '' }
-			</p>
-		` : '' }
+			${ caption || explain ? html`
+				<p>
+					${ caption ? html`<project-caption>${ caption }</project-caption>` : '' }
+					${ explain ? html`<project-explain>${ explain }</project-explain>` : '' }
+				</p>
+			` : '' }
+		</content-frame>
 
 		</section-type-3>
 

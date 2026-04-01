@@ -11,6 +11,7 @@ export default class S1 {
 			display: flex;
 			width: 100vw;
 			height: 100%;
+			margin-bottom: var( --margin-m );
 			user-select: none;
 
 			& h3 {

@@ -293,6 +293,8 @@ export default class Header extends HTMLElement {
 			left: 50%;
 			transform: translateX( -50% );
 			display: flex;
+			width: min( calc( 100vw - ( var( --margin-m ) * 2 ) ), var( --archive-wide-width ) );
+			justify-content: space-between;
 			align-items: flex-start;
 			flex-wrap: nowrap;
 			gap: 14px;
