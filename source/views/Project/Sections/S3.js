@@ -149,7 +149,6 @@ export default class S3 {
 			& project-caption + project-explain::before {
 				content: ' ';
 			}
-
 			& project-explain strong {
 				font-weight: 600;
 			}

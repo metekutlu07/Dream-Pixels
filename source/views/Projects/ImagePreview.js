@@ -29,6 +29,7 @@ export default class ImagePreview extends HTMLElement {
 			const { projects } = Application.content;
 
 			const project = projects.find( project => project.path === parameters.path );
+			if ( ! project ) return;
 			const index = projects.indexOf( project );
 			const number = ( '00' + ( index + 1 ) ).substr( -2 );
 

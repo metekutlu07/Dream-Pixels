@@ -13,7 +13,11 @@ export default class Title extends MSDFText {
 
 		Application.events.add( this );
 
-		const { title, subtitle, date } = content;
+		const {
+			title = '',
+			subtitle = '',
+			date = ''
+		} = content || {};
 		this.setParameters( `${ title }`, { fontSize: .25 } );
 
 		this.simulation = simulation;
