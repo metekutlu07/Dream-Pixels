@@ -13,62 +13,17 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/bistami/bistami-intro.mp4',
+				source: 'public/bistami/bistami-part01.mp4',
 				caption: 'Bistami Video Introduction',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
-			}
-		},
-		{
-			type: 'S4',
-			anchor: 'Miniature Details',
-			media: {
-				source: 'public/common/Artwork.jpg',
-				caption: `
-					Constantinople <br>
-					The Keys To Esoteric Knowledge <br>
-					Constantinople, c.1605
-				`
-			},
-			details: {
-				'Title': 'Messianic Conquest of Constantinople',
-				'Miniaturist': 'Anonymous',
-				'Manuscript': 'The Translation of The Key of Occult Knowledge<br>Tercume-i Miftah-i Cifru\'l-Cami',
-				'Author': 'Abdurrahman Bistami',
-				'Translator': 'Serif Mehmed Efendi (From Arabic to Ottoman Turkish)',
-				'Date of Translation': '1598',
-				'Patron': 'Sultan Ahmed I',
-				'Place of Production': 'Constantinople',
-				'Date of Production': '1603-1610',
-				'Style': 'Post-Classical School of Hasan',
-				'Archive': 'Istanbul University Library',
-				'No': 'T6624, Folio 91b',
-				'City': 'Istanbul, Turkey'
 			}
 		},
 		{
 			type: 'S8',
 			anchor: 'Into The Miniature Space',
 			media: {
-				source: 'public/bistami/bistami-part01.mp4',
+				source: 'public/bistami/bistami-intro.mp4',
 				caption: 'Video Presentation 01',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				controls: false
-			}
-		},
-		{
-			type: 'S8',
-			media: {
-				source: 'public/bistami/bistami-part02.mp4',
-				caption: 'Video Presentation 02',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				controls: false
-			}
-		},
-		{
-			type: 'S8',
-			media: {
-				source: 'public/bistami/bistami-part03.mp4',
-				caption: 'Video Presentation 03',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
@@ -105,7 +60,7 @@ export default {
 			anchor: 'Plan of The Miniature',
 			media: {
 				source: 'public/bistami/02-bistami-04.jpg',
-				caption: '<strong>A Talismanic Plan of Constantinople.</strong> Artwork by the author, 2020. The plan of the Apocalyptic Constantinople miniature was drawn using the projection method of Gaspard Monge. It depicts the city’s walls, believed to have been traced by angels on a site chosen by God. These blessed walls are punctuated by talismanic towers, protected by the aura of the Virgin Mary to whom the city is dedicated. Constantinople is presented as <em>caput mundi</em>, a bridge between this world and the divine, embodied in Hagia Sophia, the House of God and Temple of Divine Wisdom.',
+				caption: '<strong>A talismanic plan of Constantinople.</strong> Artwork by the author, 2020. The plan of the <em>Apocalyptic Constantinople</em> miniature was drawn using the projection method of Gaspard Monge. It depicts the city’s walls, believed to have been traced by angels on a site chosen by God. These blessed walls are punctuated by talismanic towers, protected by the aura of the Virgin Mary to whom the city is dedicated. Constantinople is presented as <em>caput mundi,</em> a bridge between this world and the divine, embodied in Hagia Sophia, the House of God and Temple of Divine Wisdom.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -130,7 +85,7 @@ export default {
 			type: 'S8',
 			media: {
 				source: 'public/bistami/02-bistami-07.jpg',
-				caption: '<strong>View over the Blacharnae Quarter in Constantinople.</strong>',
+				caption: 'View over the Blacharnae Quarter in Constantinople.',
 				explain: 'Artwork by the author, digital reconstruction, 2020. The 3D model of miniature Constantinople is shown here from a different angle, offering a new perspective on the Apocalyptic Constantinople miniature.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
@@ -142,6 +97,24 @@ export default {
 				source: 'public/bistami/pro.jpg',
 				caption: 'Drawing the plan of imaginary Constantinople. Illustration by the author, 2020. The process begins by drawing the circular bases of the towers. A projection method is then applied to transform the bird’s-eye view into a top view, producing the plan.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+			}
+		},
+		{
+			type: 'S8',
+			media: {
+				source: 'public/bistami/bistami-part02.mp4',
+				caption: 'Video Presentation 02',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				controls: false
+			}
+		},
+		{
+			type: 'S8',
+			media: {
+				source: 'public/bistami/bistami-part03.mp4',
+				caption: 'Video Presentation 03',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				controls: false
 			}
 		},
 	]

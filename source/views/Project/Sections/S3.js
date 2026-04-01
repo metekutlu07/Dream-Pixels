@@ -7,7 +7,7 @@ export default class S3 {
 		const variant = content.type === 'S8' ? 'compact' :
 			content.type === 'S9' ? 'medium' : '';
 		const { anchor } = content;
-		const { source, caption, controls, centered, preloadMedia } = content.media;
+		const { source, caption, explain, controls, centered, preloadMedia } = content.media;
 		const plainCaption = caption ? caption
 			.replace( /<[^>]*>/g, ' ' )
 			.replace( /\s+/g, ' ' )
@@ -82,6 +82,18 @@ export default class S3 {
 				}
 			}
 
+			&[ compact ] {
+				& media-frame,
+				& p {
+					width: 1180px;
+					max-width: calc( 100vw - ( var( --margin-m ) * 2 ) );
+				}
+
+				& p {
+					padding-right: 0;
+				}
+			}
+
 			&[ medium ] {
 				& media-frame,
 				& p {
@@ -112,13 +124,34 @@ export default class S3 {
 				margin: var( --margin-s );
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-m );
+				font-weight: 400;
 				opacity: 1;
 
 				@media ( max-width: 650px ) {
 					margin: var( --margin-s );
 					font-size: var( --font-size-s );
 				}
+			}
 
+			& project-caption strong,
+			& p strong {
+				font-weight: inherit;
+			}
+
+			& project-caption {
+				font-weight: 600;
+			}
+
+			& project-explain {
+				font-weight: 400;
+			}
+
+			& project-caption + project-explain::before {
+				content: ' ';
+			}
+
+			& project-explain strong {
+				font-weight: 600;
 			}
 
 			@media ( max-width: 1024px ) {
@@ -176,7 +209,12 @@ export default class S3 {
 		html`<img src="${ source }" alt="${ plainCaption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
 		</media-frame>
 
-		${ caption ? html`<p>${ caption }</p>` : '' }
+		${ caption || explain ? html`
+			<p>
+				${ caption ? html`<project-caption>${ caption }</project-caption>` : '' }
+				${ explain ? html`<project-explain>${ explain }</project-explain>` : '' }
+			</p>
+		` : '' }
 
 		</section-type-3>
 

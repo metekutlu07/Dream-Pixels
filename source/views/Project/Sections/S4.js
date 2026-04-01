@@ -31,7 +31,8 @@ export default class S4 {
 
 			& video,
 			& img {
-				max-height: 750px;
+				height: 90vh;
+				max-height: 90vh;
 				object-fit: cover;
 			}
 
