@@ -4,6 +4,15 @@ export default class S3 {
 
 	static render( content ) {
 
+		const variant = content.type === 'S8' ? 'compact' :
+			content.type === 'S9' ? 'medium' : '';
+		const { anchor } = content;
+		const { source, caption, controls, centered, preloadMedia } = content.media;
+		const plainCaption = caption ? caption
+			.replace( /<[^>]*>/g, ' ' )
+			.replace( /\s+/g, ' ' )
+			.trim() : '';
+
 		css`
 
 		section-type-3 {
@@ -12,6 +21,7 @@ export default class S3 {
 			justify-content: center;
 			align-items: center;
 			background: var( --color-black );
+			padding: 0;
 
 			&[ model ] {
 				height: 100vh;
@@ -37,6 +47,53 @@ export default class S3 {
 				width: 100%;
 			}
 
+			& media-frame {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				& > * {
+					width: 100%;
+				}
+			}
+
+			&[ compact ],
+			&[ medium ] {
+				padding: var( --margin-s ) 0;
+
+				& media-frame {
+					width: min( 75vw, 1400px );
+				}
+
+				& img,
+				& video-block,
+				& video {
+					width: 100%;
+				}
+
+				& p {
+					width: min( 50vw, 934px );
+					margin: 18px 0 0;
+					padding-left: 0;
+					padding-right: 48px;
+					box-sizing: border-box;
+					text-align: left;
+				}
+			}
+
+			&[ medium ] {
+				& media-frame,
+				& p {
+					width: min( 82vw, 1600px );
+				}
+
+				& p {
+					width: min( 54.67vw, 1067px );
+					padding-left: 200px;
+				}
+			}
+
 			&[ centered ] {
 				padding-top: var( --margin-s );
 
@@ -55,7 +112,7 @@ export default class S3 {
 				margin: var( --margin-s );
 				font-family: var( --font-family-c );
 				font-size: var( --font-size-m );
-				opacity: 1
+				opacity: 1;
 
 				@media ( max-width: 650px ) {
 					margin: var( --margin-s );
@@ -63,26 +120,61 @@ export default class S3 {
 				}
 
 			}
+
+			@media ( max-width: 1024px ) {
+				&[ compact ],
+				&[ medium ] {
+					& media-frame,
+					& p {
+						width: calc( 100vw - ( var( --margin-m ) * 2 ) );
+					}
+
+					& p {
+						padding-left: 72px;
+						padding-right: 0;
+					}
+				}
+			}
+
+			@media ( max-width: 650px ) {
+				&[ compact ],
+				&[ medium ] {
+					padding: var( --margin-s ) 0;
+
+					& media-frame,
+					& p {
+						width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+					}
+
+					& p {
+						margin-top: var( --margin-s );
+						padding-left: 0;
+						padding-right: 0;
+					}
+				}
+			}
 		}
 
 		`;
 
-		const { anchor } = content;
-		const { source, caption, controls, centered, preloadMedia } = content.media;
 		const isVideo = source.match( /mp4/g );
 		const attributes = [];
 
 		if ( ! source.length ) attributes.push( 'model' );
 		if ( centered ) attributes.push( 'centered' );
+		if ( variant === 'compact' ) attributes.push( 'compact' );
+		if ( variant === 'medium' ) attributes.push( 'medium' );
 
 		return html`
 
 		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' } ${ attributes }>
 
+		<media-frame>
 		${ isVideo ?
 
 		Video.render( source, { controls, border: true, preloadMedia } ) :
-		html`<img src="${ source }" alt="${ caption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
+		html`<img src="${ source }" alt="${ plainCaption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
+		</media-frame>
 
 		${ caption ? html`<p>${ caption }</p>` : '' }
 

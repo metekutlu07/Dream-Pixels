@@ -135,7 +135,7 @@ export default class ColorRange extends HTMLElement {
 			-webkit-backdrop-filter: blur( 10px );
 			box-sizing: border-box;
 			opacity: 0;
-			transition: opacity .25s var( --timing-function );
+			transition: opacity 2s var( --timing-function );
 			touch-action: none;
 
 			@media ( max-width: 650px ) {
@@ -146,7 +146,11 @@ export default class ColorRange extends HTMLElement {
 				gap: 14px;
 			}
 
-			[ view-enter ][ list="particles" ][ particles="color-range" ][ ui-ready ]:not( [ pixel-experience-gate-visible ] ):not( [ pixel-experience-transitioning ] ) & {
+			[ view-enter ][ list="particles" ][ particles="color-range" ] & {
+				display: flex;
+			}
+
+			[ view-enter ][ list="particles" ][ particles="color-range" ][ pixel-experience-started ][ ui-ready ]:not( [ pixel-experience-gate-visible ] ):not( [ pixel-experience-transitioning ] ) & {
 				display: flex;
 				opacity: 1;
 				pointer-events: all;

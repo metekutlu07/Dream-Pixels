@@ -53,16 +53,16 @@ export default class Particles extends Points {
 
 		super( geometry, material );
 
-		Application.events.add( this );
+	Application.events.add( this );
 
-		this.size = size;
-		this.simulation = simulation;
-		this.points = points;
-		this.hasLoadedColors = false;
-		this.raycaster = new Raycaster();
+	this.size = size;
+	this.simulation = simulation;
+	this.points = points;
+	this.hasLoadedColors = false;
+	this.raycaster = new Raycaster();
 
-		this.frustumCulled = false;
-		this.visible = false;
+	this.frustumCulled = false;
+	this.visible = false;
 
 		this.setHelpers();
 
@@ -102,7 +102,7 @@ export default class Particles extends Points {
 			const point = this.points[ i ];
 
 			const [ hex, imageID ] = colors[ i % colors.length ].split( '|' );
-			const { source, path, caption, tags } = images[ imageID ];
+			const { source, path, caption, explain, tags } = images[ imageID ];
 			const content = Application.content.get( path );
 			const title = content?.title || '';
 			const color = new Color();
@@ -121,7 +121,7 @@ export default class Particles extends Points {
 			array[ i * 3 + 1 ] = g;
 			array[ i * 3 + 2 ] = b;
 
-			Object.assign( point, { source, path, title, caption, tags, hex, hsl } );
+			Object.assign( point, { source, path, title, caption, explain, tags, hex, hsl } );
 
 		}
 
@@ -202,6 +202,7 @@ export default class Particles extends Points {
 
 		if ( shouldReuseColorRange ) {
 
+			this.isHoverable = Application.store[ 'particle-archive-entered' ];
 			Application.store.set( 'ui-ready', true );
 			Application.store.set( 'intro-ready', false );
 			return;
@@ -212,6 +213,7 @@ export default class Particles extends Points {
 
 			if ( isColorRange ) {
 
+				this.isHoverable = Application.store[ 'particle-archive-entered' ];
 				Application.store.set( 'ui-ready', true );
 				Application.store.set( 'intro-ready', false );
 
@@ -307,6 +309,18 @@ export default class Particles extends Points {
 
 		this.simulation.setPoints( this.points );
 
+		if ( this.images ) {
+
+			Object
+				.values( this.images )
+				.forEach( ( { box, points } ) => box.setFromPoints( points ) );
+
+			Object
+				.values( this.projects )
+				.forEach( ( { box, points } ) => box.setFromPoints( points ) );
+
+		}
+
 		const { path, list, particles } = Application.store;
 		const isPixelLanding = (
 			path === '/experiments' &&
@@ -317,18 +331,9 @@ export default class Particles extends Points {
 		if ( isPixelLanding ) {
 
 			this.hasCompletedColorRangeIntro = true;
+			this.isHoverable = true;
 			Application.store.set( 'ui-ready', true );
-			Application.store.set( 'intro-ready', false );
-
-			if ( ! Application.store[ 'particle-user-info-seen' ] ) {
-
-				this.infoTimeout = setTimeout( () => {
-
-					Application.store.set( 'intro-ready', true );
-
-				}, 2200 );
-
-			}
+			Application.store.set( 'intro-ready', ! Application.store[ 'particle-user-info-seen' ] );
 
 		}
 
@@ -477,4 +482,5 @@ export default class Particles extends Points {
 		return { index, minDistance };
 
 	}
+
 }

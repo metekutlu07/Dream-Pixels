@@ -106,8 +106,7 @@ export default class Home extends View {
 			this.pendingReveal &&
 			Application.store.path === '/' &&
 			! Application.store.loading &&
-			Application.particles?.hasLoadedColors &&
-			Application.scene?.particles?.visible
+			Application.particles?.hasLoadedColors
 		) this.runRevealSequence();
 
 	}

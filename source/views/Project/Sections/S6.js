@@ -2,11 +2,62 @@ import Aside from '~/components/Aside';
 
 export default class S6 extends HTMLElement {
 
+	onConnected() {
+
+		this.updateControls();
+
+	}
+
 	onClick( event ) {
 
 		const { currentTarget } = event;
-		const artworkID = currentTarget.getAttribute( 'artworkID' );
-		Application.scene.artwork.load( artworkID );
+		const action = currentTarget.getAttribute( 'action' );
+
+		if ( action === 'load-artwork' ) {
+
+			const artworkID = currentTarget.getAttribute( 'artworkID' );
+			Application.scene.artwork.load( artworkID );
+			return;
+
+		}
+
+		if ( action === 'export-ar' ) {
+
+			Application.scene.export();
+			return;
+
+		}
+
+		if ( action === 'toggle-wireframe' ) {
+
+			Application.store.toggle( 'display-wireframe' );
+			this.updateControls();
+			return;
+
+		}
+
+		if ( action === 'toggle-render' ) {
+
+			Application.scene.artwork.toggle();
+			this.updateControls();
+
+		}
+
+	}
+
+	updateControls() {
+
+		const renderButton = this.querySelector( '[ action="toggle-render" ]' );
+		const wireframeButton = this.querySelector( '[ action="toggle-wireframe" ]' );
+		if ( renderButton ) {
+
+			const label = Application.scene.artwork.renderAsPoints ? 'Solid' : 'Point Cloud';
+			renderButton.textContent = label;
+			renderButton.toggleAttribute( 'active', Application.scene.artwork.renderAsPoints );
+
+		}
+
+		if ( wireframeButton ) wireframeButton.toggleAttribute( 'active', Application.store[ 'display-wireframe' ] );
 
 	}
 
@@ -23,6 +74,59 @@ export default class S6 extends HTMLElement {
 
 			& aside-block {
 				pointer-events: all;
+			}
+
+			& photogrammetry-controls {
+				position: fixed;
+				right: var( --margin-m );
+				bottom: var( --margin-m );
+				display: flex;
+				align-items: stretch;
+				pointer-events: all;
+				border: var( --border-size ) solid var( --border-color );
+				background: rgba( 0, 0, 0, .28 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
+
+				@media ( max-width: 650px ) {
+					right: var( --margin-s );
+					bottom: var( --margin-s );
+					flex-direction: column;
+				}
+			}
+
+			& photogrammetry-control {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 60px;
+				padding: 0 24px;
+				font-size: 1.65rem;
+				font-family: var( --font-family-c );
+				letter-spacing: .04em;
+				text-transform: uppercase;
+				white-space: nowrap;
+
+				&:not( :last-child ) {
+					border-right: var( --border-size ) solid var( --border-color );
+
+					@media ( max-width: 650px ) {
+						border-right: none;
+						border-bottom: var( --border-size ) solid var( --border-color );
+					}
+				}
+
+				@media ( hover: hover ) {
+					&:hover {
+						background: rgba( 255, 255, 255, .08 );
+					}
+				}
+
+				&[ active ] {
+					background: var( --color-white );
+					color: var( --color-black );
+				}
 			}
 		}
 
@@ -78,6 +182,7 @@ export default class S6 extends HTMLElement {
 
 			<li
 				artworkID="${ artworkID }"
+				action="load-artwork"
 				@click|section-type-6
 			>
 
@@ -99,8 +204,15 @@ export default class S6 extends HTMLElement {
 		} );
 
 		const innerHTML = html`<artwork-list>${ list }</artwork-list>`;
-		const aside = Aside.render( innerHTML, [ 'scrollable' ] );
-		return html`<section-type-6 section>${ aside }</section-type-6>`;
+		const aside = Aside.render( innerHTML, [ 'scrollable', 'photogrammetry-library' ] );
+		const controls = html`
+			<photogrammetry-controls blurred-background>
+				<photogrammetry-control action="export-ar" @click|section-type-6>AR</photogrammetry-control>
+				<photogrammetry-control action="toggle-wireframe" @click|section-type-6>Wireframe</photogrammetry-control>
+				<photogrammetry-control action="toggle-render" @click|section-type-6>Point Cloud</photogrammetry-control>
+			</photogrammetry-controls>
+		`;
+		return html`<section-type-6 section>${ aside }${ controls }</section-type-6>`;
 
 	}
 

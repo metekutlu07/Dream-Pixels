@@ -10,7 +10,7 @@ import S7 from './Sections/S7';
 
 import Navigation from './Navigation';
 
-const Types = { S1, S2, S3, S4, S5, S6, S7 };
+const Types = { S1, S2, S3, S4, S5, S6, S7, S8: S3, S9: S3 };
 
 export default class Project extends View {
 
@@ -21,6 +21,8 @@ export default class Project extends View {
 
 		super.onConnected();
 
+		const content = Application.content.get( Application.store.path );
+		if ( content?.hideNavigation ) return;
 		document.body.appendChild( this.elements.navigation );
 
 	}
@@ -29,7 +31,7 @@ export default class Project extends View {
 
 		super.remove();
 
-		this.elements.navigation.remove();
+		this.elements.navigation?.remove();
 
 	}
 
@@ -81,7 +83,7 @@ export default class Project extends View {
 		<project-view view>
 
 			${ blocks }
-			${ Navigation.render( parameters ) }
+			${ content.hideNavigation ? '' : Navigation.render( parameters ) }
 
 		</project-view>
 

@@ -57,8 +57,6 @@ export default class Button extends HTMLElement {
 			break;
 
 		case '/photogrammetry':
-			visibleIDs.push( 'augmented-reality' );
-			visibleIDs.push( 'display-points', 'display-aside', 'display-wireframe' );
 			break;
 
 		}

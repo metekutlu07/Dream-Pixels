@@ -28,7 +28,7 @@ export default class Navigation extends HTMLElement {
 			display: flex;
 			flex-direction: column;
 			right: var( --margin-m );
-			top: var( --margin-m );
+			top: calc( var( --margin-m ) + 84px );
 			border: var( --border-size ) solid var( --border-color );
 			font-size: var( --font-size-s );
 			font-family: var( --font-family-c );

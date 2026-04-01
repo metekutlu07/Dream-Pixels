@@ -27,6 +27,7 @@ export default class Projects extends View {
 
 		const { list, particles } = Application.store;
 		const isPixelLanding = list === 'particles' && particles === 'color-range';
+		const particleUserInfoSeen = Application.store[ 'particle-user-info-seen' ];
 
 		if ( isPixelLanding ) {
 
@@ -34,7 +35,7 @@ export default class Projects extends View {
 			Application.store.set( 'pixel-experience-gate-visible', false );
 			Application.store.set( 'pixel-experience-background-visible', false );
 			Application.store.set( 'pixel-experience-transitioning', false );
-			Application.store.set( 'particle-archive-entered', false );
+			Application.store.set( 'particle-archive-entered', particleUserInfoSeen );
 			Application.store.set( 'ui-ready', false );
 			Application.store.set( 'intro-ready', false );
 
@@ -96,6 +97,7 @@ export default class Projects extends View {
 
 		const { list, particles } = Application.store;
 		const isPixelLanding = list === 'particles' && particles === 'color-range';
+		const particleUserInfoSeen = Application.store[ 'particle-user-info-seen' ];
 
 		this.clearLandingSequence();
 
@@ -105,7 +107,7 @@ export default class Projects extends View {
 			Application.store.set( 'pixel-experience-gate-visible', false );
 			Application.store.set( 'pixel-experience-background-visible', false );
 			Application.store.set( 'pixel-experience-transitioning', false );
-			Application.store.set( 'particle-archive-entered', false );
+			Application.store.set( 'particle-archive-entered', particleUserInfoSeen );
 			Application.store.set( 'ui-ready', false );
 			Application.store.set( 'intro-ready', false );
 

@@ -508,6 +508,7 @@ export default class UserInfo extends HTMLElement {
 					min-height: 292px;
 					box-sizing: border-box;
 					padding: 22px 26px 20px;
+					transition: opacity 2s var( --timing-function );
 					background: rgba( 0, 0, 0, .28 );
 					backdrop-filter: blur( 10px );
 					-webkit-backdrop-filter: blur( 10px );

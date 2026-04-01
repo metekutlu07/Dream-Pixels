@@ -116,6 +116,40 @@ export default class Aside extends HTMLElement {
 				}
 			}
 
+			&[ scrollable ][ photogrammetry-library ] {
+				transform: translateX( calc( -100% - var( --margin-m ) - 16px ) );
+				top: calc( var( --margin-m ) + 84px );
+				bottom: var( --margin-m );
+				left: var( --margin-m );
+				width: min( 420px, calc( 100vw - 180px ) );
+				max-width: min( 420px, calc( 100vw - 180px ) );
+				max-height: calc( 100vh - 84px - ( var( --margin-m ) * 2 ) );
+				border: var( --border-size ) solid var( --border-color );
+				border-right: var( --border-size ) solid var( --border-color );
+				background: rgba( 0, 0, 0, .28 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
+
+				& default-button {
+					display: none;
+				}
+
+				@media ( max-width: 1024px ) {
+					width: min( 380px, calc( 100vw - ( var( --margin-m ) * 2 ) ) );
+					max-width: min( 380px, calc( 100vw - ( var( --margin-m ) * 2 ) ) );
+				}
+
+				@media ( max-width: 650px ) {
+					top: calc( var( --margin-s ) + 84px );
+					right: var( --margin-s );
+					bottom: 180px;
+					left: var( --margin-s );
+					width: auto;
+					max-width: none;
+					max-height: none;
+				}
+			}
+
 			& scrolling-block {
 				position: relative;
 				display: flex;

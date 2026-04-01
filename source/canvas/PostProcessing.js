@@ -63,7 +63,7 @@ export default class PostProcessing {
 
 			noisePass: {
 				enabled: true,
-				scale: { value: 4, max: 8 },
+				scale: { value: 8, max: 8 },
 				strength: { value: .15, max: 1 },
 			},
 

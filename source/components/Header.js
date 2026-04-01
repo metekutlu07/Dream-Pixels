@@ -49,6 +49,15 @@ export default class Header extends HTMLElement {
 		const { currentTarget } = event;
 		const { camera, fullscreen, scene, audio } = Application;
 
+		if ( currentTarget.hasAttribute( 'home' ) ) {
+
+			Application.store.set( 'home-gate-seen', true );
+			Application.store.set( 'home-gate-visible', false );
+			Application.router.navigate( '/' );
+			return;
+
+		}
+
 		if ( currentTarget.hasAttribute( 'works' ) ) {
 
 			const list = Application.store[ 'last-experiments-list' ] || 'particles';
@@ -473,6 +482,7 @@ export default class Header extends HTMLElement {
 			border: var( --border-size ) solid var( --border-color );
 			background: rgba( 0, 0, 0, .2 );
 			text-align: left;
+			min-width: 320px;
 
 			[ path="/experiments" ][ list="particles" ] & {
 				opacity: 1;
@@ -513,7 +523,7 @@ export default class Header extends HTMLElement {
 		`;
 
 		const navigation = [
-			{ attributes: [ 'home' ], link: { internal: true } },
+			{ attributes: [ 'home', '@click|header-block' ], link: { internal: true } },
 			{ attributes: [ 'about' ], link: { internal: true } },
 			{ attributes: [ 'works', '@click|header-block' ], labels: [ 'Experiments' ] },
 			{ attributes: [ 'empire' ], link: { attributes: [ 'href="https://www.empireofclouds.com"', 'target="_blank"', 'rel="noreferrer"' ] } },

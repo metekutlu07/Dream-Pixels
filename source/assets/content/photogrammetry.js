@@ -27,15 +27,20 @@ export default {
 	sections: [ {
 		type: 'S6',
 		artworks: {
-			'korea-01-roof': {
-				title: 'korea-test',
-				location: 'Church of Saint Foy',
-				city: 'Conques'
+			'venice-14-paolo-veneziano': {
+				title: 'Paolo Veneziano',
+				location: '',
+				city: ''
 			},
-			'korea-02-roof': {
-				title: 'korea-test2',
-				location: 'Church of Saint Foy',
-				city: 'Conques'
+			'venice-28-san-marco\'s-mary': {
+				title: 'San Marco\'s Mary',
+				location: '',
+				city: ''
+			},
+			'venice-42-lingzhi-kimono': {
+				title: 'Lingzhi Kimono',
+				location: '',
+				city: ''
 			},
 			'france-01-annunciation': {
 				title: 'Annunciation',
@@ -104,21 +109,6 @@ export default {
 			},
 			'venice-06-san-marco\'s-saints': {
 				title: 'San Marco\'s Saints',
-				location: '',
-				city: ''
-			},
-			'venice-14-paolo-veneziano': {
-				title: 'Paolo Veneziano',
-				location: '',
-				city: ''
-			},
-			'venice-28-san-marco\'s-mary': {
-				title: 'San Marco\'s Mary',
-				location: '',
-				city: ''
-			},
-			'venice-42-lingzhi-kimono': {
-				title: 'Lingzhi Kimono',
 				location: '',
 				city: ''
 			}

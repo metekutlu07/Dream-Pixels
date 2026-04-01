@@ -79,6 +79,7 @@ export async function getColorList( content ) {
 					source,
 					tags,
 					caption,
+					explain,
 					excludeFromSphere
 
 				} = section.media;
@@ -103,7 +104,7 @@ export async function getColorList( content ) {
 
 				}
 
-				images.push( { path, tags, source, caption, excludeFromSphere } );
+				images.push( { path, tags, source, caption, explain, excludeFromSphere } );
 
 			} ) );
 

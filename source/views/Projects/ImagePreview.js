@@ -33,7 +33,10 @@ export default class ImagePreview extends HTMLElement {
 			const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
 			title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
-			caption.innerHTML = parameters.caption;
+			caption.innerHTML = [
+				parameters.caption,
+				parameters.explain
+			].filter( Boolean ).join( ' ' );
 			tags.innerHTML = parameters.tags
 				.map( tag => html`<span>${ tag }</span>` )
 				.join( ', ' );
