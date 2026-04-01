@@ -2,7 +2,7 @@ export default {
 
 	path: 'bistami',
 	title: 'Bistami',
-	subtitle: 'Geometrisation of Eschatological Chromatics',
+	subtitle: 'Digitizing an Urban Prophecy',
 	location: 'Istanbul',
 	date: 'March 2020',
 	team: 'Mete Kutlu',
@@ -122,7 +122,7 @@ export default {
 			type: 'S8',
 			media: {
 				source: 'public/bistami/02-bistami-06.jpg',
-				caption: 'Miniature Revisited with Identified Places 02',
+				caption: 'View over the Seraglio Point in Constantinople. Artwork by the author, digital reconstruction, 2020. The 3D model of miniature Constantinople is shown here from a different angle, offering a new perspective on the Apocalyptic Constantinople miniature. ',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -130,7 +130,8 @@ export default {
 			type: 'S8',
 			media: {
 				source: 'public/bistami/02-bistami-07.jpg',
-				caption: '<strong>View over the Blacharnae Quarter in Constantinople.</strong> Artwork by the author, digital reconstruction, 2020. The 3D model of miniature Constantinople is shown here from a different angle, offering a new perspective on the Apocalyptic Constantinople miniature.',
+				caption: '<strong>View over the Blacharnae Quarter in Constantinople.</strong>',
+				explain: 'Artwork by the author, digital reconstruction, 2020. The 3D model of miniature Constantinople is shown here from a different angle, offering a new perspective on the Apocalyptic Constantinople miniature.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
