@@ -20,22 +20,59 @@ export default {
 		},
 		{
 			type: 'S2',
-			paragraphs: 'Kizil Elma Curls is the virtual reflection of the earthly garden of paradise which the Ottoman House thought itself destined to create. The project takes its name from the mystical notion of Kizil Elma, meaning “red apple” in Turkish. Kizil Elma announces the establishment of the earthly paradise by the Ottomans before the advent of the apocalypse and becomes the name given to major European cities to conquer. According to the eschatological tradition, the world is to last for 7000 years and the Ottoman House is the ultimate culmination of about 6700 years of cosmic history starting from the Fall of Adam. It had the messianic mission to lead and unite the world during the last centuries of humankind. In this dynastic quest, Rome would become the Kizil Elma for Fatih Sultan Mehmed Khan, and Vienne, Buda and Esztergom for Suleyman the Magnificent. As part of the apocalyptical archival mission ordered by the court, these Kizil Elma cities are depicted meticulously by the Ottoman miniaturists. The Kizil Elma Curls experiment is based on such five miniatures, those of Vienne, Szekesfehervar, Buda(pest), Belgrade and Nicopolis.',
+			paragraphs: '<em>Kızıl Elma Curls</em> is a digital experiment that translates the chromatic and compositional logic of Ottoman miniatures into a particle-based simulation. The project is based on the hypothesis that color in miniatures can be understood not as a static surface, but as a dynamic field. To test this, the image is decomposed into thousands of pixels, each treated as an individual particle moving through a simulated environment. The simulation is constructed using a digital model of a cloud chamber, a scientific device historically used to visualize the trajectories of subatomic particles. Within this virtual chamber, pixels extracted from miniature paintings are subjected to turbulent flow fields generated through procedural noise. As they move, they leave visible trails that reveal the underlying structure of color distribution and variation. The result is a system that makes perceptible the latent dynamics of the image, transforming pictorial composition into a field of trajectories and interactions.',
 		},
 		{
-			type: 'S3',
+			type: 'S13',
 			media: {
-				source: 'public/kizil-elma/szekes-main.mp4',
-				caption: 'Szekesfehervar Miniature & Curls',
+				source: 'https://youtu.be/WZ_XSuS8e-A'
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/kizil-elma/01.jpg',
+				caption: 'Entangled colors of Székesfehérvár, from the cloud of the artist to that of the astrophysicist.',
+				explain: 'Conquest of Székesfehérvár (Hungary) in 1543, <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 268b.',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				preloadMedia: true
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/kizil-elma/02.jpg',
+				caption: 'Entangled Colors of Nicopolis, from the cloud of the artist to that of the astrophysicist.',
+				explain: 'Battle of Nicopolis (Bulgaria), from <em>The Book of Talents I (Hünernâme I)</em> written by Seyyid Lokman in Constantinople, 1584. Topkapi Palace Museum Library, H.1523, folio 108b.',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/kizil-elma/03.jpg',
+				caption: 'Entangled Colors of Buda (Budapest), from the cloud of the artist to that of the astrophysicist.',
+				explain: 'Conquest of Buda from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman in Constantinople, 1588. Topkapi Palace Archives, H1524, folio 266a.',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/kizil-elma/curl-comp.jpg',
+				caption: 'Past and present cosmic radiations captured in clouds.',
+				explain: '<br>Pigment Radiation in Budapest. Artwork by the author, particle simulation on miniature, 2022.<br>Traces of subatomic particle interactions produced within a bubble chamber. Photograph: CERN, cover of <em>Jungian Thought in the Modern World</em>.',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/szekes02.jpg',
-				caption: 'Szekesfehervar General View',
+				caption: 'Pigment storm in Székesfehérvár.',
+				explain: 'Simulation based on an Ottoman miniature preserved at the Topkapı Palace archives. Artwork by the author, 2022.',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				preloadMedia: true
 			}
@@ -44,55 +81,40 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/szekes01.jpg',
-				caption: 'Szekesfehervar Zoom',
-				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/szekes03.jpg',
-				caption: 'Szekesfehervar Zoom',
-				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/miniatures.jpg',
-				caption: 'Buda, Belgrad, Nicopolis & Vienna',
+				caption: 'Entangled colors of Székesfehérvár - Curl Detail.',
+				explain: 'Particle simulation on the miniature <em>Conquest of Székesfehérvár,</em> from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 268b.',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S2',
-			paragraphs: 'Kizil Elma Curls confronts the Ottoman messianic urban miniatures with particle simulations that reveal the chromatic potential of pixels. Particles controlled by algorithms are tinted by the fantastical colours of the mineral pigments used by the miniaturists. The particle simulation represents a virtual reflection of an alchemical vision of space which the Ottomans inherited from the Timurids and mixed it with the Byzantine apophatic vision. It offers a transtemporal journey into the grand realm of colours depicting an otherworldly reflection of the natural world. <br><br>Each pixel of the digitized miniature emits hundreds of particles. The different paths that they follow are represented as undulating stripes in different colours. This network of bands expresses a key Sufi notion underlying the Constantinopolitan Eye: the unity of existence. They represent the different paths, destinies, journeys and meanings which coexist in the universe, all intertwined and rising from the same source, all radiating from the same image and made of the same building-block: the pixel.',
+			title: '<em>KIzIl Elma</em> Cities',
+			paragraphs: 'For this simulation, I selected five Ottoman miniatures representing European cities which were besieged, defended, or conquered by the Ottomans: Nicopolis (Bulgaria), Buda (Budapest, Hungary), Székesfehérvár (Hungary), Belgrade (Serbia), and Vienna (Austria). In the Ottoman imagination and historiography, each one of these cities had become, at different moments, the <em>Kızıl Elma,</em> the mystical notion used to refer to key cities to be conquered in order to establish the earthly version of the Garden of Eden before the advent of the apocalypse. Chosen by the natural order of the cosmos and the divine will of the heavens, the Ottoman House was charged with the mission to unite the world under one kingdom. In this dynastic quest, Rome became the <em>Kızıl Elma</em> for Mehmed the Conqueror; and Vienna, Buda, and Esztergom for Süleyman the Magnificent. As part of the apocalyptical archival mission ordered by the court, these <em>Kızıl Elma</em> cities were depicted meticulously by Ottoman miniaturists. They formed an atlas of cities that vibrates with dreams of paradise, talismanic beliefs, celestial inspiration, apocalyptic preoccupations, and messianic ambitions. Each newly conquered city was understood as a wondrous pavilion added to the paradise-like garden that the Ottoman sultan was expected to progressively build.<br><br>All of the miniatures are from manuscripts preserved in the Topkapı Palace archives in Istanbul. The <em>Book of Süleyman</em> was written by Arifi Çelebi in 1561 and illustrated by a group of four anonymous painters. The two <em>Books of Ingenuity</em> were written by Seyyid Lokman in 1584 and 1588 and illustrated by the atelier of Osman.<br><br>Nicopolis (Bulgaria), <em>Book of Talents</em>, H1523, folio 108b<br>Buda (Hungary), <em>Book of Talents II</em>, H1524, folio 266a<br>Vienna (Austria), <em>Book of Talents II</em>, H1524, folio 257b<br>Székesfehérvár (Hungary), <em>Book of Talents II</em>, H1524, folio 268b<br>Belgrade (Serbia), <em>Book of Süleyman</em>, H.1517, folio 108b',
 		},
 		{
 			type: 'S3',
 			media: {
+				centeredText: true,
 				source: 'public/kizil-elma/buda-belgrad.mp4',
-				caption: 'Buda & Belgrad',
+				caption: 'Entangled colors of Buda & Belgrad',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S3',
 			media: {
+				centeredText: true,
 				source: 'public/kizil-elma/nicopolis-vienna.mp4',
-				caption: 'Nicopolis & Vienna',
+				caption: 'Entangled colors of Nicopolis & Vienna',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
-			type: 'S2',
-			paragraphs: 'The moving and evolving network of stripes forms a virtual scene where colours dance to depict the terrestrial adventure and cosmic destiny humankind. It is the reinterpretation of the Sufi metaphor of the chameleon used for describing the coexistence of contradictory realities and the constant transmutation of the universe. <br><br> The pseudo-random appearance of the particle system is the virtual echo of the Sufi notion of hayra, a mixture of perplexity and wonder. For the mystic, the complexity of the universe is beyond the limited human intellect and thus requires a state of confusion. In Kizil Elma, the algorithmic complexity and the rising “artificial aesthetics” become metaphors for the superhuman complexity of nature. This pseudo-random appearance is obtained by using a three-dimensional curl noise to define the movement of the particles. A derivative of Perlin noise, it is a mathematical function which gives values that only seem random yet are all calculations. This false randomness represents a complexity that escapes instant human comprehension. Kizil Elma Curls brings together two superhuman complexities, an imagined one through divine creation, and a second fabricated one through artificial intelligence. It questions the relationship between humankind’s first and contemporary superhuman creations, the gods and technology. Both are used either as a tool of power and domination or as a tool to achieve the earthly paradise.',
-		},
-		{
 			type: 'S3',
 			media: {
+				centeredText: true,
 				source: 'public/kizil-elma/vienna-zoom.mp4',
-				caption: 'Vienna Zoom',
+				caption: 'Entangled colors of Vienna - Fragment',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -100,7 +122,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/vienna.jpg',
-				caption: 'Vienna Zoom',
+				caption: 'Entangled colors of Vienna - Curl detail',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -108,7 +130,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/buda-zoom.mp4',
-				caption: 'Buda Zoom',
+				caption: 'Entangled colors of Buda - Curl detail',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -116,15 +138,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/buda01.jpg',
-				caption: 'Buda Zoom',
-				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/nicopolis-zoom.mp4',
-				caption: 'Nicopolis Zoom',
+				caption: 'Entangled colors of Buda - Curl detail',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -132,7 +146,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/nico02.jpg',
-				caption: 'Nicopolis Zoom',
+				caption: 'Entangled colors of Nicopolis - Curl detail',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -140,15 +154,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/kizil-elma/nico03.jpg',
-				caption: 'Nicopolis Zoom',
-				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/kizil-elma/belgrad-zoom.mp4',
-				caption: 'Belgrad Zoom',
+				caption: 'Entangled colors of Nicopolis - Curl detail',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},

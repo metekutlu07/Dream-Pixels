@@ -2,7 +2,7 @@ export default {
 
 	path: 'sanshin',
 	title: 'Sanshin',
-	subtitle: 'Digitizing Korean Architectural Ornaments',
+	subtitle: 'Digitizing Korean Temples',
 	location: 'Paris',
 	date: 'April 2022',
 	team: 'Mete Kutlu',
@@ -22,6 +22,51 @@ export default {
 			media: {
 				source: 'public/sanshin/k138.mp4',
 				caption: 'Holo Roof Dancheong',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+			},
+		},
+		{
+			type: 'S2',
+			anchor: 'Wireframe',
+			title: 'Wireframe',
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k01.jpg',
+				caption: 'Wire 01',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k02.jpg',
+				caption: 'Wire 02',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k03.jpg',
+				caption: 'Wire 03',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k04.jpg',
+				caption: 'Wire 04',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+			},
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/sanshin/k05.jpg',
+				caption: 'Wire 05',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -235,51 +280,6 @@ export default {
 			media: {
 				source: 'public/sanshin/catalogue14m.jpg',
 				caption: 'Lotus Catalogue 14',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
-			},
-		},
-		{
-			type: 'S2',
-			anchor: 'Wireframe',
-			title: 'Wireframe',
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/sanshin/k01.jpg',
-				caption: 'Wire 01',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/sanshin/k02.jpg',
-				caption: 'Wire 02',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/sanshin/k03.jpg',
-				caption: 'Wire 03',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/sanshin/k04.jpg',
-				caption: 'Wire 04',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
-			},
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/sanshin/k05.jpg',
-				caption: 'Wire 05',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
