@@ -78,6 +78,7 @@ export default class Home extends View {
 
 		clearTimeout( this.revealTimeout );
 		this.pendingReveal = true;
+		this.revealQueuedAt = Application.time?.elapsedTime || 0;
 		this.toggleAttribute( 'revealing', true );
 
 	}
@@ -86,6 +87,7 @@ export default class Home extends View {
 
 		clearTimeout( this.revealTimeout );
 		this.pendingReveal = false;
+		this.revealQueuedAt = 0;
 
 		Application.store.set( 'home-nav-ready', true );
 		Application.store.set( 'home-copy-ready', true );
@@ -102,11 +104,17 @@ export default class Home extends View {
 
 		this.syncGateState();
 
+		const particleColorsReady = Application.particles?.ensureColorsReady?.() ||
+			Application.particles?.hasLoadedColors;
+		const revealWaitElapsed = (
+			Application.time.elapsedTime - ( this.revealQueuedAt || 0 )
+		) > 2500;
+
 		if (
 			this.pendingReveal &&
 			Application.store.path === '/' &&
 			! Application.store.loading &&
-			Application.particles?.hasLoadedColors
+			( particleColorsReady || revealWaitElapsed )
 		) this.runRevealSequence();
 
 	}
@@ -152,10 +160,12 @@ export default class Home extends View {
 
 	}
 
-	startParticlesExperience( event ) {
+	async startParticlesExperience( event ) {
 
 		event.preventDefault();
 		event.stopPropagation();
+
+		Application.particles?.ensureColorsReady?.();
 
 		const list = Application.store[ 'last-experiments-list' ] || 'particles';
 		const particles = Application.store[ 'last-experiments-particles' ] || 'color-range';

@@ -64,6 +64,8 @@ export default class Header extends HTMLElement {
 			const particles = Application.store[ 'last-experiments-particles' ] || 'color-range';
 			const places = Application.store[ 'last-experiments-places' ] || 'world';
 
+			Application.particles?.ensureColorsReady?.();
+
 			Application.store.set( 'list', list );
 			Application.store.set( 'particles', particles );
 			Application.store.set( 'places', places );
@@ -535,9 +537,9 @@ export default class Header extends HTMLElement {
 
 		const modes = [
 			{ attributes: [ 'particles', '@click|header-block' ], },
+			{ attributes: [ 'grid', '@click|header-block' ], },
 			{ attributes: [ 'sphere', '@click|header-block' ], },
 			{ attributes: [ 'places', '@click|header-block' ], },
-			{ attributes: [ 'grid', '@click|header-block' ], },
 		];
 
 		const particles = [

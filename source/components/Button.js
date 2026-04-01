@@ -51,11 +51,11 @@ export default class Button extends HTMLElement {
 			break;
 
 		case '/when-gaspard-paints-a-gospel':
-		case '/virtual-miniature':
 			visibleIDs.push( 'augmented-reality' );
 			visibleIDs.push( 'camera-mode' );
 			break;
 
+		case '/virtual-miniature':
 		case '/photogrammetry':
 			break;
 

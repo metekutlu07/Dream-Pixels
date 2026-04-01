@@ -22,6 +22,8 @@ export default class UserInfo extends HTMLElement {
 
 		const { path, list, places, particles } = Application.store;
 		const introReady = Application.store[ 'intro-ready' ];
+		const pixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
+		const uiReady = Application.store[ 'ui-ready' ];
 		const particleUserInfoSeen = Application.store[ 'particle-user-info-seen' ];
 		const { texts } = this.elements;
 
@@ -34,7 +36,13 @@ export default class UserInfo extends HTMLElement {
 			const isVisible = (
 
 				( path === '/experiments' && list === 'sphere' && name === 'Images' ) ||
-				( path === '/experiments' && list === 'particles' && name === 'Particles' ) ||
+				(
+					path === '/experiments' &&
+					list === 'particles' &&
+					name === 'Particles' &&
+					pixelExperienceStarted &&
+					uiReady
+				) ||
 				( path === '/experiments' && list === 'places' && places === 'world' && name === 'World' ) ||
 				( path === '/experiments' && list === 'places' && places === 'cosmos' && name === 'Cosmos' )
 

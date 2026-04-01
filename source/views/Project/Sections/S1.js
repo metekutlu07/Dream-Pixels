@@ -1,5 +1,4 @@
 import Video from '~/components/Video';
-import Aside from '~/components/Aside';
 
 export default class S1 {
 
@@ -8,35 +7,125 @@ export default class S1 {
 		css`
 
 		section-type-1 {
+			position: relative;
 			display: flex;
+			align-items: center;
+			justify-content: center;
 			width: 100vw;
-			height: 100%;
-			margin-bottom: var( --margin-m );
+			min-height: 100vh;
+			min-height: calc( var( --vh, 1vh ) * 100 );
+			margin-bottom: calc( var( --margin-m ) * 2 );
+			overflow: hidden;
+			background: var( --color-black );
 			user-select: none;
 
+			& hero-media,
+			& hero-overlay,
+			& hero-lines {
+				position: absolute;
+				inset: 0;
+			}
+
+			& hero-media {
+				z-index: 0;
+			}
+
+			& hero-lines {
+				z-index: 1;
+				background:
+					linear-gradient( 180deg, rgba( 0, 0, 0, .58 ) 0%, rgba( 0, 0, 0, .24 ) 38%, rgba( 0, 0, 0, .56 ) 100% ),
+					repeating-linear-gradient(
+						180deg,
+						rgba( 255, 255, 255, .065 ) 0,
+						rgba( 255, 255, 255, .065 ) 1px,
+						rgba( 0, 0, 0, .22 ) 1px,
+						rgba( 0, 0, 0, .22 ) 4px
+					);
+				mix-blend-mode: multiply;
+				opacity: .95;
+				pointer-events: none;
+			}
+
+			& hero-overlay {
+				z-index: 2;
+				position: relative;
+				width: min( 980px, calc( 100vw - 80px ) );
+				padding: 80px 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				color: var( --color-white );
+				pointer-events: none;
+			}
+
+			& hero-index {
+				margin-bottom: 22px;
+				font-family: var( --font-family-c );
+				font-size: 1.6rem;
+				font-weight: 400;
+				letter-spacing: .18em;
+				text-transform: uppercase;
+				opacity: .8;
+			}
+
 			& h3 {
-				font-size: var( --font-size-xl );
+				font-size: clamp( 4.8rem, 7vw, 9.6rem );
 				font-family: var( --font-family-a );
+				line-height: .95;
+				letter-spacing: .02em;
 			}
 
 			& h4 {
-				font-size: var( --font-size-l );
+				margin-top: 12px;
+				font-size: clamp( 2rem, 2vw, 3.2rem );
 				font-family: var( --font-family-b );
+				letter-spacing: .06em;
+				text-transform: uppercase;
 			}
 
-			& ul {
-				margin-top: var( --margin-s );
+			& hero-meta {
+				margin-top: 24px;
 				font-family: var( --font-family-c );
-				font-size: var( --font-size-s );
-
-				& li {
-					margin-bottom: 5px;
-				}
+				font-size: clamp( 1.6rem, 1.25vw, 2rem );
+				font-weight: 300;
+				letter-spacing: .08em;
+				text-transform: uppercase;
+				opacity: .78;
 			}
 
+			& video-block,
+			& img {
+				width: 100%;
+				height: 100%;
+			}
+
+			& video,
 			& img {
 				object-fit: cover;
 				width: 100%;
+				height: 100%;
+			}
+
+			@media ( max-width: 650px ) {
+				margin-bottom: var( --margin-m );
+
+				& hero-overlay {
+					width: calc( 100vw - 32px );
+					padding: 64px 0;
+				}
+
+				& hero-index {
+					margin-bottom: 18px;
+					font-size: 1.3rem;
+				}
+
+				& hero-meta {
+					margin-top: 18px;
+					font-size: 1.3rem;
+					line-height: 1.6;
+				}
 			}
 		}
 
@@ -46,15 +135,17 @@ export default class S1 {
 
 			title,
 			subtitle,
+			path,
 			anchor,
 			location,
-			designer,
-			team,
-			period,
-			partners,
-			clients
+			date
 
 		} = content;
+		const projectIndex = Application.content.projects
+			.findIndex( project => project.path === path );
+		const projectNumber = projectIndex === -1 ? '' :
+			`${ projectIndex + 1 }`.padStart( 2, '0' );
+		const meta = [ date, location ].filter( Boolean ).join( ' / ' );
 
 		let media = '';
 
@@ -73,22 +164,14 @@ export default class S1 {
 
 		<section-type-1 section ${ anchor ? `anchor="${ anchor }"` : '' }>
 
-			${ media }
-			${ Aside.render( html`
-
+			<hero-media>${ media }</hero-media>
+			<hero-lines></hero-lines>
+			<hero-overlay>
+				${ projectNumber ? html`<hero-index>Project ${ projectNumber }</hero-index>` : '' }
 				<h3>${ title }</h3>
-				<h4>${ subtitle }</h4>
-
-				<ul>
-					${ designer ? html`<li>Designer / ${ designer }</p>` : '' }
-					${ team ? html`<li>Team / ${ team }</p>` : '' }
-					${ location ? html`<li>Location / ${ location }</p>` : '' }
-					${ period ? html`<li>Period / ${ period }</p>` : '' }
-					${ partners ? html`<li>Partners / ${ partners }</p>` : '' }
-					${ clients ? html`<li>Clients / ${ clients }</p>` : '' }
-				</ul>
-
-			` ) }
+				${ subtitle ? html`<h4>${ subtitle }</h4>` : '' }
+				${ meta ? html`<hero-meta>${ meta }</hero-meta>` : '' }
+			</hero-overlay>
 
 		</section-type-1>
 

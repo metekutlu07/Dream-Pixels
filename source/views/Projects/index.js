@@ -31,6 +31,8 @@ export default class Projects extends View {
 
 		if ( isPixelLanding ) {
 
+			Application.particles?.ensureColorsReady?.();
+
 			Application.store.set( 'pixel-experience-started', false );
 			Application.store.set( 'pixel-experience-gate-visible', false );
 			Application.store.set( 'pixel-experience-background-visible', false );
@@ -57,6 +59,8 @@ export default class Projects extends View {
 	}
 
 	beginParticleExperience() {
+
+		Application.particles?.ensureColorsReady?.();
 
 		Application.store.set( 'pixel-experience-gate-visible', false );
 		Application.store.set( 'pixel-experience-background-visible', false );
@@ -102,6 +106,8 @@ export default class Projects extends View {
 		this.clearLandingSequence();
 
 		if ( isPixelLanding ) {
+
+			Application.particles?.ensureColorsReady?.();
 
 			Application.store.set( 'pixel-experience-started', false );
 			Application.store.set( 'pixel-experience-gate-visible', false );

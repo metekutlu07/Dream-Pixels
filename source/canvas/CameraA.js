@@ -116,8 +116,8 @@ export default class Camera extends PerspectiveCamera {
 			anime( {
 
 				targets: this.parameters,
-				duration: 3000,
-				delay: 1000,
+				duration: 9000,
+				delay: 3000,
 				easing: 'easeInOutExpo',
 				fov: 45
 

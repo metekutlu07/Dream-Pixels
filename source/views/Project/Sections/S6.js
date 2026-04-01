@@ -78,10 +78,12 @@ export default class S6 extends HTMLElement {
 
 			& photogrammetry-controls {
 				position: fixed;
-				right: var( --margin-m );
+				left: 50%;
 				bottom: var( --margin-m );
+				transform: translateX( -50% );
 				display: flex;
 				align-items: stretch;
+				justify-content: center;
 				pointer-events: all;
 				border: var( --border-size ) solid var( --border-color );
 				background: rgba( 0, 0, 0, .28 );
@@ -89,9 +91,9 @@ export default class S6 extends HTMLElement {
 				-webkit-backdrop-filter: blur( 10px );
 
 				@media ( max-width: 650px ) {
-					right: var( --margin-s );
+					left: 50%;
 					bottom: var( --margin-s );
-					flex-direction: column;
+					transform: translateX( -50% );
 				}
 			}
 
@@ -204,7 +206,7 @@ export default class S6 extends HTMLElement {
 		} );
 
 		const innerHTML = html`<artwork-list>${ list }</artwork-list>`;
-		const aside = Aside.render( innerHTML, [ 'scrollable', 'photogrammetry-library' ] );
+		const aside = Aside.render( innerHTML, [ 'scrollable', 'floating-panel', 'photogrammetry-library' ] );
 		const controls = html`
 			<photogrammetry-controls blurred-background>
 				<photogrammetry-control action="export-ar" @click|section-type-6>AR</photogrammetry-control>

@@ -103,9 +103,9 @@ export default class Point extends Mesh {
 		anime( {
 
 			targets: this,
-			duration: 2000,
+			duration: 6000,
 			easing: 'easeOutElastic( 1, .65 )',
-			delay: 2500 + this.index * 100,
+			delay: 7500 + this.index * 300,
 			scaleFactor: 1
 
 		} );

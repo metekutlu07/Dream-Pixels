@@ -63,7 +63,7 @@ export default class Artwork extends Mesh {
 
 			targets: this.material,
 			easing: 'easeInOutQuart',
-			duration: 2500,
+			duration: 7500,
 			visibility: 0
 
 		} ).finished;

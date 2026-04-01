@@ -88,6 +88,8 @@ export default class Aside extends HTMLElement {
 				top: 0;
 				bottom: 0;
 				max-height: 100%;
+				overflow-y: auto;
+				overflow-x: hidden;
 				border: none;
 				border-right: var( --border-size ) solid var( --border-color );
 				transition:
@@ -116,7 +118,7 @@ export default class Aside extends HTMLElement {
 				}
 			}
 
-			&[ scrollable ][ photogrammetry-library ] {
+			&[ scrollable ][ floating-panel ] {
 				transform: translateX( calc( -100% - var( --margin-m ) - 16px ) );
 				top: calc( var( --margin-m ) + 84px );
 				bottom: var( --margin-m );
@@ -129,6 +131,22 @@ export default class Aside extends HTMLElement {
 				background: rgba( 0, 0, 0, .28 );
 				backdrop-filter: blur( 10px );
 				-webkit-backdrop-filter: blur( 10px );
+				scrollbar-width: thin;
+				scrollbar-color: rgba( 255, 255, 255, .45 ) rgba( 255, 255, 255, .08 );
+
+				&::-webkit-scrollbar {
+					display: block;
+					width: 8px;
+				}
+
+				&::-webkit-scrollbar-track {
+					background: rgba( 255, 255, 255, .08 );
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background: rgba( 255, 255, 255, .45 );
+					border-radius: 999px;
+				}
 
 				& default-button {
 					display: none;

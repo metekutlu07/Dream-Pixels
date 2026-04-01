@@ -56,6 +56,8 @@ export default class StartGate extends HTMLElement {
 		if ( ! isPixelLanding ) return;
 		if ( Application.store[ 'pixel-experience-started' ] ) return;
 
+		Application.particles?.ensureColorsReady?.();
+
 		Application.store.set( 'pixel-experience-gate-visible', false );
 		Application.store.set( 'pixel-experience-background-visible', false );
 		Application.store.set( 'pixel-experience-transitioning', true );

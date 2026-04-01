@@ -370,8 +370,8 @@ export default class OrbitControls extends Object3D {
 
 				targets: this.offsetState,
 				easing: 'easeInOutExpo',
-				duration: 3000,
-				delay: 1000,
+				duration: 9000,
+				delay: 3000,
 				radius: 0,
 				phi: 0,
 				theta: 0
@@ -382,7 +382,7 @@ export default class OrbitControls extends Object3D {
 
 				targets: this,
 				easing: 'easeOutExpo',
-				duration: 5000,
+				duration: 15000,
 				speedFactor: 1
 
 			} );

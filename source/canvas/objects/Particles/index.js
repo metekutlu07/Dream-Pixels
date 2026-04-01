@@ -72,9 +72,7 @@ export default class Particles extends Points {
 
 	onPreFrame() {
 
-		const common = Application.assets[ 'common' ];
-		if ( this.hasLoadedColors || ! common?.jsons?.[ 'Colors.json' ] ) return;
-		this.applyColors( common );
+		this.ensureColorsReady();
 
 	}
 
@@ -143,6 +141,15 @@ export default class Particles extends Points {
 		this.geometry.attributes.color.needsUpdate = true;
 		this.hasLoadedColors = true;
 		this.onModeChange();
+
+	}
+
+	ensureColorsReady() {
+
+		const common = Application.assets[ 'common' ];
+		if ( this.hasLoadedColors || ! common?.jsons?.[ 'Colors.json' ] ) return this.hasLoadedColors;
+		this.applyColors( common );
+		return this.hasLoadedColors;
 
 	}
 
