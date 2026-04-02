@@ -163,10 +163,18 @@ export default class Scene extends Object3D {
 
 		if ( ! path ) return;
 
+		const isProjectPath = Application.content.projects
+			.some( project => `/${ project.path }` === path );
+		const hasProjectSphere = [ '/virtual-miniature', '/photogrammetry', '/miniature-street-view' ]
+			.includes( path );
+		const shouldHideProjectSphere = isProjectPath && !hasProjectSphere;
+
 		this.objects.visible = path === '/experiments' && list === 'grid';
 		this.images.visible = path === '/experiments' && list === 'sphere';
 		this.map.visible = path === '/experiments' && list === 'places';
-		this.sphere.visible = path !== '/' && ! ( path === '/experiments' && list === 'places' && places === 'cosmos' ) && path !== '/virtual-miniature';
+		this.sphere.visible = path !== '/' &&
+			!( path === '/experiments' && list === 'places' && places === 'cosmos' ) &&
+			!shouldHideProjectSphere;
 		this.cosmos.visible = path === '/experiments' && list === 'places' && places === 'cosmos';
 
 		const isParticleWorksView = path === '/experiments' && list === 'particles';

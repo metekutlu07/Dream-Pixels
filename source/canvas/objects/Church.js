@@ -74,12 +74,13 @@ export default class Church extends Object3D {
 
 		const y = Application.viewport.width > 768 ? -3 : -1;
 		this.position.set( 0, y, 0 );
+		this.visible = false;
 
 	}
 
 	async onViewChange() {
 
-		this.visible = Application.store.path === '/rasdelka';
+		this.visible = false;
 
 	}
 

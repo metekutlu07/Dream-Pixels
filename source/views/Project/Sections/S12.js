@@ -91,7 +91,7 @@ export default class S12 {
 
 		`;
 
-		const { sponsor = [], partners = [], team = [], groups = [], anchor } = content;
+		const { sponsor = [], partners = [], team = [], groups = [], columns = [], anchor } = content;
 
 		const flattenedTeam = [];
 
@@ -112,6 +112,25 @@ export default class S12 {
 			...flattenedTeam.filter( person => person !== leaderName )
 		];
 		const hasTeam = orderedTeam.length > 0;
+
+		if ( columns.length ) return html`
+
+		<section-type-12 section ${ anchor ? `anchor="${ anchor }"` : '' }>
+			<presentation-card>
+				${ columns.map( column => html`
+					<presentation-group>
+						${ column.map( group => html`
+							<presentation-stack>
+								<presentation-heading>${ group.title }</presentation-heading>
+								${ ( group.lines || [] ).map( line => html`<presentation-line>${ line }</presentation-line>` ) }
+							</presentation-stack>
+						` ) }
+					</presentation-group>
+				` ) }
+			</presentation-card>
+		</section-type-12>
+
+		`;
 
 		if ( groups.length ) return html`
 

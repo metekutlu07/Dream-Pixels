@@ -12,8 +12,9 @@ import S13 from './Sections/S13';
 import S14 from './Sections/S14';
 import S15 from './Sections/S15';
 import S16 from './Sections/S16';
+import S17 from './Sections/S17';
 
-const Types = { S1, S2, S3, S4, S5, S6, S7, S8: S3, S9: S3, S10: S4, S11: S4, S12, S13, S14, S15, S16 };
+const Types = { S1, S2, S3, S4, S5, S6, S7, S8: S3, S9: S3, S10: S4, S11: S4, S12, S13, S14, S15, S16, S17 };
 
 export default class Project extends View {
 
