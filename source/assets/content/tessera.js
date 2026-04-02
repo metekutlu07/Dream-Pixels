@@ -18,7 +18,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/main.jpg',
 				caption: 'Homepage',
@@ -26,7 +26,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/echelle.jpg',
 				caption: 'Game levels and the scales of experience',
@@ -34,7 +34,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/carthage.jpg',
 				caption: 'Creating different itineraries (City Level)',
@@ -42,7 +42,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/parc.jpg',
 				caption: 'Tessera Collection and levelling up (Architectural Level)',
@@ -50,7 +50,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/maison.jpg',
 				caption: 'Mare Nostrum (Mediterranean Level)',
@@ -58,7 +58,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/map.jpg',
 				caption: 'Visualization of mosaic floors in augmented reality',
@@ -66,7 +66,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/mosaic-ar.jpg',
 				caption: 'Completition of original mosaic panels with projected frescoes',
@@ -82,7 +82,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/triclin02.jpg',
 				caption: 'Interactive ',
@@ -90,7 +90,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/cheveaux.jpg',
 				caption: 'Video Presentation',
@@ -98,7 +98,7 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/tessera/menu.jpg',
 				caption: 'Video Presentation',
