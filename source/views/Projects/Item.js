@@ -282,6 +282,19 @@ export default class Item extends HTMLElement {
 
 		}
 
+		item-thumbnail > img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		item-thumbnail video-block {
+			position: relative;
+			z-index: 1;
+		}
+
 		item-footer {
 			display: flex;
 			justify-content: flex-start;
@@ -316,7 +329,8 @@ export default class Item extends HTMLElement {
 		>
 			<item-link href="/${ path }" internal>
 				<item-thumbnail>
-					${ Video.render( `/public/${ path }/thumbnail.mp4`, { poster: true, preloadMedia: index >= ( projectsLength - 3 ) } ) }
+					<img src="/public/${ path }/thumbnail.png" alt="${ title } thumbnail">
+					${ Video.render( `/public/${ path }/thumbnail.mp4`, { poster: true, preloadMedia: index >= ( projectsLength - 3 ), startAt: 1 } ) }
 					<item-overlay>
 						${ Button.render( { attributes: [ 'label-visible' ], icons: [ Next ], } ) }
 					</item-overlay>

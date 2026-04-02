@@ -7,7 +7,8 @@ export default class S3 {
 		const variant = content.type === 'S8' ? 'compact' :
 			content.type === 'S9' ? 'medium' : '';
 		const { anchor } = content;
-		const { source, caption, explain, alt, controls, centered, centeredText, preloadMedia } = content.media;
+		const { source, caption, explain, alt, controls, centered, centeredText, textCentered, preloadMedia } = content.media;
+		const isTextCentered = centeredText || textCentered;
 		const plainCaption = caption ? caption
 			.replace( /<[^>]*>/g, ' ' )
 			.replace( /\s+/g, ' ' )
@@ -251,7 +252,7 @@ export default class S3 {
 			</media-frame>
 
 			${ caption || explain ? html`
-				<p ${ centeredText ? 'centered-text' : '' }>
+				<p ${ isTextCentered ? 'centered-text' : '' }>
 					${ caption ? html`<project-caption>${ caption }</project-caption>` : '' }
 					${ explain ? html`<project-explain>${ explain }</project-explain>` : '' }
 				</p>

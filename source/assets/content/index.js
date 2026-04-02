@@ -1,5 +1,5 @@
 // import P1 from './augustus';
-import P2 from './bamistun';
+import P2 from './hagia-data';
 import P3 from './bistami';
 import P4 from './cosmic-colors';
 import P6 from './latent-voxels';
@@ -330,7 +330,7 @@ export default {
 		},
 
 		'constantinople': {
-			projects: [ 'miniature-street-view', 'solomon', 'rasdelka', 'bistami', 'cosmic-colors', 'theodora', 'bamistun', 'latent-voxels', 'virtual-miniature', 'time-travelling-colours' ],
+			projects: [ 'miniature-street-view', 'solomon', 'rasdelka', 'bistami', 'cosmic-colors', 'theodora', 'hagia-data', 'latent-voxels', 'virtual-miniature', 'time-travelling-colours' ],
 			paragraphs: [
 				'The Istanbul Mission was carried out in November - December 2019 with the support of the French Institute of Anatolian Studies (IFEA). As part of his doctoral research, Mete Kutlu was granted a scholarship and a residency at the Palace of France in Istanbul. The main goal of the mission was to do an archival research on the Ottoman miniatures with representations of architectural and urban scenes. The research locations were the Topkapi Palace Archives, Istanbul University Library, Suleymaniye Library and the Museum of Islamic and Turkish Art. Besides the archival work, the mission included the close-up examination of the architectural monuments and their ornamentation which are represented in the miniatures. The results of this research were shared during an international conference at the Palace of France. Following this mission Mete Kutlu was invited by the Pera Museum and its educational department to organize a workshop as part of the exhibition Miniature 2.0. Due to travel restrictions during the pandemic, the workshop project was transformed into an online conference organized and published by the museum. At the same time as the Istanbul residency, the Quai Branly – Jacques Chirac Museum in Paris invited Mete Kutlu to share his research work during the conference “Electronic Visualization and the Arts”. ',
 				''

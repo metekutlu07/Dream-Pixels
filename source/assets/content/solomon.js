@@ -2,7 +2,7 @@ export default {
 
 	path: 'solomon',
 	title: 'Solomon',
-	subtitle: 'Modelling The Divine Impossibility',
+	subtitle: 'Picturing the Impossible',
 	location: 'Rome',
 	date: 'October 2020',
 	team: 'Mete Kutlu',
