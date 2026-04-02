@@ -2,7 +2,7 @@ export default {
 
 	path: 'latent-voxels',
 	title: 'Latent Voxels',
-	subtitle: 'Computerising Ornamental Urban Talismans',
+	subtitle: 'Computing Urban Talismans',
 	location: 'Paris',
 	date: 'February 2021',
 	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam volutpat felis vitae lorem scelerisque placerat. Quisque est dolor, euismod ac ornare vulputate, gravida ac nunc. Nunc suscipit lacinia ante non hendrerit. Donec porta ut leo eu suscipit. Nullam vitae sagittis sapien. Sed lacinia tincidunt risus non scelerisque. Pellentesque et nulla porttitor eros pharetra semper. Nam id dui nec purus condimentum pulvinar. Vivamus a tortor arcu. Ut eu lorem eu turpis vulputate gravida. Duis ut viverra risus. Quisque volutpat in enim in consequat. Mauris vitae efficitur urna, nec interdum erat. ',
@@ -14,6 +14,10 @@ export default {
 				caption: 'Video Introduction',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
+		},
+		{
+			type: 'S2',
+			paragraphs: 'Latent Voxels is a digital experiment that investigates how computational processes reshape architectural form and creative authorship in the age of artificial intelligence. The project is based on the hypothesis that design is shifting from direct composition toward procedural exploration, where forms emerge through algorithmic interpolation rather than manual construction. It is grounded in a seventeenth-century Ottoman miniature of Constantinople from an apocalyptic manuscript, which represents the city as a site of encoded knowledge and as the stage where the destiny of the cosmos is enacted.<br><br>The experiment generates imaginary and futuristic visions of Constantinople by transforming multiple three-dimensional models of the city into volumetric data structures composed of voxels, the three-dimensional equivalents of pixels. These models are converted into cloud-like fields that can merge and dissolve through a procedural system. The city appears as a continuous surface of shifting data, a vast carpet of pixels in which values change to produce different architectural forms. This approach reinterprets the anti-material and color-based conception of space found in Ottoman miniatures within a digital medium. A custom node-based workflow computes intermediate states between different urban configurations, revealing latent architectural possibilities that are not explicitly designed but discovered within the computational process as part of an investigation into human–machine collaboration in design.',
 		},
 		{
 			type: 'S2',
