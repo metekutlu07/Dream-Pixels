@@ -10,8 +10,10 @@ import S7 from './Sections/S7';
 import S12 from './Sections/S12';
 import S13 from './Sections/S13';
 import S14 from './Sections/S14';
+import S15 from './Sections/S15';
+import S16 from './Sections/S16';
 
-const Types = { S1, S2, S3, S4, S5, S6, S7, S8: S3, S9: S3, S10: S4, S11: S4, S12, S13, S14 };
+const Types = { S1, S2, S3, S4, S5, S6, S7, S8: S3, S9: S3, S10: S4, S11: S4, S12, S13, S14, S15, S16 };
 
 export default class Project extends View {
 
@@ -37,6 +39,7 @@ export default class Project extends View {
 		project-view {
 			width: 100vw;
 			display: block;
+			padding-bottom: 300px;
 
 			[ path="/miniature-street-view" ] &,
 			[ path="/virtual-miniature" ] &,

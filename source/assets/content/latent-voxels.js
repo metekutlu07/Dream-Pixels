@@ -20,25 +20,28 @@ export default {
 			paragraphs: 'Latent Voxels is a digital experiment that investigates how computational processes reshape architectural form and creative authorship in the age of artificial intelligence. The project is based on the hypothesis that design is shifting from direct composition toward procedural exploration, where forms emerge through algorithmic interpolation rather than manual construction. It is grounded in a seventeenth-century Ottoman miniature of Constantinople from an apocalyptic manuscript, which represents the city as a site of encoded knowledge and as the stage where the destiny of the cosmos is enacted.<br><br>The experiment generates imaginary and futuristic visions of Constantinople by transforming multiple three-dimensional models of the city into volumetric data structures composed of voxels, the three-dimensional equivalents of pixels. These models are converted into cloud-like fields that can merge and dissolve through a procedural system. The city appears as a continuous surface of shifting data, a vast carpet of pixels in which values change to produce different architectural forms. This approach reinterprets the anti-material and color-based conception of space found in Ottoman miniatures within a digital medium. A custom node-based workflow computes intermediate states between different urban configurations, revealing latent architectural possibilities that are not explicitly designed but discovered within the computational process as part of an investigation into human–machine collaboration in design.',
 		},
 		{
-			type: 'S2',
-			anchor: 'Silicon City Dreams',
-			title: 'Silicon City Dreams',
-			paragraphs: `The following urbanscapes emerge from the imagination of the AI
-			upon its encounter with an Ottoman miniature of Byzantine Constantinople (c.1600).<br><br>
-
-			Through 6 different city models, algorithms reinterpret the mystical representation of Constantinople.
-			These models are rational compositions which are based on Western architectural culture.
-			They are used as oneirogens, dream generators.<br><br>
-
-			642 city models emerge during the process of transformation.
-			Each scenario is a different oneiropolids, a dream city.`,
-		},
-		{
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/img/tex03.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'The Dusk of Data at the Hippodrome of Constantinople  '
+				caption: 'The Dusk of Data at the Hippodrome of Constantinople.',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S15',
+			media: {
+				source: 'https://dai.ly/xa43wvc',
+				poster: 'public/latent-voxels/latent-intro.mp4.png'
+			}
+		},
+		{
+			type: 'S9',
+			anchor: 'Comparative View',
+			media: {
+				source: 'public/bistami/02-bistami-02.jpg',
+				caption: '<strong> Thinking of the apocalypse in Constantinople, now and then.</strong><br><br><strong> The prophesied conquest of Constantinople.</strong>  This miniature depicts the conquest as one of the apocalyptic portents in Ottoman eschatology, which inherited elements of Byzantine traditions. The city was to be taken by the Blessed Guide of humanity, the <em>Mahdi</em>, expected to appear in the final days before the Apocalypse and unite the world under one kingdom. From the Translation of <em>The Key to All Prophecies (Tercüme-i Miftah-i Cifr’ül Cami)</em>, originally written by Abdurrahman Bistami, an Antiochian master of the science of letters, around 1450. This miniature comes from a copy produced in Constantinople for Sultan Ahmed I around 1610. Istanbul University Library, TY 6644, fol. 91b.<br><br><strong>3D miniature of Constantinople.</strong> The miniature is transformed into a 3D environment, letting us see the same painting from different angles. The 3D model invites us into the imagination of the Ottoman painter. Artwork by the author, digital reconstruction, 2020.',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
@@ -46,81 +49,88 @@ export default {
 			media: {
 				source: 'public/latent-voxels/axo.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Algorithmic Urban Dreams - Axonometric View'
+				caption: 'Algorithmic Urban Dreams - Axonometric View.',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/oneiropolismo2x.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Oneiropolis Details'
-			}
+			type: 'S16',
+			text: 'Algorithmic exploration replaces<br>rational composition'
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/latent-voxels/ai02.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Algorithmic Urban Dreams - Top View'
+				caption: 'Algorithmic Urban Dreams - Top View',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
 			type: 'S2',
-			anchor: 'Digital Mysticism',
-			title: 'Digital Mysticism',
-			paragraphs: `
-			The Ottoman miniaturist sought to reveal
-			the hidden treasures which are concealed behind material appearances.<br><br>
-			In this experiment, the symbolism of the invisible is used for the
-			hacking of the artificial logic of the machine.
-			This transtemporal fusion explores the possibility of
-			a “digital mysticism" in contemporary architecture.<br><br>
-			The mystical use of AI gives birth to
-			the figure of alchemist-architect.
-			The algorithms become the elixir
-			allowing us to imagine talismanic spaces in the Age of AI.
-			`,
+			title: 'MAKING-OF',
 		},
 		{
 			type: 'S3',
+			anchor: 'Making-of',
 			media: {
-				source: 'public/latent-voxels/streetview.mp4',
+				excludeFromSphere: true,
+				source: 'public/latent-voxels/img/p3.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Transmutating Electronic Urbanscapes inside the Silicon Chip'
-			}
-		},
-		{
-			type: 'S2',
-			anchor: 'Oneiropolis 464',
-			title: 'Oneiropolis 464',
-			paragraphs: `
-			Architectural details are added with generative algorithms.
-			Various words and phrases are integrated into the urban space.<br><br>
-
-			These citations are taken from medieval Byzantine literature
-			on the urban talismans of Constantinople.<br><br>
-
-			The occult symbolism of Byzantine literature and
-			the colors of Ottoman mystical dreams
-			are combined to represent a suprasensbile urban space.
-			`,
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/ai03.mp4',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Constantinople 2049 - The Oneiropolis 464'
+				caption: 'Oneirogens: Input Remixed City Models for Interpolation.',
+				explain: 'The following urbanscapes emerge from the imagination of the AI upon its encounter with an Ottoman miniature of Byzantine Constantinople (c.1600). The 3D model of the miniature is reorganized according to 6 different kinds of plan. They are used as <em>oneirogens,</em> dream generators. Each frame generates a new interpolated, in-between configuration. 642 city models emerge during the process of transformation. Each scenario is a different oneiropolis, a dream city.',
 			}
 		},
 		{
 			type: 'S3',
-			anchor: 'Notiones constantinopolitana',
 			media: {
-				source: 'public/latent-voxels/ai04.mp4',
+				excludeFromSphere: true,
+				source: 'public/latent-voxels/img/makinof03.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Notiones constantinopolitana'
+				caption: 'Node graph prepared in Houdini for voxel and pixel interpolation',
+				explain: 'Screenshot in Houdini, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/latent-voxels/img/ss01.png',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: ' The interpolating solver node on the right, and the interpolated model on the left',
+				explain: 'Screenshot in Houdini, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/latent-voxels/img/makinof01.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Conversion of Compositional Assemblage To A Topological Surface',
+				explain: 'Screenshot in Houdini, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/denseToRenai01.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'The Turkish Revamp of Filarete`s Ideal City',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S16',
+			text: 'Architect as navigator'
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/renToRandoTop.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Neo Filaret',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -139,7 +149,7 @@ export default {
 			Rebellious City <br>
 			Regent city (βασιλεία πόλη, Basilis Polis) <br>
 			Florentissima urbs in the Theodosian Codex
-			The city under God\'s watch (Theophylaktos Polis) in Georges of Psidia, 7th c. <br>
+			The city under God's watch (Theophylaktos Polis) in Georges of Psidia, 7th c. <br>
 			The eye and the heart of Earth in Micheal Psellos, Théodore Prodrome & Constantin Manassès <br>
 			Theater of the universe in Manuel Holobos, Grégoire de Chypre & Théodore Métochite <br>
 			The city was named Anthousa by Constantine the Great. (Eusthate, Commentarii in Dionysii Periegesin, Geographi Graeci Minores. F. Didot, p.357)
@@ -148,112 +158,10 @@ export default {
 		{
 			type: 'S3',
 			media: {
-				source: 'public/latent-voxels/img/planmo2x.jpg',
+				source: 'public/latent-voxels/img/orthoToRadi.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Kotelnikov Patterns of Digital Talismans'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/towermo2x.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Prophetical Towers of Neo-Apollonius'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/cctv.mp4',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Algorithmic Urban Dreams - Axonometric View'
-			}
-		},
-		{
-			type: 'S2',
-			anchor: 'Divine Protection',
-			paragraphs: `Ρώμη Φλώρα, και Κωνσταντινούπολις, ήγουν άνθουσα.<br>
-			Rome was Flora, and Constantinople Anthousa.<br>
-			(Jean Le Lydien, De Mensibus, IV, 75, ed. Wuensch, p. 126, 16-17)<br><br>
-			Χριστέ ó Θεος άτάραχτονκαΐ άπόλεμον φύλαττε τήν πόλιν σου.<br>
-			Christ o Lord, undisturbed, protect your city from war.<br>
-			(Inscription on the walls of Constantinople dating from the 11th century)<br><br>
-			Σύ, Χριστέ, κόσμου βασιλεύς και δεσπότης σοί προστίθημι τήνδε τήν δούλην πόλιν και σκήπτρα τήσδε καί τό πάν 'Ρώμης κράτος φύλαττε ταύτην, σώζε δ' έκ πάσης βλάβης.<br>
-			O Christ, King and Despot of the world, I added to you the slave city and the scepters of the whole Roman state. Guarded it and save it from all harm.<br>
-			(Constantine the Rhodian cited by Kedrenos in Historiarum compendium)<br><br>
-			ή πόλις σου Θεοτόκε<br>
-			Your city, o Theotokos!<br><br>
-			Της Θεοτόκου ή πόλις τη Θεοτόκω<br>
-			The city of Theotokos to Theotokos<br><br>
-			Είς άπειρους αιώνας εύόδωσον ταύτην.<br>
-			Lord, let this city prosper for infinite centuries.<br>
-			Παραστάσεις σύντομοι χρονικαι (Parastesis, I p57, Preger)<br><br>
-			Constantinople consecrated to Christ<br>
-			Or to the Virgin as the mistress of the City.<br><br>
-			`,
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/tex01.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Urban Dreams of a Young Cyborg'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/renToRando02.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Friday Sunset on the Cybernetic Square'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/central3.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Boulevards of Holographic Turkish Delights'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/central4.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Ecumenical Information Processing Complex'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/toCentral.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'The Silicon Nymphaeum in Eminenu'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/orthoToRadi01.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Quarter of Cybernetic Mystics'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/orthoToRadi04.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Neo Taksim'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/renToRandoTop.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Neo Filaret'
+				caption: 'Oneiropolis 231',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -261,31 +169,17 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/central2.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Old Town of Mechanicals'
+				caption: 'Old Town of Mechanicals',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
 			type: 'S3',
 			media: {
-				source: 'public/latent-voxels/img/radiToDense01.jpg',
+				source: 'public/latent-voxels/img/orthoToRadi01.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Low-Energy Android Slums in Levent'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/orthos.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Quarter of Youngster Androids'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/latent-voxels/img/renToRando03.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Galactic Comms Towers of Neo-Seraglio'
+				caption: 'Quarter of Cybernetic Mystics',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -293,7 +187,110 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/renToRando.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Playgrounds in the Data Land'
+				caption: 'Playgrounds in the Data Land',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S16',
+			text: 'Distributed creativity'
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/ai03.mp4',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Constantinople 2049 - The Oneiropolis 464',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/cctv.mp4',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Algorithmic Urban Dreams - Axonometric View',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/tex01.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Urban Dreams of a Young Cyborg',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			anchor: 'Notiones constantinopolitana',
+			media: {
+				source: 'public/latent-voxels/ai04.mp4',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Notiones constantinopolitana',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S16',
+			text: 'Design beyond human intelligence'
+		},
+		{
+			type: 'S2',
+			anchor: 'Divine Protection',
+			paragraphs: `Ρώμη Φλώρα, και Κωνσταντινούπολις, ήγουν άνθουσα.<br>
+			Rome was Flora, and Constantinople Anthousa.<br>
+			—Jean Le Lydien, <em>De Mensibus,</em> IV, 75, ed. Wuensch, p.126, 16-17.<br><br>
+			Χριστέ ó Θεος άτάραχτονκαΐ άπόλεμον φύλαττε τήν πόλιν σου.<br>
+			Christ o Lord, undisturbed, protect your city from war.<br>
+			—Inscription on the walls of Constantinople dating from the 11th century.<br><br>
+			Σύ, Χριστέ, κόσμου βασιλεύς και δεσπότης σοί προστίθημι τήνδε τήν δούλην πόλιν και σκήπτρα τήσδε καί τό πάν 'Ρώμης κράτος φύλαττε ταύτην, σώζε δ' έκ πάσης βλάβης.<br>
+			O Christ, King and Despot of the world, I added to you the slave city and the scepters of the whole Roman state. Guarded it and save it from all harm.<br>
+			—Constantine the Rhodian cited by Kedrenos in <em>Historiarum compendium</em><br><br>
+			ή πόλις σου Θεοτόκε<br>
+			Your city, o Theotokos!<br><br>
+			Της Θεοτόκου ή πόλις τη Θεοτόκω<br>
+			The city of Theotokos to Theotokos<br><br>
+			Είς άπειρους αιώνας εύόδωσον ταύτην.<br>
+			Lord, let this city prosper for infinite centuries.<br>
+			—Παραστάσεις σύντομοι χρονικαι, <em>Parastesis,</em> I, p.57, Preger.<br><br>
+			`,
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/renToRando02.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Friday Sunset on the Cybernetic Square',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/central3.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Boulevards of Holographic Turkish Delights',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/orthoToRadi04.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Neo Taksim',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/radiToDense01.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Low-Energy Android Slums in Levent',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -301,90 +298,62 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/denseToRenai02.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Silicon Dreams'
+				caption: 'Silicon Dreams',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S16',
+			text: 'The city as a cosmotechnic diagram'
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/latent-voxels/img/orthos.jpg',
+				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Quarter of Youngster Androids',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
 			type: 'S3',
 			media: {
-				source: 'public/latent-voxels/img/denseToRenai01.jpg',
+				source: 'public/latent-voxels/img/central4.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'The Turkish Revamp of Filarete`s Ideal City'
+				caption: 'Ecumenical Information Processing Complex',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
 			type: 'S3',
 			media: {
-				source: 'public/latent-voxels/img/orthoToRadi.jpg',
+				source: 'public/latent-voxels/streetview.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Oneiropolis 231'
+				caption: 'Transmutating Electronic Urbanscapes inside the Silicon Chip',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S2',
-			title: 'MAKING-OF',
-		},
-		{
-			type: 'S3',
-			anchor: 'Making-of',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/latent-voxels/img/p3.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Oneirogens : Input Remixed City Models for Interpolation'
-			}
+			type: 'S16',
+			text: 'City as a carpet of pixels'
 		},
 		{
 			type: 'S3',
 			media: {
-				excludeFromSphere: true,
-				source: 'public/latent-voxels/img/makinof03.jpg',
+				source: 'public/latent-voxels/img/renToRando03.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Node graph prepared in Houdini for voxel and pixel interpolation'
+				caption: 'Galactic Comms Towers of Neo-Seraglio',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
 			type: 'S3',
 			media: {
-				excludeFromSphere: true,
-				source: 'public/latent-voxels/img/ss01.png',
+				source: 'public/latent-voxels/img/toCentral.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: ' The interpolating solver node on the right, and the interpolated model on the left'
+				caption: 'The Silicon Nymphaeum in Eminenu',
+				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/latent-voxels/img/makinof01.jpg',
-				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Conversion of Compositional Assemblage To A Topological Surface'
-			}
-		},
-		{
-			type: 'S2',
-			anchor: 'Bibliography',
-			title: 'Bibliography',
-			paragraphs: `
-			> Eusebius of Caesarea, Universal History (Παντοδαπὴ ἱστορία, Pantodape historia)<br>
-			> Life of Constantine the Great, 4th c.<br>
-			> Zosimus, New History, Ἱστορία Νέα, 5th c.<br>
-			> Sozomen, Ecclesiastical History, 5th c. <br>
-			> Stephanus of Byzantium, Ethnica, 6th c.<br>
-			> John Malalas, Chronographia, 6th c.<br>
-			> John the Lydian, De mensibus, 6th c.<br>
-			> Procopius of Caesarea, The Buildings (Περὶ Κτισμάτων, Peri Ktismaton), 6th c. <br>
-			> Hesychius Illustrius of Miletus, History of the Romans and the Almighty, 6th c.<br>
-			> Paulus Silentiarius, ecphrastic poem on the dedication of Justinian’s Hagia Sophia, 6th c.<br>
-			> Chronicon Paschale, Epitome of the ages from Adam the first man to the 20th year of the reign of the most August Heraclius, 7th c.<br>
-			> Parastaseis syntomoi chronikai (Brèves notes historiques), 8th c.<br>
-			> Souda (Encyclopedia of the Ancient Mediterranean World), 10th c.<br>
-			> La vie d’Andrew of Constantinople, 10th c. <br>
-			> Kodinos, Patria Constantinopoleos (Πάτρια Κωνσταντινουπόλεως), 14th c.<br>
-			> The Marvelous Story of the Very Beautiful Column of Xerolophos (Vindob. Supplement grec 171)<br>
-			> Theodor Preger, Scriptores originis Constantinopolitanae, I, 1901.<br>
-			> Erwin Fenser, Laudes Constantinopolitanae <br>
-			`,
 		},
 	]
 };

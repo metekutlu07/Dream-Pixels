@@ -20,28 +20,98 @@ export default {
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S2',
+			paragraphs: 'Theodora is a digital experiment that investigates how medieval conceptions of light and immateriality can be translated into computational form. The project is based on the hypothesis that Constantinople was not understood as a stable physical object, but as a luminous, dynamic, and sacred system shaped by metaphysical principles. The city is approached as a structure of light, where material boundaries dissolve and architecture emerges through radiance rather than mass. The experiment translates this hypothesis into a procedural animation. The 3D model of the city is transformed into a network of luminous lines animated by noise fields. These operations dissolve geometric stability and generate a cloud-like field of continuously shifting forms. The resulting image represents the city as a system of potentials rather than fixed structures, where architecture oscillates between order and chaos. This approach reinterprets Constantinople as a computational cloud, a space of dynamic configurations that exceeds direct human comprehension.',
+		},
+		{
+			type: 'S13',
+			media: {
+				source: 'https://youtu.be/EYCFPtvze-E'
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/theodora/04.jpg',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Over the Square of Pseudo-Dionysius, Imaginary Constantinople, 1491.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S9',
+			anchor: 'Comparative View',
+			media: {
+				source: 'public/bistami/02-bistami-02.jpg',
+				caption: '<strong> Thinking of the apocalypse in Constantinople, now and then.</strong><br><br><strong> The prophesied conquest of Constantinople.</strong>  This miniature depicts the conquest as one of the apocalyptic portents in Ottoman eschatology, which inherited elements of Byzantine traditions. The city was to be taken by the Blessed Guide of humanity, the <em>Mahdi</em>, expected to appear in the final days before the Apocalypse and unite the world under one kingdom. From the Translation of <em>The Key to All Prophecies (Tercüme-i Miftah-i Cifr’ül Cami)</em>, originally written by Abdurrahman Bistami, an Antiochian master of the science of letters, around 1450. This miniature comes from a copy produced in Constantinople for Sultan Ahmed I around 1610. Istanbul University Library, TY 6644, fol. 91b.<br><br><strong>3D miniature of Constantinople.</strong> The miniature is transformed into a 3D environment, letting us see the same painting from different angles. The 3D model invites us into the imagination of the Ottoman painter. Artwork by the author, digital reconstruction, 2020.',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+			}
+		},
+		{
+			type: 'S9',
 			media: {
 				source: 'public/theodora/part01.mp4',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Detexturing'
+				caption: '<br>Extracting the luminous structure, Mete Kutlu, 2021.'
 			}
 		},
 		{
 			type: 'S2',
 			paragraphs: `
 			Constantinople is represented as a luminous golden wireframe, without colors and shadows. <br>
-			A line simulation generates impressions of randomness and chaos, a virtual complexity beyond human intelligence.<br><br>
-			The model stands over a background of Tyrian Purple, the sacred and imperial color of the Byzantines. <br>
-			Combining divine symbolism with the digital miniature, Constantinople becomes the purple city: Porphyropolis.
+			The model stands over a background of Tyrian Purple, the sacred and imperial color of the Byzantines.
 			`
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/theodora/part02.mp4',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Cloud of Potentials, Mete Kutlu, 2021.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
+			}
 		},
 		{
 			type: 'S3',
 			media: {
-				source: 'public/theodora/part02.mp4',
+				source: 'public/theodora/talis4k.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Cloud of Potentials'
+				caption: 'Talismanic Urbanscape of Constantinople.',
+				explain: '<br>Illustration by Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				source: 'public/theodora/tower4k.jpg',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Talismanic plans of the towers of Constantinople.',
+				explain: '<br>Illustration by Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S2',
+			anchor: 'Making-of',
+			title: 'Making-of'
+		},
+		{
+			type: 'S9',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/theodora/ss02.png',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Decomposition and recomposition of the wireframe.',
+				explain: '<br>Screenshot in Cinema 4D, Mete Kutlu, 2021.'
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/theodora/ss01.png',
+				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				caption: 'Hair render of the wireframe and its animation with the frizz function.',
+				explain: '<br>Screenshot in Cinema 4D, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -51,65 +121,57 @@ export default {
 			paragraphs: 'In the mystical visual culture of Constantinople, the abundant use of gold expressed the unveiling of the divine light. The golden wireframe is the reinterpretation of the gold contours of buildings in the Ottoman miniatures and Byzantine gold mosaics illuminating interior spaces.'
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/part03.mp4',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Revelation of the City of Light'
+				caption: 'Revelation of the City of Light.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/part05.mp4',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Constantinople between order and chaos'
+				caption: 'Constantinople between order and chaos.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/13.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Nev Kostantiniyye: The City of Electronic Gods'
+				caption: 'Nev Kostantiniyye: The City of Electronic Gods.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/14.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Eternal Lights of the Phanarion'
+				caption: 'Eternal Lights of the Phanarion.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S2',
-			anchor: 'Ecstatic Images',
-			title: 'Ecstatic Images',
-			paragraphs: 'The hypnotic geometrical compositions reflects the Sufi\'s ecstatic state of fana, the death of ego and union with the cosmos. Resembling the magical drawings of the Ottoman alchemists, they reveal the talismanic qualities of the urban space of Constantinople.'
-		},
-		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/02.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Coming From Adrianople'
+				caption: 'Coming From Adrianople.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/03.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Talismanic Photon Towers'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/theodora/04.jpg',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Over the Square of Pseudo-Dionysius'
+				caption: 'Talismanic Photon Towers.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -119,90 +181,57 @@ export default {
 			paragraphs: 'In the ephemeral world of pixels, this weightless and luminous representation translates the painter-prophet Mani\'s ideal: the liberation of sublime parcels of light from the evil world of matter in which they are imprisoned.'
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/05.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Zoom'
+				caption: 'City of Light.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/06.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Renovatio constantinopolitanae'
+				caption: '<em>Renovatio constantinopolitanae</em>.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/07.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Towers of Electronic Light'
+				caption: 'Towers of Electronic Light.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/08.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'In the Apocalyptic City of Light 01'
+				caption: 'In the Apocalyptic City of Light 01.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/11.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'In the Apocalyptic City of Light 02'
+				caption: 'In the Apocalyptic City of Light 02.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 		{
-			type: 'S3',
+			type: 'S9',
 			media: {
 				source: 'public/theodora/002.jpg',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'In the Apocalyptic City of Light'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/theodora/talis4k.jpg',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Talismanic Urbanscape of Constantinople'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/theodora/tower4k.jpg',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Talismanic Towers of Constantinople'
-			}
-		},
-		{
-			type: 'S2',
-			anchor: 'Making-of',
-			title: 'Making-of'
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/theodora/ss02.png',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Decomposition and recomposition of the wireframe'
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/theodora/ss01.png',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Hair render of the wireframe and its animation with the frizz function'
+				caption: 'In the Apocalyptic City of Light 03.',
+				explain: '<br>Noise-based simulation on an Ottoman miniature, Mete Kutlu, 2021.'
 			}
 		},
 	]

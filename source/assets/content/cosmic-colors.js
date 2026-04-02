@@ -13,9 +13,13 @@ export default {
 		{
 			type: 'S1',
 			media: {
-				source: 'public/cosmic-colors/dome3.mp4',
+				source: 'public/cosmic-colors/dome-list.mp4',
 				caption: 'Cyber Lotus Video Introduction'
 			}
+		},
+		{
+			type: 'S2',
+			paragraphs: 'Following my initial experiments in Paris, I traveled to Uzbekistan in September 2022 to conduct a one-month field study. This mission was made possible by a scholarship from the French Institute of Central Asian Studies (IFEAC), based in Bishkek, Kyrgyzstan. The study had two main objectives: first, to carry out archival research on illustrated manuscripts in Tashkent; second, to digitize in 3D Timurid mosaics that adorn the cities of the Silk Road in Central Asia, historically known as western Turkistan, the “land of the Turks,” whose eastern regions today lie within the borders of China. This scanning mission was conducted in Samarkand, Shahrisabz, Bukhara, and Khiva. Particular emphasis was placed on the mosaics that decorate the mausoleums of the Royal Necropolis of Shah-i Zinda (11th to 15th centuries) in Samarkand, an exceptional site often described as a lexicon of Timurid tilework, where the full spectrum of ornamental innovations and adaptations can be observed.',
 		},
 		{
 			type: 'S13',
@@ -44,13 +48,13 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/blue-analyse.mp4',
 				caption: 'The transformation process of the Venetian Tower, from the original miniature to its 3D versions.',
-				explain: 'The Tower is first seen as a wireframe geometrical model, then as a textured and shaded render model and finally losing its sharp edges, surfaces and clear outlines to become a swirling pigment cloud. Top line shows the tower in axonometric view, the bottom line shows it from the top. The first image is a detail from the original miniature overlaid with a geometrical reconstruction. Beneath it is the map of the miniature, marked in orange is the tower. Screenshot from the animation. Artwork by the author, 2022.',
+				explain: 'The Tower is first seen as a wireframe geometrical model, then as a textured and shaded render model and finally losing its sharp edges, surfaces and clear outlines to become a swirling pigment cloud. Top line shows the tower in axonometric view, the bottom line shows it from the top. The first image is a detail from the original miniature overlaid with a geometrical reconstruction. Beneath it is the map of the miniature, marked in orange is the tower. Screenshot from the animation. Artwork by the author, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S2',
-			title: 'Realm of<br>Imagination',
+			title: 'Realm of Imagination',
 			paragraphs: 'Reflecting the spatial dynamics of miniatures, the architectural figures emerge as quasi-forms with blurred limites. They depict the colors existing in Suhrawerdi\'s intermediary Realm of Images, connecting terrestrial and heavenly worlds. They represent the Manichaean ideal: the liberation of particles of light from the world of matter.',
 		},
 		{
@@ -58,7 +62,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/pink-analyse.mp4',
 				caption: 'The transformation process of the Tower of Adrianople, from the original miniature to its 3D versions.',
-				explain: 'The Tower is first seen as a wireframe geometrical model, then as a textured, shaded rendered 3D model and finally losing its sharp edges and clear outlines to become a swirling pigment cloud. Top line shows the tower in axonometric view, the bottom line shows it from the top. The first image is a detail from the original miniature overlaid with a geometrical reconstruction. Beneath it is the map of the miniature, marked in orange is the tower. Screenshot from the animation. Artwork by the author, 2022.',
+				explain: 'The Tower is first seen as a wireframe geometrical model, then as a textured, shaded rendered 3D model and finally losing its sharp edges and clear outlines to become a swirling pigment cloud. Top line shows the tower in axonometric view, the bottom line shows it from the top. The first image is a detail from the original miniature overlaid with a geometrical reconstruction. Beneath it is the map of the miniature, marked in orange is the tower. Screenshot from the animation. Artwork by the author, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -78,7 +82,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			title: 'Alchemical of<br>Transmutation',
+			title: 'Alchemical of Transmutation',
 			paragraphs: 'The Constantinopolitan Eye designed an alchemical transmutation through supernatural colors for the continuous reinvention of the talismanic urban space at the Earth\'s navel, the cosmic capital, the divine city of Constantine.',
 		},
 		{
@@ -95,8 +99,9 @@ export default {
 		{
 			type: 'S9',
 			media: {
-				source: 'public/cosmic-colors/dome-list.mp4',
-				caption: 'Cosmic Cones of Constantinople 01',
+				source: 'public/cosmic-colors/dome3.mp4',
+				caption: 'Cosmic Cones of Constantinople 01.',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -104,13 +109,14 @@ export default {
 			type: 'S9',
 			media: {
 				source: 'public/cosmic-colors/dome1.mp4',
-				caption: 'Cosmic Cones of Constantinople 01',
+				caption: 'Cosmic Cones of Constantinople 01.',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
 		{
 			type: 'S2',
-			title: 'Chromatic<br>Space',
+			title: 'Chromatic Space',
 			paragraphs: 'In opposition with the Florentine geometrical eye, the architectural space is defined through colors that emphasize the magical complexity and variation in the universe, as well as the creative force of man\'s imagination.',
 		},
 		{
@@ -146,7 +152,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/cosmic-colors/020.jpg',
-				caption: 'Renaissance of the Miniaturists Dream',
+				caption: '',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -159,7 +165,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/import.png',
-				caption: 'Importing the model of Kynegion Tower',
+				caption: 'Importing the model of Kynegion Tower.',
+				explain: '<br>Screenshot in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -168,7 +175,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/pointvop_noise.png',
-				caption: 'Importing the model of Kynegion Tower',
+				caption: 'Importing the model of Kynegion Tower.',
+				explain: '<br>Screenshot in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -177,7 +185,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/popnet.png',
-				caption: 'Importing the model of Kynegion Tower',
+				caption: 'Importing the model of Kynegion Tower.',
+				explain: '<br>Screenshot in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -186,7 +195,8 @@ export default {
 			media: {
 				excludeFromSphere: true,
 				source: 'public/cosmic-colors/pointvop_color.png',
-				caption: 'Importing the model of Kynegion Tower',
+				caption: 'Importing the model of Kynegion Tower.',
+				explain: '<br>Screenshot in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -199,6 +209,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/004.jpg',
 				caption: 'Color Analysis of the Venetian Tower',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -207,6 +218,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/005.jpg',
 				caption: 'Color Analysis of the Tower of Adrianople',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -215,6 +227,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/006.jpg',
 				caption: 'Towers of Constantinople as blurred figures of particles 01',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -223,6 +236,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/009.jpg',
 				caption: 'Under the conical roofs of Constantinople - Mosaic',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -231,6 +245,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/010.jpg',
 				caption: 'Inside the Tower of Selymbria 01',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -239,6 +254,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/011.jpg',
 				caption: 'Inside the Tower of Saint Romanus',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -247,6 +263,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/012.jpg',
 				caption: 'Inside the Tower of Adrianople',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -255,6 +272,7 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/014.jpg',
 				caption: 'Inside the Amalfitan Tower',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -263,25 +281,9 @@ export default {
 			media: {
 				source: 'public/cosmic-colors/016.jpg',
 				caption: 'Inside the Tower of Phanarion',
+				explain: 'Particle simulation generated from the 3D miniature of Constantinople in Houdini, Mete Kutlu, 2021.',
 				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
-		{
-			type: 'S4',
-			paragraphs: `
-				In the digitized image of the miniature, 2.5 million pixels simulate the colors of the pigments which are used in the miniature.
-				Their colors are analyzed with algorithms to identify the dominant tones.
-				The 12 talismanic towers of Constantinople are represented as clusters of particles.
-				Each second, the mineral pictorial paste pops into millions of particles with constantly changing colors.
-			`,
-			media: {
-				source: 'public/common/Artwork.jpg',
-				caption: `
-					Constantinople <br>
-					The Keys To Esoteric Knowledge <br>
-					Constantinople, c.1605
-				`
-			},
-		}
 	]
 };

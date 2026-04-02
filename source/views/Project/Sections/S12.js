@@ -5,7 +5,7 @@ export default class S12 {
 		css`
 
 		section-type-12 {
-			padding: calc( var( --margin-m ) * 2 ) calc( var( --margin-m ) * 2 ) calc( var( --margin-m ) * 2 ) calc( var( --margin-m ) * 4 );
+			padding: var( --margin-m ) calc( var( --margin-m ) * 2 ) var( --margin-m ) calc( var( --margin-m ) * 4 );
 			display: flex;
 			justify-content: flex-start;
 			background: var( --color-black );
@@ -91,7 +91,7 @@ export default class S12 {
 
 		`;
 
-		const { sponsor = [], partners = [], team = [], anchor } = content;
+		const { sponsor = [], partners = [], team = [], groups = [], anchor } = content;
 
 		const flattenedTeam = [];
 
@@ -112,6 +112,23 @@ export default class S12 {
 			...flattenedTeam.filter( person => person !== leaderName )
 		];
 		const hasTeam = orderedTeam.length > 0;
+
+		if ( groups.length ) return html`
+
+		<section-type-12 section ${ anchor ? `anchor="${ anchor }"` : '' }>
+			<presentation-card single-column>
+				<presentation-group>
+					${ groups.map( group => html`
+						<presentation-stack>
+							<presentation-heading>${ group.title }</presentation-heading>
+							${ ( group.lines || [] ).map( line => html`<presentation-line>${ line }</presentation-line>` ) }
+						</presentation-stack>
+					` ) }
+				</presentation-group>
+			</presentation-card>
+		</section-type-12>
+
+		`;
 
 		return html`
 

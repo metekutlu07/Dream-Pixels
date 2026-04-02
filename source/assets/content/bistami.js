@@ -19,6 +19,27 @@ export default {
 			}
 		},
 		{
+			type: 'S2',
+			paragraphs: 'This experiment investigates how three-dimensional modeling can be used to decode the symbolic and computational structure of an Ottoman miniature of Constantinople. The image is drawn from a manuscript of the <em>Key to All Prophecies</em>, written by the Ottoman programmer Abdurrahman Bistami. The project is based on the hypothesis that the miniature does not represent the physical city, but an encoded and metaphysical model of it. The image functions as a diagram of a talismanic urban system, in which architecture, geometry, and color are organized as carriers of information. The experiment translates the miniature into a three-dimensional environment using principles of descriptive geometry. Architectural elements are reconstructed with measured proportions, and a plan of the city is derived from the painter’s perspective. This process reveals how the miniature encodes spatial relations and symbolic structures within a non-Euclidean composition. The resulting model allows the viewer to navigate the city from new viewpoints, exposing its underlying logic as a system of encoded forms rather than a mimetic representation.',
+		},
+		{
+			type: 'S12',
+			groups: [
+				{
+					title: 'Scholarship',
+					lines: [ 'French Institute of Anatolian Studies' ]
+				},
+				{
+					title: 'Residency',
+					lines: [ 'French Palace, Istanbul' ]
+				},
+				{
+					title: 'Partner',
+					lines: [ 'Istanbul University Library of Rare Books' ]
+				}
+			],
+		},
+		{
 			type: 'S9',
 			anchor: 'Comparative View',
 			media: {
@@ -29,19 +50,9 @@ export default {
 		},
 		{
 			type: 'S8',
-			anchor: 'Into The Miniature Space',
-			media: {
-				source: 'public/bistami/bistami-intro.mp4',
-				caption: 'Video Presentation 01',
-				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				controls: false
-			}
-		},
-		{
-			type: 'S8',
 			media: {
 				source: 'public/bistami/bistami-part04.mp4',
-				caption: 'Video Presentatio 04',
+				caption: 'Transition 01, Mete Kutlu, 2020.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
@@ -51,7 +62,7 @@ export default {
 			anchor: 'Historical Plan of Constantinople',
 			media: {
 				source: 'public/bistami/02-bistami-03.jpg',
-				caption: 'Historical Plan of Constantinople',
+				caption: 'Historical Plan of Constantinople, Mete Kutlu, 2020.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -69,7 +80,7 @@ export default {
 			anchor: 'Miniature Revisited',
 			media: {
 				source: 'public/bistami/02-bistami-05.jpg',
-				caption: 'Miniature Revisited with Identified Places 01',
+				caption: '3D miniature with identified places, Mete Kutlu, 2020.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -103,7 +114,7 @@ export default {
 			type: 'S8',
 			media: {
 				source: 'public/bistami/bistami-part02.mp4',
-				caption: 'Video Presentation 02',
+				caption: 'Transition 02, Mete Kutlu, 2020.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
@@ -112,7 +123,7 @@ export default {
 			type: 'S8',
 			media: {
 				source: 'public/bistami/bistami-part03.mp4',
-				caption: 'Video Presentation 03',
+				caption: 'Urban composition, Mete Kutlu, 2020.',
 				tags: [ '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				controls: false
 			}
