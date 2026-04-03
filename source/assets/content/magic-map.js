@@ -20,7 +20,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			paragraphs: 'Magic Map',
+			paragraphs: 'Magic Map is an augmented reality application that organizes 3D scanned sculptures through a geographic interface. Virtual models are positioned according to their original locations across France on an interactive three-dimensional map that unfolds within the user’s environment. The application proposes a territorial understanding of sculpture by reconnecting displaced objects to their architectural and geographic contexts. These sculptures, often encountered as isolated plaster casts in museum spaces, are reinterpreted as cultural productions embedded in specific locations and historical conditions.<br><br>Magic Map introduces an interactive and game-like experience in which space itself becomes the interface. The environment surrounding the user functions as a medium for narration and mediation. Objects appear, disappear, and move in relation to the user’s position. Interface elements are no longer confined to the screen but take the form of three-dimensional entities distributed in space. Through these operations, the project explores how augmented reality can transform the perception of heritage, shifting from static display to dynamic spatial experience.',
 		},
 		{
 			type: 'S3',

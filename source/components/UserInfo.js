@@ -262,7 +262,7 @@ export default class UserInfo extends HTMLElement {
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-			transition: opacity .75s;
+			transition: opacity 1s;
 			opacity: 0;
 			pointer-events: none;
 			border: 1px solid var( --color-white );
@@ -436,16 +436,26 @@ export default class UserInfo extends HTMLElement {
 					align-items: center;
 					gap: 14px;
 					max-width: 380px;
-					transition: opacity .75s var( --timing-function );
+					transition: opacity 1s var( --timing-function );
 					will-change: opacity;
 					pointer-events: all;
+					overflow: hidden;
+					isolation: isolate;
+					transform: translateZ( 0 );
+
+					&::before {
+						content: '';
+						position: absolute;
+						inset: 0;
+						z-index: 0;
+						transform: translateZ( 0 );
+					}
 				}
 
 				& user-info-copy {
+					position: relative;
+					z-index: 1;
 					padding: 22px 26px 20px;
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
 					border: var( --border-size ) solid var( --border-color );
 					text-align: center;
 				}
@@ -498,6 +508,7 @@ export default class UserInfo extends HTMLElement {
 
 				& user-info-visual {
 					position: relative;
+					z-index: 1;
 					display: flex;
 					align-items: center;
 					justify-content: center;
@@ -516,11 +527,14 @@ export default class UserInfo extends HTMLElement {
 					min-height: 292px;
 					box-sizing: border-box;
 					padding: 22px 26px 20px;
-					transition: opacity 2s var( --timing-function );
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
+					transition: opacity 1s var( --timing-function );
 					border: var( --border-size ) solid var( --border-color );
+
+					&::before {
+						background: rgba( 0, 0, 0, .28 );
+						backdrop-filter: blur( 10px );
+						-webkit-backdrop-filter: blur( 10px );
+					}
 				}
 
 				&[ cue="intro" ] user-info-copy {
@@ -564,10 +578,13 @@ export default class UserInfo extends HTMLElement {
 					flex-direction: row;
 					align-items: center;
 					gap: 26px;
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
 					border: var( --border-size ) solid var( --border-color );
+
+					&::before {
+						background: rgba( 0, 0, 0, .28 );
+						backdrop-filter: blur( 10px );
+						-webkit-backdrop-filter: blur( 10px );
+					}
 
 					& user-info-copy {
 						order: 1;
@@ -599,10 +616,13 @@ export default class UserInfo extends HTMLElement {
 					width: 800px;
 					max-width: calc( 100vw - 80px );
 					height: 210px;
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
 					border: var( --border-size ) solid var( --border-color );
+
+					&::before {
+						background: rgba( 0, 0, 0, .28 );
+						backdrop-filter: blur( 10px );
+						-webkit-backdrop-filter: blur( 10px );
+					}
 				}
 
 				&[ cue="viewpoint" ] user-info-copy {

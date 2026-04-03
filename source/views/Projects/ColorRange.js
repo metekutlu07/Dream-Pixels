@@ -129,13 +129,9 @@ export default class ColorRange extends HTMLElement {
 			align-items: center;
 			justify-content: flex-start;
 			gap: 16px;
-			border: var( --border-size ) solid var( --border-color );
-			background: rgba( 0, 0, 0, .28 );
-			backdrop-filter: blur( 10px );
-			-webkit-backdrop-filter: blur( 10px );
 			box-sizing: border-box;
 			opacity: 0;
-			transition: opacity 2s var( --timing-function );
+			transition: opacity 1s var( --timing-function );
 			touch-action: none;
 
 			@media ( max-width: 650px ) {
@@ -176,17 +172,10 @@ export default class ColorRange extends HTMLElement {
 		}
 
 		color-range-header {
-			width: calc( 100% + 32px );
-			margin: -16px -16px 0;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			gap: 12px;
-
-			@media ( max-width: 650px ) {
-				width: calc( 100% + 28px );
-				margin: -14px -14px 0;
-			}
 		}
 
 		color-range-label {
@@ -198,18 +187,15 @@ export default class ColorRange extends HTMLElement {
 			white-space: nowrap;
 			text-align: center;
 			line-height: 1;
-			padding: 16px 16px 0;
+			padding: 0;
 
 			@media ( max-width: 650px ) {
 				font-size: var( --font-size-xs );
-				padding: 14px 14px 0;
 			}
 		}
 
 		color-range-divider {
-			width: 100%;
-			height: 1px;
-			background: rgba( 255, 255, 255, .75 );
+			display: none;
 		}
 
 		color-range-handle {
@@ -273,7 +259,7 @@ export default class ColorRange extends HTMLElement {
 
 		return html`
 
-		<projects-color-range blurred-background>
+		<projects-color-range>
 
 			<color-range-header>
 				<color-range-label>Spectrum</color-range-label>

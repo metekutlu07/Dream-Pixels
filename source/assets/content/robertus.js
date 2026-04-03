@@ -20,7 +20,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			title: 'Robertus: An Augmented Church',
+			paragraphs: 'Robertus: An Augmented Church',
 		},
 		{
 			type: 'S3',

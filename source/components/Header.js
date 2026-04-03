@@ -269,7 +269,7 @@ export default class Header extends HTMLElement {
 			position: absolute;
 			pointer-events: all;
 			opacity: 1;
-			transition: opacity 2s var( --timing-function );
+			transition: opacity 1s var( --timing-function );
 
 			[ path="/" ] & {
 				transition: none;
@@ -281,7 +281,7 @@ export default class Header extends HTMLElement {
 			display: block;
 			pointer-events: all;
 			opacity: 1;
-			transition: opacity 2s var( --timing-function );
+			transition: opacity 1s var( --timing-function );
 
 			[ path="/" ] & {
 				transition: none;
@@ -468,7 +468,7 @@ export default class Header extends HTMLElement {
 				justify-content: center;
 				position: relative;
 				opacity: 1;
-				transition: opacity 2s var( --timing-function );
+				transition: opacity 1s var( --timing-function );
 
 				&:not( :last-child ) {
 					margin-bottom: calc( var( --margin-xs ) / 2 );
@@ -563,15 +563,13 @@ export default class Header extends HTMLElement {
 		header-analytics {
 			position: absolute;
 			bottom: var( --margin-m );
-			right: var( --margin-m );
+			left: var( --margin-m );
 			font-size: var( --font-size-m );
 			font-family: var( --font-family-c );
 			opacity: 0;
-			padding: 16px;
-			border: var( --border-size ) solid var( --border-color );
-			background: rgba( 0, 0, 0, .2 );
+			padding: 0;
 			text-align: left;
-			min-width: 320px;
+			min-width: auto;
 
 			[ path="/experiments" ][ list="particles" ] & {
 				opacity: 1;
@@ -592,11 +590,10 @@ export default class Header extends HTMLElement {
 		}
 
 		header-analytics-title {
-			width: calc( 100% + 32px );
-			margin: -16px -16px 12px;
-			padding: 16px 16px 12px;
+			width: auto;
+			margin: 0 0 12px;
+			padding: 0;
 			margin-bottom: 12px;
-			border-bottom: var( --border-size ) solid rgba( 255, 255, 255, .75 );
 			display: block;
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-m );
@@ -658,23 +655,23 @@ export default class Header extends HTMLElement {
 			</header-small-screen>
 
 			<header-top-row>
-				<header-navigation blurred-background #navigation>
+				<header-navigation #navigation>
 					${ navigation.map( Button.render ) }
 				</header-navigation>
 
-				<header-controls blurred-background #controls>
+				<header-controls #controls>
 					${ controls.map( Button.render ) }
 				</header-controls>
 			</header-top-row>
 
 			<header-grid-modes>
-				<div blurred-background>
+				<div>
 					${ particles.map( Button.render ) }
 				</div>
-				<div blurred-background>
+				<div>
 					${ places.map( Button.render ) }
 				</div>
-				<div blurred-background>
+				<div>
 					${ modes.map( Button.render ) }
 				</div>
 			</header-grid-modes>
@@ -683,7 +680,7 @@ export default class Header extends HTMLElement {
 				${ copyright }
 			</header-credits>
 
-			<header-analytics blurred-background>
+			<header-analytics>
 				<header-analytics-title>ANALYTICS</header-analytics-title>
 				<li>Projects: <span #projects>20</span></li>
 				<li>Images: <span #images>122</span></li>

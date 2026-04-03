@@ -20,8 +20,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			anchor: 'Catalogue of Virtual Casts',
-			title: 'Catalogue of Virtual Casts',
+			title: 'Gilbertus is an augmented reality application that presents a series of 3D scans of French medieval sculptures as interactive spatial objects. It functions as a virtual archive of high-resolution digital replicas of architectural fragments, which can be explored both on screen and in augmented reality. The project was developed in collaboration with Theuns Botha, with the support of Comet Lab in Paris.<br><br>This project marked my first systematic experiment with photogrammetry, a technology closely related to augmented reality. While augmented reality situates virtual objects within physical space, photogrammetry performs the inverse operation by translating physical objects into the virtual domain. Together, these two processes establish a continuous exchange between the two realms, producing hybrid environments that approach what David Gelernter described as “mirror worlds.” The experiment was conducted at a moment when Apple introduced its object capture algorithms. During a short stay in Paris between field missions, I applied this method to the monumental sculpture collection of the Cité de l’architecture, with the aim of establishing a workflow later used in Uzbekistan for the scanning of Timurid monuments. The application can be understood as a virtual reinterpretation of the Museum of Comparative Sculpture conceived by Eugène Viollet-le-Duc in the nineteenth century. Whereas plaster casts were once gathered within a single architectural space, digital models are here distributed across a network and reactivated through augmented reality. The project investigates how scanned objects can shift from archival records to interactive spatial interfaces, and how this transformation alters the perception of historical forms across space and time.',
 		},
 		{
 			type: 'S3',

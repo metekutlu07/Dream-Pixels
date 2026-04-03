@@ -329,7 +329,7 @@ export default class Home extends View {
 			pointer-events: all;
 			margin-top: 84px;
 			padding: 18px;
-			border: 1px solid rgba( 255, 255, 255, .32 );
+			border: var( --border-size ) solid var( --border-color );
 			overflow: hidden;
 			isolation: isolate;
 			font-family: var( --font-family-b );
