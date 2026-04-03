@@ -20,13 +20,38 @@ export default {
 		},
 		{
 			type: 'S2',
-			title: 'Gilbertus is an augmented reality application that presents a series of 3D scans of French medieval sculptures as interactive spatial objects. It functions as a virtual archive of high-resolution digital replicas of architectural fragments, which can be explored both on screen and in augmented reality. The project was developed in collaboration with Theuns Botha, with the support of Comet Lab in Paris.<br><br>This project marked my first systematic experiment with photogrammetry, a technology closely related to augmented reality. While augmented reality situates virtual objects within physical space, photogrammetry performs the inverse operation by translating physical objects into the virtual domain. Together, these two processes establish a continuous exchange between the two realms, producing hybrid environments that approach what David Gelernter described as “mirror worlds.” The experiment was conducted at a moment when Apple introduced its object capture algorithms. During a short stay in Paris between field missions, I applied this method to the monumental sculpture collection of the Cité de l’architecture, with the aim of establishing a workflow later used in Uzbekistan for the scanning of Timurid monuments. The application can be understood as a virtual reinterpretation of the Museum of Comparative Sculpture conceived by Eugène Viollet-le-Duc in the nineteenth century. Whereas plaster casts were once gathered within a single architectural space, digital models are here distributed across a network and reactivated through augmented reality. The project investigates how scanned objects can shift from archival records to interactive spatial interfaces, and how this transformation alters the perception of historical forms across space and time.',
+			paragraphs: 'Gilbertus is an augmented reality application that presents a series of 3D scans of French medieval sculptures as interactive spatial objects. It functions as a virtual archive of high-resolution digital replicas of architectural fragments, which can be explored both on screen and in augmented reality. The project was developed in collaboration with Theuns Botha, with the support of Comet Lab in Paris.<br><br>This project marked my first systematic experiment with photogrammetry, a technology closely related to augmented reality. While augmented reality situates virtual objects within physical space, photogrammetry performs the inverse operation by translating physical objects into the virtual domain. Together, these two processes establish a continuous exchange between the two realms, producing hybrid environments that approach what David Gelernter described as “mirror worlds.” The experiment was conducted at a moment when Apple introduced its object capture algorithms. During a short stay in Paris between field missions, I applied this method to the monumental sculpture collection of the Cité de l’architecture, with the aim of establishing a workflow later used in Uzbekistan for the scanning of Timurid monuments. The application can be understood as a virtual reinterpretation of the Museum of Comparative Sculpture conceived by Eugène Viollet-le-Duc in the nineteenth century. Whereas plaster casts were once gathered within a single architectural space, digital models are here distributed across a network and reactivated through augmented reality. The project investigates how scanned objects can shift from archival records to interactive spatial interfaces, and how this transformation alters the perception of historical forms across space and time.',
+		},
+		{
+			type: 'S12',
+			groups: [
+				{
+					title: 'Partner',
+					lines: [ 'Comet Lab' ]
+				},
+				{
+					title: 'Team',
+					lines: [ 'Mete Kutlu', 'Theuns Botha' ]
+				},
+				{
+					title: 'Location',
+					lines: [ 'Cité de l’architecture, Paris' ]
+				}
+			],
+		},
+		{
+			type: 'S13',
+			media: {
+				source: 'https://youtu.be/oI9_U7eZME0',
+				note: 'Choose high resolution in the settings at the top right corner.'
+			}
 		},
 		{
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/list-view.mp4',
-				caption: 'List View',
+				caption: 'Gilbertus: An Augmented Archive of French Sculpture.',
+				explain: 'An AR application for iOS, developed with Xcode and Reality Composer by Mete Kutlu and Theuns Botha, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -34,7 +59,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/catalogue-animate.mp4',
-				caption: 'Catalogue of Virtual Casts 02',
+				caption: 'Catalogue of Virtual Casts',
+				explain: '3D scanning, editing, and optimization by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -43,24 +69,80 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/catalogue01.jpg',
-				caption: 'Catalogue of Virtual Casts 01',
+				caption: 'Catalogue of Virtual Casts',
+				explain: '3D scanning, editing, and optimization by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S9',
 			media: {
-				source: 'public/gilbertus/chapeloverlay.jpg',
-				caption: 'Catalogue of Virtual Casts 02',
+				source: 'public/gilbertus/wire01.jpg',
+				caption: 'Cloning a clone: The Fantastical Hunt window, Church of Saint Pierre, Aulnay, around 1150-1160.',
+				explain: '<br>The scanned plaster reproduction is made in 1890 by Pouzadoux et fils, currently displayed at Cité de l’architecture in Paris (MOU.01615). Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023. <br>Mesh structure of the model. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 		{
 			type: 'S9',
 			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/chapelwire.jpg',
-				caption: 'Catalogue of Virtual Casts 02',
+				source: 'public/gilbertus/wire02.jpg',
+				caption: 'Digitizing the Celestial Court.',
+				explain: '<br>Romanesque frescoes of the Saint Theudère Church, Saint-Chef, Isère, France, 12th century. The digital composition was created using X-Particles, edited in Cinema 4D, and rendered with Octane. Scan, simulation, and artwork by the author, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/gilbertus/wire03.jpg',
+				caption: 'Digitizing the Celestial Court.',
+				explain: '<br>Romanesque frescoes of the Saint Theudère Church, Saint-Chef, Isère, France, 12th century. Scanned wih Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and image by the author, 2023.<br>Subatomic particles of the Celestial Court. Cosmic imaginations from Romanesque frescoes to particle simulations. The digital composition was created using X-Particles, edited in Cinema 4D, and rendered with Octane. Scan, simulation, and artwork by the author, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/gilbertus/wire08.jpg',
+				caption: 'Gate of Apocalypse, Ladies’ Abbey, Saintes, 1120-1130.',
+				explain: '<br>The scanned plaster reproduction is made by Raphaël Arnold, currently displayed at Cité de l’architecture in Paris (MOU.00030). Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/gilbertus/wire05.jpg',
+				caption: '3D scan of the frescoes in a cross vault of the Saint-Julien chapel, Petit-Quevilly, France, 12th century.',
+				explain: '<br>Scan based on a life-size reproduction of the vault at Cité de l’architecture, Paris. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/gilbertus/wire06.jpg',
+				caption: 'Inside the hologram crypt, Church of Saint Nicholas, Tavant (Indre-et-Loire, France), first half of the 12th century.',
+				explain: '<br>After a real-size copy of a mural painting made by Marthe Flandrin and Simone Flandrin-Latron in 1941 (CAPA/MMF/EM.00040) exhibited in the Cité de l’architecture, Paris. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/gilbertus/wire07.jpg',
+				caption: 'A hologram organ staircase.',
+				explain: '<br>From Saint-Maclou  Church, Rouen, France, 1519-1520. The scanned plaster copy dates from 1903. Cité de l’architecture, Paris, MOU.05382. Scan and artwork by the author, 2023.<br>Photorealistic render of the same spiral staircase. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and image by the author, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/gilbertus/chap.jpg',
+				caption: '3D scan of the apse richly decorated with wall paintings at the Monks’ Chapel, in Berzé-la-Ville, 12th century.',
+				explain: '<br>On the semidome figures a painting of Christ in Majesty. The scanned plaster reproduction is made in 1933. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -68,152 +150,8 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/gilbertus/grid.jpg',
-				caption: 'Storyboard',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S9',
-			media: {
-				source: 'public/gilbertus/iphone04.jpg',
-				caption: 'List View',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/uvmap01.jpg',
-				caption: 'Complex UV maps generated by photogrammetric algorithms of Object API',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/uvmap02.jpg',
-				caption: 'Complex UV maps generated by photogrammetric algorithms of Object API',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/code-arview.jpg',
-				caption: 'Part of the AR view code',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/code-bottomsheet.jpg',
-				caption: 'Part of the bottomsheet code',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S2',
-			title: 'Magic Map',
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/magic-map.mp4',
-				caption: 'Magic Map',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/magic-map-animate.mp4',
-				caption: 'Magic Map',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/magicmap01.jpg',
-				caption: '3D modeling and decimation of the magic map in Cinema 4D',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/magicmap02.jpg',
-				caption: '3D modeling and decimation of the magic map in Cinema 4D',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/magicmap03.jpg',
-				caption: 'Material design for the magic map in Quixel Mixer',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/map-animate.jpg',
-				caption: 'Animation and interaction design for the magic map in Reality Composer',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				excludeFromSphere: true,
-				source: 'public/gilbertus/code-magicmap.jpg',
-				caption: 'Part of the magic map code',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S2',
-			title: 'Robertus: An Augmented Church',
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/stories.mp4',
-				caption: 'Visualize large-scale architectural environments in AR',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/stories-animation.mp4',
-				caption: 'Immerse yourself in large-scale architectural settings from France',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/choeur.jpg',
-				caption: 'Photo of the choir before restoration and painting, Basilica of Notre-Dame-du-Port, Clermont-Ferrand',
-				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
-			}
-		},
-		{
-			type: 'S3',
-			media: {
-				source: 'public/gilbertus/stories-context.mp4',
-				caption: 'Modelling',
+				caption: 'Storyboard, Mete Kutlu, 2023.',
+				explain: 'An immersive archive of 3D-scanned medieval sculptures. The application allows users to visualize each sculpture in augmented reality, projecting them into their immediate environment as if physically present. Designed and developped by Mete Kutlu and Theuns Botha.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -226,8 +164,9 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/gilbertus/stories-animate.mp4',
-				caption: 'Animation and interaction design for the church apse in Reality Composer',
+				source: 'public/gilbertus/uvmap01.jpg',
+				caption: 'UV maps generated by photogrammetric algorithms of Apple\'s Object Capture API.',
+				explain: 'Screenshot in Cinema 4D, Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -235,8 +174,29 @@ export default {
 			type: 'S3',
 			media: {
 				excludeFromSphere: true,
-				source: 'public/gilbertus/stories-material.jpg',
-				caption: 'Material design for the churche apse in Quixel Mixer',
+				source: 'public/gilbertus/uvmap02.jpg',
+				caption: 'UV maps generated by photogrammetric algorithms of Apple\'s Object Capture API.',
+				explain: 'Screenshot in Cinema 4D, Mete Kutlu, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/gilbertus/code-arview.jpg',
+				caption: 'Part of the AR view code',
+				explain: 'Screenshot in Xcode, Mete Kutlu and Theuns Botha, 2023.',
+				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+			}
+		},
+		{
+			type: 'S3',
+			media: {
+				excludeFromSphere: true,
+				source: 'public/gilbertus/code-bottomsheet.jpg',
+				caption: 'Part of the info-sheet code.',
+				explain: 'Screenshot in Xcode, Mete Kutlu and Theuns Botha, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},

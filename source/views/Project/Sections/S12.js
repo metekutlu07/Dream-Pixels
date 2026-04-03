@@ -5,7 +5,7 @@ export default class S12 {
 		css`
 
 		section-type-12 {
-			padding: var( --margin-m ) calc( var( --margin-m ) * 2 ) var( --margin-m ) calc( var( --margin-m ) * 4 );
+			padding: var( --margin-m ) calc( var( --margin-m ) * 2 ) calc( var( --margin-m ) + 20px ) calc( var( --margin-m ) * 4 );
 			display: flex;
 			justify-content: flex-start;
 			background: var( --color-black );

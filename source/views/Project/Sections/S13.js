@@ -7,6 +7,8 @@ export default class S13 {
 		section-type-13 {
 			padding: calc( var( --margin-m ) * 2 ) 0;
 			display: flex;
+			flex-direction: column;
+			align-items: center;
 			justify-content: center;
 			background: var( --color-black );
 		}
@@ -28,6 +30,15 @@ export default class S13 {
 			background: #000;
 		}
 
+		youtube-note {
+			width: min( 80vw, 1440px );
+			margin-top: 14px;
+			font-family: var( --font-family-c );
+			font-size: 1.6rem;
+			line-height: 1.6;
+			text-align: center;
+		}
+
 		@media ( max-width: 650px ) {
 			section-type-13 {
 				padding: var( --margin-m ) 0;
@@ -36,12 +47,17 @@ export default class S13 {
 			youtube-frame {
 				width: calc( 100vw - ( var( --margin-s ) * 2 ) );
 			}
+
+			youtube-note {
+				width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+				font-size: 1.4rem;
+			}
 		}
 
 		`;
 
 		const { anchor, media = {} } = content;
-		const { source = '' } = media;
+		const { source = '', note = '' } = media;
 		const videoIDMatch = source.match( /(?:youtu\.be\/|v=)([^?&]+)/ );
 		const videoID = videoIDMatch ? videoIDMatch[ 1 ] : '';
 		const embedURL = videoID ? `https://www.youtube-nocookie.com/embed/${ videoID }?autoplay=1&rel=0&modestbranding=1` : '';
@@ -114,6 +130,7 @@ export default class S13 {
 					</iframe>
 				` : '' }
 			</youtube-frame>
+			${ note ? html`<youtube-note>${ note }</youtube-note>` : '' }
 		</section-type-13>
 
 		`;
