@@ -375,12 +375,37 @@ export default class Header extends HTMLElement {
 			top: 0;
 			position: relative;
 			flex-wrap: nowrap;
-			background: rgba( 0, 0, 0, .28 );
 
 			& default-button {
+				position: relative;
+				overflow: hidden;
+				isolation: isolate;
+				transform: translateZ( 0 );
 				font-family: var( --font-family-c );
 				font-size: 1.65rem;
 				letter-spacing: .04em;
+
+				&::before {
+					content: '';
+					position: absolute;
+					inset: 0;
+					z-index: 0;
+					background: rgba( 8, 8, 8, .34 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					transform: translateZ( 0 );
+				}
+
+				& button-label,
+				& button-icon,
+				& a {
+					position: relative;
+					z-index: 1;
+				}
+
+				&[ selected ]::before {
+					display: none;
+				}
 			}
 
 			& default-button[ home ] {
@@ -441,14 +466,41 @@ export default class Header extends HTMLElement {
 			& > div {
 				display: flex;
 				justify-content: center;
-				background: rgba( 0, 0, 0, .28 );
 				position: relative;
-				isolation: isolate;
 				opacity: 1;
 				transition: opacity 2s var( --timing-function );
 
 				&:not( :last-child ) {
 					margin-bottom: calc( var( --margin-xs ) / 2 );
+				}
+			}
+
+			& default-button {
+				position: relative;
+				overflow: hidden;
+				isolation: isolate;
+				transform: translateZ( 0 );
+
+				&::before {
+					content: '';
+					position: absolute;
+					inset: 0;
+					z-index: 0;
+					background: rgba( 8, 8, 8, .34 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					transform: translateZ( 0 );
+				}
+
+				& button-label,
+				& button-icon,
+				& a {
+					position: relative;
+					z-index: 1;
+				}
+
+				&[ selected ]::before {
+					display: none;
 				}
 			}
 		}
@@ -460,12 +512,37 @@ export default class Header extends HTMLElement {
 			right: auto;
 			position: relative;
 			flex-wrap: nowrap;
-			background: rgba( 0, 0, 0, .28 );
 
 			& default-button {
+				position: relative;
+				overflow: hidden;
+				isolation: isolate;
+				transform: translateZ( 0 );
 				font-family: var( --font-family-c );
 				font-size: 1.65rem;
 				letter-spacing: .04em;
+
+				&::before {
+					content: '';
+					position: absolute;
+					inset: 0;
+					z-index: 0;
+					background: rgba( 8, 8, 8, .34 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					transform: translateZ( 0 );
+				}
+
+				& button-label,
+				& button-icon,
+				& a {
+					position: relative;
+					z-index: 1;
+				}
+
+				&[ selected ]::before {
+					display: none;
+				}
 			}
 
 			& button-label,
