@@ -1,9 +1,28 @@
 export default class Video extends HTMLElement {
 
+	onConnected() {
+
+		const { video } = this.elements;
+		if ( ! video ) return;
+		const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
+		if ( ! shouldAutoplayMuted ) return;
+
+		// Keep project videos muted so browsers allow inline autoplay
+		// independently from the site's ambient audio toggle.
+		video.defaultMuted = true;
+		video.muted = true;
+		video.playsInline = true;
+
+	}
+
 	onPreFrame() {
 
 		const { video } = this.elements;
-		this.elements.video.muted = Application.audio.isMuted;
+		const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
+		if ( shouldAutoplayMuted ) {
+			video.defaultMuted = true;
+			video.muted = true;
+		}
 
 		let section = this.parentNode;
 
@@ -92,7 +111,7 @@ export default class Video extends HTMLElement {
 		`;
 
 		const { controls, fullscreen, border, poster, preloadMedia, startAt } = parameters;
-		const attributes = [ 'autoplay', 'playsinline', 'muted', 'loop' ];
+		const attributes = [ 'autoplay', 'playsinline', 'webkit-playsinline', 'muted', 'loop', 'preload="auto"' ];
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const offset = startAt ?? .1;
 		const src = source ? `src="${ source }#t=${ offset }"` : '';
