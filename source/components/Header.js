@@ -377,13 +377,17 @@ export default class Header extends HTMLElement {
 			flex-wrap: nowrap;
 
 			& default-button {
+				font-family: var( --font-family-c );
+				font-size: 1.65rem;
+				letter-spacing: .04em;
+			}
+
+			& default-button button-label,
+			& default-button button-icon {
 				position: relative;
 				overflow: hidden;
 				isolation: isolate;
 				transform: translateZ( 0 );
-				font-family: var( --font-family-c );
-				font-size: 1.65rem;
-				letter-spacing: .04em;
 
 				&::before {
 					content: '';
@@ -396,16 +400,15 @@ export default class Header extends HTMLElement {
 					transform: translateZ( 0 );
 				}
 
-				& button-label,
-				& button-icon,
-				& a {
+				& > * {
 					position: relative;
 					z-index: 1;
 				}
+			}
 
-				&[ selected ]::before {
-					display: none;
-				}
+			& default-button[ selected ] button-label::before,
+			& default-button[ selected ] button-icon::before {
+				display: none;
 			}
 
 			& default-button[ home ] {
@@ -476,6 +479,10 @@ export default class Header extends HTMLElement {
 			}
 
 			& default-button {
+			}
+
+			& default-button button-label,
+			& default-button button-icon {
 				position: relative;
 				overflow: hidden;
 				isolation: isolate;
@@ -492,16 +499,15 @@ export default class Header extends HTMLElement {
 					transform: translateZ( 0 );
 				}
 
-				& button-label,
-				& button-icon,
-				& a {
+				& > * {
 					position: relative;
 					z-index: 1;
 				}
+			}
 
-				&[ selected ]::before {
-					display: none;
-				}
+			& default-button[ selected ] button-label::before,
+			& default-button[ selected ] button-icon::before {
+				display: none;
 			}
 		}
 
@@ -514,13 +520,17 @@ export default class Header extends HTMLElement {
 			flex-wrap: nowrap;
 
 			& default-button {
+				font-family: var( --font-family-c );
+				font-size: 1.65rem;
+				letter-spacing: .04em;
+			}
+
+			& default-button button-label,
+			& default-button button-icon {
 				position: relative;
 				overflow: hidden;
 				isolation: isolate;
 				transform: translateZ( 0 );
-				font-family: var( --font-family-c );
-				font-size: 1.65rem;
-				letter-spacing: .04em;
 
 				&::before {
 					content: '';
@@ -533,16 +543,15 @@ export default class Header extends HTMLElement {
 					transform: translateZ( 0 );
 				}
 
-				& button-label,
-				& button-icon,
-				& a {
+				& > * {
 					position: relative;
 					z-index: 1;
 				}
+			}
 
-				&[ selected ]::before {
-					display: none;
-				}
+			& default-button[ selected ] button-label::before,
+			& default-button[ selected ] button-icon::before {
+				display: none;
 			}
 
 			& button-label,
