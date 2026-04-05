@@ -446,7 +446,10 @@ export default class OrbitControls extends Object3D {
 
 			const distance = this.getTouchDistance( event );
 			const delta = distance - this.initialPinchDistance;
-			const radius = this.initialPinchRadius - delta * this.parameters.zoomSpeed * .025;
+			const pinchSpeed = this.camera.cameraID === 'World' ? .065 :
+				this.camera.cameraID === 'Cosmos' ? .05 :
+				this.camera.cameraID === 'ColorRange' ? .04 : .025;
+			const radius = this.initialPinchRadius - delta * this.parameters.zoomSpeed * pinchSpeed;
 
 			this.currentState.radius = Math.clamp(
 
@@ -463,6 +466,7 @@ export default class OrbitControls extends Object3D {
 
 		const { isPressed } = Application.pointer;
 		const { enableRotate, enablePan } = this.parameters;
+		const isTouchInteraction = !! event?.touches?.length;
 
 		if ( ! this.isGrabbed || ! isPressed ) return;
 
@@ -475,6 +479,7 @@ export default class OrbitControls extends Object3D {
 
 			let speedFactor = rotateSpeed * 1e-3;
 			speedFactor *= Math.clamp( Math.mapLinear( width, 365, 1500, 1.5, 1 ), 1, 1.5 );
+			if ( isTouchInteraction ) speedFactor *= 1.8;
 
 			this.currentState.theta = this.initialState.theta - this.deltaState.position.x * speedFactor;
 			this.currentState.phi = this.initialState.phi + this.deltaState.position.y * speedFactor;
@@ -484,8 +489,9 @@ export default class OrbitControls extends Object3D {
 
 		if ( enablePan ) {
 
-			this.currentPan.z = this.initialPan.z - this.deltaState.position.y * panSpeed;
-			this.currentPan.x = this.initialPan.x - this.deltaState.position.x * panSpeed;
+			const panFactor = isTouchInteraction ? panSpeed * 2.2 : panSpeed;
+			this.currentPan.z = this.initialPan.z - this.deltaState.position.y * panFactor;
+			this.currentPan.x = this.initialPan.x - this.deltaState.position.x * panFactor;
 			this.currentPan.x = Math.clamp( this.currentPan.x, -maxPan, maxPan );
 			this.currentPan.z = Math.clamp( this.currentPan.z, -maxPan, maxPan );
 

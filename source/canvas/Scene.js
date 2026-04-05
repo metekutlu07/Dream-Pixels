@@ -170,11 +170,12 @@ export default class Scene extends Object3D {
 			.includes( path );
 		const shouldHideProjectSphere = isProjectPath && !hasProjectSphere;
 
-		this.objects.visible = path === '/experiments' && list === 'grid';
+		this.objects.visible = false;
 		this.images.visible = path === '/experiments' && list === 'sphere';
 		this.map.visible = path === '/experiments' && list === 'places';
 		this.sphere.visible = !isPlainBlackPage &&
 			path !== '/' &&
+			!( path === '/experiments' && list === 'grid' ) &&
 			!( path === '/experiments' && list === 'places' && places === 'cosmos' ) &&
 			!shouldHideProjectSphere;
 		this.cosmos.visible = path === '/experiments' && list === 'places' && places === 'cosmos';

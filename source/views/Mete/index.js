@@ -135,19 +135,19 @@ export default class Mete extends View {
 		}
 
 		mete-credit {
-			position: fixed;
-			right: 18px;
-			bottom: 18px;
-			z-index: 2;
+			display: block;
+			margin-top: calc( var( --margin-m ) * 2 );
+			padding: 0 calc( var( --margin-s ) );
 			font-family: var( --font-family-c );
 			font-size: 1.5rem;
 			letter-spacing: .04em;
 			color: rgba( 255, 255, 255, .78 );
 			pointer-events: none;
+			text-align: right;
 
 			@media ( max-width: 650px ) {
-				right: 14px;
-				bottom: 14px;
+				margin-top: var( --margin-m );
+				padding: 0;
 			}
 		}
 
@@ -173,8 +173,8 @@ export default class Mete extends View {
 				<p>
 					<br>Paris, 2026.
 				</p>
+				<mete-credit>© Mete Kutlu, 2026</mete-credit>
 			</section>
-			<mete-credit>© Mete Kutlu, 2026</mete-credit>
 		</mete-view>
 
 		`;

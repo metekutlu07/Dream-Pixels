@@ -166,19 +166,19 @@ export default class About extends View {
 		}
 
 		about-credit {
-			position: fixed;
-			right: 18px;
-			bottom: 18px;
-			z-index: 2;
+			display: block;
+			margin-top: calc( var( --margin-m ) * 2 );
+			padding: 0 calc( var( --margin-s ) );
 			font-family: var( --font-family-c );
 			font-size: 1.5rem;
 			letter-spacing: .04em;
 			color: rgba( 255, 255, 255, .78 );
 			pointer-events: none;
+			text-align: right;
 
 			@media ( max-width: 650px ) {
-				right: 14px;
-				bottom: 14px;
+				margin-top: var( --margin-m );
+				padding: 0;
 			}
 		}
 
@@ -193,8 +193,8 @@ export default class About extends View {
 					<h3>${ title }</h3>
 					${ paragraphs.map( paragraph => html`<p>${ paragraph }</p>` ) }
 				` ) }
+				<about-credit>© Mete Kutlu, 2026</about-credit>
 			</section>
-			<about-credit>© Mete Kutlu, 2026</about-credit>
 		</about-view>
 
 		`;
