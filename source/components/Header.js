@@ -247,6 +247,10 @@ export default class Header extends HTMLElement {
 			pointer-events: none;
 			transition: opacity .5s var( --timing-function );
 
+			[ display-menu ] & {
+				z-index: 45;
+			}
+
 			@media ( max-width: 650px ) {
 				padding: var( --margin-s );
 			}
@@ -650,7 +654,7 @@ export default class Header extends HTMLElement {
 
 		<header-block #header>
 
-			<header-small-screen blurred-background>
+			<header-small-screen>
 				${ Button.render( { attributes: [ 'display-menu', '@click|header-block' ] } ) }
 				${ Button.render( { attributes: [ 'display-aside', '@click|header-block' ] } ) }
 			</header-small-screen>

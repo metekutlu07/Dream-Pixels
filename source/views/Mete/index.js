@@ -85,7 +85,7 @@ export default class Mete extends View {
 					padding-bottom: var( --margin-s );
 
 					@media ( max-width: 650px ) {
-						font-size: 1.8rem;
+						font-size: 1.5rem;
 					}
 				}
 

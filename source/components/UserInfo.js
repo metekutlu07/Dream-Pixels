@@ -754,14 +754,15 @@ export default class UserInfo extends HTMLElement {
 				}
 
 				@media ( max-width: 650px ) {
-					left: 50%;
-					right: auto;
-					bottom: auto;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
 					margin: 0;
-					transform: translate( -50%, -50% );
-					width: calc( 100vw - ( var( --margin-s ) * 2 ) );
-					max-width: calc( 100vw - ( var( --margin-s ) * 2 ) );
-					padding: 18px 18px 16px;
+					transform: none;
+					width: 100%;
+					max-width: 100%;
+					padding: 0;
 
 					&[ name="World" ],
 					&[ name="Images" ],
@@ -815,7 +816,7 @@ export default class UserInfo extends HTMLElement {
 					}
 
 					&[ cue="mobile" ] user-info-guide {
-						top: calc( 50% + 18px );
+						top: 50%;
 						left: 50%;
 						right: auto;
 						bottom: auto;

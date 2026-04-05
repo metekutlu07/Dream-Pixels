@@ -199,10 +199,10 @@ export default class Home extends View {
 
 	}
 
-	toggleAudio( event ) {
+	async toggleAudio( event ) {
 
 		event.preventDefault();
-		Application.audio.toggle();
+		await Application.audio.toggle();
 		this.syncGateState();
 
 	}
@@ -355,6 +355,14 @@ export default class Home extends View {
 			}
 		}
 
+		home-mobile-break {
+			display: none;
+
+			@media ( max-width: 650px ) {
+				display: block;
+			}
+		}
+
 		home-start {
 			cursor: pointer;
 			position: relative;
@@ -417,9 +425,9 @@ export default class Home extends View {
 			}
 
 			@media ( max-width: 650px ) {
-				width: min( 100%, 340px );
+				width: min( 100%, 308px );
 				margin-top: 44px;
-				padding: 16px 18px;
+				padding: 16px 14px;
 				font-size: 1.8rem;
 				letter-spacing: .08em;
 			}
@@ -733,7 +741,7 @@ export default class Home extends View {
 				<home-title>An Archive of the Age of AI</home-title>
 				<home-copy>
 					<span>Experiments from my doctoral thesis, <em>Empire of Clouds.</em></span>
-					<span>Six years of research entangling cosmos and algorithm.</span>
+					<span>Six years of research<home-mobile-break></home-mobile-break>entangling<home-mobile-break></home-mobile-break>cosmos and algorithm.</span>
 					<span>An iridescent data breeze.</span>
 				</home-copy>
 				<home-start #start blurred-background start>Explore the Experiments</home-start>

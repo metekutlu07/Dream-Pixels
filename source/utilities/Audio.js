@@ -146,10 +146,10 @@ export default class AudioInterface {
 
 	}
 
-	toggle() {
+	async toggle() {
 
 		this.isMuted = ! this.isMuted;
-		if ( ! this.isMuted ) this.onUnlock();
+		if ( ! this.isMuted ) await this.onUnlock();
 
 	}
 
