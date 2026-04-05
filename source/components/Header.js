@@ -259,10 +259,10 @@ export default class Header extends HTMLElement {
 				justify-content: flex-start;
 				align-items: flex-start;
 
-				&::before {
-					content: '';
-					position: absolute;
-					height: 100%;
+			&::before {
+				content: '';
+				position: absolute;
+				height: 100%;
 					width: 100%;
 					left: 0;
 					top: 0;
@@ -350,16 +350,16 @@ export default class Header extends HTMLElement {
 		header-small-screen,
 		header-navigation,
 		header-controls {
-			@media ( max-width: 1024px ) {
-				position: relative;
-				flex-direction: column;
-				justify-content: flex-start;
-				align-items: flex-start;
-				z-index: 1;
-				left: initial;
-				top: initial;
-				right: initial;
-				bottom: initial;
+				@media ( max-width: 1024px ) {
+					position: relative;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: flex-start;
+					z-index: 2;
+					left: initial;
+					top: initial;
+					right: initial;
+					bottom: initial;
 
 				&:not( :last-child ) {
 					margin-bottom: var( --margin-s );
@@ -376,6 +376,15 @@ export default class Header extends HTMLElement {
 				[ display-menu ] & {
 					opacity: 1;
 					pointer-events: all;
+				}
+
+				& default-button {
+					background: rgba( 0, 0, 0, .82 );
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+					overflow: hidden;
+					isolation: isolate;
+					transform: translateZ( 0 );
 				}
 			}
 		}

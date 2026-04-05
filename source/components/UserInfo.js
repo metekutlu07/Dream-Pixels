@@ -169,6 +169,10 @@ export default class UserInfo extends HTMLElement {
 
 	hideOnInteraction( event ) {
 
+		const isMobile = typeof matchMedia !== 'undefined' &&
+			matchMedia( '(max-width: 650px)' ).matches;
+		if ( isMobile ) return;
+
 		const { texts } = this.elements;
 		const activeText = texts.find( text => text.hasAttribute( 'visible' ) && ! text.hasAttribute( 'hidden' ) );
 		if ( ! activeText ) return;
@@ -196,9 +200,13 @@ export default class UserInfo extends HTMLElement {
 
 			if ( ! text.steps ) return;
 
+			const isMobile = typeof matchMedia !== 'undefined' &&
+				matchMedia( '(max-width: 650px)' ).matches;
+			const name = text.getAttribute( 'name' );
 			const step = parseInt( text.getAttribute( 'step' ) || '0' );
 			const index = Math.clamp( step, 0, text.steps.length - 1 );
-			const { title, paragraphs, cue } = text.steps[ index ];
+			const activeIndex = isMobile && name === 'Particles' ? 0 : index;
+			const { title, paragraphs, cue } = text.steps[ activeIndex ];
 			const titleElement = text.querySelector( 'h5' );
 			const paragraphElement = text.querySelector( 'p' );
 			const nextButton = text.querySelector( '[ next ]' );
@@ -209,10 +217,11 @@ export default class UserInfo extends HTMLElement {
 			if ( paragraphElement ) paragraphElement.innerHTML = paragraphs || '';
 			if ( cue ) text.setAttribute( 'cue', cue );
 			else text.removeAttribute( 'cue' );
-			if ( nextButton ) nextButton.toggleAttribute( 'hidden', index >= text.steps.length - 1 );
-			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', index >= text.steps.length - 1 );
-			if ( closeButton ) closeButton.toggleAttribute( 'hidden', index !== 0 );
-			text.toggleAttribute( 'last-step', index >= text.steps.length - 1 );
+			if ( isMobile && name === 'Particles' ) text.setAttribute( 'cue', 'mobile' );
+			if ( nextButton ) nextButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' ? true : index >= text.steps.length - 1 );
+			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', isMobile && name === 'Particles' ? true : index >= text.steps.length - 1 );
+			if ( closeButton ) closeButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' ? true : index !== 0 );
+			text.toggleAttribute( 'last-step', isMobile && name === 'Particles' ? true : index >= text.steps.length - 1 );
 
 		} );
 
@@ -267,7 +276,8 @@ export default class UserInfo extends HTMLElement {
 			pointer-events: none;
 			border: 1px solid var( --color-white );
 
-			&[ name="World" ] {
+			&[ name="World" ],
+			&[ name="Cosmos" ] {
 				top: 50%;
 				left: 50%;
 				bottom: auto;
@@ -360,7 +370,8 @@ export default class UserInfo extends HTMLElement {
 				padding: var( --margin-s );
 				margin: 0 var( --margin-m );
 
-				&[ name="World" ] {
+				&[ name="World" ],
+				&[ name="Cosmos" ] {
 					top: 50%;
 					bottom: auto;
 					left: 50%;
@@ -710,6 +721,44 @@ export default class UserInfo extends HTMLElement {
 				}
 
 				@media ( max-width: 650px ) {
+					left: 50%;
+					right: auto;
+					bottom: auto;
+					margin: 0;
+					transform: translate( -50%, -50% );
+					width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+					max-width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+					padding: 18px 18px 16px;
+
+					&[ name="World" ],
+					&[ name="Images" ],
+					&[ name="Cosmos" ] {
+						top: 50%;
+						left: 50%;
+						bottom: auto;
+						transform: translate( -50%, -50% );
+						width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+						max-width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+						padding: 18px 18px 16px;
+
+						& p {
+							font-size: 15px;
+							line-height: 1.55;
+							text-align: center;
+						}
+
+						& user-info-actions {
+							padding-top: 24px;
+						}
+
+						& user-info-button {
+							width: auto;
+							min-width: 120px;
+							padding: 11px 18px;
+							font-size: 15px;
+						}
+					}
+
 					& user-info-guide {
 						max-width: calc( 100vw - 32px );
 					}
@@ -730,6 +779,52 @@ export default class UserInfo extends HTMLElement {
 					& user-info-button {
 						width: 100%;
 						font-size: 16px;
+					}
+
+					&[ cue="mobile" ] user-info-guide {
+						top: 50%;
+						left: 50%;
+						right: auto;
+						bottom: auto;
+						transform: translate( -50%, -50% );
+						width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+						max-width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+						min-height: auto;
+						padding: 18px 18px 16px;
+						background: rgba( 0, 0, 0, .28 );
+						backdrop-filter: blur( 10px );
+						-webkit-backdrop-filter: blur( 10px );
+						border: var( --border-size ) solid var( --border-color );
+					}
+
+					&[ cue="mobile" ] user-info-copy {
+						width: 100%;
+						padding: 0;
+						background: none;
+						backdrop-filter: none;
+						-webkit-backdrop-filter: none;
+						border: none;
+					}
+
+					&[ cue="mobile" ] user-info-visual {
+						display: none;
+					}
+
+					&[ cue="mobile" ] p {
+						font-size: 15px;
+						line-height: 1.55;
+						text-align: center;
+					}
+
+					&[ cue="mobile" ] user-info-actions {
+						padding-top: 24px;
+					}
+
+					&[ cue="mobile" ] user-info-button {
+						width: auto;
+						min-width: 120px;
+						padding: 11px 18px;
+						font-size: 15px;
 					}
 
 					&[ cue="intro" ] user-info-guide {
@@ -794,7 +889,7 @@ export default class UserInfo extends HTMLElement {
 						<user-info-actions>
 							<user-info-button explore @click|user-info>Start</user-info-button>
 						</user-info-actions>
-					` : name === 'World' ? html`
+					` : name === 'World' || name === 'Cosmos' ? html`
 						<h5>${ title || '' }</h5>
 						<p>${ paragraphs || '' }</p>
 						<user-info-actions>

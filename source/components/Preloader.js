@@ -117,6 +117,10 @@ export default class Preloader extends HTMLElement {
 
 				@media ( max-width: 650px ) {
 					font-size: 3rem;
+					max-width: 14ch;
+					margin-left: auto;
+					margin-right: auto;
+					line-height: 1.15;
 				}
 			}
 

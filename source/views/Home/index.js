@@ -264,6 +264,10 @@ export default class Home extends View {
 			[ path="/" ][ home-copy-ready ] & {
 				pointer-events: all;
 			}
+
+			@media ( max-width: 650px ) {
+				width: min( 100%, calc( 100vw - 40px ) );
+			}
 		}
 
 		home-reveal {
@@ -304,6 +308,15 @@ export default class Home extends View {
 				opacity: 0;
 				visibility: hidden;
 			}
+
+			@media ( max-width: 650px ) {
+				max-width: 8.5ch;
+				font-size: clamp( 4.2rem, 10.8vw, 5.6rem );
+				line-height: 1.06;
+				letter-spacing: .03em;
+				white-space: normal;
+				text-wrap: balance;
+			}
 		}
 
 		home-copy {
@@ -328,6 +341,17 @@ export default class Home extends View {
 			& span {
 				display: block;
 				white-space: nowrap;
+			}
+
+			@media ( max-width: 650px ) {
+				max-width: 21ch;
+				margin-top: 20px;
+				font-size: 1.85rem;
+				line-height: 1.55;
+
+				& span {
+					white-space: normal;
+				}
 			}
 		}
 
@@ -390,6 +414,14 @@ export default class Home extends View {
 						background: rgba( 255, 255, 255, .16 );
 					}
 				}
+			}
+
+			@media ( max-width: 650px ) {
+				width: min( 100%, 340px );
+				margin-top: 44px;
+				padding: 16px 18px;
+				font-size: 1.8rem;
+				letter-spacing: .08em;
 			}
 		}
 
@@ -652,6 +684,7 @@ export default class Home extends View {
 			@media ( max-width: 650px ) {
 				right: 14px;
 				bottom: 14px;
+				font-size: 1.3rem;
 			}
 		}
 
