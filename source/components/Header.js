@@ -37,6 +37,41 @@ export default class Header extends HTMLElement {
 
 		this.toggleAttribute( 'mobile-grid-scrolled', shouldHideMobileGridUI );
 
+		const smallScreen = this.querySelector( 'header-small-screen' );
+		const gridModes = this.querySelector( 'header-grid-modes' );
+
+		if ( smallScreen ) {
+
+			smallScreen.style.opacity = shouldHideMobileGridUI ? '0' : '';
+			smallScreen.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
+
+			const buttons = smallScreen.querySelectorAll( 'default-button' );
+			buttons.forEach( button => {
+
+				button.style.opacity = shouldHideMobileGridUI ? '0' : '';
+				button.style.visibility = shouldHideMobileGridUI ? 'hidden' : '';
+				button.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
+
+			} );
+
+		}
+
+		if ( gridModes ) {
+
+			gridModes.style.opacity = shouldHideMobileGridUI ? '0' : '';
+			gridModes.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
+
+			const buttons = gridModes.querySelectorAll( 'default-button' );
+			buttons.forEach( button => {
+
+				button.style.opacity = shouldHideMobileGridUI ? '0' : '';
+				button.style.visibility = shouldHideMobileGridUI ? 'hidden' : '';
+				button.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
+
+			} );
+
+		}
+
 	}
 
 	setAnalytics() {
@@ -510,6 +545,7 @@ export default class Header extends HTMLElement {
 			justify-content: center;
 			flex-direction: column;
 			align-items: center;
+			z-index: 0;
 
 			& default-button {
 				margin-bottom: 0 !important;
@@ -541,15 +577,6 @@ export default class Header extends HTMLElement {
 			& default-button[ selected ] {
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
-			}
-
-			@media ( max-width: 1024px ) {
-				transition: opacity .35s var( --timing-function );
-
-				[ display-menu ] & {
-					opacity: .18;
-					pointer-events: none;
-				}
 			}
 
 			@media ( hover: hover ) {
