@@ -48,28 +48,63 @@ export default class View extends HTMLElement {
 
 		return new Promise( ( resolve ) => {
 
-			if ( video.readyState >= 2 ) {
-
-				resolve();
-				return;
-
-			}
+			const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
+			let fallbackTimeout;
 
 			const done = () => {
 
-				video.removeEventListener( 'loadeddata', done );
-				video.removeEventListener( 'canplay', done );
-				video.removeEventListener( 'canplaythrough', done );
+				clearTimeout( fallbackTimeout );
+				video.removeEventListener( 'loadeddata', onReady );
+				video.removeEventListener( 'canplay', onReady );
+				video.removeEventListener( 'canplaythrough', onReady );
+				video.removeEventListener( 'playing', done );
+				video.removeEventListener( 'timeupdate', done );
 				video.removeEventListener( 'error', done );
 				resolve();
 
 			};
 
-			video.addEventListener( 'loadeddata', done, { once: true } );
-			video.addEventListener( 'canplay', done, { once: true } );
-			video.addEventListener( 'canplaythrough', done, { once: true } );
+			const onReady = async () => {
+
+				if ( ! shouldAutoplayMuted ) {
+
+					done();
+					return;
+
+				}
+
+				try {
+
+					video.defaultMuted = true;
+					video.muted = true;
+					video.playsInline = true;
+
+					const playPromise = video.play();
+					if ( playPromise?.catch ) await playPromise.catch( () => null );
+
+				} catch ( error ) {}
+
+				if ( ! video.paused && video.currentTime > 0 ) {
+
+					done();
+					return;
+
+				}
+
+				video.addEventListener( 'playing', done, { once: true } );
+				video.addEventListener( 'timeupdate', done, { once: true } );
+
+			};
+
+			fallbackTimeout = setTimeout( done, 4000 );
+
+			video.addEventListener( 'loadeddata', onReady, { once: true } );
+			video.addEventListener( 'canplay', onReady, { once: true } );
+			video.addEventListener( 'canplaythrough', onReady, { once: true } );
 			video.addEventListener( 'error', done, { once: true } );
 			video.load();
+
+			if ( video.readyState >= 2 ) onReady();
 
 		} );
 
