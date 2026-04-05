@@ -28,6 +28,15 @@ export default class Header extends HTMLElement {
 
 		this.syncLandingState();
 
+		const isMobile = typeof matchMedia !== 'undefined' &&
+			matchMedia( '(max-width: 1024px)' ).matches;
+		const shouldHideMobileGridUI = isMobile &&
+			Application.store.path === '/experiments' &&
+			Application.store.list === 'grid' &&
+			window.scrollY > 24;
+
+		this.toggleAttribute( 'mobile-grid-scrolled', shouldHideMobileGridUI );
+
 	}
 
 	setAnalytics() {
@@ -419,6 +428,16 @@ export default class Header extends HTMLElement {
 			}
 		}
 
+		@media ( max-width: 1024px ) {
+			&[ mobile-grid-scrolled ] {
+				& header-small-screen,
+				& header-grid-modes {
+					opacity: 0;
+					pointer-events: none;
+				}
+			}
+		}
+
 		header-navigation {
 			left: 0;
 			top: 0;
@@ -522,6 +541,15 @@ export default class Header extends HTMLElement {
 			& default-button[ selected ] {
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
+			}
+
+			@media ( max-width: 1024px ) {
+				transition: opacity .35s var( --timing-function );
+
+				[ display-menu ] & {
+					opacity: .18;
+					pointer-events: none;
+				}
 			}
 
 			@media ( hover: hover ) {

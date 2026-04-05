@@ -11,6 +11,23 @@ export default class Canvas extends HTMLElement {
 
 	}
 
+	onPreFrame() {
+
+		const { path } = Application.store;
+		const isProjectPath = Application.content.projects
+			.some( project => `/${ project.path }` === path );
+		const isInteractiveProject = [
+			'/virtual-miniature',
+			'/photogrammetry',
+			'/miniature-street-view',
+			'/when-gaspard-paints-a-gospel',
+			'/augustus-ar'
+		].includes( path );
+
+		this.toggleAttribute( 'inactive-project-canvas', isProjectPath && !isInteractiveProject );
+
+	}
+
 	onInputStart() {
 
 		this.elapsedTime = Application.time.elapsedTime;
@@ -76,7 +93,8 @@ export default class Canvas extends HTMLElement {
 			}
 
 			[ path="/about" ] &,
-			[ path="/mete-kutlu" ] & {
+			[ path="/mete-kutlu" ] &,
+			&[ inactive-project-canvas ] {
 				opacity: 0;
 				pointer-events: none;
 			}

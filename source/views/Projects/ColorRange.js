@@ -21,6 +21,21 @@ export default class ColorRange extends HTMLElement {
 
 	}
 
+	onTouchMove( event ) {
+
+		if ( ! this.handle ) return;
+
+		event.preventDefault();
+		this.onInputMove( event );
+
+	}
+
+	onTouchEnd( event ) {
+
+		this.onInputEnd( event );
+
+	}
+
 	onPointerDown( event ) {
 
 		event.preventDefault();
@@ -148,7 +163,7 @@ export default class ColorRange extends HTMLElement {
 			touch-action: none;
 
 			@media ( max-width: 650px ) {
-				right: var( --margin-s );
+				right: 10px;
 				width: 104px;
 				height: 320px;
 				padding: 14px;
@@ -225,6 +240,7 @@ export default class ColorRange extends HTMLElement {
 			transform: translateX( -50% );
 			pointer-events: all;
 			z-index: 2;
+			touch-action: none;
 
 			&[ grabbed ] {
 				cursor: grabbing;
@@ -272,7 +288,7 @@ export default class ColorRange extends HTMLElement {
 
 		return html`
 
-		<projects-color-range>
+		<projects-color-range @touch-move @touch-end>
 
 			<color-range-header>
 				<color-range-label>Spectrum</color-range-label>

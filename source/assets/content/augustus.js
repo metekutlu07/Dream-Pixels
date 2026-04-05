@@ -4,7 +4,7 @@ export default {
 	title: 'Augustus',
 	subtitle: 'Augmented Promenade',
 	location: 'Paris',
-	date: 'December 2022',
+	date: '2022',
 	team: 'Mete Kutlu & Theuns Botha',
 	partners: 'Comet Lab, AUSser Laboratory, Éditions La commune',
 	client: 'Philippe Auguste Foundation',
