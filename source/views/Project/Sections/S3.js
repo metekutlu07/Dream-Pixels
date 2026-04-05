@@ -143,6 +143,7 @@ export default class S3 {
 				@media ( max-width: 650px ) {
 					width: 100%;
 					margin: var( --margin-s ) 0 0;
+					padding-bottom: calc( var( --margin-s ) * 2 );
 					padding-left: 0;
 					box-sizing: border-box;
 					font-size: var( --font-size-s );

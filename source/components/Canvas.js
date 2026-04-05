@@ -70,6 +70,11 @@ export default class Canvas extends HTMLElement {
 				pointer-events: none;
 			}
 
+			[ path="/experiments" ][ list="grid" ] & {
+				opacity: 0;
+				pointer-events: none;
+			}
+
 			[ path="/about" ] &,
 			[ path="/mete-kutlu" ] & {
 				opacity: 0;

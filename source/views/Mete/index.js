@@ -80,12 +80,12 @@ export default class Mete extends View {
 				& p {
 					font-size: var(--font-size-l );
 					font-family: var(--font-family-c );
-					font-weight: 100;
+					font-weight: 200;
 					line-height: var(--line-height );
 					padding-bottom: var( --margin-s );
 
 					@media ( max-width: 650px ) {
-						font-size: 2rem;
+						font-size: 1.8rem;
 					}
 				}
 
@@ -94,7 +94,7 @@ export default class Mete extends View {
 				}
 
 				@media (max-width: 650px) {
-					padding: 0 calc( var(--margin-m ) * 2 ) calc( var(--margin-s ) );
+					padding: 0 calc( var(--margin-s ) ) calc( var(--margin-s ) );
 				}
 
 				@media (min-width: 768px) {

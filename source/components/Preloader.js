@@ -117,10 +117,20 @@ export default class Preloader extends HTMLElement {
 
 				@media ( max-width: 650px ) {
 					font-size: 3rem;
-					max-width: 14ch;
+					max-width: none;
 					margin-left: auto;
 					margin-right: auto;
 					line-height: 1.15;
+				}
+			}
+
+			& preloader-subtitle-line {
+				display: inline;
+			}
+
+			@media ( max-width: 650px ) {
+				& preloader-subtitle-line {
+					display: block;
 				}
 			}
 
@@ -266,13 +276,16 @@ export default class Preloader extends HTMLElement {
 			>`;
 
 		const { title, subtitle } = Application.content;
+		const subtitleLines = subtitle === 'Between Cosmos and Algorithm' ?
+			[ 'Between Cosmos', 'and Algorithm' ] :
+			[ subtitle ];
 
 		return html`
 
 		<preloader-overlay #>
 
 			<h1>${ title }</h1>
-			<h2>${ subtitle }</h2>
+			<h2>${ subtitleLines.map( line => html`<preloader-subtitle-line>${ line }</preloader-subtitle-line>` ) }</h2>
 
 			<preloader-square #square>
 

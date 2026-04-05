@@ -104,6 +104,10 @@ export default class S4 {
 				line-height: 1.6;
 				text-align: left;
 				align-self: flex-start;
+
+				@media ( max-width: 650px ) {
+					margin-bottom: calc( var( --margin-s ) * 2 );
+				}
 			}
 
 			&[ text-centered ] {

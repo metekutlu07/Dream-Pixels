@@ -6,6 +6,8 @@ export default class AudioInterface {
 
 		Application.events.add( this );
 
+		this.onUnlock = this.onUnlock.bind( this );
+
 		this.isMuted = true;
 		this.volume = 1;
 		this.cache = {};
@@ -30,15 +32,29 @@ export default class AudioInterface {
 
 	async onUnlock() {
 
-		if ( ! Application.assets ) return;
+		if ( ! this.audioListener ) this.audioListener = new AudioListener();
 
-		this.audioListener = new AudioListener();
-		this.loop = new Audio( '/public/freedom.mp3' );
-		this.loop.loop = true;
-		this.loop.play();
+		if ( ! this.loop ) {
 
-		const node = new Node( this.audioListener );
-		node.setMediaElementSource( this.loop );
+			this.loop = new Audio( '/public/freedom.mp3' );
+			this.loop.loop = true;
+			this.loop.playsInline = true;
+			this.loop.preload = 'auto';
+
+			const node = new Node( this.audioListener );
+			node.setMediaElementSource( this.loop );
+
+		}
+
+		try {
+
+			await this.loop.play();
+
+		} catch ( error ) {
+
+			console.log( error );
+
+		}
 
 		removeEventListener( 'mousedown', this.onUnlock );
 		removeEventListener( 'touchstart', this.onUnlock );
@@ -133,6 +149,7 @@ export default class AudioInterface {
 	toggle() {
 
 		this.isMuted = ! this.isMuted;
+		if ( ! this.isMuted ) this.onUnlock();
 
 	}
 

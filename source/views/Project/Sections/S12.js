@@ -85,7 +85,13 @@ export default class S12 {
 			}
 
 			presentation-heading {
-				font-size: 1.9rem;
+				font-size: 1.5rem;
+			}
+
+			presentation-line,
+			presentation-person {
+				font-size: 1.5rem;
+				line-height: var( --line-height );
 			}
 		}
 

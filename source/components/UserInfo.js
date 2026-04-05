@@ -386,6 +386,39 @@ export default class UserInfo extends HTMLElement {
 				}
 			}
 
+			@media ( max-width: 650px ) {
+				&[ name="World" ],
+				&[ name="Images" ],
+				&[ name="Cosmos" ] {
+					top: 50%;
+					right: auto;
+					bottom: auto;
+					left: 50%;
+					margin: 0;
+					transform: translate( -50%, -50% );
+					width: calc( 100vw - 40px );
+					max-width: calc( 100vw - 40px );
+					padding: 18px 18px 16px;
+
+					& p {
+						font-size: 15px;
+						line-height: 1.5;
+						text-align: center;
+					}
+
+					& user-info-actions {
+						padding-top: 22px;
+					}
+
+					& user-info-button {
+						width: auto;
+						min-width: 120px;
+						padding: 11px 18px;
+						font-size: 15px;
+					}
+				}
+			}
+
 			& h5 {
 				font-size: var( --font-size-l );
 				font-family: var( --font-family-b );
@@ -782,13 +815,13 @@ export default class UserInfo extends HTMLElement {
 					}
 
 					&[ cue="mobile" ] user-info-guide {
-						top: 50%;
+						top: calc( 50% + 18px );
 						left: 50%;
 						right: auto;
 						bottom: auto;
 						transform: translate( -50%, -50% );
-						width: calc( 100vw - ( var( --margin-s ) * 2 ) );
-						max-width: calc( 100vw - ( var( --margin-s ) * 2 ) );
+						width: calc( 100vw - 40px );
+						max-width: calc( 100vw - 40px );
 						min-height: auto;
 						padding: 18px 18px 16px;
 						background: rgba( 0, 0, 0, .28 );
@@ -812,7 +845,7 @@ export default class UserInfo extends HTMLElement {
 
 					&[ cue="mobile" ] p {
 						font-size: 15px;
-						line-height: 1.55;
+						line-height: 1.5;
 						text-align: center;
 					}
 

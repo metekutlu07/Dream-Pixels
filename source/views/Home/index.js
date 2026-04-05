@@ -266,7 +266,7 @@ export default class Home extends View {
 			}
 
 			@media ( max-width: 650px ) {
-				width: min( 100%, calc( 100vw - 40px ) );
+				width: calc( 100vw - 40px );
 			}
 		}
 
@@ -310,8 +310,8 @@ export default class Home extends View {
 			}
 
 			@media ( max-width: 650px ) {
-				max-width: 8.5ch;
-				font-size: clamp( 4.2rem, 10.8vw, 5.6rem );
+				max-width: 13.2ch;
+				font-size: clamp( 4rem, 9.4vw, 5.2rem );
 				line-height: 1.06;
 				letter-spacing: .03em;
 				white-space: normal;
@@ -344,10 +344,10 @@ export default class Home extends View {
 			}
 
 			@media ( max-width: 650px ) {
-				max-width: 21ch;
+				max-width: 28ch;
 				margin-top: 20px;
-				font-size: 1.85rem;
-				line-height: 1.55;
+				font-size: 1.95rem;
+				line-height: 1.5;
 
 				& span {
 					white-space: normal;
