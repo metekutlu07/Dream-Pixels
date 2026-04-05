@@ -23,9 +23,9 @@ export default class Images extends Object3D {
 
 	onLoad( files ) {
 
-		if ( ! files[ 'sphere' ] ) return;
+		if ( ! files[ 'works' ] && ! files[ 'sphere' ] ) return;
 
-		const { textures } = files[ 'sphere' ];
+		const { textures } = files[ 'works' ] || files[ 'sphere' ];
 		this.visible = false;
 
 		const entries = Object

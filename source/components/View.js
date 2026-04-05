@@ -116,7 +116,7 @@ export default class View extends HTMLElement {
 		if ( isExperimentsRoute ) {
 
 			if ( list === 'places' ) packIDs.push( 'places' );
-			else if ( list === 'sphere' ) packIDs.push( 'sphere' );
+			else if ( list === 'sphere' ) packIDs.push( 'works' );
 
 		} else {
 

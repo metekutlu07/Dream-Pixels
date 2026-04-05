@@ -42,7 +42,7 @@ export default {
 				textCentered: true,
 				source: 'public/hagia-data/bistami.jpg',
 				caption: 'Apocalyptic Constantinople, the conquest of the city as a portent of End of Days.',
-				explain: '<br>From <em> The Key to All Prophecies (Miftah-i Cifr’ül Cami),</em> Abdurrahman Bistami, c. 1450, copy from 1610, Constantinople, Ottoman period. Istanbul University Library, TY 6644, folio 91b.',
+				explain: '<br>From <em>The Key to All Prophecies (Miftah-i Cifr’ül Cami),</em> Abdurrahman Bistami, c. 1450, copy from 1610, Constantinople, Ottoman period. Istanbul University Library, TY 6644, folio 91b.',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},

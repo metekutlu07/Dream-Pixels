@@ -90,7 +90,7 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
 		if ( currentTarget.hasAttribute( 'sphere' ) ) {
 
-			await this.loadPack( 'sphere' );
+			await this.loadPack( 'works' );
 			Application.store.set( 'list', 'sphere' );
 
 		}

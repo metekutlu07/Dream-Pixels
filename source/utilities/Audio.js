@@ -50,8 +50,10 @@ export default class AudioInterface {
 		if ( ! this.loop ) return;
 
 		const { path, route } = Application.store;
-		const directory = route === '/:project' ? path : '';
-		const source = `/public${ directory }/freedom.mp3`;
+		const isProjectRoute = route === '/:project';
+		const source = isProjectRoute ?
+			`/public${ path }/audio.mp3` :
+			'/public/freedom.mp3';
 
 		if ( this.loop.src.match( source ) ) return;
 
@@ -62,7 +64,18 @@ export default class AudioInterface {
 			this.loop.src = source;
 			this.loop.play();
 
-		} catch ( error ) { console.log( error ) }
+		} catch ( error ) {
+
+			console.log( error );
+
+			if ( isProjectRoute ) {
+
+				this.loop.src = '/public/freedom.mp3';
+				this.loop.play();
+
+			}
+
+		}
 
 		await this.fade( this.loop, 1 );
 

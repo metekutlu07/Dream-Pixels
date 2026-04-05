@@ -200,14 +200,13 @@ export default class Filters extends HTMLElement {
 
 		const filters = {
 			technologies: [
-				'3D Miniature',
-				'3D Scanning',
-				'Augmented Reality',
-				'Generative Design',
-				'Machine Learning',
-				'Particle Simulation',
-				'Projection Mapping',
-				'Virtual Reconstruction',
+				'3D miniature',
+				'3D scanning',
+				'Augmented reality',
+				'Generative design',
+				'Machine learning',
+				'Particle simulation',
+				'Virtual reconstruction',
 			],
 			cultures: [
 				'Byzantine',
@@ -215,21 +214,31 @@ export default class Filters extends HTMLElement {
 				'Korean',
 				'Ottoman',
 				'Roman',
-				'Sumerian',
 				'Timurid',
 				'Venetian',
 			],
 			subjects: [
 				'Architecture',
-				'Miniatures',
-				'Mosaics',
-				'Painting',
+				'Miniature',
+				'Mosaic',
 			],
 		};
 
 		const generateFilters = tags => tags.map( tag => {
 
-			const value = tag === 'Architecture' ? 'Architectural Heritage' : tag;
+			const aliases = {
+				'Architecture': 'Architectural Heritage',
+				'Miniature': 'Miniatures',
+				'Mosaic': 'Mosaics',
+				'3D miniature': '3D Miniature',
+				'3D scanning': '3D Scanning',
+				'Augmented reality': 'Augmented Reality',
+				'Generative design': 'Generative Design',
+				'Machine learning': 'Machine Learning',
+				'Particle simulation': 'Particle Simulation',
+				'Virtual reconstruction': 'Virtual Reconstruction',
+			};
+			const value = aliases[ tag ] || tag;
 
 			return html`
 
