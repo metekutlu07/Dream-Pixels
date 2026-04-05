@@ -450,6 +450,13 @@ export default class Header extends HTMLElement {
 				--background-color: transparent;
 				z-index: 1;
 			}
+
+			@media ( hover: hover ) {
+				& default-button:not( [ selected ] ):not( [ home ] ):hover {
+					border-color: rgba( 255, 255, 255, .5 );
+					background: rgba( 255, 255, 255, .16 );
+				}
+			}
 		}
 
 		header-grid-modes {
@@ -492,6 +499,13 @@ export default class Header extends HTMLElement {
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
 			}
+
+			@media ( hover: hover ) {
+				& default-button:not( [ selected ] ):hover {
+					border-color: rgba( 255, 255, 255, .5 );
+					background: rgba( 255, 255, 255, .16 );
+				}
+			}
 		}
 
 		header-controls {
@@ -524,6 +538,13 @@ export default class Header extends HTMLElement {
 			& default-button button-label {
 				min-height: 60px;
 				box-sizing: border-box;
+			}
+
+			@media ( hover: hover ) {
+				& default-button:not( [ selected ] ):hover {
+					border-color: rgba( 255, 255, 255, .5 );
+					background: rgba( 255, 255, 255, .16 );
+				}
 			}
 		}
 

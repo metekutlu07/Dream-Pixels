@@ -2,7 +2,7 @@ export default {
 
 	path: 'firuze',
 	title: 'Firuzé',
-	subtitle: 'Digitizing Timurid Mosaics',
+	subtitle: 'The Crystal Matrix',
 	location: 'Samarkand, Uzbekistan',
 	date: 'October 2022',
 	team: 'Mete Kutlu',

@@ -14,6 +14,7 @@ export default class Home extends View {
 		super();
 
 		this.startParticlesExperience = this.startParticlesExperience.bind( this );
+		this.playHoverSound = this.playHoverSound.bind( this );
 		this.toggleFullscreen = this.toggleFullscreen.bind( this );
 		this.toggleAudio = this.toggleAudio.bind( this );
 		this.enterHome = this.enterHome.bind( this );
@@ -39,6 +40,7 @@ export default class Home extends View {
 		Application.store.set( 'home-copy-ready', false );
 
 		this.elements.start?.addEventListener( 'click', this.startParticlesExperience );
+		this.elements.start?.addEventListener( 'mouseenter', this.playHoverSound );
 		this.elements.fullscreen?.addEventListener( 'click', this.toggleFullscreen );
 		this.elements.audio?.addEventListener( 'click', this.toggleAudio );
 		this.elements.enter?.addEventListener( 'click', this.enterHome );
@@ -57,6 +59,7 @@ export default class Home extends View {
 		this.pendingReveal = false;
 
 		this.elements.start?.removeEventListener( 'click', this.startParticlesExperience );
+		this.elements.start?.removeEventListener( 'mouseenter', this.playHoverSound );
 		this.elements.fullscreen?.removeEventListener( 'click', this.toggleFullscreen );
 		this.elements.audio?.removeEventListener( 'click', this.toggleAudio );
 		this.elements.enter?.removeEventListener( 'click', this.enterHome );
@@ -157,6 +160,12 @@ export default class Home extends View {
 
 		this.elements.fullscreen?.toggleAttribute( 'active', Application.fullscreen.isActive );
 		this.elements.audio?.toggleAttribute( 'active', ! Application.audio.isMuted );
+
+	}
+
+	playHoverSound() {
+
+		Application.audio.play( '007.mp3', { volume: .1 } );
 
 	}
 

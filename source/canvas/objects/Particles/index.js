@@ -168,7 +168,7 @@ export default class Particles extends Points {
 		this.isVisible = (
 
 			( path === '/experiments' && list === 'particles' ) ||
-			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
+			( path === '/' || path === '/contact' )
 
 		);
 
@@ -258,7 +258,7 @@ export default class Particles extends Points {
 		const { particles, list, path } = Application.store;
 		const active = (
 			( list === 'particles' && particles === 'timeline' ) ||
-			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
+			( path === '/' || path === '/contact' )
 		);
 
 		const scale = active ? .25 : 1;

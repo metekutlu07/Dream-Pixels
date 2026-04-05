@@ -163,6 +163,7 @@ export default class Scene extends Object3D {
 
 		if ( ! path ) return;
 
+		const isPlainBlackPage = path === '/about' || path === '/mete-kutlu';
 		const isProjectPath = Application.content.projects
 			.some( project => `/${ project.path }` === path );
 		const hasProjectSphere = [ '/virtual-miniature', '/photogrammetry', '/miniature-street-view' ]
@@ -172,7 +173,8 @@ export default class Scene extends Object3D {
 		this.objects.visible = path === '/experiments' && list === 'grid';
 		this.images.visible = path === '/experiments' && list === 'sphere';
 		this.map.visible = path === '/experiments' && list === 'places';
-		this.sphere.visible = path !== '/' &&
+		this.sphere.visible = !isPlainBlackPage &&
+			path !== '/' &&
 			!( path === '/experiments' && list === 'places' && places === 'cosmos' ) &&
 			!shouldHideProjectSphere;
 		this.cosmos.visible = path === '/experiments' && list === 'places' && places === 'cosmos';
@@ -183,7 +185,7 @@ export default class Scene extends Object3D {
 
 		this.particles.visible = (
 			( isParticleWorksView && ( ! isParticleColorRange || hasPixelExperienceStarted ) ) ||
-			( path === '/' || path === '/contact' || path === '/about' || path === '/mete-kutlu' )
+			( path === '/' || path === '/contact' )
 		) && this.particles.hasLoadedColors;
 
 		this.parameters.density = 0;

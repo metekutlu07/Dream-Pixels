@@ -33,7 +33,8 @@ export default class AudioInterface {
 		if ( ! Application.assets ) return;
 
 		this.audioListener = new AudioListener();
-		this.loop = new Audio( '/public/audio.mp3' );
+		this.loop = new Audio( '/public/freedom.mp3' );
+		this.loop.loop = true;
 		this.loop.play();
 
 		const node = new Node( this.audioListener );
@@ -50,7 +51,7 @@ export default class AudioInterface {
 
 		const { path, route } = Application.store;
 		const directory = route === '/:project' ? path : '';
-		const source = `/public${ directory }/audio.mp3`;
+		const source = `/public${ directory }/freedom.mp3`;
 
 		if ( this.loop.src.match( source ) ) return;
 

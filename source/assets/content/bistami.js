@@ -2,7 +2,7 @@ export default {
 
 	path: 'bistami',
 	title: 'Bistami',
-	subtitle: 'Digitizing an Urban Prophecy',
+	subtitle: 'Decoding the Talismanic City',
 	location: 'Istanbul',
 	date: 'March 2020',
 	team: 'Mete Kutlu',
