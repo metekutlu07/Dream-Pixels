@@ -57,6 +57,9 @@ export default class OrbitControls extends Object3D {
 
 		this.autoRotateDelay = 0;
 		this.autoRotate = 0;
+		this.isPinching = false;
+		this.initialPinchDistance = 0;
+		this.initialPinchRadius = 0;
 
 	}
 
@@ -396,6 +399,16 @@ export default class OrbitControls extends Object3D {
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
 		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) return;
 
+		if ( event.touches?.length >= 2 && this.parameters.enableZoom ) {
+
+			this.isPinching = true;
+			this.initialPinchDistance = this.getTouchDistance( event );
+			this.initialPinchRadius = this.currentState.radius;
+			this.autoRotateDelay = 0;
+			return;
+
+		}
+
 		if ( this.camera.cameraID === 'Cosmos' && ! this.wasClickedOnce ) {
 
 			this.wasClickedOnce = true;
@@ -416,12 +429,34 @@ export default class OrbitControls extends Object3D {
 
 	}
 
-	onInputMove() {
+	onInputMove( event ) {
 
 		if ( ! this.isEnabled ) return;
 		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) {
 
 			this.isGrabbed = false;
+			return;
+
+		}
+
+		if ( this.isPinching ) {
+
+			if ( ! event?.touches?.length || event.touches.length < 2 ) return;
+			if ( ! this.parameters.enableZoom ) return;
+
+			const distance = this.getTouchDistance( event );
+			const delta = distance - this.initialPinchDistance;
+			const radius = this.initialPinchRadius - delta * this.parameters.zoomSpeed * .025;
+
+			this.currentState.radius = Math.clamp(
+
+				radius,
+				this.parameters.minDistance,
+				this.parameters.maxDistance
+
+			);
+
+			this.autoRotateDelay = 0;
 			return;
 
 		}
@@ -463,6 +498,7 @@ export default class OrbitControls extends Object3D {
 		if ( ! this.isEnabled ) return;
 
 		this.isGrabbed = false;
+		this.isPinching = false;
 
 	}
 
@@ -493,6 +529,18 @@ export default class OrbitControls extends Object3D {
 			.sub( this.initialState.position );
 
 		this.autoRotateDelay = 0;
+
+	}
+
+	getTouchDistance( event ) {
+
+		if ( ! event?.touches?.length || event.touches.length < 2 ) return 0;
+
+		const [ touchA, touchB ] = event.touches;
+		const x = touchA.clientX - touchB.clientX;
+		const y = touchA.clientY - touchB.clientY;
+
+		return Math.sqrt( x * x + y * y );
 
 	}
 

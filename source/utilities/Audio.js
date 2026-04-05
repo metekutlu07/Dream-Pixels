@@ -33,6 +33,7 @@ export default class AudioInterface {
 	async onUnlock() {
 
 		if ( ! this.audioListener ) this.audioListener = new AudioListener();
+		await this.audioListener.context.resume();
 
 		if ( ! this.loop ) {
 

@@ -206,12 +206,18 @@ export default class UserInfo extends HTMLElement {
 			const step = parseInt( text.getAttribute( 'step' ) || '0' );
 			const index = Math.clamp( step, 0, text.steps.length - 1 );
 			const activeIndex = isMobile && name === 'Particles' ? 0 : index;
-			const { title, paragraphs, cue } = text.steps[ activeIndex ];
+			let { title, paragraphs, cue } = text.steps[ activeIndex ];
 			const titleElement = text.querySelector( 'h5' );
 			const paragraphElement = text.querySelector( 'p' );
 			const nextButton = text.querySelector( '[ next ]' );
 			const exploreButton = text.querySelector( '[ explore ]' );
 			const closeButton = text.querySelector( '[ close ]' );
+
+			if ( isMobile && name === 'Particles' ) {
+
+				paragraphs = 'Each particle is a pixel extracted from an image in the archive. Tap these particles to explore the projects. Drag to rotate the cloud. Pinch to zoom. Use the spectrum bar to filter colors, or switch modes from the bottom menu.';
+
+			}
 
 			if ( titleElement ) titleElement.innerHTML = title || '';
 			if ( paragraphElement ) paragraphElement.innerHTML = paragraphs || '';

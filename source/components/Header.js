@@ -349,6 +349,17 @@ export default class Header extends HTMLElement {
 					display: flex !important;
 				}
 			}
+
+			@media ( max-width: 1024px ) {
+				& default-button {
+					background: rgba( 8, 8, 8, .34 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					overflow: hidden;
+					isolation: isolate;
+					transform: translateZ( 0 );
+				}
+			}
 		}
 
 		header-small-screen,
@@ -551,6 +562,12 @@ export default class Header extends HTMLElement {
 			& default-button button-label {
 				min-height: 60px;
 				box-sizing: border-box;
+			}
+
+			@media ( max-width: 1024px ) {
+				& default-button[ fullscreen ] {
+					display: none !important;
+				}
 			}
 
 			@media ( hover: hover ) {

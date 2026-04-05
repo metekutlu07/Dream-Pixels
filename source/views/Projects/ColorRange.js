@@ -30,18 +30,30 @@ export default class ColorRange extends HTMLElement {
 
 		this.handle = currentTarget;
 		this.value = parseFloat( currentTarget.getAttribute( 'value' ) );
+		this.touchIdentifier = event.touches?.[ 0 ]?.identifier;
 
 		const { clientX, clientY } = event.touches ? event.touches[ 0 ] : event;
 		this.center = new Vector2( clientX, clientY );
 
 	}
 
-	onInputMove() {
+	onInputMove( event ) {
 
 		if ( ! this.handle ) return;
 
-		const { pointer } = Application;
-		const coordinates = pointer.getCoordinates( new Vector2() );
+		let coordinates = null;
+
+		if ( event?.touches?.length ) {
+
+			const touch = Array
+				.from( event.touches )
+				.find( touch => touch.identifier === this.touchIdentifier ) || event.touches[ 0 ];
+
+			if ( touch ) coordinates = new Vector2( touch.clientX, touch.clientY );
+
+		}
+
+		if ( ! coordinates ) coordinates = Application.pointer.getCoordinates( new Vector2() );
 		const delta = coordinates.sub( this.center );
 
 		const { handles } = this.elements;
@@ -60,6 +72,7 @@ export default class ColorRange extends HTMLElement {
 	onInputEnd() {
 
 		this.handle = null;
+		this.touchIdentifier = null;
 
 	}
 

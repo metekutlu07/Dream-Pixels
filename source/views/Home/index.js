@@ -363,6 +363,22 @@ export default class Home extends View {
 			}
 		}
 
+		home-mobile-only {
+			display: none;
+
+			@media ( max-width: 650px ) {
+				display: block;
+			}
+		}
+
+		home-desktop-only {
+			display: block;
+
+			@media ( max-width: 650px ) {
+				display: none;
+			}
+		}
+
 		home-start {
 			cursor: pointer;
 			position: relative;
@@ -425,9 +441,10 @@ export default class Home extends View {
 			}
 
 			@media ( max-width: 650px ) {
-				width: min( 100%, 308px );
+				width: auto;
+				max-width: calc( 100vw - 32px );
 				margin-top: 44px;
-				padding: 16px 14px;
+				padding: 16px;
 				font-size: 1.8rem;
 				letter-spacing: .08em;
 			}
@@ -548,6 +565,10 @@ export default class Home extends View {
 				flex-direction: column;
 				align-items: center;
 				gap: 28px;
+
+				& button:first-child {
+					display: none;
+				}
 			}
 		}
 
@@ -706,7 +727,10 @@ export default class Home extends View {
 				<home-gate-panel>
 					<home-gate-copy>
 						<h2>Prepare the journey</h2>
-						<p>For a better experience, switch on full screen and sound before entering the archive.</p>
+						<p>
+							<home-desktop-only>For a better experience, switch on full screen and sound before entering the archive.</home-desktop-only>
+							<home-mobile-only>For a better experience, switch on sound before entering the archive.</home-mobile-only>
+						</p>
 					</home-gate-copy>
 
 					<home-gate-actions>
@@ -741,7 +765,7 @@ export default class Home extends View {
 				<home-title>An Archive of the Age of AI</home-title>
 				<home-copy>
 					<span>Experiments from my doctoral thesis, <em>Empire of Clouds.</em></span>
-					<span>Six years of research<home-mobile-break></home-mobile-break>entangling<home-mobile-break></home-mobile-break>cosmos and algorithm.</span>
+					<span>Six years of research<home-mobile-break></home-mobile-break>entangling cosmos<home-mobile-break></home-mobile-break>and algorithm.</span>
 					<span>An iridescent data breeze.</span>
 				</home-copy>
 				<home-start #start blurred-background start>Explore the Experiments</home-start>

@@ -349,7 +349,7 @@ export default class Timeline extends HTMLElement {
 				${ list }
 				<li #beginning>
 					<span>
-						<h5>Doctorat Beginning</h5>
+						<h5>PhD Beginning</h5>
 						<h6>December 2018</h6>
 					</span>
 				</li>
