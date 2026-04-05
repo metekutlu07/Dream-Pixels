@@ -22,8 +22,6 @@ export default class View extends HTMLElement {
 
 		} else {
 
-			this.toggleAttribute( 'hidden' );
-
 			// Preloading images and videos for /experiments and /{project}
 
 			if ( view.tagName === 'PROJECTS-VIEW' || view.tagName === 'PROJECT-VIEW' ) {
@@ -37,6 +35,9 @@ export default class View extends HTMLElement {
 
 			}
 
+			if ( ! this.isConnected ) return;
+
+			this.toggleAttribute( 'hidden' );
 			Application.store.set( 'loading', false );
 
 		}
@@ -114,7 +115,23 @@ export default class View extends HTMLElement {
 
 		return new Promise( ( resolve ) => {
 
-			image.onload = image.onerror = resolve;
+			if ( image.complete ) {
+
+				resolve();
+				return;
+
+			}
+
+			const done = () => {
+
+				image.removeEventListener( 'load', done );
+				image.removeEventListener( 'error', done );
+				resolve();
+
+			};
+
+			image.addEventListener( 'load', done, { once: true } );
+			image.addEventListener( 'error', done, { once: true } );
 
 		} );
 

@@ -15,6 +15,14 @@ export default class Video extends HTMLElement {
 
 	}
 
+	onDisconnected() {
+
+		const { video } = this.elements;
+		if ( ! video ) return;
+		video.pause();
+
+	}
+
 	onPreFrame() {
 
 		const { video } = this.elements;
@@ -118,14 +126,15 @@ export default class Video extends HTMLElement {
 
 		`;
 
-		const { controls, fullscreen, border, poster, preloadMedia, startAt } = parameters;
+		const { controls, fullscreen, border, poster, preloadMedia, startAt, preload } = parameters;
+		const preloadMode = preload || ( preloadMedia || fullscreen ? 'auto' : 'metadata' );
 		const attributes = [
 			'autoplay',
 			'playsinline',
 			'webkit-playsinline',
 			'muted',
 			'loop',
-			'preload="auto"',
+			`preload="${ preloadMode }"`,
 			'disablepictureinpicture',
 			'disableremoteplayback'
 		];
