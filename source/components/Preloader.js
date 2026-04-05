@@ -3,7 +3,7 @@ export default class Preloader extends HTMLElement {
 	onUpdate() {
 
 		const { percentLoaded, isLoading } = Application.assets;
-		const { counter_text, circles, square } = this.elements;
+		const { counter_text, circles } = this.elements;
 		counter_text.textContent = ( '000' + percentLoaded ).substr( -3 );
 
 		const circle = circles[ circles.length - 1 ];
@@ -11,7 +11,7 @@ export default class Preloader extends HTMLElement {
 		const strokeDashoffset = circumference * ( 1 - percentLoaded / 100 );
 		circle.style.strokeDashoffset = strokeDashoffset;
 
-		square.toggleAttribute( 'visible', isLoading );
+		this.toggleAttribute( 'assets-loading', isLoading );
 
 	}
 
@@ -65,7 +65,7 @@ export default class Preloader extends HTMLElement {
 				& svg,
 				& text,
 				& preloader-counter,
-				& preloader-square[ visible ] {
+				& preloader-square {
 					opacity: 1 !important;
 					transform: scale( 1 ) !important;
 				}

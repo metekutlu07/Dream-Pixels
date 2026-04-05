@@ -114,6 +114,11 @@ export default {
 					cue: 'viewpoint',
 					title: '',
 					paragraphs: 'Explore the cloud from inside or outside.<br><br>Discover the archive through four different modes.'
+				},
+				{
+					cue: 'timeline',
+					title: '',
+					paragraphs: 'Scroll to travel through the cloud.'
 				}
 			]
 		}

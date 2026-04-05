@@ -153,10 +153,11 @@ export default class S1 {
 
 			const { source, caption, controls, preloadMedia } = content.media;
 			const isVideo = source.match( /mp4/g );
+			const shouldPreloadMedia = preloadMedia !== false;
 
 			media = isVideo ?
-				Video.render( source, { controls, fullscreen: true, preloadMedia } ) :
-				html`<img src="${ source }" alt="${ caption }" class="${ preloadMedia ? 'preloadMedia' : '' }" />`;
+				Video.render( source, { controls, fullscreen: true, preloadMedia: shouldPreloadMedia } ) :
+				html`<img src="${ source }" alt="${ caption }" class="${ shouldPreloadMedia ? 'preloadMedia' : '' }" />`;
 
 		}
 

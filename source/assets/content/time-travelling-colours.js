@@ -1,7 +1,7 @@
 export default {
 
 	path: 'time-travelling-colours',
-	title: 'Time-Travelling Colours',
+	title: 'Time-Travelling Colors',
 	subtitle: 'Talking Miniatures',
 	location: 'Avignon, France',
 	date: '2021',

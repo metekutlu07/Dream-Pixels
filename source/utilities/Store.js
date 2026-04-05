@@ -55,6 +55,7 @@ export default class Parameter {
 		this.set( 'skip-particle-gate', false );
 		this.set( 'particle-archive-entered', false );
 		this.set( 'particle-user-info-seen', false );
+		this.set( 'particle-timeline-user-info-seen', false );
 		this.set( 'home-gate-visible', true );
 		this.set( 'home-gate-seen', false );
 		this.set( 'home-nav-ready', false );

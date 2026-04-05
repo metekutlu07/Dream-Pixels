@@ -48,7 +48,27 @@ export default class View extends HTMLElement {
 
 		return new Promise( ( resolve ) => {
 
-			video.oncanplaythrough = resolve;
+			if ( video.readyState >= 2 ) {
+
+				resolve();
+				return;
+
+			}
+
+			const done = () => {
+
+				video.removeEventListener( 'loadeddata', done );
+				video.removeEventListener( 'canplay', done );
+				video.removeEventListener( 'canplaythrough', done );
+				video.removeEventListener( 'error', done );
+				resolve();
+
+			};
+
+			video.addEventListener( 'loadeddata', done, { once: true } );
+			video.addEventListener( 'canplay', done, { once: true } );
+			video.addEventListener( 'canplaythrough', done, { once: true } );
+			video.addEventListener( 'error', done, { once: true } );
 			video.load();
 
 		} );

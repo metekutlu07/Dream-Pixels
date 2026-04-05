@@ -25,6 +25,7 @@ export default class UserInfo extends HTMLElement {
 		const pixelExperienceStarted = Application.store[ 'pixel-experience-started' ];
 		const uiReady = Application.store[ 'ui-ready' ];
 		const particleUserInfoSeen = Application.store[ 'particle-user-info-seen' ];
+		const particleTimelineUserInfoSeen = Application.store[ 'particle-timeline-user-info-seen' ];
 		const { texts } = this.elements;
 
 		texts.forEach( text => {
@@ -32,6 +33,8 @@ export default class UserInfo extends HTMLElement {
 			const name = text.getAttribute( 'name' );
 			const wasVisible = text.hasAttribute( 'visible' );
 			const seenOnce = text.hasAttribute( 'seen-once' );
+			const isParticlesText = name === 'Particles';
+			const isParticleTimeline = particles === 'timeline';
 
 			const isVisible = (
 
@@ -39,8 +42,8 @@ export default class UserInfo extends HTMLElement {
 				(
 					path === '/experiments' &&
 					list === 'particles' &&
-					name === 'Particles' &&
-					pixelExperienceStarted &&
+					isParticlesText &&
+					( pixelExperienceStarted || isParticleTimeline ) &&
 					uiReady
 				) ||
 				( path === '/experiments' && list === 'places' && places === 'world' && name === 'World' ) ||
@@ -50,11 +53,70 @@ export default class UserInfo extends HTMLElement {
 
 			text.toggleAttribute( 'visible', isVisible );
 
+			if ( isParticlesText ) {
+
+				const particleInfoSeen = isParticleTimeline ?
+					particleTimelineUserInfoSeen :
+					particleUserInfoSeen;
+
+				if ( ! isVisible ) {
+
+					text.toggleAttribute( 'hidden', particleInfoSeen );
+					text.toggleAttribute( 'dismissed', particleInfoSeen );
+					text.setAttribute( 'step', '0' );
+					this.syncStep( text );
+					return;
+
+				}
+
+				if ( particleInfoSeen ) {
+
+					text.toggleAttribute( 'hidden', true );
+					text.toggleAttribute( 'dismissed', true );
+					return;
+
+				}
+
+				if ( isParticleTimeline ) {
+
+					const timelineStep = Math.max( text.steps.length - 1, 0 );
+					if ( parseInt( text.getAttribute( 'step' ) || '0' ) !== timelineStep ) {
+
+						text.setAttribute( 'step', `${ timelineStep }` );
+						this.syncStep( text );
+
+					}
+
+					text.toggleAttribute( 'hidden', false );
+					text.toggleAttribute( 'dismissed', false );
+					text.toggleAttribute( 'last-step', true );
+					return;
+
+				}
+
+				if ( introReady && ! text.hasAttribute( 'dismissed' ) ) {
+
+					text.toggleAttribute( 'hidden', false );
+
+				}
+
+				if ( ! text.hasAttribute( 'hidden' ) ) {
+
+					const totalSteps = parseInt( text.getAttribute( 'steps' ) || '1' );
+					const step = parseInt( text.getAttribute( 'step' ) || '0' );
+					text.toggleAttribute( 'last-step', step >= totalSteps - 1 );
+
+				}
+
+				return;
+
+			}
+
 			if ( ! isVisible ) {
 
 				if ( wasVisible ) text.toggleAttribute( 'seen-once', true );
 
-				if ( text.hasAttribute( 'seen-once' ) || ( name === 'Particles' && particleUserInfoSeen ) ) {
+				if ( text.hasAttribute( 'seen-once' ) ) {
 
 					text.toggleAttribute( 'hidden', true );
 					text.toggleAttribute( 'dismissed', true );
@@ -72,32 +134,13 @@ export default class UserInfo extends HTMLElement {
 
 			}
 
-			if ( seenOnce || ( name === 'Particles' && particleUserInfoSeen ) ) {
+			if ( seenOnce ) {
 
 				text.toggleAttribute( 'hidden', true );
 				text.toggleAttribute( 'dismissed', true );
 				return;
 
 			}
-
-			if (
-				name === 'Particles' &&
-				particles === 'timeline'
-			) {
-
-				text.toggleAttribute( 'seen-once', true );
-				text.toggleAttribute( 'hidden', true );
-				text.toggleAttribute( 'dismissed', true );
-				Application.store.set( 'particle-user-info-seen', true );
-				return;
-
-			}
-
-			if (
-				name === 'Particles' &&
-				introReady &&
-				! text.hasAttribute( 'dismissed' )
-			) text.toggleAttribute( 'hidden', false );
 
 			if ( isVisible && ! text.hasAttribute( 'hidden' ) ) {
 
@@ -140,8 +183,16 @@ export default class UserInfo extends HTMLElement {
 
 			if ( text.getAttribute( 'name' ) === 'Particles' ) {
 
-				Application.store.set( 'particle-archive-entered', true );
-				Application.store.set( 'particle-user-info-seen', true );
+				if ( Application.store.particles === 'timeline' ) {
+
+					Application.store.set( 'particle-timeline-user-info-seen', true );
+
+				} else {
+
+					Application.store.set( 'particle-archive-entered', true );
+					Application.store.set( 'particle-user-info-seen', true );
+
+				}
 
 			}
 			text.toggleAttribute( 'dismissed', true );
@@ -155,8 +206,16 @@ export default class UserInfo extends HTMLElement {
 
 			if ( text.getAttribute( 'name' ) === 'Particles' ) {
 
-				Application.store.set( 'particle-archive-entered', true );
-				Application.store.set( 'particle-user-info-seen', true );
+				if ( Application.store.particles === 'timeline' ) {
+
+					Application.store.set( 'particle-timeline-user-info-seen', true );
+
+				} else {
+
+					Application.store.set( 'particle-archive-entered', true );
+					Application.store.set( 'particle-user-info-seen', true );
+
+				}
 
 			}
 
@@ -205,7 +264,8 @@ export default class UserInfo extends HTMLElement {
 			const name = text.getAttribute( 'name' );
 			const step = parseInt( text.getAttribute( 'step' ) || '0' );
 			const index = Math.clamp( step, 0, text.steps.length - 1 );
-			const activeIndex = isMobile && name === 'Particles' ? 0 : index;
+			const isParticleTimeline = name === 'Particles' && Application.store.particles === 'timeline';
+			const activeIndex = isMobile && name === 'Particles' && ! isParticleTimeline ? 0 : index;
 			let { title, paragraphs, cue } = text.steps[ activeIndex ];
 			const titleElement = text.querySelector( 'h5' );
 			const paragraphElement = text.querySelector( 'p' );
@@ -213,7 +273,7 @@ export default class UserInfo extends HTMLElement {
 			const exploreButton = text.querySelector( '[ explore ]' );
 			const closeButton = text.querySelector( '[ close ]' );
 
-			if ( isMobile && name === 'Particles' ) {
+			if ( isMobile && name === 'Particles' && ! isParticleTimeline ) {
 
 				paragraphs = 'Each particle is a pixel extracted from an image in the archive. Tap these particles to explore the projects. Drag to rotate the cloud. Pinch to zoom. Use the spectrum bar to filter colors, or switch modes from the bottom menu.';
 
@@ -223,11 +283,11 @@ export default class UserInfo extends HTMLElement {
 			if ( paragraphElement ) paragraphElement.innerHTML = paragraphs || '';
 			if ( cue ) text.setAttribute( 'cue', cue );
 			else text.removeAttribute( 'cue' );
-			if ( isMobile && name === 'Particles' ) text.setAttribute( 'cue', 'mobile' );
-			if ( nextButton ) nextButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' ? true : index >= text.steps.length - 1 );
-			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', isMobile && name === 'Particles' ? true : index >= text.steps.length - 1 );
-			if ( closeButton ) closeButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' ? true : index !== 0 );
-			text.toggleAttribute( 'last-step', isMobile && name === 'Particles' ? true : index >= text.steps.length - 1 );
+			if ( isMobile && name === 'Particles' && ! isParticleTimeline ) text.setAttribute( 'cue', 'mobile' );
+			if ( nextButton ) nextButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= text.steps.length - 1 );
+			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= text.steps.length - 1 );
+			if ( closeButton ) closeButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index !== 0 );
+			text.toggleAttribute( 'last-step', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= text.steps.length - 1 );
 
 		} );
 
@@ -625,6 +685,49 @@ export default class UserInfo extends HTMLElement {
 					display: none;
 				}
 
+				&[ cue="timeline" ] user-info-guide {
+					top: 50%;
+					left: 50%;
+					transform: translate( -50%, -50% );
+					width: 420px;
+					max-width: calc( 100vw - 80px );
+					min-height: 200px;
+					box-sizing: border-box;
+					padding: 22px 26px 20px;
+					transition: opacity 1s var( --timing-function );
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid var( --border-color );
+
+					&::before {
+						display: none;
+					}
+				}
+
+				&[ cue="timeline" ] user-info-copy {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					gap: 12px;
+					width: 100%;
+					height: 100%;
+					padding: 0;
+					background: none;
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+					border: none;
+				}
+
+				&[ cue="timeline" ] user-info-visual {
+					display: none;
+				}
+
+				&[ cue="timeline" ] p {
+					text-align: center;
+				}
+
 				&[ cue="spectrum" ] user-info-guide {
 					top: 50%;
 					right: calc( var( --margin-m ) + 196px );
@@ -872,6 +975,35 @@ export default class UserInfo extends HTMLElement {
 						width: calc( 100vw - 32px );
 						max-width: calc( 100vw - 32px );
 						min-height: 240px;
+					}
+
+					&[ cue="timeline" ] user-info-guide {
+						top: 50%;
+						left: 50%;
+						right: auto;
+						bottom: auto;
+						transform: translate( -50%, -50% );
+						width: calc( 100vw - 40px );
+						max-width: calc( 100vw - 40px );
+						min-height: auto;
+						padding: 18px 18px 16px;
+					}
+
+					&[ cue="timeline" ] p {
+						font-size: 15px;
+						line-height: 1.5;
+						text-align: center;
+					}
+
+					&[ cue="timeline" ] user-info-actions {
+						padding-top: 24px;
+					}
+
+					&[ cue="timeline" ] user-info-button {
+						width: auto;
+						min-width: 120px;
+						padding: 11px 18px;
+						font-size: 15px;
 					}
 
 					&[ cue="spectrum" ] user-info-guide {
