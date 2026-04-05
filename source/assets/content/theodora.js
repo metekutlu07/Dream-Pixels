@@ -2,9 +2,9 @@ export default {
 
 	path: 'theodora',
 	title: 'Theodora',
-	subtitle: 'Transcendental Complexity in Euclidian Space',
-	location: 'Paris',
-	date: 'May 2021',
+	subtitle: 'City as a Luminous Cloud',
+	location: 'Istanbul, Turkey',
+	date: '2021',
 	team: 'Mete Kutlu',
 	period: 'May 2021',
 

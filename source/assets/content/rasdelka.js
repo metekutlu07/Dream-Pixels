@@ -2,9 +2,9 @@ export default {
 
 	path: 'rasdelka',
 	title: 'Rasdelka',
-	subtitle: '3D Byzantine Miniature',
-	location: 'Paris',
-	date: 'May 2020',
+	subtitle: 'Architecture of the Invisible',
+	location: 'Vatican City',
+	date: '2020',
 	description: ' ',
 	sections: [
 		{

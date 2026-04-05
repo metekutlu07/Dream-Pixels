@@ -2,9 +2,9 @@ export default {
 
 	path: 'virtual-miniature',
 	title: 'Constantine',
-	subtitle: 'Interactive Urban Miniature',
-	location: 'Paris',
-	date: 'June 2021',
+	subtitle: 'Interactive 3D Miniature',
+	location: 'Istanbul, Turkey',
+	date: '2021',
 	team: 'Mete Kutlu & Emilien François',
 	period: 'June 2021',
 

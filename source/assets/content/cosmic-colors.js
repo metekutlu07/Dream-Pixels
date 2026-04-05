@@ -3,8 +3,8 @@ export default {
 	path: 'cosmic-colors',
 	title: 'Cosmic Colors',
 	subtitle: 'When Minerals Become Particles',
-	location: 'Paris',
-	date: 'January 2021',
+	location: 'Istanbul, Turkey',
+	date: '2021',
 	team: 'Mete Kutlu',
 	period: 'January 2021',
 

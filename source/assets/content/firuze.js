@@ -4,7 +4,7 @@ export default {
 	title: 'Firuzé',
 	subtitle: 'The Crystal Matrix',
 	location: 'Samarkand, Uzbekistan',
-	date: 'October 2022',
+	date: '2022',
 	team: 'Mete Kutlu',
 	partners: 'French Institute of Central Asian Studies',
 	description: ' ',

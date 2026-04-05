@@ -200,8 +200,8 @@ export default class Header extends HTMLElement {
 
 		if ( analyticsGroup ) {
 
-			analyticsGroup.style.opacity = '';
-			analyticsGroup.style.visibility = shouldHideArchivePanels ? 'hidden' : '';
+			analyticsGroup.style.opacity = shouldHideArchivePanels ? '0' : '';
+			analyticsGroup.style.visibility = '';
 			analyticsGroup.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
 
 		}

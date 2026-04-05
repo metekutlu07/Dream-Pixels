@@ -2,7 +2,7 @@ export default {
 
 	path: 'augustus',
 	title: 'Augustus',
-	subtitle: 'An Augmented Promenade in Medieval Paris',
+	subtitle: 'Augmented Promenade',
 	location: 'Paris',
 	date: 'December 2022',
 	team: 'Mete Kutlu & Theuns Botha',

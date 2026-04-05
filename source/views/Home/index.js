@@ -107,17 +107,20 @@ export default class Home extends View {
 
 		this.syncGateState();
 
-		const particleColorsReady = Application.particles?.ensureColorsReady?.() ||
-			Application.particles?.hasLoadedColors;
+		const particles = Application.particles;
+		const particleColorsReady = particles?.ensureColorsReady?.() || particles?.hasLoadedColors;
+		const particleSceneReady = particleColorsReady &&
+			particles?.visible &&
+			Application.metrics.simulationState === 'running';
 		const revealWaitElapsed = (
 			Application.time.elapsedTime - ( this.revealQueuedAt || 0 )
-		) > 2500;
+		) > 8000;
 
 		if (
 			this.pendingReveal &&
 			Application.store.path === '/' &&
 			! Application.store.loading &&
-			( particleColorsReady || revealWaitElapsed )
+			( particleSceneReady || revealWaitElapsed )
 		) this.runRevealSequence();
 
 	}

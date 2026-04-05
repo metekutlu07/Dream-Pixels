@@ -3,8 +3,8 @@ export default {
 	path: 'hagia-data',
 	title: 'Hagia Data',
 	subtitle: 'Temple of the Age of AI',
-	location: 'Paris',
-	date: 'October 2022',
+	location: 'Istanbul, Turkey',
+	date: '2022',
 	team: 'Mete Kutlu',
 	period: 'October 2022',
 

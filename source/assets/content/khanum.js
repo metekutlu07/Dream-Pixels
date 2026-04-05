@@ -4,7 +4,7 @@ export default {
 	title: 'Khanum',
 	subtitle: 'Virtual Mausoleum',
 	location: 'Samarkand, Uzbekistan',
-	date: 'January 2023',
+	date: '2023',
 	designer: 'Mete Kutlu',
 	period: 'January 2023',
 	partners: 'French Institute of Central Asian Studies (IFEAC)',

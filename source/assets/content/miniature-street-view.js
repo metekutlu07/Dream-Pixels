@@ -2,9 +2,9 @@ export default {
 
 	path: 'miniature-street-view',
 	title: 'Miniature Street View',
-	subtitle: 'Translating Talismanic To Panoramic Projection',
-	location: 'Paris',
-	date: 'November 2020',
+	subtitle: 'Inside the Painted World',
+	location: 'Paris, France',
+	date: '2020',
 	description: '',
 	sections: [
 		{
