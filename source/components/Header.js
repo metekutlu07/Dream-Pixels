@@ -30,10 +30,25 @@ export default class Header extends HTMLElement {
 
 		const isMobile = typeof matchMedia !== 'undefined' &&
 			matchMedia( '(max-width: 1024px)' ).matches;
-		const shouldHideMobileGridUI = isMobile &&
+		const isMobileGrid = isMobile &&
 			Application.store.path === '/experiments' &&
-			Application.store.list === 'grid' &&
-			window.scrollY > 24;
+			Application.store.list === 'grid';
+		const scrollY = window.scrollY;
+
+		if ( ! isMobileGrid ) this.mobileGridUIHidden = false;
+		else {
+
+			const previousScrollY = this.previousScrollY ?? scrollY;
+			const delta = scrollY - previousScrollY;
+
+			if ( scrollY <= 24 ) this.mobileGridUIHidden = false;
+			else if ( delta > 2 ) this.mobileGridUIHidden = true;
+			else if ( delta < -2 ) this.mobileGridUIHidden = false;
+
+		}
+
+		this.previousScrollY = scrollY;
+		const shouldHideMobileGridUI = !! this.mobileGridUIHidden;
 
 		this.toggleAttribute( 'mobile-grid-scrolled', shouldHideMobileGridUI );
 
