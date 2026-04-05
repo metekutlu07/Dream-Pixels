@@ -4,6 +4,7 @@ import VignettePass from './post-processing/VignettePass';
 import CopyPass from './post-processing/CopyPass';
 import MotionBlurPass from './post-processing/MotionBlurPass';
 import ChromaticAberrationPass from './post-processing/ChromaticAberrationPass';
+import WeakChromaticAberrationPass from './post-processing/WeakChromaticAberrationPass';
 import BloomPass from './post-processing/BloomPass';
 import NoisePass from './post-processing/NoisePass';
 
@@ -31,6 +32,11 @@ export default class PostProcessing {
 			chromaticAberrationPass: {
 				enabled: true,
 				strength: { value: .3, max: 2 },
+			},
+
+			weakChromaticAberrationPass: {
+				enabled: true,
+				strength: { value: .15, max: 2 },
 			},
 
 			bloomPass: {
@@ -98,14 +104,21 @@ export default class PostProcessing {
 			],
 
 			chromaticAberrationPass: [
-				{ path: '/' }
+				{ path: '/' },
+				{ path: '/experiments', list: 'grid' },
+				{ path: '/experiments', list: 'sphere' },
+			],
+
+			weakChromaticAberrationPass: [
+				{ path: '/experiments', list: 'particles' },
+				{ path: '/virtual-miniature' }
+
 			],
 
 			noisePass: [
 				{ path: '/experiments', list: 'places' },
 				{ path: '/experiments', list: 'grid' },
-				{ path: '/augustus' }
-
+				{ path: '/augustus' },
 			]
 
 		};
@@ -116,6 +129,7 @@ export default class PostProcessing {
 		this.bloomPass = new BloomPass();
 		this.motionBlurPass = new MotionBlurPass();
 		this.chromaticAberrationPass = new ChromaticAberrationPass();
+		this.weakChromaticAberrationPass = new WeakChromaticAberrationPass();
 		this.noisePass = new NoisePass();
 		this.vignettePass = new VignettePass();
 
@@ -130,6 +144,7 @@ export default class PostProcessing {
 		this.composer.addPass( this.bloomPass );
 		this.composer.addPass( this.motionBlurPass );
 		this.composer.addPass( this.chromaticAberrationPass );
+		this.composer.addPass( this.weakChromaticAberrationPass );
 		this.composer.addPass( this.noisePass );
 		this.composer.addPass( this.afterImagePass );
 		this.composer.addPass( this.glitchPass );
@@ -158,6 +173,7 @@ export default class PostProcessing {
 		const hasActivePass = (
 			this.isPassEnabled( 'vignettePass' ) ||
 			this.isPassEnabled( 'chromaticAberrationPass' ) ||
+			this.isPassEnabled( 'weakChromaticAberrationPass' ) ||
 			this.isPassEnabled( 'bloomPass' ) ||
 			this.isPassEnabled( 'noisePass' ) ||
 			this.isPassEnabled( 'motionBlurPass' ) ||
@@ -199,7 +215,16 @@ export default class PostProcessing {
 		const targets = this.passTargets[ passID ];
 		if ( ! targets || ! targets.length ) return true;
 
-		return targets.some( target => this.matchesTarget( target ) );
+		return !! this.getPassTarget( passID );
+
+	}
+
+	getPassTarget( passID ) {
+
+		const targets = this.passTargets[ passID ];
+		if ( ! targets || ! targets.length ) return true;
+
+		return targets.find( target => this.matchesTarget( target ) );
 
 	}
 

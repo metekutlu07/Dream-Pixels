@@ -38,22 +38,9 @@ import P26 from './robertus';
 // Add the imported project in the list below
 const projects = [
 
-	P2, P3, P4,
-	P6, P7, P8,
-	P9, P10, P11, P12,
-	P13, P14, P15, P16, P18, P25, P26, P19, P20, P21, P22, P23, P24
+	P12, P3, P13, P4, P6, P2, P7, P15, P10, P11, P14, P9, P16, P20, P18, P25, P26, P8, P21, P24, P22, P23, P19
 
 ];
-
-// Use to reorder projects by date, don't touch :)
-projects.sort( ( projectA, projectB ) => {
-
-	const dateA = new Date( projectA.date );
-	const dateB = new Date( projectB.date );
-
-	return dateA - dateB;
-
-} );
 
 export default {
 

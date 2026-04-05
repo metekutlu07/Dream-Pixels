@@ -22,7 +22,7 @@ export default class Panorama extends Mesh {
 
 		this.raycaster = new Raycaster();
 		this.rotation.y = Math.PI;
-		this.artworkID = 'miniature-street-view-1';
+		this.artworkID = 'miniature-street-view-6';
 
 		Application.events.add( this );
 
@@ -66,7 +66,7 @@ export default class Panorama extends Mesh {
 
 		if ( ! files[ 'miniature-street-view' ] ) return;
 
-		this.setTexture( '1' );
+		this.setTexture( '6' );
 
 	}
 

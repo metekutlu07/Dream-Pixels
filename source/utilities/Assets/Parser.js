@@ -22,7 +22,7 @@ export default class Parser {
 		this.GLTFloader = new GLTFLoader();
 
 		this.DRACOLoader = new DRACOLoader();
-		this.DRACOLoader.setDecoderPath( 'public/draco/' );
+		this.DRACOLoader.setDecoderPath( '/public/draco/' );
 		this.GLTFloader.setDRACOLoader( this.DRACOLoader );
 
 	}

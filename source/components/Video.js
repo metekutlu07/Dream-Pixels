@@ -97,6 +97,14 @@ export default class Video extends HTMLElement {
 			left: 0;
 			object-fit: cover;
 
+			&::-webkit-media-controls,
+			&::-webkit-media-controls-panel,
+			&::-webkit-media-controls-start-playback-button {
+				display: none !important;
+				-webkit-appearance: none;
+				opacity: 0 !important;
+			}
+
 			[ fullscreen ] & {
 				height: 100%;
 			}
@@ -111,7 +119,16 @@ export default class Video extends HTMLElement {
 		`;
 
 		const { controls, fullscreen, border, poster, preloadMedia, startAt } = parameters;
-		const attributes = [ 'autoplay', 'playsinline', 'webkit-playsinline', 'muted', 'loop', 'preload="auto"' ];
+		const attributes = [
+			'autoplay',
+			'playsinline',
+			'webkit-playsinline',
+			'muted',
+			'loop',
+			'preload="auto"',
+			'disablepictureinpicture',
+			'disableremoteplayback'
+		];
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const offset = startAt ?? .1;
 		const src = source ? `src="${ source }#t=${ offset }"` : '';

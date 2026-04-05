@@ -275,6 +275,8 @@ export default class UserInfo extends HTMLElement {
 				max-width: calc( 100vw - 64px );
 				padding: 22px 28px 20px;
 				box-sizing: border-box;
+				overflow: hidden;
+				isolation: isolate;
 				transform: translate( -50%, -50% );
 				background: rgba( 0, 0, 0, .28 );
 				backdrop-filter: blur( 10px );
@@ -314,6 +316,8 @@ export default class UserInfo extends HTMLElement {
 					bottom: auto;
 					top: 50%;
 					left: 50%;
+					overflow: hidden;
+					isolation: isolate;
 					transform: translate( -50%, -50% );
 					width: min( 520px, calc( 100vw - 64px ) );
 					padding: 20px 22px 18px;
@@ -528,12 +532,13 @@ export default class UserInfo extends HTMLElement {
 					box-sizing: border-box;
 					padding: 22px 26px 20px;
 					transition: opacity 1s var( --timing-function );
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
-						background: rgba( 0, 0, 0, .28 );
-						backdrop-filter: blur( 10px );
-						-webkit-backdrop-filter: blur( 10px );
+						display: none;
 					}
 				}
 
@@ -578,12 +583,13 @@ export default class UserInfo extends HTMLElement {
 					flex-direction: row;
 					align-items: center;
 					gap: 26px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
-						background: rgba( 0, 0, 0, .28 );
-						backdrop-filter: blur( 10px );
-						-webkit-backdrop-filter: blur( 10px );
+						display: none;
 					}
 
 					& user-info-copy {
@@ -616,12 +622,13 @@ export default class UserInfo extends HTMLElement {
 					width: 800px;
 					max-width: calc( 100vw - 80px );
 					height: 210px;
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
-						background: rgba( 0, 0, 0, .28 );
-						backdrop-filter: blur( 10px );
-						-webkit-backdrop-filter: blur( 10px );
+						display: none;
 					}
 				}
 

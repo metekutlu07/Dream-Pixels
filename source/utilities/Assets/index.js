@@ -105,7 +105,7 @@ export default class Assets {
 			request.addEventListener( 'progress', this.onProgress );
 			request.addEventListener( 'load', this.onProgress );
 
-			request.open( 'GET', `packs/${ path }.pack` );
+			request.open( 'GET', `/packs/${ path }.pack` );
 			request.send();
 
 		} );

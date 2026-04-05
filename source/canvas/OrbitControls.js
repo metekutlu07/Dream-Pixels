@@ -94,7 +94,7 @@ export default class OrbitControls extends Object3D {
 
 		case 'MiniatureStreetView':
 
-			this.lerpState.set( 1, 0, 0 );
+			this.lerpState.set( 1, 0, .75 );
 
 			Object.assign( this.parameters, {
 
@@ -110,7 +110,7 @@ export default class OrbitControls extends Object3D {
 		case 'VirtualMiniature':
 
 			this.lerpState.set( 25, .75, -.25 );
-			this.offsetState.radius = 45 - this.lerpState.radius;
+			this.offsetState.radius = 0;
 			this.offsetState.phi = .55 - this.lerpState.phi;
 			this.offsetState.theta = 0 - this.lerpState.theta;
 

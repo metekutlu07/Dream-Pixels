@@ -293,6 +293,7 @@ export default class Item extends HTMLElement {
 		item-thumbnail video-block {
 			position: relative;
 			z-index: 1;
+			pointer-events: none;
 		}
 
 		item-footer {

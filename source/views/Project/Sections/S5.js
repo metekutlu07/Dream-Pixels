@@ -147,7 +147,7 @@ export default class S5 extends HTMLElement {
 		const { points, path } = content;
 
 		const panelAttributes = [ 'scrollable', '#asides|section-type-5' ];
-		if ( path === 'virtual-miniature' ) panelAttributes.push( 'floating-panel' );
+		if ( path === 'virtual-miniature' ) panelAttributes.push( 'floating-panel', 'tag-linked-panel' );
 		const panels = points.map( point => {
 
 			const {

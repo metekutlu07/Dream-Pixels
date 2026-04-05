@@ -10,6 +10,15 @@ export default class Sphere extends Mesh {
 
 		super( geometry, material );
 
+		Application.events.add( this );
+
+	}
+
+	onPreFrame() {
+
+		const scale = Application.store.path === '/virtual-miniature' ? 2 : 1;
+		this.scale.setScalar( scale );
+
 	}
 
 }

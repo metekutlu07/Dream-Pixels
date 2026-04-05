@@ -26,10 +26,13 @@ export default class ChromaticAberrationPass extends ShaderPass {
 
 	onPreFrame() {
 
-		const { chromaticAberrationPass } = Application.postProcessing.parameters;
-		const { strength } = chromaticAberrationPass;
-		this.uniforms[ 'strength' ].value = strength;
-		this.enabled = Application.postProcessing.isPassEnabled( 'chromaticAberrationPass' );
+		const { postProcessing } = Application;
+		const { chromaticAberrationPass } = postProcessing.parameters;
+		const target = postProcessing.getPassTarget( 'chromaticAberrationPass' );
+		const multiplier = target && target !== true ? target.strengthMultiplier || 1 : 1;
+
+		this.uniforms[ 'strength' ].value = chromaticAberrationPass.strength * multiplier;
+		this.enabled = postProcessing.isPassEnabled( 'chromaticAberrationPass' );
 
 	}
 

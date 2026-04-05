@@ -128,7 +128,7 @@ export default class View extends HTMLElement {
 			packIDs.push( 'france-01-annunciation' );
 
 		if ( packID === 'miniature-street-view' )
-			packIDs.push( 'miniature-street-view-1' );
+			packIDs.push( 'miniature-street-view-6' );
 
 		return packIDs;
 

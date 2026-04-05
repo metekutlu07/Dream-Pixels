@@ -5,7 +5,7 @@ export default class Aside extends HTMLElement {
 	onConnected( index ) {
 
 		this.index = index;
-		Application.store.set( 'display-aside', true );
+		if ( ! this.hasAttribute( 'tag-linked-panel' ) ) Application.store.set( 'display-aside', true );
 
 	}
 
@@ -32,7 +32,7 @@ export default class Aside extends HTMLElement {
 		this.toggleAttribute( 'visible', true );
 
 		Application.audio.play( '001.mp3' );
-		Application.camera.setOffsetLeftFactor( 1 );
+		Application.camera.setOffsetLeftFactor( this.hasAttribute( 'floating-panel' ) ? 0 : 1 );
 
 	}
 
@@ -75,7 +75,7 @@ export default class Aside extends HTMLElement {
 			}
 
 			[ view-enter ] &:not( [ scrollable ] ),
-			[ view-enter ][ display-aside ] &[ scrollable ],
+			[ view-enter ][ display-aside ] &[ scrollable ]:not( [ tag-linked-panel ] ),
 			[ view-enter ]  &[ visible ][ scrollable ] {
 				transform: translateX( 0 );
 			}
@@ -149,7 +149,22 @@ export default class Aside extends HTMLElement {
 				}
 
 				& default-button {
-					display: none;
+					display: flex;
+					top: 12px;
+					right: 12px;
+					z-index: 1;
+					background: rgba( 255, 255, 255, .08 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
+					border: var( --border-size ) solid rgba( 255, 255, 255, .28 );
+
+					& button-label {
+						padding: 8px 12px;
+						font-size: var( --font-size-s );
+						font-family: var( --font-family-b );
+						line-height: 1;
+						letter-spacing: .04em;
+					}
 				}
 
 				@media ( max-width: 1024px ) {
@@ -166,6 +181,18 @@ export default class Aside extends HTMLElement {
 					max-width: none;
 					max-height: none;
 				}
+			}
+
+			&[ scrollable ][ tag-linked-panel ] {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+			[ view-enter ] &[ scrollable ][ tag-linked-panel ][ visible ] {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
 			}
 
 			& scrolling-block {
@@ -205,7 +232,15 @@ export default class Aside extends HTMLElement {
 
 		`;
 
-		const button = { attributes: [ 'close', '@click|aside-block', 'reversed' ] };
+		const buttonAttributes = [ 'close', '@click|aside-block', 'reversed' ];
+		const button = { attributes: buttonAttributes };
+
+		if ( attributes.includes( 'tag-linked-panel' ) ) {
+
+			button.attributes.push( 'floating-close' );
+			button.labels = [ '×' ];
+
+		}
 
 		return html`
 

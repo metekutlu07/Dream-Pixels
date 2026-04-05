@@ -42,6 +42,16 @@ export default {
 				location: '',
 				city: ''
 			},
+			'venice-01-lorenzo-veneziano': {
+				title: 'Lorenzo Veneziano',
+				location: '',
+				city: ''
+			},
+			'venice-06-san-marco\'s-saints': {
+				title: 'San Marco\'s Saints',
+				location: '',
+				city: ''
+			},
 			'france-01-annunciation': {
 				title: 'Annunciation',
 				location: 'Church of Saint Foy',
@@ -101,16 +111,6 @@ export default {
 				title: 'Fall of Adam',
 				location: 'Cluny Abbey',
 				city: 'Cluny'
-			},
-			'venice-01-lorenzo-veneziano': {
-				title: 'Lorenzo Veneziano',
-				location: '',
-				city: ''
-			},
-			'venice-06-san-marco\'s-saints': {
-				title: 'San Marco\'s Saints',
-				location: '',
-				city: ''
 			}
 		}
 	} ]

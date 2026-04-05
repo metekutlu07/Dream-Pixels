@@ -168,11 +168,28 @@ export default class Header extends HTMLElement {
 		const sharedGroups = this.querySelectorAll(
 			'header-small-screen, header-navigation, header-controls'
 		);
+		const setButtonsVisibility = ( container, hidden ) => {
+
+			if ( ! container ) return;
+
+			const buttons = container.querySelectorAll( 'default-button' );
+
+			buttons.forEach( button => {
+
+				button.style.opacity = hidden ? '0' : '';
+				button.style.visibility = hidden ? 'hidden' : '';
+				button.style.pointerEvents = hidden ? 'none' : '';
+
+			} );
+
+		};
 
 		sharedGroups.forEach( group => {
 
-			group.style.opacity = shouldHideArchiveUI ? '0' : '';
-			group.style.pointerEvents = shouldHideArchiveUI ? 'none' : '';
+			group.style.opacity = '';
+			group.style.visibility = '';
+			group.style.pointerEvents = '';
+			setButtonsVisibility( group, shouldHideArchiveUI );
 
 		} );
 
@@ -183,7 +200,8 @@ export default class Header extends HTMLElement {
 
 		if ( analyticsGroup ) {
 
-			analyticsGroup.style.opacity = shouldHideArchivePanels ? '0' : '';
+			analyticsGroup.style.opacity = '';
+			analyticsGroup.style.visibility = shouldHideArchivePanels ? 'hidden' : '';
 			analyticsGroup.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
 
 		}
@@ -191,14 +209,16 @@ export default class Header extends HTMLElement {
 		if ( gridModesGroup ) {
 
 			gridModesGroup.style.opacity = '';
-			gridModesGroup.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
+			gridModesGroup.style.pointerEvents = '';
 
 		}
 
 		gridModePanels.forEach( panel => {
 
-			panel.style.opacity = shouldHideArchivePanels ? '0' : '1';
-			panel.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
+			panel.style.opacity = '';
+			panel.style.visibility = '';
+			panel.style.pointerEvents = '';
+			setButtonsVisibility( panel, shouldHideArchivePanels );
 
 		} );
 
@@ -273,6 +293,11 @@ export default class Header extends HTMLElement {
 
 			[ path="/" ] & {
 				transition: none;
+			}
+
+			& default-button {
+				transition: opacity 1s var( --timing-function );
+				will-change: opacity;
 			}
 		}
 
@@ -380,35 +405,14 @@ export default class Header extends HTMLElement {
 				font-family: var( --font-family-c );
 				font-size: 1.65rem;
 				letter-spacing: .04em;
+				background: rgba( 8, 8, 8, .34 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
 			}
 
-			& default-button button-label,
-			& default-button button-icon {
-				position: relative;
-				overflow: hidden;
-				isolation: isolate;
-				transform: translateZ( 0 );
-
-				&::before {
-					content: '';
-					position: absolute;
-					inset: 0;
-					z-index: 0;
-					background: rgba( 8, 8, 8, .34 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
-					transform: translateZ( 0 );
-				}
-
-				& > * {
-					position: relative;
-					z-index: 1;
-				}
-			}
-
-			& default-button[ selected ] button-label::before,
-			& default-button[ selected ] button-icon::before {
-				display: none;
+			& default-button[ selected ] {
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
 			}
 
 			& default-button[ home ] {
@@ -479,35 +483,14 @@ export default class Header extends HTMLElement {
 			}
 
 			& default-button {
+				background: rgba( 8, 8, 8, .34 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
 			}
 
-			& default-button button-label,
-			& default-button button-icon {
-				position: relative;
-				overflow: hidden;
-				isolation: isolate;
-				transform: translateZ( 0 );
-
-				&::before {
-					content: '';
-					position: absolute;
-					inset: 0;
-					z-index: 0;
-					background: rgba( 8, 8, 8, .34 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
-					transform: translateZ( 0 );
-				}
-
-				& > * {
-					position: relative;
-					z-index: 1;
-				}
-			}
-
-			& default-button[ selected ] button-label::before,
-			& default-button[ selected ] button-icon::before {
-				display: none;
+			& default-button[ selected ] {
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
 			}
 		}
 
@@ -523,35 +506,14 @@ export default class Header extends HTMLElement {
 				font-family: var( --font-family-c );
 				font-size: 1.65rem;
 				letter-spacing: .04em;
+				background: rgba( 8, 8, 8, .34 );
+				backdrop-filter: blur( 10px );
+				-webkit-backdrop-filter: blur( 10px );
 			}
 
-			& default-button button-label,
-			& default-button button-icon {
-				position: relative;
-				overflow: hidden;
-				isolation: isolate;
-				transform: translateZ( 0 );
-
-				&::before {
-					content: '';
-					position: absolute;
-					inset: 0;
-					z-index: 0;
-					background: rgba( 8, 8, 8, .34 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
-					transform: translateZ( 0 );
-				}
-
-				& > * {
-					position: relative;
-					z-index: 1;
-				}
-			}
-
-			& default-button[ selected ] button-label::before,
-			& default-button[ selected ] button-icon::before {
-				display: none;
+			& default-button[ selected ] {
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
 			}
 
 			& button-label,

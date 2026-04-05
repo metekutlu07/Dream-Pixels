@@ -10,21 +10,8 @@ export default class Grid extends HTMLElement {
 
 	onPreFrame() {
 
-		const element = document.body;
-		const scrollTop = element.scrollTop;
-
-		const heights = this.columns.map( column => column.clientHeight );
-		const highest = Array.from( heights ).sort()[ heights.length - 1 ];
-
-		this.columns.forEach( ( column, index ) => {
-
-			const height = heights[ index ];
-			const offset = ( highest / height - 1 );
-			column.translateY = -( scrollTop - offset * scrollTop );
-			column.offsetY = -offset * scrollTop;
-			column.style.transform = `translateY( ${ offset * scrollTop }px )`;
-
-		} );
+		if ( ! this.columns ) return;
+		this.columns.forEach( column => column.style.transform = '' );
 
 	}
 
@@ -101,13 +88,19 @@ export default class Grid extends HTMLElement {
 			display: flex;
 			flex-direction: row;
 			width: 100vw;
-			padding: var( --margin-m );
+			padding:
+				calc( 84px + var( --margin-m ) )
+				var( --margin-m )
+				var( --margin-m );
 			pointer-events: none;
 			align-items: flex-start;
 			margin-bottom: 100px;
 
 			@media ( max-width: 650px ) {
-				padding: var( --margin-s );
+				padding:
+					calc( 84px + var( --margin-s ) )
+					var( --margin-s )
+					var( --margin-s );
 			}
 
 			[ list="grid" ] & {

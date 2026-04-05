@@ -2,7 +2,7 @@ export default {
 
 	path: 'sanshin',
 	title: 'Sanshin',
-	subtitle: 'Digitizing Korean Temples',
+	subtitle: 'Virtual Touch',
 	location: 'Paris',
 	date: 'April 2022',
 	team: 'Mete Kutlu',
