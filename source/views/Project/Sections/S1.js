@@ -145,7 +145,7 @@ export default class S1 {
 			.findIndex( project => project.path === path );
 		const projectNumber = projectIndex === -1 ? '' :
 			`${ projectIndex + 1 }`.padStart( 2, '0' );
-		const meta = [ date, location ].filter( Boolean ).join( ' / ' );
+		const meta = [ location, date ].filter( Boolean ).join( ', ' );
 
 		let media = '';
 

@@ -73,13 +73,21 @@ export default class AudioInterface {
 			'/public/freedom.mp3';
 
 		if ( this.loop.src.match( source ) ) return;
+		if ( this.isSwitchingSource ) return;
 
-		await this.fade( this.loop, 0 );
+		this.isSwitchingSource = true;
 
 		try {
 
+			await this.fade( this.loop, 0 );
+
+			this.loop.pause();
+			this.loop.currentTime = 0;
+			this.loop.volume = 0;
 			this.loop.src = source;
-			this.loop.play();
+			this.loop.load();
+			await this.loop.play();
+			await this.fade( this.loop, 1 );
 
 		} catch ( error ) {
 
@@ -87,14 +95,21 @@ export default class AudioInterface {
 
 			if ( isProjectRoute ) {
 
+				this.loop.pause();
+				this.loop.currentTime = 0;
+				this.loop.volume = 0;
 				this.loop.src = '/public/freedom.mp3';
-				this.loop.play();
+				this.loop.load();
+				await this.loop.play();
+				await this.fade( this.loop, 1 );
 
 			}
 
-		}
+		} finally {
 
-		await this.fade( this.loop, 1 );
+			this.isSwitchingSource = false;
+
+		}
 
 	}
 
