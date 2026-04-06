@@ -62,6 +62,7 @@ export default class Artwork extends Object3D {
 		const { camera } = Application;
 		const { lerpState, currentState } = camera.orbitControls;
 		currentState.copy( lerpState.set( 50, 0, 0 ) );
+		camera.orbitControls.autoRotateDelay = 0;
 
 		this.scale.setScalar( 1 );
 		this.position.setScalar( 0 );

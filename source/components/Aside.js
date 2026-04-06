@@ -164,6 +164,7 @@ export default class Aside extends HTMLElement {
 						font-family: var( --font-family-b );
 						line-height: 1;
 						letter-spacing: .04em;
+						text-transform: uppercase;
 					}
 				}
 
@@ -225,22 +226,21 @@ export default class Aside extends HTMLElement {
 					width: auto;
 					max-width: none;
 					max-height: none;
-					padding-top: calc( 52px + var( --margin-s ) );
-					padding-bottom: var( --margin-s );
+					padding: calc( 52px + var( --margin-s ) ) var( --margin-s ) var( --margin-s );
 
 					& default-button {
-						position: sticky;
-						top: 0;
-						right: auto;
+						position: absolute;
+						top: var( --margin-s );
+						right: var( --margin-s );
 						left: auto;
-						margin-left: auto;
-						margin-bottom: var( --margin-s );
+						margin: 0;
 						z-index: 2;
 						width: fit-content;
 					}
 
 					& scrolling-block {
 						padding: 0;
+						height: 100%;
 					}
 				}
 			}

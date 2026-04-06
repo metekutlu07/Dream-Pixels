@@ -59,8 +59,7 @@ export default class S6 extends HTMLElement {
 		const wireframeButton = this.querySelector( '[ action="toggle-wireframe" ]' );
 		if ( renderButton ) {
 
-			const label = Application.scene.artwork.renderAsPoints ? 'Solid' : 'Point Cloud';
-			renderButton.textContent = label;
+			renderButton.textContent = 'Point Cloud';
 			renderButton.toggleAttribute( 'active', Application.scene.artwork.renderAsPoints );
 
 		}
@@ -97,6 +96,9 @@ export default class S6 extends HTMLElement {
 				background: rgba( 0, 0, 0, .28 );
 				backdrop-filter: blur( 10px );
 				-webkit-backdrop-filter: blur( 10px );
+				box-sizing: border-box;
+				overflow: hidden;
+				isolation: isolate;
 
 				@media ( max-width: 650px ) {
 					left: 50%;
@@ -165,12 +167,17 @@ export default class S6 extends HTMLElement {
 		}
 
 		artwork-list {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
 
 			& li {
 				cursor: pointer;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+				width: min( 320px, 100% );
 				padding: var( --margin-m ) 0;
 				transition: all .75s var( --timing-function );
 
@@ -190,6 +197,7 @@ export default class S6 extends HTMLElement {
 			& img {
 				position: relative;
 				max-height: 200px;
+				width: min( 220px, 100% );
 				object-fit: contain;
 				object-position: center;
 			}

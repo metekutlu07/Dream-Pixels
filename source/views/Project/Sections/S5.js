@@ -7,11 +7,25 @@ export default class S5 extends HTMLElement {
 
 	onConnected() {
 
+		clearTimeout( this.interactionTimeout );
+		if ( Application.store.path === '/virtual-miniature' ) {
+
+			Application.store.set( 'miniature-interaction-ready', false );
+			this.interactionTimeout = setTimeout( () => {
+
+				Application.store.set( 'miniature-interaction-ready', true );
+
+			}, 12000 );
+
+		} else Application.store.set( 'miniature-interaction-ready', true );
+
 		this.updateControls();
 
 	}
 
 	onClick( event ) {
+
+		if ( Application.store.path === '/virtual-miniature' && ! Application.store[ 'miniature-interaction-ready' ] ) return;
 
 		const { currentTarget } = event;
 		const { asides, buttons } = this.elements;

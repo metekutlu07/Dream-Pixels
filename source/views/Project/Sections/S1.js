@@ -109,6 +109,7 @@ export default class S1 {
 			}
 
 			@media ( max-width: 650px ) {
+				min-height: 100svh;
 				margin-bottom: var( --margin-m );
 
 				& hero-overlay {

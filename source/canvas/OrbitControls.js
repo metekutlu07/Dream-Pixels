@@ -135,10 +135,11 @@ export default class OrbitControls extends Object3D {
 
 			Object.assign( this.parameters, {
 
-				rotateSpeed: 2,
+				rotateSpeed: 3.5,
 				enableRotate: true,
 				autoRotate: true,
 				enableZoom: true,
+				dampingFactor: .085,
 
 				minDistance: 25,
 				maxDistance: 75
@@ -397,6 +398,7 @@ export default class OrbitControls extends Object3D {
 	onInputStart( event ) {
 
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+		if ( Application.store.path === '/virtual-miniature' && ! Application.store[ 'miniature-interaction-ready' ] ) return;
 		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) return;
 
 		if ( event.touches?.length >= 2 && this.parameters.enableZoom ) {

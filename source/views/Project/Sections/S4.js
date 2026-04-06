@@ -106,6 +106,7 @@ export default class S4 {
 				align-self: flex-start;
 
 				@media ( max-width: 650px ) {
+					margin-top: calc( var( --margin-s ) * .5 );
 					margin-bottom: calc( var( --margin-s ) * 2 );
 				}
 			}

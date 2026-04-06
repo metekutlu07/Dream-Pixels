@@ -41,6 +41,7 @@ export default class Project extends View {
 			width: 100vw;
 			display: block;
 			padding-bottom: 300px;
+			overscroll-behavior-y: contain;
 
 			[ path="/miniature-street-view" ] &,
 			[ path="/virtual-miniature" ] &,
@@ -70,6 +71,7 @@ export default class Project extends View {
 			align-items: center;
 			justify-content: center;
 			width: 100%;
+			margin-top: 100px;
 			padding: 0 var( --margin-m ) var( --margin-m );
 			font-family: var( --font-family-c );
 			font-size: var( --font-size-s );

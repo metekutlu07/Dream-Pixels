@@ -125,7 +125,7 @@ export default {
 			media: {
 				source: 'public/sanshin/sanop.jpg',
 				caption: '3D scan of the bell pavilion of Jingwansa Temple.',
-				explain: 'Founded in 1010 during the Goryeo dynasty, Jingwansa Temple is located on Mount Bukhansan in Seoul. This image shows a high-resolution 3D scan of its richly ornamented bell pavilion (<em>punggyeongru</em>), constructed in the dapo style, with multi-bracket clusters supporting the extended eaves.  The left side reveals the intricate dancheong patterns and interlocking bracket structures in photorealistic detail, while the right side presents a holographic visualization highlighting geomety and surface detail. The model is generated from about 500 photos taken with an iPhone 11 using Apple’s Object Capture API. The image is rendered in Cinema 4D with Octane. Scan and image by the author, 2023.',
+				explain: 'Founded in 1010 during the Goryeo dynasty, Jingwansa Temple is located on Mount Bukhansan in Seoul. This image shows a high-resolution 3D scan of its richly ornamented bell pavilion <em>(punggyeongru),</em> constructed in the dapo style, with multi-bracket clusters supporting the extended eaves.  The left side reveals the intricate dancheong patterns and interlocking bracket structures in photorealistic detail, while the right side presents a holographic visualization highlighting geomety and surface detail. The model is generated from about 500 photos taken with an iPhone 11 using Apple’s Object Capture API. The image is rendered in Cinema 4D with Octane. Scan and image by the author, 2023.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},

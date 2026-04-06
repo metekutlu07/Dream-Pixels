@@ -10,6 +10,7 @@ export default class AudioInterface {
 
 		this.isMuted = true;
 		this.volume = 1;
+		this.musicVolume = .5;
 		this.cache = {};
 
 		addEventListener( 'mousedown', this.onUnlock );
@@ -41,6 +42,7 @@ export default class AudioInterface {
 			this.loop.loop = true;
 			this.loop.playsInline = true;
 			this.loop.preload = 'auto';
+			this.loop.volume = this.musicVolume;
 
 			const node = new Node( this.audioListener );
 			node.setMediaElementSource( this.loop );
@@ -87,7 +89,7 @@ export default class AudioInterface {
 			this.loop.src = source;
 			this.loop.load();
 			await this.loop.play();
-			await this.fade( this.loop, 1 );
+			await this.fade( this.loop, this.musicVolume );
 
 		} catch ( error ) {
 
@@ -101,7 +103,7 @@ export default class AudioInterface {
 				this.loop.src = '/public/horlogo.mp3';
 				this.loop.load();
 				await this.loop.play();
-				await this.fade( this.loop, 1 );
+				await this.fade( this.loop, this.musicVolume );
 
 			}
 

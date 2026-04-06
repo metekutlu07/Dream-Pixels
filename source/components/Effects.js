@@ -58,17 +58,17 @@ export default class Effects extends HTMLElement {
 			& noise-effect {
 				background-image: url( "/public/common/Noise.png" );
 				background-repeat: repeat;
-				background-size: 320px;
+				background-size: 220px;
 				background-position: 0 0;
 				opacity: 0;
 				display: none;
 				mix-blend-mode: screen;
-				filter: contrast( 175% ) brightness( 150% );
+				filter: contrast( 145% ) brightness( 125% );
 			}
 
 			&[ project-noise ] noise-effect {
 				display: block;
-				opacity: .28;
+				opacity: .16;
 				animation: project-noise-shift .28s steps( 2 ) infinite;
 			}
 

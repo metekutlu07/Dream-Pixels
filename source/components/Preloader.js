@@ -41,6 +41,11 @@ export default class Preloader extends HTMLElement {
 			opacity: 0;
 			transition: opacity .45s var( --timing-function );
 
+			@media ( max-width: 650px ) {
+				height: 100svh;
+				min-height: 100svh;
+			}
+
 			&::before {
 				content: '';
 				position: absolute;

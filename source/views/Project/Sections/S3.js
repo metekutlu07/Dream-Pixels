@@ -222,10 +222,14 @@ export default class S3 {
 
 					& p {
 						width: 100%;
-						margin-top: var( --margin-s );
+						margin-top: calc( var( --margin-s ) * .5 );
 						padding-left: 0;
 						padding-right: 0;
 					}
+				}
+
+				& > content-frame > p {
+					margin-top: calc( var( --margin-s ) * .5 );
 				}
 			}
 		}
