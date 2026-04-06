@@ -128,6 +128,12 @@ export default class Header extends HTMLElement {
 			Application.store.set( 'particles', particles );
 			Application.store.set( 'places', places );
 			Application.store.set( 'skip-particle-gate', list === 'particles' );
+			if ( list === 'particles' ) {
+
+				Application.store.set( 'ui-ready', false );
+				Application.store.set( 'intro-ready', false );
+
+			}
 			Application.router.navigate( '/experiments' );
 			return;
 

@@ -35,7 +35,8 @@ export default {
 		{
 			type: 'S13',
 			media: {
-				source: 'https://youtu.be/N2TgatxHf2w'
+				source: 'https://youtu.be/N2TgatxHf2w',
+				note: 'Choose high resolution in the settings at the top right corner.'
 			}
 		},
 		{
@@ -51,7 +52,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/firuze/timurid-map.jpg',
-				caption: 'Map of the Timurid Empire and the itinerary of my research mission',
+				caption: 'Map of the Timurid Empire and the itinerary of my research mission, Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architecture', 'Mosaics' ]
 			},
 		},
@@ -59,7 +60,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/firuze/babur-samarkand.jpg',
-				caption: 'A cosmic city designed as a reflection of the gardens of the heveans',
+				caption: 'A cosmic city designed as a reflection of the gardens of the heveans, Mete Kutlu, 2023.',
 				explain: '<br>Map of Samarkand according to Babur\'s memoirs',
 				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architecture', 'Mosaics' ]
 			},
@@ -68,7 +69,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/firuze/samarkand-zoom.jpg',
-				caption: 'Samarkand during the Pre-Mongol, Turkish and Soviet periods',
+				caption: 'Samarkand during the Pre-Mongol, Turkish and Soviet periods, Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architecture', 'Mosaics' ]
 			},
 		},
@@ -76,7 +77,7 @@ export default {
 			type: 'S3',
 			media: {
 				source: 'public/firuze/shahi-zinda-plan.jpg',
-				caption: 'Scanned mausoleums of the Shah-i Zinda Necropolis, Samarkand',
+				caption: 'Scanned mausoleums of the Shah-i Zinda Necropolis, Samarkand, Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
 			},
 		},

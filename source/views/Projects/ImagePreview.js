@@ -34,13 +34,8 @@ export default class ImagePreview extends HTMLElement {
 			const number = ( '00' + ( index + 1 ) ).substr( -2 );
 
 			title.innerHTML = `${ project.title } <span>| ${ number }</span>`;
-			caption.innerHTML = [
-				parameters.caption,
-				parameters.explain
-			].filter( Boolean ).join( ' ' );
-			tags.innerHTML = parameters.tags
-				.map( tag => html`<span>${ tag }</span>` )
-				.join( ', ' );
+			caption.innerHTML = parameters.caption || '';
+			tags.innerHTML = '';
 
 		}
 
@@ -130,17 +125,12 @@ export default class ImagePreview extends HTMLElement {
 					font-family: var( --font-family-b );
 					font-size: .9em;
 					opacity: .25;
-					display: none;
+					display: inline;
 				}
 			}
 
 			& h4 {
-				font-family: var( --font-family-c );
-				font-size: var( --font-size-xs );
-
-				& span {
-					display: inline-block;
-				}
+				display: none;
 			}
 
 			& h5 {

@@ -35,6 +35,9 @@ export default class View extends HTMLElement {
 
 			}
 
+			if ( view.tagName === 'PROJECT-VIEW' )
+				await Application.time.wait( 2000 );
+
 			if ( ! this.isConnected ) return;
 
 			this.toggleAttribute( 'hidden' );
@@ -140,6 +143,9 @@ export default class View extends HTMLElement {
 	async load() {
 
 		const { path, route } = Application.router.parseURL();
+		const isParticleExperimentsRoute =
+			path === '/experiments' &&
+			Application.store.list === 'particles';
 
 		Application.audio.play( '005.mp3' );
 		Application.store.set( 'view-enter', false );
@@ -147,6 +153,12 @@ export default class View extends HTMLElement {
 
 		Application.audio.play( '004.mp3' );
 		Application.store.set( 'loading', true );
+		if ( isParticleExperimentsRoute ) {
+
+			Application.store.set( 'ui-ready', false );
+			Application.store.set( 'intro-ready', false );
+
+		}
 
 		try {
 

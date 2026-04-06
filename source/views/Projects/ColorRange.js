@@ -163,7 +163,7 @@ export default class ColorRange extends HTMLElement {
 			touch-action: none;
 
 			@media ( max-width: 650px ) {
-				right: 4px;
+				right: -10px;
 				width: 104px;
 				height: 320px;
 				padding: 14px;

@@ -123,7 +123,7 @@ export default class S4 {
 			}
 
 			& project-caption {
-				font-weight: 600;
+				font-weight: 300;
 			}
 
 			& project-explain {

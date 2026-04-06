@@ -183,6 +183,68 @@ export default class Aside extends HTMLElement {
 				}
 			}
 
+			&[ scrollable ][ photogrammetry-library ] {
+				@media ( max-width: 650px ) {
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					width: 100vw;
+					max-width: none;
+					max-height: none;
+					padding: 0;
+					background: rgba( 0, 0, 0, .96 );
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+					border: none;
+					scrollbar-width: none;
+
+					& default-button {
+						display: none;
+					}
+
+					& scrolling-block {
+						padding:
+							calc( 54px + var( --margin-s ) * 2 )
+							var( --margin-s )
+							120px;
+					}
+				}
+			}
+
+			&[ scrollable ][ tag-linked-panel ] {
+				& default-button {
+					display: flex;
+				}
+
+				@media ( max-width: 650px ) {
+					top: var( --margin-s );
+					right: var( --margin-s );
+					bottom: var( --margin-s );
+					left: var( --margin-s );
+					width: auto;
+					max-width: none;
+					max-height: none;
+					padding-top: calc( 52px + var( --margin-s ) );
+					padding-bottom: var( --margin-s );
+
+					& default-button {
+						position: sticky;
+						top: 0;
+						right: auto;
+						left: auto;
+						margin-left: auto;
+						margin-bottom: var( --margin-s );
+						z-index: 2;
+						width: fit-content;
+					}
+
+					& scrolling-block {
+						padding: 0;
+					}
+				}
+			}
+
 			&[ scrollable ][ tag-linked-panel ] {
 				opacity: 0;
 				visibility: hidden;
@@ -238,7 +300,7 @@ export default class Aside extends HTMLElement {
 		if ( attributes.includes( 'tag-linked-panel' ) ) {
 
 			button.attributes.push( 'floating-close' );
-			button.labels = [ '×' ];
+			button.labels = [ 'Close' ];
 
 		}
 

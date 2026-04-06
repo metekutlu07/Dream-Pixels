@@ -181,7 +181,7 @@ export default class S3 {
 			}
 
 			& project-caption {
-				font-weight: 600;
+				font-weight: 300;
 			}
 
 			& project-explain {

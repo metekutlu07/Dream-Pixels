@@ -83,7 +83,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/robertus/stories-animate.mp4',
 				caption: 'Animation and interaction design for the church apse in Reality Composer.',
-				explain: '<br>Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. Designed in Reality Composer by Mete Kutlu, 2023.',
+				explain: 'Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. Designed in Reality Composer by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -93,7 +93,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/robertus/stories-material.jpg',
 				caption: 'Material design for the churche apse in Quixel Mixer.',
-				explain: '<br>Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. Designed in Quixel Mixer by Mete Kutlu, 2023.',
+				explain: 'Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. Designed in Quixel Mixer by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -102,7 +102,7 @@ export default {
 			media: {
 				source: 'public/robertus/stories-context.mp4',
 				caption: 'Material design for the churche apse in Quixel Mixer.',
-				explain: '<br>Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. Designed in Quixel Mixer by Mete Kutlu, 2023.',				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
+				explain: 'Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. Designed in Quixel Mixer by Mete Kutlu, 2023.',				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
 	]

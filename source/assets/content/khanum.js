@@ -21,7 +21,7 @@ export default {
 		},
 		{
 			type: 'S2',
-			paragraphs: '<br><br>Following the creation of my archive of Timurid scans, I began to conceive a second experiment: <em>Khanum.</em> Having scanned the monuments, cleaned and retouched the data, and compiled an archive of their geometric configurations, I sought to move beyond isolated fragments toward a more cohesive reconstruction. Each scan, while precise, remained insufficient for apprehending the architectural logic of the whole. The absent elements could be reimagined through 3D modeling, while the missing mosaic patterns could be regenerated through processes of repetition, variation, and adaptation. The aim was to produce an animated reconstruction that combined 3D scanning, digital modeling, and motion graphics. The animation was conceived not merely to create a virtual copy of the monument’s appearance, but to express the metaphysical ideas embedded in its mosaic compositions by leveraging the luminous capacities of digital design tools.',
+			paragraphs: 'Following the creation of my archive of Timurid scans, I began to conceive a second experiment: <em>Khanum.</em> Having scanned the monuments, cleaned and retouched the data, and compiled an archive of their geometric configurations, I sought to move beyond isolated fragments toward a more cohesive reconstruction. Each scan, while precise, remained insufficient for apprehending the architectural logic of the whole. The absent elements could be reimagined through 3D modeling, while the missing mosaic patterns could be regenerated through processes of repetition, variation, and adaptation. The aim was to produce an animated reconstruction that combined 3D scanning, digital modeling, and motion graphics. The animation was conceived not merely to create a virtual copy of the monument’s appearance, but to express the metaphysical ideas embedded in its mosaic compositions by leveraging the luminous capacities of digital design tools.',
 		},
 		{
 			type: 'S12',
@@ -37,7 +37,8 @@ export default {
 		{
 			type: 'S13',
 			media: {
-				source: 'https://youtu.be/N2TgatxHf2w'
+				source: 'https://youtu.be/N2TgatxHf2w',
+				note: 'Choose high resolution in the settings at the top right corner.'
 			}
 		},
 		{

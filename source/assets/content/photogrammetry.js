@@ -3,8 +3,8 @@ export default {
 	// "path" should be the same as the folder containing the assets in /public
 	// It is also use for the project's url, like this dreampixels.fr/photogramettry
 	path: 'photogrammetry',
-	title: 'Photogrammetry',
-	subtitle: '3D Web Experience',
+	title: 'Galleria',
+	subtitle: '3D Scan Archive',
 	location: 'Paris',
 	date: '2020',
 	team: 'Mete Kutlu & Theuns Botha',

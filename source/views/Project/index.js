@@ -64,6 +64,24 @@ export default class Project extends View {
 			min-width: 100%;
 		}
 
+		project-credit {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			padding: 0 var( --margin-m ) var( --margin-m );
+			font-family: var( --font-family-c );
+			font-size: var( --font-size-s );
+			opacity: .55;
+			text-align: center;
+
+			@media ( max-width: 650px ) {
+				padding: 0 var( --margin-s ) var( --margin-s );
+				font-size: var( --font-size-xs );
+			}
+		}
+
 		`;
 
 		const content = Application.content.get( parameters.project );
@@ -82,6 +100,7 @@ export default class Project extends View {
 		<project-view view>
 
 			${ blocks }
+			<project-credit>© Mete Kutlu, 2026</project-credit>
 
 		</project-view>
 

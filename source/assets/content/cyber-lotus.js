@@ -43,7 +43,8 @@ export default {
 		{
 			type: 'S13',
 			media: {
-				source: 'https://youtu.be/IxfaLM0myzw'
+				source: 'https://youtu.be/IxfaLM0myzw',
+				note: 'Choose high resolution in the settings at the top right corner.'
 			}
 		},
 		{
@@ -56,7 +57,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/dataset01.jpg',
 				caption: 'Input: a sample from the <em>dancheong</em> dataset (1,000 photos).',
-				explain: '<br>Prepared for training a neural net, from images taken during photogrammetric scans of various temples across the Korean peninsula. For machine learning to be effective, the dataset must maintain visual consistency: objects should belong to the same category, and the angle of view should remain uniform. I selected relatively frontal views of beam decorations featuring lotus motifs, geometric patterns, and radiating wave forms.',
+				explain: 'Prepared for training a neural net, from images taken during photogrammetric scans of various temples across the Korean peninsula. For machine learning to be effective, the dataset must maintain visual consistency: objects should belong to the same category, and the angle of view should remain uniform. I selected relatively frontal views of beam decorations featuring lotus motifs, geometric patterns, and radiating wave forms.',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},
@@ -65,7 +66,7 @@ export default {
 			media: {
 				source: 'public/cyber-lotus/dataset02.jpg',
 				caption: 'Output: When Al paints <em>dancheong.</em>',
-				explain: '<br>The dataset was used to train a StyleGAN2 model, a generative adversarial network (GAN) developed by Nvidia in 2019. After 9,000 training steps, the generated images stabilized, and the process was halted. Displayed above is a selection of outputs produced by the model. Wooden textures and latticework structures emerge, while lotus motifs and radiating waves dissolve into organic circular forms interwoven with one another.',
+				explain: 'The dataset was used to train a StyleGAN2 model, a generative adversarial network (GAN) developed by Nvidia in 2019. After 9,000 training steps, the generated images stabilized, and the process was halted. Displayed above is a selection of outputs produced by the model. Wooden textures and latticework structures emerge, while lotus motifs and radiating waves dissolve into organic circular forms interwoven with one another.',
 				tags: [ 'Machine Learning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			}
 		},

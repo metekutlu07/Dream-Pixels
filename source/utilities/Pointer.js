@@ -182,6 +182,18 @@ export default class Pointer {
 
 	preventGesture( event ) {
 
+		const { path, list } = Application.store;
+		const shouldBlockGesture = (
+			path === '/experiments' ||
+			path === '/virtual-miniature' ||
+			path === '/photogrammetry' ||
+			path === '/miniature-street-view' ||
+			path === '/when-gaspard-paints-a-gospel' ||
+			path === '/augustus-ar' ||
+			( path === '/experiments' && list === 'particles' )
+		);
+
+		if ( ! shouldBlockGesture ) return;
 		event.preventDefault();
 
 	}

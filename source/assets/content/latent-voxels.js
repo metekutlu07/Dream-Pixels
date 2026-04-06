@@ -25,7 +25,7 @@ export default {
 				source: 'public/latent-voxels/img/tex03.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'The Dusk of Data at the Hippodrome of Constantinople.',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -50,7 +50,7 @@ export default {
 				source: 'public/latent-voxels/axo.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Algorithmic Urban Dreams - Axonometric View.',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -62,8 +62,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/ai02.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Algorithmic Urban Dreams - Top View',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Algorithmic Urban Dreams - Top View.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -87,7 +87,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/makinof03.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Node graph prepared in Houdini for voxel and pixel interpolation',
+				caption: 'Node graph prepared in Houdini for voxel and pixel interpolation.',
 				explain: 'Screenshot in Houdini, Mete Kutlu, 2021.'
 			}
 		},
@@ -97,7 +97,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/ss01.png',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: ' The interpolating solver node on the right, and the interpolated model on the left',
+				caption: 'The interpolating solver node on the right, and the interpolated model on the left.',
 				explain: 'Screenshot in Houdini, Mete Kutlu, 2021.'
 			}
 		},
@@ -107,7 +107,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/latent-voxels/img/makinof01.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Conversion of Compositional Assemblage To A Topological Surface',
+				caption: 'Conversion of Compositional Assemblage To A Topological Surface.',
 				explain: 'Screenshot in Houdini, Mete Kutlu, 2021.'
 			}
 		},
@@ -116,8 +116,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/denseToRenai01.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'The Turkish Revamp of Filarete`s Ideal City',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'The Turkish Revamp of Filarete`s Ideal City.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -129,8 +129,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/renToRandoTop.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Neo Filaret',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Neo Filaret.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -160,8 +160,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Oneiropolis 231',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Oneiropolis 231.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -169,8 +169,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/central2.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Old Town of Mechanicals',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Old Town of Mechanicals.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -178,7 +178,7 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi01.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Quarter of Cybernetic Mystics',
+				caption: 'Quarter of Cybernetic Mystics.',
 				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
@@ -187,8 +187,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/renToRando.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Playgrounds in the Data Land',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Playgrounds in the Data Land.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -200,8 +200,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/ai03.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Constantinople 2049 - The Oneiropolis 464',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Constantinople 2049 - The Oneiropolis 464.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -209,8 +209,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/cctv.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Algorithmic Urban Dreams - Axonometric View',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Algorithmic Urban Dreams - Axonometric View.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -218,8 +218,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/tex01.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Urban Dreams of a Young Cyborg',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Urban Dreams of a Young Cyborg.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -228,8 +228,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/ai04.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Notiones constantinopolitana',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Notiones constantinopolitana.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -262,8 +262,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/renToRando02.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Friday Sunset on the Cybernetic Square',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Friday Sunset on the Cybernetic Square.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -271,8 +271,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/central3.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Boulevards of Holographic Turkish Delights',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Boulevards of Holographic Turkish Delights.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -280,8 +280,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthoToRadi04.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Neo Taksim',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Neo Taksim.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -289,8 +289,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/radiToDense01.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Low-Energy Android Slums in Levent',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Low-Energy Android Slums in Levent.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -298,8 +298,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/denseToRenai02.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Silicon Dreams',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Silicon Dreams.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -311,8 +311,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/orthos.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Quarter of Youngster Androids',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Quarter of Youngster Androids.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -320,8 +320,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/central4.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Ecumenical Information Processing Complex',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Ecumenical Information Processing Complex.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -329,8 +329,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/streetview.mp4',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Transmutating Electronic Urbanscapes inside the Silicon Chip',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Transmutating Electronic Urbanscapes inside the Silicon Chip.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -342,8 +342,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/renToRando03.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'Galactic Comms Towers of Neo-Seraglio',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'Galactic Comms Towers of Neo-Seraglio.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 		{
@@ -351,8 +351,8 @@ export default {
 			media: {
 				source: 'public/latent-voxels/img/toCentral.jpg',
 				tags: [ 'Generative Design', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
-				caption: 'The Silicon Nymphaeum in Eminenu',
-				explain: '<br>Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
+				caption: 'The Silicon Nymphaeum in Eminenu.',
+				explain: 'Generative simulation based on a 16th-century Ottoman miniature of Constantinople, Mete Kutlu, 2021.'
 			}
 		},
 	]

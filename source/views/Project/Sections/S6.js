@@ -17,6 +17,14 @@ export default class S6 extends HTMLElement {
 
 			const artworkID = currentTarget.getAttribute( 'artworkID' );
 			Application.scene.artwork.load( artworkID );
+			if ( matchMedia( '(max-width: 650px)' ).matches ) Application.store.set( 'display-aside', false );
+			return;
+
+		}
+
+		if ( action === 'toggle-library' ) {
+
+			Application.store.toggle( 'display-aside' );
 			return;
 
 		}
@@ -94,6 +102,30 @@ export default class S6 extends HTMLElement {
 					left: 50%;
 					bottom: var( --margin-s );
 					transform: translateX( -50% );
+				}
+			}
+
+			& photogrammetry-library-toggle {
+				display: none;
+
+				@media ( max-width: 650px ) {
+					position: fixed;
+					top: var( --margin-s );
+					right: var( --margin-s );
+					z-index: 5;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					min-height: 44px;
+					padding: 0 16px;
+					border: var( --border-size ) solid var( --border-color );
+					background: rgba( 0, 0, 0, .9 );
+					color: var( --color-white );
+					font-size: var( --font-size-s );
+					font-family: var( --font-family-c );
+					letter-spacing: .04em;
+					text-transform: uppercase;
+					pointer-events: all;
 				}
 			}
 
@@ -207,6 +239,11 @@ export default class S6 extends HTMLElement {
 
 		const innerHTML = html`<artwork-list>${ list }</artwork-list>`;
 		const aside = Aside.render( innerHTML, [ 'scrollable', 'floating-panel', 'photogrammetry-library' ] );
+		const libraryToggle = html`
+			<photogrammetry-library-toggle action="toggle-library" @click|section-type-6>
+				Scans
+			</photogrammetry-library-toggle>
+		`;
 		const controls = html`
 			<photogrammetry-controls blurred-background>
 				<photogrammetry-control action="export-ar" @click|section-type-6>AR</photogrammetry-control>
@@ -214,7 +251,7 @@ export default class S6 extends HTMLElement {
 				<photogrammetry-control action="toggle-render" @click|section-type-6>Point Cloud</photogrammetry-control>
 			</photogrammetry-controls>
 		`;
-		return html`<section-type-6 section>${ aside }${ controls }</section-type-6>`;
+		return html`<section-type-6 section>${ aside }${ libraryToggle }${ controls }</section-type-6>`;
 
 	}
 

@@ -14,8 +14,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k138.mp4',
 				caption: 'Sanshin Video Introduction',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
-				preloadMedia: true
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 
 			}
 		},
@@ -47,8 +46,7 @@ export default {
 				source: 'public/sanshin/k69.mp4',
 				caption: '3D scan of a stone dragon decoration on stairs.',
 				explain: 'Haedong Yonggungsa Temple, Busan, 7 January 2022.',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
-				preloadMedia: true
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
 		{
@@ -56,9 +54,8 @@ export default {
 			media: {
 				source: 'public/sanshin/k01.jpg',
 				caption: '3D scan of the Pavilion of Samcheonsa Temple, founded in 661, during Silla dynasty, on Bukhansan Mountain in Seoul.',
-				explain: '<br>It was damaged during wars with the Japanese (1592 and 1950), and reconstruted between 1960-1978. This image presents a photogrammetric mesh visualization of a pavilion featuring double eaves, bird-wing brackets, and morudancheong decorative painting. The triangulated mesh is a mirror to the machine vision progressively becoming the ordering principle of the world. A thumbnail at lower left shows the photorealistic rendering of the scanned model. This scan (No. K.113) was created from 58 photographs taken with an iPhone 11 on 11 January 2022 using Apple’s Object Capture API. The wireframe image is rendered in Cinema 4D with Octane. Compositing was done in After Effects. Scan and image by the author.',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
-				preloadMedia: true
+				explain: 'It was damaged during wars with the Japanese (1592 and 1950), and reconstruted between 1960-1978. This image presents a photogrammetric mesh visualization of a pavilion featuring double eaves, bird-wing brackets, and morudancheong decorative painting. The triangulated mesh is a mirror to the machine vision progressively becoming the ordering principle of the world. A thumbnail at lower left shows the photorealistic rendering of the scanned model. This scan (No. K.113) was created from 58 photographs taken with an iPhone 11 on 11 January 2022 using Apple’s Object Capture API. The wireframe image is rendered in Cinema 4D with Octane. Compositing was done in After Effects. Scan and image by the author.',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
 		{
@@ -66,9 +63,8 @@ export default {
 			media: {
 				source: 'public/sanshin/k02.jpg',
 				caption: 'Purlins with <em>dancheong</em> decoration supporting the eaves.',
-				explain: '<br>Jeondeungsa Temple, Incheon, South Korea, 1621. 3D scan and image by the author, 2023.',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
-				preloadMedia: true
+				explain: 'Jeondeungsa Temple, Incheon, South Korea, 1621. 3D scan and image by the author, 2023.',
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
 		{
@@ -76,7 +72,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k03.jpg',
 				caption: 'Corner brackets and beams with dancheong decoration.',
-				explain: '<br>Jeondeungsa Temple, Incheon, South Korea, 1621. 3D scan and image by the author, 2023.',
+				explain: 'Jeondeungsa Temple, Incheon, South Korea, 1621. 3D scan and image by the author, 2023.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -85,7 +81,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k04.jpg',
 				caption: '<em>Guldori</em> beams of Changdeokgung Palace: algorithmic mesh visualization.',
-				explain: '<br>This image shows a photogrammetric scan of <em>guldori</em> beam structures adorned with <em>morudancheong</em> patterns, located within Changdeokgung Palace in Seoul, originally constructed in 1412 during the Joseon dynasty. The mesh overlay reveals the algorithmic complexity behind photorealistic reconstruction. It is generated from a dense cloud of spatial data points detected by the camera. This triangulated geometry forms a new kind of mosaic, one shaped not by hand but by code. It represents the new world order and fabric of daily life shaped by machine vision in the Age of AI. Its luminous, net-like appearance evokes both an ethereal and cyberpunk aesthetic. 99 photographs taken with an iPhone 11 were used to generate this scan (K.146) on 26 January 2022 using Apple’s Object Capture API. Several render images were taken in Cinema 4D with Octane and compositing was done in After Effects. Scan and image by the author.',
+				explain: 'This image shows a photogrammetric scan of <em>guldori</em> beam structures adorned with <em>morudancheong</em> patterns, located within Changdeokgung Palace in Seoul, originally constructed in 1412 during the Joseon dynasty. The mesh overlay reveals the algorithmic complexity behind photorealistic reconstruction. It is generated from a dense cloud of spatial data points detected by the camera. This triangulated geometry forms a new kind of mosaic, one shaped not by hand but by code. It represents the new world order and fabric of daily life shaped by machine vision in the Age of AI. Its luminous, net-like appearance evokes both an ethereal and cyberpunk aesthetic. 99 photographs taken with an iPhone 11 were used to generate this scan (K.146) on 26 January 2022 using Apple’s Object Capture API. Several render images were taken in Cinema 4D with Octane and compositing was done in After Effects. Scan and image by the author.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -138,7 +134,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k161-new.mp4',
 				caption: 'Holo Lion, Mete Kutlu, 2023.',
-				explain: '<br>3D scan at the National Museum of Korea, Seoul, 24 December 2021.',
+				explain: '3D scan at the National Museum of Korea, Seoul, 24 December 2021.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -147,7 +143,7 @@ export default {
 			media: {
 				source: 'public/sanshin/thumbs1.mp4',
 				caption: 'Holo Catalogue 01.',
-				explain: '<br>Assets for Sanshin AR app for iOS, scanned and animated by Mete Kutlu, 2023.',
+				explain: 'Assets for Sanshin AR app for iOS, scanned and animated by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -156,7 +152,7 @@ export default {
 			media: {
 				source: 'public/sanshin/thumbs2.mp4',
 				caption: 'Holo Catalogue 02.',
-				explain: '<br>Assets for Sanshin AR app for iOS, scanned and animated by Mete Kutlu, 2023.',
+				explain: 'Assets for Sanshin AR app for iOS, scanned and animated by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -165,7 +161,7 @@ export default {
 			media: {
 				source: 'public/sanshin/dragon01.mp4',
 				caption: 'A Holographic Dragon-Ship of Wisdom at Jeondeungsa Temple in Incheon.',
-				explain: '<br>First founded in 381 and reestablished in 1282, the temple was rebuilt in 1621 after being destroyed by fire. This scan (No. K.123) was generated from 137 photographs taken with an iPhone 11 on 29 January 2022 using Apple’s Object Capture API. Rendered with Cinema 4D and Octane. Scan and image by the author.',
+				explain: 'First founded in 381 and reestablished in 1282, the temple was rebuilt in 1621 after being destroyed by fire. This scan (No. K.123) was generated from 137 photographs taken with an iPhone 11 on 29 January 2022 using Apple’s Object Capture API. Rendered with Cinema 4D and Octane. Scan and image by the author.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -182,7 +178,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k117.mp4',
 				caption: 'Golden Sanshin Samcheonsa Temple, scan and image by the author.',
-				explain: '<br>Bukhansan Mountain, Seoul. In Korean shamanic tradition, Sanshin is the guardian spirit of the mountain, often portrayed as an elderly sage accompanied by a tiger and seated beneath a red pine tree. The statue at Samcheonsa is carved from wood and likely coated with gold-colored metallic paint rather than genuine gold leaf. The 3D model (Scan K117) was generated from 298 photographs taken on 1 February 2022 using Apple\'s Object Capture API, and rendered using Cinema 4D and Octane.',
+				explain: 'Bukhansan Mountain, Seoul. In Korean shamanic tradition, Sanshin is the guardian spirit of the mountain, often portrayed as an elderly sage accompanied by a tiger and seated beneath a red pine tree. The statue at Samcheonsa is carved from wood and likely coated with gold-colored metallic paint rather than genuine gold leaf. The 3D model (Scan K117) was generated from 298 photographs taken on 1 February 2022 using Apple\'s Object Capture API, and rendered using Cinema 4D and Octane.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -191,7 +187,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k119.mp4',
 				caption: '3D scan of a decorated wall, Samcheonsa Temple, Bukhansan Mountain, Seoul, 30 January, 2022.',
-				explain: '<br>Wall with paintings, double eaves and bird-wing brackets and <em>geumdancheong.</em>',
+				explain: 'Wall with paintings, double eaves and bird-wing brackets and <em>geumdancheong.</em>',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -216,7 +212,7 @@ export default {
 			media: {
 				source: 'public/sanshin/roof01.mp4',
 				caption: '3D scan of imperial roof tiles, Changdeokgung Palace, Seoul, 1412.',
-				explain: '<br>3D scan, Mete kutlu, 26 December 2022.',
+				explain: '3D scan, Mete kutlu, 26 December 2022.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -225,7 +221,7 @@ export default {
 			media: {
 				source: 'public/sanshin/dragon02.mp4',
 				caption: '3D scan of dragon stairs, Mete Kutlu, 31 December 2021.',
-				explain: '<br>Samcheonsa Temple, Bukhansan Mountain, Seoul.',
+				explain: 'Samcheonsa Temple, Bukhansan Mountain, Seoul.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},
@@ -234,7 +230,7 @@ export default {
 			media: {
 				source: 'public/sanshin/k80.mp4',
 				caption: '3D scan of a roof, Buseoksa Temple, Yeongju, Mete Kutlu, 2022.',
-				explain: '<br>Double eaves with bird-wing brackets and <em>geumdancheong</em> decorations.',
+				explain: 'Double eaves with bird-wing brackets and <em>geumdancheong</em> decorations.',
 				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
 			},
 		},

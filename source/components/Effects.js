@@ -17,10 +17,10 @@ export default class Effects extends HTMLElement {
 		effects-overlay {
 			z-index: 30;
 			position: fixed;
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
+			inset: 0;
+			width: 100vw;
+			height: 100vh;
+			height: calc(var(--vh, 1vh) * 100);
 			pointer-events: none;
 
 			& grid-effect,
@@ -58,15 +58,17 @@ export default class Effects extends HTMLElement {
 			& noise-effect {
 				background-image: url( "/public/common/Noise.png" );
 				background-repeat: repeat;
-				background-size: 180px;
+				background-size: 320px;
 				background-position: 0 0;
 				opacity: 0;
 				display: none;
+				mix-blend-mode: screen;
+				filter: contrast( 175% ) brightness( 150% );
 			}
 
 			&[ project-noise ] noise-effect {
 				display: block;
-				opacity: .14;
+				opacity: .28;
 				animation: project-noise-shift .28s steps( 2 ) infinite;
 			}
 

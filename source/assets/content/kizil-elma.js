@@ -63,7 +63,7 @@ export default {
 			media: {
 				source: 'public/kizil-elma/curl-comp.jpg',
 				caption: 'Past and present cosmic radiations captured in clouds.',
-				explain: '<br>Pigment Radiation in Budapest. Artwork by the author, particle simulation on miniature, 2022.<br>Traces of subatomic particle interactions produced within a bubble chamber. Photograph: CERN, cover of <em>Jungian Thought in the Modern World</em>.',
+				explain: 'Pigment Radiation in Budapest. Artwork by the author, particle simulation on miniature, 2022.<br>Traces of subatomic particle interactions produced within a bubble chamber. Photograph: CERN, cover of <em>Jungian Thought in the Modern World</em>.',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ]
 			}
 		},

@@ -79,7 +79,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire01.jpg',
 				caption: 'Cloning a clone: The Fantastical Hunt window, Church of Saint Pierre, Aulnay, around 1150-1160.',
-				explain: '<br>The scanned plaster reproduction is made in 1890 by Pouzadoux et fils, currently displayed at Cité de l’architecture in Paris (MOU.01615). Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023. <br>Mesh structure of the model. Scan and artwork by the author, 2023.',
+				explain: 'The scanned plaster reproduction is made in 1890 by Pouzadoux et fils, currently displayed at Cité de l’architecture in Paris (MOU.01615). Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023. <br>Mesh structure of the model. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -88,7 +88,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire02.jpg',
 				caption: 'Digitizing the Celestial Court.',
-				explain: '<br>Romanesque frescoes of the Saint Theudère Church, Saint-Chef, Isère, France, 12th century. The digital composition was created using X-Particles, edited in Cinema 4D, and rendered with Octane. Scan, simulation, and artwork by the author, 2023.',
+				explain: 'Romanesque frescoes of the Saint Theudère Church, Saint-Chef, Isère, France, 12th century. The digital composition was created using X-Particles, edited in Cinema 4D, and rendered with Octane. Scan, simulation, and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -97,7 +97,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire03.jpg',
 				caption: 'Digitizing the Celestial Court.',
-				explain: '<br>Romanesque frescoes of the Saint Theudère Church, Saint-Chef, Isère, France, 12th century. Scanned wih Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and image by the author, 2023.<br>Subatomic particles of the Celestial Court. Cosmic imaginations from Romanesque frescoes to particle simulations. The digital composition was created using X-Particles, edited in Cinema 4D, and rendered with Octane. Scan, simulation, and artwork by the author, 2023.',
+				explain: 'Romanesque frescoes of the Saint Theudère Church, Saint-Chef, Isère, France, 12th century. Scanned wih Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and image by the author, 2023.<br>Subatomic particles of the Celestial Court. Cosmic imaginations from Romanesque frescoes to particle simulations. The digital composition was created using X-Particles, edited in Cinema 4D, and rendered with Octane. Scan, simulation, and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -106,7 +106,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire08.jpg',
 				caption: 'Gate of Apocalypse, Ladies’ Abbey, Saintes, 1120-1130.',
-				explain: '<br>The scanned plaster reproduction is made by Raphaël Arnold, currently displayed at Cité de l’architecture in Paris (MOU.00030). Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				explain: 'The scanned plaster reproduction is made by Raphaël Arnold, currently displayed at Cité de l’architecture in Paris (MOU.00030). Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -115,7 +115,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire05.jpg',
 				caption: '3D scan of the frescoes in a cross vault of the Saint-Julien chapel, Petit-Quevilly, France, 12th century.',
-				explain: '<br>Scan based on a life-size reproduction of the vault at Cité de l’architecture, Paris. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				explain: 'Scan based on a life-size reproduction of the vault at Cité de l’architecture, Paris. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -124,7 +124,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire06.jpg',
 				caption: 'Inside the hologram crypt, Church of Saint Nicholas, Tavant (Indre-et-Loire, France), first half of the 12th century.',
-				explain: '<br>After a real-size copy of a mural painting made by Marthe Flandrin and Simone Flandrin-Latron in 1941 (CAPA/MMF/EM.00040) exhibited in the Cité de l’architecture, Paris. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				explain: 'After a real-size copy of a mural painting made by Marthe Flandrin and Simone Flandrin-Latron in 1941 (CAPA/MMF/EM.00040) exhibited in the Cité de l’architecture, Paris. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -133,7 +133,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/wire07.jpg',
 				caption: 'A hologram organ staircase.',
-				explain: '<br>From Saint-Maclou  Church, Rouen, France, 1519-1520. The scanned plaster copy dates from 1903. Cité de l’architecture, Paris, MOU.05382. Scan and artwork by the author, 2023.<br>Photorealistic render of the same spiral staircase. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and image by the author, 2023.',
+				explain: 'From Saint-Maclou  Church, Rouen, France, 1519-1520. The scanned plaster copy dates from 1903. Cité de l’architecture, Paris, MOU.05382. Scan and artwork by the author, 2023.<br>Photorealistic render of the same spiral staircase. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and image by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -142,7 +142,7 @@ export default {
 			media: {
 				source: 'public/gilbertus/chap.jpg',
 				caption: '3D scan of the apse richly decorated with wall paintings at the Monks’ Chapel, in Berzé-la-Ville, 12th century.',
-				explain: '<br>On the semidome figures a painting of Christ in Majesty. The scanned plaster reproduction is made in 1933. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
+				explain: 'On the semidome figures a painting of Christ in Majesty. The scanned plaster reproduction is made in 1933. Scanned with Apple’s Object Capture API, edited in Cinema 4D and rendered with Octane. Scan and artwork by the author, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
