@@ -29,6 +29,11 @@ export default class Panels extends HTMLElement {
 			line-height: 1.8;
 			pointer-events: none;
 			max-height: calc( 100% - var( --margin-m ) * 2 - 200px );
+			--background-color: rgba( 0, 0, 0, .28 );
+
+			[ path="/experiments" ][ list="places" ] & {
+				--background-color: #8f73c8;
+			}
 
 			& p {
 				&:not( :last-child ) {

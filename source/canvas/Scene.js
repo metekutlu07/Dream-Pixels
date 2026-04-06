@@ -178,7 +178,7 @@ export default class Scene extends Object3D {
 			!( path === '/experiments' && list === 'grid' ) &&
 			!( path === '/experiments' && list === 'places' && places === 'cosmos' ) &&
 			!shouldHideProjectSphere;
-		this.cosmos.visible = path === '/experiments' && list === 'places' && places === 'cosmos';
+		if ( !( path === '/experiments' && list === 'places' && places === 'cosmos' ) ) this.cosmos.visible = false;
 
 		const isParticleWorksView = path === '/experiments' && list === 'particles';
 		const isParticleColorRange = isParticleWorksView && particles === 'color-range';

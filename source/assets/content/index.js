@@ -70,22 +70,19 @@ export default {
 		'Cosmos': {
 			title: 'This is the alchemical Cup of Jamshid.',
 			paragraphs: `
-				Containing the elixir of immortality, it shows to whoever looks in it<br>
-				the destiny of all there is in the universe.<br>
-				Alexander the Great and Suleyman the Magnificent have drunken from it.<br>
-				Tap the Cup to hop on a journey from the heavenly stars to the intesimal particles.
+				It contains the elixir of immortality and reveals, on the surface of its wine, the destiny of all beings in the universe. Alexander the Great and Süleyman the Magnificent are said to have drunk from it. Tap the cup to reveal the seven celestial spheres and the world at their center.
 			`
 		},
 
 		'World': {
 			title: '',
 			paragraphs: `
-				Discover the experiments based on their location.<br><br>
-				Click on a city to learn more about related projects.<br>
-				Drag with your mouse to navigate the map.<br>
-				Scroll to zoom in and out.<br><br>
-				This is a worldmap designed by 3D modelling a medieval mappamundi drawn by Andalusian geographer Idrisi in 1154 for Roger, the king of Sicily.<br><br>
-				North is in the bottom, South is on top. Constantinople is the center of the world. On the edge of the world is Mount Qaf, the green mountain chain made of chrysolite.
+				Discover the experiments through their geographic locations.<br><br>
+Click on a city to access the related projects.<br>
+Drag to navigate the map.<br>
+Scroll to zoom in and out.<br><br>
+This world map is based on a three-dimensional reconstruction of a medieval <em>mappamundi</em> drawn by the Andalusian geographer al-Idrisi in 1154 for Roger II, king of Sicily.<br><br>
+North is at the bottom and south at the top. Constantinople occupies the center of the world. At its edge rises Mount Qaf, the mythical mountain chain described as being formed of chrysolite.
 			`
 		},
 

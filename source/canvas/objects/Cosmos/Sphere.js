@@ -71,6 +71,15 @@ export default class Sphere extends Object3D {
 
 	onReset() {
 
+		if ( this.visibilityAnimation ) {
+
+			this.visibilityAnimation.remove( this.visibilityState );
+			this.visibilityAnimation = null;
+
+		}
+
+		this.visibilityState = null;
+
 		if ( ! this.leftHalf ) return;
 
 		const targets = [
@@ -95,11 +104,48 @@ export default class Sphere extends Object3D {
 
 	}
 
-	async enter() {
+	prepareForEntrance() {
 
 		this.onReset();
 
+		if ( this.leftHalf ) {
+
+			this.leftHalf.visible = false;
+			this.rightHalf.visible = false;
+
+		} else if ( this.mesh ) this.mesh.visible = false;
+
+		this.titles.forEach( title => title.material.opacity = 0 );
+
+	}
+
+	async enter() {
+
 		const delay = 1250 + ( 12 - this.index ) * 75;
+		this.prepareForEntrance();
+		this.onReset();
+
+		this.visibilityState = { progress: 0 };
+
+		this.visibilityAnimation = anime( {
+
+			targets: this.visibilityState,
+			progress: 1,
+			duration: 1,
+			delay,
+			begin: () => {
+
+				if ( this.leftHalf ) {
+
+					this.leftHalf.visible = true;
+					this.rightHalf.visible = true;
+
+				} else if ( this.mesh ) this.mesh.visible = true;
+
+			}
+
+		} );
+
 		if ( this.leftHalf ) this.setHalves( delay );
 		this.titles.forEach( title => title.enter( delay ) );
 

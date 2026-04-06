@@ -263,8 +263,11 @@ export default class UserInfo extends HTMLElement {
 				matchMedia( '(max-width: 650px)' ).matches;
 			const name = text.getAttribute( 'name' );
 			const step = parseInt( text.getAttribute( 'step' ) || '0' );
-			const index = Math.clamp( step, 0, text.steps.length - 1 );
 			const isParticleTimeline = name === 'Particles' && Application.store.particles === 'timeline';
+			const maxStep = name === 'Particles' && ! isParticleTimeline ?
+				Math.max( text.steps.length - 2, 0 ) :
+				Math.max( text.steps.length - 1, 0 );
+			const index = Math.clamp( step, 0, maxStep );
 			const activeIndex = isMobile && name === 'Particles' && ! isParticleTimeline ? 0 : index;
 			let { title, paragraphs, cue } = text.steps[ activeIndex ];
 			const titleElement = text.querySelector( 'h5' );
@@ -284,10 +287,10 @@ export default class UserInfo extends HTMLElement {
 			if ( cue ) text.setAttribute( 'cue', cue );
 			else text.removeAttribute( 'cue' );
 			if ( isMobile && name === 'Particles' && ! isParticleTimeline ) text.setAttribute( 'cue', 'mobile' );
-			if ( nextButton ) nextButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= text.steps.length - 1 );
-			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= text.steps.length - 1 );
+			if ( nextButton ) nextButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= maxStep );
+			if ( exploreButton ) exploreButton.toggleAttribute( 'visible', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= maxStep );
 			if ( closeButton ) closeButton.toggleAttribute( 'hidden', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index !== 0 );
-			text.toggleAttribute( 'last-step', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= text.steps.length - 1 );
+			text.toggleAttribute( 'last-step', isMobile && name === 'Particles' && ! isParticleTimeline ? true : index >= maxStep );
 
 		} );
 
@@ -313,6 +316,10 @@ export default class UserInfo extends HTMLElement {
 		css`
 
 		user-info {
+			--user-info-panel-background: rgba( 0, 0, 0, .28 );
+			--user-info-panel-button-background: rgba( 0, 0, 0, .18 );
+			--user-info-panel-backdrop-filter: blur( 10px );
+			--user-info-panel-webkit-backdrop-filter: blur( 10px );
 			position: fixed;
 			z-index: 15;
 			top: 0;
@@ -326,6 +333,20 @@ export default class UserInfo extends HTMLElement {
 			align-items: center;
 			justify-content: center;
 			text-align: center;
+
+			[ path="/experiments" ][ list="particles" ] & {
+				--user-info-panel-background: rgba( 0, 0, 0, 1 );
+				--user-info-panel-button-background: rgba( 0, 0, 0, 1 );
+				--user-info-panel-backdrop-filter: none;
+				--user-info-panel-webkit-backdrop-filter: none;
+			}
+
+			[ path="/experiments" ][ list="places" ] & {
+				--user-info-panel-background: #8f73c8;
+				--user-info-panel-button-background: #7d62b8;
+				--user-info-panel-backdrop-filter: none;
+				--user-info-panel-webkit-backdrop-filter: none;
+			}
 		}
 
 		user-info-text {
@@ -354,9 +375,9 @@ export default class UserInfo extends HTMLElement {
 				overflow: hidden;
 				isolation: isolate;
 				transform: translate( -50%, -50% );
-				background: rgba( 0, 0, 0, .28 );
-				backdrop-filter: blur( 10px );
-				-webkit-backdrop-filter: blur( 10px );
+				background: var( --user-info-panel-background );
+				backdrop-filter: var( --user-info-panel-backdrop-filter );
+				-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 				border: var( --border-size ) solid var( --border-color );
 
 				& h5 {
@@ -380,7 +401,7 @@ export default class UserInfo extends HTMLElement {
 					min-width: 0;
 					padding: 12px 18px;
 					border: var( --border-size ) solid var( --border-color );
-					background: rgba( 0, 0, 0, .18 );
+					background: var( --user-info-panel-button-background );
 					font-family: var( --font-family-b );
 					font-size: 16px;
 					letter-spacing: .08em;
@@ -397,9 +418,9 @@ export default class UserInfo extends HTMLElement {
 					transform: translate( -50%, -50% );
 					width: min( 520px, calc( 100vw - 64px ) );
 					padding: 20px 22px 18px;
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
+					background: var( --user-info-panel-background );
+					backdrop-filter: var( --user-info-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 					border: var( --border-size ) solid var( --border-color );
 
 				& h5 {
@@ -423,7 +444,7 @@ export default class UserInfo extends HTMLElement {
 						min-width: 0;
 						padding: 12px 18px;
 						border: var( --border-size ) solid var( --border-color );
-						background: rgba( 0, 0, 0, .18 );
+						background: var( --user-info-panel-button-background );
 						font-family: var( --font-family-b );
 						font-size: 16px;
 					letter-spacing: .08em;
@@ -642,9 +663,9 @@ export default class UserInfo extends HTMLElement {
 					box-sizing: border-box;
 					padding: 22px 26px 20px;
 					transition: opacity 1s var( --timing-function );
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
+					background: var( --user-info-panel-background );
+					backdrop-filter: var( --user-info-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
@@ -689,15 +710,15 @@ export default class UserInfo extends HTMLElement {
 					top: 50%;
 					left: 50%;
 					transform: translate( -50%, -50% );
-					width: 420px;
+					width: 460px;
 					max-width: calc( 100vw - 80px );
 					min-height: 200px;
 					box-sizing: border-box;
 					padding: 22px 26px 20px;
 					transition: opacity 1s var( --timing-function );
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
+					background: var( --user-info-panel-background );
+					backdrop-filter: var( --user-info-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
@@ -736,9 +757,10 @@ export default class UserInfo extends HTMLElement {
 					flex-direction: row;
 					align-items: center;
 					gap: 26px;
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
+					overflow: visible;
+					background: var( --user-info-panel-background );
+					backdrop-filter: var( --user-info-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
@@ -758,13 +780,34 @@ export default class UserInfo extends HTMLElement {
 
 				&[ cue="spectrum" ] user-info-visual {
 					order: 2;
-					width: 72px;
-					height: 72px;
+					position: absolute;
+					left: calc( 100% + 18px );
+					top: 50%;
+					width: 92px;
+					height: 32px;
+					transform: translateY( -50% );
+
+					&::before {
+						content: '';
+						position: absolute;
+						left: 8px;
+						right: 14px;
+						top: 50%;
+						height: 2px;
+						background: currentColor;
+						transform: translateY( -50% );
+					}
 
 					&::after {
-						content: '→';
-						font-size: 5.4rem;
-						line-height: 1;
+						content: '';
+						position: absolute;
+						right: 10px;
+						top: 50%;
+						width: 12px;
+						height: 12px;
+						border-top: 2px solid currentColor;
+						border-right: 2px solid currentColor;
+						transform: translateY( -50% ) rotate( 45deg );
 					}
 				}
 
@@ -772,12 +815,13 @@ export default class UserInfo extends HTMLElement {
 					left: 50%;
 					bottom: 270px;
 					transform: translateX( -50% );
-					width: 800px;
+					width: 760px;
 					max-width: calc( 100vw - 80px );
 					height: 210px;
-					background: rgba( 0, 0, 0, .28 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
+					overflow: visible;
+					background: var( --user-info-panel-background );
+					backdrop-filter: var( --user-info-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 					border: var( --border-size ) solid var( --border-color );
 
 					&::before {
@@ -788,7 +832,7 @@ export default class UserInfo extends HTMLElement {
 				&[ cue="viewpoint" ] user-info-copy {
 					order: 1;
 					margin-bottom: 14px;
-					width: 860px;
+					width: 760px;
 					background: none;
 					backdrop-filter: none;
 					-webkit-backdrop-filter: none;
@@ -797,14 +841,34 @@ export default class UserInfo extends HTMLElement {
 
 				&[ cue="viewpoint" ] user-info-visual {
 					order: 2;
-					width: 72px;
-					height: 72px;
-					transform: translateY( -10px );
+					position: absolute;
+					left: 50%;
+					top: calc( 100% + 18px );
+					width: 32px;
+					height: 92px;
+					transform: translateX( -50% );
 
 					&::before {
-						content: '↓';
-						font-size: 5.4rem;
-						line-height: 1;
+						content: '';
+						position: absolute;
+						top: 8px;
+						bottom: 14px;
+						left: 50%;
+						width: 2px;
+						background: currentColor;
+						transform: translateX( -50% );
+					}
+
+					&::after {
+						content: '';
+						position: absolute;
+						left: 50%;
+						bottom: 10px;
+						width: 12px;
+						height: 12px;
+						border-right: 2px solid currentColor;
+						border-bottom: 2px solid currentColor;
+						transform: translateX( -50% ) rotate( 45deg );
 					}
 				}
 
@@ -827,7 +891,7 @@ export default class UserInfo extends HTMLElement {
 					pointer-events: none;
 
 					& user-info-guide {
-						opacity: .001;
+						opacity: 0;
 						pointer-events: none;
 					}
 				}
@@ -837,7 +901,7 @@ export default class UserInfo extends HTMLElement {
 					pointer-events: none;
 
 					& user-info-guide {
-						opacity: .001;
+						opacity: 0;
 						pointer-events: none;
 					}
 				}
@@ -847,7 +911,7 @@ export default class UserInfo extends HTMLElement {
 					pointer-events: none;
 
 					& user-info-guide {
-						opacity: .001;
+						opacity: 0;
 						pointer-events: none;
 					}
 				}
@@ -934,9 +998,9 @@ export default class UserInfo extends HTMLElement {
 						max-width: calc( 100vw - 40px );
 						min-height: auto;
 						padding: 18px 18px 16px;
-						background: rgba( 0, 0, 0, .28 );
-						backdrop-filter: blur( 10px );
-						-webkit-backdrop-filter: blur( 10px );
+						background: var( --user-info-panel-background );
+						backdrop-filter: var( --user-info-panel-backdrop-filter );
+						-webkit-backdrop-filter: var( --user-info-panel-webkit-backdrop-filter );
 						border: var( --border-size ) solid var( --border-color );
 					}
 

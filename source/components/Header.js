@@ -226,6 +226,9 @@ export default class Header extends HTMLElement {
 		header-block {
 			--width: 350px;
 			--top-panel-gap: calc( var( --margin-xs ) / 2 );
+			--header-panel-background: rgba( 0, 0, 0, .22 );
+			--header-panel-backdrop-filter: blur( 10px );
+			--header-panel-webkit-backdrop-filter: blur( 10px );
 			z-index: 20;
 			position: fixed;
 			top: 0;
@@ -252,6 +255,19 @@ export default class Header extends HTMLElement {
 
 			& default-button:not( [ visible ] ) {
 				&:not( [ display-menu ] ) { display: none }
+			}
+
+			[ path="/experiments" ][ list="particles" ] &,
+			[ path="/experiments" ][ list="grid" ] & {
+				--header-panel-background: rgba( 0, 0, 0, 1 );
+				--header-panel-backdrop-filter: none;
+				--header-panel-webkit-backdrop-filter: none;
+			}
+
+			[ path="/experiments" ][ list="places" ] & {
+				--header-panel-background: #8f73c8;
+				--header-panel-backdrop-filter: none;
+				--header-panel-webkit-backdrop-filter: none;
 			}
 
 			 @media ( max-width: 1024px ) {
@@ -449,11 +465,13 @@ export default class Header extends HTMLElement {
 			top: 0;
 			position: relative;
 			flex-wrap: nowrap;
-			background: #000;
+			background: var( --header-panel-background );
 			border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
 			padding-right: 0;
 			flex-shrink: 0;
 			overflow: hidden;
+			backdrop-filter: var( --header-panel-backdrop-filter );
+			-webkit-backdrop-filter: var( --header-panel-webkit-backdrop-filter );
 
 			& default-button {
 				font-family: var( --font-family-c );
@@ -521,6 +539,8 @@ export default class Header extends HTMLElement {
 				padding-right: 0;
 				border: none;
 				background: transparent;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
 				overflow: visible;
 			}
 		}
@@ -530,10 +550,15 @@ export default class Header extends HTMLElement {
 			right: 0;
 			margin: auto;
 			bottom: var( --margin-m );
+			display: none;
 			justify-content: center;
 			flex-direction: column;
 			align-items: center;
 			z-index: 0;
+
+			[ path="/experiments" ] & {
+				display: flex;
+			}
 
 			& default-button {
 				margin-bottom: 0 !important;
@@ -545,10 +570,13 @@ export default class Header extends HTMLElement {
 			}
 
 			& > div {
-				display: flex;
+				display: none;
 				justify-content: center;
 				position: relative;
-				background: #000;
+				background: var( --header-panel-background );
+				border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+				backdrop-filter: var( --header-panel-backdrop-filter );
+				-webkit-backdrop-filter: var( --header-panel-webkit-backdrop-filter );
 				opacity: 1;
 				transition: opacity .2s linear;
 
@@ -557,8 +585,20 @@ export default class Header extends HTMLElement {
 				}
 			}
 
+			[ path="/experiments" ] & #modeTabs {
+				display: flex;
+			}
+
+			[ path="/experiments" ][ list="particles" ] & #particleModes {
+				display: flex;
+			}
+
+			[ path="/experiments" ][ list="places" ] & #placeModes {
+				display: flex;
+			}
+
 			& default-button {
-				background: #000;
+				background: transparent;
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
 			}
@@ -570,7 +610,6 @@ export default class Header extends HTMLElement {
 
 			@media ( hover: hover ) {
 				& default-button:not( [ selected ] ):hover {
-					border-color: rgba( 255, 255, 255, 1 );
 					background: rgba( 255, 255, 255, .08 );
 				}
 			}
@@ -583,12 +622,14 @@ export default class Header extends HTMLElement {
 			right: auto;
 			position: relative;
 			flex-wrap: nowrap;
-			background: #000;
+			background: var( --header-panel-background );
 			margin-left: 0;
 			padding-left: 0;
 			flex-shrink: 0;
 			border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
 			overflow: hidden;
+			backdrop-filter: var( --header-panel-backdrop-filter );
+			-webkit-backdrop-filter: var( --header-panel-webkit-backdrop-filter );
 
 			& default-button {
 				font-family: var( --font-family-c );
@@ -633,6 +674,8 @@ export default class Header extends HTMLElement {
 				padding-left: 0;
 				border: none;
 				background: transparent;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
 				overflow: visible;
 
 				& default-button[ fullscreen ] {
@@ -756,13 +799,13 @@ export default class Header extends HTMLElement {
 			</header-top-row>
 
 			<header-grid-modes>
-				<div>
+				<div id="particleModes">
 					${ particles.map( Button.render ) }
 				</div>
-				<div>
+				<div id="placeModes">
 					${ places.map( Button.render ) }
 				</div>
-				<div>
+				<div id="modeTabs">
 					${ modes.map( Button.render ) }
 				</div>
 			</header-grid-modes>
