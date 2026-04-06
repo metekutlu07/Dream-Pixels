@@ -94,7 +94,8 @@ export default class PostProcessing {
 		this.passTargets = {
 
 			afterImagePass: [
-				{ path: '/' }
+				{ path: '/' },
+				{ path: '/contact' }
 			],
 
 			bloomPass: [

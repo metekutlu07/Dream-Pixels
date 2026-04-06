@@ -249,6 +249,18 @@ export default class Header extends HTMLElement {
 				z-index: 45;
 			}
 
+			[ loading ] &,
+			[ path="/experiments" ][ list="particles" ]:not( [ ui-ready ] ) &,
+			[ path="/experiments" ][ list="particles" ][ pixel-experience-gate-visible ] &,
+			[ path="/experiments" ][ list="particles" ][ pixel-experience-transitioning ] &,
+			&[ landing-hidden ] {
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+				transition: none;
+				z-index: 0;
+			}
+
 			@media ( max-width: 650px ) {
 				padding: var( --margin-s );
 			}
@@ -432,13 +444,16 @@ export default class Header extends HTMLElement {
 		[ path="/experiments" ][ list="particles" ][ pixel-experience-gate-visible ] &,
 		[ path="/experiments" ][ list="particles" ][ pixel-experience-transitioning ] &,
 		&[ landing-hidden ] {
+			& header-top-row,
 			& header-small-screen,
 			& header-navigation,
 			& header-grid-modes,
 			& header-controls,
 			& header-analytics {
 				opacity: 0;
+				visibility: hidden;
 				pointer-events: none;
+				transition: none;
 			}
 		}
 
@@ -456,6 +471,7 @@ export default class Header extends HTMLElement {
 			& header-analytics,
 			& header-grid-modes > div {
 				opacity: 0;
+				visibility: hidden;
 				pointer-events: none;
 			}
 		}
@@ -466,7 +482,8 @@ export default class Header extends HTMLElement {
 			position: relative;
 			flex-wrap: nowrap;
 			background: var( --header-panel-background );
-			border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+			border: none;
+			box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
 			padding-right: 0;
 			flex-shrink: 0;
 			overflow: hidden;
@@ -538,6 +555,7 @@ export default class Header extends HTMLElement {
 			@media ( max-width: 1024px ) {
 				padding-right: 0;
 				border: none;
+				box-shadow: none;
 				background: transparent;
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
@@ -626,7 +644,8 @@ export default class Header extends HTMLElement {
 			margin-left: 0;
 			padding-left: 0;
 			flex-shrink: 0;
-			border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+			border: none;
+			box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
 			overflow: hidden;
 			backdrop-filter: var( --header-panel-backdrop-filter );
 			-webkit-backdrop-filter: var( --header-panel-webkit-backdrop-filter );
@@ -673,6 +692,7 @@ export default class Header extends HTMLElement {
 				margin-left: 0;
 				padding-left: 0;
 				border: none;
+				box-shadow: none;
 				background: transparent;
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;

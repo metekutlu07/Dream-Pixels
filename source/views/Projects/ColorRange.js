@@ -1,5 +1,7 @@
 import { Vector2 } from 'three';
 
+import Handle from '~/assets/icons/Handle';
+
 export default class ColorRange extends HTMLElement {
 
 	onConnected() {
@@ -101,7 +103,8 @@ export default class ColorRange extends HTMLElement {
 		handles.forEach( ( handle, index ) => {
 
 			const value = parseFloat( handle.getAttribute( 'value' ) );
-			handle.style.transform = `translate( -50%, ${ value * this.height }px )`;
+			handle.style.transform = `translateY( ${ value * this.height }px )`;
+			handle.children[ 0 ].textContent = Math.round( value * 360 ) + '°';
 			handle.toggleAttribute( 'grabbed', handle === this.handle );
 
 			Application.store.range[ index ] = value;
@@ -145,29 +148,21 @@ export default class ColorRange extends HTMLElement {
 
 		projects-color-range {
 			position: fixed;
-			right: var( --margin-m );
+			right: calc( var( --margin-m ) / 2 );
 			top: 0;
 			bottom: 0;
 			margin: auto;
-			width: 132px;
-			height: 470px;
-			padding: 16px;
+			width: 5px;
+			height: 500px;
 			display: none;
-			flex-direction: column;
-			align-items: center;
-			justify-content: flex-start;
-			gap: 16px;
-			box-sizing: border-box;
 			opacity: 0;
 			transition: opacity 1s var( --timing-function );
 			touch-action: none;
 
 			@media ( max-width: 650px ) {
-				right: -18px;
-				width: 104px;
+				right: var( --margin-s );
+				width: 5px;
 				height: 320px;
-				padding: 14px;
-				gap: 14px;
 			}
 
 			[ view-enter ][ list="particles" ][ particles="color-range" ] & {
@@ -182,28 +177,26 @@ export default class ColorRange extends HTMLElement {
 
 			& canvas {
 				position: absolute;
-				inset: 0;
 				height: 100%;
 				width: 100%;
 				pointer-events: none;
 			}
 
-			& color-range-track {
-				position: relative;
-				width: 44px;
-				flex: 1;
-				display: flex;
-				justify-content: center;
-				pointer-events: all;
-			}
+		}
 
+		color-range-track {
+			position: relative;
+			width: 5px;
+			height: 100%;
+			display: block;
+			pointer-events: all;
 		}
 
 		color-range-header {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 12px;
+			position: absolute;
+			right: calc( 100% + 18px );
+			top: -18px;
+			display: block;
 		}
 
 		color-range-label {
@@ -213,12 +206,13 @@ export default class ColorRange extends HTMLElement {
 			letter-spacing: .04em;
 			text-transform: uppercase;
 			white-space: nowrap;
-			text-align: center;
+			text-align: right;
 			line-height: 1;
 			padding: 0;
 
 			@media ( max-width: 650px ) {
 				font-size: var( --font-size-xs );
+				display: none;
 			}
 		}
 
@@ -227,17 +221,14 @@ export default class ColorRange extends HTMLElement {
 		}
 
 		color-range-handle {
-			--size: 36px;
+			--size: 24px;
 			position: absolute;
 			top: calc( var( --size ) * -.5 );
-			left: 50%;
-			width: 72px;
-			height: var( --size );
+			right: calc( 100% + var( --margin-xs ) );
 			display: flex;
-			justify-content: center;
 			align-items: center;
 			cursor: grab;
-			transform: translateX( -50% );
+			border: var( --border-size ) solid var( --border-color );
 			pointer-events: all;
 			z-index: 2;
 			touch-action: none;
@@ -247,41 +238,37 @@ export default class ColorRange extends HTMLElement {
 			}
 
 			& span {
-				position: relative;
 				display: block;
-				width: 26px;
-				height: 3px;
-				background: var( --color-white );
+				padding: 5px 8px;
+				font-family: var( --font-family-a );
+				font-size: var( --font-size-s );
+				border-right: var( --border-size ) solid var( --border-color );
+				white-space: nowrap;
+			}
 
-				&::before,
-				&::after {
-					content: '';
-					position: absolute;
-					top: 50%;
-					transform: translateY( -50% );
-					width: 0;
-					height: 0;
-					border-top: 6px solid transparent;
-					border-bottom: 6px solid transparent;
+			& svg {
+				height: 25px;
+				width: 25px;
+				fill: var( --color-white );
+			}
+
+			@media ( max-width: 650px ) {
+				right: calc( 100% + 8px );
+
+				& span {
+					padding: 4px 7px;
+					font-size: var( --font-size-xs );
 				}
 
-				&::before {
-					left: -6px;
-					border-left: 8px solid var( --color-white );
-				}
-
-				&::after {
-					right: -6px;
-					border-right: 8px solid var( --color-white );
+				& svg {
+					height: 22px;
+					width: 22px;
 				}
 			}
 		}
 
 		color-range-band {
-			position: relative;
-			width: 5px;
-			height: 100%;
-			display: block;
+			display: contents;
 		}
 
 		`;
@@ -303,6 +290,7 @@ export default class ColorRange extends HTMLElement {
 						@mouse-down
 					>
 						<span></span>
+						${ Handle }
 					</color-range-handle>
 
 					<color-range-handle
@@ -312,6 +300,7 @@ export default class ColorRange extends HTMLElement {
 						@mouse-down
 					>
 						<span></span>
+						${ Handle }
 					</color-range-handle>
 
 					<canvas #>

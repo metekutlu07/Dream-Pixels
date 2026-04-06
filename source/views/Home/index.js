@@ -589,7 +589,7 @@ export default class Home extends View {
 					color: var( --color-white );
 
 					& home-gate-option-frame {
-						border-color: rgba( 255, 255, 255, .42 );
+						box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
 						background: rgba( 0, 0, 0, .95 );
 					}
 				}
@@ -599,7 +599,7 @@ export default class Home extends View {
 				color: var( --color-green );
 
 				& home-gate-option-frame {
-					border-color: currentColor;
+					box-shadow: inset 0 0 0 var( --border-size ) currentColor;
 				}
 			}
 		}
@@ -610,9 +610,10 @@ export default class Home extends View {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			border: 1px solid rgba( 255, 255, 255, .18 );
+			border: none;
+			box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
 			background: rgba( 0, 0, 0, .9 );
-			transition: border-color .35s var( --timing-function ), background-color .35s var( --timing-function ), color .35s var( --timing-function );
+			transition: box-shadow .35s var( --timing-function ), background-color .35s var( --timing-function ), color .35s var( --timing-function );
 
 			& svg {
 				width: 34px;
@@ -654,7 +655,8 @@ export default class Home extends View {
 			margin-top: 76px;
 			padding: 16px 46px;
 			min-width: 220px;
-			border: 1px solid rgba( 255, 255, 255, .3 );
+			border: none;
+			box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
 			background: rgba( 0, 0, 0, .92 );
 			font-family: var( --font-family-b );
 			font-size: clamp( 1.6rem, 1.1vw, 1.95rem );
@@ -665,7 +667,7 @@ export default class Home extends View {
 			transform: translateY( 16px );
 			transition:
 				background-color .35s var( --timing-function ),
-				border-color .35s var( --timing-function ),
+				box-shadow .35s var( --timing-function ),
 				color .35s var( --timing-function ),
 				opacity .6s var( --timing-function ),
 				transform .6s var( --timing-function );
@@ -679,7 +681,7 @@ export default class Home extends View {
 			@media ( hover: hover ) {
 				&:hover {
 					background: rgba( 255, 255, 255, .08 );
-					border-color: rgba( 255, 255, 255, .5 );
+					box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
 				}
 			}
 
