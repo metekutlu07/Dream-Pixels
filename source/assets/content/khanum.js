@@ -41,11 +41,6 @@ export default {
 			}
 		},
 		{
-			type: 'S2',
-			anchor: 'Enameled Mosaic Cladding',
-			title: 'Enameled Mosaic Cladding',
-		},
-		{
 			type: 'S3',
 			media: {
 				source: 'public/khanum/coverup-front.mp4',
@@ -69,7 +64,8 @@ export default {
 				centeredText: true,
 				source: 'public/khanum/coverup-main.mp4',
 				caption: 'Façade cladding with mosaics made of enameled tiles - Close-up',
-				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ],
+				preloadMedia: true
 			},
 		},
 		{
@@ -83,7 +79,8 @@ export default {
 				source: 'public/khanum/qutluq-drawings.png',
 				caption: 'Geometric harmony of the monument as a reflection of the order in the cosmos.',
 				explain: 'Before initiating the modeling process, I produced the plan, elevation, and section of the monument based on the archival research of Russian architect Yudifi Zelikovna Schwab, conducted during the restoration campaign of the 1960s. Her meticulous documentation later informed <em>Geometric Harmonization in the Architecture of Central Asia, 9th-15th Centuries</em> by Mithat Sagadatinovich Bulatov (1988), a foundational study on proportional systems and generative design principles in Timurid and pre-Timurid architecture. More recently, Schwab and Bulatov\'s work has been reissued under the Russian title <em>Cosmos and Architecture</em> (San\'at, 2009). The primary generative module is the side of the domed, square-shaped inner chamber (a), measuring approximately six meters. From this unit, all other dimensions were derived proportionally, including the wall thickness, portal height, and total elevation. Drawings made in Rhino and Illustrator by the author, 2023.',
-				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ],
+				preloadMedia: true
 			},
 		},
 		{
@@ -95,7 +92,8 @@ export default {
 			media: {
 				source: 'public/khanum/pendentive-muqarnas.png',
 				caption: '',
-				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ]
+				tags: [ '3D Scanning', 'Virtual Reconstruction', 'Timurid', 'Architectural Heritage', 'Mosaics' ],
+				preloadMedia: true
 			},
 		},
 		{

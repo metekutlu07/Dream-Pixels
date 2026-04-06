@@ -14,7 +14,8 @@ export default {
 			type: 'S1',
 			media: {
 				source: 'public/cosmic-colors/dome-list.mp4',
-				caption: 'Cyber Lotus Video Introduction'
+				caption: 'Cyber Lotus Video Introduction',
+				preloadMedia: true
 			}
 		},
 		{
@@ -39,17 +40,13 @@ export default {
 			}
 		},
 		{
-			type: 'S2',
-			anchor: 'Sublimation Process',
-			title: 'Sublimation Process',
-		},
-		{
 			type: 'S9',
 			media: {
 				source: 'public/cosmic-colors/blue-analyse.mp4',
 				caption: 'The transformation process of the Venetian Tower, from the original miniature to its 3D versions.',
 				explain: 'The Tower is first seen as a wireframe geometrical model, then as a textured and shaded render model and finally losing its sharp edges, surfaces and clear outlines to become a swirling pigment cloud. Top line shows the tower in axonometric view, the bottom line shows it from the top. The first image is a detail from the original miniature overlaid with a geometrical reconstruction. Beneath it is the map of the miniature, marked in orange is the tower. Screenshot from the animation. Artwork by the author, 2021.',
-				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
 			}
 		},
 		{
@@ -63,7 +60,8 @@ export default {
 				source: 'public/cosmic-colors/pink-analyse.mp4',
 				caption: 'The transformation process of the Tower of Adrianople, from the original miniature to its 3D versions.',
 				explain: 'The Tower is first seen as a wireframe geometrical model, then as a textured, shaded rendered 3D model and finally losing its sharp edges and clear outlines to become a swirling pigment cloud. Top line shows the tower in axonometric view, the bottom line shows it from the top. The first image is a detail from the original miniature overlaid with a geometrical reconstruction. Beneath it is the map of the miniature, marked in orange is the tower. Screenshot from the animation. Artwork by the author, 2021.',
-				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
 			}
 		},
 		{
@@ -77,7 +75,8 @@ export default {
 				source: 'public/cosmic-colors/group.mp4',
 				caption: 'Cloud Towers of Constantinople.',
 				explain: 'The 12 towers of Constantinople are represented as vibrant pigment clouds. Each tower is seen both in 3D axonometric view and from top. The towers appear as energy fields, supercharged with magical powers, generating supernatural energy fields that holds its stones together. The towers of Constantinople positioned by angels, inhabited by the spirits of saints. They contaminated the underground water resources with their supernatural powers and gave way to the many holy water resources of the city. They are still revered by the Istanbuliotes, and called ayazma in turkish, derived from their original Greek name hagiasma (ἁγίασμα). Just as the fluid movement of these holy waters, the supernatural powers of these towers are represented here as flowing pigment streams. Screenshot from the animation. Artwork by the author, 2022.',
-				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
 			}
 		},
 		{
@@ -92,7 +91,8 @@ export default {
 				source: 'public/cosmic-colors/panorama.mp4',
 				caption: 'The cloud towers of Constantinople seen from inside.',
 				explain: 'We are looking upward to the conical roofs of towers. The lead plated iconic conical roofs of Constantinople turn into variegated pigment storms. The magical properties of each tower derive from the different mienrals used in their creations. Screenshot from the animation. Artwork by the author, 2022.',
-				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ]
+				tags: [ 'Particle Simulation', '3D Miniature', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
 			}
 		},
 

@@ -14,7 +14,9 @@ export default {
 			media: {
 				source: 'public/sanshin/k138.mp4',
 				caption: 'Sanshin Video Introduction',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
+				preloadMedia: true
+
 			}
 		},
 		{
@@ -45,7 +47,8 @@ export default {
 				source: 'public/sanshin/k69.mp4',
 				caption: '3D scan of a stone dragon decoration on stairs.',
 				explain: 'Haedong Yonggungsa Temple, Busan, 7 January 2022.',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
+				preloadMedia: true
 			},
 		},
 		{
@@ -54,7 +57,8 @@ export default {
 				source: 'public/sanshin/k01.jpg',
 				caption: '3D scan of the Pavilion of Samcheonsa Temple, founded in 661, during Silla dynasty, on Bukhansan Mountain in Seoul.',
 				explain: '<br>It was damaged during wars with the Japanese (1592 and 1950), and reconstruted between 1960-1978. This image presents a photogrammetric mesh visualization of a pavilion featuring double eaves, bird-wing brackets, and morudancheong decorative painting. The triangulated mesh is a mirror to the machine vision progressively becoming the ordering principle of the world. A thumbnail at lower left shows the photorealistic rendering of the scanned model. This scan (No. K.113) was created from 58 photographs taken with an iPhone 11 on 11 January 2022 using Apple’s Object Capture API. The wireframe image is rendered in Cinema 4D with Octane. Compositing was done in After Effects. Scan and image by the author.',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
+				preloadMedia: true
 			},
 		},
 		{
@@ -63,7 +67,8 @@ export default {
 				source: 'public/sanshin/k02.jpg',
 				caption: 'Purlins with <em>dancheong</em> decoration supporting the eaves.',
 				explain: '<br>Jeondeungsa Temple, Incheon, South Korea, 1621. 3D scan and image by the author, 2023.',
-				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ]
+				tags: [ '3D Scanning', 'Korean', 'Architectural Heritage', 'Painting' ],
+				preloadMedia: true
 			},
 		},
 		{

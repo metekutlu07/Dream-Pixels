@@ -37,7 +37,7 @@ export default class AudioInterface {
 
 		if ( ! this.loop ) {
 
-			this.loop = new Audio( '/public/freedom.mp3' );
+			this.loop = new Audio( '/public/horlogo.mp3' );
 			this.loop.loop = true;
 			this.loop.playsInline = true;
 			this.loop.preload = 'auto';
@@ -70,7 +70,7 @@ export default class AudioInterface {
 		const isProjectRoute = route === '/:project';
 		const source = isProjectRoute ?
 			`/public${ path }/audio.mp3` :
-			'/public/freedom.mp3';
+			'/public/horlogo.mp3';
 
 		if ( this.loop.src.match( source ) ) return;
 		if ( this.isSwitchingSource ) return;
@@ -98,7 +98,7 @@ export default class AudioInterface {
 				this.loop.pause();
 				this.loop.currentTime = 0;
 				this.loop.volume = 0;
-				this.loop.src = '/public/freedom.mp3';
+				this.loop.src = '/public/horlogo.mp3';
 				this.loop.load();
 				await this.loop.play();
 				await this.fade( this.loop, 1 );
