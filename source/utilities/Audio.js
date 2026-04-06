@@ -10,7 +10,7 @@ export default class AudioInterface {
 
 		this.isMuted = true;
 		this.volume = 1;
-		this.musicVolume = .5;
+		this.musicVolume = .25;
 		this.cache = {};
 
 		addEventListener( 'mousedown', this.onUnlock );
@@ -51,6 +51,7 @@ export default class AudioInterface {
 
 		try {
 
+			this.loop.volume = this.musicVolume;
 			await this.loop.play();
 
 		} catch ( error ) {
@@ -69,12 +70,26 @@ export default class AudioInterface {
 		if ( ! this.loop ) return;
 
 		const { path, route } = Application.store;
+		if ( path === '/time-travelling-colours' ) {
+
+			await this.fade( this.loop, 0 );
+			this.loop.pause();
+			this.loop.currentTime = 0;
+			return;
+
+		}
+
 		const isProjectRoute = route === '/:project';
 		const source = isProjectRoute ?
 			`/public${ path }/audio.mp3` :
 			'/public/horlogo.mp3';
 
-		if ( this.loop.src.match( source ) ) return;
+		if ( this.loop.src.match( source ) ) {
+
+			this.loop.volume = this.musicVolume;
+			return;
+
+		}
 		if ( this.isSwitchingSource ) return;
 
 		this.isSwitchingSource = true;
@@ -118,6 +133,7 @@ export default class AudioInterface {
 	onUpdate() {
 
 		if ( ! this.audioListener ) return;
+		if ( this.loop ) this.loop.volume = this.musicVolume;
 
 		const volume = this.isDisabled || this.isMuted ? 0 : this.volume;
 		this.audioListener.setMasterVolume( volume );

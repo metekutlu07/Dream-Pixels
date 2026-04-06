@@ -19,12 +19,46 @@ export default {
 			}
 		},
 		{
+			type: 'S2',
+			paragraphs: 'Time-Travelling Colors is a documentary animation based on a research project presented at the "Natural Colors/Digital Colors" conference organized by the International Association of Color. The study was later published by Wiley and received the Robert W. G. Hunt Prize from the Colour Group in London. The film translates this research into a narrative form in which historical miniatures speak and reflect on their own material and metaphysical condition. It examines the transformation of color from pigment to pixel and the continuity between premodern luminous color and contemporary digital imagery. By staging a dialogue across time, the animation shows how miniature painting anticipates a world of light-based images, where color becomes immaterial and computational.',
+		},
+		{
+			type: 'S12',
+			groups: [
+				{
+					title: 'Award',
+					lines: [ 'Robert G.W. Hunt Prize, Colour Group (London)' ]
+				},
+				{
+					title: 'Conference',
+					lines: [ 'Natural Colors / Digital Colors' ]
+				},
+				{
+					title: 'Partner',
+					lines: [ 'International Color Association' ]
+				},
+				{
+					title: 'Location',
+					lines: [ 'Palace of the Popes, Avignon, France' ]
+				}
+			],
+		},
+		{
+			type: 'S13',
+			media: {
+				source: 'https://youtu.be/AGff_mk4yc0',
+				note: 'Choose high resolution in the settings at the top right corner.'
+			}
+		},
+		{
 			type: 'S3',
 			anchor: 'Introduction',
 			media: {
 				source: 'public/time-travelling-colours/intro.mp4',
+				controls: true,
+				audible: true,
 				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
-				caption: 'Introduction'
+				caption: ''
 			}
 		},
 		{
@@ -37,8 +71,10 @@ export default {
 			anchor: 'Chapter 1: Metallic Luminosity',
 			media: {
 				source: 'public/time-travelling-colours/chapter1.mp4',
+				controls: true,
+				audible: true,
 				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
-				caption: 'How did the miniaturists use light?'
+				caption: ''
 			}
 		},
 		{
@@ -51,8 +87,10 @@ export default {
 			anchor: 'Chapter 2: Luminous Mysticism',
 			media: {
 				source: 'public/time-travelling-colours/chapter2.mp4',
+				controls: true,
+				audible: true,
 				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
-				caption: 'Why did they develop such techniques?'
+				caption: ''
 			}
 		},
 		{
@@ -65,8 +103,10 @@ export default {
 			anchor: 'Chapter 3: Luminous Colours',
 			media: {
 				source: 'public/time-travelling-colours/chapter3.mp4',
+				controls: true,
+				audible: true,
 				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
-				caption: 'How did the miniaturists use colours?'
+				caption: ''
 			}
 		},
 		{
@@ -79,8 +119,10 @@ export default {
 			anchor: 'Chapter 4: Light-Colours',
 			media: {
 				source: 'public/time-travelling-colours/chapter4.mp4',
+				controls: true,
+				audible: true,
 				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
-				caption: 'How does the miniatures relate to our visual culture in the Digital Age?'
+				caption: ''
 			}
 		},
 		{
@@ -93,8 +135,10 @@ export default {
 			anchor: 'Chapter 5: Luminous Architecture',
 			media: {
 				source: 'public/time-travelling-colours/chapter5.mp4',
+				controls: true,
+				audible: true,
 				tags: [ '3D Miniature', 'Ottoman', 'Timurid', 'Miniatures', 'Painting' ],
-				caption: 'How does light-colours influence architecture?'
+				caption: ''
 			}
 		},
 	]

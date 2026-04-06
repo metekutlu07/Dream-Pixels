@@ -37,8 +37,6 @@ export default class Video extends HTMLElement {
 		if ( section.matches( 'item-thumbnail' ) )
 			section = section.parentNode.parentNode;
 
-		if ( video.hasAttribute( 'controls' ) || video.hasAttribute( 'popin' ) ) return;
-
 		let element = this;
 		let clientTop = 0;
 
@@ -57,6 +55,14 @@ export default class Video extends HTMLElement {
 		const offsetBottom = ( clientTop + this.offsetHeight ) - scrollTop;
 		const offsetTop = clientTop - scrollTop;
 		const isInside = offsetTop + 100 < height && offsetBottom - 100 > 0;
+		if ( video.hasAttribute( 'controls' ) ) {
+
+			if ( ! video.paused && ! isInside ) video.pause();
+			return;
+
+		}
+		if ( video.hasAttribute( 'popin' ) ) return;
+
 		if ( video.paused && isInside ) video.play();
 		else if ( ! video.paused && ! isInside ) video.pause();
 
@@ -126,18 +132,16 @@ export default class Video extends HTMLElement {
 
 		`;
 
-		const { controls, fullscreen, border, poster, preloadMedia, startAt, preload } = parameters;
+		const { controls, fullscreen, border, poster, preloadMedia, startAt, preload, audible } = parameters;
 		const preloadMode = preload || ( preloadMedia || fullscreen ? 'auto' : 'metadata' );
 		const attributes = [
-			'autoplay',
 			'playsinline',
 			'webkit-playsinline',
-			'muted',
-			'loop',
 			`preload="${ preloadMode }"`,
 			'disablepictureinpicture',
 			'disableremoteplayback'
 		];
+		if ( ! audible ) attributes.push( 'autoplay', 'muted', 'loop' );
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const offset = startAt ?? .1;
 		const src = source ? `src="${ source }#t=${ offset }"` : '';
