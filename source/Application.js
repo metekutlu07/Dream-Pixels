@@ -24,7 +24,6 @@ import PostProcessing from '~/canvas/PostProcessing';
 import Meta from '~/components/Meta';
 import Preloader from '~/components/Preloader';
 import Header from '~/components/Header';
-import Effects from './components/Effects';
 import RotateDevice from './components/RotateDevice';
 import Canvas from './components/Canvas';
 import UserInfo from './components/UserInfo';
@@ -112,7 +111,6 @@ class Application {
 				${ Header.render() }
 				${ View.render( parameters ) }
 				${ Preloader.render() }
-				${ Effects.render() }
 				${ RotateDevice.render() }
 				${ Editor.render() }
 				${ UserInfo.render() }

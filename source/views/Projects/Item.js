@@ -318,6 +318,12 @@ export default class Item extends HTMLElement {
 		const projectsLength = projects.length;
 		const index = projects.findIndex( project => project.path === path );
 		const number = ( '00' + ( index + 1 ) ).substr( -2 );
+		const shouldPreloadThumbnail = index >= ( projectsLength - 8 );
+		const thumbnailFallbacks = {
+			marco: '/public/marco/venezia-catalogue01.jpg',
+			robertus: '/public/robertus/t01.jpg'
+		};
+		const thumbnailImage = thumbnailFallbacks[ path ] || `/public/${ path }/thumbnail.png`;
 
 		return html`
 
@@ -330,8 +336,15 @@ export default class Item extends HTMLElement {
 		>
 			<item-link href="/${ path }" internal>
 				<item-thumbnail>
-					<img src="/public/${ path }/thumbnail.png" alt="${ title } thumbnail">
-					${ Video.render( `/public/${ path }/thumbnail.mp4`, { poster: true, preloadMedia: index >= ( projectsLength - 3 ), startAt: 1 } ) }
+					<img
+						src="${ thumbnailImage }"
+						alt="${ title } thumbnail"
+						class="${ shouldPreloadThumbnail ? 'preloadMedia' : '' }">
+					${ Video.render( `/public/${ path }/thumbnail.mp4`, {
+						preloadMedia: shouldPreloadThumbnail,
+						preload: 'auto',
+						startAt: false
+					} ) }
 					<item-overlay>
 						${ Button.render( { attributes: [ 'label-visible' ], icons: [ Next ], } ) }
 					</item-overlay>

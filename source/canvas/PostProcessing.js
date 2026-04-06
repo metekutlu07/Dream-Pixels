@@ -68,7 +68,7 @@ export default class PostProcessing {
 			},
 
 			noisePass: {
-				enabled: true,
+				enabled: false,
 				scale: { value: 8, max: 8 },
 				strength: { value: .15, max: 1 },
 			},
@@ -94,19 +94,17 @@ export default class PostProcessing {
 		this.passTargets = {
 
 			afterImagePass: [
-				{ path: '/' },
-				{ path: '/contact' },
-				{ path: '/about' }
+				{ path: '/' }
 			],
 
 			bloomPass: [
-				{ path: '/' }
+				{ path: '/' },
+				{ path: '/experiments', list: 'sphere' }
 			],
 
 			chromaticAberrationPass: [
 				{ path: '/' },
-				{ path: '/experiments', list: 'grid' },
-				{ path: '/experiments', list: 'sphere' },
+				{ path: '/experiments', list: 'sphere' }
 			],
 
 			weakChromaticAberrationPass: [

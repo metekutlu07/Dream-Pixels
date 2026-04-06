@@ -4,6 +4,11 @@ export default class Video extends HTMLElement {
 
 		const { video } = this.elements;
 		if ( ! video ) return;
+		this.onVideoReady = this.onVideoReady || this.updatePlayback.bind( this );
+		video.addEventListener( 'loadeddata', this.onVideoReady );
+		video.addEventListener( 'canplay', this.onVideoReady );
+		video.addEventListener( 'playing', this.onVideoReady );
+		this.setupObserver();
 		const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
 		if ( ! shouldAutoplayMuted ) return;
 
@@ -12,59 +17,115 @@ export default class Video extends HTMLElement {
 		video.defaultMuted = true;
 		video.muted = true;
 		video.playsInline = true;
+		this.updatePlayback();
 
 	}
 
 	onDisconnected() {
 
 		const { video } = this.elements;
+		Video.observer?.unobserve( this );
 		if ( ! video ) return;
+		video.removeEventListener( 'loadeddata', this.onVideoReady );
+		video.removeEventListener( 'canplay', this.onVideoReady );
+		video.removeEventListener( 'playing', this.onVideoReady );
 		video.pause();
 
 	}
 
-	onPreFrame() {
+	onModeChange() {
 
-		const { video } = this.elements;
-		const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
-		if ( shouldAutoplayMuted ) {
-			video.defaultMuted = true;
-			video.muted = true;
+		this.updatePlayback();
+
+	}
+
+	onViewChange() {
+
+		this.updatePlayback();
+
+	}
+
+	onRouting() {
+
+		this.updatePlayback();
+
+	}
+
+	setupObserver() {
+
+		if ( ! Video.observer && typeof IntersectionObserver !== 'undefined' ) {
+
+			Video.observer = new IntersectionObserver( entries => {
+
+				entries.forEach( entry => entry.target.onIntersection( entry ) );
+
+			}, {
+				root: null,
+				rootMargin: '200px 0px',
+				threshold: 0.01
+			} );
+
 		}
 
-		let section = this.parentNode;
+		Video.observer?.observe( this );
 
-		if ( section.matches( 'item-thumbnail' ) )
-			section = section.parentNode.parentNode;
+	}
 
-		let element = this;
-		let clientTop = 0;
+	onIntersection( entry ) {
 
-		do {
+		this.isInsideViewport = entry.isIntersecting || entry.intersectionRatio > 0;
+		this.updatePlayback();
 
-			clientTop += element.offsetTop || 0;
-			element = element.offsetParent;
+	}
 
-		} while ( element );
+	isPlayableInCurrentContext() {
 
-		if ( section.parentNode.offsetY ) clientTop -= section.parentNode.offsetY;
+		const view = this.closest( '[view]' );
+		if ( view?.hasAttribute( 'hidden' ) ) return false;
 
-		const { height } = Application.viewport;
-		const scrollTop = Math.round( document.body.scrollTop );
+		if ( this.closest( 'projects-grid' ) ) {
 
-		const offsetBottom = ( clientTop + this.offsetHeight ) - scrollTop;
-		const offsetTop = clientTop - scrollTop;
-		const isInside = offsetTop + 100 < height && offsetBottom - 100 > 0;
+			return (
+				Application.store.path === '/experiments' &&
+				Application.store.list === 'grid'
+			);
+
+		}
+
+		return true;
+
+	}
+
+	updatePlayback() {
+
+		const { video } = this.elements;
+		if ( ! video ) return;
+
+		const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
+		if ( shouldAutoplayMuted ) {
+
+			video.defaultMuted = true;
+			video.muted = true;
+			video.playsInline = true;
+
+		}
+
+		const isInside = this.isInsideViewport && this.isPlayableInCurrentContext();
 		if ( video.hasAttribute( 'controls' ) ) {
 
 			if ( ! video.paused && ! isInside ) video.pause();
 			return;
 
 		}
+
 		if ( video.hasAttribute( 'popin' ) ) return;
 
-		if ( video.paused && isInside ) video.play();
-		else if ( ! video.paused && ! isInside ) video.pause();
+		if ( video.paused && isInside ) {
+
+			const playPromise = video.play();
+			playPromise?.catch?.( () => null );
+
+		} else if ( ! video.paused && ! isInside ) video.pause();
 
 	}
 
@@ -133,7 +194,8 @@ export default class Video extends HTMLElement {
 		`;
 
 		const { controls, fullscreen, border, poster, preloadMedia, startAt, preload, audible } = parameters;
-		const preloadMode = preload || ( preloadMedia || fullscreen ? 'auto' : 'metadata' );
+		const shouldAutoplayMuted = ! controls && ! audible;
+		const preloadMode = preload || ( preloadMedia || fullscreen || shouldAutoplayMuted ? 'auto' : 'metadata' );
 		const attributes = [
 			'playsinline',
 			'webkit-playsinline',
@@ -144,7 +206,8 @@ export default class Video extends HTMLElement {
 		if ( ! audible ) attributes.push( 'autoplay', 'muted', 'loop' );
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const offset = startAt ?? .1;
-		const src = source ? `src="${ source }#t=${ offset }"` : '';
+		const timeFragment = startAt === false ? '' : `#t=${ offset }`;
+		const src = source ? `src="${ source }${ timeFragment }"` : '';
 
 		if ( controls ) attributes.push( 'controls' );
 		if ( poster ) attributes.push( `poster="${ source.replace( 'mp4', 'png' ) }"` );

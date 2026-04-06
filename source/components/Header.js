@@ -7,6 +7,7 @@ export default class Header extends HTMLElement {
 		this.onResize();
 		this.setAnalytics();
 		this.syncLandingState();
+		this.syncMobileGridState();
 
 	}
 
@@ -14,6 +15,7 @@ export default class Header extends HTMLElement {
 
 		Application.store.set( 'display-menu', false );
 		this.syncLandingState();
+		this.syncMobileGridState();
 
 	}
 
@@ -21,71 +23,21 @@ export default class Header extends HTMLElement {
 
 		this.setAnalytics();
 		this.syncLandingState();
+		this.syncMobileGridState();
+
+	}
+
+	onModeChange() {
+
+		this.syncLandingState();
+		this.syncMobileGridState();
 
 	}
 
 	onPreFrame() {
 
 		this.syncLandingState();
-
-		const isMobile = typeof matchMedia !== 'undefined' &&
-			matchMedia( '(max-width: 1024px)' ).matches;
-		const isMobileGrid = isMobile &&
-			Application.store.path === '/experiments' &&
-			Application.store.list === 'grid';
-		const scrollY = window.scrollY;
-
-		if ( ! isMobileGrid ) this.mobileGridUIHidden = false;
-		else {
-
-			const previousScrollY = this.previousScrollY ?? scrollY;
-			const delta = scrollY - previousScrollY;
-
-			if ( scrollY <= 24 ) this.mobileGridUIHidden = false;
-			else if ( delta > 2 ) this.mobileGridUIHidden = true;
-			else if ( delta < -2 ) this.mobileGridUIHidden = false;
-
-		}
-
-		this.previousScrollY = scrollY;
-		const shouldHideMobileGridUI = !! this.mobileGridUIHidden;
-
-		this.toggleAttribute( 'mobile-grid-scrolled', shouldHideMobileGridUI );
-
-		const smallScreen = this.querySelector( 'header-small-screen' );
-		const gridModes = this.querySelector( 'header-grid-modes' );
-
-		if ( smallScreen ) {
-
-			smallScreen.style.opacity = shouldHideMobileGridUI ? '0' : '';
-			smallScreen.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
-
-			const buttons = smallScreen.querySelectorAll( 'default-button' );
-			buttons.forEach( button => {
-
-				button.style.opacity = shouldHideMobileGridUI ? '0' : '';
-				button.style.visibility = shouldHideMobileGridUI ? 'hidden' : '';
-				button.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
-
-			} );
-
-		}
-
-		if ( gridModes ) {
-
-			gridModes.style.opacity = shouldHideMobileGridUI ? '0' : '';
-			gridModes.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
-
-			const buttons = gridModes.querySelectorAll( 'default-button' );
-			buttons.forEach( button => {
-
-				button.style.opacity = shouldHideMobileGridUI ? '0' : '';
-				button.style.visibility = shouldHideMobileGridUI ? 'hidden' : '';
-				button.style.pointerEvents = shouldHideMobileGridUI ? 'none' : '';
-
-			} );
-
-		}
+		this.syncMobileGridState();
 
 	}
 
@@ -227,65 +179,43 @@ export default class Header extends HTMLElement {
 				)
 			)
 		);
-
-		this.toggleAttribute( 'landing-hidden', shouldHideArchiveUI );
-
-		const sharedGroups = this.querySelectorAll(
-			'header-small-screen, header-navigation, header-controls'
-		);
-		const setButtonsVisibility = ( container, hidden ) => {
-
-			if ( ! container ) return;
-
-			const buttons = container.querySelectorAll( 'default-button' );
-
-			buttons.forEach( button => {
-
-				button.style.opacity = hidden ? '0' : '';
-				button.style.visibility = hidden ? 'hidden' : '';
-				button.style.pointerEvents = hidden ? 'none' : '';
-
-			} );
-
-		};
-
-		sharedGroups.forEach( group => {
-
-			group.style.opacity = '';
-			group.style.visibility = '';
-			group.style.pointerEvents = '';
-			setButtonsVisibility( group, shouldHideArchiveUI );
-
-		} );
-
-		const analyticsGroup = this.querySelector( 'header-analytics' );
-		const gridModesGroup = this.querySelector( 'header-grid-modes' );
-		const gridModePanels = this.querySelectorAll( 'header-grid-modes > div' );
 		const shouldHideArchivePanels = shouldHideArchiveUI || path === '/';
 
-		if ( analyticsGroup ) {
+		this.syncStateAttribute( 'landing-hidden', shouldHideArchiveUI );
+		this.syncStateAttribute( 'archive-panels-hidden', shouldHideArchivePanels );
 
-			analyticsGroup.style.opacity = shouldHideArchivePanels ? '0' : '';
-			analyticsGroup.style.visibility = '';
-			analyticsGroup.style.pointerEvents = shouldHideArchivePanels ? 'none' : '';
+	}
+
+	syncMobileGridState() {
+
+		const isMobile = typeof matchMedia !== 'undefined' &&
+			matchMedia( '(max-width: 1024px)' ).matches;
+		const isMobileGrid = isMobile &&
+			Application.store.path === '/experiments' &&
+			Application.store.list === 'grid';
+		const scrollY = window.scrollY;
+
+		if ( ! isMobileGrid ) this.mobileGridUIHidden = false;
+		else {
+
+			const previousScrollY = this.previousScrollY ?? scrollY;
+			const delta = scrollY - previousScrollY;
+
+			if ( scrollY <= 24 ) this.mobileGridUIHidden = false;
+			else if ( delta > 2 ) this.mobileGridUIHidden = true;
+			else if ( delta < -2 ) this.mobileGridUIHidden = false;
 
 		}
 
-		if ( gridModesGroup ) {
+		this.previousScrollY = scrollY;
+		this.syncStateAttribute( 'mobile-grid-scrolled', !! this.mobileGridUIHidden );
 
-			gridModesGroup.style.opacity = '';
-			gridModesGroup.style.pointerEvents = '';
+	}
 
-		}
+	syncStateAttribute( attribute, value ) {
 
-		gridModePanels.forEach( panel => {
-
-			panel.style.opacity = '';
-			panel.style.visibility = '';
-			panel.style.pointerEvents = '';
-			setButtonsVisibility( panel, shouldHideArchivePanels );
-
-		} );
+		if ( this.hasAttribute( attribute ) === !! value ) return;
+		this.toggleAttribute( attribute, !! value );
 
 	}
 
@@ -358,15 +288,15 @@ export default class Header extends HTMLElement {
 			position: absolute;
 			pointer-events: all;
 			opacity: 1;
-			transition: opacity 1s var( --timing-function );
+			transition: opacity .2s linear;
 
 			[ path="/" ] & {
 				transition: none;
 			}
 
 			& default-button {
-				transition: opacity 1s var( --timing-function );
-				will-change: opacity;
+				transition: none;
+				will-change: auto;
 			}
 		}
 
@@ -375,7 +305,7 @@ export default class Header extends HTMLElement {
 			display: block;
 			pointer-events: all;
 			opacity: 1;
-			transition: opacity 1s var( --timing-function );
+			transition: opacity .2s linear;
 
 			[ path="/" ] & {
 				transition: none;
@@ -394,6 +324,11 @@ export default class Header extends HTMLElement {
 			flex-wrap: nowrap;
 			gap: 14px;
 			pointer-events: none;
+			padding: 0;
+			border: none;
+			background: none;
+			overflow: visible;
+			isolation: auto;
 
 			@media ( max-width: 1024px ) {
 				position: relative;
@@ -401,6 +336,13 @@ export default class Header extends HTMLElement {
 				left: initial;
 				transform: none;
 				display: contents;
+				padding: 0;
+				border: none;
+				background: none;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
+				overflow: visible;
+				isolation: auto;
 			}
 		}
 
@@ -417,12 +359,12 @@ export default class Header extends HTMLElement {
 
 			@media ( max-width: 1024px ) {
 				& default-button {
-					background: rgba( 8, 8, 8, .34 );
-					backdrop-filter: blur( 10px );
-					-webkit-backdrop-filter: blur( 10px );
-					overflow: hidden;
-					isolation: isolate;
-					transform: translateZ( 0 );
+					background: #000;
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+					overflow: visible;
+					isolation: auto;
+					transform: none;
 				}
 			}
 		}
@@ -459,12 +401,12 @@ export default class Header extends HTMLElement {
 				}
 
 				& default-button {
-					background: rgba( 0, 0, 0, .82 );
+					background: #000;
 					backdrop-filter: none;
 					-webkit-backdrop-filter: none;
-					overflow: hidden;
-					isolation: isolate;
-					transform: translateZ( 0 );
+					overflow: visible;
+					isolation: auto;
+					transform: none;
 				}
 			}
 		}
@@ -494,19 +436,34 @@ export default class Header extends HTMLElement {
 			}
 		}
 
+		&[ archive-panels-hidden ] {
+			& header-analytics,
+			& header-grid-modes > div {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+
 		header-navigation {
 			left: 0;
 			top: 0;
 			position: relative;
 			flex-wrap: nowrap;
+			background: #000;
+			border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+			padding-right: 0;
+			flex-shrink: 0;
+			overflow: hidden;
 
 			& default-button {
 				font-family: var( --font-family-c );
 				font-size: 1.65rem;
 				letter-spacing: .04em;
-				background: rgba( 8, 8, 8, .34 );
-				backdrop-filter: blur( 10px );
-				-webkit-backdrop-filter: blur( 10px );
+				background: transparent;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
+				border: none;
+				margin-right: -1px;
 			}
 
 			& default-button[ selected ] {
@@ -531,6 +488,10 @@ export default class Header extends HTMLElement {
 				box-sizing: border-box;
 			}
 
+			& default-button + default-button {
+				border-left: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+			}
+
 			& default-button[ home ] button-label {
 				padding-left: 30px;
 				padding-right: 72px;
@@ -552,9 +513,15 @@ export default class Header extends HTMLElement {
 
 			@media ( hover: hover ) {
 				& default-button:not( [ selected ] ):not( [ home ] ):hover {
-					border-color: rgba( 255, 255, 255, .5 );
-					background: rgba( 255, 255, 255, .16 );
+					background: rgba( 255, 255, 255, .08 );
 				}
+			}
+
+			@media ( max-width: 1024px ) {
+				padding-right: 0;
+				border: none;
+				background: transparent;
+				overflow: visible;
 			}
 		}
 
@@ -581,8 +548,9 @@ export default class Header extends HTMLElement {
 				display: flex;
 				justify-content: center;
 				position: relative;
+				background: #000;
 				opacity: 1;
-				transition: opacity 1s var( --timing-function );
+				transition: opacity .2s linear;
 
 				&:not( :last-child ) {
 					margin-bottom: calc( var( --margin-xs ) / 2 );
@@ -590,9 +558,9 @@ export default class Header extends HTMLElement {
 			}
 
 			& default-button {
-				background: rgba( 8, 8, 8, .34 );
-				backdrop-filter: blur( 10px );
-				-webkit-backdrop-filter: blur( 10px );
+				background: #000;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
 			}
 
 			& default-button[ selected ] {
@@ -602,8 +570,8 @@ export default class Header extends HTMLElement {
 
 			@media ( hover: hover ) {
 				& default-button:not( [ selected ] ):hover {
-					border-color: rgba( 255, 255, 255, .5 );
-					background: rgba( 255, 255, 255, .16 );
+					border-color: rgba( 255, 255, 255, 1 );
+					background: rgba( 255, 255, 255, .08 );
 				}
 			}
 		}
@@ -615,14 +583,22 @@ export default class Header extends HTMLElement {
 			right: auto;
 			position: relative;
 			flex-wrap: nowrap;
+			background: #000;
+			margin-left: 0;
+			padding-left: 0;
+			flex-shrink: 0;
+			border: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+			overflow: hidden;
 
 			& default-button {
 				font-family: var( --font-family-c );
 				font-size: 1.65rem;
 				letter-spacing: .04em;
-				background: rgba( 8, 8, 8, .34 );
-				backdrop-filter: blur( 10px );
-				-webkit-backdrop-filter: blur( 10px );
+				background: transparent;
+				backdrop-filter: none;
+				-webkit-backdrop-filter: none;
+				border: none;
+				margin-right: -1px;
 			}
 
 			& default-button[ selected ] {
@@ -640,7 +616,25 @@ export default class Header extends HTMLElement {
 				box-sizing: border-box;
 			}
 
+			& default-button + default-button {
+				border-left: var( --border-size ) solid rgba( 255, 255, 255, 1 );
+			}
+
+			& default-button[ fullscreen ] {
+				width: auto;
+			}
+
+			& default-button[ audio ] {
+				width: auto;
+			}
+
 			@media ( max-width: 1024px ) {
+				margin-left: 0;
+				padding-left: 0;
+				border: none;
+				background: transparent;
+				overflow: visible;
+
 				& default-button[ fullscreen ] {
 					display: none !important;
 				}
@@ -648,8 +642,7 @@ export default class Header extends HTMLElement {
 
 			@media ( hover: hover ) {
 				& default-button:not( [ selected ] ):hover {
-					border-color: rgba( 255, 255, 255, .5 );
-					background: rgba( 255, 255, 255, .16 );
+					background: rgba( 255, 255, 255, .08 );
 				}
 			}
 		}
