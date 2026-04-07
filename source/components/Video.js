@@ -174,9 +174,9 @@ export default class Video extends HTMLElement {
 			left: 0;
 			object-fit: cover;
 
-			&::-webkit-media-controls,
-			&::-webkit-media-controls-panel,
-			&::-webkit-media-controls-start-playback-button {
+			&:not( [ controls ] )::-webkit-media-controls,
+			&:not( [ controls ] )::-webkit-media-controls-panel,
+			&:not( [ controls ] )::-webkit-media-controls-start-playback-button {
 				display: none !important;
 				-webkit-appearance: none;
 				opacity: 0 !important;

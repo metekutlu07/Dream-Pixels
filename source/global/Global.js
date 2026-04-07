@@ -123,12 +123,14 @@ export default class Global {
 
 		}
 
-		[ loading ] [ view ],
-		[ loading ] canvas-block {
-			opacity: 0 !important;
-			visibility: hidden !important;
-			pointer-events: none !important;
-			transition: none !important;
+		@media ( max-width: 650px ) {
+			[ loading ] [ view ],
+			[ loading ] canvas-block {
+				opacity: 0 !important;
+				visibility: hidden !important;
+				pointer-events: none !important;
+				transition: none !important;
+			}
 		}
 
 		@media ( hover: hover ) {

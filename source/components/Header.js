@@ -127,15 +127,33 @@ export default class Header extends HTMLElement {
 		if ( currentTarget.hasAttribute( 'display-menu' ) ) Application.store.toggle( 'display-menu' );
 		if ( currentTarget.hasAttribute( 'sphere' ) ) {
 
-			await this.loadPack( 'works' );
-			Application.store.set( 'list', 'sphere' );
+			Application.store.set( 'loading', true );
+			try {
+
+				await this.loadPack( 'works' );
+				Application.store.set( 'list', 'sphere' );
+
+			} finally {
+
+				Application.store.set( 'loading', false );
+
+			}
 
 		}
 		if ( currentTarget.hasAttribute( 'places' ) ) {
 
-			await this.loadPack( 'places' );
-			Application.store.set( 'places', 'world' );
-			Application.store.set( 'list', 'places' );
+			Application.store.set( 'loading', true );
+			try {
+
+				await this.loadPack( 'places' );
+				Application.store.set( 'places', 'world' );
+				Application.store.set( 'list', 'places' );
+
+			} finally {
+
+				Application.store.set( 'loading', false );
+
+			}
 
 		}
 
@@ -143,15 +161,11 @@ export default class Header extends HTMLElement {
 
 	async loadPack( packID ) {
 
-		Application.store.set( 'loading', true );
-
 		try {
 
 			await Application.assets.load( packID, false );
 
 		} catch ( error ) { console.log( error ) }
-
-		Application.store.set( 'loading', false );
 
 	}
 

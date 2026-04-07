@@ -25,7 +25,18 @@ export default {
 		{
 			type: 'S13',
 			media: {
-				source: 'https://youtu.be/WZ_XSuS8e-A'
+				source: 'https://youtu.be/WZ_XSuS8e-A',
+				note: 'Choose high resolution in the settings at the top right corner.'
+			}
+		},
+		{
+			type: 'S9',
+			media: {
+				source: 'public/kizil-elma/piece01x.mp4',
+				caption: 'Entangled colors of Székesfehérvár, from the cloud of the artist to that of the astrophysicist.',
+				explain: 'Conquest of Székesfehérvár (Hungary) in 1543, <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 268b.',
+				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
+				preloadMedia: true
 			}
 		},
 		{

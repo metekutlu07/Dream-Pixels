@@ -93,6 +93,8 @@ export default class Grid extends HTMLElement {
 				var( --margin-m )
 				var( --margin-m );
 			pointer-events: none;
+			opacity: 0;
+			visibility: hidden;
 			align-items: flex-start;
 			margin-bottom: 100px;
 
@@ -105,6 +107,8 @@ export default class Grid extends HTMLElement {
 
 			[ list="grid" ] & {
 				pointer-events: all;
+				opacity: 1;
+				visibility: visible;
 			}
 		}
 

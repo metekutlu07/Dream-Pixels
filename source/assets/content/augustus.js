@@ -73,7 +73,8 @@ export default {
 		{
 			type: 'S13',
 			media: {
-				source: 'https://youtu.be/eMNpolIMDtI?si=DOZwlPLNVOmXJdaz'
+				source: 'https://youtu.be/eMNpolIMDtI?si=DOZwlPLNVOmXJdaz',
+				note: 'Choose high resolution in the settings at the top right corner.'
 			}
 		},
 		{

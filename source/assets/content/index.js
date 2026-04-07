@@ -68,9 +68,9 @@ export default {
 	user_infos: {
 
 		'Cosmos': {
-			title: 'This is the alchemical Cup of Jamshid.',
+			title: '',
 			paragraphs: `
-				It contains the elixir of immortality and reveals, on the surface of its wine, the destiny of all beings in the universe. Alexander the Great and Süleyman the Magnificent are said to have drunk from it. Tap the cup to reveal the seven celestial spheres and the world at their center.
+				This is the alchemical Cup of Jamshid. It contains the elixir of immortality and reveals, on the surface of its wine, the destiny of all beings in the universe. Alexander the Great and Süleyman the Magnificent are said to have drunk from it. Tap the cup to reveal the seven celestial spheres and the world at their center.
 			`
 		},
 
