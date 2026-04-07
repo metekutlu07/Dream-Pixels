@@ -66,11 +66,23 @@ export default class Contact extends View {
 
 			& h4 {
 				margin-bottom: var( --margin-m );
-				font-size: var( --font-size-xxl );
+				font-size: calc( var( --font-size-xxl ) * 1.5 );
 				line-height: .9;
 
 				@media ( max-width: 1024px ) {
-					font-size: var( --font-size-l );
+					font-size: calc( var( --font-size-l ) * 1.5 );
+				}
+
+				@media ( max-width: 650px ) {
+					line-height: 1.5;
+				}
+			}
+
+			& contact-mobile-break {
+				display: none;
+
+				@media ( max-width: 650px ) {
+					display: block;
 				}
 			}
 
@@ -132,12 +144,13 @@ export default class Contact extends View {
 		`;
 
 		const { mail, address, contact } = Application.content;
+		const contactTitle = contact.replace( ' or reach out?', '<contact-mobile-break></contact-mobile-break>or reach out?' );
 
 		return html`
 
 		<contact-view view>
 			<contact-reveal></contact-reveal>
-			<h4>${ contact }</h4>
+			<h4>${ contactTitle }</h4>
 			<a href="mailto:${ mail }">${ mail }</a>
 			<h3>${ address }</h3>
 			<contact-credit>© Mete Kutlu, 2026</contact-credit>

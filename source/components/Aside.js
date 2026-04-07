@@ -186,30 +186,47 @@ export default class Aside extends HTMLElement {
 
 			&[ scrollable ][ photogrammetry-library ] {
 				@media ( max-width: 650px ) {
+					position: fixed;
 					top: 0;
 					right: 0;
 					bottom: 0;
 					left: 0;
 					width: 100vw;
+					height: 100vh;
+					height: 100dvh;
+					height: calc( var( --vh, 1vh ) * 100 );
 					max-width: none;
 					max-height: none;
+					min-height: 100vh;
+					min-height: 100dvh;
+					min-height: calc( var( --vh, 1vh ) * 100 );
 					padding: 0;
+					box-sizing: border-box;
 					background: rgba( 0, 0, 0, .96 );
 					backdrop-filter: none;
 					-webkit-backdrop-filter: none;
 					border: none;
 					scrollbar-width: none;
+					transform: translateX( -100% );
 
 					& default-button {
 						display: none;
 					}
 
 					& scrolling-block {
+						min-height: 100%;
 						padding:
 							calc( 54px + var( --margin-s ) * 2 )
 							var( --margin-s )
 							120px;
+						box-sizing: border-box;
 					}
+				}
+			}
+
+			[ view-enter ][ display-aside ] &[ scrollable ][ photogrammetry-library ] {
+				@media ( max-width: 650px ) {
+					transform: translateX( 0 );
 				}
 			}
 
@@ -219,14 +236,16 @@ export default class Aside extends HTMLElement {
 				}
 
 				@media ( max-width: 650px ) {
-					top: var( --margin-s );
-					right: var( --margin-s );
-					bottom: var( --margin-s );
-					left: var( --margin-s );
-					width: auto;
-					max-width: none;
-					max-height: none;
+					position: fixed;
+					top: 50%;
+					right: auto;
+					bottom: auto;
+					left: 50%;
+					width: min( 420px, calc( 100vw - ( var( --margin-s ) * 2 ) ) );
+					max-width: min( 420px, calc( 100vw - ( var( --margin-s ) * 2 ) ) );
+					max-height: min( calc( ( var( --vh, 1vh ) * 100 ) - ( var( --margin-s ) * 2 ) ), 70vh );
 					padding: calc( 52px + var( --margin-s ) ) var( --margin-s ) var( --margin-s );
+					transform: translate( -50%, calc( -50% - 8px ) );
 
 					& default-button {
 						position: absolute;
@@ -255,6 +274,10 @@ export default class Aside extends HTMLElement {
 				opacity: 1;
 				visibility: visible;
 				pointer-events: all;
+
+				@media ( max-width: 650px ) {
+					transform: translate( -50%, -50% );
+				}
 			}
 
 			& scrolling-block {

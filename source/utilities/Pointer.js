@@ -106,6 +106,9 @@ export default class Pointer {
 
 		} );
 
+		const touch = event.touches[ 0 ];
+		if ( touch ) this.mouse.set( touch.clientX, touch.clientY );
+
 		this.isPressed = true;
 
 		Application.events.dispatch( 'onInputStart', event );
@@ -122,11 +125,17 @@ export default class Pointer {
 
 		} );
 
+		const touch = event.touches[ 0 ];
+		if ( touch ) this.mouse.set( touch.clientX, touch.clientY );
+
 		Application.events.dispatch( 'onInputMove', event );
 
 	}
 
 	onTouchEnd( event ) {
+
+		const touch = event.changedTouches?.[ 0 ];
+		if ( touch ) this.mouse.set( touch.clientX, touch.clientY );
 
 		Array.from( event.changedTouches ).forEach( event => {
 

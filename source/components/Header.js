@@ -4,6 +4,8 @@ export default class Header extends HTMLElement {
 
 	onConnected() {
 
+		if ( ! this.boundOnWindowScroll ) this.boundOnWindowScroll = this.onWindowScroll.bind( this );
+		this.bindScrollEvents();
 		this.onResize();
 		this.setAnalytics();
 		this.syncLandingState();
@@ -14,6 +16,9 @@ export default class Header extends HTMLElement {
 	onRouting() {
 
 		Application.store.set( 'display-menu', false );
+		this.mobileHeaderHidden = false;
+		this.mobileGridUIHidden = false;
+		this.previousScrollY = 0;
 		this.syncLandingState();
 		this.syncMobileGridState();
 
@@ -24,6 +29,12 @@ export default class Header extends HTMLElement {
 		this.setAnalytics();
 		this.syncLandingState();
 		this.syncMobileGridState();
+
+	}
+
+	onDisconnected() {
+
+		this.unbindScrollEvents();
 
 	}
 
@@ -79,14 +90,23 @@ export default class Header extends HTMLElement {
 			Application.store.set( 'list', list );
 			Application.store.set( 'particles', particles );
 			Application.store.set( 'places', places );
+			const isAlreadyExperiments = Application.store.path === '/experiments';
 			Application.store.set( 'skip-particle-gate', list === 'particles' );
-			if ( list === 'particles' ) {
+			if ( list === 'particles' && ! isAlreadyExperiments ) {
 
 				Application.store.set( 'ui-ready', false );
 				Application.store.set( 'intro-ready', false );
 
+			} else if ( list === 'particles' && isAlreadyExperiments ) {
+
+				Application.store.set( 'ui-ready', true );
+				Application.store.set( 'intro-ready', true );
+				Application.store.set( 'pixel-experience-gate-visible', false );
+				Application.store.set( 'pixel-experience-transitioning', false );
+
 			}
 			Application.router.navigate( '/experiments' );
+			Application.store.set( 'display-menu', false );
 			return;
 
 		}
@@ -141,6 +161,31 @@ export default class Header extends HTMLElement {
 		if ( ! header ) return;
 		const width = `${ header.clientWidth + 1 }px`;
 		document.documentElement.style.setProperty( '--header-width', width );
+		this.syncMobileGridState();
+
+	}
+
+	bindScrollEvents() {
+
+		if ( this.hasBoundScrollEvents ) return;
+		window.addEventListener( 'scroll', this.boundOnWindowScroll, { passive: true } );
+		window.addEventListener( 'resize', this.boundOnWindowScroll, { passive: true } );
+		this.hasBoundScrollEvents = true;
+
+	}
+
+	unbindScrollEvents() {
+
+		if ( ! this.hasBoundScrollEvents ) return;
+		window.removeEventListener( 'scroll', this.boundOnWindowScroll );
+		window.removeEventListener( 'resize', this.boundOnWindowScroll );
+		this.hasBoundScrollEvents = false;
+
+	}
+
+	onWindowScroll() {
+
+		this.syncMobileGridState();
 
 	}
 
@@ -190,24 +235,41 @@ export default class Header extends HTMLElement {
 
 		const isMobile = typeof matchMedia !== 'undefined' &&
 			matchMedia( '(max-width: 1024px)' ).matches;
+		const isMenuOpen = !! Application.store[ 'display-menu' ];
+		const isScrollableMobilePage = isMobile && ! isMenuOpen;
 		const isMobileGrid = isMobile &&
 			Application.store.path === '/experiments' &&
 			Application.store.list === 'grid';
-		const scrollY = window.scrollY;
+		const scrollingElement = document.scrollingElement || document.documentElement || document.body;
+		const scrollY = Math.max( window.scrollY || 0, scrollingElement?.scrollTop || 0 );
 
-		if ( ! isMobileGrid ) this.mobileGridUIHidden = false;
-		else {
+		if ( ! isScrollableMobilePage ) {
+
+			this.mobileHeaderHidden = false;
+			this.mobileGridUIHidden = false;
+
+		} else {
 
 			const previousScrollY = this.previousScrollY ?? scrollY;
 			const delta = scrollY - previousScrollY;
+			const shouldHide = scrollY > 24 && delta > 2 ? true :
+				scrollY <= 24 ? false :
+					delta < -2 ? false :
+						!! this.mobileHeaderHidden;
 
-			if ( scrollY <= 24 ) this.mobileGridUIHidden = false;
-			else if ( delta > 2 ) this.mobileGridUIHidden = true;
-			else if ( delta < -2 ) this.mobileGridUIHidden = false;
+			this.mobileHeaderHidden = shouldHide;
+			this.mobileGridUIHidden = shouldHide && isMobileGrid;
+
+		}
+
+		if ( ! isMobileGrid ) this.mobileGridUIHidden = false;
+		else {
+			this.mobileGridUIHidden = !! this.mobileHeaderHidden;
 
 		}
 
 		this.previousScrollY = scrollY;
+		this.syncStateAttribute( 'mobile-page-scrolled', !! this.mobileHeaderHidden );
 		this.syncStateAttribute( 'mobile-grid-scrolled', !! this.mobileGridUIHidden );
 
 	}
@@ -387,9 +449,9 @@ export default class Header extends HTMLElement {
 
 			@media ( max-width: 1024px ) {
 				& default-button {
-					background: #000;
-					backdrop-filter: none;
-					-webkit-backdrop-filter: none;
+					background: var( --header-panel-background );
+					backdrop-filter: var( --header-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --header-panel-webkit-backdrop-filter );
 					overflow: visible;
 					isolation: auto;
 					transform: none;
@@ -429,12 +491,29 @@ export default class Header extends HTMLElement {
 				}
 
 				& default-button {
-					background: #000;
-					backdrop-filter: none;
-					-webkit-backdrop-filter: none;
+					background: var( --header-panel-background );
+					backdrop-filter: var( --header-panel-backdrop-filter );
+					-webkit-backdrop-filter: var( --header-panel-webkit-backdrop-filter );
 					overflow: visible;
 					isolation: auto;
 					transform: none;
+					border: none;
+					margin: 0;
+				}
+
+				& default-button:not( :last-child ) {
+					margin-bottom: var( --margin-xs );
+				}
+
+				& default-button a,
+				& default-button button-label {
+					border: none;
+					box-shadow: inset 0 0 0 var( --border-size ) rgba( 255, 255, 255, 1 );
+					box-sizing: border-box;
+				}
+
+				& default-button a {
+					width: auto;
 				}
 			}
 		}
@@ -458,10 +537,19 @@ export default class Header extends HTMLElement {
 		}
 
 		@media ( max-width: 1024px ) {
-			&[ mobile-grid-scrolled ] {
-				& header-small-screen,
-				& header-grid-modes {
+			&[ mobile-page-scrolled ] {
+				& header-small-screen {
 					opacity: 0;
+					visibility: hidden;
+					pointer-events: none;
+				}
+			}
+
+			&[ mobile-grid-scrolled ] {
+				& header-grid-modes,
+				& header-grid-modes > div {
+					opacity: 0;
+					visibility: hidden;
 					pointer-events: none;
 				}
 			}
@@ -560,6 +648,10 @@ export default class Header extends HTMLElement {
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
 				overflow: visible;
+
+				& default-button + default-button {
+					border-left: none;
+				}
 			}
 		}
 
@@ -599,7 +691,7 @@ export default class Header extends HTMLElement {
 				transition: opacity .2s linear;
 
 				&:not( :last-child ) {
-					margin-bottom: calc( var( --margin-xs ) / 2 );
+					margin-bottom: var( --margin-xs );
 				}
 			}
 
@@ -697,6 +789,10 @@ export default class Header extends HTMLElement {
 				backdrop-filter: none;
 				-webkit-backdrop-filter: none;
 				overflow: visible;
+
+				& default-button + default-button {
+					border-left: none;
+				}
 
 				& default-button[ fullscreen ] {
 					display: none !important;

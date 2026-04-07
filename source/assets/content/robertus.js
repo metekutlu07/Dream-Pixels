@@ -60,7 +60,7 @@ export default {
 			media: {
 				source: 'public/robertus/stories-animation.mp4',
 				caption: '3D reconstruction of the basilica\'s apse.',
-				explain: '<br>Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. 3D modeling in Cinema 4D and asset creation with Quixel tools by Mete Kutlu, 2023.',
+				explain: 'Basilica of Notre-Dame du Port in Clermont-Ferrand, 12th, century. 3D modeling in Cinema 4D and asset creation with Quixel tools by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},

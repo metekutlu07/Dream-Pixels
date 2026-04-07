@@ -58,6 +58,24 @@ export default class Miniature extends Object3D {
 
 	onInputMove() {
 
+		this.updateHoverState();
+
+	}
+
+	onInputStart() {
+
+		this.updateHoverState();
+
+	}
+
+	onInputEnd() {
+
+		this.updateHoverState();
+
+	}
+
+	updateHoverState() {
+
 		if ( ! this.points || ! this.visible ) return;
 
 		const { camera, pointer } = Application;
@@ -74,4 +92,3 @@ export default class Miniature extends Object3D {
 	}
 
 }
-

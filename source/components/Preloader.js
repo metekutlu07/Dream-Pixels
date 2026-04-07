@@ -29,30 +29,23 @@ export default class Preloader extends HTMLElement {
 			display: flex;
 			position: fixed;
 			z-index: 45;
-			top: 0;
-			left: 0;
+			inset: 0;
 			align-items: center;
 			justify-content: center;
 			flex-direction: column;
-			width: 100vw;
-			height: 100%;
+			width: auto;
+			height: auto;
+			min-height: 0;
+			overflow: hidden;
 			pointer-events: none;
 			background: var( --color-black );
 			opacity: 0;
-			transition: opacity .45s var( --timing-function );
-
-			@media ( max-width: 650px ) {
-				height: 100svh;
-				min-height: 100svh;
-			}
+			transition: none;
 
 			&::before {
 				content: '';
 				position: absolute;
-				height: 100%;
-				width: 100%;
-				left: 0;
-				top: 0;
+				inset: 0;
 				opacity: 0;
 				background-image: url( "/public/common/Grid.svg" );
 				background-size: 50px;
@@ -94,6 +87,14 @@ export default class Preloader extends HTMLElement {
 				}
 			}
 
+			& preloader-copy {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 220px;
+			}
+
 			& h1 {
 				font-size: 8rem;
 				color: var( --color-white );
@@ -106,6 +107,7 @@ export default class Preloader extends HTMLElement {
 
 				@media ( max-width: 650px ) {
 					font-size: 5.5rem;
+					min-height: 6.9rem;
 				}
 			}
 
@@ -126,6 +128,7 @@ export default class Preloader extends HTMLElement {
 					margin-left: auto;
 					margin-right: auto;
 					line-height: 1.15;
+					min-height: 7rem;
 				}
 			}
 
@@ -289,8 +292,10 @@ export default class Preloader extends HTMLElement {
 
 		<preloader-overlay #>
 
-			<h1>${ title }</h1>
-			<h2>${ subtitleLines.map( line => html`<preloader-subtitle-line>${ line }</preloader-subtitle-line>` ) }</h2>
+			<preloader-copy>
+				<h1>${ title }</h1>
+				<h2>${ subtitleLines.map( line => html`<preloader-subtitle-line>${ line }</preloader-subtitle-line>` ) }</h2>
+			</preloader-copy>
 
 			<preloader-square #square>
 

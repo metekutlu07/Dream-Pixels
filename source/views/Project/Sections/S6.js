@@ -4,7 +4,22 @@ export default class S6 extends HTMLElement {
 
 	onConnected() {
 
+		Application.store.set( 'display-wireframe', false );
+		Application.scene.artwork.renderAsPoints = false;
 		this.updateControls();
+
+	}
+
+	onPreFrame() {
+
+		this.updateControls();
+
+	}
+
+	onDisconnected() {
+
+		Application.store.set( 'display-wireframe', false );
+		if ( Application.scene?.artwork ) Application.scene.artwork.renderAsPoints = false;
 
 	}
 
@@ -16,7 +31,10 @@ export default class S6 extends HTMLElement {
 		if ( action === 'load-artwork' ) {
 
 			const artworkID = currentTarget.getAttribute( 'artworkID' );
+			Application.store.set( 'display-wireframe', false );
+			Application.scene.artwork.renderAsPoints = false;
 			Application.scene.artwork.load( artworkID );
+			this.updateControls();
 			if ( matchMedia( '(max-width: 650px)' ).matches ) Application.store.set( 'display-aside', false );
 			return;
 
@@ -38,6 +56,8 @@ export default class S6 extends HTMLElement {
 
 		if ( action === 'toggle-wireframe' ) {
 
+			if ( Application.scene.artwork.renderAsPoints )
+				Application.scene.artwork.renderAsPoints = false;
 			Application.store.toggle( 'display-wireframe' );
 			this.updateControls();
 			return;
@@ -46,6 +66,8 @@ export default class S6 extends HTMLElement {
 
 		if ( action === 'toggle-render' ) {
 
+			if ( ! Application.scene.artwork.renderAsPoints )
+				Application.store.set( 'display-wireframe', false );
 			Application.scene.artwork.toggle();
 			this.updateControls();
 
@@ -57,6 +79,7 @@ export default class S6 extends HTMLElement {
 
 		const renderButton = this.querySelector( '[ action="toggle-render" ]' );
 		const wireframeButton = this.querySelector( '[ action="toggle-wireframe" ]' );
+
 		if ( renderButton ) {
 
 			renderButton.textContent = 'Point Cloud';
@@ -118,16 +141,20 @@ export default class S6 extends HTMLElement {
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					min-height: 44px;
-					padding: 0 16px;
+					min-height: 0;
+					padding: var( --margin-xs ) var( --margin-s );
 					border: var( --border-size ) solid var( --border-color );
-					background: rgba( 0, 0, 0, .9 );
+					background: rgba( 0, 0, 0, .28 );
+					backdrop-filter: blur( 10px );
+					-webkit-backdrop-filter: blur( 10px );
 					color: var( --color-white );
-					font-size: var( --font-size-s );
+					font-size: var( --font-size-m );
 					font-family: var( --font-family-c );
+					line-height: 1;
 					letter-spacing: .04em;
 					text-transform: uppercase;
 					pointer-events: all;
+					box-sizing: border-box;
 				}
 			}
 
@@ -148,8 +175,8 @@ export default class S6 extends HTMLElement {
 					border-right: var( --border-size ) solid var( --border-color );
 
 					@media ( max-width: 650px ) {
-						border-right: none;
-						border-bottom: var( --border-size ) solid var( --border-color );
+						border-right: var( --border-size ) solid var( --border-color );
+						border-bottom: none;
 					}
 				}
 

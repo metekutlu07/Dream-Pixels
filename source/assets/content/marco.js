@@ -53,7 +53,7 @@ export default {
 			media: {
 				source: 'public/marco/v01.mp4',
 				caption: '3D scan of the Saints Tryptich by Paolo Veneziano.',
-				explain: '<br>Museo Correr, Mete Kutlu, 2022.',
+				explain: 'Museo Correr, Mete Kutlu, 2022.',
 				tags: [ '3D Scanning', 'Venetian', 'Architectural Heritage', 'Mosaics', 'Painting' ]
 			},
 		},

@@ -79,7 +79,8 @@ export default class Project extends View {
 			text-align: center;
 
 			@media ( max-width: 650px ) {
-				padding: 0 var( --margin-s ) var( --margin-s );
+				margin-top: 200px;
+				padding: 0 var( --margin-s ) calc( var( --margin-s ) * 2 );
 				font-size: var( --font-size-xs );
 			}
 		}

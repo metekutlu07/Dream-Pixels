@@ -122,7 +122,7 @@ export default class OrbitControls extends Object3D {
 				autoRotate: true,
 				minAngle: .25,
 				maxAngle: 1,
-				minDistance: 20,
+				minDistance: 17,
 				maxDistance: 35
 
 			} );
@@ -141,7 +141,7 @@ export default class OrbitControls extends Object3D {
 				enableZoom: true,
 				dampingFactor: .085,
 
-				minDistance: 25,
+				minDistance: 10,
 				maxDistance: 75
 
 			} );
@@ -434,6 +434,14 @@ export default class OrbitControls extends Object3D {
 	onInputMove( event ) {
 
 		if ( ! this.isEnabled ) return;
+		if ( Application.store.path === '/virtual-miniature' && ! Application.store[ 'miniature-interaction-ready' ] ) {
+
+			this.isGrabbed = false;
+			this.isPinching = false;
+			return;
+
+		}
+
 		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) {
 
 			this.isGrabbed = false;
@@ -513,6 +521,7 @@ export default class OrbitControls extends Object3D {
 	onWheel( event ) {
 
 		if ( ! this.isEnabled || ! this.isOverCanvas( event ) ) return;
+		if ( Application.store.path === '/virtual-miniature' && ! Application.store[ 'miniature-interaction-ready' ] ) return;
 		if ( ! Application.store[ 'particle-archive-entered' ] && this.camera.cameraID === 'ColorRange' ) return;
 		if ( ! this.parameters.enableZoom ) return;
 

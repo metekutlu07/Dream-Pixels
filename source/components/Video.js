@@ -30,6 +30,8 @@ export default class Video extends HTMLElement {
 		video.removeEventListener( 'canplay', this.onVideoReady );
 		video.removeEventListener( 'playing', this.onVideoReady );
 		video.pause();
+		video.removeAttribute( 'src' );
+		video.load();
 
 	}
 
@@ -195,11 +197,10 @@ export default class Video extends HTMLElement {
 
 		const { controls, fullscreen, border, poster, preloadMedia, startAt, preload, audible } = parameters;
 		const shouldAutoplayMuted = ! controls && ! audible;
-		const preloadMode = preload || ( preloadMedia || fullscreen || shouldAutoplayMuted ? 'auto' : 'metadata' );
+		const isThumbnailVideo = /\/thumbnail\.mp4$/.test( source );
 		const attributes = [
 			'playsinline',
 			'webkit-playsinline',
-			`preload="${ preloadMode }"`,
 			'disablepictureinpicture',
 			'disableremoteplayback'
 		];
@@ -207,10 +208,27 @@ export default class Video extends HTMLElement {
 		const type = [ fullscreen ? 'fullscreen' : '', border ? 'border' : '' ].join( ' ' );
 		const offset = startAt ?? .1;
 		const timeFragment = startAt === false ? '' : `#t=${ offset }`;
-		const src = source ? `src="${ source }${ timeFragment }"` : '';
+		const isMobile = typeof window !== 'undefined' &&
+			typeof matchMedia !== 'undefined' &&
+			matchMedia( '(max-width: 650px)' ).matches;
+		const isSafari = typeof navigator !== 'undefined' &&
+			/safari/i.test( navigator.userAgent ) &&
+			! /chrome|android|crios|fxios/i.test( navigator.userAgent );
+		const preloadMode = preload || (
+			preloadMedia ||
+			fullscreen ||
+			( shouldAutoplayMuted && !( isMobile && isThumbnailVideo && ! isSafari ) ) ?
+				'auto' :
+				'metadata'
+		);
+		const resolvedSource = isMobile && source === 'public/latent-voxels/axo.mp4' ?
+			'public/latent-voxels/cctv.mp4' :
+			source;
+		const src = resolvedSource ? `src="${ resolvedSource }${ timeFragment }"` : '';
+		attributes.splice( 2, 0, `preload="${ preloadMode }"` );
 
 		if ( controls ) attributes.push( 'controls' );
-		if ( poster ) attributes.push( `poster="${ source.replace( 'mp4', 'png' ) }"` );
+		if ( poster ) attributes.push( `poster="${ resolvedSource.replace( 'mp4', 'png' ) }"` );
 
 		return html`
 

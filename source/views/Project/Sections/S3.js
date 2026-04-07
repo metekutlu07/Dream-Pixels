@@ -7,7 +7,7 @@ export default class S3 {
 		const variant = content.type === 'S8' ? 'compact' :
 			content.type === 'S9' ? 'medium' : '';
 		const { anchor } = content;
-		const { source, caption, explain, alt, controls, centered, centeredText, textCentered, preloadMedia } = content.media;
+		const { source, caption, explain, alt, controls, centered, centeredText, textCentered, preloadMedia, audible } = content.media;
 		const isTextCentered = centeredText || textCentered;
 		const plainCaption = caption ? caption
 			.replace( /<[^>]*>/g, ' ' )
@@ -212,6 +212,10 @@ export default class S3 {
 			}
 
 			@media ( max-width: 650px ) {
+				&[ without-caption ] {
+					padding-bottom: calc( var( --margin-s ) * 2 );
+				}
+
 				&[ compact ],
 				&[ medium ] {
 					padding: var( --margin-s ) 0;
@@ -246,13 +250,13 @@ export default class S3 {
 
 		return html`
 
-		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' } ${ attributes }>
+		<section-type-3 section ${ anchor ? `anchor="${ anchor }"` : '' } ${ attributes } ${ ! caption && ! explain ? 'without-caption' : '' }>
 
 		<content-frame>
 			<media-frame>
 			${ isVideo ?
 
-		Video.render( source, { controls, border: true, preloadMedia } ) :
+		Video.render( source, { controls, border: true, preloadMedia, audible } ) :
 		html`<img src="${ source }" alt="${ plainAlt }" class="${ preloadMedia ? 'preloadMedia' : '' }" />` }
 			</media-frame>
 

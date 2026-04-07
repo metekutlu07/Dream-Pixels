@@ -54,7 +54,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss06.png',
 				caption: 'Solomonic Experiments.',
-				explain: '<br>Screenshot of different tests, Mete Kutlu, 2020.',
+				explain: 'Screenshot of different tests, Mete Kutlu, 2020.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -64,7 +64,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/folio.png',
 				caption: 'The impossible columns of Solomon.',
-				explain: '<br>On the upper half of the miniature, we see a representation of the ciborium, a domed structure on four columns protecting the altar in red cloth. These enigmatic columns appear to be both in front and in the back depneding on at which part of the we look at. <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: 'On the upper half of the miniature, we see a representation of the ciborium, a domed structure on four columns protecting the altar in red cloth. These enigmatic columns appear to be both in front and in the back depneding on at which part of the we look at. <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -73,7 +73,7 @@ export default {
 			media: {
 				source: 'public/solomon/compare.jpg',
 				caption: 'Original miniature of the Temple and its 3D modeling, Mete Kutlu, 2020.',
-				explain: '<br><em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: '<em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -84,7 +84,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss09.jpg',
 				caption: '3D models of the Temple and Throne.',
-				explain: '<br>Pages from the report of my residency at the Villa Medici in Februrary 2020. Models based on miniatures from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: 'Pages from the report of my residency at the Villa Medici in Februrary 2020. Models based on miniatures from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -98,7 +98,7 @@ export default {
 			media: {
 				source: 'public/solomon/full.mp4',
 				caption: 'Straight from here, curved from there.',
-				explain: '<br>Impossible Columns of Solomon, 3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: 'Impossible Columns of Solomon, 3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				controls: false
 			}
@@ -108,7 +108,7 @@ export default {
 			media: {
 				source: 'public/solomon/temple-plan.jpg',
 				caption: '3D miniature of the Temple seen from above.',
-				explain: '<br>Impossible Columns of Solomon, 3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: 'Impossible Columns of Solomon, 3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 			}
 		},
@@ -117,7 +117,7 @@ export default {
 			media: {
 				source: 'public/solomon/temple01.jpg',
 				caption: 'Spherical capitals, helical columns and the pink dome the Solomonic Temple.',
-				explain: '<br>3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: '3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -126,7 +126,7 @@ export default {
 			media: {
 				source: 'public/solomon/window.mp4',
 				caption: '3D model of the columns overlaid over the original miniature.',
-				explain: '<br>Impossible Columns of Solomon, 3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: 'Impossible Columns of Solomon, 3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ],
 				controls: false
 			}
@@ -160,7 +160,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/temple-list.jpg',
 				caption: 'Representations of the Temple in the <em>Homilies.</em>',
-				explain: '<br><em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162.',
+				explain: '<em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -170,7 +170,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/dsc02498.jpg',
 				caption: 'Mosaic representations of the Temple from the Chora Church, Istanbul',
-				explain: '<br>Photograph by Mete Kutlu, 2019.',
+				explain: 'Photograph by Mete Kutlu, 2019.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -180,7 +180,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/p01.jpg',
 				caption: 'Mosaic representations of the Temple from the Chora Church, Istanbul',
-				explain: '<br>Photograph by Mete Kutlu, 2019.',
+				explain: 'Photograph by Mete Kutlu, 2019.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -190,7 +190,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/p02.jpg',
 				caption: 'Mosaic representations of the Temple from the Chora Church, Istanbul',
-				explain: '<br>Photograph by Mete Kutlu, 2019.',
+				explain: 'Photograph by Mete Kutlu, 2019.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -260,7 +260,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss05.png',
 				caption: 'Nurbs Model of the Temple',
-				explain: '<br>3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: '3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},
@@ -270,7 +270,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/solomon/ss02.png',
 				caption: 'Imported Polygon Model of the Temple in Cinema 4D',
-				explain: '<br>3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
+				explain: '3D modeling of a Byzantine miniature, Mete Kutlu, 2020. Based on a miniature from the <em>Homilies of James of Kokkinobaphos,</em> Constantinople, 12th century. Vatican Apostolic Library, vat.gr.1162, folio 190r.',
 				tags: [ '3D Miniature', 'Byzantine', 'Miniatures', 'Painting' ]
 			}
 		},

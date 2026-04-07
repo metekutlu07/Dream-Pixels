@@ -15,11 +15,18 @@ export default class S5 extends HTMLElement {
 
 				Application.store.set( 'miniature-interaction-ready', true );
 
-			}, 12000 );
+			}, 12250 );
 
 		} else Application.store.set( 'miniature-interaction-ready', true );
 
 		this.updateControls();
+
+	}
+
+	onDisconnected() {
+
+		clearTimeout( this.interactionTimeout );
+		Application.store.set( 'miniature-interaction-ready', true );
 
 	}
 

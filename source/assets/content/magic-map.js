@@ -51,7 +51,7 @@ export default {
 			media: {
 				source: 'public/magic-map/magic-map.mp4',
 				caption: 'Magic Map user experience.',
-				explain: '<br>Screen recording of a user interaction with the Magic Map application on iPhone, documenting the augmented reality interface, spatial navigation, and real-time behavior of virtual objects within the environment.',
+				explain: 'Screen recording of a user interaction with the Magic Map application on iPhone, documenting the augmented reality interface, spatial navigation, and real-time behavior of virtual objects within the environment.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -60,7 +60,7 @@ export default {
 			media: {
 				source: 'public/magic-map/magic-map-part.mp4',
 				caption: 'Magic Map with the 3D scans.',
-				explain: '<br>3D modeling and animation in Cinema 4D, rendered with Octane by Mete Kutlu, 2023.',
+				explain: '3D modeling and animation in Cinema 4D, rendered with Octane by Mete Kutlu, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},
@@ -106,7 +106,7 @@ export default {
 				excludeFromSphere: true,
 				source: 'public/magic-map/code-magicmap.jpg',
 				caption: 'Code snippet from the Magic Map application.',
-				explain: '<br>Screenshot in Xcode, AR app for iOS developed by Mete Kutlu and Theuns Botha, 2023.',
+				explain: 'Screenshot in Xcode, AR app for iOS developed by Mete Kutlu and Theuns Botha, 2023.',
 				tags: [ '3D Scanning', 'Augmented Reality', 'French', 'Architectural Heritage' ]
 			}
 		},

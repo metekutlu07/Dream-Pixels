@@ -40,6 +40,11 @@ export default class S4 {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
+
+				@media ( max-width: 650px ) {
+					width: 100%;
+					max-width: 100vw;
+				}
 			}
 
 			& media-caption {
@@ -54,6 +59,17 @@ export default class S4 {
 				height: 90vh;
 				max-height: 90vh;
 				object-fit: cover;
+
+				@media ( max-width: 650px ) {
+					width: 100vw;
+					max-width: 100vw;
+					height: auto;
+					max-height: none;
+					margin-left: calc( var( --margin-m ) * -1 );
+					margin-right: calc( var( --margin-m ) * -1 );
+					object-fit: contain;
+					object-position: center top;
+				}
 			}
 
 			&[ eighty-vh ] {
@@ -62,6 +78,11 @@ export default class S4 {
 				& img {
 					height: 80vh;
 					max-height: 80vh;
+
+					@media ( max-width: 650px ) {
+						height: auto;
+						max-height: none;
+					}
 				}
 			}
 
@@ -108,6 +129,9 @@ export default class S4 {
 				@media ( max-width: 650px ) {
 					margin-top: calc( var( --margin-s ) * .5 );
 					margin-bottom: calc( var( --margin-s ) * 2 );
+					width: 100%;
+					font-size: var( --font-size-s );
+					line-height: var( --line-height );
 				}
 			}
 
@@ -140,7 +164,7 @@ export default class S4 {
 		`;
 
 		const { details, paragraphs, anchor } = content;
-		const { source, caption, explain, centeredText, controls, preloadMedia } = content.media;
+		const { source, caption, explain, centeredText, controls, preloadMedia, audible } = content.media;
 		const isVideo = source.match( /mp4/g );
 
 		const list = ! details ? '' : Object.entries( details )
@@ -161,7 +185,7 @@ export default class S4 {
 
 			<media-column>
 				${ isVideo ?
-					Video.render( source, { controls, border: true, preloadMedia } ) :
+					Video.render( source, { controls, border: true, preloadMedia, audible } ) :
 					html`<img src="${ source }" alt="${ alt }"/>`
 				}
 				${ caption || explain ? html`

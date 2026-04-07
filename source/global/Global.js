@@ -123,6 +123,14 @@ export default class Global {
 
 		}
 
+		[ loading ] [ view ],
+		[ loading ] canvas-block {
+			opacity: 0 !important;
+			visibility: hidden !important;
+			pointer-events: none !important;
+			transition: none !important;
+		}
+
 		@media ( hover: hover ) {
 
 			[ grab ] { cursor: grab }
@@ -138,7 +146,7 @@ export default class Global {
 				url('/fonts/A.woff') format('woff');
 			font-weight: normal;
 			font-style: normal;
-			font-display: swap;
+			font-display: block;
 		}
 
 		@font-face {
@@ -147,7 +155,7 @@ export default class Global {
 				url('/fonts/B.woff') format('woff');
 			font-weight: normal;
 			font-style: normal;
-			font-display: swap;
+			font-display: block;
 		}
 
 		@font-face {

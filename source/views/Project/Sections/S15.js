@@ -79,15 +79,16 @@ export default class S15 extends HTMLElement {
 			cursor: pointer;
 			color: var( --color-white );
 			background: transparent;
-			position: relative;
+			position: absolute;
+			inset: 0;
 			z-index: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
 		dailymotion-frame button span {
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate( -50%, -50% );
+			position: relative;
 			display: inline-flex;
 			align-items: center;
 			gap: 18px;

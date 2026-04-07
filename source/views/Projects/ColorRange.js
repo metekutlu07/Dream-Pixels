@@ -148,7 +148,7 @@ export default class ColorRange extends HTMLElement {
 
 		projects-color-range {
 			position: fixed;
-			right: calc( var( --margin-m ) / 2 );
+			right: var( --margin-m );
 			top: 0;
 			bottom: 0;
 			margin: auto;
@@ -194,8 +194,8 @@ export default class ColorRange extends HTMLElement {
 
 		color-range-header {
 			position: absolute;
-			right: calc( 100% + 18px );
-			top: -18px;
+			right: 0;
+			top: calc( 100% + 33px );
 			display: block;
 		}
 
@@ -206,7 +206,7 @@ export default class ColorRange extends HTMLElement {
 			letter-spacing: .04em;
 			text-transform: uppercase;
 			white-space: nowrap;
-			text-align: right;
+			text-align: center;
 			line-height: 1;
 			padding: 0;
 

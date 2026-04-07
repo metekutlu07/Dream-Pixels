@@ -27,7 +27,7 @@ export default {
 				source: 'public/pigmentarium/viennas.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Pigment Ocean of Vienna. Artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>Based on the miniature <em>The siege of Vienna.</em> The capital of the Holy Roman Empire, by the army of the Ottoman sultan Suleyman the Magnificent in 1529; from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 257b.'
+				explain: 'Based on the miniature <em>The siege of Vienna.</em> The capital of the Holy Roman Empire, by the army of the Ottoman sultan Suleyman the Magnificent in 1529; from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 257b.'
 			}
 		},
 		{
@@ -36,7 +36,7 @@ export default {
 				source: 'public/pigmentarium/vienna.mp4',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Pigment Ocean of Vienna. Artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>Based on the miniature <em>The siege of Vienna.</em> The capital of the Holy Roman Empire, by the army of the Ottoman sultan Suleyman the Magnificent in 1529; from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 257b.'
+				explain: 'Based on the miniature <em>The siege of Vienna.</em> The capital of the Holy Roman Empire, by the army of the Ottoman sultan Suleyman the Magnificent in 1529; from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H.1524, folio 257b.'
 			}
 		},
 		{
@@ -45,7 +45,7 @@ export default {
 				source: 'public/pigmentarium/zigets.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Pigment Ocean of Szigetvar, artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>The conquest of Szigetvar (Hungary) in 1566. Suleyman the Magnificent died here at the camp a day before the conquest because of an illness, from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H1524, folio 279b, Istanbul.'
+				explain: 'The conquest of Szigetvar (Hungary) in 1566. Suleyman the Magnificent died here at the camp a day before the conquest because of an illness, from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H1524, folio 279b, Istanbul.'
 			}
 		},
 		{
@@ -54,7 +54,7 @@ export default {
 				source: 'public/pigmentarium/ziget.mp4',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Pigment Ocean of Szigetvar, artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>The conquest of Szigetvar (Hungary) in 1566. Suleyman the Magnificent died here at the camp a day before the conquest because of an illness, from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H1524, folio 279b, Istanbul.'
+				explain: 'The conquest of Szigetvar (Hungary) in 1566. Suleyman the Magnificent died here at the camp a day before the conquest because of an illness, from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, H1524, folio 279b, Istanbul.'
 			}
 		},
 		{
@@ -63,7 +63,7 @@ export default {
 				source: 'public/pigmentarium/karsi.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Whirlpool of Kars, artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>The reconstruction of castle of Kars (Northeast Turkey) in 1579, during the Georgian campaign led by Lala Mustafa Paşa against the Safavids between 1578-80, from <em>The Book of Blessed Victories (Nusretname)</em> written by Gelibolulu Mustafa Ali and illustrated by the atelier of Nakkaş Osman in Constantinople, 1584. Topkapı Palace Museum Library, H1365, folio 195b, Istanbul.'
+				explain: 'The reconstruction of castle of Kars (Northeast Turkey) in 1579, during the Georgian campaign led by Lala Mustafa Paşa against the Safavids between 1578-80, from <em>The Book of Blessed Victories (Nusretname)</em> written by Gelibolulu Mustafa Ali and illustrated by the atelier of Nakkaş Osman in Constantinople, 1584. Topkapı Palace Museum Library, H1365, folio 195b, Istanbul.'
 			}
 		},
 		{
@@ -72,7 +72,7 @@ export default {
 				source: 'public/pigmentarium/full-kars.mp4',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Whirlpool of Kars, artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>The reconstruction of castle of Kars (Northeast Turkey) in 1579, during the Georgian campaign led by Lala Mustafa Paşa against the Safavids between 1578-80, from <em>The Book of Blessed Victories (Nusretname)</em> written by Gelibolulu Mustafa Ali and illustrated by the atelier of Nakkaş Osman in Constantinople, 1584. Topkapı Palace Museum Library, H1365, folio 195b, Istanbul.'
+				explain: 'The reconstruction of castle of Kars (Northeast Turkey) in 1579, during the Georgian campaign led by Lala Mustafa Paşa against the Safavids between 1578-80, from <em>The Book of Blessed Victories (Nusretname)</em> written by Gelibolulu Mustafa Ali and illustrated by the atelier of Nakkaş Osman in Constantinople, 1584. Topkapı Palace Museum Library, H1365, folio 195b, Istanbul.'
 			}
 		},
 		{
@@ -81,7 +81,7 @@ export default {
 				source: 'public/pigmentarium/yemen.mp4',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Pigment breeze in Yemen, artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>Based on a miniature depicting the conquest of Shibam castle in the Yemen. <em>Şehname-i Selim Han,</em> Istanbul, ca. 1571–81, Topkapı Palace Museum Library, A. 3595, fol. 79a.'
+				explain: 'Based on a miniature depicting the conquest of Shibam castle in the Yemen. <em>Şehname-i Selim Han,</em> Istanbul, ca. 1571–81, Topkapı Palace Museum Library, A. 3595, fol. 79a.'
 			}
 		},
 		{
@@ -90,7 +90,7 @@ export default {
 				source: 'public/pigmentarium/budas.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Pigment Maelstrom in Budapest. Artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>In this reimagining of the miniature of Buda, pigments swirl and merge like the rivers of color that flow into the boundless Sea of Beauty, blending to form the city’s celestial fabric. Buda emerges as a polychrome cityscape, where salmon pinks, jade greens, and cobalt blues intermingle. The fortified towers dissolve into eddies of a pigment ocean. This polychrome whirlpool invites the beholder to enter the hypnotizing realm of imagination that underpins the Ottoman painter’s vision.'
+				explain: 'In this reimagining of the miniature of Buda, pigments swirl and merge like the rivers of color that flow into the boundless Sea of Beauty, blending to form the city’s celestial fabric. Buda emerges as a polychrome cityscape, where salmon pinks, jade greens, and cobalt blues intermingle. The fortified towers dissolve into eddies of a pigment ocean. This polychrome whirlpool invites the beholder to enter the hypnotizing realm of imagination that underpins the Ottoman painter’s vision.'
 			}
 		},
 		{
@@ -99,7 +99,7 @@ export default {
 				source: 'public/pigmentarium/szekes.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Mineral colors of Székesféhérvar, artwork by the author, fluid simulation and particle system, August 2021.',
-				explain: '<br>A tower in Székesféhérvar in 1543. Detail from the miniature representing the conquest of Székesféhérvar (Hungary) by Suleyman the Magnificent in 1543; from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, Istanbul, H.1524, folio 268b.'
+				explain: 'A tower in Székesféhérvar in 1543. Detail from the miniature representing the conquest of Székesféhérvar (Hungary) by Suleyman the Magnificent in 1543; from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman and illustrated by the atelier of Nakkaş Osman in Constantinople, 1588. Topkapı Palace Museum Library, Istanbul, H.1524, folio 268b.'
 			}
 		},
 		{
@@ -108,7 +108,7 @@ export default {
 				source: 'public/pigmentarium/cri11.jpg',
 				tags: [ 'Particle Simulation', 'Ottoman', 'Miniatures', 'Painting' ],
 				caption: 'Mineral colors of Budapest in 1541. Artwork by the author, August 2021.',
-				explain: '<br>Simulation on a miniature fragment from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman in Constantinople, 1588. Topkapı Palace Museum Library, Istanbul, H.1524, folio 266a.'
+				explain: 'Simulation on a miniature fragment from <em>The Book of Talents II (Hünernâme II)</em> written by Seyyid Lokman in Constantinople, 1588. Topkapı Palace Museum Library, Istanbul, H.1524, folio 266a.'
 			}
 		},
 		{

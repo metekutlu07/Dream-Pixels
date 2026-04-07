@@ -1,7 +1,7 @@
 {
   "projects": {
     "default": "dream-pixels-e7794",
-    "test": "dream-pixels-test"
+    "test": "dream-pixels-test2"
   },
   "targets": {},
   "etags": {}

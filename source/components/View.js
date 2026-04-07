@@ -52,6 +52,12 @@ export default class View extends HTMLElement {
 
 		return new Promise( ( resolve ) => {
 
+			const isMobile = typeof matchMedia !== 'undefined' &&
+				matchMedia( '(max-width: 650px)' ).matches;
+			const isSafari = typeof navigator !== 'undefined' &&
+				/safari/i.test( navigator.userAgent ) &&
+				! /chrome|android|crios|fxios/i.test( navigator.userAgent );
+			const isGridThumbnail = !! video.closest( 'projects-grid' );
 			const shouldAutoplayMuted = ! video.hasAttribute( 'controls' ) && ! video.hasAttribute( 'popin' );
 			let fallbackTimeout;
 
@@ -70,7 +76,7 @@ export default class View extends HTMLElement {
 
 			const onReady = async () => {
 
-				if ( ! shouldAutoplayMuted ) {
+				if ( ! shouldAutoplayMuted || ( isMobile && isGridThumbnail && ! isSafari ) ) {
 
 					done();
 					return;
@@ -106,6 +112,7 @@ export default class View extends HTMLElement {
 			video.addEventListener( 'canplay', onReady, { once: true } );
 			video.addEventListener( 'canplaythrough', onReady, { once: true } );
 			video.addEventListener( 'error', done, { once: true } );
+			if ( isMobile && isGridThumbnail && ! isSafari ) video.preload = 'metadata';
 			video.load();
 
 			if ( video.readyState >= 2 ) onReady();

@@ -39,6 +39,17 @@ export default class S14 {
 			}
 		}
 
+		@media ( max-width: 650px ) {
+			section-type-14 h3 {
+				font-size: clamp( 1.8rem, 7vw, 2.4rem );
+			}
+
+			section-type-14 p {
+				font-size: 1.9rem;
+				line-height: 1.7;
+			}
+		}
+
 		`;
 
 		const { title, paragraphs, anchor } = content;
